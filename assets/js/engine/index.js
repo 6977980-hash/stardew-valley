@@ -7,3 +7,6 @@ export * from './harvest.js';
 export * from './profit.js';
 export * from './machines.js';
 export * from './greenhouse.js';
+export * from './decision.js';
+export * from './fishpond.js';
+export * from './animals.js';

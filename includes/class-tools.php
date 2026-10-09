@@ -24,11 +24,21 @@ class Tools {
 
 	/** Tool id (also page slug) => definition. Order is the order on the homepage and in menus. */
 	public static function definitions() {
-		return array(
+		$tools = array(
+			'what-to-plant'              => array(
+				'title'       => 'What Should I Plant Today? Stardew Valley Crop Planner',
+				'short'       => 'What to Plant Today',
+				'question'    => 'What should I plant today?',
+				'blurb'       => 'Tell it the day, your gold, tiles and machines; get one crop, why it wins, and a shopping list.',
+				'description' => 'What should I plant in Stardew Valley today? Enter the day, your gold, tiles, kegs and skills; get the best crop, the reasons and a seed shopping list (1.6).',
+				'icon'        => 'sprout',
+				'script'      => 'what-to-plant',
+				'related'     => array( 'crop-profit-calculator', 'best-spring-crops', 'keg-vs-preserves-jar' ),
+			),
 			'crop-profit-calculator'     => array(
 				'title'       => 'Stardew Valley Crop Profit Calculator',
 				'short'       => 'Crop Profit Calculator',
-				'question'    => 'What should I plant?',
+				'question'    => 'Which crop earns the most?',
 				'blurb'       => 'Profit for every crop from today until the season ends, with your fertilizer, professions and sell method.',
 				'description' => 'Free Stardew Valley crop profit calculator for 1.6: pick your season and day, fertilizer and professions, and see profit per tile with the math shown.',
 				'icon'        => 'sprout',
@@ -65,7 +75,53 @@ class Tools {
 				'script'      => 'greenhouse',
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),
 			),
+			'fish-pond-calculator'       => array(
+				'title'       => 'Stardew Valley Fish Pond Calculator: Best Fish for Ponds',
+				'short'       => 'Fish Pond Calculator',
+				'question'    => 'Which fish for my pond?',
+				'blurb'       => 'Daily roe and items for any fish, gold per day, and which fish earns the most in a pond.',
+				'description' => 'Stardew Valley fish pond calculator (1.6): roe and item chances by population, gold per day raw or as Aged Roe and Caviar, and the best fish for ponds.',
+				'icon'        => 'fish',
+				'script'      => 'fish-pond',
+				'data'        => array( 'fishponds' ),
+				'related'     => array( 'keg-vs-preserves-jar', 'what-to-plant', 'crop-profit-calculator' ),
+			),
+			'animal-profit-calculator'   => array(
+				'title'       => 'Stardew Valley Animal Profit Calculator: Which Animal Earns Most?',
+				'short'       => 'Animal Profit Calculator',
+				'question'    => 'Which animal earns the most?',
+				'blurb'       => 'Gold per day for every farm animal, raw or through machines, with hearts, mood and professions.',
+				'description' => 'Stardew Valley animal profit calculator (1.6): gold per day for cows, goats, sheep, pigs, chickens and more, with quality, Large products, machines and payback time.',
+				'icon'        => 'coin',
+				'script'      => 'animals',
+				'data'        => array( 'animals' ),
+				'related'     => array( 'fish-pond-calculator', 'keg-vs-preserves-jar', 'what-to-plant' ),
+			),
 		);
+		// Best crops by season: one shared template, a server-rendered table per season.
+		$seasons = array(
+			'spring'     => 'Spring',
+			'summer'     => 'Summer',
+			'fall'       => 'Fall',
+			'greenhouse' => 'Greenhouse',
+		);
+		foreach ( $seasons as $key => $name ) {
+			$others = array_values( array_diff( array( 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'best-greenhouse-crops' ), array( 'best-' . $key . '-crops' ) ) );
+			$tools[ 'best-' . $key . '-crops' ] = array(
+				'title'       => 'Best ' . $name . ' Crops in Stardew Valley (1.6)',
+				'short'       => 'Best ' . $name . ' Crops',
+				'blurb'       => 'greenhouse' === $key ? 'Every crop ranked by profit per tile over a full greenhouse year.' : 'Every ' . strtolower( $name ) . ' crop ranked by profit per tile, with the math.',
+				'description' => 'greenhouse' === $key
+					? 'The best crops for the Stardew Valley greenhouse in 1.6, ranked by profit per tile over a year, with seed prices, harvests and gold per day.'
+					: 'The best ' . strtolower( $name ) . ' crops in Stardew Valley 1.6, ranked by profit per tile, with seed prices, harvests, gold per day and the math.',
+				'icon'        => 'sprout',
+				'script'      => 'best-crops',
+				'template'    => 'best-crops',
+				'season'      => $key,
+				'related'     => array_merge( array( 'what-to-plant' ), array_slice( $others, 0, 3 ) ),
+			);
+		}
+		return $tools;
 	}
 
 	public static function init() {
@@ -136,7 +192,8 @@ class Tools {
 		if ( ! isset( $defs[ $atts['id'] ] ) ) {
 			return '';
 		}
-		$file = STARDEW_TOOLS_DIR . 'includes/tool-templates/' . $atts['id'] . '.php';
+		$template = isset( $defs[ $atts['id'] ]['template'] ) ? $defs[ $atts['id'] ]['template'] : $atts['id'];
+		$file     = STARDEW_TOOLS_DIR . 'includes/tool-templates/' . $template . '.php';
 		if ( ! file_exists( $file ) ) {
 			return '';
 		}
@@ -200,13 +257,20 @@ class Tools {
 		if ( ! $id ) {
 			return;
 		}
-		$data = array(
-			'crops'       => array_values( self::slim_crops() ),
-			'fertilizers' => Data::get( 'fertilizers' ),
-			'machines'    => Data::get( 'machines' ),
-			'seasons'     => Data::get( 'seasons' ),
-			'greenhouse'  => Data::get( 'greenhouse' ),
-		);
+		$def  = self::definitions()[ $id ];
+		$sets = isset( $def['data'] ) ? $def['data'] : array( 'crops', 'fertilizers', 'machines', 'seasons', 'greenhouse' );
+		$data = array();
+		foreach ( $sets as $set ) {
+			if ( 'crops' === $set ) {
+				$data[ $set ] = array_values( self::slim_crops() );
+			} elseif ( 'animals' === $set ) {
+				$data[ $set ] = self::slim_animals();
+			} elseif ( 'fishponds' === $set ) {
+				$data[ $set ] = self::slim_fishponds();
+			} else {
+				$data[ $set ] = Data::get( $set );
+			}
+		}
 		echo '<script type="application/json" id="st-data">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG ) . "</script>\n";
 		echo '<script type="importmap">' . wp_json_encode( array( 'imports' => self::module_versions() ), JSON_UNESCAPED_SLASHES ) . "</script>\n";
 		$file = 'assets/js/tools/' . self::definitions()[ $id ]['script'] . '.js';
@@ -228,6 +292,72 @@ class Tools {
 			}
 		}
 		return $map;
+	}
+
+	/** Animal data without wiki evidence text, sources lists and verification notes. */
+	public static function slim_animals() {
+		$d = Data::get( 'animals' );
+		if ( ! $d ) {
+			return null;
+		}
+		$strip = function ( $rows ) {
+			return array_map(
+				function ( $r ) {
+					return array_diff_key( $r, array_flip( array( 'sources', 'verified', 'notes', 'problems', 'single_source', 'evidence', 'last_verified', 'game_version', 'verification_status' ) ) );
+				},
+				$rows
+			);
+		};
+		$animals = $strip( $d['animals'] );
+		foreach ( $animals as $i => $a ) {
+			$animals[ $i ]['url'] = $d['animals'][ $i ]['sources'][0]['url'];
+		}
+		return array(
+			'animals'      => $animals,
+			'products'     => $strip( $d['products'] ),
+			'artisan'      => array(
+				'machines' => $strip( $d['artisan']['machines'] ),
+				'goods'    => $strip( $d['artisan']['goods'] ),
+			),
+			'quality'      => array_intersect_key( $d['quality'], array_flip( array( 'friendship_divisor', 'mood_divisor', 'profession_bonus', 'iridium_min_score' ) ) ),
+			'deluxe_rules' => array( 'rules' => $d['deluxe_rules']['rules'] ),
+			'feeding'      => array( 'hay' => $d['feeding']['hay'] ),
+		);
+	}
+
+	/** Fish pond data with only what the calculator reads (the full file is over 500 KB). */
+	public static function slim_fishponds() {
+		$d = Data::get( 'fishponds' );
+		if ( ! $d ) {
+			return null;
+		}
+		$fish = array();
+		foreach ( $d['fish'] as $f ) {
+			$rows = array();
+			foreach ( $f['produce'] as $r ) {
+				$rows[] = array_intersect_key( $r, array_flip( array( 'item', 'item_id', 'wiki_name', 'quantity', 'population', 'share', 'item_price' ) ) );
+			}
+			$fish[] = array(
+				'id'             => $f['id'],
+				'name'           => $f['name'],
+				'kind'           => $f['kind'],
+				'base_price'     => $f['base_price'],
+				'roe'            => $f['roe'],
+				'max_population' => $f['max_population'],
+				'reproduces'     => $f['reproduces'],
+				'spawn_days'     => isset( $f['spawn_days'] ) ? $f['spawn_days'] : null,
+				'produce'        => $rows,
+				'url'            => $f['sources'][0]['url'],
+			);
+		}
+		return array(
+			'rules'    => array( 'produce' => array_intersect_key( $d['rules']['produce'], array_flip( array( 'base_chance', 'extra_roe' ) ) ) ),
+			'products' => array(
+				'aged_roe' => array( 'minutes' => $d['products']['aged_roe']['minutes'] ),
+				'caviar'   => array( 'minutes' => $d['products']['caviar']['minutes'] ),
+			),
+			'fish'     => $fish,
+		);
 	}
 
 	/** Cross-checked crops without the fields the tools never read. */
@@ -255,7 +385,28 @@ class Tools {
 		if ( ! $id ) {
 			return $graph;
 		}
-		$def     = self::definitions()[ $id ];
+		$def = self::definitions()[ $id ];
+		if ( isset( $def['season'] ) ) {
+			// Ranked guide pages are articles; the table on them is the content.
+			$graph[] = array(
+				'@type'         => 'Article',
+				'headline'      => $def['title'],
+				'description'   => $def['description'],
+				'url'           => get_permalink( get_queried_object_id() ),
+				'dateModified'  => Data::summary()['checked'],
+				'author'        => array(
+					'@type' => 'Person',
+					'name'  => Config::get( 'author' ),
+				),
+				'publisher'     => array( '@id' => home_url( '/' ) . '#organization' ),
+				'about'         => array(
+					'@type' => 'VideoGame',
+					'name'  => 'Stardew Valley',
+				),
+				'inLanguage'    => 'en',
+			);
+			return $graph;
+		}
 		$graph[] = array(
 			'@type'               => 'WebApplication',
 			'name'                => $def['short'],

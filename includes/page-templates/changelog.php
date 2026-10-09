@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 9, 2026: decision tools</h2>
+<ul>
+<li>New: What to Plant Today (one crop for your day, gold, tiles and machines, with the reasons and a shopping list), Fish Pond Calculator, Animal Profit Calculator, and Best Spring, Summer, Fall and Greenhouse Crops.</li>
+<li>Game data for fish ponds (73 fish) and farm animals, generated from the Stardew Valley Wiki and cross-checked.</li>
+</ul>
+
 <h2>October 9, 2026: first tools</h2>
 <ul>
 <li>New tools: Crop Profit Calculator, Keg vs Preserves Jar, Ancient Fruit vs Starfruit and Greenhouse Planner, with share links, remembered settings and "Explain the math".</li>

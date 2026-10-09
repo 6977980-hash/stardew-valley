@@ -49,10 +49,30 @@ Known wiki inconsistencies the tests list explicitly: 6 of the 290 calendar tabl
 tables on the same page (for example Green Bean and Yam both take 10 days, yet the page shows
 Speed-Gro giving 8 days for one and 9 for the other). The engine follows the other 284.
 
+## Fish ponds and animals
+
+`tools/data/import-fishponds.mjs` writes `fishponds.json`. Every fish's base price agrees on its own
+page, the Fish page and the wiki-rendered infobox; produce tables come from each fish's page (the
+Fish Pond page's summary is kept for comparison, and differences are listed in `produce_conflicts`).
+The roe rule (30 + half the fish price, rounded down) is checked against 72 fish pages; the produce
+rule (base chance = 8% per fish + 15%, legendary 50%; extra roe 20% repeating) is quoted from the
+Fish Pond page.
+
+`tools/data/import-animals.mjs` writes `animals.json`. Price-critical values need two agreeing pages
+(the animal's page, Animals, Marnie's Ranch, the Coop/Barn page, the product page and Animal Products
+Profitability). The quality and Large-product formulas are checked against the wiki's own table and
+worked examples (`tests/fixtures/animal-formulas.json`). Days to mature appear on one page only and
+are marked `single_source`. Dinosaur Egg's Rancher bonus is disputed between pages and the record is
+marked `needs-verification`.
+
+Two calls the tools make where the wiki is unclear: Rancher is applied to raw animal products only,
+not to Mayonnaise, Cheese or Cloth (the profession says "animal products"; some infoboxes list a
+Rancher price for those goods); and Truffle quality is counted as regular because it comes from the
+player's Foraging skill.
+
 ## Not yet covered
 
-Animals, animal products, fish ponds, fruit trees and other artisan machines (Dehydrator, Cheese Press,
-Mayonnaise Machine…) are added with the tools that need them (Phase 4). Taro Root and Unmilled Rice
+Fruit trees and other artisan machines (Dehydrator, Fish Smoker…) are added with the tools that need them. Taro Root and Unmilled Rice
 use their unirrigated growth times; irrigation is not modelled yet.
 
 Wiki content is licensed CC BY-NC-SA 3.0. Sources are credited on every record and on the

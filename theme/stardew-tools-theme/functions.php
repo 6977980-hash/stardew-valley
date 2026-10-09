@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STARDEW_THEME_VERSION', '0.4.2' );
+define( 'STARDEW_THEME_VERSION', '0.5.0' );
 
 /**
  * Brand value with a fallback, so the theme never fatals if the plugin is missing.

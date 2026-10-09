@@ -8,6 +8,9 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { cropProfit } from '../../assets/js/engine/profit.js';
 import { allocate } from '../../assets/js/engine/machines.js';
+import { rankCrops, reasons } from '../../assets/js/engine/decision.js';
+import { rankPonds } from '../../assets/js/engine/fishpond.js';
+import { rankAnimals } from '../../assets/js/engine/animals.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 // Shops that sell seeds every day the crop is in season (not festivals or the Traveling Cart).
@@ -72,11 +75,56 @@ export function buildAnswers(data) {
   };
   const gh = { raw: ghRank('raw'), processed: ghRank('best') };
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh } };
+  // Best crops by season: every shop-bought crop planted on day 1, sold raw, no professions,
+  // farming level 0 and no fertilizer (the "base" column), plus the same with Tiller at level 10.
+  const bestCrops = {};
+  for (const season of ['spring', 'summer', 'fall', 'greenhouse']) {
+    const at = (o) => rankCrops(crops, data, { season, today: 1, tiles: 1, budget: null, ...o });
+    const pro = new Map(at({ farmingLevel: 10, tiller: true }).map((x) => [x.crop.id, x]));
+    bestCrops[season] = at({ farmingLevel: 0 }).map((x) => ({
+      id: x.crop.id,
+      name: x.crop.name,
+      profit: r0(x.total),
+      per_day: Math.round((x.total / (x.lastHarvest - 1)) * 10) / 10,
+      harvests: x.r.harvestDays.length,
+      regrows: !!x.crop.regrow_days,
+      seed_price: x.seed.price,
+      seed_source: x.seed.source,
+      continues: x.nextSeasons,
+      profit_pro: r0(pro.get(x.crop.id).total),
+    }));
+  }
+
+  // Decision engine examples for the Crop Decision page.
+  const example = (s) => {
+    const ranked = rankCrops(crops, data, s).filter((x) => !x.unaffordable);
+    return { situation: s, best: { id: ranked[0].crop.id, name: ranked[0].crop.name, tiles: ranked[0].tiles, total: r0(ranked[0].total) }, runner_up: { name: ranked[1].crop.name, total: r0(ranked[1].total) }, reasons: reasons(ranked[0], ranked[1]) };
+  };
+  const decision = {
+    new_farm: example({ season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0 }),
+    summer_15: example({ season: 'summer', today: 15, tiles: 40, budget: 2000, farmingLevel: 4 }),
+  };
+
+  // Fish ponds: best full pond per day, roe sold raw and as Aged Roe/Caviar with Artisan.
+  const pondTop = (o) =>
+    rankPonds(data.fishponds, o)
+      .filter((x) => x.fish.kind !== 'legendary')
+      .slice(0, 5)
+      .map((x) => ({ id: x.fish.id, name: x.fish.name, gold_per_day: r0(x.out.goldPerDay), jars: Math.ceil(x.out.jarsNeeded) }));
+  const fishpond = { raw: pondTop({ roeAs: 'raw' }), processed: pondTop({ roeAs: 'processed', artisan: true }) };
+
+  // Animals: gold per day per animal at max hearts and mood, bought from Marnie only.
+  const animalTop = (o) =>
+    rankAnimals(data.animals, o)
+      .filter((x) => x.animal.purchase_price)
+      .map((x) => ({ id: x.animal.id, name: x.animal.name, gold_per_day: r0(x.out.goldPerDay), price: x.animal.purchase_price }));
+  const animals = { raw: animalTop({}), processed: animalTop({ process: true, artisan: true }) };
+
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse'].map((s) => [s, load(`${s}.json`)]));
+  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals'].map((s) => [s, load(`${s}.json`)]));
   const body = JSON.stringify(buildAnswers(data), null, 2) + '\n';
   const file = join(ROOT, 'data', 'answers.json');
   if (process.argv.includes('--check')) {

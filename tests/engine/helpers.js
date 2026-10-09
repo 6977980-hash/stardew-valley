@@ -11,6 +11,8 @@ export const data = {
   professions: json('data/professions.json'),
   seasons: json('data/seasons.json'),
   greenhouse: json('data/greenhouse.json'),
+  fishponds: json('data/fishponds.json'),
+  animals: json('data/animals.json'),
 };
 export const crop = (id) => {
   const c = data.crops.crops.find((x) => x.id === id);

@@ -28,7 +28,7 @@ test.describe('homepage @live', () => {
 
   test('question-first navigation is present', async ({ page }) => {
     await page.goto('/');
-    for (const q of ['What should I plant?', 'Keg or Preserves Jar?', 'Find a fish', 'Find a gift', 'Plan my greenhouse']) {
+    for (const q of ['What should I plant today?', 'Which crop earns the most?', 'Keg or Preserves Jar?', 'Plan my greenhouse', 'Which fish for my pond?', 'Which animal earns the most?']) {
       await expect(page.getByRole('heading', { name: q })).toBeVisible();
     }
   });
