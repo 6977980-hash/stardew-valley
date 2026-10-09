@@ -22,7 +22,6 @@ foreach ( $live as $t ) {
 }
 $soon = array(
 	array( 'Find a fish', 'See what you can catch by season, weather, time and location.', 'fish', '' ),
-	array( 'Find a gift', 'Look up loved and liked gifts for every villager.', 'gift', '' ),
 );
 $questions = array_merge( $questions, array_slice( $soon, 0, max( 0, 6 - count( $questions ) ) ) );
 
@@ -41,6 +40,8 @@ $icons = array(
 	'jar'    => '<path d="M8 4h8M9 4v3l-2 2v10a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V9l-2-2V4"/><path d="M7 13h10"/>',
 	'house'  => '<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/><path d="M9 20v-6h6v6"/>',
 	'fish'   => '<path d="M3 12c3-5 9-6 13-3l4-3v12l-4-3c-4 3-10 2-13-3z"/><circle cx="8" cy="11" r="1"/>',
+	'hammer' => '<path d="M14 5l5 5-2 2-5-5z"/><path d="M12 7L4 15l-1 4 4-1 8-8"/>',
+	'check'  => '<rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 12l3 3 5-6"/>',
 	'gift'   => '<rect x="4" y="9" width="16" height="11" rx="1"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1s6 1 6 1zm0 0c2-4 6-4 6-1s-6 1-6 1z"/>',
 );
 ?>
@@ -76,6 +77,22 @@ $icons = array(
 		</ul>
 	</div>
 </section>
+
+<?php if ( class_exists( 'Stardew_Tools\\Guides' ) ) : ?>
+<section class="section" aria-labelledby="guides-heading">
+	<div class="container">
+		<h2 id="guides-heading">Guides by topic</h2>
+		<ul class="card-grid" role="list">
+			<?php foreach ( Stardew_Tools\Guides::hubs() as $hub_id => $hub ) : ?>
+			<li class="card card--live">
+				<h3 class="card__title"><a class="card__link" href="<?php echo esc_url( Stardew_Tools\Guides::hub_url( $hub_id ) ); ?>"><?php echo esc_html( $hub['short'] ); ?></a></h3>
+				<p class="card__text"><?php echo esc_html( $hub['blurb'] ); ?></p>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</section>
+<?php endif; ?>
 
 <div class="container"><?php st_theme_ad( 'home-mid' ); ?></div>
 

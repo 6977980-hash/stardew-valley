@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals }).filter(([, d]) => d)) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -135,6 +135,65 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
       if (!goods.has(r.output)) err(`machine ${m.id}`, `unknown output ${r.output}`);
     }
   }
+  if (skills) {
+    const t = skills.levels.thresholds.map((x) => x.total);
+    if (t.length !== 10 || t[9] !== 15000 || t.some((n, i) => i && n <= t[i - 1])) err('skills', 'level thresholds must be 10 rising numbers ending at 15000');
+    const cropIds = new Set(crops.crops.map((c) => c.id));
+    for (const c of skills.farming.crops) {
+      if (!isInt(c.xp, 1)) err('skills', `${c.id}: bad xp`);
+      if (!cropIds.has(c.id)) err('skills', `${c.id}: not in crops.json`);
+    }
+    const fishIds = new Set();
+    for (const f of skills.fishing.fish) {
+      if (fishIds.has(f.id)) err('skills', `${f.id}: duplicate fish`);
+      fishIds.add(f.id);
+      if (!isInt(f.difficulty, 1) || !isInt(f.base_xp, 1)) err('skills', `${f.id}: bad difficulty or xp`);
+    }
+  }
+  if (crafting) {
+    const ids = new Set(crafting.recipes.map((r) => r.id));
+    if (ids.size !== crafting.recipes.length) err('crafting', 'duplicate recipe ids');
+    const makers = new Set([...ids, ...crafting.conversions.map((c) => c.id)]);
+    for (const r of crafting.recipes) {
+      if (!r.ingredients.length || !isInt(r.yield, 1)) err('crafting', `${r.id}: no ingredients or bad yield`);
+      for (const i of [...r.ingredients, ...((r.alt_ingredients || {}).ingredients || [])]) {
+        if (!isInt(i.qty, 1)) err('crafting', `${r.id}: ${i.id} bad qty`);
+        if (!i.raw && !makers.has(i.via)) err('crafting', `${r.id}: ${i.id} has no maker (${i.via})`);
+      }
+    }
+    for (const c of crafting.conversions) if (!c.inputs.length || !isInt(c.yield, 1)) err('crafting', `${c.id}: bad conversion`);
+    for (const p of crafting.shop_prices) if (!isInt(p.price, 1)) err('crafting', `${p.id}: bad shop price`);
+  }
+  if (gifts) {
+    const known = new Set(gifts.items.map((i) => i.id));
+    const levels = ['love', 'like', 'neutral', 'dislike', 'hate'];
+    for (const v of gifts.villagers) {
+      if (!seasonNames.has(v.birthday.season) || !isInt(v.birthday.day, 1) || v.birthday.day > 28) err('gifts', `${v.id}: bad birthday`);
+      for (const l of levels) {
+        if (!v.tastes[l]) err('gifts', `${v.id}: no ${l} list`);
+        else for (const id of v.tastes[l].items) if (!known.has(id)) err('gifts', `${v.id}: ${l} item ${id} not in item list`);
+      }
+    }
+    for (const l of levels) for (const id of gifts.universal[l].items) if (!known.has(id)) err('gifts', `universal ${l}: ${id} not in item list`);
+    const names = new Set(gifts.villagers.map((v) => v.id));
+    for (const e of gifts.universal.exceptions) if (!names.has(e.villager)) err('gifts', `exception for unknown villager ${e.villager}`);
+    if (gifts.friendship.points.love !== 80 || gifts.friendship.points.like !== 45) err('gifts', 'friendship points changed');
+  }
+  if (bundles) {
+    const rooms = new Set(bundles.rooms.map((r) => r.id));
+    const known = new Set(bundles.items.map((i) => i.id));
+    const ids = new Set();
+    for (const b of bundles.bundles) {
+      if (ids.has(b.id)) err('bundles', `${b.id}: duplicate`);
+      ids.add(b.id);
+      if (!rooms.has(b.room)) err('bundles', `${b.id}: unknown room ${b.room}`);
+      if (!['standard', 'remixed'].includes(b.set)) err('bundles', `${b.id}: bad set`);
+      if (b.items) {
+        if (!isInt(b.slots, 1) || b.slots > b.items.length) err('bundles', `${b.id}: ${b.slots} slots for ${b.items.length} items`);
+        for (const i of b.items) if (!known.has(i.id)) err('bundles', `${b.id}: ${i.id} not in item list`);
+      } else if (!isInt(b.gold, 1)) err('bundles', `${b.id}: no items and no gold`);
+    }
+  }
   return errors;
 }
 
@@ -148,10 +207,14 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     greenhouse: load('greenhouse.json'),
     fishponds: load('fishponds.json'),
     animals: load('animals.json'),
+    skills: load('skills.json'),
+    crafting: load('crafting.json'),
+    gifts: load('gifts.json'),
+    bundles: load('bundles.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles');
 }

@@ -97,6 +97,50 @@ class Tools {
 				'data'        => array( 'animals' ),
 				'related'     => array( 'fish-pond-calculator', 'keg-vs-preserves-jar', 'what-to-plant' ),
 			),
+			'xp-calculator'              => array(
+				'title'       => 'Stardew Valley XP Calculator: Farming and Fishing Levels',
+				'short'       => 'XP Calculator',
+				'question'    => 'How long to level 10?',
+				'blurb'       => 'XP to your next Farming or Fishing level, and how many harvests or catches that takes.',
+				'description' => 'Stardew Valley XP calculator for 1.6: XP needed for each Farming and Fishing level, how many harvests or fish to reach level 10, and the fastest crops and fish for XP.',
+				'icon'        => 'sprout',
+				'script'      => 'xp',
+				'data'        => array( 'skills', 'crops' ),
+				'related'     => array( 'what-to-plant', 'fish-pond-calculator', 'crop-profit-calculator' ),
+			),
+			'gift-finder'                => array(
+				'title'       => 'Stardew Valley Gift Finder: Loved and Liked Gifts for Every Villager',
+				'short'       => 'Gift Finder',
+				'question'    => 'What should I give them?',
+				'blurb'       => 'Loved and liked gifts for every villager, and who loves any item. Includes how many hearts a gift is worth.',
+				'description' => 'Stardew Valley gift finder for 1.6: loved, liked, disliked and hated gifts for every villager, who loves a given item, and how many friendship points a gift is worth.',
+				'icon'        => 'gift',
+				'script'      => 'gifts',
+				'data'        => array( 'gifts' ),
+				'related'     => array( 'crafting-calculator', 'what-to-plant', 'xp-calculator' ),
+			),
+			'bundle-tracker'             => array(
+				'title'       => 'Stardew Valley Community Center Bundle Tracker (Standard and Remixed)',
+				'short'       => 'Bundle Tracker',
+				'question'    => 'Which bundle items are left?',
+				'blurb'       => 'Tick off Community Center bundle items and see what is left to find, by season. Saved in your browser.',
+				'description' => 'Stardew Valley Community Center bundle tracker for 1.6: every standard and Remixed bundle, tick off items as you collect them, and see what is still missing. Saves in your browser.',
+				'icon'        => 'check',
+				'script'      => 'bundles',
+				'data'        => array( 'bundles' ),
+				'related'     => array( 'gift-finder', 'what-to-plant', 'crafting-calculator' ),
+			),
+			'crafting-calculator'        => array(
+				'title'       => 'Stardew Valley Crafting Calculator and Shopping List',
+				'short'       => 'Crafting Calculator',
+				'question'    => 'What do I need to craft it?',
+				'blurb'       => 'Pick recipes and get one shopping list of ore, wood and stone, with shop prices.',
+				'description' => 'Stardew Valley crafting calculator for 1.6: choose recipes and quantities and get the raw materials, bars and coal you need, with shop prices for the parts you can buy.',
+				'icon'        => 'hammer',
+				'script'      => 'crafting',
+				'data'        => array( 'crafting' ),
+				'related'     => array( 'what-to-plant', 'xp-calculator', 'crop-profit-calculator' ),
+			),
 		);
 		// Best crops by season: one shared template, a server-rendered table per season.
 		$seasons = array(
@@ -227,6 +271,19 @@ class Tools {
 				$links[] = array( $url, $defs[ $rel ]['short'], $defs[ $rel ]['blurb'] );
 			}
 		}
+		$guides = Guides::for_tool( $tool_id );
+		if ( $guides ) :
+			?>
+		<section class="tool-related" aria-labelledby="guides-<?php echo esc_attr( $tool_id ); ?>">
+			<h2 id="guides-<?php echo esc_attr( $tool_id ); ?>">Guides</h2>
+			<ul class="related-list">
+				<?php foreach ( $guides as $l ) : ?>
+				<li><a href="<?php echo esc_url( $l[0] ); ?>"><?php echo esc_html( $l[1] ); ?></a><span><?php echo esc_html( $l[2] ); ?></span></li>
+				<?php endforeach; ?>
+			</ul>
+		</section>
+			<?php
+		endif;
 		if ( $links ) :
 			?>
 		<section class="tool-related" aria-labelledby="related-<?php echo esc_attr( $tool_id ); ?>">
@@ -265,8 +322,16 @@ class Tools {
 				$data[ $set ] = array_values( self::slim_crops() );
 			} elseif ( 'animals' === $set ) {
 				$data[ $set ] = self::slim_animals();
+			} elseif ( 'skills' === $set ) {
+				$data[ $set ] = self::slim_skills();
 			} elseif ( 'fishponds' === $set ) {
 				$data[ $set ] = self::slim_fishponds();
+			} elseif ( 'crafting' === $set ) {
+				$data[ $set ] = self::slim_crafting();
+			} elseif ( 'gifts' === $set ) {
+				$data[ $set ] = self::slim_gifts();
+			} elseif ( 'bundles' === $set ) {
+				$data[ $set ] = self::slim_bundles();
 			} else {
 				$data[ $set ] = Data::get( $set );
 			}
@@ -357,6 +422,185 @@ class Tools {
 				'caviar'   => array( 'minutes' => $d['products']['caviar']['minutes'] ),
 			),
 			'fish'     => $fish,
+		);
+	}
+
+	/** Villager tastes with item names, without wiki evidence. */
+	public static function slim_gifts() {
+		$d = Data::get( 'gifts' );
+		if ( ! $d ) {
+			return null;
+		}
+		$levels = array( 'love', 'like', 'neutral', 'dislike', 'hate' );
+		$cats   = function ( $rows ) {
+			return array_values( array_map( function ( $c ) { return $c['text']; }, $rows ) );
+		};
+		$names = array();
+		foreach ( $d['items'] as $i ) {
+			$names[ $i['id'] ] = $i['name'];
+		}
+		$villagers = array();
+		foreach ( $d['villagers'] as $v ) {
+			$tastes = array();
+			foreach ( $levels as $l ) {
+				$t            = $v['tastes'][ $l ];
+				$tastes[ $l ] = array(
+					'items'            => $t['items'],
+					'categories'       => $cats( $t['categories'] ),
+					'universal'        => $t['universal'],
+					'universal_except' => $t['universal_except'],
+				);
+			}
+			$villagers[] = array(
+				'id'       => $v['id'],
+				'name'     => $v['name'],
+				'birthday' => $v['birthday'],
+				'marry'    => $v['marriage_candidate'],
+				'tastes'   => $tastes,
+			);
+		}
+		$universal = array();
+		foreach ( $levels as $l ) {
+			$universal[ $l ] = array(
+				'items'      => $d['universal'][ $l ]['items'],
+				'categories' => $cats( $d['universal'][ $l ]['categories'] ),
+			);
+		}
+		$universal['exceptions'] = array_values(
+			array_map(
+				function ( $e ) {
+					return array_intersect_key( $e, array_flip( array( 'villager', 'item', 'taste' ) ) );
+				},
+				array_filter(
+					$d['universal']['exceptions'],
+					function ( $e ) {
+						return ! empty( $e['item'] );
+					}
+				)
+			)
+		);
+		$fr = $d['friendship'];
+		return array(
+			'villagers'  => $villagers,
+			'universal'  => $universal,
+			'names'      => $names,
+			'friendship' => array(
+				'points'              => $fr['points'],
+				'multipliers'         => $fr['multipliers'],
+				'quality_multipliers' => $fr['quality_multipliers'],
+				'quality_applies_to'  => $fr['quality_applies_to'],
+			),
+		);
+	}
+
+	/** Bundles without wiki evidence. */
+	public static function slim_bundles() {
+		$d = Data::get( 'bundles' );
+		if ( ! $d ) {
+			return null;
+		}
+		$bundles = array();
+		foreach ( $d['bundles'] as $b ) {
+			$bundles[] = array_intersect_key( $b, array_flip( array( 'id', 'name', 'set', 'room', 'slots', 'items', 'gold', 'random_items', 'remix', 'reward' ) ) );
+		}
+		$items = array();
+		foreach ( $d['items'] as $i ) {
+			$items[] = array_intersect_key( $i, array_flip( array( 'id', 'name', 'seasons', 'obtain' ) ) );
+		}
+		$rooms = array();
+		foreach ( $d['rooms'] as $r ) {
+			$rooms[] = array_intersect_key( $r, array_flip( array( 'id', 'name', 'reward', 'unlock', 'effect' ) ) );
+		}
+		return array(
+			'rooms'   => $rooms,
+			'bundles' => $bundles,
+			'items'   => $items,
+		);
+	}
+
+	/** Recipes, furnace conversions and shop prices, without wiki evidence. */
+	public static function slim_crafting() {
+		$d = Data::get( 'crafting' );
+		if ( ! $d ) {
+			return null;
+		}
+		$ing   = function ( $rows ) {
+			return array_map(
+				function ( $i ) {
+					return array_intersect_key( $i, array_flip( array( 'id', 'name', 'qty', 'raw', 'via' ) ) );
+				},
+				$rows
+			);
+		};
+		$recipes = array();
+		foreach ( $d['recipes'] as $r ) {
+			$row = array(
+				'id'          => $r['id'],
+				'name'        => $r['name'],
+				'yield'       => $r['yield'],
+				'ingredients' => $ing( $r['ingredients'] ),
+			);
+			if ( ! empty( $r['alt_ingredients'] ) ) {
+				$row['alt_ingredients'] = array( 'ingredients' => $ing( $r['alt_ingredients']['ingredients'] ) );
+			}
+			$recipes[] = $row;
+		}
+		$conv = array();
+		foreach ( $d['conversions'] as $c ) {
+			$conv[] = array(
+				'id'     => $c['id'],
+				'yield'  => $c['yield'],
+				'inputs' => $ing( $c['inputs'] ),
+			);
+		}
+		$prices = array();
+		foreach ( $d['shop_prices'] as $p ) {
+			$prices[] = array_intersect_key( $p, array_flip( array( 'id', 'price', 'price_year2', 'shop' ) ) );
+		}
+		return array(
+			'recipes'     => $recipes,
+			'conversions' => $conv,
+			'shop_prices' => $prices,
+		);
+	}
+
+	/** Skill thresholds, crop and fish XP, without wiki evidence. */
+	public static function slim_skills() {
+		$d = Data::get( 'skills' );
+		if ( ! $d ) {
+			return null;
+		}
+		$legendary_ponds = array();
+		$ponds           = Data::get( 'fishponds' );
+		foreach ( $ponds ? $ponds['fish'] : array() as $f ) {
+			if ( 'legendary' === $f['kind'] ) {
+				$legendary_ponds[] = $f['id'];
+			}
+		}
+		$crops = array();
+		foreach ( $d['farming']['crops'] as $c ) {
+			$crops[] = array_intersect_key( $c, array_flip( array( 'id', 'name', 'xp' ) ) );
+		}
+		$fish = array();
+		foreach ( $d['fishing']['fish'] as $f ) {
+			$row           = array_intersect_key( $f, array_flip( array( 'id', 'name', 'difficulty', 'legendary', 'base_xp' ) ) );
+			$row['family'] = ! $f['legendary'] && in_array( $f['id'], $legendary_ponds, true );
+			$fish[]        = $row;
+		}
+		$crab = 5;
+		foreach ( $d['fishing']['other'] as $o ) {
+			if ( 'crab-pot' === $o['id'] ) {
+				$crab = $o['xp'];
+			}
+		}
+		return array(
+			'thresholds' => $d['levels']['thresholds'],
+			'farming'    => array( 'crops' => $crops ),
+			'fishing'    => array(
+				'formula'  => array( 'quality_values' => $d['fishing']['formula']['quality_values'] ),
+				'fish'     => $fish,
+				'crab_pot' => $crab,
+			),
 		);
 	}
 

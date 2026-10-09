@@ -1,0 +1,27 @@
+{
+ "note": "Expected values copied by hand from wiki pages that the bundle importer does not read those values from (it reads them from Bundles, Remixed Bundles and Modding:Bundles).",
+ "checks": [
+  { "bundle": "remixed-sticky", "item": "sap", "expect": { "qty": 500, "quality": "normal" },
+    "source": { "title": "Sap", "revid": 190490 }, "quote": "Five hundred Sap are required in the {{Bundle|Sticky||y}}." },
+  { "bundle": "construction", "item": "wood", "expect": { "qty": 99, "count": 2 },
+    "source": { "title": "Wood", "revid": 192694 }, "quote": "198 Wood are used (in two stacks of 99) in the {{Bundle|Construction||y}}." },
+  { "bundle": "quality-crops", "item": "parsnip", "expect": { "qty": 5, "quality": "gold" },
+    "source": { "title": "Parsnip", "revid": 191123 }, "quote": "Five gold quality Parsnips are an option for the {{Bundle|Quality Crops||y}}." },
+  { "bundle": "remixed-home-cooks", "item": "egg", "expect": { "qty": 10, "any": true },
+    "source": { "title": "Large Egg", "revid": 190366 }, "quote": "Ten Eggs (any type, excluding Dinosaur) are required for the {{Bundle|homecook||y}}." },
+  { "bundle": "remixed-quality-fish", "item": "walleye", "expect": { "qty": 1, "quality": "gold" },
+    "source": { "title": "Walleye", "revid": 193033 }, "quote": "1 gold/iridium quality Walleye is used in the {{Bundle|Quality Fish||y}}." },
+  { "bundle": "missing", "item": "prismatic-shard", "expect": { "qty": 1, "quality": "normal" },
+    "source": { "title": "Prismatic Shard", "revid": 194134 }, "quote": "One Prismatic Shard is an option for {{Bundle|Missing||y}}." },
+  { "bundle": "specialty-fish", "item": "sandfish", "expect": { "qty": 1, "quality": "normal" },
+    "source": { "title": "Sandfish", "revid": 193274 }, "quote": "Sandfish is used in the {{Bundle|Specialty Fish||y}}." },
+  { "vault_total": 42500,
+    "source": { "title": "Bus Stop", "revid": 192757 }, "quote": "repaired by the [[Junimos]] after purchasing all of the [[Bundles#Vault|Vault Bundles]] for a total of {{Price|42500}}" },
+  { "room": "pantry", "effect_mentions": "Greenhouse",
+    "source": { "title": "Greenhouse", "revid": 194164 }, "quote": "It can be repaired by completing the [[Bundles#Pantry|Pantry Bundles]]" },
+  { "room": "crafts-room", "effect_mentions": "Quarry",
+    "source": { "title": "Quarry", "revid": 193898 }, "quote": "The Quarry is unlocked by completing the [[Bundles#Crafts Room|Crafts Room bundles]]" },
+  { "room": "boiler-room", "effect_mentions": "Minecart",
+    "source": { "title": "Minecart", "revid": 176698 }, "quote": "unlocked after completing the [[Bundles#Boiler Room|Boiler Room Bundles]]" }
+ ]
+}

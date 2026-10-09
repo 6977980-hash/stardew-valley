@@ -108,3 +108,34 @@ html:not(.tool-ready) .tool-results [data-results]:empty { min-height: 240px; }
 .pick h4 { margin: 14px 0 4px; }
 .pick .big { font-size: 1.6rem; font-weight: 800; margin: 4px 0; }
 .pick ul { margin: 0; padding-left: 1.2em; }
+
+/* Guides and topic hubs */
+.is-guide .entry-content, .is-hub .entry-content { max-width: 75ch; }
+.guide-byline { color: var(--c-muted); font-size: .95rem; margin: 0 0 16px; }
+.guide h2, .hub h2 { margin-top: 32px; }
+.guide .results-table td.is-best, .guide .results-table td.is-best small { background: color-mix(in srgb, var(--c-primary) 12%, transparent); font-weight: 700; }
+.guide .results-table small { color: var(--c-muted); font-weight: 400; }
+.table-note { color: var(--c-muted); font-size: .9rem; margin-top: 6px; }
+.hub-lead { font-size: 1.1rem; }
+.guide-tools { margin-top: 32px; }
+
+/* Crafting list, gift lists and bundle tracker */
+.craft-list { list-style: none; margin: 0 0 12px; padding: 0; }
+.craft-list li { display: flex; align-items: center; justify-content: space-between; gap: 12px; border-bottom: 1px solid var(--c-border); padding: 2px 0; }
+.gift-grid { display: grid; gap: 8px 24px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.gift-list { margin: 4px 0 12px; padding-left: 1.2em; }
+.gift-list li { margin: 2px 0; }
+.gift-more { margin-top: 16px; }
+.gift-more summary { cursor: pointer; font-weight: 600; min-height: 44px; display: flex; align-items: center; }
+.bundle, .room { border: 1px solid var(--c-border); border-radius: 8px; margin: 10px 0; background: var(--c-surface, transparent); }
+.room > summary, .bundle > summary { cursor: pointer; padding: 10px 12px; min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.room > .table-note, .room > .bundle { margin-left: 12px; margin-right: 12px; }
+.room > .table-note { margin-top: 0; }
+.bundle__count { font-variant-numeric: tabular-nums; font-weight: 700; white-space: nowrap; }
+.is-done > summary .bundle__count { color: var(--c-accent-ink); }
+.bundle .table-note, .bundle__mine, .bundle__items { margin-left: 12px; margin-right: 12px; }
+.bundle__mine { display: block; margin-bottom: 6px; }
+.bundle__items { list-style: none; padding: 0; margin-bottom: 8px; }
+.bundle__items label, .bundle__mine, .bundle-controls label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
+.bundle__items input, .bundle__mine input, .bundle-controls input { width: 22px; height: 22px; flex: none; }
+.bundle-controls { margin-bottom: 8px; }

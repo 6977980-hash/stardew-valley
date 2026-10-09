@@ -1,6 +1,6 @@
 # Project state
 
-**Current Phase:** 4 — Decision engine (complete, awaiting merge, live test and approval for Phase 5)
+**Current Phase:** 5 — Trackers and first guides (built, awaiting merge, live test and approval for Phase 6)
 
 **Completed Phases:**
 - 0 — Discovery & research (see docs/research/README.md)
@@ -9,38 +9,44 @@
 - 3 — First gap tools: Crop Profit Calculator, Keg vs Preserves Jar, Ancient Fruit vs Starfruit,
   Greenhouse Planner (live 2026-10-09)
 - 4 — Decision engine: What to Plant Today, Fish Pond Calculator, Animal Profit Calculator, Best
-  Spring / Summer / Fall / Greenhouse Crops
+  Spring / Summer / Fall / Greenhouse Crops (live 2026-10-09, v0.5.0)
+- 5 — XP Calculator, Crafting Calculator, Gift Finder, Bundle Tracker, 5 topic hubs, first 5 guides
+  (v0.6.0)
 
-**Current Branch:** phase-4-decision (PR into main)
+**Current Branch:** phase-5-trackers (PR into main)
 
 **Latest Commit:** see PR
 
-**Tests Run (Phase 4):**
-- `npm test`: data validation (now incl. fish ponds and animals), answers freshness check, 88 Node
-  tests (`tests/engine/`), incl. decision ranking and reasons, fish pond produce and roe, animal
-  quality / Large chance / truffles / professions, and wiki-figure fixtures for both data sets
-- Integration tests inside WordPress 7.1.3: 133 checks (new pages, server-rendered best crops table,
-  answers)
-- Playwright: 69 tests (Phases 1-3 + Phase 4: decisions, pond and animal results, no horizontal
-  scroll at 360/390/1280, axe WCAG 2.1 AA in light and dark on every new page)
-- Lighthouse 12.8.2 mobile (local): What to Plant, Fish Pond, Animal Profit and Best Summer Crops
-  99-100 / 100 / 100 / 100, CLS 0
+**Tests Run (Phase 5):**
+- `npm test`: data validation (now incl. skills, crafting, gifts, bundles), answers freshness check,
+  170 Node tests (new: skills, crafting expansion, gift tastes and points, bundle progress, and wiki
+  fixtures for the four new data sets)
+- Integration tests inside WordPress: 190 checks (4 new tool pages, 5 hubs, 5 guides, guide numbers)
+- Playwright: 116 tests locally (Phases 1-4 + Phase 5: results, saved list and ticks, no horizontal
+  scroll at 360/390, axe WCAG 2.1 AA on 14 new pages)
+- Lighthouse 12.8.2 mobile (local): XP, Crafting, Gift Finder, Bundle Tracker 99 / 100 / 100 / 100,
+  Speed-Gro guide 100 / 100 / 100 / 100, CLS 0
 
 **Test Results:**
-- Node: 88 passed, 0 failed
-- Integration: 133 passed, 0 failed
-- E2E: 69 passed, 0 failed (local)
+- Node: 170 passed, 0 failed
+- Integration: 190 passed, 0 failed
+- E2E: 116 passed, 0 failed (local)
 
 **Known Issues:**
 - Fruit trees and other artisan machines (Dehydrator, Fish Smoker…) are not in the data yet.
 - Rice and Taro use unirrigated growth times.
 - Powdermelon and Summer Squash: their own wiki pages split stages differently from the Crops page and
   the growth calendar (same total days). Two sources agree, so the data uses that split.
+- Gift Finder: categories ("All Fruit") are listed but not expanded, because the wiki doesn't name
+  every member. Jas, Leo and Linus have one disputed taste each (needs-verification).
+- Bundle Tracker: the player picks which Remixed bundles are in their save.
+- Fishing XP for gold quality: the wiki's examples disagree; gold = 2 is used. Two tree XP values are
+  unverified and not shown.
 - Dinosaur Egg: wiki pages disagree on whether Rancher applies; marked needs-verification.
 - Animal results take daily luck as 0 (an average day). Truffles count as regular quality.
 - Winter has no Best Crops page (nothing grows outdoors); the Greenhouse page covers it.
-- "Discourage search engines" must be unticked by the owner, then the sitemap is submitted in Google
-  Search Console.
+- Owner decision (2026-10-09): "Discourage search engines" stays ON and the sitemap is submitted once,
+  when the whole site is finished (Phase 7).
 - The live Changelog page was created in Phase 1 and is never overwritten; new entries only reach
   fresh installs unless the page is edited.
 - Ancient Seeds have no gold price, so their cost is not counted (shown on the page).
@@ -68,4 +74,9 @@
   extra-roe bonus (x1.25). Animals: Rancher on raw products only, Artisan on goods only.
 - Best Crops pages are real, server-rendered ranked tables (one per season), not thin pages.
 
-**Next Phase:** 5 — per the plan document; scope to be confirmed with the owner before starting.
+- Guides: every number comes from the engine via `answers.json`; copy is written plainly with named
+  sources and no fabricated data. Guides are child pages of their hub for clean URLs and breadcrumbs.
+- Bundle and crafting state lives only in the browser (localStorage); nothing is sent to a server.
+
+**Next Phase:** 6 — entity pages, comparisons, data pages, remaining guides, search and internal
+linking, per the plan document; confirm with the owner before starting.

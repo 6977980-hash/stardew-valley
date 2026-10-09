@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 9, 2026: trackers and guides</h2>
+<ul>
+<li>New: XP Calculator (Farming and Fishing), Crafting Calculator with a shopping list, Gift Finder for all villagers, and a Bundle Tracker for standard and Remixed bundles that saves in your browser.</li>
+<li>New: five topic hubs and the first five guides (Speed-Gro vs Deluxe Fertilizer, how many Kegs you need, whether pigs are worth it, the best fish for Fish Ponds, the best Greenhouse setup). Every number in a guide comes from the same data as the calculators.</li>
+</ul>
+
 <h2>October 9, 2026: decision tools</h2>
 <ul>
 <li>New: What to Plant Today (one crop for your day, gold, tiles and machines, with the reasons and a shopping list), Fish Pond Calculator, Animal Profit Calculator, and Best Spring, Summer, Fall and Greenhouse Crops.</li>

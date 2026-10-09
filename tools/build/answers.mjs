@@ -11,6 +11,8 @@ import { allocate } from '../../assets/js/engine/machines.js';
 import { rankCrops, reasons } from '../../assets/js/engine/decision.js';
 import { rankPonds } from '../../assets/js/engine/fishpond.js';
 import { rankAnimals } from '../../assets/js/engine/animals.js';
+import { buildGuides } from './guides.mjs';
+import { fishXp, farmingXpPerDay, actionsFor } from '../../assets/js/engine/skills.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 // Shops that sell seeds every day the crop is in season (not festivals or the Traveling Cart).
@@ -120,11 +122,37 @@ export function buildAnswers(data) {
       .map((x) => ({ id: x.animal.id, name: x.animal.name, gold_per_day: r0(x.out.goldPerDay), price: x.animal.purchase_price }));
   const animals = { raw: animalTop({}), processed: animalTop({ process: true, artisan: true }) };
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals };
+  // XP calculator: total XP for level 10, the best farming XP per tile per day among shop seeds,
+  // and the fish that give the most XP per catch.
+  let xp = null;
+  if (data.skills) {
+    const sk = data.skills;
+    const top = sk.levels.thresholds[sk.levels.thresholds.length - 1].total;
+    const farm = sk.farming.crops
+      .map((x) => ({ x, c: byId(x.id) }))
+      .filter(({ c }) => c && SHOPS.some((k) => c.seed_prices[k] > 0))
+      .map(({ x, c }) => ({ id: x.id, name: x.name, xp: x.xp, per_day: Math.round(farmingXpPerDay(x, c) * 100) / 100, harvests_to_10: actionsFor(top, x.xp) }))
+      .sort((a, b) => b.per_day - a.per_day);
+    const fish = sk.fishing.fish
+      // Legendary fish and their Extended Family versions (legendary in the pond data) are left out.
+      .filter((f) => !f.legendary && !data.fishponds.fish.some((p) => p.id === f.id && p.kind === 'legendary'))
+      .map((f) => ({ id: f.id, name: f.name, xp: fishXp(f, sk.fishing.formula), perfect: fishXp(f, sk.fishing.formula, { perfect: true }) }))
+      .sort((a, b) => b.xp - a.xp);
+    xp = {
+      level_10: top,
+      farming_per_day: farm.slice(0, 5),
+      parsnip: farm.find((x) => x.id === 'parsnip'),
+      fishing_top: fish.slice(0, 5),
+      sardine: fish.find((f) => f.id === 'sardine'),
+      crab_pot: sk.fishing.other.find((o) => o.id === 'crab-pot').xp,
+    };
+  }
+
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals, guides: buildGuides(data, crops), xp };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals'].map((s) => [s, load(`${s}.json`)]));
+  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills'].map((s) => [s, load(`${s}.json`)]));
   const body = JSON.stringify(buildAnswers(data), null, 2) + '\n';
   const file = join(ROOT, 'data', 'answers.json');
   if (process.argv.includes('--check')) {
