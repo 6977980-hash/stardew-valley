@@ -1,0 +1,352 @@
+{
+ "note": "Expected values copied from wiki pages other than the one data/skills.json takes each value from first (levels: Skills -> here Fishing/Farming tables; crop XP: Farming table -> here crop pages; fish difficulty: Fish table -> here fish pages; monster XP: Combat -> here monster pages; mastery: Mastery Cave -> here rendered Skills page; crab pot: Fishing -> here Crab Pot; animal care: Farming -> here Skills).",
+ "level_totals": {
+  "source": {
+   "title": "Fishing",
+   "revid": 193904
+  },
+  "rows": [
+   {
+    "level": 1,
+    "total": 100,
+    "sardines": 8,
+    "crab_pots": 20
+   },
+   {
+    "level": 2,
+    "total": 380,
+    "sardines": 30,
+    "crab_pots": 76
+   },
+   {
+    "level": 3,
+    "total": 770,
+    "sardines": 60,
+    "crab_pots": 154
+   },
+   {
+    "level": 4,
+    "total": 1300,
+    "sardines": 100,
+    "crab_pots": 260
+   },
+   {
+    "level": 5,
+    "total": 2150,
+    "sardines": 166,
+    "crab_pots": 430
+   },
+   {
+    "level": 6,
+    "total": 3300,
+    "sardines": 254,
+    "crab_pots": 660
+   },
+   {
+    "level": 7,
+    "total": 4800,
+    "sardines": 370,
+    "crab_pots": 960
+   },
+   {
+    "level": 8,
+    "total": 6900,
+    "sardines": 531,
+    "crab_pots": 1380
+   },
+   {
+    "level": 9,
+    "total": 10000,
+    "sardines": 770,
+    "crab_pots": 2000
+   },
+   {
+    "level": 10,
+    "total": 15000,
+    "sardines": 1154,
+    "crab_pots": 3000
+   }
+  ]
+ },
+ "parsnips_per_level": {
+  "source": {
+   "title": "Farming",
+   "revid": 191914
+  },
+  "rows": [
+   {
+    "level": 1,
+    "parsnips": 13,
+    "total": 100
+   },
+   {
+    "level": 2,
+    "parsnips": 48,
+    "total": 380
+   },
+   {
+    "level": 3,
+    "parsnips": 97,
+    "total": 770
+   },
+   {
+    "level": 4,
+    "parsnips": 163,
+    "total": 1300
+   },
+   {
+    "level": 5,
+    "parsnips": 269,
+    "total": 2150
+   },
+   {
+    "level": 6,
+    "parsnips": 413,
+    "total": 3300
+   },
+   {
+    "level": 7,
+    "parsnips": 600,
+    "total": 4800
+   },
+   {
+    "level": 8,
+    "parsnips": 863,
+    "total": 6900
+   },
+   {
+    "level": 9,
+    "parsnips": 1250,
+    "total": 10000
+   },
+   {
+    "level": 10,
+    "parsnips": 1875,
+    "total": 15000
+   }
+  ]
+ },
+ "crops": [
+  {
+   "id": "parsnip",
+   "xp": 8,
+   "source": {
+    "title": "Parsnip",
+    "revid": 191123
+   }
+  },
+  {
+   "id": "cauliflower",
+   "xp": 23,
+   "source": {
+    "title": "Cauliflower",
+    "revid": 191752
+   }
+  },
+  {
+   "id": "potato",
+   "xp": 14,
+   "source": {
+    "title": "Potato",
+    "revid": 192971
+   }
+  },
+  {
+   "id": "starfruit",
+   "xp": 43,
+   "source": {
+    "title": "Starfruit",
+    "revid": 192652
+   }
+  },
+  {
+   "id": "sweet-gem-berry",
+   "xp": 64,
+   "source": {
+    "title": "Sweet Gem Berry",
+    "revid": 192754
+   }
+  },
+  {
+   "id": "ancient-fruit",
+   "xp": 38,
+   "source": {
+    "title": "Ancient Fruit",
+    "revid": 192083
+   }
+  },
+  {
+   "id": "sunflower",
+   "xp": 5,
+   "source": {
+    "title": "Sunflower",
+    "revid": 192716
+   }
+  },
+  {
+   "id": "coffee-bean",
+   "xp": 4,
+   "source": {
+    "title": "Coffee Bean",
+    "revid": 193175
+   }
+  },
+  {
+   "id": "grape",
+   "xp": 14,
+   "source": {
+    "title": "Grape",
+    "revid": 192072
+   }
+  }
+ ],
+ "fish": [
+  {
+   "id": "sardine",
+   "difficulty": 30,
+   "source": {
+    "title": "Sardine",
+    "revid": 193174
+   }
+  },
+  {
+   "id": "pufferfish",
+   "difficulty": 80,
+   "source": {
+    "title": "Pufferfish",
+    "revid": 193312
+   }
+  },
+  {
+   "id": "albacore",
+   "difficulty": 60,
+   "source": {
+    "title": "Albacore",
+    "revid": 193224
+   }
+  },
+  {
+   "id": "sturgeon",
+   "difficulty": 78,
+   "source": {
+    "title": "Sturgeon",
+    "revid": 193262
+   }
+  },
+  {
+   "id": "crimsonfish",
+   "difficulty": 95,
+   "source": {
+    "title": "Crimsonfish",
+    "revid": 193655
+   }
+  },
+  {
+   "id": "legend",
+   "difficulty": 110,
+   "source": {
+    "title": "Legend",
+    "revid": 193653
+   }
+  },
+  {
+   "id": "legend-ii",
+   "difficulty": 110,
+   "source": {
+    "title": "Legend II",
+    "revid": 193654
+   }
+  },
+  {
+   "id": "midnight-squid",
+   "difficulty": 55,
+   "source": {
+    "title": "Midnight Squid",
+    "revid": 192188
+   }
+  }
+ ],
+ "monsters": [
+  {
+   "id": "dust-sprite",
+   "xp": 2,
+   "source": {
+    "title": "Dust Sprite",
+    "revid": 185427
+   }
+  },
+  {
+   "id": "stone-golem",
+   "xp": 5,
+   "source": {
+    "title": "Stone Golem",
+    "revid": 192726
+   }
+  },
+  {
+   "id": "skeleton",
+   "xp": 8,
+   "source": {
+    "title": "Skeleton",
+    "revid": 190663
+   }
+  },
+  {
+   "id": "serpent",
+   "xp": 20,
+   "source": {
+    "title": "Serpent",
+    "revid": 190493
+   }
+  }
+ ],
+ "mastery_totals": {
+  "source": {
+   "title": "Skills",
+   "revid": 195347
+  },
+  "rows": [
+   {
+    "level": 1,
+    "total": 10000
+   },
+   {
+    "level": 2,
+    "total": 25000
+   },
+   {
+    "level": 3,
+    "total": 45000
+   },
+   {
+    "level": 4,
+    "total": 70000
+   },
+   {
+    "level": 5,
+    "total": 100000
+   }
+  ]
+ },
+ "crab_pot_xp": {
+  "source": {
+   "title": "Crab Pot",
+   "revid": 193995
+  },
+  "xp": 5
+ },
+ "animal_care_xp": {
+  "source": {
+   "title": "Skills",
+   "revid": 195347
+  },
+  "xp": 5
+ },
+ "skill_book_xp": {
+  "source": {
+   "title": "Books",
+   "revid": 193598
+  },
+  "xp": 250
+ }
+}

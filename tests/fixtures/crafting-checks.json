@@ -1,0 +1,151 @@
+{
+ "note": "Expected values copied from crafting tables / text on pages other than the two the importer reads for each value (Crafting + the item page; Furnace + the bar page). yield is null where that page table states no count.",
+ "recipes": [
+  {
+   "id": "iridium-sprinkler",
+   "yield": null,
+   "ingredients": {
+    "gold-bar": 1,
+    "iridium-bar": 1,
+    "battery-pack": 1
+   },
+   "source": {
+    "title": "Gold Bar",
+    "url": "https://stardewvalleywiki.com/Gold_Bar",
+    "revid": 192803
+   }
+  },
+  {
+   "id": "mini-jukebox",
+   "yield": null,
+   "ingredients": {
+    "battery-pack": 1,
+    "iron-bar": 2
+   },
+   "source": {
+    "title": "Battery Pack",
+    "url": "https://stardewvalleywiki.com/Battery_Pack",
+    "revid": 193375
+   }
+  },
+  {
+   "id": "keg",
+   "yield": null,
+   "ingredients": {
+    "copper-bar": 1,
+    "iron-bar": 1,
+    "oak-resin": 1,
+    "wood": 30
+   },
+   "source": {
+    "title": "Copper Bar",
+    "url": "https://stardewvalleywiki.com/Copper_Bar",
+    "revid": 190236
+   }
+  },
+  {
+   "id": "quality-sprinkler",
+   "yield": null,
+   "ingredients": {
+    "refined-quartz": 1,
+    "gold-bar": 1,
+    "iron-bar": 1
+   },
+   "source": {
+    "title": "Refined Quartz",
+    "url": "https://stardewvalleywiki.com/Refined_Quartz",
+    "revid": 190543
+   }
+  },
+  {
+   "id": "iron-fence",
+   "yield": null,
+   "ingredients": {
+    "iron-bar": 1
+   },
+   "source": {
+    "title": "Iron Bar",
+    "url": "https://stardewvalleywiki.com/Iron_Bar",
+    "revid": 192802
+   }
+  },
+  {
+   "id": "bait",
+   "yield": 5,
+   "ingredients": {
+    "bug-meat": 1
+   },
+   "source": {
+    "title": "Bug Meat",
+    "url": "https://stardewvalleywiki.com/Bug_Meat",
+    "revid": 184791
+   }
+  },
+  {
+   "id": "crystal-floor",
+   "yield": 5,
+   "ingredients": {
+    "refined-quartz": 1
+   },
+   "source": {
+    "title": "Refined Quartz",
+    "url": "https://stardewvalleywiki.com/Refined_Quartz",
+    "revid": 190543
+   }
+  },
+  {
+   "id": "furnace",
+   "yield": null,
+   "ingredients": {
+    "stone": 25,
+    "copper-ore": 20
+   },
+   "source": {
+    "title": "Stone",
+    "url": "https://stardewvalleywiki.com/Stone",
+    "revid": 192695
+   }
+  },
+  {
+   "id": "transmute-au",
+   "yield": 1,
+   "ingredients": {
+    "iron-bar": 2
+   },
+   "source": {
+    "title": "Gold Bar",
+    "url": "https://stardewvalleywiki.com/Gold_Bar",
+    "revid": 192803
+   },
+   "quote": "by transmuting 2 [[Iron Bar|Iron Bars]] into one Gold Bar"
+  }
+ ],
+ "conversions": [
+  {
+   "id": "smelt-copper-ore",
+   "inputs": {
+    "copper-ore": 5,
+    "coal": 1
+   },
+   "minutes": 30,
+   "source": {
+    "title": "Copper Ore",
+    "url": "https://stardewvalleywiki.com/Copper_Ore",
+    "revid": 193144
+   }
+  },
+  {
+   "id": "smelt-iridium-ore",
+   "inputs": {
+    "iridium-ore": 5,
+    "coal": 1
+   },
+   "minutes": 480,
+   "source": {
+    "title": "Iridium Ore",
+    "url": "https://stardewvalleywiki.com/Iridium_Ore",
+    "revid": 193934
+   }
+  }
+ ]
+}

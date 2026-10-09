@@ -60,7 +60,11 @@ Never edit these files by hand; fix the importer and re-run it. See `docs/data.m
 | `greenhouse.json` | Soil grid (12 × 10) and the verified sprinkler layouts that water all of it |
 | `fishponds.json` | 73 pond fish: base price, roe, max population, produce table by population (item, quantity, share, price), pond rules (base chance, extra roe), Aged Roe / Caviar, Fisher/Angler |
 | `animals.json` | Coop and barn animals: price, building, maturity, frequency, regular and Large/Deluxe products, quality and Large formulas, pig truffles, artisan machines and goods, hay |
-| `answers.json` | Built, not imported: short answers shown on the tool pages |
+| `skills.json` | Level thresholds (level 10 = 15,000 XP), farming XP per crop, fishing XP formula and per-fish difficulty, Mastery, other skills |
+| `crafting.json` | 150 recipes with ingredients (raw or made via a recipe/furnace conversion), 9 furnace conversions, 10 shop prices (year 1 and 2) |
+| `gifts.json` | 34 villagers: birthday, marriage, loved/liked/neutral/disliked/hated items and categories; universal tastes and exceptions; friendship points |
+| `bundles.json` | Community Center rooms, 31 standard and 47 Remixed bundles, items with quantity and quality, season and how to obtain |
+| `answers.json` | Built, not imported: short answers shown on the tool pages, and the numbers printed in guides (`guides`, from `tools/build/guides.mjs`) |
 
 ## Calculation engine (`assets/js/engine/`)
 
@@ -79,6 +83,10 @@ tests. Functions are pure: data goes in as arguments.
 | `greenhouse.js` | Sprinkler coverage of the greenhouse soil and the painted layout |
 | `fishpond.js` | Daily produce and gold for a pond (base chance × share, extra roe), Aged Roe / Caviar and jars needed, every fish ranked |
 | `animals.js` | Quality, Large/Deluxe chance, frequency, pig truffles, machines and professions for one animal type; every animal ranked |
+| `skills.js` | Level from XP, XP to a level, fishing XP per catch (quality, treasure, perfect, legendary), farming XP per tile per day |
+| `crafting.js` | Expands a list of recipes into raw materials (bars into ore and coal), rounds crafts up once per made item, prices shop-sold parts |
+| `gifts.js` | A villager's taste for an item (own list, then universal, then recorded exceptions), items at a taste level, friendship points per gift |
+| `bundles.js` | Slots filled, bundle and room progress, items still needed; Remixed alternatives |
 | `decision.js` | Decision engine: ranks crops for one player's day, gold, tiles, machines and skills (`rankCrops`) and explains the winner against the runner-up in plain sentences (`reasons`) |
 
 ## Theme (presentation)
@@ -108,4 +116,16 @@ Google's own CMP, configured in AdSense > Privacy & messaging.
 
 Tool pages only inline the data sets their definition lists in `data` (default: crops, fertilizers,
 machines, seasons, greenhouse). Fish ponds and animals are slimmed first (`Tools::slim_fishponds()`,
-`Tools::slim_animals()`): the full files carry wiki evidence and are too large to inline.
+`Tools::slim_animals()`): the full files carry wiki evidence and are too large to inline. Skills, crafting,
+gifts and bundles have their own `slim_*` functions for the same reason.
+
+## Guides and hubs (`includes/class-guides.php`)
+
+Five topic hubs (Crops and Farming, Artisan Goods, Animals, Fishing, Greenhouse) and guides as child
+pages of their hub (`/artisan-goods/how-many-kegs-do-i-need/`). Shortcodes `[stardew_hub id=]` and
+`[stardew_guide id=]`; the templates are in `includes/hub-templates/` and `includes/guide-templates/`.
+Every number a guide prints comes from `data/answers.json` (`guides`), built by `tools/build/guides.mjs`
+with the same engine as the calculators, so a guide cannot disagree with its tool. Tool pages list the
+guides that mention them. Schema: Article (guides), CollectionPage with ItemList (hubs), BreadcrumbList.
+
+The Crafting Calculator keeps its list, and the Bundle Tracker its ticks, in `localStorage` only.

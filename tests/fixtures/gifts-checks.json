@@ -1,0 +1,639 @@
+{
+ "note": "Expected values copied from wiki pages the gift importer does not read for them: item pages (GiftsByItem) for tastes, Module:NPCDispositions for birthdays.",
+ "sources": [
+  {
+   "title": "Module:NPCDispositions",
+   "revid": 147358
+  }
+ ],
+ "birthdays": {
+  "source": {
+   "title": "Module:NPCDispositions",
+   "revid": 147358
+  },
+  "values": [
+   {
+    "villager": "alex",
+    "season": "summer",
+    "day": 13
+   },
+   {
+    "villager": "elliott",
+    "season": "fall",
+    "day": 5
+   },
+   {
+    "villager": "harvey",
+    "season": "winter",
+    "day": 14
+   },
+   {
+    "villager": "sam",
+    "season": "summer",
+    "day": 17
+   },
+   {
+    "villager": "sebastian",
+    "season": "winter",
+    "day": 10
+   },
+   {
+    "villager": "shane",
+    "season": "spring",
+    "day": 20
+   },
+   {
+    "villager": "abigail",
+    "season": "fall",
+    "day": 13
+   },
+   {
+    "villager": "emily",
+    "season": "spring",
+    "day": 27
+   },
+   {
+    "villager": "haley",
+    "season": "spring",
+    "day": 14
+   },
+   {
+    "villager": "leah",
+    "season": "winter",
+    "day": 23
+   },
+   {
+    "villager": "maru",
+    "season": "summer",
+    "day": 10
+   },
+   {
+    "villager": "penny",
+    "season": "fall",
+    "day": 2
+   },
+   {
+    "villager": "caroline",
+    "season": "winter",
+    "day": 7
+   },
+   {
+    "villager": "clint",
+    "season": "winter",
+    "day": 26
+   },
+   {
+    "villager": "demetrius",
+    "season": "summer",
+    "day": 19
+   },
+   {
+    "villager": "dwarf",
+    "season": "summer",
+    "day": 22
+   },
+   {
+    "villager": "evelyn",
+    "season": "winter",
+    "day": 20
+   },
+   {
+    "villager": "george",
+    "season": "fall",
+    "day": 24
+   },
+   {
+    "villager": "gus",
+    "season": "summer",
+    "day": 8
+   },
+   {
+    "villager": "jas",
+    "season": "summer",
+    "day": 4
+   },
+   {
+    "villager": "jodi",
+    "season": "fall",
+    "day": 11
+   },
+   {
+    "villager": "kent",
+    "season": "spring",
+    "day": 4
+   },
+   {
+    "villager": "krobus",
+    "season": "winter",
+    "day": 1
+   },
+   {
+    "villager": "leo",
+    "season": "summer",
+    "day": 26
+   },
+   {
+    "villager": "lewis",
+    "season": "spring",
+    "day": 7
+   },
+   {
+    "villager": "linus",
+    "season": "winter",
+    "day": 3
+   },
+   {
+    "villager": "marnie",
+    "season": "fall",
+    "day": 18
+   },
+   {
+    "villager": "pam",
+    "season": "spring",
+    "day": 18
+   },
+   {
+    "villager": "pierre",
+    "season": "spring",
+    "day": 26
+   },
+   {
+    "villager": "robin",
+    "season": "fall",
+    "day": 21
+   },
+   {
+    "villager": "sandy",
+    "season": "fall",
+    "day": 15
+   },
+   {
+    "villager": "vincent",
+    "season": "spring",
+    "day": 10
+   },
+   {
+    "villager": "willy",
+    "season": "summer",
+    "day": 24
+   },
+   {
+    "villager": "wizard",
+    "season": "winter",
+    "day": 17
+   }
+  ]
+ },
+ "tastes": [
+  {
+   "villager": "abigail",
+   "item": "amethyst",
+   "taste": "love",
+   "source": {
+    "title": "Amethyst",
+    "revid": 190874
+   }
+  },
+  {
+   "villager": "clint",
+   "item": "amethyst",
+   "taste": "love",
+   "source": {
+    "title": "Amethyst",
+    "revid": 190874
+   }
+  },
+  {
+   "villager": "emily",
+   "item": "amethyst",
+   "taste": "love",
+   "source": {
+    "title": "Amethyst",
+    "revid": 190874
+   }
+  },
+  {
+   "villager": "dwarf",
+   "item": "amethyst",
+   "taste": "love",
+   "source": {
+    "title": "Amethyst",
+    "revid": 190874
+   }
+  },
+  {
+   "villager": "maru",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "evelyn",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "penny",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "jodi",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "marnie",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "gus",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "willy",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "krobus",
+   "item": "diamond",
+   "taste": "love",
+   "source": {
+    "title": "Diamond",
+    "revid": 190873
+   }
+  },
+  {
+   "villager": "abigail",
+   "item": "pumpkin",
+   "taste": "love",
+   "source": {
+    "title": "Pumpkin",
+    "revid": 192033
+   }
+  },
+  {
+   "villager": "willy",
+   "item": "pumpkin",
+   "taste": "love",
+   "source": {
+    "title": "Pumpkin",
+    "revid": 192033
+   }
+  },
+  {
+   "villager": "krobus",
+   "item": "pumpkin",
+   "taste": "love",
+   "source": {
+    "title": "Pumpkin",
+    "revid": 192033
+   }
+  },
+  {
+   "villager": "harvey",
+   "item": "coffee",
+   "taste": "love",
+   "source": {
+    "title": "Coffee",
+    "revid": 184120
+   }
+  },
+  {
+   "villager": "leo",
+   "item": "coffee",
+   "taste": "neutral",
+   "source": {
+    "title": "Coffee",
+    "revid": 184120
+   }
+  },
+  {
+   "villager": "caroline",
+   "item": "salmonberry",
+   "taste": "hate",
+   "source": {
+    "title": "Salmonberry",
+    "revid": 192245
+   }
+  },
+  {
+   "villager": "elliott",
+   "item": "salmonberry",
+   "taste": "hate",
+   "source": {
+    "title": "Salmonberry",
+    "revid": 192245
+   }
+  },
+  {
+   "villager": "evelyn",
+   "item": "salmonberry",
+   "taste": "hate",
+   "source": {
+    "title": "Salmonberry",
+    "revid": 192245
+   }
+  },
+  {
+   "villager": "harvey",
+   "item": "salmonberry",
+   "taste": "hate",
+   "source": {
+    "title": "Salmonberry",
+    "revid": 192245
+   }
+  },
+  {
+   "villager": "robin",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "demetrius",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "maru",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "abigail",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "alex",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "george",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "evelyn",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "leo",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "lewis",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "clint",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "penny",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "pam",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "emily",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "kent",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "marnie",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "gus",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "sandy",
+   "item": "holly",
+   "taste": "hate",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "linus",
+   "item": "holly",
+   "taste": "like",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "leah",
+   "item": "holly",
+   "taste": "like",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "harvey",
+   "item": "holly",
+   "taste": "like",
+   "source": {
+    "title": "Holly",
+    "revid": 187384
+   }
+  },
+  {
+   "villager": "maru",
+   "item": "truffle",
+   "taste": "hate",
+   "source": {
+    "title": "Truffle",
+    "revid": 192621
+   }
+  },
+  {
+   "villager": "gus",
+   "item": "truffle",
+   "taste": "like",
+   "source": {
+    "title": "Truffle",
+    "revid": 192621
+   }
+  },
+  {
+   "villager": "leah",
+   "item": "truffle",
+   "taste": "love",
+   "source": {
+    "title": "Truffle",
+    "revid": 192621
+   }
+  },
+  {
+   "villager": "robin",
+   "item": "goat-cheese",
+   "taste": "love",
+   "source": {
+    "title": "Goat Cheese",
+    "revid": 190347
+   }
+  },
+  {
+   "villager": "leah",
+   "item": "goat-cheese",
+   "taste": "love",
+   "source": {
+    "title": "Goat Cheese",
+    "revid": 190347
+   }
+  },
+  {
+   "villager": "harvey",
+   "item": "goat-cheese",
+   "taste": "dislike",
+   "source": {
+    "title": "Goat Cheese",
+    "revid": 190347
+   }
+  },
+  {
+   "villager": "vincent",
+   "item": "frog-egg",
+   "taste": "love",
+   "source": {
+    "title": "Frog Egg",
+    "revid": 194050
+   }
+  },
+  {
+   "villager": "sebastian",
+   "item": "frog-egg",
+   "taste": "love",
+   "source": {
+    "title": "Frog Egg",
+    "revid": 194050
+   }
+  },
+  {
+   "villager": "alex",
+   "item": "frog-egg",
+   "taste": "neutral",
+   "source": {
+    "title": "Frog Egg",
+    "revid": 194050
+   }
+  }
+ ]
+}

@@ -1,0 +1,5627 @@
+{
+  "schema": "stardew-tools/skills@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between Skills, the skill pages, Mastery Cave, Books, crop pages, fish pages and monster pages",
+  "sources": [
+    {
+      "title": "Skills",
+      "url": "https://stardewvalleywiki.com/Skills",
+      "revid": 195347
+    },
+    {
+      "title": "Farming",
+      "url": "https://stardewvalleywiki.com/Farming",
+      "revid": 191914
+    },
+    {
+      "title": "Fishing",
+      "url": "https://stardewvalleywiki.com/Fishing",
+      "revid": 193904
+    },
+    {
+      "title": "Fish",
+      "url": "https://stardewvalleywiki.com/Fish",
+      "revid": 194048
+    },
+    {
+      "title": "Foraging",
+      "url": "https://stardewvalleywiki.com/Foraging",
+      "revid": 195239
+    },
+    {
+      "title": "Mining",
+      "url": "https://stardewvalleywiki.com/Mining",
+      "revid": 192860
+    },
+    {
+      "title": "Combat",
+      "url": "https://stardewvalleywiki.com/Combat",
+      "revid": 192831
+    },
+    {
+      "title": "Mastery Cave",
+      "url": "https://stardewvalleywiki.com/Mastery_Cave",
+      "revid": 191046
+    },
+    {
+      "title": "Books",
+      "url": "https://stardewvalleywiki.com/Books",
+      "revid": 193598
+    }
+  ],
+  "levels": {
+    "applies_to": [
+      "farming",
+      "fishing",
+      "foraging",
+      "mining",
+      "combat"
+    ],
+    "evidence": [
+      "Skills: \"All skills need the following experience points to increase skill level:\"",
+      "Fishing: \"The XP required for leveling up is the same as for all skills:\""
+    ],
+    "thresholds": [
+      {
+        "level": 1,
+        "xp_from_previous": 100,
+        "total": 100
+      },
+      {
+        "level": 2,
+        "xp_from_previous": 280,
+        "total": 380
+      },
+      {
+        "level": 3,
+        "xp_from_previous": 390,
+        "total": 770
+      },
+      {
+        "level": 4,
+        "xp_from_previous": 530,
+        "total": 1300
+      },
+      {
+        "level": 5,
+        "xp_from_previous": 850,
+        "total": 2150
+      },
+      {
+        "level": 6,
+        "xp_from_previous": 1150,
+        "total": 3300
+      },
+      {
+        "level": 7,
+        "xp_from_previous": 1500,
+        "total": 4800
+      },
+      {
+        "level": 8,
+        "xp_from_previous": 2100,
+        "total": 6900
+      },
+      {
+        "level": 9,
+        "xp_from_previous": 3100,
+        "total": 10000
+      },
+      {
+        "level": 10,
+        "xp_from_previous": 5000,
+        "total": 15000
+      }
+    ],
+    "sources": [
+      {
+        "title": "Skills",
+        "url": "https://stardewvalleywiki.com/Skills",
+        "revid": 195347
+      },
+      {
+        "title": "Farming",
+        "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+        "revid": 191914
+      },
+      {
+        "title": "Fishing",
+        "url": "https://stardewvalleywiki.com/Fishing#Experience_Points",
+        "revid": 193904
+      }
+    ],
+    "verified": {
+      "total_each_level": [
+        "Skills (Total Experience)",
+        "Skills (sum of increments)",
+        "Farming (parsnip table)",
+        "Fishing (level table)"
+      ]
+    },
+    "problems": [],
+    "verification_status": "cross-checked"
+  },
+  "mastery": {
+    "note": "Mastery points are earned only after every skill is level 10; they are a separate pool, not skill levels.",
+    "xp_rate": {
+      "farming": 0.5,
+      "other_skills": 1
+    },
+    "levels": [
+      {
+        "level": 1,
+        "points": 10000,
+        "total": 10000
+      },
+      {
+        "level": 2,
+        "points": 15000,
+        "total": 25000
+      },
+      {
+        "level": 3,
+        "points": 20000,
+        "total": 45000
+      },
+      {
+        "level": 4,
+        "points": 25000,
+        "total": 70000
+      },
+      {
+        "level": 5,
+        "points": 30000,
+        "total": 100000
+      }
+    ],
+    "evidence": [
+      "Mastery Cave: \"Each mastery claimed costs progressively more mastery points than the previous one, defining five levels of costs.\"",
+      "Mastery Cave: \"Farming experience points only contribute to mastery points at a 50% rate, while experience points for the rest of the skills contribute to mastery points at a 100% rate.\"",
+      "Books: \"Reading the Stardew Valley Almanac gives 250 XP in Farming, or 125 Mastery points.\""
+    ],
+    "sources": [
+      {
+        "title": "Mastery Cave",
+        "url": "https://stardewvalleywiki.com/Mastery_Cave#Mastery_Points",
+        "revid": 191046
+      },
+      {
+        "title": "Skills",
+        "url": "https://stardewvalleywiki.com/Skills#Mastery",
+        "revid": 195347
+      },
+      {
+        "title": "Books",
+        "url": "https://stardewvalleywiki.com/Books",
+        "revid": 193598
+      }
+    ],
+    "verified": {
+      "total_each_level": [
+        "Mastery Cave (Total Mastery Points)",
+        "Mastery Cave (sum of per-level points)",
+        "Skills (rendered transclusion)"
+      ],
+      "farming_rate": [
+        "Mastery Cave",
+        "Skills",
+        "Books (Almanac 250 XP = 125 points)"
+      ]
+    },
+    "problems": [],
+    "verification_status": "cross-checked"
+  },
+  "farming": {
+    "crop_formula": {
+      "expression": "xp = round(16 × ln(0.018 × price + 1))",
+      "text": "The experience points awarded are calculated using the formula XP=||16 × ln(0.018 × PRICE + 1)|| where PRICE is the base sell price of the crop (listed in [[Modding:Objects|Data/Objects.",
+      "rules": [
+        "Crops with multiple harvests give experience for every harvest.",
+        "Crops that yield multiple produce per harvest, such as blueberry, cranberry, or potato, only reward experience for the first product and do not offer any extra experience for the multiples.",
+        "High quality crops grant the same amount of XP as normal-quality crops."
+      ],
+      "sources": [
+        {
+          "title": "Farming",
+          "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+          "revid": 191914
+        }
+      ]
+    },
+    "crops": [
+      {
+        "id": "amaranth",
+        "name": "Amaranth",
+        "xp": 21,
+        "formula_price": 150,
+        "formula_price_item": "Amaranth",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Amaranth",
+            "url": "https://stardewvalleywiki.com/Amaranth",
+            "revid": 192043
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Amaranth (page)",
+            "Farming formula (price 150 from Amaranth)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "ancient-fruit",
+        "name": "Ancient Fruit",
+        "xp": 38,
+        "formula_price": 550,
+        "formula_price_item": "Ancient Fruit",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Ancient Fruit",
+            "url": "https://stardewvalleywiki.com/Ancient_Fruit",
+            "revid": 192083
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Ancient Fruit (page)",
+            "Farming formula (price 550 from Ancient Fruit)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "artichoke",
+        "name": "Artichoke",
+        "xp": 22,
+        "formula_price": 160,
+        "formula_price_item": "Artichoke",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Artichoke",
+            "url": "https://stardewvalleywiki.com/Artichoke",
+            "revid": 177766
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Artichoke (page)",
+            "Farming formula (price 160 from Artichoke)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "beet",
+        "name": "Beet",
+        "xp": 16,
+        "formula_price": 100,
+        "formula_price_item": "Beet",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Beet",
+            "url": "https://stardewvalleywiki.com/Beet",
+            "revid": 192014
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Beet (page)",
+            "Farming formula (price 100 from Beet)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "blue-jazz",
+        "name": "Blue Jazz",
+        "xp": 10,
+        "formula_price": 50,
+        "formula_price_item": "Blue Jazz",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Blue Jazz",
+            "url": "https://stardewvalleywiki.com/Blue_Jazz",
+            "revid": 193292
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Blue Jazz (page)",
+            "Farming formula (price 50 from Blue Jazz)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "xp": 10,
+        "formula_price": 50,
+        "formula_price_item": "Blueberry",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Blueberry",
+            "url": "https://stardewvalleywiki.com/Blueberry",
+            "revid": 192090
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Blueberry (page)",
+            "Farming formula (price 50 from Blueberry)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "bok-choy",
+        "name": "Bok Choy",
+        "xp": 14,
+        "formula_price": 80,
+        "formula_price_item": "Bok Choy",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Bok Choy",
+            "url": "https://stardewvalleywiki.com/Bok_Choy",
+            "revid": 192918
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Bok Choy (page)",
+            "Farming formula (price 80 from Bok Choy)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "broccoli",
+        "name": "Broccoli",
+        "xp": 13,
+        "formula_price": 70,
+        "formula_price_item": "Broccoli",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Broccoli",
+            "url": "https://stardewvalleywiki.com/Broccoli",
+            "revid": 192085
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Broccoli (page)",
+            "Farming formula (price 70 from Broccoli)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "cactus-fruit",
+        "name": "Cactus Fruit",
+        "xp": 14,
+        "formula_price": 75,
+        "formula_price_item": "Cactus Fruit",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Cactus Fruit",
+            "url": "https://stardewvalleywiki.com/Cactus_Fruit",
+            "revid": 193192
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Cactus Fruit (page)",
+            "Farming formula (price 75 from Cactus Fruit)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "carrot",
+        "name": "Carrot",
+        "xp": 8,
+        "formula_price": 35,
+        "formula_price_item": "Carrot",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Carrot",
+            "url": "https://stardewvalleywiki.com/Carrot",
+            "revid": 194340
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Carrot (page)",
+            "Farming formula (price 35 from Carrot)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "cauliflower",
+        "name": "Cauliflower",
+        "xp": 23,
+        "formula_price": 175,
+        "formula_price_item": "Cauliflower",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Cauliflower",
+            "url": "https://stardewvalleywiki.com/Cauliflower",
+            "revid": 191752
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Cauliflower (page)",
+            "Farming formula (price 175 from Cauliflower)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "coffee-bean",
+        "name": "Coffee Bean",
+        "xp": 4,
+        "formula_price": 15,
+        "formula_price_item": "Coffee Bean",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Coffee Bean",
+            "url": "https://stardewvalleywiki.com/Coffee_Bean",
+            "revid": 193175
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Coffee Bean (page)",
+            "Farming formula (price 15 from Coffee Bean)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "corn",
+        "name": "Corn",
+        "xp": 10,
+        "formula_price": 50,
+        "formula_price_item": "Corn",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Corn",
+            "url": "https://stardewvalleywiki.com/Corn",
+            "revid": 192088
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Corn (page)",
+            "Farming formula (price 50 from Corn)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "cranberries",
+        "name": "Cranberries",
+        "xp": 14,
+        "formula_price": 75,
+        "formula_price_item": "Cranberries",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Cranberries",
+            "url": "https://stardewvalleywiki.com/Cranberries",
+            "revid": 192078
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Cranberries (page)",
+            "Farming formula (price 75 from Cranberries)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "eggplant",
+        "name": "Eggplant",
+        "xp": 12,
+        "formula_price": 60,
+        "formula_price_item": "Eggplant",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Eggplant",
+            "url": "https://stardewvalleywiki.com/Eggplant",
+            "revid": 192081
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Eggplant (page)",
+            "Farming formula (price 60 from Eggplant)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "fairy-rose",
+        "name": "Fairy Rose",
+        "xp": 29,
+        "formula_price": 290,
+        "formula_price_item": "Fairy Rose",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Fairy Rose",
+            "url": "https://stardewvalleywiki.com/Fairy_Rose",
+            "revid": 195217
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Fairy Rose (page)",
+            "Farming formula (price 290 from Fairy Rose)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "garlic",
+        "name": "Garlic",
+        "xp": 12,
+        "formula_price": 60,
+        "formula_price_item": "Garlic",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Garlic",
+            "url": "https://stardewvalleywiki.com/Garlic",
+            "revid": 190334
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Garlic (page)",
+            "Farming formula (price 60 from Garlic)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "grape",
+        "name": "Grape",
+        "xp": 14,
+        "formula_price": 80,
+        "formula_price_item": "Grape",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Grape",
+            "url": "https://stardewvalleywiki.com/Grape",
+            "revid": 192072
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Grape (page)",
+            "Farming formula (price 80 from Grape)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "green-bean",
+        "name": "Green Bean",
+        "xp": 9,
+        "formula_price": 40,
+        "formula_price_item": "Green Bean",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Green Bean",
+            "url": "https://stardewvalleywiki.com/Green_Bean",
+            "revid": 192074
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Green Bean (page)",
+            "Farming formula (price 40 from Green Bean)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "hops",
+        "name": "Hops",
+        "xp": 6,
+        "formula_price": 25,
+        "formula_price_item": "Hops",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Hops",
+            "url": "https://stardewvalleywiki.com/Hops",
+            "revid": 192075
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Hops (page)",
+            "Farming formula (price 25 from Hops)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "hot-pepper",
+        "name": "Hot Pepper",
+        "xp": 9,
+        "formula_price": 40,
+        "formula_price_item": "Hot Pepper",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Hot Pepper",
+            "url": "https://stardewvalleywiki.com/Hot_Pepper",
+            "revid": 192919
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Hot Pepper (page)",
+            "Farming formula (price 40 from Hot Pepper)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "kale",
+        "name": "Kale",
+        "xp": 17,
+        "formula_price": 110,
+        "formula_price_item": "Kale",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Kale",
+            "url": "https://stardewvalleywiki.com/Kale",
+            "revid": 192520
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Kale (page)",
+            "Farming formula (price 110 from Kale)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "melon",
+        "name": "Melon",
+        "xp": 27,
+        "formula_price": 250,
+        "formula_price_item": "Melon",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Melon",
+            "url": "https://stardewvalleywiki.com/Melon",
+            "revid": 193510
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Melon (page)",
+            "Farming formula (price 250 from Melon)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "parsnip",
+        "name": "Parsnip",
+        "xp": 8,
+        "formula_price": 35,
+        "formula_price_item": "Parsnip",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Parsnip",
+            "url": "https://stardewvalleywiki.com/Parsnip",
+            "revid": 191123
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Parsnip (page)",
+            "Farming formula (price 35 from Parsnip)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "pineapple",
+        "name": "Pineapple",
+        "xp": 30,
+        "formula_price": 300,
+        "formula_price_item": "Pineapple",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Pineapple",
+            "url": "https://stardewvalleywiki.com/Pineapple",
+            "revid": 192084
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Pineapple (page)",
+            "Farming formula (price 300 from Pineapple)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "poppy",
+        "name": "Poppy",
+        "xp": 20,
+        "formula_price": 140,
+        "formula_price_item": "Poppy",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Poppy",
+            "url": "https://stardewvalleywiki.com/Poppy",
+            "revid": 193198
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Poppy (page)",
+            "Farming formula (price 140 from Poppy)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "potato",
+        "name": "Potato",
+        "xp": 14,
+        "formula_price": 80,
+        "formula_price_item": "Potato",
+        "regrows": false,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Potato",
+            "url": "https://stardewvalleywiki.com/Potato",
+            "revid": 192971
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Potato (page)",
+            "Farming formula (price 80 from Potato)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "powdermelon",
+        "name": "Powdermelon",
+        "xp": 12,
+        "formula_price": 60,
+        "formula_price_item": "Powdermelon",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Powdermelon",
+            "url": "https://stardewvalleywiki.com/Powdermelon",
+            "revid": 192034
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Powdermelon (page)",
+            "Farming formula (price 60 from Powdermelon)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "pumpkin",
+        "name": "Pumpkin",
+        "xp": 31,
+        "formula_price": 320,
+        "formula_price_item": "Pumpkin",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Pumpkin",
+            "url": "https://stardewvalleywiki.com/Pumpkin",
+            "revid": 192033
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Pumpkin (page)",
+            "Farming formula (price 320 from Pumpkin)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "radish",
+        "name": "Radish",
+        "xp": 15,
+        "formula_price": 90,
+        "formula_price_item": "Radish",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Radish",
+            "url": "https://stardewvalleywiki.com/Radish",
+            "revid": 191762
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Radish (page)",
+            "Farming formula (price 90 from Radish)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "red-cabbage",
+        "name": "Red Cabbage",
+        "xp": 28,
+        "formula_price": 260,
+        "formula_price_item": "Red Cabbage",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Red Cabbage",
+            "url": "https://stardewvalleywiki.com/Red_Cabbage",
+            "revid": 190562
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Red Cabbage (page)",
+            "Farming formula (price 260 from Red Cabbage)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "rhubarb",
+        "name": "Rhubarb",
+        "xp": 26,
+        "formula_price": 220,
+        "formula_price_item": "Rhubarb",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Rhubarb",
+            "url": "https://stardewvalleywiki.com/Rhubarb",
+            "revid": 192016
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Rhubarb (page)",
+            "Farming formula (price 220 from Rhubarb)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "xp": 43,
+        "formula_price": 750,
+        "formula_price_item": "Starfruit",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Starfruit",
+            "url": "https://stardewvalleywiki.com/Starfruit",
+            "revid": 192652
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Starfruit (page)",
+            "Farming formula (price 750 from Starfruit)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "strawberry",
+        "name": "Strawberry",
+        "xp": 18,
+        "formula_price": 120,
+        "formula_price_item": "Strawberry",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Strawberry",
+            "url": "https://stardewvalleywiki.com/Strawberry",
+            "revid": 192732
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Strawberry (page)",
+            "Farming formula (price 120 from Strawberry)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "summer-spangle",
+        "name": "Summer Spangle",
+        "xp": 15,
+        "formula_price": 90,
+        "formula_price_item": "Summer Spangle",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Summer Spangle",
+            "url": "https://stardewvalleywiki.com/Summer_Spangle",
+            "revid": 193280
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Summer Spangle (page)",
+            "Farming formula (price 90 from Summer Spangle)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "summer-squash",
+        "name": "Summer Squash",
+        "xp": 9,
+        "formula_price": 45,
+        "formula_price_item": "Summer Squash",
+        "regrows": true,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Summer Squash",
+            "url": "https://stardewvalleywiki.com/Summer_Squash",
+            "revid": 192626
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Summer Squash (page)",
+            "Farming formula (price 45 from Summer Squash)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "xp": 5,
+        "formula_price": 20,
+        "formula_price_item": "Sunflower Seeds",
+        "regrows": false,
+        "notes": [
+          "In Crop::harvest, Sunflower Seeds are substituted for Sunflowers before XP is calculated. Therefore, the price of Sunflower Seeds is used."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Sunflower",
+            "url": "https://stardewvalleywiki.com/Sunflower",
+            "revid": 192716
+          },
+          {
+            "title": "Sunflower Seeds",
+            "url": "https://stardewvalleywiki.com/Sunflower_Seeds",
+            "revid": 193137
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Sunflower (page)",
+            "Farming formula (price 20 from Sunflower Seeds)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sweet-gem-berry",
+        "name": "Sweet Gem Berry",
+        "xp": 64,
+        "formula_price": 3000,
+        "formula_price_item": "Sweet Gem Berry",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Sweet Gem Berry",
+            "url": "https://stardewvalleywiki.com/Sweet_Gem_Berry",
+            "revid": 192754
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Sweet Gem Berry (page)",
+            "Farming formula (price 3000 from Sweet Gem Berry)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "taro-root",
+        "name": "Taro Root",
+        "xp": 16,
+        "formula_price": 100,
+        "formula_price_item": "Taro Root",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Taro Root",
+            "url": "https://stardewvalleywiki.com/Taro_Root",
+            "revid": 192657
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Taro Root (page)",
+            "Farming formula (price 100 from Taro Root)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "tomato",
+        "name": "Tomato",
+        "xp": 12,
+        "formula_price": 60,
+        "formula_price_item": "Tomato",
+        "regrows": true,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Tomato",
+            "url": "https://stardewvalleywiki.com/Tomato",
+            "revid": 192642
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Tomato (page)",
+            "Farming formula (price 60 from Tomato)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "tulip",
+        "name": "Tulip",
+        "xp": 7,
+        "formula_price": 30,
+        "formula_price_item": "Tulip",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Tulip",
+            "url": "https://stardewvalleywiki.com/Tulip",
+            "revid": 192740
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Tulip (page)",
+            "Farming formula (price 30 from Tulip)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "unmilled-rice",
+        "name": "Unmilled Rice",
+        "xp": 7,
+        "formula_price": 30,
+        "formula_price_item": "Unmilled Rice",
+        "regrows": false,
+        "notes": [
+          "XP is given once per harvest, not per item (Farming: multi-yield crops \"only reward experience for the first product\")."
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Unmilled Rice",
+            "url": "https://stardewvalleywiki.com/Unmilled_Rice",
+            "revid": 194130
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Unmilled Rice (page)",
+            "Farming formula (price 30 from Unmilled Rice)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat",
+        "xp": 6,
+        "formula_price": 25,
+        "formula_price_item": "Wheat",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Wheat",
+            "url": "https://stardewvalleywiki.com/Wheat",
+            "revid": 192731
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Wheat (page)",
+            "Farming formula (price 25 from Wheat)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "yam",
+        "name": "Yam",
+        "xp": 22,
+        "formula_price": 160,
+        "formula_price_item": "Yam",
+        "regrows": false,
+        "notes": [],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Yam",
+            "url": "https://stardewvalleywiki.com/Yam",
+            "revid": 192644
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming (crop XP table)",
+            "Yam (page)",
+            "Farming formula (price 160 from Yam)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ],
+    "other": [
+      {
+        "id": "animal-care",
+        "action": "Petting, milking, shearing a farm animal, or picking up an animal product inside a coop/barn (each)",
+        "xp": 5,
+        "note": "(Picking up Truffles gives Foraging experience rather than Farming experience.)",
+        "evidence": [
+          "Farming: \"picking up an animal product inside a coop gives 5 experience points each\"",
+          "Skills: \"picking up an animal product inside a barn or coop each give 5 experience points\""
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Skills",
+            "url": "https://stardewvalleywiki.com/Skills#Farming",
+            "revid": 195347
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming",
+            "Skills"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "wild-seeds-harvest",
+        "action": "Harvesting a forage plant grown from Wild Seeds (also gives 2 Foraging XP)",
+        "xp": 3,
+        "evidence": [
+          "Farming: \"Wild Seeds]] grants 3 Farming experience points\"",
+          "Foraging: \"items grown from Wild Seeds (also 3 Farming XP)\""
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          },
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming",
+            "Foraging"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "skill-book",
+        "action": "Reading Stardew Valley Almanac or Book Of Stars",
+        "xp": 250,
+        "evidence": [
+          "Farming: \"250 Farming XP is gained for reading\"",
+          "Books: \"Reading the Stardew Valley Almanac gives 250 XP in Farming\"",
+          "Stardew Valley Almanac: \"players will earn 250 Farming\""
+        ],
+        "sources": [
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming",
+            "revid": 191914
+          },
+          {
+            "title": "Books",
+            "url": "https://stardewvalleywiki.com/Books",
+            "revid": 193598
+          },
+          {
+            "title": "Stardew Valley Almanac",
+            "url": "https://stardewvalleywiki.com/Stardew_Valley_Almanac",
+            "revid": 181310
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Farming",
+            "Books",
+            "Stardew Valley Almanac"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ]
+  },
+  "fishing": {
+    "formula": {
+      "expression": "base = trunc((quality + 1) × 3 + difficulty / 3); then trunc(× 2.2) if treasure; trunc(× 2.4) if perfect; trunc(× 5) if legendary",
+      "quality_values": {
+        "normal": 0,
+        "silver": 1,
+        "gold": 2
+      },
+      "text": [
+        "XP = ((Fish Quality + 1) * 3) + (Fish Difficulty / 3)",
+        "XP is multiplied by 2.2 if the player also catches a treasure chest, by 2.4 if the catch was \"perfect\" and by 5 if the catch was a Legendary fish. These multiplications stack, and are performed in order (first treasure chest, then perfect, then Legendary). If at any point in the calculation the XP is not a whole number, the decimal part of the number is truncated off before performing the next calculation.",
+        "A perfect catch will increase a silver quality fish to gold quality, and a gold quality fish to iridium quality, but it is the original quality that is used in the XP equation.",
+        "unlike the original legendary fish, it is possible to catch these fish more than once, and they do not share the same experience multiplicative factor of 5."
+      ],
+      "examples": [
+        {
+          "case": "normal Sardine",
+          "inputs": {
+            "difficulty": 30
+          },
+          "xp": 13
+        },
+        {
+          "case": "perfect Sardine with treasure",
+          "inputs": {
+            "difficulty": 30,
+            "treasure": true,
+            "perfect": true
+          },
+          "xp": 67
+        },
+        {
+          "case": "perfect gold Sardine (becomes iridium)",
+          "inputs": {
+            "difficulty": 30,
+            "quality": 2,
+            "perfect": true
+          },
+          "xp": 45
+        },
+        {
+          "case": "perfect gold Crimsonfish with treasure",
+          "inputs": {
+            "difficulty": 95,
+            "quality": 1,
+            "treasure": true,
+            "perfect": true,
+            "legendary": true
+          },
+          "xp": 970
+        }
+      ],
+      "sources": [
+        {
+          "title": "Fishing",
+          "url": "https://stardewvalleywiki.com/Fishing#Experience_Points",
+          "revid": 193904
+        },
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Legendary_Fish_II",
+          "revid": 194048
+        }
+      ],
+      "problems": [
+        "Fishing page examples disagree on the gold quality value: the Sardine example uses (2 + 1) × 3, the Crimsonfish example uses (1 + 1) × 3 (970 XP; with gold = 2 it would be 1055)."
+      ],
+      "verification_status": "needs-verification"
+    },
+    "fish": [
+      {
+        "id": "pufferfish",
+        "name": "Pufferfish",
+        "difficulty": 80,
+        "behavior": "floater",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Pufferfish",
+            "url": "https://stardewvalleywiki.com/Pufferfish",
+            "revid": 193312
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Pufferfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Pufferfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "anchovy",
+        "name": "Anchovy",
+        "difficulty": 30,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 13,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Anchovy",
+            "url": "https://stardewvalleywiki.com/Anchovy",
+            "revid": 193184
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Anchovy (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Anchovy (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "tuna",
+        "name": "Tuna",
+        "difficulty": 70,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 26,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Tuna",
+            "url": "https://stardewvalleywiki.com/Tuna",
+            "revid": 193000
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Tuna (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Tuna (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sardine",
+        "name": "Sardine",
+        "difficulty": 30,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 13,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Sardine",
+            "url": "https://stardewvalleywiki.com/Sardine",
+            "revid": 193174
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Sardine (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Sardine (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "bream",
+        "name": "Bream",
+        "difficulty": 35,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 14,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Bream",
+            "url": "https://stardewvalleywiki.com/Bream",
+            "revid": 193187
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Bream (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Bream (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "largemouth-bass",
+        "name": "Largemouth Bass",
+        "difficulty": 50,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Largemouth Bass",
+            "url": "https://stardewvalleywiki.com/Largemouth_Bass",
+            "revid": 193666
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Largemouth Bass (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Largemouth Bass (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "smallmouth-bass",
+        "name": "Smallmouth Bass",
+        "difficulty": 28,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 12,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Smallmouth Bass",
+            "url": "https://stardewvalleywiki.com/Smallmouth_Bass",
+            "revid": 193249
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Smallmouth Bass (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Smallmouth Bass (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "rainbow-trout",
+        "name": "Rainbow Trout",
+        "difficulty": 45,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 18,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Rainbow Trout",
+            "url": "https://stardewvalleywiki.com/Rainbow_Trout",
+            "revid": 193322
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Rainbow Trout (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Rainbow Trout (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "salmon",
+        "name": "Salmon",
+        "difficulty": 50,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Salmon",
+            "url": "https://stardewvalleywiki.com/Salmon",
+            "revid": 193177
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Salmon (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Salmon (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "walleye",
+        "name": "Walleye",
+        "difficulty": 45,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 18,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Walleye",
+            "url": "https://stardewvalleywiki.com/Walleye",
+            "revid": 193033
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Walleye (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Walleye (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "perch",
+        "name": "Perch",
+        "difficulty": 35,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 14,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Perch",
+            "url": "https://stardewvalleywiki.com/Perch",
+            "revid": 193194
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Perch (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Perch (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "carp",
+        "name": "Carp",
+        "difficulty": 15,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 8,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Carp",
+            "url": "https://stardewvalleywiki.com/Carp",
+            "revid": 193295
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Carp (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Carp (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "catfish",
+        "name": "Catfish",
+        "difficulty": 75,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 28,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Catfish",
+            "url": "https://stardewvalleywiki.com/Catfish",
+            "revid": 194361
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Catfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Catfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "pike",
+        "name": "Pike",
+        "difficulty": 60,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 23,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Pike",
+            "url": "https://stardewvalleywiki.com/Pike",
+            "revid": 193602
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Pike (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Pike (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sunfish",
+        "name": "Sunfish",
+        "difficulty": 30,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 13,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Sunfish",
+            "url": "https://stardewvalleywiki.com/Sunfish",
+            "revid": 194289
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Sunfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Sunfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "red-mullet",
+        "name": "Red Mullet",
+        "difficulty": 55,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 21,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Red Mullet",
+            "url": "https://stardewvalleywiki.com/Red_Mullet",
+            "revid": 193330
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Red Mullet (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Red Mullet (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "herring",
+        "name": "Herring",
+        "difficulty": 25,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 11,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Herring",
+            "url": "https://stardewvalleywiki.com/Herring",
+            "revid": 193311
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Herring (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Herring (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "eel",
+        "name": "Eel",
+        "difficulty": 70,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 26,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Eel",
+            "url": "https://stardewvalleywiki.com/Eel",
+            "revid": 193346
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Eel (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Eel (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "octopus",
+        "name": "Octopus",
+        "difficulty": 95,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 34,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Octopus",
+            "url": "https://stardewvalleywiki.com/Octopus",
+            "revid": 193235
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Octopus (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Octopus (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "red-snapper",
+        "name": "Red Snapper",
+        "difficulty": 40,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 16,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Red Snapper",
+            "url": "https://stardewvalleywiki.com/Red_Snapper",
+            "revid": 194138
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Red Snapper (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Red Snapper (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "squid",
+        "name": "Squid",
+        "difficulty": 75,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 28,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Squid",
+            "url": "https://stardewvalleywiki.com/Squid",
+            "revid": 193247
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Squid (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Squid (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sea-cucumber",
+        "name": "Sea Cucumber",
+        "difficulty": 40,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 16,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Sea Cucumber",
+            "url": "https://stardewvalleywiki.com/Sea_Cucumber",
+            "revid": 193267
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Sea Cucumber (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Sea Cucumber (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "super-cucumber",
+        "name": "Super Cucumber",
+        "difficulty": 80,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Super Cucumber",
+            "url": "https://stardewvalleywiki.com/Super_Cucumber",
+            "revid": 193352
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Super Cucumber (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Super Cucumber (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "ghostfish",
+        "name": "Ghostfish",
+        "difficulty": 50,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Ghostfish",
+            "url": "https://stardewvalleywiki.com/Ghostfish",
+            "revid": 193259
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Ghostfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Ghostfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "stonefish",
+        "name": "Stonefish",
+        "difficulty": 65,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 24,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Stonefish",
+            "url": "https://stardewvalleywiki.com/Stonefish",
+            "revid": 192670
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Stonefish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Stonefish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "ice-pip",
+        "name": "Ice Pip",
+        "difficulty": 85,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 31,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Ice Pip",
+            "url": "https://stardewvalleywiki.com/Ice_Pip",
+            "revid": 190243
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Ice Pip (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Ice Pip (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "lava-eel",
+        "name": "Lava Eel",
+        "difficulty": 90,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 33,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Lava Eel",
+            "url": "https://stardewvalleywiki.com/Lava_Eel",
+            "revid": 190296
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Lava Eel (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Lava Eel (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sandfish",
+        "name": "Sandfish",
+        "difficulty": 65,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 24,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Sandfish",
+            "url": "https://stardewvalleywiki.com/Sandfish",
+            "revid": 193274
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Sandfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Sandfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "scorpion-carp",
+        "name": "Scorpion Carp",
+        "difficulty": 90,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 33,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Scorpion Carp",
+            "url": "https://stardewvalleywiki.com/Scorpion_Carp",
+            "revid": 193157
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Scorpion Carp (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Scorpion Carp (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "flounder",
+        "name": "Flounder",
+        "difficulty": 50,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Flounder",
+            "url": "https://stardewvalleywiki.com/Flounder",
+            "revid": 193306
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Flounder (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Flounder (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "midnight-carp",
+        "name": "Midnight Carp",
+        "difficulty": 55,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 21,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Midnight Carp",
+            "url": "https://stardewvalleywiki.com/Midnight_Carp",
+            "revid": 193135
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Midnight Carp (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Midnight Carp (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "sturgeon",
+        "name": "Sturgeon",
+        "difficulty": 78,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Sturgeon",
+            "url": "https://stardewvalleywiki.com/Sturgeon",
+            "revid": 193262
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Sturgeon (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Sturgeon (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "tiger-trout",
+        "name": "Tiger Trout",
+        "difficulty": 60,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 23,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Tiger Trout",
+            "url": "https://stardewvalleywiki.com/Tiger_Trout",
+            "revid": 193608
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Tiger Trout (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Tiger Trout (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "bullhead",
+        "name": "Bullhead",
+        "difficulty": 46,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 18,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Bullhead",
+            "url": "https://stardewvalleywiki.com/Bullhead",
+            "revid": 193131
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Bullhead (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Bullhead (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "tilapia",
+        "name": "Tilapia",
+        "difficulty": 50,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Tilapia",
+            "url": "https://stardewvalleywiki.com/Tilapia",
+            "revid": 191725
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Tilapia (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Tilapia (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "chub",
+        "name": "Chub",
+        "difficulty": 35,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 14,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Chub",
+            "url": "https://stardewvalleywiki.com/Chub",
+            "revid": 193240
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Chub (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Chub (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "dorado",
+        "name": "Dorado",
+        "difficulty": 78,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Dorado",
+            "url": "https://stardewvalleywiki.com/Dorado",
+            "revid": 193288
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Dorado (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Dorado (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "albacore",
+        "name": "Albacore",
+        "difficulty": 60,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 23,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Albacore",
+            "url": "https://stardewvalleywiki.com/Albacore",
+            "revid": 193224
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Albacore (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Albacore (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "shad",
+        "name": "Shad",
+        "difficulty": 45,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 18,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Shad",
+            "url": "https://stardewvalleywiki.com/Shad",
+            "revid": 193307
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Shad (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Shad (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "lingcod",
+        "name": "Lingcod",
+        "difficulty": 85,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 31,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Lingcod",
+            "url": "https://stardewvalleywiki.com/Lingcod",
+            "revid": 193345
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Lingcod (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Lingcod (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "halibut",
+        "name": "Halibut",
+        "difficulty": 50,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Halibut",
+            "url": "https://stardewvalleywiki.com/Halibut",
+            "revid": 193213
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Halibut (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Halibut (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "woodskip",
+        "name": "Woodskip",
+        "difficulty": 50,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Woodskip",
+            "url": "https://stardewvalleywiki.com/Woodskip",
+            "revid": 186977
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Woodskip (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Woodskip (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "void-salmon",
+        "name": "Void Salmon",
+        "difficulty": 80,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Void Salmon",
+            "url": "https://stardewvalleywiki.com/Void_Salmon",
+            "revid": 192705
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Void Salmon (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Void Salmon (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "slimejack",
+        "name": "Slimejack",
+        "difficulty": 55,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 21,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Slimejack",
+            "url": "https://stardewvalleywiki.com/Slimejack",
+            "revid": 192058
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Slimejack (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Slimejack (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "stingray",
+        "name": "Stingray",
+        "difficulty": 80,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Stingray",
+            "url": "https://stardewvalleywiki.com/Stingray",
+            "revid": 180872
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Stingray (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Stingray (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "lionfish",
+        "name": "Lionfish",
+        "difficulty": 50,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 19,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Lionfish",
+            "url": "https://stardewvalleywiki.com/Lionfish",
+            "revid": 192111
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Lionfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Lionfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "blue-discus",
+        "name": "Blue Discus",
+        "difficulty": 60,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 23,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Blue Discus",
+            "url": "https://stardewvalleywiki.com/Blue_Discus",
+            "revid": 192974
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Blue Discus (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Blue Discus (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "goby",
+        "name": "Goby",
+        "difficulty": 55,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 21,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Goby",
+            "url": "https://stardewvalleywiki.com/Goby",
+            "revid": 192199
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Goby (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Goby (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "midnight-squid",
+        "name": "Midnight Squid",
+        "difficulty": 55,
+        "behavior": "sinker",
+        "legendary": false,
+        "base_xp": 21,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Midnight Squid",
+            "url": "https://stardewvalleywiki.com/Midnight_Squid",
+            "revid": 192188
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Midnight Squid (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Midnight Squid (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "spook-fish",
+        "name": "Spook Fish",
+        "difficulty": 60,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 23,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Spook Fish",
+            "url": "https://stardewvalleywiki.com/Spook_Fish",
+            "revid": 192189
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Spook Fish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Spook Fish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "blobfish",
+        "name": "Blobfish",
+        "difficulty": 75,
+        "behavior": "floater",
+        "legendary": false,
+        "base_xp": 28,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Blobfish",
+            "url": "https://stardewvalleywiki.com/Blobfish",
+            "revid": 192190
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Blobfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Blobfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "crimsonfish",
+        "name": "Crimsonfish",
+        "difficulty": 95,
+        "behavior": "mixed",
+        "legendary": true,
+        "base_xp": 170,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Crimsonfish",
+            "url": "https://stardewvalleywiki.com/Crimsonfish",
+            "revid": 193655
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Crimsonfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Crimsonfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "angler",
+        "name": "Angler",
+        "difficulty": 85,
+        "behavior": "smooth",
+        "legendary": true,
+        "base_xp": 155,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Angler",
+            "url": "https://stardewvalleywiki.com/Angler",
+            "revid": 193659
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Angler (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Angler (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "legend",
+        "name": "Legend",
+        "difficulty": 110,
+        "behavior": "mixed",
+        "legendary": true,
+        "base_xp": 195,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Legend",
+            "url": "https://stardewvalleywiki.com/Legend",
+            "revid": 193653
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Legend (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Legend (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "glacierfish",
+        "name": "Glacierfish",
+        "difficulty": 100,
+        "behavior": "mixed",
+        "legendary": true,
+        "base_xp": 180,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Glacierfish",
+            "url": "https://stardewvalleywiki.com/Glacierfish",
+            "revid": 193652
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Glacierfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Glacierfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "mutant-carp",
+        "name": "Mutant Carp",
+        "difficulty": 80,
+        "behavior": "dart",
+        "legendary": true,
+        "base_xp": 145,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Mutant Carp",
+            "url": "https://stardewvalleywiki.com/Mutant_Carp",
+            "revid": 193657
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Mutant Carp (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Mutant Carp (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "son-of-crimsonfish",
+        "name": "Son of Crimsonfish",
+        "difficulty": 95,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 34,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Son of Crimsonfish",
+            "url": "https://stardewvalleywiki.com/Son_of_Crimsonfish",
+            "revid": 193656
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Son of Crimsonfish (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Son of Crimsonfish (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "ms-angler",
+        "name": "Ms. Angler",
+        "difficulty": 85,
+        "behavior": "smooth",
+        "legendary": false,
+        "base_xp": 31,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Ms. Angler",
+            "url": "https://stardewvalleywiki.com/Ms._Angler",
+            "revid": 193660
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Ms. Angler (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Ms. Angler (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "legend-ii",
+        "name": "Legend II",
+        "difficulty": 110,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 39,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Legend II",
+            "url": "https://stardewvalleywiki.com/Legend_II",
+            "revid": 193654
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Legend II (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Legend II (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "glacierfish-jr",
+        "name": "Glacierfish Jr.",
+        "difficulty": 100,
+        "behavior": "mixed",
+        "legendary": false,
+        "base_xp": 36,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Glacierfish Jr.",
+            "url": "https://stardewvalleywiki.com/Glacierfish_Jr.",
+            "revid": 193651
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Glacierfish Jr. (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Glacierfish Jr. (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "radioactive-carp",
+        "name": "Radioactive Carp",
+        "difficulty": 80,
+        "behavior": "dart",
+        "legendary": false,
+        "base_xp": 29,
+        "in_fishponds": true,
+        "sources": [
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Radioactive Carp",
+            "url": "https://stardewvalleywiki.com/Radioactive_Carp",
+            "revid": 193658
+          }
+        ],
+        "verified": {
+          "difficulty": [
+            "Fish (table)",
+            "Radioactive Carp (infobox)"
+          ],
+          "behavior": [
+            "Fish (table)",
+            "Radioactive Carp (infobox)"
+          ],
+          "base_xp": [
+            "Fish (Base XP column)",
+            "Fishing formula"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ],
+    "other": [
+      {
+        "id": "crab-pot",
+        "action": "Collecting from a crab pot (anything, including trash)",
+        "xp": 5,
+        "applies_to": [
+          "clam",
+          "lobster",
+          "crayfish",
+          "crab",
+          "cockle",
+          "mussel",
+          "shrimp",
+          "snail",
+          "periwinkle",
+          "oyster"
+        ],
+        "evidence": [
+          "Fishing: \"crab pots earn the player 5 XP each time the player collects from them\"",
+          "Crab Pot: \"Harvesting a crab pot gives 5 Fishing experience points\"",
+          "Fish: \"Fish caught in crab pots are usually normal quality and are worth 5 fishing XP\"",
+          "Trash: \"Harvesting Trash from a Crab Pot grants 5 Fishing XP\""
+        ],
+        "sources": [
+          {
+            "title": "Fishing",
+            "url": "https://stardewvalleywiki.com/Fishing#Experience_Points",
+            "revid": 193904
+          },
+          {
+            "title": "Crab Pot",
+            "url": "https://stardewvalleywiki.com/Crab_Pot",
+            "revid": 193995
+          },
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+            "revid": 194048
+          },
+          {
+            "title": "Trash",
+            "url": "https://stardewvalleywiki.com/Trash",
+            "revid": 192655
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Fishing",
+            "Crab Pot",
+            "Fish",
+            "Trash"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "non-fish-catch",
+        "action": "Catching trash, seaweed or algae with a fishing rod",
+        "xp": 3,
+        "evidence": [
+          "Fishing: \"All non-fish items caught with the fishing pole earn 3 XP each\"",
+          "Fish: \"Each gives 3 fishing XP when caught\"",
+          "Trash: \"fishing pole]] grants 3 Fishing XP\"",
+          "Seaweed: \"Catching Seaweed with a Fishing Pole always gives 3 Fishing XP\""
+        ],
+        "sources": [
+          {
+            "title": "Fishing",
+            "url": "https://stardewvalleywiki.com/Fishing#Experience_Points",
+            "revid": 193904
+          },
+          {
+            "title": "Fish",
+            "url": "https://stardewvalleywiki.com/Fish#Other_Catchables",
+            "revid": 194048
+          },
+          {
+            "title": "Trash",
+            "url": "https://stardewvalleywiki.com/Trash",
+            "revid": 192655
+          },
+          {
+            "title": "Seaweed",
+            "url": "https://stardewvalleywiki.com/Seaweed",
+            "revid": 194145
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Fishing",
+            "Fish",
+            "Trash",
+            "Seaweed"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "skill-book",
+        "action": "Reading Bait And Bobber or Book Of Stars",
+        "xp": 250,
+        "evidence": [
+          "Fishing: \"250 Fishing XP is gained for reading\"",
+          "Books: \"Reading each of the other 4 skill books gives 250 XP in that skill\""
+        ],
+        "sources": [
+          {
+            "title": "Fishing",
+            "url": "https://stardewvalleywiki.com/Fishing",
+            "revid": 193904
+          },
+          {
+            "title": "Books",
+            "url": "https://stardewvalleywiki.com/Books",
+            "revid": 193598
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Fishing",
+            "Books"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ]
+  },
+  "foraging": {
+    "actions": [
+      {
+        "id": "tree",
+        "action": "Chopping down a mature tree",
+        "xp": 14,
+        "evidence": [
+          "Foraging: \"14 XP for chopping down a tree\"",
+          "Trees: \"12 Foraging experience points.\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Trees",
+            "url": "https://stardewvalleywiki.com/Trees",
+            "revid": 193892
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging"
+          ]
+        },
+        "problems": [
+          "xp: Foraging says 14, Trees says 12"
+        ],
+        "verification_status": "needs-verification"
+      },
+      {
+        "id": "tree-stump",
+        "action": "Removing the stump of a chopped tree",
+        "xp": 2,
+        "evidence": [
+          "Foraging: \"2 XP for removing the tree stump\"",
+          "Trees: \"1 Foraging experience point.\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Trees",
+            "url": "https://stardewvalleywiki.com/Trees",
+            "revid": 193892
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging"
+          ]
+        },
+        "problems": [
+          "xp: Foraging says 2, Trees says 1"
+        ],
+        "verification_status": "needs-verification"
+      },
+      {
+        "id": "large-stump-or-log",
+        "action": "Removing a Large Stump or Large Log",
+        "xp": 25,
+        "evidence": [
+          "Foraging: \"25 XP for removing Large Stumps and Large Logs\"",
+          "Large Stump: \"and 25 Foraging Experience points\"",
+          "Large Log: \"and 25 Foraging Experience points\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Large Stump",
+            "url": "https://stardewvalleywiki.com/Large_Stump",
+            "revid": 184860
+          },
+          {
+            "title": "Large Log",
+            "url": "https://stardewvalleywiki.com/Large_Log",
+            "revid": 175659
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Large Stump",
+            "Large Log"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "forage-item",
+        "action": "Picking up a forage item from the ground",
+        "xp": 7,
+        "evidence": [
+          "Foraging: \"7 XP for each foraged item picked up from the ground\"",
+          "Blackberry: \"Foraged from the ground: 7 Foraging XP\"",
+          "Seaweed: \"picking up from the beach gives 7 Foraging XP\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Blackberry",
+            "url": "https://stardewvalleywiki.com/Blackberry",
+            "revid": 193839
+          },
+          {
+            "title": "Seaweed",
+            "url": "https://stardewvalleywiki.com/Seaweed",
+            "revid": 194145
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Blackberry",
+            "Seaweed"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "berry-bush",
+        "action": "Shaking a Salmonberry/Blackberry bush (per berry)",
+        "xp": 1,
+        "evidence": [
+          "Foraging: \"1 XP per berry for shaking\"",
+          "Salmonberry: \"Salmonberries harvested from bushes grant 1 Foraging XP per berry\"",
+          "Blackberry: \"1 Foraging XP is granted for each Blackberry collected this way\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Salmonberry",
+            "url": "https://stardewvalleywiki.com/Salmonberry",
+            "revid": 192245
+          },
+          {
+            "title": "Blackberry",
+            "url": "https://stardewvalleywiki.com/Blackberry",
+            "revid": 193839
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Salmonberry",
+            "Blackberry"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "moss",
+        "action": "Collecting Moss from a tree (per moss)",
+        "xp": 1,
+        "evidence": [
+          "Foraging: \"1 XP for each piece of Moss\"",
+          "Moss: \"Each Moss collected gives the player 1 Foraging XP\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Moss",
+            "url": "https://stardewvalleywiki.com/Moss",
+            "revid": 193996
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Moss"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "ginger",
+        "action": "Harvesting Ginger",
+        "xp": 7,
+        "evidence": [
+          "Foraging: \"7 XP for each Ginger harvested\"",
+          "Ginger: \"Harvesting Ginger now grants 7 Foraging XP\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Ginger",
+            "url": "https://stardewvalleywiki.com/Ginger",
+            "revid": 190717
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Ginger"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "spring-onion",
+        "action": "Harvesting a Spring Onion",
+        "xp": 3,
+        "evidence": [
+          "Foraging: \"3 XP for each Spring Onion harvested\"",
+          "Spring Onion: \"Harvesting a Spring Onion grants the player 3 Foraging XP\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Spring Onion",
+            "url": "https://stardewvalleywiki.com/Spring_Onion",
+            "revid": 193371
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Spring Onion"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "wild-seeds-harvest",
+        "action": "Harvesting a plant grown from Wild Seeds (also gives 3 Farming XP)",
+        "xp": 2,
+        "evidence": [
+          "Foraging: \"2 XP for items grown from Wild Seeds\"",
+          "Farming: \"grants 3 Farming experience points and 2 Foraging experience points per plant\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Farming",
+            "url": "https://stardewvalleywiki.com/Farming#Experience_Points",
+            "revid": 191914
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Farming"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "mushroom-log",
+        "action": "Collecting a mushroom from a Mushroom Log or the Farm Cave",
+        "xp": 5,
+        "evidence": [
+          "Foraging: \"5 XP for each mushroom collected\"",
+          "Mushroom Log: \"Mushroom Logs grant 5 foraging XP on harvest\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Mushroom Log",
+            "url": "https://stardewvalleywiki.com/Mushroom_Log",
+            "revid": 191559
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Mushroom Log"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "skill-book",
+        "action": "Reading Woodcutter's Weekly or Book Of Stars",
+        "xp": 250,
+        "evidence": [
+          "Foraging: \"250 XP for reading a copy of the Woodcutter's Weekly\"",
+          "Books: \"Reading each of the other 4 skill books gives 250 XP in that skill\""
+        ],
+        "sources": [
+          {
+            "title": "Foraging",
+            "url": "https://stardewvalleywiki.com/Foraging#Experience_Points",
+            "revid": 195239
+          },
+          {
+            "title": "Books",
+            "url": "https://stardewvalleywiki.com/Books",
+            "revid": 193598
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Foraging",
+            "Books"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ]
+  },
+  "mining": {
+    "actions": [
+      {
+        "id": "panning-ore",
+        "action": "Each piece of ore obtained from panning",
+        "xp": 1,
+        "evidence": [
+          "Mining: \"One XP is given for each piece of ore gained from panning\"",
+          "Pans: \"Each ore obtained from panning gives 1 point of mining experience\""
+        ],
+        "sources": [
+          {
+            "title": "Mining",
+            "url": "https://stardewvalleywiki.com/Mining#Experience_Points",
+            "revid": 192860
+          },
+          {
+            "title": "Pans",
+            "url": "https://stardewvalleywiki.com/Pans",
+            "revid": 194243
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Mining",
+            "Pans"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "skill-book",
+        "action": "Reading Mining Monthly or Book Of Stars",
+        "xp": 250,
+        "evidence": [
+          "Mining: \"250 Mining XP is gained for reading\"",
+          "Books: \"Reading each of the other 4 skill books gives 250 XP in that skill\""
+        ],
+        "sources": [
+          {
+            "title": "Mining",
+            "url": "https://stardewvalleywiki.com/Mining#Experience_Points",
+            "revid": 192860
+          },
+          {
+            "title": "Books",
+            "url": "https://stardewvalleywiki.com/Books",
+            "revid": 193598
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Mining",
+            "Books"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ]
+  },
+  "combat": {
+    "farm_rule": "Note that killing monsters on the Farm grants only 1/3 of the standard amount of experience.",
+    "monsters": [
+      {
+        "id": "dust-sprite",
+        "name": "Dust Sprite",
+        "xp": 2,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Dust Sprite",
+            "url": "https://stardewvalleywiki.com/Dust_Sprite",
+            "revid": 185427
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Dust Sprite (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "bat",
+        "name": "Bat",
+        "xp": 3,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Bats",
+            "url": "https://stardewvalleywiki.com/Bats",
+            "revid": 195250
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Bats (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "frost-bat",
+        "name": "Frost Bat",
+        "xp": 7,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Bats",
+            "url": "https://stardewvalleywiki.com/Bats",
+            "revid": 195250
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Bats (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "lava-bat",
+        "name": "Lava Bat",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Bats",
+            "url": "https://stardewvalleywiki.com/Bats",
+            "revid": 195250
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Bats (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "iridium-bat",
+        "name": "Iridium Bat",
+        "xp": 22,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Bats",
+            "url": "https://stardewvalleywiki.com/Bats",
+            "revid": 195250
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Bats (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "stone-golem",
+        "name": "Stone Golem",
+        "xp": 5,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Stone Golem",
+            "url": "https://stardewvalleywiki.com/Stone_Golem",
+            "revid": 192726
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Stone Golem (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "iridium-golem",
+        "name": "Iridium Golem",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Iridium Golem",
+            "url": "https://stardewvalleywiki.com/Iridium_Golem",
+            "revid": 190303
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Iridium Golem (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "grub",
+        "name": "Grub",
+        "xp": 2,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Grub",
+            "url": "https://stardewvalleywiki.com/Grub",
+            "revid": 190256
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Grub (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "cave-fly",
+        "name": "Cave Fly",
+        "xp": 10,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Cave Fly",
+            "url": "https://stardewvalleywiki.com/Cave_Fly",
+            "revid": 191451
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Cave Fly (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "ghost",
+        "name": "Ghost",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Ghost",
+            "url": "https://stardewvalleywiki.com/Ghost",
+            "revid": 190352
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Ghost (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "carbon-ghost",
+        "name": "Carbon Ghost",
+        "xp": 20,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Carbon Ghost",
+            "url": "https://stardewvalleywiki.com/Carbon_Ghost",
+            "revid": 181888
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Carbon Ghost (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "duggy",
+        "name": "Duggy",
+        "xp": 10,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Duggy",
+            "url": "https://stardewvalleywiki.com/Duggy",
+            "revid": 193043
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Duggy (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "rock-crab",
+        "name": "Rock Crab",
+        "xp": 4,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Rock Crab",
+            "url": "https://stardewvalleywiki.com/Rock_Crab",
+            "revid": 194172
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Rock Crab (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "truffle-crab",
+        "name": "Truffle Crab",
+        "xp": 4,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Truffle Crab",
+            "url": "https://stardewvalleywiki.com/Truffle_Crab",
+            "revid": 192653
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Truffle Crab (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "lava-crab",
+        "name": "Lava Crab",
+        "xp": 12,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Lava Crab",
+            "url": "https://stardewvalleywiki.com/Lava_Crab",
+            "revid": 190295
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Lava Crab (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "iridium-crab",
+        "name": "Iridium Crab",
+        "xp": 20,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Iridium Crab",
+            "url": "https://stardewvalleywiki.com/Iridium_Crab",
+            "revid": 193008
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Iridium Crab (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "squid-kid",
+        "name": "Squid Kid",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Squid Kid",
+            "url": "https://stardewvalleywiki.com/Squid_Kid",
+            "revid": 192734
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Squid Kid (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "shadow-brute",
+        "name": "Shadow Brute",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Shadow Brute",
+            "url": "https://stardewvalleywiki.com/Shadow_Brute",
+            "revid": 190459
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Shadow Brute (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "shadow-shaman",
+        "name": "Shadow Shaman",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Shadow Shaman",
+            "url": "https://stardewvalleywiki.com/Shadow_Shaman",
+            "revid": 193013
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Shadow Shaman (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "skeleton",
+        "name": "Skeleton",
+        "xp": 8,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Skeleton",
+            "url": "https://stardewvalleywiki.com/Skeleton",
+            "revid": 190663
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Skeleton (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "metal-head",
+        "name": "Metal Head",
+        "xp": 6,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Metal Head",
+            "url": "https://stardewvalleywiki.com/Metal_Head",
+            "revid": 190640
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Metal Head (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "bug",
+        "name": "Bug",
+        "xp": 1,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Bug",
+            "url": "https://stardewvalleywiki.com/Bug",
+            "revid": 188218
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Bug (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "mummy",
+        "name": "Mummy",
+        "xp": 20,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Mummy",
+            "url": "https://stardewvalleywiki.com/Mummy",
+            "revid": 195292
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Mummy (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "serpent",
+        "name": "Serpent",
+        "xp": 20,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Serpent",
+            "url": "https://stardewvalleywiki.com/Serpent",
+            "revid": 190493
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Serpent (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "mutant-grub",
+        "name": "Mutant Grub",
+        "xp": 6,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Mutant Grub",
+            "url": "https://stardewvalleywiki.com/Mutant_Grub",
+            "revid": 190454
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Mutant Grub (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "mutant-fly",
+        "name": "Mutant Fly",
+        "xp": 10,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Mutant Fly",
+            "url": "https://stardewvalleywiki.com/Mutant_Fly",
+            "revid": 190672
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Mutant Fly (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "pepper-rex",
+        "name": "Pepper Rex",
+        "xp": 7,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Pepper Rex",
+            "url": "https://stardewvalleywiki.com/Pepper_Rex",
+            "revid": 190502
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Pepper Rex (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "haunted-skull",
+        "name": "Haunted Skull",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Haunted Skull",
+            "url": "https://stardewvalleywiki.com/Haunted_Skull",
+            "revid": 190414
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Haunted Skull (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "lava-lurk",
+        "name": "Lava Lurk",
+        "xp": 12,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Lava Lurk",
+            "url": "https://stardewvalleywiki.com/Lava_Lurk",
+            "revid": 190380
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Lava Lurk (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "hot-head",
+        "name": "Hot Head",
+        "xp": 16,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Hot Head",
+            "url": "https://stardewvalleywiki.com/Hot_Head",
+            "revid": 190213
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Hot Head (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "magma-sprite",
+        "name": "Magma Sprite",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Magma Sprite",
+            "url": "https://stardewvalleywiki.com/Magma_Sprite",
+            "revid": 193044
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Magma Sprite (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "magma-duggy",
+        "name": "Magma Duggy",
+        "xp": 18,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Magma Duggy",
+            "url": "https://stardewvalleywiki.com/Magma_Duggy",
+            "revid": 190407
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Magma Duggy (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "magma-sparker",
+        "name": "Magma Sparker",
+        "xp": 17,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Magma Sparker",
+            "url": "https://stardewvalleywiki.com/Magma_Sparker",
+            "revid": 191014
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Magma Sparker (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "false-magma-cap",
+        "name": "False Magma Cap",
+        "xp": 14,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "False Magma Cap",
+            "url": "https://stardewvalleywiki.com/False_Magma_Cap",
+            "revid": 190375
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "False Magma Cap (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "dwarvish-sentry",
+        "name": "Dwarvish Sentry",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Dwarvish Sentry",
+            "url": "https://stardewvalleywiki.com/Dwarvish_Sentry",
+            "revid": 184231
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Dwarvish Sentry (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "putrid-ghost",
+        "name": "Putrid Ghost",
+        "xp": 25,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Putrid Ghost",
+            "url": "https://stardewvalleywiki.com/Putrid_Ghost",
+            "revid": 194174
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Putrid Ghost (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "shadow-sniper",
+        "name": "Shadow Sniper",
+        "xp": 20,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Shadow Sniper",
+            "url": "https://stardewvalleywiki.com/Shadow_Sniper",
+            "revid": 190515
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Shadow Sniper (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "spider",
+        "name": "Spider",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Spider",
+            "url": "https://stardewvalleywiki.com/Spider",
+            "revid": 190683
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Spider (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "stick-bug",
+        "name": "Stick Bug",
+        "xp": 4,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Stick Bug",
+            "url": "https://stardewvalleywiki.com/Stick_Bug",
+            "revid": 194171
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Stick Bug (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "royal-serpent",
+        "name": "Royal Serpent",
+        "xp": 20,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Royal Serpent",
+            "url": "https://stardewvalleywiki.com/Royal_Serpent",
+            "revid": 190673
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Royal Serpent (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "blue-squid",
+        "name": "Blue Squid",
+        "xp": 15,
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Blue Squid",
+            "url": "https://stardewvalleywiki.com/Blue_Squid",
+            "revid": 177009
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat (table)",
+            "Blue Squid (infobox)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ],
+    "other": [
+      {
+        "id": "skill-book",
+        "action": "Reading Combat Quarterly or Book Of Stars",
+        "xp": 250,
+        "evidence": [
+          "Combat: \"250 Combat XP is gained for reading\"",
+          "Books: \"Reading each of the other 4 skill books gives 250 XP in that skill\""
+        ],
+        "sources": [
+          {
+            "title": "Combat",
+            "url": "https://stardewvalleywiki.com/Combat#Experience_Points",
+            "revid": 192831
+          },
+          {
+            "title": "Books",
+            "url": "https://stardewvalleywiki.com/Books",
+            "revid": 193598
+          }
+        ],
+        "verified": {
+          "xp": [
+            "Combat",
+            "Books"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ]
+  },
+  "skipped": [
+    {
+      "what": "Fiber (from Fiber Seeds)",
+      "why": "neither Fiber Seeds nor Farming states a harvest XP"
+    },
+    {
+      "what": "Fish Pond XP (quests, produce)",
+      "why": "formula-driven per pond; data/fishponds.json already carries fishing_xp per quest"
+    },
+    {
+      "what": "Foraging: twigs (1), panning items (7), Farm Cave fruit (7), Seed/Artifact Spots (15), Green Rain weeds (15)",
+      "why": "stated only on the Foraging page"
+    },
+    {
+      "what": "Mining: rock and node XP table (copper 5, iron 12, gold 18, iridium 50, gems ...)",
+      "why": "stated only on the Mining page; no node or ore page repeats the values"
+    },
+    {
+      "what": "Combat monsters: Green Slime, Wilderness Golem, Frost Jelly, Sludge, Big Slime, Tiger Slime",
+      "why": "monster page infobox does not give a single XP for that monster"
+    }
+  ]
+}

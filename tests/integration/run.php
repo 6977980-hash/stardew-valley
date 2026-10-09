@@ -184,6 +184,29 @@ st_assert( isset( $map[ $key ] ) && false !== strpos( $map[ $key ], '?ver=' . ST
 $slim = Tools::slim_crops();
 st_assert( ! isset( $slim['parsnip']['problems'] ) && 1 === count( $slim['parsnip']['sources'] ), 'inline crops are slimmed' );
 
+echo "Guides and hubs\n";
+use Stardew_Tools\Guides;
+Guides::install();
+foreach ( Guides::hubs() as $hub_id => $hub ) {
+	$page = get_page_by_path( $hub_id, OBJECT, 'page' );
+	st_assert( $page && 'publish' === $page->post_status && 0 === (int) $page->post_parent, "hub page exists: {$hub_id}" );
+	$html = do_shortcode( '[stardew_hub id="' . $hub_id . '"]' );
+	st_assert( false !== strpos( $html, '<h2' ) && false !== strpos( $html, '/' . $hub_id . '/' ), "hub renders: {$hub_id}" );
+}
+$g_answers = Data::get( 'answers' )['guides'];
+foreach ( Guides::guides() as $guide_id => $guide ) {
+	$page = get_page_by_path( $guide['hub'] . '/' . $guide_id, OBJECT, 'page' );
+	st_assert( $page && 'publish' === $page->post_status && get_page_by_path( $guide['hub'] )->ID === (int) $page->post_parent, "guide is a child of its hub: {$guide_id}" );
+	st_assert( $page && '' !== get_post_meta( $page->ID, Seo::META_DESCRIPTION, true ), "guide meta description: {$guide_id}" );
+	$html = do_shortcode( '[stardew_guide id="' . $guide_id . '"]' );
+	st_assert( false !== strpos( $html, 'Work it out for your farm' ) && false !== strpos( $html, 'class="results-table"' ), "guide renders with a table and a tool link: {$guide_id}" );
+	st_assert( 0 === preg_match( '/\b(delve|tapestry|in conclusion|it\'s worth noting)\b/i', $html ), "guide has no stock AI phrases: {$guide_id}" );
+}
+st_assert( ! empty( $g_answers['kegs'] ) && ! empty( $g_answers['fertilizer']['rows'] ) && ! empty( $g_answers['pigs']['payback_raw'] ), 'answers carry the guide numbers' );
+$kegs_html = do_shortcode( '[stardew_guide id="how-many-kegs-do-i-need"]' );
+st_assert( false !== strpos( $kegs_html, (string) $g_answers['kegs'][0]['name'] ), 'kegs guide prints the engine numbers' );
+st_assert( count( Guides::for_tool( 'keg-vs-preserves-jar' ) ) >= 1, 'tools list the guides that mention them' );
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

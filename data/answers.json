@@ -1280,5 +1280,921 @@
         "price": 1200
       }
     ]
+  },
+  "guides": {
+    "kegs": [
+      {
+        "id": "hops",
+        "name": "Hops",
+        "items_per_day": 1,
+        "items_per_harvest": 1,
+        "keg_product": "Pale Ale",
+        "keg_days": 1.41,
+        "kegs_per_plant": 1.41,
+        "kegs_per_100": 141,
+        "jars_per_plant": 2.5
+      },
+      {
+        "id": "ancient-fruit",
+        "name": "Ancient Fruit",
+        "items_per_day": 0.14,
+        "items_per_harvest": 1,
+        "keg_product": "Wine",
+        "keg_days": 6.25,
+        "kegs_per_plant": 0.89,
+        "kegs_per_100": 90,
+        "jars_per_plant": 0.36
+      },
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "items_per_day": 0.08,
+        "items_per_harvest": 1,
+        "keg_product": "Wine",
+        "keg_days": 6.25,
+        "kegs_per_plant": 0.48,
+        "kegs_per_100": 49,
+        "jars_per_plant": 0.19
+      },
+      {
+        "id": "pineapple",
+        "name": "Pineapple",
+        "items_per_day": 0.14,
+        "items_per_harvest": 1,
+        "keg_product": "Wine",
+        "keg_days": 6.25,
+        "kegs_per_plant": 0.89,
+        "kegs_per_100": 90,
+        "jars_per_plant": 0.36
+      },
+      {
+        "id": "melon",
+        "name": "Melon",
+        "items_per_day": 0.08,
+        "items_per_harvest": 1,
+        "keg_product": "Wine",
+        "keg_days": 6.25,
+        "kegs_per_plant": 0.52,
+        "kegs_per_100": 53,
+        "jars_per_plant": 0.21
+      },
+      {
+        "id": "pumpkin",
+        "name": "Pumpkin",
+        "items_per_day": 0.08,
+        "items_per_harvest": 1,
+        "keg_product": "Juice",
+        "keg_days": 3.75,
+        "kegs_per_plant": 0.29,
+        "kegs_per_100": 29,
+        "jars_per_plant": 0.19
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat",
+        "items_per_day": 0.25,
+        "items_per_harvest": 1,
+        "keg_product": "Beer",
+        "keg_days": 1.09,
+        "kegs_per_plant": 0.27,
+        "kegs_per_100": 28,
+        "jars_per_plant": 0.63
+      },
+      {
+        "id": "cranberries",
+        "name": "Cranberries",
+        "items_per_day": 0.42,
+        "items_per_harvest": 2.11,
+        "keg_product": "Wine",
+        "keg_days": 6.25,
+        "kegs_per_plant": 2.64,
+        "kegs_per_100": 264,
+        "jars_per_plant": 1.06
+      },
+      {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "items_per_day": 0.76,
+        "items_per_harvest": 3.02,
+        "keg_product": "Wine",
+        "keg_days": 6.25,
+        "kegs_per_plant": 4.72,
+        "kegs_per_100": 472,
+        "jars_per_plant": 1.89
+      }
+    ],
+    "greenhouse": {
+      "tiles": 116,
+      "by_kegs": [
+        {
+          "kegs": 0,
+          "top": [
+            {
+              "id": "ancient-fruit",
+              "name": "Ancient Fruit",
+              "total": 1030939
+            },
+            {
+              "id": "sweet-gem-berry",
+              "name": "Sweet Gem Berry",
+              "total": 941850
+            },
+            {
+              "id": "pineapple",
+              "name": "Pineapple",
+              "total": 562340
+            }
+          ]
+        },
+        {
+          "kegs": 20,
+          "top": [
+            {
+              "id": "ancient-fruit",
+              "name": "Ancient Fruit",
+              "total": 1629339
+            },
+            {
+              "id": "starfruit",
+              "name": "Starfruit",
+              "total": 1147716
+            },
+            {
+              "id": "hops",
+              "name": "Hops",
+              "total": 952002
+            }
+          ]
+        },
+        {
+          "kegs": 50,
+          "top": [
+            {
+              "id": "ancient-fruit",
+              "name": "Ancient Fruit",
+              "total": 2526939
+            },
+            {
+              "id": "starfruit",
+              "name": "Starfruit",
+              "total": 2371716
+            },
+            {
+              "id": "hops",
+              "name": "Hops",
+              "total": 1888152
+            }
+          ]
+        },
+        {
+          "kegs": 100,
+          "top": [
+            {
+              "id": "ancient-fruit",
+              "name": "Ancient Fruit",
+              "total": 4022939
+            },
+            {
+              "id": "hops",
+              "name": "Hops",
+              "total": 3448402
+            },
+            {
+              "id": "starfruit",
+              "name": "Starfruit",
+              "total": 2558916
+            }
+          ]
+        },
+        {
+          "kegs": 170,
+          "top": [
+            {
+              "id": "hops",
+              "name": "Hops",
+              "total": 5459742
+            },
+            {
+              "id": "ancient-fruit",
+              "name": "Ancient Fruit",
+              "total": 4297499
+            },
+            {
+              "id": "starfruit",
+              "name": "Starfruit",
+              "total": 2558916
+            }
+          ]
+        }
+      ],
+      "per_keg_day": [
+        {
+          "name": "Starfruit",
+          "product": "Wine",
+          "gain": 384
+        },
+        {
+          "name": "Ancient Fruit",
+          "product": "Wine",
+          "gain": 282
+        },
+        {
+          "name": "Hops",
+          "product": "Pale Ale",
+          "gain": 281
+        },
+        {
+          "name": "Pineapple",
+          "product": "Wine",
+          "gain": 154
+        }
+      ]
+    },
+    "fertilizer": {
+      "level": 6,
+      "rows": [
+        {
+          "id": "potato",
+          "name": "Potato",
+          "season": "spring",
+          "regrows": false,
+          "none": {
+            "profit": 239,
+            "harvests": 4
+          },
+          "basic-fertilizer": {
+            "profit": 173,
+            "harvests": 4
+          },
+          "quality-fertilizer": {
+            "profit": 150,
+            "harvests": 4
+          },
+          "speed-gro": {
+            "profit": 199,
+            "harvests": 5
+          },
+          "deluxe-speed-gro": {
+            "profit": 278,
+            "harvests": 6
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 375
+        },
+        {
+          "id": "cauliflower",
+          "name": "Cauliflower",
+          "season": "spring",
+          "regrows": false,
+          "none": {
+            "profit": 232,
+            "harvests": 2
+          },
+          "basic-fertilizer": {
+            "profit": 169,
+            "harvests": 2
+          },
+          "quality-fertilizer": {
+            "profit": 148,
+            "harvests": 2
+          },
+          "speed-gro": {
+            "profit": 132,
+            "harvests": 2
+          },
+          "deluxe-speed-gro": {
+            "profit": 268,
+            "harvests": 3
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 380
+        },
+        {
+          "id": "kale",
+          "name": "Kale",
+          "season": "spring",
+          "regrows": false,
+          "none": {
+            "profit": 213,
+            "harvests": 4
+          },
+          "basic-fertilizer": {
+            "profit": 160,
+            "harvests": 4
+          },
+          "quality-fertilizer": {
+            "profit": 146,
+            "harvests": 4
+          },
+          "speed-gro": {
+            "profit": 166,
+            "harvests": 5
+          },
+          "deluxe-speed-gro": {
+            "profit": 240,
+            "harvests": 6
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 400
+        },
+        {
+          "id": "blueberry",
+          "name": "Blueberry",
+          "season": "summer",
+          "regrows": true,
+          "none": {
+            "profit": 548,
+            "harvests": 4
+          },
+          "basic-fertilizer": {
+            "profit": 469,
+            "harvests": 4
+          },
+          "quality-fertilizer": {
+            "profit": 435,
+            "harvests": 4
+          },
+          "speed-gro": {
+            "profit": 605,
+            "harvests": 5
+          },
+          "deluxe-speed-gro": {
+            "profit": 625,
+            "harvests": 5
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 633
+        },
+        {
+          "id": "melon",
+          "name": "Melon",
+          "season": "summer",
+          "regrows": false,
+          "none": {
+            "profit": 401,
+            "harvests": 2
+          },
+          "basic-fertilizer": {
+            "profit": 354,
+            "harvests": 2
+          },
+          "quality-fertilizer": {
+            "profit": 345,
+            "harvests": 2
+          },
+          "speed-gro": {
+            "profit": 301,
+            "harvests": 2
+          },
+          "deluxe-speed-gro": {
+            "profit": 521,
+            "harvests": 3
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 613
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "season": "summer",
+          "regrows": false,
+          "none": {
+            "profit": 882,
+            "harvests": 2
+          },
+          "basic-fertilizer": {
+            "profit": 943,
+            "harvests": 2
+          },
+          "quality-fertilizer": {
+            "profit": 1017,
+            "harvests": 2
+          },
+          "speed-gro": {
+            "profit": 782,
+            "harvests": 2
+          },
+          "deluxe-speed-gro": {
+            "profit": 1243,
+            "harvests": 3
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 1519
+        },
+        {
+          "id": "red-cabbage",
+          "name": "Red Cabbage",
+          "season": "summer",
+          "regrows": false,
+          "none": {
+            "profit": 575,
+            "harvests": 3
+          },
+          "basic-fertilizer": {
+            "profit": 558,
+            "harvests": 3
+          },
+          "quality-fertilizer": {
+            "profit": 573,
+            "harvests": 3
+          },
+          "speed-gro": {
+            "profit": 475,
+            "harvests": 3
+          },
+          "deluxe-speed-gro": {
+            "profit": 686,
+            "harvests": 4
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 906
+        },
+        {
+          "id": "cranberries",
+          "name": "Cranberries",
+          "season": "fall",
+          "regrows": true,
+          "none": {
+            "profit": 596,
+            "harvests": 5
+          },
+          "basic-fertilizer": {
+            "profit": 535,
+            "harvests": 5
+          },
+          "quality-fertilizer": {
+            "profit": 516,
+            "harvests": 5
+          },
+          "speed-gro": {
+            "profit": 496,
+            "harvests": 5
+          },
+          "deluxe-speed-gro": {
+            "profit": 516,
+            "harvests": 5
+          },
+          "best": "none",
+          "deluxe": 754
+        },
+        {
+          "id": "pumpkin",
+          "name": "Pumpkin",
+          "season": "fall",
+          "regrows": false,
+          "none": {
+            "profit": 518,
+            "harvests": 2
+          },
+          "basic-fertilizer": {
+            "profit": 486,
+            "harvests": 2
+          },
+          "quality-fertilizer": {
+            "profit": 489,
+            "harvests": 2
+          },
+          "speed-gro": {
+            "profit": 418,
+            "harvests": 2
+          },
+          "deluxe-speed-gro": {
+            "profit": 697,
+            "harvests": 3
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 790
+        },
+        {
+          "id": "amaranth",
+          "name": "Amaranth",
+          "season": "fall",
+          "regrows": false,
+          "none": {
+            "profit": 294,
+            "harvests": 3
+          },
+          "basic-fertilizer": {
+            "profit": 242,
+            "harvests": 3
+          },
+          "quality-fertilizer": {
+            "profit": 229,
+            "harvests": 3
+          },
+          "speed-gro": {
+            "profit": 292,
+            "harvests": 4
+          },
+          "deluxe-speed-gro": {
+            "profit": 411,
+            "harvests": 5
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 485
+        },
+        {
+          "id": "bok-choy",
+          "name": "Bok Choy",
+          "season": "fall",
+          "regrows": false,
+          "none": {
+            "profit": 238,
+            "harvests": 6
+          },
+          "basic-fertilizer": {
+            "profit": 190,
+            "harvests": 6
+          },
+          "quality-fertilizer": {
+            "profit": 180,
+            "harvests": 6
+          },
+          "speed-gro": {
+            "profit": 258,
+            "harvests": 9
+          },
+          "deluxe-speed-gro": {
+            "profit": 278,
+            "harvests": 9
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 442
+        }
+      ],
+      "level0": [
+        {
+          "id": "potato",
+          "name": "Potato",
+          "season": "spring",
+          "regrows": false,
+          "none": {
+            "profit": 203,
+            "harvests": 4
+          },
+          "basic-fertilizer": {
+            "profit": 114,
+            "harvests": 4
+          },
+          "quality-fertilizer": {
+            "profit": 74,
+            "harvests": 4
+          },
+          "speed-gro": {
+            "profit": 154,
+            "harvests": 5
+          },
+          "deluxe-speed-gro": {
+            "profit": 225,
+            "harvests": 6
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 302
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "season": "summer",
+          "regrows": false,
+          "none": {
+            "profit": 715,
+            "harvests": 2
+          },
+          "basic-fertilizer": {
+            "profit": 664,
+            "harvests": 2
+          },
+          "quality-fertilizer": {
+            "profit": 660,
+            "harvests": 2
+          },
+          "speed-gro": {
+            "profit": 615,
+            "harvests": 2
+          },
+          "deluxe-speed-gro": {
+            "profit": 992,
+            "harvests": 3
+          },
+          "best": "deluxe-speed-gro",
+          "deluxe": 1175
+        }
+      ],
+      "prices": {
+        "basic-fertilizer": {
+          "name": "Basic Fertilizer",
+          "prices": {
+            "pierre": 100
+          }
+        },
+        "quality-fertilizer": {
+          "name": "Quality Fertilizer",
+          "prices": {
+            "pierre": 150
+          }
+        },
+        "deluxe-fertilizer": {
+          "name": "Deluxe Fertilizer",
+          "prices": {}
+        },
+        "speed-gro": {
+          "name": "Speed-Gro",
+          "prices": {
+            "pierre": 100
+          }
+        },
+        "deluxe-speed-gro": {
+          "name": "Deluxe Speed-Gro",
+          "prices": {
+            "pierre": 150,
+            "oasis": 80
+          }
+        },
+        "hyper-speed-gro": {
+          "name": "Hyper Speed-Gro",
+          "prices": {}
+        }
+      }
+    },
+    "fishponds": {
+      "raw": [
+        {
+          "id": "lava-eel",
+          "name": "Lava Eel",
+          "kind": "fish",
+          "gold_per_day": 560,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "blobfish",
+          "name": "Blobfish",
+          "kind": "fish",
+          "gold_per_day": 528,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "lionfish",
+          "name": "Lionfish",
+          "kind": "fish",
+          "gold_per_day": 237,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "tiger-trout",
+          "name": "Tiger Trout",
+          "kind": "fish",
+          "gold_per_day": 234,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "void-salmon",
+          "name": "Void Salmon",
+          "kind": "fish",
+          "gold_per_day": 230,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "scorpion-carp",
+          "name": "Scorpion Carp",
+          "kind": "fish",
+          "gold_per_day": 213,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "ice-pip",
+          "name": "Ice Pip",
+          "kind": "fish",
+          "gold_per_day": 212,
+          "jars": 0,
+          "max_population": 10
+        },
+        {
+          "id": "stingray",
+          "name": "Stingray",
+          "kind": "fish",
+          "gold_per_day": 202,
+          "jars": 0,
+          "max_population": 10
+        }
+      ],
+      "processed": [
+        {
+          "id": "blobfish",
+          "name": "Blobfish",
+          "kind": "fish",
+          "gold_per_day": 1390,
+          "jars": 5,
+          "max_population": 10
+        },
+        {
+          "id": "lava-eel",
+          "name": "Lava Eel",
+          "kind": "fish",
+          "gold_per_day": 1345,
+          "jars": 3,
+          "max_population": 10
+        },
+        {
+          "id": "sturgeon",
+          "name": "Sturgeon",
+          "kind": "fish",
+          "gold_per_day": 1039,
+          "jars": 6,
+          "max_population": 10
+        },
+        {
+          "id": "tiger-trout",
+          "name": "Tiger Trout",
+          "kind": "fish",
+          "gold_per_day": 656,
+          "jars": 6,
+          "max_population": 10
+        },
+        {
+          "id": "scorpion-carp",
+          "name": "Scorpion Carp",
+          "kind": "fish",
+          "gold_per_day": 597,
+          "jars": 6,
+          "max_population": 10
+        },
+        {
+          "id": "void-salmon",
+          "name": "Void Salmon",
+          "kind": "fish",
+          "gold_per_day": 587,
+          "jars": 5,
+          "max_population": 10
+        },
+        {
+          "id": "super-cucumber",
+          "name": "Super Cucumber",
+          "kind": "fish",
+          "gold_per_day": 483,
+          "jars": 3,
+          "max_population": 10
+        },
+        {
+          "id": "spook-fish",
+          "name": "Spook Fish",
+          "kind": "fish",
+          "gold_per_day": 478,
+          "jars": 3,
+          "max_population": 10
+        }
+      ],
+      "legendary": [
+        {
+          "id": "legend",
+          "name": "Legend",
+          "kind": "legendary",
+          "gold_per_day": 1356,
+          "jars": 0,
+          "max_population": 1
+        },
+        {
+          "id": "legend-ii",
+          "name": "Legend II",
+          "kind": "legendary",
+          "gold_per_day": 1356,
+          "jars": 0,
+          "max_population": 1
+        },
+        {
+          "id": "glacierfish",
+          "name": "Glacierfish",
+          "kind": "legendary",
+          "gold_per_day": 706,
+          "jars": 0,
+          "max_population": 1
+        }
+      ],
+      "sturgeon_caviar": {
+        "id": "sturgeon",
+        "name": "Sturgeon",
+        "kind": "fish",
+        "gold_per_day": 1039,
+        "jars": 6,
+        "max_population": 10
+      },
+      "count": 73
+    },
+    "pigs": {
+      "price": 16000,
+      "building": "Deluxe Barn",
+      "truffles_per_day_max": 3,
+      "truffles_per_day_half_hearts": 1.5,
+      "truffle": {
+        "normal": 625,
+        "silver": 781,
+        "gold": 937,
+        "iridium": 1250
+      },
+      "oil": {
+        "price": 1065,
+        "artisan": 1491,
+        "minutes": 360,
+        "per_machine_day": 4.44
+      },
+      "raw_per_day": 1875,
+      "oil_per_day": 3195,
+      "oil_artisan_per_day": 4473,
+      "oil_makers_per_pig": 0.67,
+      "cow_per_day": 330,
+      "payback_raw": 8.53,
+      "payback_oil_artisan": 3.58
+    }
+  },
+  "xp": {
+    "level_10": 15000,
+    "farming_per_day": [
+      {
+        "id": "hops",
+        "name": "Hops",
+        "xp": 6,
+        "per_day": 6,
+        "harvests_to_10": 2500
+      },
+      {
+        "id": "cactus-fruit",
+        "name": "Cactus Fruit",
+        "xp": 14,
+        "per_day": 4.67,
+        "harvests_to_10": 1072
+      },
+      {
+        "id": "grape",
+        "name": "Grape",
+        "xp": 14,
+        "per_day": 4.67,
+        "harvests_to_10": 1072
+      },
+      {
+        "id": "bok-choy",
+        "name": "Bok Choy",
+        "xp": 14,
+        "per_day": 3.5,
+        "harvests_to_10": 1072
+      },
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "xp": 43,
+        "per_day": 3.31,
+        "harvests_to_10": 349
+      }
+    ],
+    "parsnip": {
+      "id": "parsnip",
+      "name": "Parsnip",
+      "xp": 8,
+      "per_day": 2,
+      "harvests_to_10": 1875
+    },
+    "fishing_top": [
+      {
+        "id": "octopus",
+        "name": "Octopus",
+        "xp": 34,
+        "perfect": 81
+      },
+      {
+        "id": "lava-eel",
+        "name": "Lava Eel",
+        "xp": 33,
+        "perfect": 79
+      },
+      {
+        "id": "scorpion-carp",
+        "name": "Scorpion Carp",
+        "xp": 33,
+        "perfect": 79
+      },
+      {
+        "id": "ice-pip",
+        "name": "Ice Pip",
+        "xp": 31,
+        "perfect": 74
+      },
+      {
+        "id": "lingcod",
+        "name": "Lingcod",
+        "xp": 31,
+        "perfect": 74
+      }
+    ],
+    "sardine": {
+      "id": "sardine",
+      "name": "Sardine",
+      "xp": 13,
+      "perfect": 31
+    },
+    "crab_pot": 5
   }
 }

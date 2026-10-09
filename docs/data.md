@@ -70,6 +70,25 @@ not to Mayonnaise, Cheese or Cloth (the profession says "animal products"; some 
 Rancher price for those goods); and Truffle quality is counted as regular because it comes from the
 player's Foraging skill.
 
+## Skills, crafting, gifts and bundles
+
+Each has an importer in `tools/data/` (`import-skills.mjs`, `import-crafting.mjs`, `import-gifts.mjs`,
+`import-bundles.mjs`) and a fixture file in `tests/fixtures/` of wiki figures the tests compare against.
+Values need two agreeing pages or are flagged.
+
+- **Skills:** the wiki's gold-quality fishing examples disagree on the quality value; the tools use
+  gold = 2 as in its Sardine example. Two tree XP values (14 vs 12, stump 2 vs 1) are marked
+  needs-verification and not shown.
+- **Crafting:** 150 recipes, no open issues. Ingredients are marked raw (gathered or from a non-recipe
+  machine) or made (`via` names the recipe or furnace conversion). The Crab Pot has an alternative
+  list for the Trapper profession. Only items that a shop always sells carry a price.
+- **Gifts:** the wiki does not name every member of categories like "All Fruit", so the Gift Finder
+  never guesses an item into a category. Three villagers are needs-verification where two pages
+  disagree (Jas: Hops/Wheat/Tea Leaves exception; Leo: Mango Sticky Rice; Linus: Wild Bait). Hearts use
+  250 points per heart (Stardrop Tea: 250 points, 1 heart).
+- **Bundles:** Remixed saves pick bundles at random, which can't be read from here, so the tracker
+  asks the player which ones they have.
+
 ## Not yet covered
 
 Fruit trees and other artisan machines (Dehydrator, Fish Smoker…) are added with the tools that need them. Taro Root and Unmilled Rice
