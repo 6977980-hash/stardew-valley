@@ -1,11 +1,11 @@
 === Stardew Tools ===
-Requires at least: 6.0
-Tested up to: 6.6
+Requires at least: 6.4
+Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.2.0
 License: GPL-2.0-or-later
 
-Tools and calculators for Stardew Valley players on stardewtools.net.
+Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
 
 == Deployment ==
 This repository is the plugin folder itself. Hostinger "Deploy from GitHub" root directory:

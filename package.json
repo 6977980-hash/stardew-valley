@@ -1,0 +1,15 @@
+{
+  "name": "stardew-tools",
+  "private": true,
+  "type": "module",
+  "description": "Dev tooling for the Stardew Tools WordPress plugin (not deployed as runtime code).",
+  "scripts": {
+    "brand": "node tools/brand/render.mjs",
+    "test:e2e": "playwright test"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.10.2",
+    "@playwright/test": "1.56.1",
+    "playwright": "1.56.1"
+  }
+}

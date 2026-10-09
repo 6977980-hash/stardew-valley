@@ -1,0 +1,29 @@
+# Dependencies and build output
+node_modules/
+vendor/
+test-results/
+playwright-report/
+lighthouse/
+
+# Secrets and local config
+.env
+.env.*
+*.pem
+*.key
+auth.json
+
+# WordPress core, uploads, backups, caches (never committed)
+wp-config.php
+wp-content/uploads/
+*.sql
+*.sql.gz
+*.zip
+*.bak
+*.log
+.cache/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
