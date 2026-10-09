@@ -18,6 +18,8 @@ test.describe('tool pages @live', () => {
       await expect(page.locator('.tool-meta')).toContainText('Verified for Stardew Valley');
       const ld = await page.locator('script[type="application/ld+json"]').allTextContents();
       expect(ld.join('')).toContain('"WebApplication"');
+      const map = JSON.parse(await page.locator('script[type="importmap"]').textContent());
+      expect(Object.values(map.imports).every((u) => u.includes('?ver='))).toBe(true);
       expect(errors).toEqual([]);
     });
   }
