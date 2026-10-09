@@ -206,9 +206,26 @@ class Tools {
 			'greenhouse'  => Data::get( 'greenhouse' ),
 		);
 		echo '<script type="application/json" id="st-data">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG ) . "</script>\n";
+		echo '<script type="importmap">' . wp_json_encode( array( 'imports' => self::module_versions() ), JSON_UNESCAPED_SLASHES ) . "</script>\n";
 		$file = 'assets/js/tools/' . self::definitions()[ $id ]['script'] . '.js';
 		$ver  = STARDEW_TOOLS_VERSION . '.' . filemtime( STARDEW_TOOLS_DIR . $file );
 		printf( "<script type=\"module\" src=\"%s\"></script>\n", esc_url( add_query_arg( 'ver', $ver, STARDEW_TOOLS_URL . $file ) ) );
+	}
+
+	/**
+	 * Versioned URL for every engine and tool module. Relative imports inside the modules have no
+	 * ?ver=, so without this map a CDN or browser cache can serve an old engine file next to a new
+	 * tool file and the import fails. The import map rewrites each module URL to its versioned one.
+	 */
+	public static function module_versions() {
+		$map = array();
+		foreach ( array( 'assets/js/engine', 'assets/js/tools' ) as $dir ) {
+			foreach ( glob( STARDEW_TOOLS_DIR . $dir . '/*.js' ) as $path ) {
+				$url         = STARDEW_TOOLS_URL . $dir . '/' . basename( $path );
+				$map[ $url ] = add_query_arg( 'ver', STARDEW_TOOLS_VERSION . '.' . filemtime( $path ), $url );
+			}
+		}
+		return $map;
 	}
 
 	/** Cross-checked crops without the fields the tools never read. */

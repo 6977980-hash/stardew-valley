@@ -169,6 +169,9 @@ st_assert( 'My planner' === get_post( $edited->ID )->post_title, 'published tool
 wp_update_post( array( 'ID' => $edited->ID, 'post_title' => Tools::definitions()['greenhouse-planner']['title'] ) );
 $answers = Data::get( 'answers' );
 st_assert( 'Rhubarb' === $answers['crop_profit']['spring'][0]['name'], 'answers: Spring 1 best is Rhubarb' );
+$map = Tools::module_versions();
+$key = STARDEW_TOOLS_URL . 'assets/js/engine/index.js';
+st_assert( isset( $map[ $key ] ) && false !== strpos( $map[ $key ], '?ver=' . STARDEW_TOOLS_VERSION . '.' ), 'import map versions engine modules' );
 $slim = Tools::slim_crops();
 st_assert( ! isset( $slim['parsnip']['problems'] ) && 1 === count( $slim['parsnip']['sources'] ), 'inline crops are slimmed' );
 
