@@ -103,3 +103,8 @@ html:not(.tool-ready) .tool-results [data-results]:empty { min-height: 240px; }
 .math-details { margin-top: 12px; }
 .math-details summary { cursor: pointer; color: var(--c-link); font-weight: 700; min-height: 44px; display: flex; align-items: center; }
 .cell-sub { display: block; font-weight: 400; font-size: .85rem; color: var(--c-muted); }
+.pick { background: var(--c-surface); border: 2px solid var(--c-primary); border-radius: var(--radius); padding: 14px 16px; margin: 0 0 16px; }
+.pick h3 { margin-top: 0; }
+.pick h4 { margin: 14px 0 4px; }
+.pick .big { font-size: 1.6rem; font-weight: 800; margin: 4px 0; }
+.pick ul { margin: 0; padding-left: 1.2em; }

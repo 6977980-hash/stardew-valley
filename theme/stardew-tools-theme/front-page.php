@@ -16,7 +16,9 @@ $live = function_exists( 'stardew_tools_live_tools' ) ? stardew_tools_live_tools
 
 $questions = array();
 foreach ( $live as $t ) {
-	$questions[] = array( $t['question'], $t['blurb'], $t['icon'], $t['url'] );
+	if ( ! empty( $t['question'] ) ) {
+		$questions[] = array( $t['question'], $t['blurb'], $t['icon'], $t['url'] );
+	}
 }
 $soon = array(
 	array( 'Find a fish', 'See what you can catch by season, weather, time and location.', 'fish', '' ),
@@ -26,8 +28,9 @@ $questions = array_merge( $questions, array_slice( $soon, 0, max( 0, 6 - count( 
 
 $live_names = wp_list_pluck( $live, 'short' );
 $categories = array(
-	'Decision tools' => array( 'Crop Decision Engine', 'Keg vs Preserves Jar', 'Ancient Fruit vs Starfruit', 'Greenhouse Planner' ),
+	'Decision tools' => array( 'What to Plant Today', 'Keg vs Preserves Jar', 'Ancient Fruit vs Starfruit', 'Greenhouse Planner' ),
 	'Calculators'    => array( 'Crop Profit Calculator', 'Fish Pond Calculator', 'Animal Profit Calculator', 'Crafting Calculator', 'Farming & Fishing XP' ),
+	'Best crops'     => array( 'Best Spring Crops', 'Best Summer Crops', 'Best Fall Crops', 'Best Greenhouse Crops' ),
 	'Finders'        => array( 'Fish Finder', 'Gift Finder' ),
 	'Trackers'       => array( 'Bundle Tracker' ),
 );

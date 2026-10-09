@@ -221,5 +221,908 @@
         "machines": 52
       }
     ]
+  },
+  "best_crops": {
+    "spring": [
+      {
+        "id": "rhubarb",
+        "name": "Rhubarb",
+        "profit": 244,
+        "per_day": 9.4,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 375
+      },
+      {
+        "id": "potato",
+        "name": "Potato",
+        "profit": 203,
+        "per_day": 8.5,
+        "harvests": 4,
+        "regrows": false,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 306
+      },
+      {
+        "id": "cauliflower",
+        "name": "Cauliflower",
+        "profit": 193,
+        "per_day": 8.1,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 80,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 296
+      },
+      {
+        "id": "green-bean",
+        "name": "Green Bean",
+        "profit": 182,
+        "per_day": 7.3,
+        "harvests": 6,
+        "regrows": true,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 254
+      },
+      {
+        "id": "kale",
+        "name": "Kale",
+        "profit": 164,
+        "per_day": 6.8,
+        "harvests": 4,
+        "regrows": false,
+        "seed_price": 70,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 293
+      },
+      {
+        "id": "garlic",
+        "name": "Garlic",
+        "profit": 124,
+        "per_day": 5.1,
+        "harvests": 6,
+        "regrows": false,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 229
+      },
+      {
+        "id": "parsnip",
+        "name": "Parsnip",
+        "profit": 92,
+        "per_day": 3.8,
+        "harvests": 6,
+        "regrows": false,
+        "seed_price": 20,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 150
+      },
+      {
+        "id": "blue-jazz",
+        "name": "Blue Jazz",
+        "profit": 61,
+        "per_day": 2.9,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 30,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 105
+      },
+      {
+        "id": "tulip",
+        "name": "Tulip",
+        "profit": 41,
+        "per_day": 1.7,
+        "harvests": 4,
+        "regrows": false,
+        "seed_price": 20,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 75
+      },
+      {
+        "id": "unmilled-rice",
+        "name": "Unmilled Rice",
+        "profit": 26,
+        "per_day": 1.1,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 106
+      }
+    ],
+    "summer": [
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "profit": 715,
+        "per_day": 27.5,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 400,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 1159
+      },
+      {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "profit": 526,
+        "per_day": 21,
+        "harvests": 4,
+        "regrows": true,
+        "seed_price": 80,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 624
+      },
+      {
+        "id": "red-cabbage",
+        "name": "Red Cabbage",
+        "profit": 488,
+        "per_day": 18.1,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 719
+      },
+      {
+        "id": "corn",
+        "name": "Corn",
+        "profit": 405,
+        "per_day": 7.5,
+        "harvests": 11,
+        "regrows": true,
+        "seed_price": 150,
+        "seed_source": "pierre",
+        "continues": [
+          "Fall"
+        ],
+        "profit_pro": 565
+      },
+      {
+        "id": "hops",
+        "name": "Hops",
+        "profit": 369,
+        "per_day": 13.7,
+        "harvests": 17,
+        "regrows": true,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 485
+      },
+      {
+        "id": "melon",
+        "name": "Melon",
+        "profit": 345,
+        "per_day": 14.4,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 80,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 493
+      },
+      {
+        "id": "hot-pepper",
+        "name": "Hot Pepper",
+        "profit": 293,
+        "per_day": 11.3,
+        "harvests": 8,
+        "regrows": true,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 389
+      },
+      {
+        "id": "tomato",
+        "name": "Tomato",
+        "profit": 269,
+        "per_day": 10,
+        "harvests": 5,
+        "regrows": true,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 359
+      },
+      {
+        "id": "radish",
+        "name": "Radish",
+        "profit": 204,
+        "per_day": 8.5,
+        "harvests": 4,
+        "regrows": false,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 309
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat",
+        "profit": 198,
+        "per_day": 3.8,
+        "harvests": 13,
+        "regrows": false,
+        "seed_price": 10,
+        "seed_source": "pierre",
+        "continues": [
+          "Fall"
+        ],
+        "profit_pro": 287
+      },
+      {
+        "id": "poppy",
+        "name": "Poppy",
+        "profit": 124,
+        "per_day": 5.9,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 248
+      },
+      {
+        "id": "summer-spangle",
+        "name": "Summer Spangle",
+        "profit": 123,
+        "per_day": 5.1,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 202
+      },
+      {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "profit": -265,
+        "per_day": -5.5,
+        "harvests": 6,
+        "regrows": false,
+        "seed_price": 125,
+        "seed_source": "jojamart",
+        "continues": [
+          "Fall"
+        ],
+        "profit_pro": -123
+      }
+    ],
+    "fall": [
+      {
+        "id": "cranberries",
+        "name": "Cranberries",
+        "profit": 555,
+        "per_day": 20.6,
+        "harvests": 5,
+        "regrows": true,
+        "seed_price": 240,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 702
+      },
+      {
+        "id": "pumpkin",
+        "name": "Pumpkin",
+        "profit": 446,
+        "per_day": 17.2,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 636
+      },
+      {
+        "id": "grape",
+        "name": "Grape",
+        "profit": 425,
+        "per_day": 17,
+        "harvests": 6,
+        "regrows": true,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 567
+      },
+      {
+        "id": "artichoke",
+        "name": "Artichoke",
+        "profit": 395,
+        "per_day": 16.4,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 30,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 537
+      },
+      {
+        "id": "beet",
+        "name": "Beet",
+        "profit": 324,
+        "per_day": 13.5,
+        "harvests": 4,
+        "regrows": false,
+        "seed_price": 20,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 442
+      },
+      {
+        "id": "eggplant",
+        "name": "Eggplant",
+        "profit": 284,
+        "per_day": 11.3,
+        "harvests": 5,
+        "regrows": true,
+        "seed_price": 20,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 372
+      },
+      {
+        "id": "amaranth",
+        "name": "Amaranth",
+        "profit": 244,
+        "per_day": 11.6,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 70,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 376
+      },
+      {
+        "id": "yam",
+        "name": "Yam",
+        "profit": 203,
+        "per_day": 10.2,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 298
+      },
+      {
+        "id": "fairy-rose",
+        "name": "Fairy Rose",
+        "profit": 186,
+        "per_day": 7.7,
+        "harvests": 2,
+        "regrows": false,
+        "seed_price": 200,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 357
+      },
+      {
+        "id": "bok-choy",
+        "name": "Bok Choy",
+        "profit": 185,
+        "per_day": 7.7,
+        "harvests": 6,
+        "regrows": false,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 327
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat",
+        "profit": 91,
+        "per_day": 3.8,
+        "harvests": 6,
+        "regrows": false,
+        "seed_price": 10,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 132
+      },
+      {
+        "id": "corn",
+        "name": "Corn",
+        "profit": 52,
+        "per_day": 2,
+        "harvests": 4,
+        "regrows": true,
+        "seed_price": 150,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 110
+      },
+      {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "profit": -133,
+        "per_day": -5.5,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 125,
+        "seed_source": "jojamart",
+        "continues": [],
+        "profit_pro": -61
+      }
+    ],
+    "greenhouse": [
+      {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "profit": 3708,
+        "per_day": 34,
+        "harvests": 25,
+        "regrows": true,
+        "seed_price": 80,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 4323
+      },
+      {
+        "id": "cranberries",
+        "name": "Cranberries",
+        "profit": 3100,
+        "per_day": 29,
+        "harvests": 21,
+        "regrows": true,
+        "seed_price": 240,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 3715
+      },
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "profit": 2860,
+        "per_day": 27.5,
+        "harvests": 8,
+        "regrows": false,
+        "seed_price": 400,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 4636
+      },
+      {
+        "id": "grape",
+        "name": "Grape",
+        "profit": 2687,
+        "per_day": 24.7,
+        "harvests": 34,
+        "regrows": true,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 3494
+      },
+      {
+        "id": "hops",
+        "name": "Hops",
+        "profit": 2489,
+        "per_day": 22.4,
+        "harvests": 101,
+        "regrows": true,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 3177
+      },
+      {
+        "id": "cactus-fruit",
+        "name": "Cactus Fruit",
+        "profit": 2425,
+        "per_day": 21.8,
+        "harvests": 34,
+        "regrows": true,
+        "seed_price": 150,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 3156
+      },
+      {
+        "id": "red-cabbage",
+        "name": "Red Cabbage",
+        "profit": 1951,
+        "per_day": 18.1,
+        "harvests": 12,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 2875
+      },
+      {
+        "id": "pumpkin",
+        "name": "Pumpkin",
+        "profit": 1785,
+        "per_day": 17.2,
+        "harvests": 8,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 2545
+      },
+      {
+        "id": "artichoke",
+        "name": "Artichoke",
+        "profit": 1711,
+        "per_day": 16.4,
+        "harvests": 13,
+        "regrows": false,
+        "seed_price": 30,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 2328
+      },
+      {
+        "id": "tomato",
+        "name": "Tomato",
+        "profit": 1608,
+        "per_day": 14.5,
+        "harvests": 26,
+        "regrows": true,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 2075
+      },
+      {
+        "id": "melon",
+        "name": "Melon",
+        "profit": 1552,
+        "per_day": 14.4,
+        "harvests": 9,
+        "regrows": false,
+        "seed_price": 80,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 2217
+      },
+      {
+        "id": "hot-pepper",
+        "name": "Hot Pepper",
+        "profit": 1459,
+        "per_day": 13.3,
+        "harvests": 36,
+        "regrows": true,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1891
+      },
+      {
+        "id": "beet",
+        "name": "Beet",
+        "profit": 1458,
+        "per_day": 13.5,
+        "harvests": 18,
+        "regrows": false,
+        "seed_price": 20,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 1989
+      },
+      {
+        "id": "eggplant",
+        "name": "Eggplant",
+        "profit": 1316,
+        "per_day": 12,
+        "harvests": 22,
+        "regrows": true,
+        "seed_price": 20,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1704
+      },
+      {
+        "id": "green-bean",
+        "name": "Green Bean",
+        "profit": 1314,
+        "per_day": 12.1,
+        "harvests": 34,
+        "regrows": true,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1717
+      },
+      {
+        "id": "amaranth",
+        "name": "Amaranth",
+        "profit": 1222,
+        "per_day": 11.6,
+        "harvests": 15,
+        "regrows": false,
+        "seed_price": 70,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1882
+      },
+      {
+        "id": "yam",
+        "name": "Yam",
+        "profit": 1118,
+        "per_day": 10.2,
+        "harvests": 11,
+        "regrows": false,
+        "seed_price": 60,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1640
+      },
+      {
+        "id": "corn",
+        "name": "Corn",
+        "profit": 1112,
+        "per_day": 10.1,
+        "harvests": 25,
+        "regrows": true,
+        "seed_price": 150,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1475
+      },
+      {
+        "id": "rhubarb",
+        "name": "Rhubarb",
+        "profit": 978,
+        "per_day": 9.4,
+        "harvests": 8,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "oasis",
+        "continues": [],
+        "profit_pro": 1499
+      },
+      {
+        "id": "radish",
+        "name": "Radish",
+        "profit": 916,
+        "per_day": 8.5,
+        "harvests": 18,
+        "regrows": false,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1391
+      },
+      {
+        "id": "potato",
+        "name": "Potato",
+        "profit": 914,
+        "per_day": 8.5,
+        "harvests": 18,
+        "regrows": false,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1378
+      },
+      {
+        "id": "cauliflower",
+        "name": "Cauliflower",
+        "profit": 870,
+        "per_day": 8.1,
+        "harvests": 9,
+        "regrows": false,
+        "seed_price": 80,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1330
+      },
+      {
+        "id": "fairy-rose",
+        "name": "Fairy Rose",
+        "profit": 836,
+        "per_day": 7.7,
+        "harvests": 9,
+        "regrows": false,
+        "seed_price": 200,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1607
+      },
+      {
+        "id": "bok-choy",
+        "name": "Bok Choy",
+        "profit": 831,
+        "per_day": 7.7,
+        "harvests": 27,
+        "regrows": false,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1473
+      },
+      {
+        "id": "kale",
+        "name": "Kale",
+        "profit": 740,
+        "per_day": 6.8,
+        "harvests": 18,
+        "regrows": false,
+        "seed_price": 70,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1318
+      },
+      {
+        "id": "poppy",
+        "name": "Poppy",
+        "profit": 621,
+        "per_day": 5.9,
+        "harvests": 15,
+        "regrows": false,
+        "seed_price": 100,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1242
+      },
+      {
+        "id": "garlic",
+        "name": "Garlic",
+        "profit": 556,
+        "per_day": 5.1,
+        "harvests": 27,
+        "regrows": false,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 1032
+      },
+      {
+        "id": "summer-spangle",
+        "name": "Summer Spangle",
+        "profit": 532,
+        "per_day": 5.1,
+        "harvests": 13,
+        "regrows": false,
+        "seed_price": 50,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 874
+      },
+      {
+        "id": "parsnip",
+        "name": "Parsnip",
+        "profit": 414,
+        "per_day": 3.8,
+        "harvests": 27,
+        "regrows": false,
+        "seed_price": 20,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 674
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat",
+        "profit": 411,
+        "per_day": 3.8,
+        "harvests": 27,
+        "regrows": false,
+        "seed_price": 10,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 595
+      },
+      {
+        "id": "blue-jazz",
+        "name": "Blue Jazz",
+        "profit": 307,
+        "per_day": 2.9,
+        "harvests": 15,
+        "regrows": false,
+        "seed_price": 30,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 525
+      },
+      {
+        "id": "tulip",
+        "name": "Tulip",
+        "profit": 185,
+        "per_day": 1.7,
+        "harvests": 18,
+        "regrows": false,
+        "seed_price": 20,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 336
+      },
+      {
+        "id": "unmilled-rice",
+        "name": "Unmilled Rice",
+        "profit": 112,
+        "per_day": 1.1,
+        "harvests": 13,
+        "regrows": false,
+        "seed_price": 40,
+        "seed_source": "pierre",
+        "continues": [],
+        "profit_pro": 460
+      },
+      {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "profit": -575,
+        "per_day": -5.5,
+        "harvests": 13,
+        "regrows": false,
+        "seed_price": 125,
+        "seed_source": "jojamart",
+        "continues": [],
+        "profit_pro": -266
+      }
+    ]
+  },
+  "decision": {
+    "new_farm": {
+      "situation": {
+        "season": "spring",
+        "today": 1,
+        "tiles": 15,
+        "budget": 500,
+        "farmingLevel": 0
+      },
+      "best": {
+        "id": "potato",
+        "name": "Potato",
+        "tiles": 10,
+        "total": 2032
+      },
+      "runner_up": {
+        "name": "Garlic",
+        "total": 1483
+      },
+      "reasons": [
+        "Each Potato harvest is worth 101g per tile against 61g for Garlic."
+      ]
+    },
+    "summer_15": {
+      "situation": {
+        "season": "summer",
+        "today": 15,
+        "tiles": 40,
+        "budget": 2000,
+        "farmingLevel": 4
+      },
+      "best": {
+        "id": "wheat",
+        "name": "Wheat",
+        "tiles": 40,
+        "total": 6825
+      },
+      "runner_up": {
+        "name": "Melon",
+        "total": 4785
+      },
+      "reasons": [
+        "Wheat also grows in Fall, so you can keep harvesting it after this season ends: 10 harvests against 1 for Melon.",
+        "Your gold buys seeds for 40 tiles of Wheat but only 25 of Melon."
+      ]
+    }
   }
 }

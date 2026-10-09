@@ -24,11 +24,21 @@ class Tools {
 
 	/** Tool id (also page slug) => definition. Order is the order on the homepage and in menus. */
 	public static function definitions() {
-		return array(
+		$tools = array(
+			'what-to-plant'              => array(
+				'title'       => 'What Should I Plant Today? Stardew Valley Crop Planner',
+				'short'       => 'What to Plant Today',
+				'question'    => 'What should I plant today?',
+				'blurb'       => 'Tell it the day, your gold, tiles and machines; get one crop, why it wins, and a shopping list.',
+				'description' => 'What should I plant in Stardew Valley today? Enter the day, your gold, tiles, kegs and skills; get the best crop, the reasons and a seed shopping list (1.6).',
+				'icon'        => 'sprout',
+				'script'      => 'what-to-plant',
+				'related'     => array( 'crop-profit-calculator', 'best-spring-crops', 'keg-vs-preserves-jar' ),
+			),
 			'crop-profit-calculator'     => array(
 				'title'       => 'Stardew Valley Crop Profit Calculator',
 				'short'       => 'Crop Profit Calculator',
-				'question'    => 'What should I plant?',
+				'question'    => 'Which crop earns the most?',
 				'blurb'       => 'Profit for every crop from today until the season ends, with your fertilizer, professions and sell method.',
 				'description' => 'Free Stardew Valley crop profit calculator for 1.6: pick your season and day, fertilizer and professions, and see profit per tile with the math shown.',
 				'icon'        => 'sprout',
@@ -66,6 +76,30 @@ class Tools {
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),
 			),
 		);
+		// Best crops by season: one shared template, a server-rendered table per season.
+		$seasons = array(
+			'spring'     => 'Spring',
+			'summer'     => 'Summer',
+			'fall'       => 'Fall',
+			'greenhouse' => 'Greenhouse',
+		);
+		foreach ( $seasons as $key => $name ) {
+			$others = array_values( array_diff( array( 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'best-greenhouse-crops' ), array( 'best-' . $key . '-crops' ) ) );
+			$tools[ 'best-' . $key . '-crops' ] = array(
+				'title'       => 'Best ' . $name . ' Crops in Stardew Valley (1.6)',
+				'short'       => 'Best ' . $name . ' Crops',
+				'blurb'       => 'greenhouse' === $key ? 'Every crop ranked by profit per tile over a full greenhouse year.' : 'Every ' . strtolower( $name ) . ' crop ranked by profit per tile, with the math.',
+				'description' => 'greenhouse' === $key
+					? 'The best crops for the Stardew Valley greenhouse in 1.6, ranked by profit per tile over a year, with seed prices, harvests and gold per day.'
+					: 'The best ' . strtolower( $name ) . ' crops in Stardew Valley 1.6, ranked by profit per tile, with seed prices, harvests, gold per day and the math.',
+				'icon'        => 'sprout',
+				'script'      => 'best-crops',
+				'template'    => 'best-crops',
+				'season'      => $key,
+				'related'     => array_merge( array( 'what-to-plant' ), array_slice( $others, 0, 3 ) ),
+			);
+		}
+		return $tools;
 	}
 
 	public static function init() {
@@ -136,7 +170,8 @@ class Tools {
 		if ( ! isset( $defs[ $atts['id'] ] ) ) {
 			return '';
 		}
-		$file = STARDEW_TOOLS_DIR . 'includes/tool-templates/' . $atts['id'] . '.php';
+		$template = isset( $defs[ $atts['id'] ]['template'] ) ? $defs[ $atts['id'] ]['template'] : $atts['id'];
+		$file     = STARDEW_TOOLS_DIR . 'includes/tool-templates/' . $template . '.php';
 		if ( ! file_exists( $file ) ) {
 			return '';
 		}
@@ -255,7 +290,28 @@ class Tools {
 		if ( ! $id ) {
 			return $graph;
 		}
-		$def     = self::definitions()[ $id ];
+		$def = self::definitions()[ $id ];
+		if ( isset( $def['season'] ) ) {
+			// Ranked guide pages are articles; the table on them is the content.
+			$graph[] = array(
+				'@type'         => 'Article',
+				'headline'      => $def['title'],
+				'description'   => $def['description'],
+				'url'           => get_permalink( get_queried_object_id() ),
+				'dateModified'  => Data::summary()['checked'],
+				'author'        => array(
+					'@type' => 'Person',
+					'name'  => Config::get( 'author' ),
+				),
+				'publisher'     => array( '@id' => home_url( '/' ) . '#organization' ),
+				'about'         => array(
+					'@type' => 'VideoGame',
+					'name'  => 'Stardew Valley',
+				),
+				'inLanguage'    => 'en',
+			);
+			return $graph;
+		}
 		$graph[] = array(
 			'@type'               => 'WebApplication',
 			'name'                => $def['short'],
