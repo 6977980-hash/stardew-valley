@@ -1,0 +1,1843 @@
+{
+ "note": "Prices rendered by the wiki in each pond fish page infobox (base/fisher/angler per quality shown: regular, silver, gold, iridium; crab pot fish show fewer). Artisan = Roe / Aged Roe / Caviar.",
+ "fish": {
+  "albacore": {
+   "name": "Albacore",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "anchovy": {
+   "name": "Anchovy",
+   "base": [
+    30,
+    37,
+    45,
+    60
+   ],
+   "fisher": [
+    37,
+    46,
+    56,
+    75
+   ],
+   "angler": [
+    45,
+    55,
+    67,
+    90
+   ],
+   "artisan": {
+    "Roe": 45,
+    "Aged Roe": 90,
+    "Aged Roe (+40%)": 126
+   }
+  },
+  "angler": {
+   "name": "Angler",
+   "base": [
+    900,
+    1125,
+    1350,
+    1800
+   ],
+   "fisher": [
+    1125,
+    1406,
+    1687,
+    2250
+   ],
+   "angler": [
+    1350,
+    1687,
+    2025,
+    2700
+   ],
+   "artisan": {
+    "Roe": 480,
+    "Aged Roe": 960,
+    "Aged Roe (+40%)": 1344
+   }
+  },
+  "blobfish": {
+   "name": "Blobfish",
+   "base": [
+    500,
+    625,
+    750,
+    1000
+   ],
+   "fisher": [
+    625,
+    781,
+    937,
+    1250
+   ],
+   "angler": [
+    750,
+    937,
+    1125,
+    1500
+   ],
+   "artisan": {
+    "Roe": 280,
+    "Aged Roe": 560,
+    "Aged Roe (+40%)": 784
+   }
+  },
+  "blue-discus": {
+   "name": "Blue Discus",
+   "base": [
+    120,
+    150,
+    180,
+    240
+   ],
+   "fisher": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "angler": [
+    180,
+    225,
+    270,
+    360
+   ],
+   "artisan": {
+    "Roe": 90,
+    "Aged Roe": 180,
+    "Aged Roe (+40%)": 252
+   }
+  },
+  "bream": {
+   "name": "Bream",
+   "base": [
+    45,
+    56,
+    67,
+    90
+   ],
+   "fisher": [
+    56,
+    70,
+    83,
+    112
+   ],
+   "angler": [
+    67,
+    84,
+    100,
+    135
+   ],
+   "artisan": {
+    "Roe": 52,
+    "Aged Roe": 104,
+    "Aged Roe (+40%)": 145
+   }
+  },
+  "bullhead": {
+   "name": "Bullhead",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "carp": {
+   "name": "Carp",
+   "base": [
+    30,
+    37,
+    45,
+    60
+   ],
+   "fisher": [
+    37,
+    46,
+    56,
+    75
+   ],
+   "angler": [
+    45,
+    55,
+    67,
+    90
+   ],
+   "artisan": {
+    "Roe": 45,
+    "Aged Roe": 90,
+    "Aged Roe (+40%)": 126
+   }
+  },
+  "catfish": {
+   "name": "Catfish",
+   "base": [
+    200,
+    250,
+    300,
+    400
+   ],
+   "fisher": [
+    250,
+    312,
+    375,
+    500
+   ],
+   "angler": [
+    300,
+    375,
+    450,
+    600
+   ],
+   "artisan": {
+    "Roe": 130,
+    "Aged Roe": 260,
+    "Aged Roe (+40%)": 364
+   }
+  },
+  "chub": {
+   "name": "Chub",
+   "base": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "fisher": [
+    62,
+    77,
+    93,
+    125
+   ],
+   "angler": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "artisan": {
+    "Roe": 55,
+    "Aged Roe": 110,
+    "Aged Roe (+40%)": 154
+   }
+  },
+  "clam": {
+   "name": "Clam",
+   "base": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "fisher": [
+    62,
+    77,
+    93,
+    125
+   ],
+   "angler": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "artisan": {
+    "Roe": 55,
+    "Aged Roe": 110,
+    "Aged Roe (+40%)": 154
+   }
+  },
+  "cockle": {
+   "name": "Cockle",
+   "base": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "fisher": [
+    62,
+    77,
+    93,
+    125
+   ],
+   "angler": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "artisan": {
+    "Roe": 55,
+    "Aged Roe": 110,
+    "Aged Roe (+40%)": 154
+   }
+  },
+  "coral": {
+   "name": "Coral",
+   "base": [
+    80,
+    100,
+    120,
+    160
+   ],
+   "fisher": null,
+   "angler": null,
+   "artisan": null
+  },
+  "crab": {
+   "name": "Crab",
+   "base": [
+    100,
+    125
+   ],
+   "fisher": [
+    125,
+    156
+   ],
+   "angler": [
+    150,
+    187
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "crayfish": {
+   "name": "Crayfish",
+   "base": [
+    75,
+    93
+   ],
+   "fisher": [
+    93,
+    116
+   ],
+   "angler": [
+    112,
+    139
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "crimsonfish": {
+   "name": "Crimsonfish",
+   "base": [
+    1500,
+    1875,
+    2250,
+    3000
+   ],
+   "fisher": [
+    1875,
+    2343,
+    2812,
+    3750
+   ],
+   "angler": [
+    2250,
+    2812,
+    3375,
+    4500
+   ],
+   "artisan": {
+    "Roe": 780,
+    "Aged Roe": 1560,
+    "Aged Roe (+40%)": 2184
+   }
+  },
+  "dorado": {
+   "name": "Dorado",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "eel": {
+   "name": "Eel",
+   "base": [
+    85,
+    106,
+    127,
+    170
+   ],
+   "fisher": [
+    106,
+    132,
+    158,
+    212
+   ],
+   "angler": [
+    127,
+    159,
+    190,
+    255
+   ],
+   "artisan": {
+    "Roe": 72,
+    "Aged Roe": 144,
+    "Aged Roe (+40%)": 201
+   }
+  },
+  "flounder": {
+   "name": "Flounder",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "ghostfish": {
+   "name": "Ghostfish",
+   "base": [
+    45,
+    56,
+    67,
+    90
+   ],
+   "fisher": [
+    56,
+    70,
+    83,
+    112
+   ],
+   "angler": [
+    67,
+    84,
+    100,
+    135
+   ],
+   "artisan": {
+    "Roe": 52,
+    "Aged Roe": 104,
+    "Aged Roe (+40%)": 145
+   }
+  },
+  "glacierfish": {
+   "name": "Glacierfish",
+   "base": [
+    1000,
+    1250,
+    1500,
+    2000
+   ],
+   "fisher": [
+    1250,
+    1562,
+    1875,
+    2500
+   ],
+   "angler": [
+    1500,
+    1875,
+    2250,
+    3000
+   ],
+   "artisan": {
+    "Roe": 530,
+    "Aged Roe": 1060,
+    "Aged Roe (+40%)": 1484
+   }
+  },
+  "glacierfish-jr": {
+   "name": "Glacierfish Jr.",
+   "base": [
+    1000,
+    1250,
+    1500,
+    2000
+   ],
+   "fisher": [
+    1250,
+    1562,
+    1875,
+    2500
+   ],
+   "angler": [
+    1500,
+    1875,
+    2250,
+    3000
+   ],
+   "artisan": {
+    "Roe": 530,
+    "Aged Roe": 1060,
+    "Aged Roe (+40%)": 1484
+   }
+  },
+  "goby": {
+   "name": "Goby",
+   "base": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "fisher": [
+    187,
+    233,
+    281,
+    375
+   ],
+   "angler": [
+    225,
+    280,
+    337,
+    450
+   ],
+   "artisan": {
+    "Roe": 105,
+    "Aged Roe": 210,
+    "Aged Roe (+40%)": 294
+   }
+  },
+  "halibut": {
+   "name": "Halibut",
+   "base": [
+    80,
+    100,
+    120,
+    160
+   ],
+   "fisher": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "angler": [
+    120,
+    150,
+    180,
+    240
+   ],
+   "artisan": {
+    "Roe": 70,
+    "Aged Roe": 140,
+    "Aged Roe (+40%)": 196
+   }
+  },
+  "herring": {
+   "name": "Herring",
+   "base": [
+    30,
+    37,
+    45,
+    60
+   ],
+   "fisher": [
+    37,
+    46,
+    56,
+    75
+   ],
+   "angler": [
+    45,
+    55,
+    67,
+    90
+   ],
+   "artisan": {
+    "Roe": 45,
+    "Aged Roe": 90,
+    "Aged Roe (+40%)": 126
+   }
+  },
+  "ice-pip": {
+   "name": "Ice Pip",
+   "base": [
+    500,
+    625,
+    750,
+    1000
+   ],
+   "fisher": [
+    625,
+    781,
+    937,
+    1250
+   ],
+   "angler": [
+    750,
+    937,
+    1125,
+    1500
+   ],
+   "artisan": {
+    "Roe": 280,
+    "Aged Roe": 560,
+    "Aged Roe (+40%)": 784
+   }
+  },
+  "largemouth-bass": {
+   "name": "Largemouth Bass",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "lava-eel": {
+   "name": "Lava Eel",
+   "base": [
+    700,
+    875,
+    1050,
+    1400
+   ],
+   "fisher": [
+    875,
+    1093,
+    1312,
+    1750
+   ],
+   "angler": [
+    1050,
+    1312,
+    1575,
+    2100
+   ],
+   "artisan": {
+    "Roe": 380,
+    "Aged Roe": 760,
+    "Aged Roe (+40%)": 1064
+   }
+  },
+  "legend": {
+   "name": "Legend",
+   "base": [
+    5000,
+    6250,
+    7500,
+    10000
+   ],
+   "fisher": [
+    6250,
+    7812,
+    9375,
+    12500
+   ],
+   "angler": [
+    7500,
+    9375,
+    11250,
+    15000
+   ],
+   "artisan": {
+    "Roe": 2530,
+    "Aged Roe": 5060,
+    "Aged Roe (+40%)": 7084
+   }
+  },
+  "legend-ii": {
+   "name": "Legend II",
+   "base": [
+    5000,
+    6250,
+    7500,
+    10000
+   ],
+   "fisher": [
+    6250,
+    7812,
+    9375,
+    12500
+   ],
+   "angler": [
+    7500,
+    9375,
+    11250,
+    15000
+   ],
+   "artisan": {
+    "Roe": 2530,
+    "Aged Roe": 5060,
+    "Aged Roe (+40%)": 7084
+   }
+  },
+  "lingcod": {
+   "name": "Lingcod",
+   "base": [
+    120,
+    150,
+    180,
+    240
+   ],
+   "fisher": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "angler": [
+    180,
+    225,
+    270,
+    360
+   ],
+   "artisan": {
+    "Roe": 90,
+    "Aged Roe": 180,
+    "Aged Roe (+40%)": 252
+   }
+  },
+  "lionfish": {
+   "name": "Lionfish",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "lobster": {
+   "name": "Lobster",
+   "base": [
+    120,
+    150
+   ],
+   "fisher": [
+    150,
+    187
+   ],
+   "angler": [
+    180,
+    225
+   ],
+   "artisan": {
+    "Roe": 90,
+    "Aged Roe": 180,
+    "Aged Roe (+40%)": 252
+   }
+  },
+  "midnight-carp": {
+   "name": "Midnight Carp",
+   "base": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "fisher": [
+    187,
+    233,
+    281,
+    375
+   ],
+   "angler": [
+    225,
+    280,
+    337,
+    450
+   ],
+   "artisan": {
+    "Roe": 105,
+    "Aged Roe": 210,
+    "Aged Roe (+40%)": 294
+   }
+  },
+  "midnight-squid": {
+   "name": "Midnight Squid",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "ms-angler": {
+   "name": "Ms. Angler",
+   "base": [
+    900,
+    1125,
+    1350,
+    1800
+   ],
+   "fisher": [
+    1125,
+    1406,
+    1687,
+    2250
+   ],
+   "angler": [
+    1350,
+    1687,
+    2025,
+    2700
+   ],
+   "artisan": {
+    "Roe": 480,
+    "Aged Roe": 960,
+    "Aged Roe (+40%)": 1344
+   }
+  },
+  "mussel": {
+   "name": "Mussel",
+   "base": [
+    30,
+    37,
+    45,
+    60
+   ],
+   "fisher": [
+    37,
+    46,
+    56,
+    75
+   ],
+   "angler": [
+    45,
+    55,
+    67,
+    90
+   ],
+   "artisan": {
+    "Roe": 45,
+    "Aged Roe": 90,
+    "Aged Roe (+40%)": 126
+   }
+  },
+  "mutant-carp": {
+   "name": "Mutant Carp",
+   "base": [
+    1000,
+    1250,
+    1500,
+    2000
+   ],
+   "fisher": [
+    1250,
+    1562,
+    1875,
+    2500
+   ],
+   "angler": [
+    1500,
+    1875,
+    2250,
+    3000
+   ],
+   "artisan": {
+    "Roe": 530,
+    "Aged Roe": 1060,
+    "Aged Roe (+40%)": 1484
+   }
+  },
+  "octopus": {
+   "name": "Octopus",
+   "base": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "fisher": [
+    187,
+    233,
+    281,
+    375
+   ],
+   "angler": [
+    225,
+    280,
+    337,
+    450
+   ],
+   "artisan": {
+    "Roe": 105,
+    "Aged Roe": 210,
+    "Aged Roe (+40%)": 294
+   }
+  },
+  "oyster": {
+   "name": "Oyster",
+   "base": [
+    40,
+    50,
+    60,
+    80
+   ],
+   "fisher": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "angler": [
+    60,
+    75,
+    90,
+    120
+   ],
+   "artisan": {
+    "Roe": 50,
+    "Aged Roe": 100,
+    "Aged Roe (+40%)": 140
+   }
+  },
+  "perch": {
+   "name": "Perch",
+   "base": [
+    55,
+    68,
+    82,
+    110
+   ],
+   "fisher": [
+    68,
+    85,
+    102,
+    137
+   ],
+   "angler": [
+    82,
+    102,
+    123,
+    165
+   ],
+   "artisan": {
+    "Roe": 57,
+    "Aged Roe": 114,
+    "Aged Roe (+40%)": 159
+   }
+  },
+  "periwinkle": {
+   "name": "Periwinkle",
+   "base": [
+    20,
+    25
+   ],
+   "fisher": [
+    25,
+    31
+   ],
+   "angler": [
+    30,
+    37
+   ],
+   "artisan": {
+    "Roe": 40,
+    "Aged Roe": 80,
+    "Aged Roe (+40%)": 112
+   }
+  },
+  "pike": {
+   "name": "Pike",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "pufferfish": {
+   "name": "Pufferfish",
+   "base": [
+    200,
+    250,
+    300,
+    400
+   ],
+   "fisher": [
+    250,
+    312,
+    375,
+    500
+   ],
+   "angler": [
+    300,
+    375,
+    450,
+    600
+   ],
+   "artisan": {
+    "Roe": 130,
+    "Aged Roe": 260,
+    "Aged Roe (+40%)": 364
+   }
+  },
+  "radioactive-carp": {
+   "name": "Radioactive Carp",
+   "base": [
+    1000,
+    1250,
+    1500,
+    2000
+   ],
+   "fisher": [
+    1250,
+    1562,
+    1875,
+    2500
+   ],
+   "angler": [
+    1500,
+    1875,
+    2250,
+    3000
+   ],
+   "artisan": {
+    "Roe": 530,
+    "Aged Roe": 1060,
+    "Aged Roe (+40%)": 1484
+   }
+  },
+  "rainbow-trout": {
+   "name": "Rainbow Trout",
+   "base": [
+    65,
+    81,
+    97,
+    130
+   ],
+   "fisher": [
+    81,
+    101,
+    121,
+    162
+   ],
+   "angler": [
+    97,
+    121,
+    145,
+    195
+   ],
+   "artisan": {
+    "Roe": 62,
+    "Aged Roe": 124,
+    "Aged Roe (+40%)": 173
+   }
+  },
+  "red-mullet": {
+   "name": "Red Mullet",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "red-snapper": {
+   "name": "Red Snapper",
+   "base": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "fisher": [
+    62,
+    77,
+    93,
+    125
+   ],
+   "angler": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "artisan": {
+    "Roe": 55,
+    "Aged Roe": 110,
+    "Aged Roe (+40%)": 154
+   }
+  },
+  "salmon": {
+   "name": "Salmon",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "sandfish": {
+   "name": "Sandfish",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "sardine": {
+   "name": "Sardine",
+   "base": [
+    40,
+    50,
+    60,
+    80
+   ],
+   "fisher": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "angler": [
+    60,
+    75,
+    90,
+    120
+   ],
+   "artisan": {
+    "Roe": 50,
+    "Aged Roe": 100,
+    "Aged Roe (+40%)": 140
+   }
+  },
+  "scorpion-carp": {
+   "name": "Scorpion Carp",
+   "base": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "fisher": [
+    187,
+    233,
+    281,
+    375
+   ],
+   "angler": [
+    225,
+    280,
+    337,
+    450
+   ],
+   "artisan": {
+    "Roe": 105,
+    "Aged Roe": 210,
+    "Aged Roe (+40%)": 294
+   }
+  },
+  "sea-cucumber": {
+   "name": "Sea Cucumber",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "sea-urchin": {
+   "name": "Sea Urchin",
+   "base": [
+    160,
+    200,
+    240,
+    320
+   ],
+   "fisher": null,
+   "angler": null,
+   "artisan": {
+    "Roe": 110,
+    "Aged Roe": 220,
+    "Aged Roe (+40%)": 308
+   }
+  },
+  "shad": {
+   "name": "Shad",
+   "base": [
+    60,
+    75,
+    90,
+    120
+   ],
+   "fisher": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "angler": [
+    90,
+    112,
+    135,
+    180
+   ],
+   "artisan": {
+    "Roe": 60,
+    "Aged Roe": 120,
+    "Aged Roe (+40%)": 168
+   }
+  },
+  "shrimp": {
+   "name": "Shrimp",
+   "base": [
+    60,
+    75
+   ],
+   "fisher": [
+    75,
+    93
+   ],
+   "angler": [
+    90,
+    112
+   ],
+   "artisan": {
+    "Roe": 60,
+    "Aged Roe": 120,
+    "Aged Roe (+40%)": 168
+   }
+  },
+  "slimejack": {
+   "name": "Slimejack",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "smallmouth-bass": {
+   "name": "Smallmouth Bass",
+   "base": [
+    50,
+    62,
+    75,
+    100
+   ],
+   "fisher": [
+    62,
+    77,
+    93,
+    125
+   ],
+   "angler": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "artisan": {
+    "Roe": 55,
+    "Aged Roe": 110,
+    "Aged Roe (+40%)": 154
+   }
+  },
+  "snail": {
+   "name": "Snail",
+   "base": [
+    65,
+    81
+   ],
+   "fisher": [
+    81,
+    101
+   ],
+   "angler": [
+    97,
+    121
+   ],
+   "artisan": {
+    "Roe": 62,
+    "Aged Roe": 124,
+    "Aged Roe (+40%)": 173
+   }
+  },
+  "son-of-crimsonfish": {
+   "name": "Son of Crimsonfish",
+   "base": [
+    1500,
+    1875,
+    2250,
+    3000
+   ],
+   "fisher": [
+    1875,
+    2343,
+    2812,
+    3750
+   ],
+   "angler": [
+    2250,
+    2812,
+    3375,
+    4500
+   ],
+   "artisan": {
+    "Roe": 780,
+    "Aged Roe": 1560,
+    "Aged Roe (+40%)": 2184
+   }
+  },
+  "spook-fish": {
+   "name": "Spook Fish",
+   "base": [
+    220,
+    275,
+    330,
+    440
+   ],
+   "fisher": [
+    275,
+    343,
+    412,
+    550
+   ],
+   "angler": [
+    330,
+    412,
+    495,
+    660
+   ],
+   "artisan": {
+    "Roe": 140,
+    "Aged Roe": 280,
+    "Aged Roe (+40%)": 392
+   }
+  },
+  "squid": {
+   "name": "Squid",
+   "base": [
+    80,
+    100,
+    120,
+    160
+   ],
+   "fisher": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "angler": [
+    120,
+    150,
+    180,
+    240
+   ],
+   "artisan": {
+    "Roe": 70,
+    "Aged Roe": 140,
+    "Aged Roe (+40%)": 196
+   }
+  },
+  "stingray": {
+   "name": "Stingray",
+   "base": [
+    180,
+    225,
+    270,
+    360
+   ],
+   "fisher": [
+    225,
+    281,
+    337,
+    450
+   ],
+   "angler": [
+    270,
+    337,
+    405,
+    540
+   ],
+   "artisan": {
+    "Roe": 120,
+    "Aged Roe": 240,
+    "Aged Roe (+40%)": 336
+   }
+  },
+  "stonefish": {
+   "name": "Stonefish",
+   "base": [
+    300,
+    375,
+    450,
+    600
+   ],
+   "fisher": [
+    375,
+    468,
+    562,
+    750
+   ],
+   "angler": [
+    450,
+    562,
+    675,
+    900
+   ],
+   "artisan": {
+    "Roe": 180,
+    "Aged Roe": 360,
+    "Aged Roe (+40%)": 504
+   }
+  },
+  "sturgeon": {
+   "name": "Sturgeon",
+   "base": [
+    200,
+    250,
+    300,
+    400
+   ],
+   "fisher": [
+    250,
+    312,
+    375,
+    500
+   ],
+   "angler": [
+    300,
+    375,
+    450,
+    600
+   ],
+   "artisan": {
+    "Roe": 130,
+    "Caviar": 500,
+    "Caviar (+40%)": 700
+   }
+  },
+  "sunfish": {
+   "name": "Sunfish",
+   "base": [
+    30,
+    37,
+    45,
+    60
+   ],
+   "fisher": [
+    37,
+    46,
+    56,
+    75
+   ],
+   "angler": [
+    45,
+    55,
+    67,
+    90
+   ],
+   "artisan": {
+    "Roe": 45,
+    "Aged Roe": 90,
+    "Aged Roe (+40%)": 126
+   }
+  },
+  "super-cucumber": {
+   "name": "Super Cucumber",
+   "base": [
+    250,
+    312,
+    375,
+    500
+   ],
+   "fisher": [
+    312,
+    390,
+    468,
+    625
+   ],
+   "angler": [
+    375,
+    468,
+    562,
+    750
+   ],
+   "artisan": {
+    "Roe": 155,
+    "Aged Roe": 310,
+    "Aged Roe (+40%)": 434
+   }
+  },
+  "tiger-trout": {
+   "name": "Tiger Trout",
+   "base": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "fisher": [
+    187,
+    233,
+    281,
+    375
+   ],
+   "angler": [
+    225,
+    280,
+    337,
+    450
+   ],
+   "artisan": {
+    "Roe": 105,
+    "Aged Roe": 210,
+    "Aged Roe (+40%)": 294
+   }
+  },
+  "tilapia": {
+   "name": "Tilapia",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  },
+  "tuna": {
+   "name": "Tuna",
+   "base": [
+    100,
+    125,
+    150,
+    200
+   ],
+   "fisher": [
+    125,
+    156,
+    187,
+    250
+   ],
+   "angler": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "artisan": {
+    "Roe": 80,
+    "Aged Roe": 160,
+    "Aged Roe (+40%)": 224
+   }
+  },
+  "void-salmon": {
+   "name": "Void Salmon",
+   "base": [
+    150,
+    187,
+    225,
+    300
+   ],
+   "fisher": [
+    187,
+    233,
+    281,
+    375
+   ],
+   "angler": [
+    225,
+    280,
+    337,
+    450
+   ],
+   "artisan": {
+    "Roe": 105,
+    "Aged Roe": 210,
+    "Aged Roe (+40%)": 294
+   }
+  },
+  "walleye": {
+   "name": "Walleye",
+   "base": [
+    105,
+    131,
+    157,
+    210
+   ],
+   "fisher": [
+    131,
+    163,
+    196,
+    262
+   ],
+   "angler": [
+    157,
+    196,
+    235,
+    315
+   ],
+   "artisan": {
+    "Roe": 82,
+    "Aged Roe": 164,
+    "Aged Roe (+40%)": 229
+   }
+  },
+  "woodskip": {
+   "name": "Woodskip",
+   "base": [
+    75,
+    93,
+    112,
+    150
+   ],
+   "fisher": [
+    93,
+    116,
+    140,
+    187
+   ],
+   "angler": [
+    112,
+    139,
+    168,
+    225
+   ],
+   "artisan": {
+    "Roe": 67,
+    "Aged Roe": 134,
+    "Aged Roe (+40%)": 187
+   }
+  }
+ }
+}

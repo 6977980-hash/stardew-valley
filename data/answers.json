@@ -1124,5 +1124,161 @@
         "Your gold buys seeds for 40 tiles of Wheat but only 25 of Melon."
       ]
     }
+  },
+  "fishpond": {
+    "raw": [
+      {
+        "id": "lava-eel",
+        "name": "Lava Eel",
+        "gold_per_day": 560,
+        "jars": 0
+      },
+      {
+        "id": "blobfish",
+        "name": "Blobfish",
+        "gold_per_day": 528,
+        "jars": 0
+      },
+      {
+        "id": "lionfish",
+        "name": "Lionfish",
+        "gold_per_day": 237,
+        "jars": 0
+      },
+      {
+        "id": "tiger-trout",
+        "name": "Tiger Trout",
+        "gold_per_day": 234,
+        "jars": 0
+      },
+      {
+        "id": "void-salmon",
+        "name": "Void Salmon",
+        "gold_per_day": 230,
+        "jars": 0
+      }
+    ],
+    "processed": [
+      {
+        "id": "blobfish",
+        "name": "Blobfish",
+        "gold_per_day": 1390,
+        "jars": 5
+      },
+      {
+        "id": "lava-eel",
+        "name": "Lava Eel",
+        "gold_per_day": 1345,
+        "jars": 3
+      },
+      {
+        "id": "sturgeon",
+        "name": "Sturgeon",
+        "gold_per_day": 1039,
+        "jars": 6
+      },
+      {
+        "id": "tiger-trout",
+        "name": "Tiger Trout",
+        "gold_per_day": 656,
+        "jars": 6
+      },
+      {
+        "id": "scorpion-carp",
+        "name": "Scorpion Carp",
+        "gold_per_day": 597,
+        "jars": 6
+      }
+    ]
+  },
+  "animals": {
+    "raw": [
+      {
+        "id": "pig",
+        "name": "Pig",
+        "gold_per_day": 1875,
+        "price": 16000
+      },
+      {
+        "id": "cow",
+        "name": "Cow",
+        "gold_per_day": 330,
+        "price": 1500
+      },
+      {
+        "id": "goat",
+        "name": "Goat",
+        "gold_per_day": 299,
+        "price": 4000
+      },
+      {
+        "id": "sheep",
+        "name": "Sheep",
+        "gold_per_day": 295,
+        "price": 8000
+      },
+      {
+        "id": "rabbit",
+        "name": "Rabbit",
+        "gold_per_day": 175,
+        "price": 8000
+      },
+      {
+        "id": "chicken",
+        "name": "Chicken",
+        "gold_per_day": 165,
+        "price": 800
+      },
+      {
+        "id": "duck",
+        "name": "Duck",
+        "gold_per_day": 122,
+        "price": 1200
+      }
+    ],
+    "processed": [
+      {
+        "id": "pig",
+        "name": "Pig",
+        "gold_per_day": 4473,
+        "price": 16000
+      },
+      {
+        "id": "sheep",
+        "name": "Sheep",
+        "gold_per_day": 562,
+        "price": 8000
+      },
+      {
+        "id": "cow",
+        "name": "Cow",
+        "gold_per_day": 482,
+        "price": 1500
+      },
+      {
+        "id": "goat",
+        "name": "Goat",
+        "gold_per_day": 420,
+        "price": 4000
+      },
+      {
+        "id": "chicken",
+        "name": "Chicken",
+        "gold_per_day": 399,
+        "price": 800
+      },
+      {
+        "id": "rabbit",
+        "name": "Rabbit",
+        "gold_per_day": 271,
+        "price": 8000
+      },
+      {
+        "id": "duck",
+        "name": "Duck",
+        "gold_per_day": 249,
+        "price": 1200
+      }
+    ]
   }
 }

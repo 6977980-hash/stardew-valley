@@ -33,7 +33,7 @@ Claude / local dev  →  GitHub (6977980-hash/stardew-valley, branch main)
 | `includes/class-admin.php` | Settings > Stardew Tools (status + ad settings) |
 | `includes/class-tools.php` + `includes/tool-templates/` | Tool pages: creates one page per tool (`[stardew_tool id]` shortcode, never overwritten once published), renders the template, adds `assets/css/tools.css`, the game data inline (`#st-data`), the tool's ES module and WebApplication JSON-LD |
 
-Tools live in the plugin, not in the theme. Each tool is a PHP template (server-rendered short
+Tools live in the plugin, not in the theme. A definition may name a shared `template` (the four "Best … Crops" pages share `best-crops.php` and differ by `season`); those pages render their ranked table on the server and use Article schema instead of WebApplication. Each tool is a PHP template (server-rendered short
 answer from `data/answers.json`, the form, explanation) plus a module in `assets/js/tools/` that
 reads the form and renders results with the engine. `common.js` keeps form state in the URL (share
 links) and in localStorage, and renders "Explain the Math". Form field names must not be WordPress
@@ -58,6 +58,8 @@ Never edit these files by hand; fix the importer and re-run it. See `docs/data.m
 | `professions.json` | Tiller, Artisan, Agriculturist |
 | `seasons.json` | 4 seasons of 28 days |
 | `greenhouse.json` | Soil grid (12 × 10) and the verified sprinkler layouts that water all of it |
+| `fishponds.json` | 73 pond fish: base price, roe, max population, produce table by population (item, quantity, share, price), pond rules (base chance, extra roe), Aged Roe / Caviar, Fisher/Angler |
+| `animals.json` | Coop and barn animals: price, building, maturity, frequency, regular and Large/Deluxe products, quality and Large formulas, pig truffles, artisan machines and goods, hay |
 | `answers.json` | Built, not imported: short answers shown on the tool pages |
 
 ## Calculation engine (`assets/js/engine/`)
@@ -75,6 +77,9 @@ tests. Functions are pure: data goes in as arguments.
 | `profit.js` | Profit over the growing window with step-by-step explanation (`steps`) for "Explain the Math"; `sellAs: 'best'`, `established` regrowing crops |
 | `machines.js` | Splits a harvest across the kegs and jars you own (greedy by gain per item, limited by machine runs) |
 | `greenhouse.js` | Sprinkler coverage of the greenhouse soil and the painted layout |
+| `fishpond.js` | Daily produce and gold for a pond (base chance × share, extra roe), Aged Roe / Caviar and jars needed, every fish ranked |
+| `animals.js` | Quality, Large/Deluxe chance, frequency, pig truffles, machines and professions for one animal type; every animal ranked |
+| `decision.js` | Decision engine: ranks crops for one player's day, gold, tiles, machines and skills (`rankCrops`) and explains the winner against the runner-up in plain sentences (`reasons`) |
 
 ## Theme (presentation)
 
@@ -100,3 +105,7 @@ Google's own CMP, configured in AdSense > Privacy & messaging.
 - Other pages: `{Title} | Stardew Tools`
 - Schema: WebSite + Organization (home), BreadcrumbList (pages). FAQ/HowTo only where content truly is one.
 - Sitemap: WordPress core `/wp-sitemap.xml`, users removed, pages with `_stardew_tools_noindex` excluded.
+
+Tool pages only inline the data sets their definition lists in `data` (default: crops, fertilizers,
+machines, seasons, greenhouse). Fish ponds and animals are slimmed first (`Tools::slim_fishponds()`,
+`Tools::slim_animals()`): the full files carry wiki evidence and are too large to inline.

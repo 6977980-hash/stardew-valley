@@ -31,7 +31,7 @@ $top    = array_slice( $rows, 0, 3 );
 	<p>Profit is sale value minus seeds over the <?php echo 'greenhouse' === $season ? 'greenhouse year (112 days)' : 'season'; ?>. Change your farming level, fertilizer or Tiller below and the ranking updates. Planting later in the season? Use <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'what-to-plant' ) ); ?>">What to Plant Today</a>.</p>
 </div>
 
-<form class="tool-form tool-form--compact" id="best-crops-form" data-season="<?php echo esc_attr( $season ); ?>" novalidate>
+<form class="tool-form" id="best-crops-form" data-season="<?php echo esc_attr( $season ); ?>" novalidate>
 	<fieldset>
 		<legend>Your farm</legend>
 		<div class="field-grid">

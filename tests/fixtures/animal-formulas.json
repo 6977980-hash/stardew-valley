@@ -1,0 +1,52 @@
+{
+ "sources": [
+  {
+   "title": "Animals",
+   "url": "https://stardewvalleywiki.com/Animals",
+   "revid": 195333
+  },
+  {
+   "title": "Farming",
+   "url": "https://stardewvalleywiki.com/Farming",
+   "revid": 191914
+  }
+ ],
+ "quality_table": {
+  "friendship": 1000,
+  "mood": 255,
+  "rows": [
+   {
+    "profession": false,
+    "iridium": 0.56665,
+    "gold": 0.24556,
+    "silver": 0.18779
+   },
+   {
+    "profession": true,
+    "iridium": 0.73315,
+    "gold": 0.19564,
+    "silver": 0.07121
+   }
+  ]
+ },
+ "quality_example": {
+  "friendship": 600,
+  "mood": 150,
+  "score": 0.266,
+  "gold_pct": 13,
+  "silver_pct_if_not_gold": 26.6
+ },
+ "deluxe_examples": {
+  "large": {
+   "friendship": 600,
+   "mood": 210,
+   "expected": 0.7625
+  },
+  "rabbit": {
+   "friendship": 600,
+   "mood": 150,
+   "daily_luck": 0.1,
+   "expected": 0.22
+  }
+ }
+}

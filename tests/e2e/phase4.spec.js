@@ -2,7 +2,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const PAGES = ['/what-to-plant/', '/best-spring-crops/', '/best-summer-crops/', '/best-fall-crops/', '/best-greenhouse-crops/'];
+const PAGES = ['/what-to-plant/', '/fish-pond-calculator/', '/animal-profit-calculator/', '/best-spring-crops/', '/best-summer-crops/', '/best-fall-crops/', '/best-greenhouse-crops/'];
 const summary = (page) => page.locator('[data-summary]');
 
 test.describe('phase 4 pages @live', () => {
@@ -40,6 +40,22 @@ test.describe('decisions @live', () => {
   test('kegs change the plan', async ({ page }) => {
     await page.goto('/what-to-plant/?season=summer&today=15&budget=2000&tiles=40&kegs=10&artisan=1&level=4');
     await expect(page.locator('.pick')).toContainText('into Kegs');
+  });
+
+  test('fish pond: Sturgeon roe becomes Caviar, jars shown', async ({ page }) => {
+    await page.goto('/fish-pond-calculator/?fish=sturgeon&pop=10&roe=processed&artisan=1');
+    await expect(summary(page)).toContainText('95% of days');
+    await expect(summary(page)).toContainText('Preserves Jar');
+    await expect(page.locator('[data-results]')).toContainText('Caviar');
+    await expect(page.locator('[data-ranking] tbody tr').first()).toContainText('Blobfish');
+  });
+
+  test('animals: cow at full hearts, and pig truffles', async ({ page }) => {
+    await page.goto('/animal-profit-calculator/?animal=cow&hearts=5&mood=255');
+    await expect(summary(page)).toContainText('330g a day');
+    await page.selectOption('#st-animal', 'pig');
+    await expect(summary(page)).toContainText('1,875g a day');
+    await expect(page.locator('[data-ranking] tbody tr').first()).toContainText('Pig');
   });
 
   test('best crops re-rank with Tiller', async ({ page }) => {

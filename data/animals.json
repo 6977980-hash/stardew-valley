@@ -1,0 +1,2529 @@
+{
+  "schema": "stardew-tools/animals@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between each animal page, Animals, Marnie's Ranch, Coop/Barn, product pages and Animal Products Profitability",
+  "professions": {
+    "rancher": {
+      "sell_multiplier": 1.2,
+      "wiki_wording": "Animal products worth 20% more.",
+      "applies_to": "products with rancher: true",
+      "sources": [
+        {
+          "title": "Farming/Skill",
+          "url": "https://stardewvalleywiki.com/Farming/Skill",
+          "revid": 190383
+        }
+      ]
+    },
+    "artisan": {
+      "sell_multiplier": 1.4,
+      "wiki_wording": "Artisan Goods will be worth 40% more (with the exception of Oil and Coffee).",
+      "applies_to": "artisan goods with artisan: true",
+      "sources": [
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods",
+          "revid": 195351
+        },
+        {
+          "title": "Farming/Skill",
+          "url": "https://stardewvalleywiki.com/Farming/Skill",
+          "revid": 190383
+        }
+      ]
+    },
+    "rounding_note": "Rancher and Artisan prices in the wiki infoboxes equal floor(base x multiplier); the importer checks this for every normal-quality price above."
+  },
+  "feeding": {
+    "hay": {
+      "price": 50,
+      "shop": "marnie",
+      "per_animal_per_day": 1
+    },
+    "eats_hay_when": "All Coop-dwelling and Barn-dwelling Animals eat 1 Hay per day as food whenever there is no fresh Grass available.",
+    "stays_inside": "They will not go out in winter, or when it is rainy, stormy, or snowy.",
+    "grass_portion": "If eating fresh grass, coop animals need to eat 2 tufts of grass (1 tuft of Blue Grass), and barn animals need to eat 4 (2 tufts of Blue Grass).",
+    "unfed": "They do not die if not fed, but become upset and cease production of animal products until feeding resumes.",
+    "babies": "If they don't have food, they do not grow on that day.",
+    "autofeed": "The Deluxe Coop features an Autofeed System; hay from your silos will be automatically distributed.",
+    "production_rules": [
+      "If the animal was not fed, it will not produce.",
+      "If the animal has less than 70 Mood, there is a chance it will not produce. The lower the mood, the less likely it will produce. The percent chance it will still produce is equal to Mood / 70."
+    ],
+    "sources": [
+      {
+        "title": "Marnie's Ranch",
+        "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Shop_Inventory",
+        "revid": 195237
+      },
+      {
+        "title": "Hay",
+        "url": "https://stardewvalleywiki.com/Hay",
+        "revid": 195142
+      },
+      {
+        "title": "Animals",
+        "url": "https://stardewvalleywiki.com/Animals#Food",
+        "revid": 195333
+      }
+    ],
+    "verified": {
+      "hay_price": [
+        "Marnie's Ranch",
+        "Hay"
+      ],
+      "hay_per_animal_per_day": [
+        "Hay",
+        "Animals"
+      ]
+    },
+    "problems": []
+  },
+  "quality": {
+    "score_formula": "(Friendship / 1000) - (1 - (Mood / 225))",
+    "friendship_divisor": 1000,
+    "mood_divisor": 225,
+    "profession_bonus": 0.333,
+    "profession_bonus_applies": {
+      "coop": "coopmaster",
+      "barn": "shepherd"
+    },
+    "iridium_min_score": 0.95,
+    "order": [
+      "If it is, the score divided by 2 will be compared against a random number between 0-1. If the score divided by 2 is greater than the random number, the item will be Iridium quality.",
+      "If an Iridium quality item is not produced, the score divided by 2 will be compared against a random number between 0-1. If the score divided by 2 is greater than the random number, the item will be Gold quality.",
+      "If a Gold quality item is not produced, the score will be compared against a random number between 0-1. If it is greater than the random number, the item will be Silver quality."
+    ],
+    "requires": "If the animal has the ability to produce a Quality item (150 mood or higher), it will roll for quality from normal to iridium.",
+    "truffle_note": "Collection will be affected by Foraging skill, allowing the player to gather iridium quality Truffles with a chance of double harvest.",
+    "sources": [
+      {
+        "title": "Animals",
+        "url": "https://stardewvalleywiki.com/Animals#Quality",
+        "revid": 195333
+      },
+      {
+        "title": "Farming",
+        "url": "https://stardewvalleywiki.com/Farming#Effect_of_Coopmaster_and_Shepherd_on_Animal_Product_Quality_Frequency",
+        "revid": 191914
+      }
+    ],
+    "verified": {
+      "profession_bonus": [
+        "Animals",
+        "Farming"
+      ]
+    },
+    "problems": []
+  },
+  "deluxe_rules": {
+    "mood_modifier": {
+      "above_200": 1.5,
+      "at_or_below_100": "mood - 100",
+      "otherwise": 0,
+      "wiki_wording": [
+        "If Mood is more than 200, it will be multiplied by 1.5",
+        "If Mood is 100 or less, then \"Mood Modifier\" will be the animal's mood minus 100 (This will always result in a negative or zero modifier)",
+        "Otherwise \"Mood Modifier\" is Zero (Mood is higher than 100, and up to 200)"
+      ]
+    },
+    "rules": {
+      "large": {
+        "applies_to": [
+          "large-egg",
+          "large-milk",
+          "large-goat-milk"
+        ],
+        "formula": "(Friendship + (Mood × Mood Modifier)) / 1200",
+        "divisor": 1200,
+        "min_friendship": 200,
+        "daily_luck": false
+      },
+      "duck-feather": {
+        "formula": "((Friendship + (Mood × Mood Modifier)) / 4750) + Daily Luck",
+        "divisor": 4750,
+        "daily_luck": true
+      },
+      "rabbits-foot": {
+        "formula": "((Friendship + (Mood × Mood Modifier)) / 5000) + Daily Luck",
+        "divisor": 5000,
+        "daily_luck": true
+      }
+    },
+    "ability": "If an animal is below 150 Mood, it still has a chance to have the ability to produce Quality and Large or Deluxe products. The lower the mood, the less likely. The percent chance to gain the ability is equal to Mood / 150.",
+    "roll": "Each time a product is rolled, a number between 0-1 is chosen randomly. If the overall score is higher than the random number, a Large product will be created.",
+    "stated_maximum": "At max Friendship, Mood, and Luck, there is a 40% chance of getting a Rabbit's Foot and a 42% chance of getting a Duck Feather.",
+    "sources": [
+      {
+        "title": "Animals",
+        "url": "https://stardewvalleywiki.com/Animals#Deluxe_and_Large_Products",
+        "revid": 195333
+      }
+    ]
+  },
+  "animals": [
+    {
+      "id": "chicken",
+      "name": "Chicken",
+      "building": "coop",
+      "building_level": 1,
+      "building_name": "Coop",
+      "purchase_price": 800,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 3,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 1,
+        "frequency_reductions": [],
+        "notes": [
+          "Animals who can produce a Deluxe/Large product will sometimes produce more frequently, however — In this case, animals that normally would take multiple days to produce, will produce again immediately the next day."
+        ]
+      },
+      "products": {
+        "regular": "egg",
+        "large": "large-egg"
+      },
+      "large_product": {
+        "product": "large-egg",
+        "rule": "large",
+        "wiki_wording": "Once sufficient friendship and happiness is reached, it has a chance to produce a Large Egg or Large Brown Egg which sells for 95g."
+      },
+      "notes": [
+        "After seeing Shane's 8-heart event, each chicken you purchase from Marnie has a 25% chance of being blue.",
+        "Aside from appearance, blue chickens are identical to regular white and brown chickens.",
+        "White and blue chickens produce white eggs, and brown chickens produce brown eggs, so it makes a difference in completing the Community Center Bundles, especially if Remixed Bundles is not chosen at start of game."
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Chicken",
+          "url": "https://stardewvalleywiki.com/Chicken",
+          "revid": 195314
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Chicken (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Chicken (infobox)",
+          "Coop",
+          "Marnie's Ranch"
+        ],
+        "frequency_days": [
+          "Chicken (Produce)",
+          "Animals (Chickens)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "duck",
+      "name": "Duck",
+      "building": "coop",
+      "building_level": 2,
+      "building_name": "Big Coop",
+      "purchase_price": 1200,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 5,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 2,
+        "frequency_reductions": [],
+        "notes": [
+          "Animals who can produce a Deluxe/Large product will sometimes produce more frequently, however — In this case, animals that normally would take multiple days to produce, will produce again immediately the next day."
+        ]
+      },
+      "products": {
+        "regular": "duck-egg",
+        "large": "duck-feather"
+      },
+      "large_product": {
+        "product": "duck-feather",
+        "rule": "duck-feather",
+        "wiki_wording": "Once sufficient friendship and happiness is reached, a duck may produce a Duck Feather instead of a Duck Egg, which sells for 250g."
+      },
+      "notes": [
+        "Ducks are unique in that if they swim on water, such as on the Farm Pond, Riverland or Beach Farms, they do not need to eat hay or grass to be fed overnight."
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Duck",
+          "url": "https://stardewvalleywiki.com/Duck",
+          "revid": 195334
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Duck (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Duck (infobox)",
+          "Coop",
+          "Marnie's Ranch",
+          "Animals"
+        ],
+        "frequency_days": [
+          "Duck (Produce)",
+          "Animals (Ducks)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "rabbit",
+      "name": "Rabbit",
+      "building": "coop",
+      "building_level": 3,
+      "building_name": "Deluxe Coop",
+      "purchase_price": 8000,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 6,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 4,
+        "frequency_reductions": [],
+        "notes": [
+          "Animals who can produce a Deluxe/Large product will sometimes produce more frequently, however — In this case, animals that normally would take multiple days to produce, will produce again immediately the next day."
+        ]
+      },
+      "products": {
+        "regular": "wool",
+        "large": "rabbits-foot"
+      },
+      "large_product": {
+        "product": "rabbits-foot",
+        "rule": "rabbits-foot",
+        "wiki_wording": "Once sufficient friendship and happiness are reached, a rabbit may produce a Rabbit's Foot instead of wool, which sells for 565g."
+      },
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Rabbit",
+          "url": "https://stardewvalleywiki.com/Rabbit",
+          "revid": 195310
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Rabbit (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Rabbit (infobox)",
+          "Coop",
+          "Marnie's Ranch",
+          "Animals"
+        ],
+        "frequency_days": [
+          "Rabbit (Produce)",
+          "Animals (Rabbits)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "void-chicken",
+      "name": "Void Chicken",
+      "building": "coop",
+      "building_level": 2,
+      "building_name": "Big Coop",
+      "purchase_price": null,
+      "purchase_shop": null,
+      "acquisition": {
+        "wiki_wording": "Void Chickens can be hatched by placing a Void Egg into an Incubator, taking 9,000m (5d 16h 40m) to incubate, or 4,500m (2d 21h 40m) with the Coopmaster Profession. There is no other way to obtain a Void Chicken.",
+        "egg": {
+          "item": "void-egg",
+          "shop": "krobus",
+          "price": 5000
+        }
+      },
+      "days_to_mature": 3,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 1,
+        "frequency_reductions": [],
+        "notes": [
+          "The Animals page gives the interval once for its whole \"Chickens\" section (\"Adult chickens will produce eggs every morning if fed.\"), which also lists the Void Chicken."
+        ]
+      },
+      "products": {
+        "regular": "void-egg",
+        "large": null
+      },
+      "large_product": null,
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Void Chicken",
+          "url": "https://stardewvalleywiki.com/Void_Chicken",
+          "revid": 195312
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Void Chicken (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Void Chicken (infobox)",
+          "Coop"
+        ],
+        "frequency_days": [
+          "Void Chicken (Produce)",
+          "Animals (Chickens)"
+        ],
+        "void_egg_price_krobus": [
+          "Animals",
+          "Void Egg"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "golden-chicken",
+      "name": "Golden Chicken",
+      "building": "coop",
+      "building_level": 2,
+      "building_name": "Big Coop",
+      "purchase_price": null,
+      "purchase_shop": null,
+      "acquisition": {
+        "wiki_wording": "Golden Chickens can be hatched by placing a Golden Egg into an Incubator, taking 9,000m (5d 16h 40m) to incubate, or 4,500m (2d 21h 40m) with the Coopmaster Profession.",
+        "egg": {
+          "item": "golden-egg",
+          "shop": "marnie",
+          "price": 100000,
+          "requirement": "To obtain Golden Eggs and Golden Chickens, Perfection must be reached."
+        }
+      },
+      "days_to_mature": 3,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 1,
+        "frequency_reductions": [],
+        "notes": [
+          "The Animals page gives the interval once for its whole \"Chickens\" section (\"Adult chickens will produce eggs every morning if fed.\"), which also lists the Golden Chicken."
+        ]
+      },
+      "products": {
+        "regular": "golden-egg",
+        "large": null
+      },
+      "large_product": null,
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Golden Chicken",
+          "url": "https://stardewvalleywiki.com/Golden_Chicken",
+          "revid": 195309
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Golden Chicken (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Golden Chicken (infobox)",
+          "Coop"
+        ],
+        "frequency_days": [
+          "Golden Chicken (Produce)",
+          "Animals (Chickens)",
+          "Golden Egg (intro)"
+        ],
+        "golden_egg_price_marnie": [
+          "Marnie's Ranch",
+          "Animals",
+          "Golden Egg"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "dinosaur",
+      "name": "Dinosaur",
+      "building": "coop",
+      "building_level": 2,
+      "building_name": "Big Coop",
+      "purchase_price": null,
+      "purchase_shop": null,
+      "acquisition": {
+        "wiki_wording": "Dinosaurs can be hatched by placing a Dinosaur Egg into an Incubator, taking 18,000m (11d 6h 40m) to incubate, or 9,000m (5d 16h 40m) with the Coopmaster Profession."
+      },
+      "days_to_mature": 0,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 7,
+        "frequency_reductions": [],
+        "notes": []
+      },
+      "products": {
+        "regular": "dinosaur-egg",
+        "large": null
+      },
+      "large_product": null,
+      "notes": [
+        "Dinosaurs are born mature.",
+        "If you have used the Treasure Appraisal Guide the egg instead sells for 1050g."
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Dinosaur",
+          "url": "https://stardewvalleywiki.com/Dinosaur",
+          "revid": 195336
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Dinosaur (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Dinosaur (infobox)",
+          "Coop",
+          "Animals"
+        ],
+        "frequency_days": [
+          "Dinosaur (Produce)",
+          "Animals (Dinosaurs)",
+          "Dinosaur Egg (intro)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "needs-verification",
+      "problems": [
+        "Dinosaur Egg: rancher: Dinosaur Egg (text) says true, Dinosaur Egg (rendered infobox columns) and Animal Products Profitability (Rancher row) say false"
+      ]
+    },
+    {
+      "id": "ostrich",
+      "name": "Ostrich",
+      "building": "barn",
+      "building_level": 1,
+      "building_name": "Barn",
+      "purchase_price": null,
+      "purchase_shop": null,
+      "acquisition": {
+        "wiki_wording": "Ostriches can be hatched by placing an Ostrich Egg into an Ostrich Incubator, taking 15,000m (9d 10h) to incubate, or 7,500m (4d 18h 20m) with the Coopmaster Profession. An Ostrich Egg can be initially found by solving Journal Scrap #10, or as a random drop from the chests in the Volcano Dungeon."
+      },
+      "days_to_mature": 7,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 7,
+        "frequency_reductions": [],
+        "notes": []
+      },
+      "products": {
+        "regular": "ostrich-egg",
+        "large": null
+      },
+      "large_product": null,
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Ostrich",
+          "url": "https://stardewvalleywiki.com/Ostrich",
+          "revid": 195338
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Ostrich (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Ostrich (infobox)",
+          "Barn",
+          "Animals"
+        ],
+        "frequency_days": [
+          "Ostrich (Produce)",
+          "Animals (Ostriches)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "cow",
+      "name": "Cow",
+      "building": "barn",
+      "building_level": 1,
+      "building_name": "Barn",
+      "purchase_price": 1500,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 5,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 1,
+        "frequency_reductions": [],
+        "notes": [
+          "Animals who can produce a Deluxe/Large product will sometimes produce more frequently, however — In this case, animals that normally would take multiple days to produce, will produce again immediately the next day."
+        ]
+      },
+      "products": {
+        "regular": "milk",
+        "large": "large-milk"
+      },
+      "large_product": {
+        "product": "large-milk",
+        "rule": "large",
+        "wiki_wording": "Once sufficient friendship and happiness is reached, they will produce Large Milk."
+      },
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Cow",
+          "url": "https://stardewvalleywiki.com/Cow",
+          "revid": 195327
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Cow (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Cow (infobox)",
+          "Barn",
+          "Marnie's Ranch"
+        ],
+        "frequency_days": [
+          "Cow (Produce)",
+          "Animals (Cows)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "goat",
+      "name": "Goat",
+      "building": "barn",
+      "building_level": 2,
+      "building_name": "Big Barn",
+      "purchase_price": 4000,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 5,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 2,
+        "frequency_reductions": [],
+        "notes": [
+          "Animals who can produce a Deluxe/Large product will sometimes produce more frequently, however — In this case, animals that normally would take multiple days to produce, will produce again immediately the next day."
+        ]
+      },
+      "products": {
+        "regular": "goat-milk",
+        "large": "large-goat-milk"
+      },
+      "large_product": {
+        "product": "large-goat-milk",
+        "rule": "large",
+        "wiki_wording": "Once sufficient friendship and happiness are reached, they will produce Large Goat Milk."
+      },
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Goat",
+          "url": "https://stardewvalleywiki.com/Goat",
+          "revid": 195332
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Goat (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Goat (infobox)",
+          "Barn",
+          "Marnie's Ranch",
+          "Animals"
+        ],
+        "frequency_days": [
+          "Goat (Produce)",
+          "Animals (Goats)",
+          "Goat Milk (intro)"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "sheep",
+      "name": "Sheep",
+      "building": "barn",
+      "building_level": 3,
+      "building_name": "Deluxe Barn",
+      "purchase_price": 8000,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 4,
+      "produce": {
+        "mode": "building",
+        "frequency_days": 3,
+        "frequency_reductions": [
+          {
+            "min_friendship": 900,
+            "days": 1
+          },
+          {
+            "profession": "shepherd",
+            "days": 1
+          }
+        ],
+        "notes": [
+          "A mature sheep grows in its coat every 3 days, if it is fed and has at least 70 happiness.",
+          "If the player has 900 or more Friendship with the sheep and has pet it at least one time, it will reduce it to every other day."
+        ]
+      },
+      "products": {
+        "regular": "wool",
+        "large": null
+      },
+      "large_product": null,
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Sheep",
+          "url": "https://stardewvalleywiki.com/Sheep",
+          "revid": 195321
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Sheep (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Sheep (infobox)",
+          "Barn",
+          "Marnie's Ranch",
+          "Animals"
+        ],
+        "frequency_days": [
+          "Sheep (Produce)",
+          "Animals (Sheep)"
+        ],
+        "friendship_reduction_min": [
+          "Sheep",
+          "Animals"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "pig",
+      "name": "Pig",
+      "building": "barn",
+      "building_level": 3,
+      "building_name": "Deluxe Barn",
+      "purchase_price": 16000,
+      "purchase_shop": "marnie",
+      "acquisition": null,
+      "days_to_mature": 10,
+      "produce": {
+        "mode": "outdoor-forage",
+        "frequency_days": null,
+        "conditions": [
+          "the pig has been fed",
+          "the pig has been let outside the barn",
+          "it is not raining/storming",
+          "it is not winter",
+          "there are tiles available outside upon which to place a truffle"
+        ],
+        "first_truffle": "This means that there is around a 99.99% chance that a pig will generate a truffle each day, with the assumption that it is walking around on mostly free tiles.",
+        "extra_truffle_formula": "Animal Friendship / 1500",
+        "extra_truffle_note": "This means that at max friendship (1000), there is a 66% chance of creating an extra truffle.",
+        "average_note": "The average number of truffles a pig at max happiness produces in a day is ≈3",
+        "notes": [
+          "Truffles that are not gathered will stay on the ground until the next day.",
+          "truffles that are not gathered on the 28th day of a season disappear on the following morning (the 1st day of the new season).",
+          "Pigs have a 0.2% chance to dig up a Truffle Crab instead of a Truffle.",
+          "A Golden Animal Cracker can be given to any farm animal (except pigs) to permanently double its produce."
+        ]
+      },
+      "products": {
+        "regular": "truffle",
+        "large": null
+      },
+      "large_product": null,
+      "notes": [],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Pig",
+          "url": "https://stardewvalleywiki.com/Pig",
+          "revid": 195340
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Marnie's Ranch",
+          "url": "https://stardewvalleywiki.com/Marnie's_Ranch#Livestock",
+          "revid": 195237
+        },
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        }
+      ],
+      "verified": {
+        "purchase_price": [
+          "Pig (infobox)",
+          "Animals",
+          "Marnie's Ranch"
+        ],
+        "building": [
+          "Pig (infobox)",
+          "Barn",
+          "Marnie's Ranch",
+          "Animals"
+        ],
+        "produce_conditions": [
+          "Pig",
+          "Animals"
+        ]
+      },
+      "single_source": [
+        "days_to_mature"
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": []
+    }
+  ],
+  "products": [
+    {
+      "id": "dinosaur-egg",
+      "name": "Dinosaur Egg",
+      "variants": [
+        "Dinosaur Egg"
+      ],
+      "animals": [
+        "dinosaur"
+      ],
+      "base_price": 350,
+      "price_by_quality": {
+        "normal": 350,
+        "silver": 437,
+        "gold": 525,
+        "iridium": 700
+      },
+      "rancher": false,
+      "notes": [
+        "The wiki's infobox also lists prices for \"Treasure Appraisal Guide\": 1050/1311/1575/2100g."
+      ],
+      "sources": [
+        {
+          "title": "Dinosaur Egg",
+          "url": "https://stardewvalleywiki.com/Dinosaur_Egg",
+          "revid": 186941
+        },
+        {
+          "title": "Dinosaur",
+          "url": "https://stardewvalleywiki.com/Dinosaur#Produce",
+          "revid": 195336
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Dinosaur Egg (infobox)",
+          "Dinosaur Egg (rendered)",
+          "Dinosaur",
+          "Animals (Dinosaur)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Dinosaur Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)"
+        ]
+      },
+      "problems": [
+        "rancher: Dinosaur Egg (text) says true, Dinosaur Egg (rendered infobox columns) and Animal Products Profitability (Rancher row) say false"
+      ]
+    },
+    {
+      "id": "duck-egg",
+      "name": "Duck Egg",
+      "variants": [
+        "Duck Egg"
+      ],
+      "animals": [
+        "duck"
+      ],
+      "base_price": 95,
+      "price_by_quality": {
+        "normal": 95,
+        "silver": 118,
+        "gold": 142,
+        "iridium": 190
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Duck Egg",
+          "url": "https://stardewvalleywiki.com/Duck_Egg",
+          "revid": 193152
+        },
+        {
+          "title": "Duck",
+          "url": "https://stardewvalleywiki.com/Duck#Produce",
+          "revid": 195334
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Duck Egg (infobox)",
+          "Duck Egg (rendered)",
+          "Duck",
+          "Animals (Duck)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Duck Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Duck Egg (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "duck-feather",
+      "name": "Duck Feather",
+      "variants": [
+        "Duck Feather"
+      ],
+      "animals": [
+        "duck"
+      ],
+      "base_price": 250,
+      "price_by_quality": {
+        "normal": 250,
+        "silver": 312,
+        "gold": 375,
+        "iridium": 500
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Duck Feather",
+          "url": "https://stardewvalleywiki.com/Duck_Feather",
+          "revid": 194419
+        },
+        {
+          "title": "Duck",
+          "url": "https://stardewvalleywiki.com/Duck#Produce",
+          "revid": 195334
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Duck Feather (infobox)",
+          "Duck Feather (rendered)",
+          "Duck",
+          "Animals (Duck)"
+        ],
+        "rancher": [
+          "Duck Feather (rendered infobox columns)",
+          "Duck Feather (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "egg",
+      "name": "Egg",
+      "variants": [
+        "Brown Egg",
+        "Egg"
+      ],
+      "animals": [
+        "chicken"
+      ],
+      "base_price": 50,
+      "price_by_quality": {
+        "normal": 50,
+        "silver": 62,
+        "gold": 75,
+        "iridium": 100
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Egg",
+          "url": "https://stardewvalleywiki.com/Egg",
+          "revid": 182342
+        },
+        {
+          "title": "Chicken",
+          "url": "https://stardewvalleywiki.com/Chicken#Produce",
+          "revid": 195314
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Egg (infobox)",
+          "Egg (rendered)",
+          "Chicken",
+          "Animals (Chicken)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Egg (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "goat-milk",
+      "name": "Goat Milk",
+      "variants": [
+        "Goat Milk"
+      ],
+      "animals": [
+        "goat"
+      ],
+      "base_price": 225,
+      "price_by_quality": {
+        "normal": 225,
+        "silver": 281,
+        "gold": 337,
+        "iridium": 450
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Goat Milk",
+          "url": "https://stardewvalleywiki.com/Goat_Milk",
+          "revid": 190400
+        },
+        {
+          "title": "Goat",
+          "url": "https://stardewvalleywiki.com/Goat#Produce",
+          "revid": 195332
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Goat Milk (infobox)",
+          "Goat Milk (rendered)",
+          "Goat",
+          "Animals (Goat)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Goat Milk (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Goat Milk (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "golden-egg",
+      "name": "Golden Egg",
+      "variants": [
+        "Golden Egg"
+      ],
+      "animals": [
+        "golden-chicken"
+      ],
+      "base_price": 500,
+      "price_by_quality": {
+        "normal": 500,
+        "silver": 625,
+        "gold": 750,
+        "iridium": 1000
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Golden Egg",
+          "url": "https://stardewvalleywiki.com/Golden_Egg",
+          "revid": 191965
+        },
+        {
+          "title": "Golden Chicken",
+          "url": "https://stardewvalleywiki.com/Golden_Chicken#Produce",
+          "revid": 195309
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Golden Egg (infobox)",
+          "Golden Egg (rendered)",
+          "Golden Chicken",
+          "Animals (Golden Chicken)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Golden Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Golden Egg (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "large-egg",
+      "name": "Large Egg",
+      "variants": [
+        "Large Brown Egg",
+        "Large Egg"
+      ],
+      "animals": [
+        "chicken"
+      ],
+      "base_price": 95,
+      "price_by_quality": {
+        "normal": 95,
+        "silver": 118,
+        "gold": 142,
+        "iridium": 190
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Large Egg",
+          "url": "https://stardewvalleywiki.com/Large_Egg",
+          "revid": 190366
+        },
+        {
+          "title": "Chicken",
+          "url": "https://stardewvalleywiki.com/Chicken#Produce",
+          "revid": 195314
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Large Egg (infobox)",
+          "Large Egg (rendered)",
+          "Chicken",
+          "Animals (Chicken)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Large Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Large Egg (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "large-goat-milk",
+      "name": "Large Goat Milk",
+      "variants": [
+        "Large Goat Milk"
+      ],
+      "animals": [
+        "goat"
+      ],
+      "base_price": 345,
+      "price_by_quality": {
+        "normal": 345,
+        "silver": 431,
+        "gold": 517,
+        "iridium": 690
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Large Goat Milk",
+          "url": "https://stardewvalleywiki.com/Large_Goat_Milk",
+          "revid": 193191
+        },
+        {
+          "title": "Goat",
+          "url": "https://stardewvalleywiki.com/Goat#Produce",
+          "revid": 195332
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Large Goat Milk (infobox)",
+          "Large Goat Milk (rendered)",
+          "Goat",
+          "Animals (Goat)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Large Goat Milk (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Large Goat Milk (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "large-milk",
+      "name": "Large Milk",
+      "variants": [
+        "Large Milk"
+      ],
+      "animals": [
+        "cow"
+      ],
+      "base_price": 190,
+      "price_by_quality": {
+        "normal": 190,
+        "silver": 237,
+        "gold": 285,
+        "iridium": 380
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Large Milk",
+          "url": "https://stardewvalleywiki.com/Large_Milk",
+          "revid": 193186
+        },
+        {
+          "title": "Cow",
+          "url": "https://stardewvalleywiki.com/Cow#Produce",
+          "revid": 195327
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Large Milk (infobox)",
+          "Large Milk (rendered)",
+          "Cow",
+          "Animals (Cow)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Large Milk (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Large Milk (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "milk",
+      "name": "Milk",
+      "variants": [
+        "Milk"
+      ],
+      "animals": [
+        "cow"
+      ],
+      "base_price": 125,
+      "price_by_quality": {
+        "normal": 125,
+        "silver": 156,
+        "gold": 187,
+        "iridium": 250
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Milk",
+          "url": "https://stardewvalleywiki.com/Milk",
+          "revid": 190620
+        },
+        {
+          "title": "Cow",
+          "url": "https://stardewvalleywiki.com/Cow#Produce",
+          "revid": 195327
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Milk (infobox)",
+          "Milk (rendered)",
+          "Cow",
+          "Animals (Cow)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Milk (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Milk (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "ostrich-egg",
+      "name": "Ostrich Egg",
+      "variants": [
+        "Ostrich Egg"
+      ],
+      "animals": [
+        "ostrich"
+      ],
+      "base_price": 600,
+      "price_by_quality": {
+        "normal": 600,
+        "silver": 750,
+        "gold": 900,
+        "iridium": 1200
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Ostrich Egg",
+          "url": "https://stardewvalleywiki.com/Ostrich_Egg",
+          "revid": 195296
+        },
+        {
+          "title": "Ostrich",
+          "url": "https://stardewvalleywiki.com/Ostrich#Produce",
+          "revid": 195338
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Ostrich Egg (infobox)",
+          "Ostrich Egg (rendered)",
+          "Ostrich",
+          "Animals (Ostrich)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Ostrich Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Ostrich Egg (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "rabbits-foot",
+      "name": "Rabbit's Foot",
+      "variants": [
+        "Rabbit's Foot"
+      ],
+      "animals": [
+        "rabbit"
+      ],
+      "base_price": 565,
+      "price_by_quality": {
+        "normal": 565,
+        "silver": 706,
+        "gold": 847,
+        "iridium": 1130
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Rabbit's Foot",
+          "url": "https://stardewvalleywiki.com/Rabbit's_Foot",
+          "revid": 193161
+        },
+        {
+          "title": "Rabbit",
+          "url": "https://stardewvalleywiki.com/Rabbit#Produce",
+          "revid": 195310
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Rabbit's Foot (infobox)",
+          "Rabbit's Foot (rendered)",
+          "Rabbit",
+          "Animals (Rabbit)"
+        ],
+        "rancher": [
+          "Rabbit's Foot (rendered infobox columns)",
+          "Rabbit's Foot (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "truffle",
+      "name": "Truffle",
+      "variants": [
+        "Truffle"
+      ],
+      "animals": [
+        "pig"
+      ],
+      "base_price": 625,
+      "price_by_quality": {
+        "normal": 625,
+        "silver": 781,
+        "gold": 937,
+        "iridium": 1250
+      },
+      "rancher": false,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Truffle",
+          "url": "https://stardewvalleywiki.com/Truffle",
+          "revid": 192621
+        },
+        {
+          "title": "Pig",
+          "url": "https://stardewvalleywiki.com/Pig#Produce",
+          "revid": 195340
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Truffle (infobox)",
+          "Truffle (rendered)",
+          "Pig",
+          "Animals (Pig)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Truffle (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Truffle (text)",
+          "Pig (Professions)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "void-egg",
+      "name": "Void Egg",
+      "variants": [
+        "Void Egg"
+      ],
+      "animals": [
+        "void-chicken"
+      ],
+      "base_price": 65,
+      "price_by_quality": {
+        "normal": 65,
+        "silver": 81,
+        "gold": 97,
+        "iridium": 130
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Void Egg",
+          "url": "https://stardewvalleywiki.com/Void_Egg",
+          "revid": 192608
+        },
+        {
+          "title": "Void Chicken",
+          "url": "https://stardewvalleywiki.com/Void_Chicken#Produce",
+          "revid": 195312
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Void Egg (infobox)",
+          "Void Egg (rendered)",
+          "Void Chicken",
+          "Animals (Void Chicken)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Void Egg (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Void Egg (text)"
+        ]
+      },
+      "problems": []
+    },
+    {
+      "id": "wool",
+      "name": "Wool",
+      "variants": [
+        "Wool"
+      ],
+      "animals": [
+        "rabbit",
+        "sheep"
+      ],
+      "base_price": 340,
+      "price_by_quality": {
+        "normal": 340,
+        "silver": 425,
+        "gold": 510,
+        "iridium": 680
+      },
+      "rancher": true,
+      "notes": [],
+      "sources": [
+        {
+          "title": "Wool",
+          "url": "https://stardewvalleywiki.com/Wool",
+          "revid": 182268
+        },
+        {
+          "title": "Rabbit",
+          "url": "https://stardewvalleywiki.com/Rabbit#Produce",
+          "revid": 195310
+        },
+        {
+          "title": "Sheep",
+          "url": "https://stardewvalleywiki.com/Sheep#Produce",
+          "revid": 195321
+        },
+        {
+          "title": "Animals",
+          "url": "https://stardewvalleywiki.com/Animals",
+          "revid": 195333
+        },
+        {
+          "title": "Animal Products Profitability",
+          "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+          "revid": 189176
+        }
+      ],
+      "verified": {
+        "base_price": [
+          "Wool (infobox)",
+          "Wool (rendered)",
+          "Rabbit",
+          "Animals (Rabbit)",
+          "Sheep",
+          "Animals (Sheep)",
+          "Animal Products Profitability"
+        ],
+        "rancher": [
+          "Wool (rendered infobox columns)",
+          "Animal Products Profitability (Rancher row)",
+          "Wool (text)"
+        ]
+      },
+      "problems": []
+    }
+  ],
+  "artisan": {
+    "minutes_note": "One hour = 60 minutes from 6am to 2am, but 1 hour = 100 minutes from 2am to 6am.",
+    "machines": [
+      {
+        "id": "mayonnaise-machine",
+        "name": "Mayonnaise Machine",
+        "sources": [
+          {
+            "title": "Mayonnaise Machine",
+            "url": "https://stardewvalleywiki.com/Mayonnaise_Machine#Products",
+            "revid": 190554
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods#Mayonnaise_Machine",
+            "revid": 195351
+          }
+        ],
+        "recipes": [
+          {
+            "input": "egg",
+            "output": "mayonnaise",
+            "count": 1,
+            "quality": "normal"
+          },
+          {
+            "input": "large-egg",
+            "output": "mayonnaise",
+            "count": 1,
+            "quality": "gold"
+          },
+          {
+            "input": "ostrich-egg",
+            "output": "mayonnaise",
+            "count": 10,
+            "quality": "input"
+          },
+          {
+            "input": "golden-egg",
+            "output": "mayonnaise",
+            "count": 3,
+            "quality": "gold"
+          },
+          {
+            "input": "duck-egg",
+            "output": "duck-mayonnaise",
+            "count": 1,
+            "quality": "normal"
+          },
+          {
+            "input": "void-egg",
+            "output": "void-mayonnaise",
+            "count": 1,
+            "quality": "normal"
+          },
+          {
+            "input": "dinosaur-egg",
+            "output": "dinosaur-mayonnaise",
+            "count": 1,
+            "quality": "normal"
+          }
+        ]
+      },
+      {
+        "id": "cheese-press",
+        "name": "Cheese Press",
+        "sources": [
+          {
+            "title": "Cheese Press",
+            "url": "https://stardewvalleywiki.com/Cheese_Press#Products",
+            "revid": 183811
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods#Cheese_Press",
+            "revid": 195351
+          }
+        ],
+        "recipes": [
+          {
+            "input": "milk",
+            "output": "cheese",
+            "count": 1,
+            "quality": "normal"
+          },
+          {
+            "input": "large-milk",
+            "output": "cheese",
+            "count": 1,
+            "quality": "gold"
+          },
+          {
+            "input": "goat-milk",
+            "output": "goat-cheese",
+            "count": 1,
+            "quality": "normal"
+          },
+          {
+            "input": "large-goat-milk",
+            "output": "goat-cheese",
+            "count": 1,
+            "quality": "gold"
+          }
+        ]
+      },
+      {
+        "id": "loom",
+        "name": "Loom",
+        "sources": [
+          {
+            "title": "Loom",
+            "url": "https://stardewvalleywiki.com/Loom#Products",
+            "revid": 190254
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods#Loom",
+            "revid": 195351
+          }
+        ],
+        "recipes": [
+          {
+            "input": "wool",
+            "output": "cloth",
+            "count": 1,
+            "quality": "normal",
+            "second_output_chance_by_input_quality": {
+              "silver": 0.1,
+              "gold": 0.5,
+              "iridium": 1
+            }
+          }
+        ]
+      },
+      {
+        "id": "oil-maker",
+        "name": "Oil Maker",
+        "sources": [
+          {
+            "title": "Oil Maker",
+            "url": "https://stardewvalleywiki.com/Oil_Maker#Products",
+            "revid": 190486
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods#Oil_Maker",
+            "revid": 195351
+          }
+        ],
+        "recipes": [
+          {
+            "input": "truffle",
+            "output": "truffle-oil",
+            "count": 1,
+            "quality": "normal"
+          }
+        ]
+      }
+    ],
+    "goods": [
+      {
+        "id": "mayonnaise",
+        "name": "Mayonnaise",
+        "machine": "mayonnaise-machine",
+        "base_price": 190,
+        "minutes": 180,
+        "price_by_quality": {
+          "normal": 190,
+          "silver": 237,
+          "gold": 285,
+          "iridium": 380
+        },
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions."
+        ],
+        "sources": [
+          {
+            "title": "Mayonnaise",
+            "url": "https://stardewvalleywiki.com/Mayonnaise",
+            "revid": 190457
+          },
+          {
+            "title": "Mayonnaise Machine",
+            "url": "https://stardewvalleywiki.com/Mayonnaise_Machine#Products",
+            "revid": 190554
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Mayonnaise Machine (products table)",
+            "Mayonnaise (infobox)",
+            "Mayonnaise (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Mayonnaise Machine (products table)",
+            "Mayonnaise (infobox)"
+          ],
+          "gold_price": [
+            "Mayonnaise (rendered)",
+            "animal page",
+            "Animal Products Profitability"
+          ],
+          "artisan": [
+            "Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "duck-mayonnaise",
+        "name": "Duck Mayonnaise",
+        "machine": "mayonnaise-machine",
+        "base_price": 375,
+        "minutes": 180,
+        "price_by_quality": null,
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions."
+        ],
+        "sources": [
+          {
+            "title": "Duck Mayonnaise",
+            "url": "https://stardewvalleywiki.com/Duck_Mayonnaise",
+            "revid": 192800
+          },
+          {
+            "title": "Mayonnaise Machine",
+            "url": "https://stardewvalleywiki.com/Mayonnaise_Machine#Products",
+            "revid": 190554
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Mayonnaise Machine (products table)",
+            "Duck Mayonnaise (infobox)",
+            "Duck Mayonnaise (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Mayonnaise Machine (products table)",
+            "Duck Mayonnaise (infobox)"
+          ],
+          "artisan": [
+            "Duck Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Duck Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "void-mayonnaise",
+        "name": "Void Mayonnaise",
+        "machine": "mayonnaise-machine",
+        "base_price": 275,
+        "minutes": 180,
+        "price_by_quality": null,
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions."
+        ],
+        "sources": [
+          {
+            "title": "Void Mayonnaise",
+            "url": "https://stardewvalleywiki.com/Void_Mayonnaise",
+            "revid": 192673
+          },
+          {
+            "title": "Mayonnaise Machine",
+            "url": "https://stardewvalleywiki.com/Mayonnaise_Machine#Products",
+            "revid": 190554
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Mayonnaise Machine (products table)",
+            "Void Mayonnaise (infobox)",
+            "Void Mayonnaise (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Mayonnaise Machine (products table)",
+            "Void Mayonnaise (infobox)"
+          ],
+          "artisan": [
+            "Void Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Void Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "dinosaur-mayonnaise",
+        "name": "Dinosaur Mayonnaise",
+        "machine": "mayonnaise-machine",
+        "base_price": 800,
+        "minutes": 180,
+        "price_by_quality": null,
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions."
+        ],
+        "sources": [
+          {
+            "title": "Dinosaur Mayonnaise",
+            "url": "https://stardewvalleywiki.com/Dinosaur_Mayonnaise",
+            "revid": 195261
+          },
+          {
+            "title": "Mayonnaise Machine",
+            "url": "https://stardewvalleywiki.com/Mayonnaise_Machine#Products",
+            "revid": 190554
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Mayonnaise Machine (products table)",
+            "Dinosaur Mayonnaise (infobox)",
+            "Dinosaur Mayonnaise (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Mayonnaise Machine (products table)",
+            "Dinosaur Mayonnaise (infobox)"
+          ],
+          "artisan": [
+            "Dinosaur Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Dinosaur Mayonnaise (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "cheese",
+        "name": "Cheese",
+        "machine": "cheese-press",
+        "base_price": 230,
+        "minutes": 200,
+        "price_by_quality": {
+          "normal": 230,
+          "silver": 287,
+          "gold": 345,
+          "iridium": 460
+        },
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions.",
+          "can be placed inside a Cask to age from normal quality to silver, gold, and eventually iridium quality."
+        ],
+        "sources": [
+          {
+            "title": "Cheese",
+            "url": "https://stardewvalleywiki.com/Cheese",
+            "revid": 189929
+          },
+          {
+            "title": "Cheese Press",
+            "url": "https://stardewvalleywiki.com/Cheese_Press#Products",
+            "revid": 183811
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Cheese Press (products table)",
+            "Cheese (infobox)",
+            "Cheese (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Cheese Press (products table)",
+            "Cheese (infobox)"
+          ],
+          "gold_price": [
+            "Cheese (rendered)",
+            "animal page",
+            "Animal Products Profitability"
+          ],
+          "artisan": [
+            "Cheese (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Cheese (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "goat-cheese",
+        "name": "Goat Cheese",
+        "machine": "cheese-press",
+        "base_price": 400,
+        "minutes": 200,
+        "price_by_quality": {
+          "normal": 400,
+          "silver": 500,
+          "gold": 600,
+          "iridium": 800
+        },
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions.",
+          "can be placed inside a Cask to age from normal quality to silver, gold, and eventually iridium quality."
+        ],
+        "sources": [
+          {
+            "title": "Goat Cheese",
+            "url": "https://stardewvalleywiki.com/Goat_Cheese",
+            "revid": 190347
+          },
+          {
+            "title": "Cheese Press",
+            "url": "https://stardewvalleywiki.com/Cheese_Press#Products",
+            "revid": 183811
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Cheese Press (products table)",
+            "Goat Cheese (infobox)",
+            "Goat Cheese (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Cheese Press (products table)",
+            "Goat Cheese (infobox)"
+          ],
+          "gold_price": [
+            "Goat Cheese (rendered)",
+            "animal page",
+            "Animal Products Profitability"
+          ],
+          "artisan": [
+            "Goat Cheese (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Goat Cheese (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "cloth",
+        "name": "Cloth",
+        "machine": "loom",
+        "base_price": 470,
+        "minutes": 240,
+        "price_by_quality": null,
+        "artisan": true,
+        "rancher": true,
+        "notes": [
+          "The wiki shows Rancher (+20%) and Artisan (+40%) as separate price columns; it does not say whether the two combine for a player who has both professions."
+        ],
+        "sources": [
+          {
+            "title": "Cloth",
+            "url": "https://stardewvalleywiki.com/Cloth",
+            "revid": 193456
+          },
+          {
+            "title": "Loom",
+            "url": "https://stardewvalleywiki.com/Loom#Products",
+            "revid": 190254
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Loom (products table)",
+            "Cloth (infobox)",
+            "Cloth (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Loom (products table)",
+            "Cloth (infobox)"
+          ],
+          "artisan": [
+            "Cloth (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Cloth (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      },
+      {
+        "id": "truffle-oil",
+        "name": "Truffle Oil",
+        "machine": "oil-maker",
+        "base_price": 1065,
+        "minutes": 360,
+        "price_by_quality": null,
+        "artisan": true,
+        "rancher": false,
+        "notes": [
+          "Without the Artisan Profession, iridium quality truffles are worth more to sell outright rather than turn into oil.",
+          "Farming/Skill adds \"Note that oil does not actually benefit from the Artisan Profession\"; that link is the Oil item (from corn and sunflowers), not Truffle Oil."
+        ],
+        "sources": [
+          {
+            "title": "Truffle Oil",
+            "url": "https://stardewvalleywiki.com/Truffle_Oil",
+            "revid": 192751
+          },
+          {
+            "title": "Oil Maker",
+            "url": "https://stardewvalleywiki.com/Oil_Maker#Products",
+            "revid": 190486
+          },
+          {
+            "title": "Animal Products Profitability",
+            "url": "https://stardewvalleywiki.com/Animal_Products_Profitability",
+            "revid": 189176
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          }
+        ],
+        "verified": {
+          "base_price": [
+            "Oil Maker (products table)",
+            "Truffle Oil (infobox)",
+            "Truffle Oil (rendered)",
+            "Animal Products Profitability"
+          ],
+          "minutes": [
+            "Oil Maker (products table)",
+            "Truffle Oil (infobox)"
+          ],
+          "artisan": [
+            "Truffle Oil (rendered infobox columns)",
+            "Animal Products Profitability (Artisan row)",
+            "Artisan Goods (exceptions: Oil, Coffee)"
+          ],
+          "rancher": [
+            "Truffle Oil (rendered infobox columns)",
+            "Animal Products Profitability (Rancher row)"
+          ]
+        },
+        "problems": []
+      }
+    ]
+  }
+}

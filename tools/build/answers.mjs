@@ -9,6 +9,8 @@ import { fileURLToPath } from 'node:url';
 import { cropProfit } from '../../assets/js/engine/profit.js';
 import { allocate } from '../../assets/js/engine/machines.js';
 import { rankCrops, reasons } from '../../assets/js/engine/decision.js';
+import { rankPonds } from '../../assets/js/engine/fishpond.js';
+import { rankAnimals } from '../../assets/js/engine/animals.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 // Shops that sell seeds every day the crop is in season (not festivals or the Traveling Cart).
@@ -103,11 +105,26 @@ export function buildAnswers(data) {
     summer_15: example({ season: 'summer', today: 15, tiles: 40, budget: 2000, farmingLevel: 4 }),
   };
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision };
+  // Fish ponds: best full pond per day, roe sold raw and as Aged Roe/Caviar with Artisan.
+  const pondTop = (o) =>
+    rankPonds(data.fishponds, o)
+      .filter((x) => x.fish.kind !== 'legendary')
+      .slice(0, 5)
+      .map((x) => ({ id: x.fish.id, name: x.fish.name, gold_per_day: r0(x.out.goldPerDay), jars: Math.ceil(x.out.jarsNeeded) }));
+  const fishpond = { raw: pondTop({ roeAs: 'raw' }), processed: pondTop({ roeAs: 'processed', artisan: true }) };
+
+  // Animals: gold per day per animal at max hearts and mood, bought from Marnie only.
+  const animalTop = (o) =>
+    rankAnimals(data.animals, o)
+      .filter((x) => x.animal.purchase_price)
+      .map((x) => ({ id: x.animal.id, name: x.animal.name, gold_per_day: r0(x.out.goldPerDay), price: x.animal.purchase_price }));
+  const animals = { raw: animalTop({}), processed: animalTop({ process: true, artisan: true }) };
+
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse'].map((s) => [s, load(`${s}.json`)]));
+  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals'].map((s) => [s, load(`${s}.json`)]));
   const body = JSON.stringify(buildAnswers(data), null, 2) + '\n';
   const file = join(ROOT, 'data', 'answers.json');
   if (process.argv.includes('--check')) {

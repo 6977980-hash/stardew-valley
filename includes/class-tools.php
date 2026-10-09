@@ -75,6 +75,28 @@ class Tools {
 				'script'      => 'greenhouse',
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),
 			),
+			'fish-pond-calculator'       => array(
+				'title'       => 'Stardew Valley Fish Pond Calculator: Best Fish for Ponds',
+				'short'       => 'Fish Pond Calculator',
+				'question'    => 'Which fish for my pond?',
+				'blurb'       => 'Daily roe and items for any fish, gold per day, and which fish earns the most in a pond.',
+				'description' => 'Stardew Valley fish pond calculator (1.6): roe and item chances by population, gold per day raw or as Aged Roe and Caviar, and the best fish for ponds.',
+				'icon'        => 'fish',
+				'script'      => 'fish-pond',
+				'data'        => array( 'fishponds' ),
+				'related'     => array( 'keg-vs-preserves-jar', 'what-to-plant', 'crop-profit-calculator' ),
+			),
+			'animal-profit-calculator'   => array(
+				'title'       => 'Stardew Valley Animal Profit Calculator: Which Animal Earns Most?',
+				'short'       => 'Animal Profit Calculator',
+				'question'    => 'Which animal earns the most?',
+				'blurb'       => 'Gold per day for every farm animal, raw or through machines, with hearts, mood and professions.',
+				'description' => 'Stardew Valley animal profit calculator (1.6): gold per day for cows, goats, sheep, pigs, chickens and more, with quality, Large products, machines and payback time.',
+				'icon'        => 'coin',
+				'script'      => 'animals',
+				'data'        => array( 'animals' ),
+				'related'     => array( 'fish-pond-calculator', 'keg-vs-preserves-jar', 'what-to-plant' ),
+			),
 		);
 		// Best crops by season: one shared template, a server-rendered table per season.
 		$seasons = array(
@@ -235,13 +257,20 @@ class Tools {
 		if ( ! $id ) {
 			return;
 		}
-		$data = array(
-			'crops'       => array_values( self::slim_crops() ),
-			'fertilizers' => Data::get( 'fertilizers' ),
-			'machines'    => Data::get( 'machines' ),
-			'seasons'     => Data::get( 'seasons' ),
-			'greenhouse'  => Data::get( 'greenhouse' ),
-		);
+		$def  = self::definitions()[ $id ];
+		$sets = isset( $def['data'] ) ? $def['data'] : array( 'crops', 'fertilizers', 'machines', 'seasons', 'greenhouse' );
+		$data = array();
+		foreach ( $sets as $set ) {
+			if ( 'crops' === $set ) {
+				$data[ $set ] = array_values( self::slim_crops() );
+			} elseif ( 'animals' === $set ) {
+				$data[ $set ] = self::slim_animals();
+			} elseif ( 'fishponds' === $set ) {
+				$data[ $set ] = self::slim_fishponds();
+			} else {
+				$data[ $set ] = Data::get( $set );
+			}
+		}
 		echo '<script type="application/json" id="st-data">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG ) . "</script>\n";
 		echo '<script type="importmap">' . wp_json_encode( array( 'imports' => self::module_versions() ), JSON_UNESCAPED_SLASHES ) . "</script>\n";
 		$file = 'assets/js/tools/' . self::definitions()[ $id ]['script'] . '.js';
@@ -263,6 +292,72 @@ class Tools {
 			}
 		}
 		return $map;
+	}
+
+	/** Animal data without wiki evidence text, sources lists and verification notes. */
+	public static function slim_animals() {
+		$d = Data::get( 'animals' );
+		if ( ! $d ) {
+			return null;
+		}
+		$strip = function ( $rows ) {
+			return array_map(
+				function ( $r ) {
+					return array_diff_key( $r, array_flip( array( 'sources', 'verified', 'notes', 'problems', 'single_source', 'evidence', 'last_verified', 'game_version', 'verification_status' ) ) );
+				},
+				$rows
+			);
+		};
+		$animals = $strip( $d['animals'] );
+		foreach ( $animals as $i => $a ) {
+			$animals[ $i ]['url'] = $d['animals'][ $i ]['sources'][0]['url'];
+		}
+		return array(
+			'animals'      => $animals,
+			'products'     => $strip( $d['products'] ),
+			'artisan'      => array(
+				'machines' => $strip( $d['artisan']['machines'] ),
+				'goods'    => $strip( $d['artisan']['goods'] ),
+			),
+			'quality'      => array_intersect_key( $d['quality'], array_flip( array( 'friendship_divisor', 'mood_divisor', 'profession_bonus', 'iridium_min_score' ) ) ),
+			'deluxe_rules' => array( 'rules' => $d['deluxe_rules']['rules'] ),
+			'feeding'      => array( 'hay' => $d['feeding']['hay'] ),
+		);
+	}
+
+	/** Fish pond data with only what the calculator reads (the full file is over 500 KB). */
+	public static function slim_fishponds() {
+		$d = Data::get( 'fishponds' );
+		if ( ! $d ) {
+			return null;
+		}
+		$fish = array();
+		foreach ( $d['fish'] as $f ) {
+			$rows = array();
+			foreach ( $f['produce'] as $r ) {
+				$rows[] = array_intersect_key( $r, array_flip( array( 'item', 'item_id', 'wiki_name', 'quantity', 'population', 'share', 'item_price' ) ) );
+			}
+			$fish[] = array(
+				'id'             => $f['id'],
+				'name'           => $f['name'],
+				'kind'           => $f['kind'],
+				'base_price'     => $f['base_price'],
+				'roe'            => $f['roe'],
+				'max_population' => $f['max_population'],
+				'reproduces'     => $f['reproduces'],
+				'spawn_days'     => isset( $f['spawn_days'] ) ? $f['spawn_days'] : null,
+				'produce'        => $rows,
+				'url'            => $f['sources'][0]['url'],
+			);
+		}
+		return array(
+			'rules'    => array( 'produce' => array_intersect_key( $d['rules']['produce'], array_flip( array( 'base_chance', 'extra_roe' ) ) ) ),
+			'products' => array(
+				'aged_roe' => array( 'minutes' => $d['products']['aged_roe']['minutes'] ),
+				'caviar'   => array( 'minutes' => $d['products']['caviar']['minutes'] ),
+			),
+			'fish'     => $fish,
+		);
 	}
 
 	/** Cross-checked crops without the fields the tools never read. */

@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse })) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -95,6 +95,46 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
       if (!(x >= -1 && x <= greenhouse.width && y >= -1 && y <= greenhouse.height)) err(`sprinkler ${s.id}`, `position ${x},${y} outside soil and border`);
     }
   }
+
+  if (fishponds) {
+    const ids = new Set();
+    for (const f of fishponds.fish) {
+      const where = `fish ${f.id}`;
+      if (ids.has(f.id)) err(where, 'duplicate id');
+      ids.add(f.id);
+      checkSources(where, f.sources);
+      if (!isInt(f.base_price, 1)) err(where, 'base price');
+      if (!isInt(f.max_population, 1) || f.max_population > 10) err(where, 'max population');
+      if (f.roe && !isInt(f.roe.price, 1)) err(where, 'roe price');
+      if (!f.produce.length) err(where, 'no produce rows');
+      for (const r of f.produce) {
+        if (!(r.share > 0 && r.share <= 1)) err(where, `share of ${r.item}`);
+        if (!(r.population.min >= 1 && r.population.max <= f.max_population && r.population.min <= r.population.max)) err(where, `population range of ${r.item}`);
+        if (!(r.quantity.min >= 1 && r.quantity.max >= r.quantity.min)) err(where, `quantity of ${r.item}`);
+      }
+    }
+    if (fishponds.fish.length < 60) err('fishponds', `only ${fishponds.fish.length} fish`);
+  }
+  if (animals) {
+    const productIds = new Set(animals.products.map((p) => p.id));
+    for (const a of animals.animals) {
+      const where = `animal ${a.id}`;
+      checkSources(where, a.sources);
+      if (a.purchase_price != null && !isInt(a.purchase_price, 1)) err(where, 'purchase price');
+      if (!productIds.has(a.products.regular)) err(where, `unknown product ${a.products.regular}`);
+      if (a.products.large && !productIds.has(a.products.large)) err(where, `unknown product ${a.products.large}`);
+      if (a.produce.mode === 'building' && !isInt(a.produce.frequency_days, 1)) err(where, 'produce frequency');
+    }
+    for (const p of [...animals.products, ...animals.artisan.goods]) {
+      checkSources(`product ${p.id}`, p.sources);
+      if (!isInt(p.base_price, 1)) err(`product ${p.id}`, 'base price');
+    }
+    const goods = new Set(animals.artisan.goods.map((g) => g.id));
+    for (const m of animals.artisan.machines) for (const r of m.recipes) {
+      if (!productIds.has(r.input)) err(`machine ${m.id}`, `unknown input ${r.input}`);
+      if (!goods.has(r.output)) err(`machine ${m.id}`, `unknown output ${r.output}`);
+    }
+  }
   return errors;
 }
 
@@ -106,10 +146,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     professions: load('professions.json'),
     seasons: load('seasons.json'),
     greenhouse: load('greenhouse.json'),
+    fishponds: load('fishponds.json'),
+    animals: load('animals.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals');
 }
