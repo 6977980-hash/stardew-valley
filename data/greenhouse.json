@@ -1,0 +1,164 @@
+{
+  "schema": "stardew-tools/greenhouse@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "width": 12,
+  "height": 10,
+  "notes": [
+    "Sprinklers can also stand on the wooden border around the soil.",
+    "Fruit trees around the edge are not modelled yet."
+  ],
+  "sources": [
+    {
+      "title": "Greenhouse",
+      "url": "https://stardewvalleywiki.com/Greenhouse",
+      "revid": 194164
+    }
+  ],
+  "sprinklers": [
+    {
+      "id": "none",
+      "name": "No sprinklers (watering can)",
+      "radius": 0,
+      "soil_used": 0,
+      "positions": [],
+      "sources": [
+        {
+          "title": "Greenhouse",
+          "url": "https://stardewvalleywiki.com/Greenhouse",
+          "revid": 194164
+        }
+      ]
+    },
+    {
+      "id": "quality",
+      "name": "Quality Sprinklers",
+      "radius": 1,
+      "soil_used": 12,
+      "positions": [
+        [
+          1,
+          1
+        ],
+        [
+          1,
+          4
+        ],
+        [
+          1,
+          7
+        ],
+        [
+          1,
+          10
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          4
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          4,
+          10
+        ],
+        [
+          7,
+          1
+        ],
+        [
+          7,
+          4
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          7,
+          10
+        ],
+        [
+          10,
+          1
+        ],
+        [
+          10,
+          4
+        ],
+        [
+          10,
+          7
+        ],
+        [
+          10,
+          10
+        ]
+      ],
+      "sources": [
+        {
+          "title": "Quality Sprinkler",
+          "url": "https://stardewvalleywiki.com/Quality_Sprinkler",
+          "revid": 193821
+        },
+        {
+          "title": "Greenhouse",
+          "url": "https://stardewvalleywiki.com/Greenhouse",
+          "revid": 194164
+        }
+      ]
+    },
+    {
+      "id": "iridium",
+      "name": "Iridium Sprinklers",
+      "radius": 2,
+      "soil_used": 4,
+      "positions": [
+        [
+          2,
+          2
+        ],
+        [
+          7,
+          2
+        ],
+        [
+          12,
+          2
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          7,
+          7
+        ],
+        [
+          12,
+          7
+        ]
+      ],
+      "sources": [
+        {
+          "title": "Iridium Sprinkler",
+          "url": "https://stardewvalleywiki.com/Iridium_Sprinkler",
+          "revid": 193822
+        },
+        {
+          "title": "Greenhouse",
+          "url": "https://stardewvalleywiki.com/Greenhouse",
+          "revid": 194164
+        }
+      ]
+    }
+  ]
+}

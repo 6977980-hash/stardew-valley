@@ -33,6 +33,10 @@ Anything that fails a check is written with `verification_status: "needs-verific
 paired with the exact wiki sentence or table cell that states it, and the import fails if that
 evidence is no longer on the current page, so a wiki change can never leave a stale number behind.
 
+Greenhouse: `greenhouse.json` takes the soil size from the Greenhouse page and each sprinkler layout
+from that page's layout images plus the Quality and Iridium Sprinkler pages; the engine test checks
+every layout waters all 120 tiles.
+
 ## Test oracles (tests/fixtures/)
 
 | Fixture | From | Used to check |

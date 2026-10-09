@@ -31,8 +31,16 @@ Claude / local dev  →  GitHub (6977980-hash/stardew-valley, branch main)
 | `includes/class-pages.php` + `includes/page-templates/` | About, Contact, Privacy, Terms, Disclaimer, Methodology, Changelog |
 | `includes/class-data.php` | Read-only access to `data/*.json` (`Data::get()`, `Data::crops()`) |
 | `includes/class-admin.php` | Settings > Stardew Tools (status + ad settings) |
+| `includes/class-tools.php` + `includes/tool-templates/` | Tool pages: creates one page per tool (`[stardew_tool id]` shortcode, never overwritten once published), renders the template, adds `assets/css/tools.css`, the game data inline (`#st-data`), the tool's ES module and WebApplication JSON-LD |
 
-Tools (Phase 3+) live in the plugin, not in the theme.
+Tools live in the plugin, not in the theme. Each tool is a PHP template (server-rendered short
+answer from `data/answers.json`, the form, explanation) plus a module in `assets/js/tools/` that
+reads the form and renders results with the engine. `common.js` keeps form state in the URL (share
+links) and in localStorage, and renders "Explain the Math". Form field names must not be WordPress
+query vars (`day`, `year`, `name`, `page`, `type`…): `?day=` turns the page into a 404.
+
+`data/answers.json` is built by `node tools/build/answers.mjs` from the data and the engine, so the
+short answers in the HTML always match the calculators; `npm test` fails if it is stale.
 
 ## Game data (`data/`)
 
@@ -46,6 +54,8 @@ Never edit these files by hand; fix the importer and re-run it. See `docs/data.m
 | `machines.json` | Keg and Preserves Jar products: inputs, minutes, price rules, Artisan eligibility |
 | `professions.json` | Tiller, Artisan, Agriculturist |
 | `seasons.json` | 4 seasons of 28 days |
+| `greenhouse.json` | Soil grid (12 × 10) and the verified sprinkler layouts that water all of it |
+| `answers.json` | Built, not imported: short answers shown on the tool pages |
 
 ## Calculation engine (`assets/js/engine/`)
 
@@ -59,7 +69,9 @@ tests. Functions are pure: data goes in as arguments.
 | `price.js` | Sell price with quality and Tiller/Artisan, using the wiki's rounding |
 | `harvest.js` | Expected items per harvest (min/max, level scaling, extra-harvest chance) |
 | `processing.js` | Keg and Preserves Jar products for a crop (Beer, Pale Ale, Coffee special cases) |
-| `profit.js` | Profit over the growing window with step-by-step explanation (`steps`) for "Explain the Math" |
+| `profit.js` | Profit over the growing window with step-by-step explanation (`steps`) for "Explain the Math"; `sellAs: 'best'`, `established` regrowing crops |
+| `machines.js` | Splits a harvest across the kegs and jars you own (greedy by gain per item, limited by machine runs) |
+| `greenhouse.js` | Sprinkler coverage of the greenhouse soil and the painted layout |
 
 ## Theme (presentation)
 

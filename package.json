@@ -7,7 +7,7 @@
     "brand": "node tools/brand/render.mjs",
     "data:import": "node tools/data/import-crops.mjs && node tools/data/import-rules.mjs && node tools/data/import-price-oracle.mjs",
     "data:validate": "node tools/data/validate.mjs",
-    "test": "node tools/data/validate.mjs && node --test \"tests/engine/*.test.js\"",
+    "test": "node tools/data/validate.mjs && node tools/build/answers.mjs --check && node --test \"tests/engine/*.test.js\"",
     "test:e2e": "playwright test"
   },
   "devDependencies": {

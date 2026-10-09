@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       Stardew Tools
  * Plugin URI:        https://stardewtools.net/
- * Description:       Core of StardewTools.net: brand identity, SEO foundation, ad slots, site pages, verified game data and the Stardew Tools theme.
- * Version:           0.3.0
+ * Description:       Core of StardewTools.net: brand identity, SEO foundation, ad slots, site pages, verified game data, calculators and the Stardew Tools theme.
+ * Version:           0.4.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Ali Ahmad
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'STARDEW_TOOLS_VERSION', '0.3.0' );
+define( 'STARDEW_TOOLS_VERSION', '0.4.0' );
 define( 'STARDEW_TOOLS_FILE', __FILE__ );
 define( 'STARDEW_TOOLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'STARDEW_TOOLS_URL', plugin_dir_url( __FILE__ ) );
@@ -27,6 +27,7 @@ require_once STARDEW_TOOLS_DIR . 'includes/class-seo.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-ads.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-pages.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-data.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-tools.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-admin.php';
 
 /**
@@ -55,10 +56,27 @@ function stardew_tools_ad( $placement ) {
 	echo Stardew_Tools\Ads::render( $placement ); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
 }
 
+/**
+ * Published tools for the theme: id, short name, question, blurb, icon and URL.
+ *
+ * @return array[]
+ */
+function stardew_tools_live_tools() {
+	$out = array();
+	foreach ( Stardew_Tools\Tools::definitions() as $id => $def ) {
+		$url = Stardew_Tools\Tools::url( $id );
+		if ( $url ) {
+			$out[] = array_merge( array( 'id' => $id, 'url' => $url ), $def );
+		}
+	}
+	return $out;
+}
+
 Stardew_Tools\Head::init();
 Stardew_Tools\Seo::init();
 Stardew_Tools\Ads::init();
 Stardew_Tools\Pages::init();
+Stardew_Tools\Tools::init();
 Stardew_Tools\Admin::init();
 
 register_activation_hook( __FILE__, array( 'Stardew_Tools\Pages', 'install' ) );

@@ -175,3 +175,13 @@ html:not(.js) .nav-toggle { display: none; }
 @media (prefers-reduced-motion: reduce) {
 	* { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Live tool cards: the whole card is clickable through the title link */
+.card--live { transition: border-color .15s; }
+.card--live:hover { border-color: var(--c-primary); }
+.card__link { color: var(--c-ink); text-decoration: none; }
+.card__link::after { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+.card__link:focus-visible { outline: none; }
+.card--live:has(.card__link:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.soon { color: var(--c-muted); font-size: .9em; }
+.category a { font-weight: 600; }

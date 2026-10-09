@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons })
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons })) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse })) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -87,6 +87,14 @@ export function validate({ crops, fertilizers, machines, professions, seasons })
       checkSources(w, p.sources);
     }
   }
+  if (greenhouse.width !== 12 || greenhouse.height !== 10) err('greenhouse', 'expected a 12 x 10 soil area');
+  checkSources('greenhouse', greenhouse.sources);
+  for (const s of greenhouse.sprinklers) {
+    checkSources(`sprinkler ${s.id}`, s.sources);
+    for (const [x, y] of s.positions) {
+      if (!(x >= -1 && x <= greenhouse.width && y >= -1 && y <= greenhouse.height)) err(`sprinkler ${s.id}`, `position ${x},${y} outside soil and border`);
+    }
+  }
   return errors;
 }
 
@@ -97,10 +105,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     machines: load('machines.json'),
     professions: load('professions.json'),
     seasons: load('seasons.json'),
+    greenhouse: load('greenhouse.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse');
 }
