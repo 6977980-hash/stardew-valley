@@ -1,10 +1,10 @@
 <?php
 /**
  * Plugin Name:       Stardew Tools
- * Plugin URI:        https://stardewtools.net
- * Description:       Tools and calculators for Stardew Valley players on stardewtools.net.
- * Version:           0.1.0
- * Requires at least: 6.0
+ * Plugin URI:        https://stardewtools.net/
+ * Description:       Core of StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the Stardew Tools theme.
+ * Version:           0.2.0
+ * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Ali Ahmad
  * License:           GPL-2.0-or-later
@@ -16,50 +16,48 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'STARDEW_TOOLS_VERSION', '0.1.0' );
+define( 'STARDEW_TOOLS_VERSION', '0.2.0' );
+define( 'STARDEW_TOOLS_FILE', __FILE__ );
+define( 'STARDEW_TOOLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'STARDEW_TOOLS_URL', plugin_dir_url( __FILE__ ) );
 
-/**
- * Register front-end styles; they are enqueued only when a shortcode is used.
- */
-function stardew_tools_register_assets() {
-	wp_register_style(
-		'stardew-tools',
-		STARDEW_TOOLS_URL . 'assets/stardew-tools.css',
-		array(),
-		STARDEW_TOOLS_VERSION
-	);
-}
-add_action( 'wp_enqueue_scripts', 'stardew_tools_register_assets' );
+require_once STARDEW_TOOLS_DIR . 'includes/class-config.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-head.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-seo.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-ads.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-pages.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-admin.php';
 
 /**
- * [stardew_tools] shortcode: placeholder block confirming the plugin works.
+ * The Stardew Tools theme ships inside this plugin (theme/stardew-tools-theme) so one
+ * GitHub repo and one Hostinger deployment cover both. It appears under Appearance > Themes
+ * while this plugin is active.
  */
-function stardew_tools_shortcode() {
-	wp_enqueue_style( 'stardew-tools' );
-
-	return '<div class="stardew-tools"><h3>' . esc_html__( 'Stardew Tools', 'stardew-tools' ) . '</h3><p>'
-		. esc_html__( 'Stardew Tools plugin is active. Calculators coming soon.', 'stardew-tools' )
-		. '</p></div>';
-}
-add_shortcode( 'stardew_tools', 'stardew_tools_shortcode' );
+register_theme_directory( STARDEW_TOOLS_DIR . 'theme' );
 
 /**
- * Admin page under Tools > Stardew Tools.
+ * Brand value accessor for themes and templates.
+ *
+ * @param string $key Config key, e.g. 'brand_name', 'tagline'. Empty returns the whole config.
+ * @return mixed
  */
-function stardew_tools_admin_menu() {
-	add_management_page(
-		__( 'Stardew Tools', 'stardew-tools' ),
-		__( 'Stardew Tools', 'stardew-tools' ),
-		'manage_options',
-		'stardew-tools',
-		'stardew_tools_admin_page'
-	);
+function stardew_tools_brand( $key = '' ) {
+	return Stardew_Tools\Config::get( $key );
 }
-add_action( 'admin_menu', 'stardew_tools_admin_menu' );
 
-function stardew_tools_admin_page() {
-	echo '<div class="wrap"><h1>' . esc_html__( 'Stardew Tools', 'stardew-tools' ) . '</h1>';
-	echo '<p>' . esc_html( sprintf( __( 'Version %s is installed and deployed from GitHub.', 'stardew-tools' ), STARDEW_TOOLS_VERSION ) ) . '</p>';
-	echo '<p>' . esc_html__( 'Add the [stardew_tools] shortcode to any page to test it.', 'stardew-tools' ) . '</p></div>';
+/**
+ * Echo an ad slot. Prints nothing while ads are switched off or the slot has no ID.
+ *
+ * @param string $placement One of Stardew_Tools\Ads::PLACEMENTS keys.
+ */
+function stardew_tools_ad( $placement ) {
+	echo Stardew_Tools\Ads::render( $placement ); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
 }
+
+Stardew_Tools\Head::init();
+Stardew_Tools\Seo::init();
+Stardew_Tools\Ads::init();
+Stardew_Tools\Pages::init();
+Stardew_Tools\Admin::init();
+
+register_activation_hook( __FILE__, array( 'Stardew_Tools\Pages', 'install' ) );

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Stardew Tools">
+  <rect width="64" height="64" rx="14" fill="#2F6B34"/>
+  <rect x="12" y="38" width="10" height="14" rx="2.5" fill="#FBF7EC"/>
+  <rect x="27" y="30" width="10" height="22" rx="2.5" fill="#FBF7EC"/>
+  <rect x="42" y="22" width="10" height="30" rx="2.5" fill="#FBF7EC"/>
+  <path d="M47 22c0-5 1-9 5-12" fill="none" stroke="#E3A72F" stroke-width="3" stroke-linecap="round"/>
+  <path d="M51.5 11.5c4.5-1.5 7.5 0 8.5 2.5-3.5 2-7 1.5-8.5-2.5z" fill="#E3A72F"/>
+  <path d="M48.5 15c-3.5-3-7-3-9-1.5 2 3.5 5.5 4 9 1.5z" fill="#E3A72F"/>
+</svg>
