@@ -28,7 +28,7 @@ test.describe('homepage @live', () => {
 
   test('question-first navigation is present', async ({ page }) => {
     await page.goto('/');
-    for (const q of ['Make money', 'What should I plant?', 'Find a fish', 'Find a gift', 'Plan my greenhouse']) {
+    for (const q of ['What should I plant?', 'Keg or Preserves Jar?', 'Find a fish', 'Find a gift', 'Plan my greenhouse']) {
       await expect(page.getByRole('heading', { name: q })).toBeVisible();
     }
   });

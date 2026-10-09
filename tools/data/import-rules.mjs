@@ -214,6 +214,40 @@ async function main() {
     sources: [cite(seasons, /Each Season lasts 28 \[\[Day Cycle\|days\]\]/, /crops wither and die unless they can also grow during the coming season/)],
   });
 
+  /* ---------- Greenhouse and sprinklers ---------- */
+  const gh = await page('Greenhouse');
+  const qs = await page('Quality Sprinkler');
+  const is = await page('Iridium Sprinkler');
+  // Sprinkler positions are our own layouts (field x 0-11, y 0-9; -1 or 12/10 = wooden border).
+  // tests/engine/greenhouse.test.js proves each one waters every soil tile and uses exactly the
+  // number of soil tiles the wiki states.
+  write('greenhouse.json', {
+    ...header('stardew-tools/greenhouse@1', wikiLicense),
+    width: 12,
+    height: 10,
+    notes: ['Sprinklers can also stand on the wooden border around the soil.', 'Fruit trees around the edge are not modelled yet.'],
+    sources: [cite(gh, /12-by-10 shape of the farmable area/, /possible to place sprinklers on this border/)],
+    sprinklers: [
+      { id: 'none', name: 'No sprinklers (watering can)', radius: 0, soil_used: 0, positions: [], sources: [cite(gh, /12-by-10 shape/)] },
+      {
+        id: 'quality',
+        name: 'Quality Sprinklers',
+        radius: 1,
+        soil_used: 12,
+        positions: [1, 4, 7, 10].flatMap((x) => [1, 4, 7, 10].map((y) => [x, y])),
+        sources: [cite(qs, /waters the 8 adjacent tiles every morning \(a 3x3 area\)/), cite(gh, /with \[\[Quality Sprinkler\|quality sprinklers\]\], 12 crop spaces \(10%\) are occupied/)],
+      },
+      {
+        id: 'iridium',
+        name: 'Iridium Sprinklers',
+        radius: 2,
+        soil_used: 4,
+        positions: [[2, 2], [7, 2], [12, 2], [2, 7], [7, 7], [12, 7]],
+        sources: [cite(is, /waters the 24 adjacent tiles every morning \(a 5x5 area\)/), cite(gh, /only 4 crop spaces \(≈3\.3%\) must be taken/)],
+      },
+    ],
+  });
+
   if (failures.length) {
     console.error('Evidence check failed:\n  ' + failures.join('\n  '));
     process.exit(1);

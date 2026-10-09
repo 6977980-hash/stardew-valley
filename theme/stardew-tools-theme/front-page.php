@@ -2,7 +2,7 @@
 /**
  * Homepage: question-first navigation into the tools.
  *
- * Tools are listed as "Coming soon" until their phase ships; they become links then.
+ * Tools link to their pages once live; the rest are listed as "Coming soon".
  *
  * @package Stardew_Tools_Theme
  */
@@ -11,17 +11,22 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$questions = array(
-	array( 'Make money', 'Find the most profitable crops, animals and artisan goods for your farm.', 'coin' ),
-	array( 'What should I plant?', 'Get a crop pick for your season, days left, budget and goal.', 'sprout' ),
-	array( 'Keg or Preserves Jar?', 'See which machine earns more for your crops and how many machines you have.', 'jar' ),
-	array( 'Plan my greenhouse', 'Lay out crops, fruit trees and sprinklers and see the profit.', 'house' ),
-	array( 'Find a fish', 'See what you can catch by season, weather, time and location.', 'fish' ),
-	array( 'Find a gift', 'Look up loved and liked gifts for every villager.', 'gift' ),
-);
+// Live tools come from the plugin (question, blurb, icon, URL); the rest are still on the way.
+$live = function_exists( 'stardew_tools_live_tools' ) ? stardew_tools_live_tools() : array();
 
+$questions = array();
+foreach ( $live as $t ) {
+	$questions[] = array( $t['question'], $t['blurb'], $t['icon'], $t['url'] );
+}
+$soon = array(
+	array( 'Find a fish', 'See what you can catch by season, weather, time and location.', 'fish', '' ),
+	array( 'Find a gift', 'Look up loved and liked gifts for every villager.', 'gift', '' ),
+);
+$questions = array_merge( $questions, array_slice( $soon, 0, max( 0, 6 - count( $questions ) ) ) );
+
+$live_names = wp_list_pluck( $live, 'short' );
 $categories = array(
-	'Decision tools' => array( 'Crop Decision Engine', 'Keg vs Preserves Jar', 'Greenhouse Planner' ),
+	'Decision tools' => array( 'Crop Decision Engine', 'Keg vs Preserves Jar', 'Ancient Fruit vs Starfruit', 'Greenhouse Planner' ),
 	'Calculators'    => array( 'Crop Profit Calculator', 'Fish Pond Calculator', 'Animal Profit Calculator', 'Crafting Calculator', 'Farming & Fishing XP' ),
 	'Finders'        => array( 'Fish Finder', 'Gift Finder' ),
 	'Trackers'       => array( 'Bundle Tracker' ),
@@ -50,11 +55,19 @@ $icons = array(
 		<h2 id="ask-heading">What do you want to do?</h2>
 		<ul class="card-grid" role="list">
 			<?php foreach ( $questions as $q ) : ?>
-			<li class="card card--soon">
+			<li class="card<?php echo $q[3] ? ' card--live' : ' card--soon'; ?>">
 				<svg class="card__icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><?php echo $icons[ $q[2] ]; // phpcs:ignore WordPress.Security.EscapeOutput -- static SVG. ?></svg>
-				<h3 class="card__title"><?php echo esc_html( $q[0] ); ?></h3>
+				<h3 class="card__title">
+					<?php if ( $q[3] ) : ?>
+					<a class="card__link" href="<?php echo esc_url( $q[3] ); ?>"><?php echo esc_html( $q[0] ); ?></a>
+					<?php else : ?>
+						<?php echo esc_html( $q[0] ); ?>
+					<?php endif; ?>
+				</h3>
 				<p class="card__text"><?php echo esc_html( $q[1] ); ?></p>
+				<?php if ( ! $q[3] ) : ?>
 				<span class="badge">Coming soon</span>
+				<?php endif; ?>
 			</li>
 			<?php endforeach; ?>
 		</ul>
@@ -77,14 +90,21 @@ $icons = array(
 
 <section class="section" aria-labelledby="tools-heading">
 	<div class="container">
-		<h2 id="tools-heading">Tools on the way</h2>
+		<h2 id="tools-heading">All tools</h2>
 		<div class="category-grid">
 			<?php foreach ( $categories as $name => $tools ) : ?>
 			<div class="category">
 				<h3><?php echo esc_html( $name ); ?></h3>
 				<ul>
 					<?php foreach ( $tools as $tool ) : ?>
-					<li><?php echo esc_html( $tool ); ?></li>
+						<?php $hit = array_search( $tool, $live_names, true ); ?>
+					<li>
+						<?php if ( false !== $hit ) : ?>
+						<a href="<?php echo esc_url( $live[ $hit ]['url'] ); ?>"><?php echo esc_html( $tool ); ?></a>
+						<?php else : ?>
+							<?php echo esc_html( $tool ); ?> <span class="soon">(soon)</span>
+						<?php endif; ?>
+					</li>
 					<?php endforeach; ?>
 				</ul>
 			</div>

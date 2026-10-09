@@ -1,0 +1,225 @@
+{
+  "game_version": "1.6.15",
+  "crop_profit": {
+    "spring": [
+      {
+        "id": "rhubarb",
+        "name": "Rhubarb",
+        "profit": 244,
+        "harvests": 2
+      },
+      {
+        "id": "potato",
+        "name": "Potato",
+        "profit": 203,
+        "harvests": 4
+      },
+      {
+        "id": "cauliflower",
+        "name": "Cauliflower",
+        "profit": 193,
+        "harvests": 2
+      }
+    ],
+    "summer": [
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "profit": 715,
+        "harvests": 2
+      },
+      {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "profit": 526,
+        "harvests": 4
+      },
+      {
+        "id": "red-cabbage",
+        "name": "Red Cabbage",
+        "profit": 488,
+        "harvests": 3
+      }
+    ],
+    "fall": [
+      {
+        "id": "cranberries",
+        "name": "Cranberries",
+        "profit": 555,
+        "harvests": 5
+      },
+      {
+        "id": "pumpkin",
+        "name": "Pumpkin",
+        "profit": 446,
+        "harvests": 2
+      },
+      {
+        "id": "grape",
+        "name": "Grape",
+        "profit": 425,
+        "harvests": 6
+      }
+    ],
+    "winter": []
+  },
+  "keg_vs_jar": {
+    "keg_per_item": [
+      "Ancient Fruit",
+      "Cactus Fruit",
+      "Cranberries",
+      "Grape",
+      "Hops",
+      "Melon",
+      "Pineapple",
+      "Powdermelon",
+      "Pumpkin",
+      "Red Cabbage",
+      "Rhubarb",
+      "Starfruit",
+      "Strawberry",
+      "Wheat"
+    ],
+    "jar_per_item": [
+      "Amaranth",
+      "Artichoke",
+      "Beet",
+      "Bok Choy",
+      "Broccoli",
+      "Carrot",
+      "Cauliflower",
+      "Corn",
+      "Eggplant",
+      "Garlic",
+      "Green Bean",
+      "Hot Pepper",
+      "Kale",
+      "Parsnip",
+      "Potato",
+      "Radish",
+      "Summer Squash",
+      "Taro Root",
+      "Tomato",
+      "Unmilled Rice",
+      "Yam"
+    ],
+    "tie": [
+      "Blueberry"
+    ],
+    "jar_per_machine_day": [
+      "Amaranth",
+      "Ancient Fruit",
+      "Artichoke",
+      "Beet",
+      "Blueberry",
+      "Bok Choy",
+      "Broccoli",
+      "Cactus Fruit",
+      "Carrot",
+      "Cauliflower",
+      "Corn",
+      "Cranberries",
+      "Eggplant",
+      "Garlic",
+      "Grape",
+      "Green Bean",
+      "Hot Pepper",
+      "Kale",
+      "Melon",
+      "Parsnip",
+      "Pineapple",
+      "Potato",
+      "Powdermelon",
+      "Pumpkin",
+      "Radish",
+      "Red Cabbage",
+      "Rhubarb",
+      "Starfruit",
+      "Strawberry",
+      "Summer Squash",
+      "Taro Root",
+      "Tomato",
+      "Unmilled Rice",
+      "Yam"
+    ],
+    "starfruit": {
+      "wine": {
+        "price": 2250,
+        "gain_per_machine_day": 240
+      },
+      "jelly": {
+        "price": 1550,
+        "gain_per_machine_day": 320
+      }
+    }
+  },
+  "af_vs_starfruit": {
+    "greenhouse_year1": {
+      "ancient": 27720,
+      "starfruit": 22000
+    },
+    "greenhouse_established": {
+      "ancient": 36960,
+      "starfruit": 22000
+    },
+    "summer": {
+      "ancient": 9240,
+      "starfruit": 5500
+    }
+  },
+  "greenhouse": {
+    "tiles": 116,
+    "raw": [
+      {
+        "id": "ancient-fruit",
+        "name": "Ancient Fruit",
+        "per_tile": 8887,
+        "sell_as": "raw",
+        "total": 1030939,
+        "machines": 0
+      },
+      {
+        "id": "sweet-gem-berry",
+        "name": "Sweet Gem Berry",
+        "per_tile": 8119,
+        "sell_as": "raw",
+        "total": 941850,
+        "machines": 0
+      },
+      {
+        "id": "pineapple",
+        "name": "Pineapple",
+        "per_tile": 4848,
+        "sell_as": "raw",
+        "total": 562340,
+        "machines": 0
+      }
+    ],
+    "processed": [
+      {
+        "id": "hops",
+        "name": "Hops",
+        "per_tile": 47040,
+        "sell_as": "pale-ale",
+        "total": 5456640,
+        "machines": 164
+      },
+      {
+        "id": "ancient-fruit",
+        "name": "Ancient Fruit",
+        "per_tile": 36960,
+        "sell_as": "wine",
+        "total": 4287360,
+        "machines": 104
+      },
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "per_tile": 22000,
+        "sell_as": "wine",
+        "total": 2552000,
+        "machines": 52
+      }
+    ]
+  }
+}

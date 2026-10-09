@@ -23,7 +23,8 @@ export function seedPrice(crop, source = null) {
  * @param crop     record from data/crops.json
  * @param data     { fertilizers, machines, seasons } from data/*.json
  * @param o        options: plantSeason, plantDay, farmingLevel, tiller, artisan, agriculturist,
- *                 fertilizer (id), greenhouse, horizonDays, seedSource, sellAs ('raw' | product id)
+ *                 fertilizer (id), greenhouse, horizonDays, established, seedSource,
+ *                 sellAs ('raw' | product id | 'best')
  */
 export function cropProfit(crop, data, o = {}) {
   const steps = [];
@@ -40,6 +41,7 @@ export function cropProfit(crop, data, o = {}) {
     greenhouse: !!o.greenhouse,
     horizonDays: o.horizonDays ?? null,
     replant: true,
+    established: !!o.established,
     fertilizerSpeed: fert && fert.kind === 'speed' ? fert.speed : 0,
     agriculturist: !!o.agriculturist,
   });
@@ -54,7 +56,22 @@ export function cropProfit(crop, data, o = {}) {
   const chances = qualityChances(farmingLevel, qualityLevel);
   let perHarvest;
   let unitLabel;
-  if (!o.sellAs || o.sellAs === 'raw') {
+  let sellAs = o.sellAs || 'raw';
+  if (sellAs === 'best') {
+    // Highest value per harvest among raw and every machine product the crop can go into.
+    const options = productsFor(crop, data.machines, { artisan: !!o.artisan });
+    const raw = expectedCropPrice(crop, chances, { tiller: !!o.tiller }) + (items - 1) * cropSellPrice(crop, 'regular', { tiller: !!o.tiller });
+    sellAs = 'raw';
+    let best = raw;
+    for (const p of options) {
+      const v = (items / p.inputCount) * p.price;
+      if (v > best) {
+        best = v;
+        sellAs = p.product;
+      }
+    }
+  }
+  if (sellAs === 'raw') {
     // Fertilizer quality only applies to the first item; extra items are regular quality.
     const first = expectedCropPrice(crop, chances, { tiller: !!o.tiller });
     const rest = cropSellPrice(crop, 'regular', { tiller: !!o.tiller });
@@ -63,8 +80,8 @@ export function cropProfit(crop, data, o = {}) {
     steps.push({ key: 'price', label: 'Average price of the first item', value: round(first), detail: `quality chances: ${fmtChances(chances)}` });
     if (items > 1) steps.push({ key: 'price-rest', label: 'Price of each extra item (regular quality)', value: rest });
   } else {
-    const product = productsFor(crop, data.machines, { artisan: !!o.artisan }).find((p) => p.product === o.sellAs);
-    if (!product) throw new Error(`${crop.name} cannot be made into ${o.sellAs}`);
+    const product = productsFor(crop, data.machines, { artisan: !!o.artisan }).find((p) => p.product === sellAs);
+    if (!product) throw new Error(`${crop.name} cannot be made into ${sellAs}`);
     perHarvest = (items / product.inputCount) * product.price;
     unitLabel = product.productName;
     steps.push({ key: 'product', label: `${product.productName} price (${product.machineName})`, value: product.price, detail: `${product.inputCount} ${crop.name} each, ${round(product.days, 2)} days in the machine; input quality is ignored` });
@@ -73,12 +90,12 @@ export function cropProfit(crop, data, o = {}) {
 
   const revenue = perHarvest * sched.harvests.length;
   const seed = seedPrice(crop, o.seedSource);
-  const plantings = crop.regrow_days ? (sched.harvests.length ? 1 : 0) : sched.harvests.length;
-  const seedCost = seed.price != null ? seed.price * plantings : null;
+  const plantings = crop.regrow_days ? (sched.harvests.length && !o.established ? 1 : 0) : sched.harvests.length;
+  const seedCost = plantings === 0 ? 0 : seed.price != null ? seed.price * plantings : null;
   const fertCost = fert && sched.harvests.length ? cheapest(fert.prices) : 0;
   const cost = (seedCost ?? 0) + (fertCost ?? 0);
   steps.push({ key: 'revenue', label: 'Revenue', value: round(revenue) });
-  steps.push({ key: 'seeds', label: 'Seed cost', value: seedCost, detail: seed.price != null ? `${plantings} × ${seed.price}g (${seed.source})` : 'seed has no gold price; cost not counted' });
+  steps.push({ key: 'seeds', label: 'Seed cost', value: seedCost, detail: plantings === 0 ? 'no new seeds needed' : seed.price != null ? `${plantings} × ${seed.price}g (${seed.source})` : 'seed has no gold price; cost not counted' });
   if (fert) steps.push({ key: 'fertilizer', label: `${fert.name} cost`, value: fertCost, detail: fertCost == null ? 'not sold for gold; cost not counted' : 'one application per tile' });
 
   const profit = revenue - cost;
@@ -86,7 +103,7 @@ export function cropProfit(crop, data, o = {}) {
   steps.push({ key: 'profit', label: 'Profit', value: round(profit) });
   return {
     crop: crop.id,
-    sellAs: o.sellAs || 'raw',
+    sellAs,
     unit: unitLabel,
     growth: sched.growth,
     harvestDays: sched.harvests,

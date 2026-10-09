@@ -57,16 +57,18 @@ export function growingWindow(crop, plantSeason, { seasons, daysPerSeason = 28, 
 
 /**
  * Harvest days (1-based day numbers counted from day 1 of the planting season).
- * Single-harvest crops are replanted on harvest day when `replant` is true.
+ * Single-harvest crops are replanted on harvest day when `replant` is true. `established` means a
+ * regrowing crop that is already mature on the first day (e.g. greenhouse, second year).
  * @returns {{growth:number, harvests:number[], lastDay:number}}
  */
-export function harvestSchedule(crop, { plantDay = 1, plantSeason, seasons, daysPerSeason = 28, greenhouse = false, horizonDays = null, replant = true, fertilizerSpeed = 0, agriculturist = false }) {
+export function harvestSchedule(crop, { plantDay = 1, plantSeason, seasons, daysPerSeason = 28, greenhouse = false, horizonDays = null, replant = true, established = false, fertilizerSpeed = 0, agriculturist = false }) {
   const growth = growthDays(crop, { fertilizerSpeed, agriculturist });
   const window = growingWindow(crop, plantSeason, { seasons, daysPerSeason, greenhouse, horizonDays });
   const lastDay = window;
   const harvests = [];
   if (!window || plantDay > lastDay) return { growth, harvests, lastDay };
-  let day = plantDay + growth;
+  // An established regrowing plant (already grown last year) is ready every regrow_days.
+  let day = established && crop.regrow_days ? plantDay - 1 + crop.regrow_days : plantDay + growth;
   if (crop.regrow_days) {
     while (day <= lastDay) {
       harvests.push(day);

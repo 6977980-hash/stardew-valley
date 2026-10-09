@@ -14,6 +14,7 @@ use Stardew_Tools\Config;
 use Stardew_Tools\Data;
 use Stardew_Tools\Pages;
 use Stardew_Tools\Seo;
+use Stardew_Tools\Tools;
 
 global $st_failures, $st_passes;
 $st_failures = 0;
@@ -148,6 +149,28 @@ st_assert( count( $crops ) >= 40 && isset( $crops['parsnip'] ), 'crops keyed by 
 st_assert( array( 1, 1, 1, 1 ) === $crops['parsnip']['phase_days'] && 35 === $crops['parsnip']['base_price'], 'parsnip record' );
 $summary = Data::summary();
 st_assert( $summary['ok'] && $summary['crops'] === $summary['verified'], 'summary: every crop cross-checked' );
+
+echo "Tools\n";
+Tools::install();
+foreach ( array_keys( Tools::definitions() ) as $tool_id ) {
+	$page = get_page_by_path( $tool_id, OBJECT, 'page' );
+	st_assert( $page && 'publish' === $page->post_status && $tool_id === get_post_meta( $page->ID, Tools::META, true ), "tool page exists: {$tool_id}" );
+	st_assert( $page && '' !== get_post_meta( $page->ID, Seo::META_DESCRIPTION, true ), "tool meta description: {$tool_id}" );
+	$html = do_shortcode( '[stardew_tool id="' . $tool_id . '"]' );
+	st_assert( false !== strpos( $html, 'class="answer"' ) && false !== strpos( $html, '<form class="tool-form"' ), "tool renders answer and form: {$tool_id}" );
+	st_assert( false !== strpos( $html, 'Verified for Stardew Valley 1.6.15' ), "tool shows verified badge: {$tool_id}" );
+	st_assert( file_exists( STARDEW_TOOLS_DIR . 'assets/js/tools/' . Tools::definitions()[ $tool_id ]['script'] . '.js' ), "tool script exists: {$tool_id}" );
+}
+st_assert( '' === do_shortcode( '[stardew_tool id="nope"]' ), 'unknown tool renders nothing' );
+$edited = get_page_by_path( 'greenhouse-planner', OBJECT, 'page' );
+wp_update_post( array( 'ID' => $edited->ID, 'post_title' => 'My planner' ) );
+Tools::install();
+st_assert( 'My planner' === get_post( $edited->ID )->post_title, 'published tool page is not overwritten' );
+wp_update_post( array( 'ID' => $edited->ID, 'post_title' => Tools::definitions()['greenhouse-planner']['title'] ) );
+$answers = Data::get( 'answers' );
+st_assert( 'Rhubarb' === $answers['crop_profit']['spring'][0]['name'], 'answers: Spring 1 best is Rhubarb' );
+$slim = Tools::slim_crops();
+st_assert( ! isset( $slim['parsnip']['problems'] ) && 1 === count( $slim['parsnip']['sources'] ), 'inline crops are slimmed' );
 
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
