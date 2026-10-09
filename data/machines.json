@@ -1,0 +1,204 @@
+{
+  "schema": "stardew-tools/machines@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "minutes_per_day": 1600,
+  "machines": [
+    {
+      "id": "keg",
+      "name": "Keg",
+      "sources": [
+        {
+          "title": "Keg",
+          "url": "https://stardewvalleywiki.com/Keg",
+          "revid": 195253
+        }
+      ],
+      "products": [
+        {
+          "id": "wine",
+          "name": "Wine",
+          "input": {
+            "category": "fruit",
+            "count": 1
+          },
+          "minutes": 10000,
+          "price": {
+            "multiplier": 3,
+            "add": 0
+          },
+          "artisan": true,
+          "sources": [
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        },
+        {
+          "id": "juice",
+          "name": "Juice",
+          "input": {
+            "category": "vegetable",
+            "count": 1
+          },
+          "minutes": 6000,
+          "price": {
+            "multiplier": 2.25,
+            "add": 0
+          },
+          "artisan": true,
+          "sources": [
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        },
+        {
+          "id": "beer",
+          "name": "Beer",
+          "input": {
+            "item": "wheat",
+            "count": 1
+          },
+          "minutes": 1750,
+          "price": {
+            "fixed": 200
+          },
+          "artisan": true,
+          "sources": [
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        },
+        {
+          "id": "pale-ale",
+          "name": "Pale Ale",
+          "input": {
+            "item": "hops",
+            "count": 1
+          },
+          "minutes": 2250,
+          "price": {
+            "fixed": 300
+          },
+          "artisan": true,
+          "sources": [
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        },
+        {
+          "id": "coffee",
+          "name": "Coffee",
+          "input": {
+            "item": "coffee-bean",
+            "count": 5
+          },
+          "minutes": 120,
+          "price": {
+            "fixed": 150
+          },
+          "artisan": false,
+          "sources": [
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        }
+      ],
+      "notes": [
+        "Wheat makes Beer and Hops make Pale Ale instead of Juice.",
+        "Coffee does not get the Artisan bonus."
+      ]
+    },
+    {
+      "id": "preserves-jar",
+      "name": "Preserves Jar",
+      "sources": [
+        {
+          "title": "Preserves Jar",
+          "url": "https://stardewvalleywiki.com/Preserves_Jar",
+          "revid": 190576
+        }
+      ],
+      "products": [
+        {
+          "id": "jelly",
+          "name": "Jelly",
+          "input": {
+            "category": "fruit",
+            "count": 1
+          },
+          "minutes": 4000,
+          "price": {
+            "multiplier": 2,
+            "add": 50
+          },
+          "artisan": true,
+          "sources": [
+            {
+              "title": "Preserves Jar",
+              "url": "https://stardewvalleywiki.com/Preserves_Jar",
+              "revid": 190576
+            },
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        },
+        {
+          "id": "pickles",
+          "name": "Pickles",
+          "input": {
+            "category": "vegetable",
+            "count": 1
+          },
+          "minutes": 4000,
+          "price": {
+            "multiplier": 2,
+            "add": 50
+          },
+          "artisan": true,
+          "sources": [
+            {
+              "title": "Preserves Jar",
+              "url": "https://stardewvalleywiki.com/Preserves_Jar",
+              "revid": 190576
+            },
+            {
+              "title": "Keg",
+              "url": "https://stardewvalleywiki.com/Keg",
+              "revid": 195253
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "quality_rules": {
+    "input_quality_ignored": true,
+    "sources": [
+      {
+        "title": "Artisan Goods",
+        "url": "https://stardewvalleywiki.com/Artisan_Goods",
+        "revid": 191921
+      }
+    ]
+  }
+}

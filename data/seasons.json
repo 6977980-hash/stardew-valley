@@ -1,0 +1,21 @@
+{
+  "schema": "stardew-tools/seasons@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "days_per_season": 28,
+  "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+  ],
+  "sources": [
+    {
+      "title": "Seasons",
+      "url": "https://stardewvalleywiki.com/Seasons",
+      "revid": 194195
+    }
+  ]
+}

@@ -29,9 +29,37 @@ Claude / local dev  →  GitHub (6977980-hash/stardew-valley, branch main)
 | `includes/class-seo.php` | Titles, meta description, canonical, robots, Open Graph/Twitter, JSON-LD, sitemap and robots.txt tweaks; steps aside if Yoast/Rank Math/AIOSEO is active |
 | `includes/class-ads.php` | Ad slots (off by default), AdSense loader, `/ads.txt`, reserved slot heights |
 | `includes/class-pages.php` + `includes/page-templates/` | About, Contact, Privacy, Terms, Disclaimer, Methodology, Changelog |
+| `includes/class-data.php` | Read-only access to `data/*.json` (`Data::get()`, `Data::crops()`) |
 | `includes/class-admin.php` | Settings > Stardew Tools (status + ad settings) |
 
-Later phases add `data/` (verified JSON), the calculation engine and the tools here, not in the theme.
+Tools (Phase 3+) live in the plugin, not in the theme.
+
+## Game data (`data/`)
+
+Verified JSON for game version 1.6.15, generated from the Stardew Valley Wiki by `npm run data:import`.
+Never edit these files by hand; fix the importer and re-run it. See `docs/data.md`.
+
+| File | Contents |
+| --- | --- |
+| `crops.json` | 44 crops: stages, growth, regrowth, seasons, category, base price, harvest size, seed prices, sources with wiki revision IDs, verification status |
+| `fertilizers.json` | Quality and speed fertilizers, shop prices, fertilizer rules |
+| `machines.json` | Keg and Preserves Jar products: inputs, minutes, price rules, Artisan eligibility |
+| `professions.json` | Tiller, Artisan, Agriculturist |
+| `seasons.json` | 4 seasons of 28 days |
+
+## Calculation engine (`assets/js/engine/`)
+
+Plain ES modules, no build step, no dependencies. The same files run in the browser and in Node
+tests. Functions are pure: data goes in as arguments.
+
+| Module | What it does |
+| --- | --- |
+| `growth.js` | Speed-Gro/Agriculturist stage reduction (game algorithm incl. float rounding), harvest days, multi-season and greenhouse windows, last planting day |
+| `quality.js` | Regular/silver/gold/iridium chances by farming level and fertilizer |
+| `price.js` | Sell price with quality and Tiller/Artisan, using the wiki's rounding |
+| `harvest.js` | Expected items per harvest (min/max, level scaling, extra-harvest chance) |
+| `processing.js` | Keg and Preserves Jar products for a crop (Beer, Pale Ale, Coffee special cases) |
+| `profit.js` | Profit over the growing window with step-by-step explanation (`steps`) for "Explain the Math" |
 
 ## Theme (presentation)
 

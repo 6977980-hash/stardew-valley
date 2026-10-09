@@ -1,0 +1,158 @@
+{
+  "schema": "stardew-tools/fertilizers@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "fertilizers": [
+    {
+      "id": "basic-fertilizer",
+      "name": "Basic Fertilizer",
+      "kind": "quality",
+      "quality_level": 1,
+      "prices": {
+        "pierre": 100
+      },
+      "sources": [
+        {
+          "title": "Fertilizer",
+          "url": "https://stardewvalleywiki.com/Fertilizer",
+          "revid": 194274
+        },
+        {
+          "title": "Farming",
+          "url": "https://stardewvalleywiki.com/Farming",
+          "revid": 191914
+        }
+      ]
+    },
+    {
+      "id": "quality-fertilizer",
+      "name": "Quality Fertilizer",
+      "kind": "quality",
+      "quality_level": 2,
+      "prices": {
+        "pierre": 150
+      },
+      "sources": [
+        {
+          "title": "Fertilizer",
+          "url": "https://stardewvalleywiki.com/Fertilizer",
+          "revid": 194274
+        },
+        {
+          "title": "Farming",
+          "url": "https://stardewvalleywiki.com/Farming",
+          "revid": 191914
+        }
+      ]
+    },
+    {
+      "id": "deluxe-fertilizer",
+      "name": "Deluxe Fertilizer",
+      "kind": "quality",
+      "quality_level": 3,
+      "prices": {},
+      "sources": [
+        {
+          "title": "Fertilizer",
+          "url": "https://stardewvalleywiki.com/Fertilizer",
+          "revid": 194274
+        },
+        {
+          "title": "Farming",
+          "url": "https://stardewvalleywiki.com/Farming",
+          "revid": 191914
+        }
+      ]
+    },
+    {
+      "id": "speed-gro",
+      "name": "Speed-Gro",
+      "kind": "speed",
+      "speed": 0.1,
+      "prices": {
+        "pierre": 100
+      },
+      "sources": [
+        {
+          "title": "Fertilizer",
+          "url": "https://stardewvalleywiki.com/Fertilizer",
+          "revid": 194274
+        },
+        {
+          "title": "Speed-Gro",
+          "url": "https://stardewvalleywiki.com/Speed-Gro",
+          "revid": 190630
+        }
+      ]
+    },
+    {
+      "id": "deluxe-speed-gro",
+      "name": "Deluxe Speed-Gro",
+      "kind": "speed",
+      "speed": 0.25,
+      "prices": {
+        "pierre": 150,
+        "oasis": 80
+      },
+      "sources": [
+        {
+          "title": "Fertilizer",
+          "url": "https://stardewvalleywiki.com/Fertilizer",
+          "revid": 194274
+        },
+        {
+          "title": "Deluxe Speed-Gro",
+          "url": "https://stardewvalleywiki.com/Deluxe_Speed-Gro",
+          "revid": 191196
+        }
+      ]
+    },
+    {
+      "id": "hyper-speed-gro",
+      "name": "Hyper Speed-Gro",
+      "kind": "speed",
+      "speed": 0.33,
+      "prices": {},
+      "sources": [
+        {
+          "title": "Fertilizer",
+          "url": "https://stardewvalleywiki.com/Fertilizer",
+          "revid": 194274
+        },
+        {
+          "title": "Hyper Speed-Gro",
+          "url": "https://stardewvalleywiki.com/Hyper_Speed-Gro",
+          "revid": 190377
+        }
+      ]
+    }
+  ],
+  "rules": {
+    "speed_affects_regrowth": false,
+    "quality_fertilizer_affects_extra_harvest": false,
+    "extra_items_quality": "regular",
+    "notes": [
+      "Speed-Gro fertilizers do not reduce the time between harvests of multi-harvest crops.",
+      "Basic, Quality and Deluxe fertilizer only affect the first item of a multi-item harvest; the extra items are regular quality."
+    ],
+    "sources": [
+      {
+        "title": "Fertilizer",
+        "url": "https://stardewvalleywiki.com/Fertilizer",
+        "revid": 194274
+      },
+      {
+        "title": "Fertilizer",
+        "url": "https://stardewvalleywiki.com/Fertilizer",
+        "revid": 194274
+      },
+      {
+        "title": "Blueberry",
+        "url": "https://stardewvalleywiki.com/Blueberry",
+        "revid": 192090
+      }
+    ]
+  }
+}

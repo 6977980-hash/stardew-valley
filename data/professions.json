@@ -1,0 +1,76 @@
+{
+  "schema": "stardew-tools/professions@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "last_verified": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "professions": [
+    {
+      "id": "tiller",
+      "name": "Tiller",
+      "level": 5,
+      "effect": {
+        "sell_multiplier": 1.1,
+        "applies_to": [
+          "vegetable",
+          "flower",
+          "fruit"
+        ]
+      },
+      "notes": [
+        "Foraged fruit does not get the bonus."
+      ],
+      "sources": [
+        {
+          "title": "Farming/Skill",
+          "url": "https://stardewvalleywiki.com/Farming/Skill",
+          "revid": 190383
+        }
+      ]
+    },
+    {
+      "id": "artisan",
+      "name": "Artisan",
+      "level": 10,
+      "requires": "tiller",
+      "effect": {
+        "sell_multiplier": 1.4,
+        "applies_to": [
+          "artisan"
+        ],
+        "excludes": [
+          "coffee",
+          "oil"
+        ]
+      },
+      "sources": [
+        {
+          "title": "Farming/Skill",
+          "url": "https://stardewvalleywiki.com/Farming/Skill",
+          "revid": 190383
+        },
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods",
+          "revid": 191921
+        }
+      ]
+    },
+    {
+      "id": "agriculturist",
+      "name": "Agriculturist",
+      "level": 10,
+      "requires": "tiller",
+      "effect": {
+        "growth_speed": 0.1
+      },
+      "sources": [
+        {
+          "title": "Farming/Skill",
+          "url": "https://stardewvalleywiki.com/Farming/Skill",
+          "revid": 190383
+        }
+      ]
+    }
+  ]
+}

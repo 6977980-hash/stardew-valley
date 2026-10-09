@@ -59,6 +59,8 @@ class Admin {
 					<tr><td>Plugin version</td><td><?php echo esc_html( STARDEW_TOOLS_VERSION ); ?></td></tr>
 					<tr><td>Active theme</td><td><?php echo esc_html( $theme->get( 'Name' ) ); ?><?php echo 'stardew-tools-theme' === get_stylesheet() ? '' : ' — activate <strong>Stardew Tools Theme</strong> under Appearance &gt; Themes'; ?></td></tr>
 					<tr><td>Game data version</td><td><?php echo esc_html( Config::get( 'game_version' ) ); ?></td></tr>
+					<?php $d = Data::summary(); ?>
+					<tr><td>Game data</td><td><?php echo $d['ok'] ? esc_html( sprintf( '%d crops (%d cross-checked), checked %s', $d['crops'], $d['verified'], $d['checked'] ) ) : '<strong>Missing</strong> (data/crops.json not found)'; ?></td></tr>
 					<tr><td>Search engines</td><td><?php echo get_option( 'blog_public' ) ? 'Allowed' : '<strong>Blocked</strong> (Settings &gt; Reading)'; ?></td></tr>
 					<tr><td>Ad slots</td><td><?php echo $s['show_slots'] ? 'On' : 'Off (nothing ad-related is shown on the site)'; ?></td></tr>
 				</tbody>
