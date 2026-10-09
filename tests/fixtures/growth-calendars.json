@@ -1,0 +1,3379 @@
+{
+ "source": {
+  "title": "Crop Growth Calendars",
+  "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars",
+  "revid": 189875
+ },
+ "crops": {
+  "blue-jazz": {
+   "name": "Blue Jazz",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "carrot": {
+   "name": "Carrot",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1
+     ],
+     "days": 1
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1
+     ],
+     "days": 1
+    }
+   ]
+  },
+  "cauliflower": {
+   "name": "Cauliflower",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      4,
+      4,
+      1
+     ],
+     "days": 12
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      4,
+      1
+     ],
+     "days": 10
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      3,
+      1
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      3,
+      1
+     ],
+     "days": 9
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "coffee-bean": {
+   "name": "Coffee Bean",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      2,
+      3,
+      2
+     ],
+     "days": 10
+    }
+   ]
+  },
+  "garlic": {
+   "name": "Garlic",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    }
+   ]
+  },
+  "green-bean": {
+   "name": "Green Bean",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      3,
+      4
+     ],
+     "days": 10
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      4
+     ],
+     "days": 8
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      4
+     ],
+     "days": 7
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      4
+     ],
+     "days": 7
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "kale": {
+   "name": "Kale",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      2,
+      1
+     ],
+     "days": 6
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "parsnip": {
+   "name": "Parsnip",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    }
+   ]
+  },
+  "potato": {
+   "name": "Potato",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 6
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "rhubarb": {
+   "name": "Rhubarb",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      2,
+      2,
+      3,
+      4
+     ],
+     "days": 13
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      4
+     ],
+     "days": 11
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      4
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3,
+      4
+     ],
+     "days": 10
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    }
+   ]
+  },
+  "strawberry": {
+   "name": "Strawberry",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    }
+   ]
+  },
+  "tulip": {
+   "name": "Tulip",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "unmilled-rice": {
+   "name": "Unmilled Rice",
+   "tables": [
+    {
+     "label": "Base Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "10%* Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "25% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "33% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "20% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "35% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "43% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    }
+   ]
+  },
+  "blueberry": {
+   "name": "Blueberry",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      3,
+      3,
+      4,
+      2
+     ],
+     "days": 13
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      4,
+      2
+     ],
+     "days": 11
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      3,
+      1
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      1
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      3,
+      2
+     ],
+     "days": 10
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      1
+     ],
+     "days": 8
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3,
+      1
+     ],
+     "days": 7
+    }
+   ]
+  },
+  "corn": {
+   "name": "Corn",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      3,
+      3,
+      3,
+      3
+     ],
+     "days": 14
+    }
+   ]
+  },
+  "hops": {
+   "name": "Hops",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      4
+     ],
+     "days": 11
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      4
+     ],
+     "days": 9
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      4
+     ],
+     "days": 8
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      4
+     ],
+     "days": 8
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    }
+   ]
+  },
+  "hot-pepper": {
+   "name": "Hot Pepper",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    }
+   ]
+  },
+  "melon": {
+   "name": "Melon",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      3,
+      3,
+      3
+     ],
+     "days": 12
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "poppy": {
+   "name": "Poppy",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "radish": {
+   "name": "Radish",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      1,
+      2,
+      1
+     ],
+     "days": 6
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "red-cabbage": {
+   "name": "Red Cabbage",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 9
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    }
+   ]
+  },
+  "starfruit": {
+   "name": "Starfruit",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      3,
+      2,
+      3,
+      3
+     ],
+     "days": 13
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      3,
+      3
+     ],
+     "days": 11
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1,
+      2,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1,
+      2,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1,
+      2,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 7
+    }
+   ]
+  },
+  "summer-spangle": {
+   "name": "Summer Spangle",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    }
+   ]
+  },
+  "summer-squash": {
+   "name": "Summer Squash",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 6
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "sunflower": {
+   "name": "Sunflower",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1
+     ],
+     "days": 4
+    }
+   ]
+  },
+  "tomato": {
+   "name": "Tomato",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      2,
+      2,
+      2,
+      3
+     ],
+     "days": 11
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "wheat": {
+   "name": "Wheat",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    }
+   ]
+  },
+  "amaranth": {
+   "name": "Amaranth",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "artichoke": {
+   "name": "Artichoke",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      2,
+      1,
+      2,
+      1
+     ],
+     "days": 8
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      1,
+      2,
+      1
+     ],
+     "days": 7
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 6
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 6
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    }
+   ]
+  },
+  "beet": {
+   "name": "Beet",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "bok-choy": {
+   "name": "Bok Choy",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    }
+   ]
+  },
+  "broccoli": {
+   "name": "Broccoli",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      2,
+      2,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    }
+   ]
+  },
+  "cranberries": {
+   "name": "Cranberries",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      1,
+      1,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "eggplant": {
+   "name": "Eggplant",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 5
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      1
+     ],
+     "days": 4
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1
+     ],
+     "days": 2
+    }
+   ]
+  },
+  "fairy-rose": {
+   "name": "Fairy Rose",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      4,
+      4,
+      3
+     ],
+     "days": 12
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      3,
+      2
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      3,
+      2
+     ],
+     "days": 9
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      1
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "grape": {
+   "name": "Grape",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "pumpkin": {
+   "name": "Pumpkin",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      3,
+      4,
+      3
+     ],
+     "days": 13
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      4,
+      3
+     ],
+     "days": 11
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 8
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      2
+     ],
+     "days": 7
+    }
+   ]
+  },
+  "yam": {
+   "name": "Yam",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      3,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2
+     ],
+     "days": 5
+    }
+   ]
+  },
+  "powdermelon": {
+   "name": "Powdermelon",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      2,
+      1,
+      2,
+      1
+     ],
+     "days": 7
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 6
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2
+     ],
+     "days": 5
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2
+     ],
+     "days": 4
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1
+     ],
+     "days": 3
+    }
+   ]
+  },
+  "ancient-fruit": {
+   "name": "Ancient Fruit",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      7,
+      7,
+      7,
+      5
+     ],
+     "days": null
+    }
+   ]
+  },
+  "cactus-fruit": {
+   "name": "Cactus Fruit",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      2,
+      2,
+      3,
+      3
+     ],
+     "days": 12
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      3
+     ],
+     "days": 10
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 8
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3,
+      3
+     ],
+     "days": 9
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 7
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      3
+     ],
+     "days": 6
+    }
+   ]
+  },
+  "pineapple": {
+   "name": "Pineapple",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      1,
+      3,
+      3,
+      4,
+      3
+     ],
+     "days": 14
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      4,
+      3
+     ],
+     "days": 12
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      3,
+      2
+     ],
+     "days": 10
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 9
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      2,
+      3,
+      3
+     ],
+     "days": 11
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3,
+      2
+     ],
+     "days": 9
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      1,
+      2,
+      2
+     ],
+     "days": 7
+    }
+   ]
+  },
+  "taro-root": {
+   "name": "Taro Root",
+   "tables": [
+    {
+     "label": "Base Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3,
+      4
+     ],
+     "days": 10
+    },
+    {
+     "label": "10%* Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      4
+     ],
+     "days": 9
+    },
+    {
+     "label": "25% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      3
+     ],
+     "days": 7
+    },
+    {
+     "label": "33% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "20% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      2,
+      4
+     ],
+     "days": 8
+    },
+    {
+     "label": "35% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      3
+     ],
+     "days": 6
+    },
+    {
+     "label": "43% Unirrigated",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3
+     ],
+     "days": 5
+    }
+   ]
+  },
+  "sweet-gem-berry": {
+   "name": "Sweet Gem Berry",
+   "tables": [
+    {
+     "label": "Base",
+     "group": "Base",
+     "phases": [
+      2,
+      4,
+      6,
+      6,
+      6
+     ],
+     "days": 24
+    },
+    {
+     "label": "10%*",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      5,
+      6,
+      6
+     ],
+     "days": 21
+    },
+    {
+     "label": "25%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      5,
+      5,
+      5
+     ],
+     "days": 18
+    },
+    {
+     "label": "33%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      4,
+      4,
+      5
+     ],
+     "days": 16
+    },
+    {
+     "label": "20%",
+     "group": "Regular",
+     "phases": [
+      1,
+      3,
+      5,
+      5,
+      5
+     ],
+     "days": 19
+    },
+    {
+     "label": "35%",
+     "group": "Regular",
+     "phases": [
+      1,
+      2,
+      4,
+      4,
+      4
+     ],
+     "days": 15
+    },
+    {
+     "label": "43%",
+     "group": "Regular",
+     "phases": [
+      1,
+      1,
+      3,
+      4,
+      4
+     ],
+     "days": 13
+    }
+   ]
+  }
+ }
+}

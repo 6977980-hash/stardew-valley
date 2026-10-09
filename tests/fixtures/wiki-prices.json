@@ -1,0 +1,1269 @@
+{
+ "sources": [
+  {
+   "title": "Fruits",
+   "url": "https://stardewvalleywiki.com/Fruits",
+   "revid": 193430,
+   "rendered_revid": 193430
+  },
+  {
+   "title": "Vegetables",
+   "url": "https://stardewvalleywiki.com/Vegetables",
+   "revid": 174969,
+   "rendered_revid": 174969
+  },
+  {
+   "title": "Flowers",
+   "url": "https://stardewvalleywiki.com/Flowers",
+   "revid": 171283,
+   "rendered_revid": 171283
+  }
+ ],
+ "crops": {
+  "ancient-fruit": {
+   "name": "Ancient Fruit",
+   "page": "Fruits",
+   "base": 550,
+   "raw": {
+    "none": [
+     550,
+     687,
+     825,
+     1100
+    ],
+    "tiller": [
+     605,
+     755,
+     907,
+     1210
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 1650,
+     "artisan": 2310
+    },
+    "jelly": {
+     "none": 1150,
+     "artisan": 1610
+    },
+    "dried-fruit": {
+     "none": 4150,
+     "artisan": 5810
+    }
+   }
+  },
+  "blueberry": {
+   "name": "Blueberry",
+   "page": "Fruits",
+   "base": 50,
+   "raw": {
+    "none": [
+     50,
+     62,
+     75,
+     100
+    ],
+    "tiller": [
+     55,
+     68,
+     82,
+     110
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 150,
+     "artisan": 210
+    },
+    "jelly": {
+     "none": 150,
+     "artisan": 210
+    },
+    "dried-fruit": {
+     "none": 400,
+     "artisan": 560
+    }
+   }
+  },
+  "cactus-fruit": {
+   "name": "Cactus Fruit",
+   "page": "Fruits",
+   "base": 75,
+   "raw": {
+    "none": [
+     75,
+     93,
+     112,
+     150
+    ],
+    "tiller": [
+     82,
+     102,
+     123,
+     165
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 225,
+     "artisan": 315
+    },
+    "jelly": {
+     "none": 200,
+     "artisan": 280
+    },
+    "dried-fruit": {
+     "none": 587,
+     "artisan": 821
+    }
+   }
+  },
+  "cranberries": {
+   "name": "Cranberries",
+   "page": "Fruits",
+   "base": 75,
+   "raw": {
+    "none": [
+     75,
+     93,
+     112,
+     150
+    ],
+    "tiller": [
+     82,
+     102,
+     123,
+     165
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 225,
+     "artisan": 315
+    },
+    "jelly": {
+     "none": 200,
+     "artisan": 280
+    },
+    "dried-fruit": {
+     "none": 587,
+     "artisan": 821
+    }
+   }
+  },
+  "grape": {
+   "name": "Grape",
+   "page": "Fruits",
+   "base": 80,
+   "raw": {
+    "none": [
+     80,
+     100,
+     120,
+     160
+    ],
+    "tiller": [
+     88,
+     110,
+     132,
+     176
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 240,
+     "artisan": 336
+    },
+    "jelly": {
+     "none": 210,
+     "artisan": 294
+    },
+    "raisins": {
+     "none": 600,
+     "artisan": 840
+    }
+   }
+  },
+  "hot-pepper": {
+   "name": "Hot Pepper",
+   "page": "Fruits",
+   "base": 40,
+   "raw": {
+    "none": [
+     40,
+     50,
+     60,
+     80
+    ],
+    "tiller": [
+     44,
+     55,
+     66,
+     88
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 120,
+     "artisan": 168
+    },
+    "jelly": {
+     "none": 130,
+     "artisan": 182
+    },
+    "dried-fruit": {
+     "none": 325,
+     "artisan": 455
+    }
+   }
+  },
+  "melon": {
+   "name": "Melon",
+   "page": "Fruits",
+   "base": 250,
+   "raw": {
+    "none": [
+     250,
+     312,
+     375,
+     500
+    ],
+    "tiller": [
+     275,
+     343,
+     412,
+     550
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 750,
+     "artisan": 1050
+    },
+    "jelly": {
+     "none": 550,
+     "artisan": 770
+    },
+    "dried-fruit": {
+     "none": 1900,
+     "artisan": 2660
+    }
+   }
+  },
+  "pineapple": {
+   "name": "Pineapple",
+   "page": "Fruits",
+   "base": 300,
+   "raw": {
+    "none": [
+     300,
+     375,
+     450,
+     600
+    ],
+    "tiller": [
+     330,
+     412,
+     495,
+     660
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 900,
+     "artisan": 1260
+    },
+    "jelly": {
+     "none": 650,
+     "artisan": 910
+    },
+    "dried-fruit": {
+     "none": 2275,
+     "artisan": 3185
+    }
+   }
+  },
+  "powdermelon": {
+   "name": "Powdermelon",
+   "page": "Fruits",
+   "base": 60,
+   "raw": {
+    "none": [
+     60,
+     75,
+     90,
+     120
+    ],
+    "tiller": [
+     66,
+     82,
+     99,
+     132
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 180,
+     "artisan": 252
+    },
+    "jelly": {
+     "none": 170,
+     "artisan": 238
+    },
+    "dried-fruit": {
+     "none": 475,
+     "artisan": 665
+    }
+   }
+  },
+  "rhubarb": {
+   "name": "Rhubarb",
+   "page": "Fruits",
+   "base": 220,
+   "raw": {
+    "none": [
+     220,
+     275,
+     330,
+     440
+    ],
+    "tiller": [
+     242,
+     302,
+     363,
+     484
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 660,
+     "artisan": 924
+    },
+    "jelly": {
+     "none": 490,
+     "artisan": 686
+    },
+    "dried-fruit": {
+     "none": 1675,
+     "artisan": 2345
+    }
+   }
+  },
+  "starfruit": {
+   "name": "Starfruit",
+   "page": "Fruits",
+   "base": 750,
+   "raw": {
+    "none": [
+     750,
+     937,
+     1125,
+     1500
+    ],
+    "tiller": [
+     825,
+     1030,
+     1237,
+     1650
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 2250,
+     "artisan": 3150
+    },
+    "jelly": {
+     "none": 1550,
+     "artisan": 2170
+    },
+    "dried-fruit": {
+     "none": 5650,
+     "artisan": 7910
+    }
+   }
+  },
+  "strawberry": {
+   "name": "Strawberry",
+   "page": "Fruits",
+   "base": 120,
+   "raw": {
+    "none": [
+     120,
+     150,
+     180,
+     240
+    ],
+    "tiller": [
+     132,
+     165,
+     198,
+     264
+    ]
+   },
+   "products": {
+    "wine": {
+     "none": 360,
+     "artisan": 504
+    },
+    "jelly": {
+     "none": 290,
+     "artisan": 406
+    },
+    "dried-fruit": {
+     "none": 925,
+     "artisan": 1295
+    }
+   }
+  },
+  "amaranth": {
+   "name": "Amaranth",
+   "page": "Vegetables",
+   "base": 150,
+   "raw": {
+    "none": [
+     150,
+     187,
+     225,
+     300
+    ],
+    "tiller": [
+     165,
+     205,
+     247,
+     330
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 337,
+     "artisan": 471
+    },
+    "pickles": {
+     "none": 350,
+     "artisan": 490
+    }
+   }
+  },
+  "artichoke": {
+   "name": "Artichoke",
+   "page": "Vegetables",
+   "base": 160,
+   "raw": {
+    "none": [
+     160,
+     200,
+     240,
+     320
+    ],
+    "tiller": [
+     176,
+     220,
+     264,
+     352
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 360,
+     "artisan": 504
+    },
+    "pickles": {
+     "none": 370,
+     "artisan": 518
+    }
+   }
+  },
+  "beet": {
+   "name": "Beet",
+   "page": "Vegetables",
+   "base": 100,
+   "raw": {
+    "none": [
+     100,
+     125,
+     150,
+     200
+    ],
+    "tiller": [
+     110,
+     137,
+     165,
+     220
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 225,
+     "artisan": 315
+    },
+    "pickles": {
+     "none": 250,
+     "artisan": 350
+    }
+   }
+  },
+  "bok-choy": {
+   "name": "Bok Choy",
+   "page": "Vegetables",
+   "base": 80,
+   "raw": {
+    "none": [
+     80,
+     100,
+     120,
+     160
+    ],
+    "tiller": [
+     88,
+     110,
+     132,
+     176
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 180,
+     "artisan": 252
+    },
+    "pickles": {
+     "none": 210,
+     "artisan": 294
+    }
+   }
+  },
+  "broccoli": {
+   "name": "Broccoli",
+   "page": "Vegetables",
+   "base": 70,
+   "raw": {
+    "none": [
+     70,
+     87,
+     105,
+     140
+    ],
+    "tiller": [
+     77,
+     95,
+     115,
+     154
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 157,
+     "artisan": 219
+    },
+    "pickles": {
+     "none": 190,
+     "artisan": 266
+    }
+   }
+  },
+  "carrot": {
+   "name": "Carrot",
+   "page": "Vegetables",
+   "base": 35,
+   "raw": {
+    "none": [
+     35,
+     43,
+     52,
+     70
+    ],
+    "tiller": [
+     38,
+     47,
+     57,
+     77
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 78,
+     "artisan": 109
+    },
+    "pickles": {
+     "none": 120,
+     "artisan": 168
+    }
+   }
+  },
+  "cauliflower": {
+   "name": "Cauliflower",
+   "page": "Vegetables",
+   "base": 175,
+   "raw": {
+    "none": [
+     175,
+     218,
+     262,
+     350
+    ],
+    "tiller": [
+     192,
+     239,
+     288,
+     385
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 393,
+     "artisan": 550
+    },
+    "pickles": {
+     "none": 400,
+     "artisan": 560
+    }
+   }
+  },
+  "corn": {
+   "name": "Corn",
+   "page": "Vegetables",
+   "base": 50,
+   "raw": {
+    "none": [
+     50,
+     62,
+     75,
+     100
+    ],
+    "tiller": [
+     55,
+     68,
+     82,
+     110
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 112,
+     "artisan": 156
+    },
+    "pickles": {
+     "none": 150,
+     "artisan": 210
+    },
+    "oil": {
+     "none": 100
+    }
+   }
+  },
+  "eggplant": {
+   "name": "Eggplant",
+   "page": "Vegetables",
+   "base": 60,
+   "raw": {
+    "none": [
+     60,
+     75,
+     90,
+     120
+    ],
+    "tiller": [
+     66,
+     82,
+     99,
+     132
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 135,
+     "artisan": 189
+    },
+    "pickles": {
+     "none": 170,
+     "artisan": 238
+    }
+   }
+  },
+  "garlic": {
+   "name": "Garlic",
+   "page": "Vegetables",
+   "base": 60,
+   "raw": {
+    "none": [
+     60,
+     75,
+     90,
+     120
+    ],
+    "tiller": [
+     66,
+     82,
+     99,
+     132
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 135,
+     "artisan": 189
+    },
+    "pickles": {
+     "none": 170,
+     "artisan": 238
+    }
+   }
+  },
+  "green-bean": {
+   "name": "Green Bean",
+   "page": "Vegetables",
+   "base": 40,
+   "raw": {
+    "none": [
+     40,
+     50,
+     60,
+     80
+    ],
+    "tiller": [
+     44,
+     55,
+     66,
+     88
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 90,
+     "artisan": 126
+    },
+    "pickles": {
+     "none": 130,
+     "artisan": 182
+    }
+   }
+  },
+  "hops": {
+   "name": "Hops",
+   "page": "Vegetables",
+   "base": 25,
+   "raw": {
+    "none": [
+     25,
+     31,
+     37,
+     50
+    ],
+    "tiller": [
+     27,
+     34,
+     40,
+     55
+    ]
+   },
+   "products": {
+    "pale-ale": {
+     "none": 300,
+     "artisan": 420
+    },
+    "pickles": {
+     "none": 100,
+     "artisan": 140
+    }
+   }
+  },
+  "kale": {
+   "name": "Kale",
+   "page": "Vegetables",
+   "base": 110,
+   "raw": {
+    "none": [
+     110,
+     137,
+     165,
+     220
+    ],
+    "tiller": [
+     121,
+     150,
+     181,
+     242
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 247,
+     "artisan": 345
+    },
+    "pickles": {
+     "none": 270,
+     "artisan": 378
+    }
+   }
+  },
+  "parsnip": {
+   "name": "Parsnip",
+   "page": "Vegetables",
+   "base": 35,
+   "raw": {
+    "none": [
+     35,
+     43,
+     52,
+     70
+    ],
+    "tiller": [
+     38,
+     47,
+     57,
+     77
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 78,
+     "artisan": 109
+    },
+    "pickles": {
+     "none": 120,
+     "artisan": 168
+    }
+   }
+  },
+  "potato": {
+   "name": "Potato",
+   "page": "Vegetables",
+   "base": 80,
+   "raw": {
+    "none": [
+     80,
+     100,
+     120,
+     160
+    ],
+    "tiller": [
+     88,
+     110,
+     132,
+     176
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 180,
+     "artisan": 252
+    },
+    "pickles": {
+     "none": 210,
+     "artisan": 294
+    }
+   }
+  },
+  "pumpkin": {
+   "name": "Pumpkin",
+   "page": "Vegetables",
+   "base": 320,
+   "raw": {
+    "none": [
+     320,
+     400,
+     480,
+     640
+    ],
+    "tiller": [
+     352,
+     440,
+     528,
+     704
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 720,
+     "artisan": 1008
+    },
+    "pickles": {
+     "none": 690,
+     "artisan": 966
+    }
+   }
+  },
+  "radish": {
+   "name": "Radish",
+   "page": "Vegetables",
+   "base": 90,
+   "raw": {
+    "none": [
+     90,
+     112,
+     135,
+     180
+    ],
+    "tiller": [
+     99,
+     123,
+     148,
+     198
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 202,
+     "artisan": 282
+    },
+    "pickles": {
+     "none": 230,
+     "artisan": 322
+    }
+   }
+  },
+  "red-cabbage": {
+   "name": "Red Cabbage",
+   "page": "Vegetables",
+   "base": 260,
+   "raw": {
+    "none": [
+     260,
+     325,
+     390,
+     520
+    ],
+    "tiller": [
+     286,
+     357,
+     429,
+     572
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 585,
+     "artisan": 819
+    },
+    "pickles": {
+     "none": 570,
+     "artisan": 798
+    }
+   }
+  },
+  "summer-squash": {
+   "name": "Summer Squash",
+   "page": "Vegetables",
+   "base": 45,
+   "raw": {
+    "none": [
+     45,
+     56,
+     67,
+     90
+    ],
+    "tiller": [
+     49,
+     61,
+     73,
+     99
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 101,
+     "artisan": 141
+    },
+    "pickles": {
+     "none": 140,
+     "artisan": 196
+    }
+   }
+  },
+  "taro-root": {
+   "name": "Taro Root",
+   "page": "Vegetables",
+   "base": 100,
+   "raw": {
+    "none": [
+     100,
+     125,
+     150,
+     200
+    ],
+    "tiller": [
+     110,
+     137,
+     165,
+     220
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 225,
+     "artisan": 315
+    },
+    "pickles": {
+     "none": 250,
+     "artisan": 350
+    }
+   }
+  },
+  "tomato": {
+   "name": "Tomato",
+   "page": "Vegetables",
+   "base": 60,
+   "raw": {
+    "none": [
+     60,
+     75,
+     90,
+     120
+    ],
+    "tiller": [
+     66,
+     82,
+     99,
+     132
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 135,
+     "artisan": 189
+    },
+    "pickles": {
+     "none": 170,
+     "artisan": 238
+    }
+   }
+  },
+  "unmilled-rice": {
+   "name": "Unmilled Rice",
+   "page": "Vegetables",
+   "base": 30,
+   "raw": {
+    "none": [
+     30,
+     37,
+     45,
+     60
+    ],
+    "tiller": [
+     33,
+     40,
+     49,
+     66
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 67,
+     "artisan": 93
+    },
+    "pickles": {
+     "none": 110,
+     "artisan": 154
+    }
+   }
+  },
+  "wheat": {
+   "name": "Wheat",
+   "page": "Vegetables",
+   "base": 25,
+   "raw": {
+    "none": [
+     25,
+     31,
+     37,
+     50
+    ],
+    "tiller": [
+     27,
+     34,
+     40,
+     55
+    ]
+   },
+   "products": {
+    "beer": {
+     "none": 200,
+     "artisan": 280
+    },
+    "pickles": {
+     "none": 100,
+     "artisan": 140
+    }
+   }
+  },
+  "yam": {
+   "name": "Yam",
+   "page": "Vegetables",
+   "base": 160,
+   "raw": {
+    "none": [
+     160,
+     200,
+     240,
+     320
+    ],
+    "tiller": [
+     176,
+     220,
+     264,
+     352
+    ]
+   },
+   "products": {
+    "juice": {
+     "none": 360,
+     "artisan": 504
+    },
+    "pickles": {
+     "none": 370,
+     "artisan": 518
+    }
+   }
+  },
+  "blue-jazz": {
+   "name": "Blue Jazz",
+   "page": "Flowers",
+   "base": 50,
+   "raw": {
+    "none": [
+     50,
+     62,
+     75,
+     100
+    ],
+    "tiller": [
+     55,
+     68,
+     82,
+     110
+    ]
+   },
+   "products": {
+    "honey": {
+     "none": 200,
+     "artisan": 280
+    }
+   }
+  },
+  "fairy-rose": {
+   "name": "Fairy Rose",
+   "page": "Flowers",
+   "base": 290,
+   "raw": {
+    "none": [
+     290,
+     362,
+     435,
+     580
+    ],
+    "tiller": [
+     319,
+     398,
+     478,
+     638
+    ]
+   },
+   "products": {
+    "honey": {
+     "none": 680,
+     "artisan": 952
+    }
+   }
+  },
+  "poppy": {
+   "name": "Poppy",
+   "page": "Flowers",
+   "base": 140,
+   "raw": {
+    "none": [
+     140,
+     175,
+     210,
+     280
+    ],
+    "tiller": [
+     154,
+     192,
+     231,
+     308
+    ]
+   },
+   "products": {
+    "honey": {
+     "none": 380,
+     "artisan": 532
+    }
+   }
+  },
+  "summer-spangle": {
+   "name": "Summer Spangle",
+   "page": "Flowers",
+   "base": 90,
+   "raw": {
+    "none": [
+     90,
+     112,
+     135,
+     180
+    ],
+    "tiller": [
+     99,
+     123,
+     148,
+     198
+    ]
+   },
+   "products": {
+    "honey": {
+     "none": 280,
+     "artisan": 392
+    }
+   }
+  },
+  "sunflower": {
+   "name": "Sunflower",
+   "page": "Flowers",
+   "base": 80,
+   "raw": {
+    "none": [
+     80,
+     100,
+     120,
+     160
+    ],
+    "tiller": [
+     88,
+     110,
+     132,
+     176
+    ]
+   },
+   "products": {
+    "honey": {
+     "none": 260,
+     "artisan": 364
+    }
+   }
+  },
+  "tulip": {
+   "name": "Tulip",
+   "page": "Flowers",
+   "base": 30,
+   "raw": {
+    "none": [
+     30,
+     37,
+     45,
+     60
+    ],
+    "tiller": [
+     33,
+     40,
+     49,
+     66
+    ]
+   },
+   "products": {
+    "honey": {
+     "none": 160,
+     "artisan": 224
+    }
+   }
+  }
+ }
+}

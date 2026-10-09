@@ -11,6 +11,7 @@ defined( 'ABSPATH' ) || exit;
 
 use Stardew_Tools\Ads;
 use Stardew_Tools\Config;
+use Stardew_Tools\Data;
 use Stardew_Tools\Pages;
 use Stardew_Tools\Seo;
 
@@ -134,6 +135,19 @@ $schema = Seo::breadcrumb_schema( $about->ID );
 st_assert( 'BreadcrumbList' === $schema['@type'] && 2 === $schema['itemListElement'][1]['position'], 'breadcrumb schema positions' );
 $robots = apply_filters( 'robots_txt', "User-agent: *\nDisallow: /wp-admin/\n\nSitemap: https://example.com/wp-sitemap.xml\n", true );
 st_assert( preg_match( "/Disallow: \\/wp-admin\\/\nDisallow: \\/\\?s=\nDisallow: \\/search\\/\n\nSitemap:/", $robots ), 'robots.txt rules stay in the user-agent group' );
+
+echo "Game data\n";
+Data::reset();
+foreach ( Data::SETS as $set ) {
+	$d = Data::get( $set );
+	st_assert( is_array( $d ) && '1.6.15' === $d['game_version'], "data loads: {$set}" );
+}
+st_assert( null === Data::get( '../wp-config' ), 'unknown data set is refused' );
+$crops = Data::crops();
+st_assert( count( $crops ) >= 40 && isset( $crops['parsnip'] ), 'crops keyed by id' );
+st_assert( array( 1, 1, 1, 1 ) === $crops['parsnip']['phase_days'] && 35 === $crops['parsnip']['base_price'], 'parsnip record' );
+$summary = Data::summary();
+st_assert( $summary['ok'] && $summary['crops'] === $summary['verified'], 'summary: every crop cross-checked' );
 
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );

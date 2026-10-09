@@ -1,0 +1,2622 @@
+{
+  "schema": "stardew-tools/crops@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-09",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between the Crops page and each crop page",
+  "skipped": [
+    {
+      "name": "Fiber",
+      "reason": "Grows from Fiber Seeds and yields 4-7 Fiber; no sell-price row on the Crops page."
+    },
+    {
+      "name": "Mixed Flower Seeds",
+      "reason": "Random flower; not a crop of its own."
+    },
+    {
+      "name": "Mixed Seeds",
+      "reason": "Random crop; not a crop of its own."
+    },
+    {
+      "name": "Tea Leaves",
+      "reason": "Grows on a Tea Bush (harvest days 22-28 only), modelled separately."
+    }
+  ],
+  "crops": [
+    {
+      "id": "amaranth",
+      "name": "Amaranth",
+      "seed": "Amaranth Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "growth_days": 7,
+      "regrow_days": null,
+      "base_price": 150,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 70,
+        "jojamart": 87
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Amaranth",
+          "revid": 193979
+        },
+        {
+          "title": "Amaranth",
+          "url": "https://stardewvalleywiki.com/Amaranth",
+          "revid": 192043
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Amaranth",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "ancient-fruit",
+      "name": "Ancient Fruit",
+      "seed": "Ancient Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Spring",
+        "Summer",
+        "Fall"
+      ],
+      "phase_days": [
+        2,
+        7,
+        7,
+        7,
+        5
+      ],
+      "growth_days": 28,
+      "regrow_days": 7,
+      "base_price": 550,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "crafting": 0
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Ancient_Fruit",
+          "revid": 193979
+        },
+        {
+          "title": "Ancient Fruit",
+          "url": "https://stardewvalleywiki.com/Ancient_Fruit",
+          "revid": 192083
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Ancient_Fruit",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "artichoke",
+      "name": "Artichoke",
+      "seed": "Artichoke Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        2,
+        2,
+        1,
+        2,
+        1
+      ],
+      "growth_days": 8,
+      "regrow_days": null,
+      "base_price": 160,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 30
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Artichoke",
+          "revid": 193979
+        },
+        {
+          "title": "Artichoke",
+          "url": "https://stardewvalleywiki.com/Artichoke",
+          "revid": 177766
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Artichoke",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "beet",
+      "name": "Beet",
+      "seed": "Beet Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "growth_days": 6,
+      "regrow_days": null,
+      "base_price": 100,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "oasis": 20
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Beet",
+          "revid": 193979
+        },
+        {
+          "title": "Beet",
+          "url": "https://stardewvalleywiki.com/Beet",
+          "revid": 192014
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Beet",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "blue-jazz",
+      "name": "Blue Jazz",
+      "seed": "Jazz Seeds",
+      "category": "flower",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "growth_days": 7,
+      "regrow_days": null,
+      "base_price": 50,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 30,
+        "jojamart": 37
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Blue_Jazz",
+          "revid": 193979
+        },
+        {
+          "title": "Blue Jazz",
+          "url": "https://stardewvalleywiki.com/Blue_Jazz",
+          "revid": 193292
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Blue_Jazz",
+          "revid": 189875
+        },
+        {
+          "title": "Flowers",
+          "url": "https://stardewvalleywiki.com/Flowers",
+          "revid": 171283
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "blueberry",
+      "name": "Blueberry",
+      "seed": "Blueberry Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        3,
+        3,
+        4,
+        2
+      ],
+      "growth_days": 13,
+      "regrow_days": 4,
+      "base_price": 50,
+      "yield": {
+        "min": 3,
+        "max": 3,
+        "max_per_level": 0,
+        "extra_chance": 0.02,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 80
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Blueberry",
+          "revid": 193979
+        },
+        {
+          "title": "Blueberry",
+          "url": "https://stardewvalleywiki.com/Blueberry",
+          "revid": 192090
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Blueberry",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "bok-choy",
+      "name": "Bok Choy",
+      "seed": "Bok Choy Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "growth_days": 4,
+      "regrow_days": null,
+      "base_price": 80,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 50,
+        "jojamart": 62
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Bok_Choy",
+          "revid": 193979
+        },
+        {
+          "title": "Bok Choy",
+          "url": "https://stardewvalleywiki.com/Bok_Choy",
+          "revid": 192918
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Bok_Choy",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "broccoli",
+      "name": "Broccoli",
+      "seed": "Broccoli Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "growth_days": 8,
+      "regrow_days": 4,
+      "base_price": 70,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {},
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Broccoli",
+          "revid": 193979
+        },
+        {
+          "title": "Broccoli",
+          "url": "https://stardewvalleywiki.com/Broccoli",
+          "revid": 192085
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Broccoli",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "cactus-fruit",
+      "name": "Cactus Fruit",
+      "seed": "Cactus Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Spring",
+        "Summer",
+        "Fall",
+        "Winter"
+      ],
+      "phase_days": [
+        2,
+        2,
+        2,
+        3,
+        3
+      ],
+      "growth_days": 12,
+      "regrow_days": 3,
+      "base_price": 75,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": true
+      },
+      "seed_prices": {
+        "oasis": 150
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": true,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Cactus_Fruit",
+          "revid": 193979
+        },
+        {
+          "title": "Cactus Fruit",
+          "url": "https://stardewvalleywiki.com/Cactus_Fruit",
+          "revid": 193192
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Cactus_Fruit",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot",
+      "seed": "Carrot Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1
+      ],
+      "growth_days": 3,
+      "regrow_days": null,
+      "base_price": 35,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {},
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Carrot",
+          "revid": 193979
+        },
+        {
+          "title": "Carrot",
+          "url": "https://stardewvalleywiki.com/Carrot",
+          "revid": 194340
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Carrot",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "cauliflower",
+      "name": "Cauliflower",
+      "seed": "Cauliflower Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        2,
+        4,
+        4,
+        1
+      ],
+      "growth_days": 12,
+      "regrow_days": null,
+      "base_price": 175,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 80,
+        "jojamart": 100
+      },
+      "trellis": false,
+      "giant": true,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Cauliflower",
+          "revid": 193979
+        },
+        {
+          "title": "Cauliflower",
+          "url": "https://stardewvalleywiki.com/Cauliflower",
+          "revid": 191752
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Cauliflower",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "coffee-bean",
+      "name": "Coffee Bean",
+      "seed": "Coffee Bean",
+      "category": "other",
+      "seasons": [
+        "Spring",
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        2,
+        2,
+        3,
+        2
+      ],
+      "growth_days": 10,
+      "regrow_days": 2,
+      "base_price": 15,
+      "yield": {
+        "min": 4,
+        "max": 4,
+        "max_per_level": 0,
+        "extra_chance": 0.02,
+        "stated": true
+      },
+      "seed_prices": {
+        "traveling_cart": 2500
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Coffee_Bean",
+          "revid": 193979
+        },
+        {
+          "title": "Coffee Bean",
+          "url": "https://stardewvalleywiki.com/Coffee_Bean",
+          "revid": 193175
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Coffee_Bean",
+          "revid": 189875
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "corn",
+      "name": "Corn",
+      "seed": "Corn Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Summer",
+        "Fall"
+      ],
+      "phase_days": [
+        2,
+        3,
+        3,
+        3,
+        3
+      ],
+      "growth_days": 14,
+      "regrow_days": 4,
+      "base_price": 50,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 150,
+        "jojamart": 187
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Corn",
+          "revid": 193979
+        },
+        {
+          "title": "Corn",
+          "url": "https://stardewvalleywiki.com/Corn",
+          "revid": 192088
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Corn",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "cranberries",
+      "name": "Cranberries",
+      "seed": "Cranberry Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        2,
+        1,
+        1,
+        2
+      ],
+      "growth_days": 7,
+      "regrow_days": 5,
+      "base_price": 75,
+      "yield": {
+        "min": 2,
+        "max": 2,
+        "max_per_level": 0,
+        "extra_chance": 0.1,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 240,
+        "jojamart": 300
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Cranberries",
+          "revid": 193979
+        },
+        {
+          "title": "Cranberries",
+          "url": "https://stardewvalleywiki.com/Cranberries",
+          "revid": 192078
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Cranberries",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "eggplant",
+      "name": "Eggplant",
+      "seed": "Eggplant Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "growth_days": 5,
+      "regrow_days": 5,
+      "base_price": 60,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0.002,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 20,
+        "jojamart": 25
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Eggplant",
+          "revid": 193979
+        },
+        {
+          "title": "Eggplant",
+          "url": "https://stardewvalleywiki.com/Eggplant",
+          "revid": 192081
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Eggplant",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "fairy-rose",
+      "name": "Fairy Rose",
+      "seed": "Fairy Seeds",
+      "category": "flower",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        4,
+        4,
+        3
+      ],
+      "growth_days": 12,
+      "regrow_days": null,
+      "base_price": 290,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 200,
+        "jojamart": 250
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Fairy_Rose",
+          "revid": 193979
+        },
+        {
+          "title": "Fairy Rose",
+          "url": "https://stardewvalleywiki.com/Fairy_Rose",
+          "revid": 195217
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Fairy_Rose",
+          "revid": 189875
+        },
+        {
+          "title": "Flowers",
+          "url": "https://stardewvalleywiki.com/Flowers",
+          "revid": 171283
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "seed": "Garlic Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "growth_days": 4,
+      "regrow_days": null,
+      "base_price": 60,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 40
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Garlic",
+          "revid": 193979
+        },
+        {
+          "title": "Garlic",
+          "url": "https://stardewvalleywiki.com/Garlic",
+          "revid": 190334
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Garlic",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "grape",
+      "name": "Grape",
+      "seed": "Grape Starter",
+      "category": "fruit",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        1,
+        2,
+        3,
+        3
+      ],
+      "growth_days": 10,
+      "regrow_days": 3,
+      "base_price": 80,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 60,
+        "jojamart": 75
+      },
+      "trellis": true,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Grape",
+          "revid": 193979
+        },
+        {
+          "title": "Grape",
+          "url": "https://stardewvalleywiki.com/Grape",
+          "revid": 192072
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Grape",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "green-bean",
+      "name": "Green Bean",
+      "seed": "Bean Starter",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        3,
+        4
+      ],
+      "growth_days": 10,
+      "regrow_days": 3,
+      "base_price": 40,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 60,
+        "jojamart": 75
+      },
+      "trellis": true,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Green_Bean",
+          "revid": 193979
+        },
+        {
+          "title": "Green Bean",
+          "url": "https://stardewvalleywiki.com/Green_Bean",
+          "revid": 192074
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Green_Bean",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "hops",
+      "name": "Hops",
+      "seed": "Hops Starter",
+      "category": "vegetable",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        1,
+        2,
+        3,
+        4
+      ],
+      "growth_days": 11,
+      "regrow_days": 1,
+      "base_price": 25,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 60,
+        "jojamart": 75
+      },
+      "trellis": true,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Hops",
+          "revid": 193979
+        },
+        {
+          "title": "Hops",
+          "url": "https://stardewvalleywiki.com/Hops",
+          "revid": 192075
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Hops",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "hot-pepper",
+      "name": "Hot Pepper",
+      "seed": "Pepper Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "growth_days": 5,
+      "regrow_days": 3,
+      "base_price": 40,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0.03,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 40,
+        "jojamart": 50
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Hot_Pepper",
+          "revid": 193979
+        },
+        {
+          "title": "Hot Pepper",
+          "url": "https://stardewvalleywiki.com/Hot_Pepper",
+          "revid": 192919
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Hot_Pepper",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "kale",
+      "name": "Kale",
+      "seed": "Kale Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "growth_days": 6,
+      "regrow_days": null,
+      "base_price": 110,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 70,
+        "jojamart": 87
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Kale",
+          "revid": 193979
+        },
+        {
+          "title": "Kale",
+          "url": "https://stardewvalleywiki.com/Kale",
+          "revid": 192520
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Kale",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "melon",
+      "name": "Melon",
+      "seed": "Melon Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        2,
+        3,
+        3,
+        3
+      ],
+      "growth_days": 12,
+      "regrow_days": null,
+      "base_price": 250,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 80,
+        "jojamart": 100
+      },
+      "trellis": false,
+      "giant": true,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Melon",
+          "revid": 193979
+        },
+        {
+          "title": "Melon",
+          "url": "https://stardewvalleywiki.com/Melon",
+          "revid": 193510
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Melon",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "parsnip",
+      "name": "Parsnip",
+      "seed": "Parsnip Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "growth_days": 4,
+      "regrow_days": null,
+      "base_price": 35,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 20,
+        "jojamart": 25
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Parsnip",
+          "revid": 193979
+        },
+        {
+          "title": "Parsnip",
+          "url": "https://stardewvalleywiki.com/Parsnip",
+          "revid": 191123
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Parsnip",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple",
+      "seed": "Pineapple Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        3,
+        3,
+        4,
+        3
+      ],
+      "growth_days": 14,
+      "regrow_days": 7,
+      "base_price": 300,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {},
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Pineapple",
+          "revid": 193979
+        },
+        {
+          "title": "Pineapple",
+          "url": "https://stardewvalleywiki.com/Pineapple",
+          "revid": 192084
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Pineapple",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "poppy",
+      "name": "Poppy",
+      "seed": "Poppy Seeds",
+      "category": "flower",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        2,
+        2,
+        2
+      ],
+      "growth_days": 7,
+      "regrow_days": null,
+      "base_price": 140,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 100,
+        "jojamart": 125
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Poppy",
+          "revid": 193979
+        },
+        {
+          "title": "Poppy",
+          "url": "https://stardewvalleywiki.com/Poppy",
+          "revid": 193198
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Poppy",
+          "revid": 189875
+        },
+        {
+          "title": "Flowers",
+          "url": "https://stardewvalleywiki.com/Flowers",
+          "revid": 171283
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "potato",
+      "name": "Potato",
+      "seed": "Potato Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "growth_days": 6,
+      "regrow_days": null,
+      "base_price": 80,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0.2,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 50,
+        "jojamart": 62
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Potato",
+          "revid": 193979
+        },
+        {
+          "title": "Potato",
+          "url": "https://stardewvalleywiki.com/Potato",
+          "revid": 192971
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Potato",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "powdermelon",
+      "name": "Powdermelon",
+      "seed": "Powdermelon Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Winter"
+      ],
+      "phase_days": [
+        1,
+        2,
+        1,
+        2,
+        1
+      ],
+      "growth_days": 7,
+      "regrow_days": null,
+      "base_price": 60,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {},
+      "trellis": false,
+      "giant": true,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Powdermelon",
+          "revid": 193979
+        },
+        {
+          "title": "Powdermelon",
+          "url": "https://stardewvalleywiki.com/Powdermelon",
+          "revid": 192034
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Powdermelon",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": [
+        "Stage lengths: the crop page shows 1/1/1/2/2, but the other two sources agree on 1/2/1/2/1."
+      ]
+    },
+    {
+      "id": "pumpkin",
+      "name": "Pumpkin",
+      "seed": "Pumpkin Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        2,
+        3,
+        4,
+        3
+      ],
+      "growth_days": 13,
+      "regrow_days": null,
+      "base_price": 320,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 100,
+        "jojamart": 125
+      },
+      "trellis": false,
+      "giant": true,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Pumpkin",
+          "revid": 193979
+        },
+        {
+          "title": "Pumpkin",
+          "url": "https://stardewvalleywiki.com/Pumpkin",
+          "revid": 192033
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Pumpkin",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "radish",
+      "name": "Radish",
+      "seed": "Radish Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        2,
+        1,
+        2,
+        1
+      ],
+      "growth_days": 6,
+      "regrow_days": null,
+      "base_price": 90,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 40,
+        "jojamart": 50
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Radish",
+          "revid": 193979
+        },
+        {
+          "title": "Radish",
+          "url": "https://stardewvalleywiki.com/Radish",
+          "revid": 191762
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Radish",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "red-cabbage",
+      "name": "Red Cabbage",
+      "seed": "Red Cabbage Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        2,
+        1,
+        2,
+        2,
+        2
+      ],
+      "growth_days": 9,
+      "regrow_days": null,
+      "base_price": 260,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 100
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Red_Cabbage",
+          "revid": 193979
+        },
+        {
+          "title": "Red Cabbage",
+          "url": "https://stardewvalleywiki.com/Red_Cabbage",
+          "revid": 190562
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Red_Cabbage",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "rhubarb",
+      "name": "Rhubarb",
+      "seed": "Rhubarb Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        2,
+        2,
+        2,
+        3,
+        4
+      ],
+      "growth_days": 13,
+      "regrow_days": null,
+      "base_price": 220,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "oasis": 100
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Rhubarb",
+          "revid": 193979
+        },
+        {
+          "title": "Rhubarb",
+          "url": "https://stardewvalleywiki.com/Rhubarb",
+          "revid": 192016
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Rhubarb",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "starfruit",
+      "name": "Starfruit",
+      "seed": "Starfruit Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        2,
+        3,
+        2,
+        3,
+        3
+      ],
+      "growth_days": 13,
+      "regrow_days": null,
+      "base_price": 750,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "oasis": 400
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Starfruit",
+          "revid": 193979
+        },
+        {
+          "title": "Starfruit",
+          "url": "https://stardewvalleywiki.com/Starfruit",
+          "revid": 192652
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Starfruit",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "strawberry",
+      "name": "Strawberry",
+      "seed": "Strawberry Seeds",
+      "category": "fruit",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        2,
+        2,
+        2
+      ],
+      "growth_days": 8,
+      "regrow_days": 4,
+      "base_price": 120,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0.02,
+        "stated": true
+      },
+      "seed_prices": {
+        "egg_festival": 100
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Strawberry",
+          "revid": 193979
+        },
+        {
+          "title": "Strawberry",
+          "url": "https://stardewvalleywiki.com/Strawberry",
+          "revid": 192732
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Strawberry",
+          "revid": 189875
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "summer-spangle",
+      "name": "Summer Spangle",
+      "seed": "Spangle Seeds",
+      "category": "flower",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "growth_days": 8,
+      "regrow_days": null,
+      "base_price": 90,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 50,
+        "jojamart": 62
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Summer_Spangle",
+          "revid": 193979
+        },
+        {
+          "title": "Summer Spangle",
+          "url": "https://stardewvalleywiki.com/Summer_Spangle",
+          "revid": 193280
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Summer_Spangle",
+          "revid": 189875
+        },
+        {
+          "title": "Flowers",
+          "url": "https://stardewvalleywiki.com/Flowers",
+          "revid": 171283
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "summer-squash",
+      "name": "Summer Squash",
+      "seed": "Summer Squash Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        2,
+        1
+      ],
+      "growth_days": 6,
+      "regrow_days": 3,
+      "base_price": 45,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {},
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Summer_Squash",
+          "revid": 193979
+        },
+        {
+          "title": "Summer Squash",
+          "url": "https://stardewvalleywiki.com/Summer_Squash",
+          "revid": 192626
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Summer_Squash",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": [
+        "Stage lengths: the crop page shows 1/1/1/1/2, but the other two sources agree on 1/1/1/2/1."
+      ]
+    },
+    {
+      "id": "sunflower",
+      "name": "Sunflower",
+      "seed": "Sunflower Seeds",
+      "category": "flower",
+      "seasons": [
+        "Summer",
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        2,
+        3,
+        2
+      ],
+      "growth_days": 8,
+      "regrow_days": null,
+      "base_price": 80,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 200,
+        "jojamart": 125
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Sunflower",
+          "revid": 193979
+        },
+        {
+          "title": "Sunflower",
+          "url": "https://stardewvalleywiki.com/Sunflower",
+          "revid": 192716
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Sunflower",
+          "revid": 189875
+        },
+        {
+          "title": "Flowers",
+          "url": "https://stardewvalleywiki.com/Flowers",
+          "revid": 171283
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "sweet-gem-berry",
+      "name": "Sweet Gem Berry",
+      "seed": "Rare Seed",
+      "category": "other",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        2,
+        4,
+        6,
+        6,
+        6
+      ],
+      "growth_days": 24,
+      "regrow_days": null,
+      "base_price": 3000,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "traveling_cart": 1000
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Sweet_Gem_Berry",
+          "revid": 193979
+        },
+        {
+          "title": "Sweet Gem Berry",
+          "url": "https://stardewvalleywiki.com/Sweet_Gem_Berry",
+          "revid": 192754
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Sweet_Gem_Berry",
+          "revid": 189875
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "taro-root",
+      "name": "Taro Root",
+      "seed": "Taro Tuber",
+      "category": "vegetable",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "growth_days": 10,
+      "regrow_days": null,
+      "base_price": 100,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {},
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Taro_Root",
+          "revid": 193979
+        },
+        {
+          "title": "Taro Root",
+          "url": "https://stardewvalleywiki.com/Taro_Root",
+          "revid": 192657
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Taro_Root",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": [
+        "Grows faster when irrigated (next to water); unirrigated time used."
+      ]
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato",
+      "seed": "Tomato Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Summer"
+      ],
+      "phase_days": [
+        2,
+        2,
+        2,
+        2,
+        3
+      ],
+      "growth_days": 11,
+      "regrow_days": 4,
+      "base_price": 60,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0.05,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 50,
+        "jojamart": 62
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Tomato",
+          "revid": 193979
+        },
+        {
+          "title": "Tomato",
+          "url": "https://stardewvalleywiki.com/Tomato",
+          "revid": 192642
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Tomato",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "tulip",
+      "name": "Tulip",
+      "seed": "Tulip Bulb",
+      "category": "flower",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "growth_days": 6,
+      "regrow_days": null,
+      "base_price": 30,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 20,
+        "jojamart": 25
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Tulip",
+          "revid": 193979
+        },
+        {
+          "title": "Tulip",
+          "url": "https://stardewvalleywiki.com/Tulip",
+          "revid": 192740
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Tulip",
+          "revid": 189875
+        },
+        {
+          "title": "Flowers",
+          "url": "https://stardewvalleywiki.com/Flowers",
+          "revid": 171283
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "unmilled-rice",
+      "name": "Unmilled Rice",
+      "seed": "Rice Shoot",
+      "category": "vegetable",
+      "seasons": [
+        "Spring"
+      ],
+      "phase_days": [
+        1,
+        2,
+        2,
+        3
+      ],
+      "growth_days": 8,
+      "regrow_days": null,
+      "base_price": 30,
+      "yield": {
+        "min": 1,
+        "max": 2,
+        "max_per_level": 0.1,
+        "extra_chance": 0.1,
+        "stated": true
+      },
+      "seed_prices": {
+        "pierre": 40
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Unmilled_Rice",
+          "revid": 193979
+        },
+        {
+          "title": "Unmilled Rice",
+          "url": "https://stardewvalleywiki.com/Unmilled_Rice",
+          "revid": 194130
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Unmilled_Rice",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": [
+        "Grows faster when irrigated (next to water); unirrigated time used."
+      ]
+    },
+    {
+      "id": "wheat",
+      "name": "Wheat",
+      "seed": "Wheat Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Summer",
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "growth_days": 4,
+      "regrow_days": null,
+      "base_price": 25,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 10,
+        "jojamart": 12
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Wheat",
+          "revid": 193979
+        },
+        {
+          "title": "Wheat",
+          "url": "https://stardewvalleywiki.com/Wheat",
+          "revid": 192731
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Wheat",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    },
+    {
+      "id": "yam",
+      "name": "Yam",
+      "seed": "Yam Seeds",
+      "category": "vegetable",
+      "seasons": [
+        "Fall"
+      ],
+      "phase_days": [
+        1,
+        3,
+        3,
+        3
+      ],
+      "growth_days": 10,
+      "regrow_days": null,
+      "base_price": 160,
+      "yield": {
+        "min": 1,
+        "max": 1,
+        "max_per_level": 0,
+        "extra_chance": 0,
+        "stated": false
+      },
+      "seed_prices": {
+        "pierre": 60,
+        "jojamart": 75
+      },
+      "trellis": false,
+      "giant": false,
+      "indoor_only": false,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Crops",
+          "url": "https://stardewvalleywiki.com/Crops#Yam",
+          "revid": 193979
+        },
+        {
+          "title": "Yam",
+          "url": "https://stardewvalleywiki.com/Yam",
+          "revid": 192644
+        },
+        {
+          "title": "Crop Growth Calendars",
+          "url": "https://stardewvalleywiki.com/Crop_Growth_Calendars#Yam",
+          "revid": 189875
+        },
+        {
+          "title": "Vegetables",
+          "url": "https://stardewvalleywiki.com/Vegetables",
+          "revid": 174969
+        }
+      ],
+      "last_verified": "2026-10-09",
+      "verification_status": "cross-checked",
+      "problems": [],
+      "notes": []
+    }
+  ]
+}
