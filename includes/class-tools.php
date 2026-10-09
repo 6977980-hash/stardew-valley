@@ -82,6 +82,8 @@ class Tools {
 	public static function maybe_install() {
 		if ( get_option( self::VERSION_OPTION ) !== STARDEW_TOOLS_VERSION ) {
 			self::install();
+			// Cached pages still point at the old scripts; drop them so the new version shows at once.
+			do_action( 'litespeed_purge_all' );
 		}
 	}
 

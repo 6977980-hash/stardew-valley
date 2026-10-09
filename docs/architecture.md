@@ -39,6 +39,9 @@ reads the form and renders results with the engine. `common.js` keeps form state
 links) and in localStorage, and renders "Explain the Math". Form field names must not be WordPress
 query vars (`day`, `year`, `name`, `page`, `type`…): `?day=` turns the page into a 404.
 
+After a version change the plugin fires `litespeed_purge_all` once (LiteSpeed Cache is active on
+Hostinger), so cached pages never keep pointing at old scripts.
+
 `data/answers.json` is built by `node tools/build/answers.mjs` from the data and the engine, so the
 short answers in the HTML always match the calculators; `npm test` fails if it is stale.
 

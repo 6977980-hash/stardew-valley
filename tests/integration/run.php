@@ -169,6 +169,12 @@ st_assert( 'My planner' === get_post( $edited->ID )->post_title, 'published tool
 wp_update_post( array( 'ID' => $edited->ID, 'post_title' => Tools::definitions()['greenhouse-planner']['title'] ) );
 $answers = Data::get( 'answers' );
 st_assert( 'Rhubarb' === $answers['crop_profit']['spring'][0]['name'], 'answers: Spring 1 best is Rhubarb' );
+$purged = 0;
+add_action( 'litespeed_purge_all', function () use ( &$purged ) { $purged++; } );
+delete_option( Tools::VERSION_OPTION );
+Tools::maybe_install();
+Tools::maybe_install();
+st_assert( 1 === $purged, 'page cache purged once after a version change' );
 $map = Tools::module_versions();
 $key = STARDEW_TOOLS_URL . 'assets/js/engine/index.js';
 st_assert( isset( $map[ $key ] ) && false !== strpos( $map[ $key ], '?ver=' . STARDEW_TOOLS_VERSION . '.' ), 'import map versions engine modules' );
