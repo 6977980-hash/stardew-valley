@@ -129,3 +129,21 @@ with the same engine as the calculators, so a guide cannot disagree with its too
 guides that mention them. Schema: Article (guides), CollectionPage with ItemList (hubs), BreadcrumbList.
 
 The Crafting Calculator keeps its list, and the Bundle Tracker its ticks, in `localStorage` only.
+
+## Reference pages, data downloads and search (`class-entities.php`, `class-search.php`)
+
+- `data/entities.json` is generated (never hand-edited) by `tools/build/entities.mjs`, which uses the
+  engine and the verified data: crops (profit per tile by season and level, fertilizer, processing,
+  greenhouse), animals (income by hearts, artisan goods, quality chances) and the Keg and Preserves
+  Jar rankings. `node tools/build/answers.mjs --check` also checks the three CSVs in `assets/data/`.
+- `Entities` creates an index page (`/crops/`, `/farm-animals/`, `/machines/`) and one child page per
+  entry from `includes/entity-templates/`, plus `/data/`. Existing published pages are never
+  overwritten; only the auto meta description is refreshed. Schema: Article per page, CollectionPage
+  for indexes, Dataset with CSV distributions for `/data/`.
+- `Entities::autolink()` links the first mention of each entity name in guide and entity pages
+  (DOM-based, skips headings, tables, links; at most 14 links).
+- `Search` prints a header button and a `<dialog>` with a JSON index of tools, hubs, guides and
+  entities. `assets/js/search.js` filters it in the browser (Ctrl+K, Cmd+K or `/`; combobox pattern).
+- Guide numbers for casks, dehydrator and animal buildings come from `tools/build/guides.mjs` using
+  `engine/casks.js` and `engine/dehydrator.js`. Prices multiply in hundredths (325 x 1.4 = 455) to
+  avoid floating-point errors.
