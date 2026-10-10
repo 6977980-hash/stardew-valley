@@ -49,4 +49,10 @@ test.describe('phase 7 UX @live', () => {
     expect(h1).toContain('Pixelify');
     expect(h2).not.toContain('Pixelify');
   });
+  test('planner button stays on screen on a short laptop window', async ({ page }) => {
+    await page.setViewportSize({ width: 1351, height: 600 });
+    await page.goto('/');
+    const box = await page.locator('.quick-plan button[type=submit]').boundingBox();
+    expect(box.y + box.height).toBeLessThanOrEqual(600);
+  });
 });
