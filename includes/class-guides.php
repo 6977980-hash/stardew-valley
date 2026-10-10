@@ -46,7 +46,7 @@ class Guides {
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
 			'fishing'           => array(
-				'title'       => 'Stardew Valley Fishing and Fish Ponds: Tools and Guides',
+				'title'       => 'Stardew Valley Fishing and Fish Ponds Guides',
 				'short'       => 'Fishing and Fish Ponds',
 				'blurb'       => 'Which fish to put in a pond, roe and caviar, and fishing XP.',
 				'description' => 'Stardew Valley fishing and fish ponds in 1.6: the best fish for ponds, roe, Aged Roe and Caviar, and how much fishing XP you need.',
@@ -76,7 +76,7 @@ class Guides {
 			),
 			'how-many-kegs-do-i-need'    => array(
 				'hub'         => 'artisan-goods',
-				'title'       => 'How Many Kegs Do I Need? Kegs per Plant for Every Keg Crop',
+				'title'       => 'How Many Kegs Do I Need? Kegs per Crop',
 				'short'       => 'How Many Kegs Do I Need?',
 				'blurb'       => 'Kegs per plant for Hops, Ancient Fruit, Starfruit and more, so no fruit waits in a chest.',
 				'description' => 'How many kegs do you need in Stardew Valley? Kegs per plant for Hops, Ancient Fruit, Starfruit, Melon and berries, worked out from keg times in 1.6.',
@@ -103,7 +103,7 @@ class Guides {
 			),
 			'are-casks-worth-it'         => array(
 				'hub'         => 'artisan-goods',
-				'title'       => 'Are Casks Worth It? What Aging Adds to Wine, Cheese and Ale',
+				'title'       => 'Are Casks Worth It? Aged Wine, Cheese and Ale',
 				'short'       => 'Are Casks Worth It?',
 				'blurb'       => 'Gold per cask per day for wine, cheese and ale, and what a full cellar costs.',
 				'description' => 'Are casks worth it in Stardew Valley 1.6? Aged prices for wine, cheese, goat cheese, beer, mead and pale ale, gold per cask per day, and the wood to fill a 189-cask cellar.',
@@ -175,6 +175,7 @@ class Guides {
 		$existing = get_page_by_path( $path, OBJECT, 'page' );
 		if ( $existing && 'draft' !== $existing->post_status ) {
 			update_post_meta( $existing->ID, self::META, $meta );
+			Pages::sync_generated( $existing->ID, $def['title'], $def['description'] );
 			return;
 		}
 		$postarr = array(
@@ -321,7 +322,8 @@ class Guides {
 		$answers  = Data::get( 'answers' );
 		$g        = isset( $answers['guides'] ) ? $answers['guides'] : array();
 		$version  = Config::get( 'game_version' );
-		$checked  = Data::summary()['checked'];
+		$checked  = Data::modified( $guide['published'] );
+		$data_checked = Data::summary()['checked'];
 		$tool_url = function ( $id ) {
 			return Tools::url( $id );
 		};
@@ -357,7 +359,7 @@ class Guides {
 		?>
 		<section class="tool-meta" aria-labelledby="guide-sources">
 			<h2 id="guide-sources">Where these numbers come from</h2>
-			<p>Every number on this page is calculated by the same engine as our calculators, from game data taken from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and cross-checked between at least two of its pages (last checked <?php echo esc_html( $checked ); ?>). See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.</p>
+			<p>Every number on this page is calculated by the same engine as our calculators, from game data taken from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and cross-checked between at least two of its pages (last checked <?php echo esc_html( $data_checked ); ?>). See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.</p>
 		</section>
 		<?php
 		$more = array();
@@ -452,12 +454,14 @@ class Guides {
 				'description'      => $def['description'],
 				'url'              => $url,
 				'mainEntityOfPage' => $url,
+				'image'            => Config::asset( Config::get( 'og_image' ) ),
 				'datePublished'    => $def['published'],
-				'dateModified'     => Data::summary()['checked'],
+				'dateModified'     => Data::modified( $def['published'] ),
 				'author'           => array(
 					'@type' => 'Person',
-					'name'  => Config::get( 'author' ),
-					'url'   => home_url( '/about/' ),
+					'name'   => Config::get( 'author' ),
+					'url'    => home_url( '/about/' ),
+					'sameAs' => array( Config::get( 'author_linkedin' ) ),
 				),
 				'publisher'        => array( '@id' => home_url( '/' ) . '#organization' ),
 				'about'            => array(

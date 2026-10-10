@@ -259,6 +259,12 @@ class Seo {
 				'url'   => $home,
 				'logo'  => Config::asset( 'assets/brand/icon-512.png' ),
 				'email' => Config::get( 'contact_email' ),
+				'founder' => array(
+					'@type'  => 'Person',
+					'name'   => Config::get( 'author' ),
+					'url'    => home_url( '/about/' ),
+					'sameAs' => array( Config::get( 'author_linkedin' ) ),
+				),
 			);
 		} elseif ( is_singular() && ! is_404() ) {
 			$graph[] = self::breadcrumb_schema( get_queried_object_id() );

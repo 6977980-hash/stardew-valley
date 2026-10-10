@@ -28,6 +28,7 @@ class Config {
 			'home_title'       => 'Stardew Valley Tools, Calculators & Planning Hub | Stardew Tools',
 			'meta_description' => 'Free Stardew Valley calculators, planners, finders, trackers and decision tools for crops, profits, fishing, gifts, bundles, greenhouse planning and more.',
 			'author'           => 'Ali Ahmad',
+			'author_linkedin'  => 'https://www.linkedin.com/in/ali-ahmad-chaudhry-12777486/',
 			'contact_email'    => 'contact@stardewtools.net',
 			'game_version'     => '1.6.15',
 			'disclaimer'       => 'Stardew Valley is a trademark of ConcernedApe. This is a fan-made website and is not affiliated with or endorsed by ConcernedApe.',

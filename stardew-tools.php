@@ -31,6 +31,7 @@ require_once STARDEW_TOOLS_DIR . 'includes/class-tools.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-guides.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-entities.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-search.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-llms.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-admin.php';
 
 /**
@@ -83,6 +84,7 @@ Stardew_Tools\Tools::init();
 Stardew_Tools\Guides::init();
 Stardew_Tools\Entities::init();
 Stardew_Tools\Search::init();
+Stardew_Tools\Llms::init();
 Stardew_Tools\Admin::init();
 
 register_activation_hook( __FILE__, array( 'Stardew_Tools\Pages', 'install' ) );

@@ -41,6 +41,66 @@ class Pages {
 		);
 	}
 
+	const GENERATED_META = '_stardew_tools_generated';
+
+	/**
+	 * Brings a plugin-made page up to date with what the plugin now generates, without touching
+	 * text the owner has edited. A field is refreshed when it still equals what the plugin wrote
+	 * last time (a hash is kept in post meta). Pages made before hashes were kept are refreshed
+	 * when they are titles or descriptions (the owner never sets those here), and for page text
+	 * only when the page was never edited since it was created.
+	 *
+	 * @param int         $post_id     Page.
+	 * @param string|null $title       New generated title, or null to leave it.
+	 * @param string|null $description New generated meta description, or null.
+	 * @param string|null $content     New generated page text, or null.
+	 */
+	public static function sync_generated( $post_id, $title = null, $description = null, $content = null ) {
+		$post = get_post( $post_id );
+		if ( ! $post ) {
+			return;
+		}
+		$hashes = get_post_meta( $post_id, self::GENERATED_META, true );
+		$hashes = is_array( $hashes ) ? $hashes : array();
+		$update = array( 'ID' => $post_id );
+
+		$edited = strtotime( $post->post_modified_gmt ) > strtotime( $post->post_date_gmt ) + 120;
+		$fresh  = function ( $key, $current, $new, $legacy_ok ) use ( &$hashes ) {
+			if ( null === $new ) {
+				return false;
+			}
+			if ( isset( $hashes[ $key ] ) ) {
+				return md5( (string) $current ) === $hashes[ $key ] && (string) $current !== (string) $new;
+			}
+			return $legacy_ok && (string) $current !== (string) $new;
+		};
+
+		if ( $fresh( 'title', $post->post_title, $title, true ) ) {
+			$update['post_title'] = $title;
+		}
+		if ( $fresh( 'content', $post->post_content, $content, ! $edited ) ) {
+			$update['post_content'] = $content;
+		}
+		$old_description = get_post_meta( $post_id, Seo::META_DESCRIPTION, true );
+		if ( $fresh( 'description', $old_description, $description, true ) ) {
+			update_post_meta( $post_id, Seo::META_DESCRIPTION, $description );
+		}
+		if ( count( $update ) > 1 ) {
+			wp_update_post( $update );
+		}
+		// Remember what the plugin generated, so the next refresh can tell whether the owner changed it.
+		foreach ( array(
+			'title'       => array( $title, isset( $update['post_title'] ) ? $title : $post->post_title ),
+			'content'     => array( $content, isset( $update['post_content'] ) ? $content : $post->post_content ),
+			'description' => array( $description, get_post_meta( $post_id, Seo::META_DESCRIPTION, true ) ),
+		) as $key => $pair ) {
+			if ( null !== $pair[0] && (string) $pair[1] === (string) $pair[0] ) {
+				$hashes[ $key ] = md5( (string) $pair[0] );
+			}
+		}
+		update_post_meta( $post_id, self::GENERATED_META, $hashes );
+	}
+
 	public static function install() {
 		$author = self::author_id();
 		foreach ( self::definitions() as $slug => $def ) {
@@ -48,6 +108,8 @@ class Pages {
 			$existing = get_page_by_path( $slug, OBJECT, 'page' );
 
 			if ( $existing && 'draft' !== $existing->post_status ) {
+				// Page text is refreshed only where the plugin keeps it current (not the legal pages, which show a date).
+				self::sync_generated( $existing->ID, $def[0], $def[2], in_array( $slug, array( 'about', 'methodology', 'changelog' ), true ) ? $content : null );
 				continue;
 			}
 			$postarr = array(
@@ -95,6 +157,7 @@ class Pages {
 		$brand    = Config::get( 'brand_name' );
 		$email    = Config::get( 'contact_email' );
 		$author   = Config::get( 'author' );
+		$linkedin = Config::get( 'author_linkedin' );
 		$version  = Config::get( 'game_version' );
 		$notice   = Config::get( 'disclaimer' );
 		$domain   = Config::get( 'site_domain' );
