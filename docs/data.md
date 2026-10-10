@@ -103,3 +103,7 @@ use their unirrigated growth times; irrigation is not modelled yet.
 
 Wiki content is licensed CC BY-NC-SA 3.0. Sources are credited on every record and on the
 Methodology page.
+
+## Checking for a new game version
+
+After a game patch (or about once a week) run `npm run data:check-version`. It reads the wiki's Version History page and compares the newest version with `game_version` in `data/crops.json`. Exit code 0 means up to date, 1 means a newer version exists (re-run the importers in `tools/data/`, review the diff and bump the version), 2 means the wiki could not be read.
