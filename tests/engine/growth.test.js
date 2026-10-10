@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { speedBonus, speedUpPhases, growthDays, harvestSchedule, lastPlantingDay } from '../../assets/js/engine/growth.js';
+import { speedBonus, speedUpPhases, growthDays, harvestSchedule, lastPlantingDay, dayToSeasonDay } from '../../assets/js/engine/growth.js';
 import { data, crop, json } from './helpers.js';
 
 const calendars = json('tests/fixtures/growth-calendars.json');
@@ -97,4 +97,12 @@ test('last planting day', () => {
   assert.equal(lastPlantingDay(crop('cauliflower'), { plantSeason: 'spring', ...SEASONS }), 16);
   assert.equal(lastPlantingDay(crop('cauliflower'), { plantSeason: 'spring', fertilizerSpeed: 0.1, ...SEASONS }), 18);
   assert.equal(lastPlantingDay(crop('sweet-gem-berry'), { plantSeason: 'fall', ...SEASONS }), 4);
+});
+
+test('dayToSeasonDay turns a day count into a real date (day 42 from Summer 1 is Fall 14)', () => {
+  assert.deepEqual(dayToSeasonDay(42, 'summer', SEASONS), { season: 'fall', day: 14 });
+  assert.deepEqual(dayToSeasonDay(28, 'spring', SEASONS), { season: 'spring', day: 28 });
+  assert.deepEqual(dayToSeasonDay(29, 'spring', SEASONS), { season: 'summer', day: 1 });
+  // Corn grows in Summer and Fall: last day to plant for one harvest, counted from Summer 1.
+  assert.equal(lastPlantingDay(crop('corn'), { plantSeason: 'summer', ...SEASONS }), 42);
 });

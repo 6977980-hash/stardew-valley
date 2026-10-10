@@ -30,7 +30,7 @@ $top = $rows[ $ids[0] ];
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Farm animals at five hearts, best raw income first</caption>
-	<thead><tr><th scope="col">Animal</th><th scope="col">Building</th><th scope="col">Price</th><th scope="col">Gold a day, raw</th><th scope="col">Gold a day, artisan goods</th><th scope="col">Pays back in</th></tr></thead>
+	<thead><tr><th scope="col">Animal</th><th scope="col">Building</th><th scope="col">Price</th><th scope="col">Gold a day, raw</th><th scope="col">Gold a day, artisan goods</th><th scope="col">Pays back in, raw</th><th scope="col">Pays back in, best case</th></tr></thead>
 	<tbody>
 	<?php foreach ( $rows as $id => $a ) : ?>
 		<tr>
@@ -39,12 +39,14 @@ $top = $rows[ $ids[0] ];
 			<td><?php echo $a['price'] ? esc_html( $gold( $a['price'] ) ) : '—'; ?></td>
 			<td><?php echo esc_html( $gold( $a['full']['raw'] ) ); ?></td>
 			<td><?php echo esc_html( $gold( $a['full']['processed'] ) ); ?></td>
-			<td><?php echo $a['payback_days'] ? esc_html( number_format( $a['payback_days'] ) ) . ' days' : '—'; ?></td>
+			<td><?php echo $a['payback_days_raw'] ? esc_html( number_format( $a['payback_days_raw'] ) ) . ' days' : '—'; ?></td>
+			<td><?php echo $a['payback_days_best_case'] ? esc_html( number_format( $a['payback_days_best_case'] ) ) . ' days' : '—'; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
 </div>
+<p class="table-note">Raw means selling what the animal produces as it is. Best case means the artisan goods made from it with the Artisan profession, so it is the faster of the two paybacks.</p>
 
 <h2>Reading the table</h2>
 <p>Figures assume five hearts of friendship and maximum happiness, an average day of luck, and no hay costs. Payback is the animal's price divided by its daily income, so it ignores the building and the weeks it takes to reach full friendship. Animals with no price are not sold in a shop. If you are choosing between a coop and a barn first, compare the top row of each building here, then check your own numbers in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>. For pigs in particular, <a href="<?php echo esc_url( $guide_url( 'are-pigs-worth-it' ) ); ?>">Are pigs worth it?</a> goes through the conditions.</p>

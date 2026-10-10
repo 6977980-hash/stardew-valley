@@ -92,7 +92,7 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 		</td></tr>
 		<tr><th scope="row">Items per harvest</th><td><?php echo esc_html( rtrim( rtrim( number_format( $e['items_per_harvest']['level0'], 2 ), '0' ), '.' ) ); ?> at farming level 0, <?php echo esc_html( rtrim( rtrim( number_format( $e['items_per_harvest']['level10'], 2 ), '0' ), '.' ) ); ?> at level 10</td></tr>
 		<?php if ( $best['last_planting_day'] ) : ?>
-		<tr><th scope="row">Last day to plant</th><td>Day <?php echo (int) $best['last_planting_day']; ?> of <?php echo esc_html( ucfirst( $best['season'] ) ); ?> for one harvest</td></tr>
+		<tr><th scope="row">Last day to plant</th><td>Day <?php echo (int) $best['last_planting_day']; ?> of <?php echo esc_html( ucfirst( $best['last_planting_season'] ? $best['last_planting_season'] : $best['season'] ) ); ?> for one harvest</td></tr>
 		<?php endif; ?>
 		<?php if ( $e['trellis'] ) : ?>
 		<tr><th scope="row">Trellis</th><td>Grows on a trellis, so you can walk through the rows.</td></tr>
@@ -127,7 +127,7 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 	</tbody>
 </table>
 </div>
-<p class="table-note">Iridium crops only come from Quality Fertilizer or higher, which is why the chance is 0% here.</p>
+<p class="table-note">Iridium quality only becomes possible with Deluxe Fertilizer, which is why the chance is 0% here.</p>
 
 <h2>Profit per tile</h2>
 <p>This is profit for one tile planted on day 1 of the season and replanted after each harvest, sold raw, after paying for seeds. It counts every harvest that fits before the season ends<?php echo count( $e['seasons'] ) > 1 ? ', and carries the crop into the next season if it also grows there' : ''; ?>.</p>

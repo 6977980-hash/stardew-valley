@@ -41,6 +41,9 @@ export function productQuality(data, { friendship, mood, professionBonus = false
   };
 }
 
+/** Days to earn back the purchase price; null when the animal never pays for itself (net gold per day is zero or less). */
+const payback = (price, netPerDay) => (price && netPerDay > 0 ? price / netPerDay : null);
+
 const product = (data, id) => data.products.find((p) => p.id === id);
 const good = (data, id) => data.artisan.goods.find((g) => g.id === id);
 
@@ -49,7 +52,8 @@ function priceOf(item, quality, { rancher, artisan, isGood }) {
   const base = item.price_by_quality && item.price_by_quality[quality] != null ? item.price_by_quality[quality] : item.base_price;
   // Rancher only for raw animal products; Artisan only for artisan goods.
   const mult = isGood ? (artisan && item.artisan ? 1.4 : 1) : rancher && item.rancher ? 1.2 : 1;
-  return Math.floor(base * mult);
+  // Whole hundredths so 325 x 1.4 is 455, not 454.99999999999994.
+  return Math.floor((base * Math.round(mult * 100)) / 100);
 }
 
 /**
@@ -139,7 +143,7 @@ export function animalOutput(animal, data, o = {}) {
     hayCost,
     total: perAnimal * count,
     perAnimal,
-    paybackDays: animal.purchase_price && goldPerDay > 0 ? animal.purchase_price / (goldPerDay - (o.buyHay && hayDays ? data.feeding.hay.price * (hayDays / days) : 0)) : null,
+    paybackDays: payback(animal.purchase_price, goldPerDay - (o.buyHay && hayDays ? data.feeding.hay.price * (hayDays / days) : 0)),
     machines,
     steps,
   };

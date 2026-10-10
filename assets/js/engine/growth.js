@@ -84,7 +84,14 @@ export function harvestSchedule(crop, { plantDay = 1, plantSeason, seasons, days
   return { growth, harvests, lastDay };
 }
 
-/** Latest planting day that still gets at least one harvest in the window (null if none). */
+/** Season and day of the season for a day number counted from day 1 of `plantSeason` (day 42 from Summer 1 is Fall 14). */
+export function dayToSeasonDay(dayNumber, plantSeason, { seasons, daysPerSeason = 28 }) {
+  const start = seasons.indexOf(plantSeason);
+  const offset = dayNumber - 1;
+  return { season: seasons[(start + Math.floor(offset / daysPerSeason)) % seasons.length], day: (offset % daysPerSeason) + 1 };
+}
+
+/** Latest planting day that still gets at least one harvest in the window, counted from day 1 of the planting season (null if none). */
 export function lastPlantingDay(crop, opts) {
   const growth = growthDays(crop, opts);
   const window = growingWindow(crop, opts.plantSeason, opts);

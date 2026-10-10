@@ -16,7 +16,10 @@ function render(v) {
   for (const fs of form.querySelectorAll('[data-skill]')) fs.hidden = fs.dataset.skill !== skill;
   const level = Math.min(9, Math.max(0, parseInt(v.level, 10) || 0));
   const target = Math.min(10, Math.max(level + 1, parseInt(v.target, 10) || 10));
-  const current = totalForLevel(level, t) + Math.max(0, parseInt(v.xp, 10) || 0);
+  // XP already earned inside the current level can't be more than the level is worth.
+  const span = totalForLevel(level + 1, t) - totalForLevel(level, t);
+  const into = Math.min(Math.max(0, parseInt(v.xp, 10) || 0), span - 1);
+  const current = totalForLevel(level, t) + into;
   const needed = xpToLevel(current, target, t);
   const head = `You need <strong>${num(needed)} XP</strong> to go from level ${level} to level ${target}`;
 

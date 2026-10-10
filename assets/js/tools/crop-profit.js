@@ -48,7 +48,8 @@ function rows(v) {
 
 function render(v) {
   const list = rows(v);
-  const where = v.season === 'greenhouse' ? 'in the greenhouse over one year' : `planted on ${cap(v.season)} ${v.today}`;
+  const day = Math.min(28, Math.max(1, parseInt(v.today, 10) || 1));
+  const where = v.season === 'greenhouse' ? 'in the greenhouse over one year' : `planted on ${cap(v.season)} ${day}`;
   if (!list.length) {
     summary.textContent = `No crop can be harvested ${where}. Try an earlier day or another season.`;
     out.innerHTML = '';

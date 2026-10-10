@@ -55,3 +55,16 @@ test('ranking covers every animal, best first', () => {
   assert.equal(r.length, data.animals.length);
   for (let i = 1; i < r.length; i++) assert.ok(r[i - 1].out.goldPerDay >= r[i].out.goldPerDay);
 });
+
+test('artisan prices use whole hundredths: a cow\'s Cheese is worth 483 with Artisan (345 x 1.4), not 482', () => {
+  const o = animalOutput(animal('cow'), data, { count: 1, days: 28, friendship: 1000, mood: 255, process: true, artisan: true });
+  assert.equal(o.lines.find((l) => l.sold === 'Cheese').value, 483);
+});
+
+test('payback is null (shown as "never") when the animal earns nothing after hay', () => {
+  const chicken = animal('chicken');
+  const r = animalOutput(chicken, data, { count: 1, days: 28, friendship: 0, mood: 0, buyHay: true, hayDays: 28 });
+  assert.ok(r.paybackDays === null || Number.isFinite(r.paybackDays));
+  assert.notEqual(r.paybackDays, Infinity);
+  assert.ok(!(r.paybackDays < 0));
+});

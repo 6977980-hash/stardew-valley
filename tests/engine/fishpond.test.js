@@ -24,14 +24,14 @@ test('item chances equal the daily chances printed on the wiki fish pages (withi
   assert.ok(checked > 300, `only ${checked} rows matched`);
 });
 
-test('roe value: extra roe adds a quarter, processed roe uses Aged Roe / Caviar prices', () => {
+test('roe value: extra roe adds a quarter of a roe per roll (not 25% more), processed roe uses Aged Roe / Caviar prices', () => {
   const s = fish('sturgeon');
   const raw = pondOutput(s, data, { population: 10, roeAs: 'raw' });
   const cav = pondOutput(s, data, { population: 10, roeAs: 'processed', artisan: true });
   const roe = raw.items.find((i) => i.roe);
   assert.equal(roe.unitPrice, s.roe.price);
   assert.equal(cav.items.find((i) => i.roe).unitPrice, s.roe.processed.price_artisan);
-  assert.ok(Math.abs(roe.perDay - 0.95 * (0.75 * 1 + 0.25 * 2) * 1.25) < 1e-9);
+  assert.ok(Math.abs(roe.perDay - 0.95 * (0.75 * 1 + 0.25 * 2 + 0.25)) < 1e-9);
   assert.ok(cav.jarsNeeded > 0);
 });
 

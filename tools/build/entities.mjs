@@ -1,7 +1,7 @@
 // Numbers for the crop, animal and machine pages, computed with the same engine as the tools and
 // stored in data/entities.json. Run through tools/build/answers.mjs (npm run build:answers).
 import { cropProfit } from '../../assets/js/engine/profit.js';
-import { growthDays, lastPlantingDay } from '../../assets/js/engine/growth.js';
+import { growthDays, lastPlantingDay, dayToSeasonDay } from '../../assets/js/engine/growth.js';
 import { cropSellPrice } from '../../assets/js/engine/price.js';
 import { qualityChances } from '../../assets/js/engine/quality.js';
 import { expectedItems } from '../../assets/js/engine/harvest.js';
@@ -28,6 +28,15 @@ export function buildEntities(data, crops) {
       .sort((a, b) => b.profit - a.profit);
   }
 
+  // Last day to plant for one harvest, as a real date: day 42 counted from Summer 1 is Fall 14.
+  const lastPlanting = (c, s) => {
+    const opts = { plantSeason: s, seasons, daysPerSeason: data.seasons.days_per_season };
+    const n = lastPlantingDay(c, opts);
+    if (!n) return { last_planting_day: null, last_planting_season: null };
+    const d = dayToSeasonDay(n, s, opts);
+    return { last_planting_day: d.day, last_planting_season: d.season };
+  };
+
   const cropOut = {};
   for (const c of crops) {
     const outdoor = c.seasons.map((x) => x.toLowerCase());
@@ -44,7 +53,7 @@ export function buildEntities(data, crops) {
         season: s,
         growth: l0.growth,
         harvests: l0.harvestDays,
-        last_planting_day: lastPlantingDay(c, { plantSeason: s, seasons, daysPerSeason: data.seasons.days_per_season }),
+        ...lastPlanting(c, s),
         profit: { level0: r0(l0.profit), level6: r0(l6.profit), level10: r0(l10.profit) },
         per_harvest_level6: r0(l6.perHarvest),
         seed_cost: l0.seedCost,
@@ -116,7 +125,9 @@ export function buildEntities(data, crops) {
       }),
       by_hearts: [0, 1, 2, 3, 4, 5].map((h) => ({ hearts: h, ...at(h), processed: at(h, { process: true, artisan: true }).gold })),
       full: { raw: r0(full.goldPerDay), processed: r0(proc.goldPerDay), large_chance: r2(full.largeChance * 100), quality: Object.fromEntries(Object.entries(full.quality).map(([k, v]) => [k, r2(v * 100)])), machines: proc.machines.map((m) => ({ name: m.name, per_animal: r2(m.perAnimal) })) },
-      payback_days: x.purchase_price ? r2(x.purchase_price / Math.max(full.goldPerDay, proc.goldPerDay)) : null,
+      // Price divided by gold a day at five hearts: selling raw, and the best case (artisan goods made from the products).
+      payback_days_raw: x.purchase_price && full.goldPerDay > 0 ? r2(x.purchase_price / full.goldPerDay) : null,
+      payback_days_best_case: x.purchase_price ? r2(x.purchase_price / Math.max(full.goldPerDay, proc.goldPerDay)) : null,
       rank_raw: animalRank.findIndex((r) => r.id === x.id) + 1,
       of: animalRank.length,
       notes: x.produce.notes || [],
@@ -153,11 +164,11 @@ export function buildCsv(ent) {
     const best = c.plantings.reduce((b, p) => (!b || p.profit.level6 > b.profit.level6 ? p : b), null);
     return [c.id, c.name, c.category, c.seasons.join('/'), c.growth_days, c.regrow_days, c.base_price, c.prices.silver, c.prices.gold, c.prices.iridium, best && best.season, best && best.profit.level0, best && best.profit.level6, best && best.profit.level10, best && best.seed_cost];
   });
-  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.full.raw, a.full.processed, a.payback_days]);
+  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.full.raw, a.full.processed, a.payback_days_raw, a.payback_days_best_case]);
   const machines = Object.values(ent.machines).flatMap((m) => m.crops.map((c, i) => [m.id, i + 1, c.id, c.product, c.input, c.price, c.days, c.gain_per_machine_day]));
   return {
     'stardew-crops.csv': toCsv(['id', 'name', 'type', 'seasons', 'growth_days', 'regrow_days', 'sell_price', 'silver_price', 'gold_price', 'iridium_price', 'best_season', 'profit_per_tile_level0', 'profit_per_tile_level6', 'profit_per_tile_level10', 'seed_cost'], crops),
-    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days'], animals),
+    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days_raw', 'payback_days_best_case_artisan'], animals),
     'stardew-machine-rankings.csv': toCsv(['machine', 'rank', 'crop_id', 'product', 'crops_needed', 'product_price', 'days', 'extra_gold_per_machine_day'], machines),
   };
 }
