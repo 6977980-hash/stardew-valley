@@ -143,6 +143,7 @@ class Guides {
 	public static function init() {
 		add_shortcode( 'stardew_hub', array( __CLASS__, 'hub_shortcode' ) );
 		add_shortcode( 'stardew_guide', array( __CLASS__, 'guide_shortcode' ) );
+		add_shortcode( 'stardew_guides_index', array( __CLASS__, 'index_shortcode' ) );
 		add_action( 'init', array( __CLASS__, 'maybe_install' ), 22 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
@@ -304,6 +305,30 @@ class Guides {
 		Entities::hub_section( $hub_id );
 		self::other_hubs( $hub_id );
 		echo '</div>';
+		return ob_get_clean();
+	}
+
+	/** The /guides/ page: every guide under its topic, with a link to the topic page. */
+	public static function index_shortcode() {
+		ob_start();
+		echo '<div class="hub"><p>Each guide answers one question with numbers taken from the game data, and links to the calculator that lets you try your own farm. Guides are grouped by topic.</p>';
+		foreach ( self::hubs() as $hub_id => $hub ) {
+			$hub_url = self::hub_url( $hub_id );
+			if ( ! $hub_url ) {
+				continue;
+			}
+			$rows = array();
+			foreach ( self::guides() as $gid => $g ) {
+				$url = $g['hub'] === $hub_id ? self::guide_url( $gid ) : '';
+				if ( $url ) {
+					$rows[] = array( $url, $g['short'], $g['blurb'] );
+				}
+			}
+			echo '<section><h2><a href="' . esc_url( $hub_url ) . '">' . esc_html( $hub['short'] ) . '</a></h2><p>' . esc_html( $hub['blurb'] ) . '</p>';
+			self::link_list( $rows );
+			echo '</section>';
+		}
+		echo '<p>Want to try the numbers yourself? See all <a href="' . esc_url( home_url( '/tools/' ) ) . '">tools and calculators</a>.</p></div>';
 		return ob_get_clean();
 	}
 

@@ -190,7 +190,7 @@ html:not(.js) .nav-toggle { display: none; }
 }
 .primary-nav a:hover, .primary-nav .current-menu-item > a { color: var(--c-primary); }
 
-@media (min-width: 760px) {
+@media (min-width: 980px) {
 	.nav-toggle { display: none; }
 	.primary-nav, .js .primary-nav { display: block; width: auto; }
 	.primary-nav ul { display: flex; gap: 4px; padding: 0; }
@@ -456,21 +456,21 @@ body .article .results-table tbody tr:hover th:not(.is-best), body .article .res
 body .article .results-table td, body.is-tool .results-table td { font-variant-numeric: tabular-nums; }
 
 /* Tool and guide link lists become cards */
-body .article .related-list, body.is-tool .related-list { grid-template-columns: 1fr; gap: 12px; max-width: none; padding-left: 0; }
-@media (min-width: 640px) { body .article .related-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
-body .article .related-list li, body.is-tool .related-list li {
+body .article .related-list, body.is-tool .related-list, body .content .hub .related-list { grid-template-columns: 1fr; gap: 12px; max-width: none; padding-left: 0; }
+@media (min-width: 640px) { body .article .related-list, body .content .hub .related-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+body .article .related-list li, body.is-tool .related-list li, body .content .hub .related-list li {
 	position: relative; margin: 0; padding: 14px 40px 14px 16px;
 	background: var(--c-surface); border: 2px solid var(--c-border); border-radius: var(--radius); box-shadow: var(--shadow-press);
 	transition: transform .12s, border-color .15s, box-shadow .12s;
 }
-body .article .related-list li::after, body.is-tool .related-list li::after { content: "›"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-family: var(--font-pixel); font-size: 1.6rem; color: var(--c-wood); }
-body .article .related-list li:hover, body.is-tool .related-list li:hover { transform: translateY(-2px); border-color: var(--c-wood); box-shadow: 0 6px 0 var(--c-wood-light); }
-body .article .related-list a, body.is-tool .related-list a { padding: 0; color: var(--c-ink); text-decoration: none; }
-body .article .related-list a::before, body.is-tool .related-list a::before { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
-body .article .related-list li:hover a, body.is-tool .related-list li:hover a { color: var(--c-primary); }
-body .article .related-list li:has(a:focus-visible), body.is-tool .related-list li:has(a:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
-body .article .related-list a:focus-visible, body.is-tool .related-list a:focus-visible { outline: none; }
-body .article .related-list span, body.is-tool .related-list span { margin-top: 2px; }
+body .article .related-list li::after, body.is-tool .related-list li::after, body .content .hub .related-list li::after { content: "›"; position: absolute; right: 16px; top: 50%; transform: translateY(-50%); font-family: var(--font-pixel); font-size: 1.6rem; color: var(--c-wood); }
+body .article .related-list li:hover, body.is-tool .related-list li:hover, body .content .hub .related-list li:hover { transform: translateY(-2px); border-color: var(--c-wood); box-shadow: 0 6px 0 var(--c-wood-light); }
+body .article .related-list a, body.is-tool .related-list a, body .content .hub .related-list a { padding: 0; color: var(--c-ink); text-decoration: none; }
+body .article .related-list a::before, body.is-tool .related-list a::before, body .content .hub .related-list a::before { content: ""; position: absolute; inset: 0; border-radius: var(--radius); }
+body .article .related-list li:hover a, body.is-tool .related-list li:hover a, body .content .hub .related-list li:hover a { color: var(--c-primary); }
+body .article .related-list li:has(a:focus-visible), body.is-tool .related-list li:has(a:focus-visible), body .content .hub .related-list li:has(a:focus-visible) { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+body .article .related-list a:focus-visible, body.is-tool .related-list a:focus-visible, body .content .hub .related-list a:focus-visible { outline: none; }
+body .article .related-list span, body.is-tool .related-list span, body .content .hub .related-list span { margin-top: 2px; }
 
 body .article .guide-tools {
 	margin-top: 40px; padding: 20px; max-width: none;
@@ -547,6 +547,10 @@ body .article .hub-lead { font-size: 1.15rem; color: var(--c-ink); }
 @media (min-width: 560px) { .quick-plan .btn { width: auto; } .quick-plan__all { margin-left: 14px; } }
 
 .section__more { margin: 16px 0 0; font-weight: 700; }
+.section__sub { margin: 28px 0 12px; font-family: var(--font-pixel); font-size: 1.05rem; color: var(--c-muted); }
+.card--featured { border-color: var(--c-wood-light); }
+.card--featured .card__title { font-size: 1.2rem; }
+.card--featured .card__text { font-size: 1rem; }
 .newest { margin: 0 0 14px; font-weight: 600; }
 .newest a { white-space: nowrap; }
 

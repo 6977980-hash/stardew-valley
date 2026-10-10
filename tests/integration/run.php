@@ -257,6 +257,22 @@ Pages::sync_generated( $probe, 'Probe newer' );
 st_assert( 'Owner edit' === get_post( $probe )->post_title, 'a title edited by the owner is kept' );
 wp_delete_post( $probe, true );
 
+echo "Tools and Guides index pages\n";
+$tools_page  = get_page_by_path( 'tools', OBJECT, 'page' );
+$guides_page = get_page_by_path( 'guides', OBJECT, 'page' );
+st_assert( $tools_page && $guides_page && 'publish' === $tools_page->post_status && 'publish' === $guides_page->post_status, 'Tools and Guides pages are created' );
+$tools_html  = do_shortcode( $tools_page->post_content );
+$guides_html = do_shortcode( $guides_page->post_content );
+st_assert( substr_count( $tools_html, 'related-list' ) >= 4 && false !== strpos( $tools_html, '/crop-profit-calculator/' ) && false !== strpos( $tools_html, '/best-spring-crops/' ), 'Tools page groups and links every live tool' );
+st_assert( false !== strpos( $guides_html, '/are-casks-worth-it/' ) && false !== strpos( $guides_html, '/crops-and-farming/' ), 'Guides page links each topic and its guides' );
+$every_tool = true;
+foreach ( Tools::definitions() as $tid => $tdef ) {
+	if ( Tools::url( $tid ) && false === strpos( $tools_html, Tools::url( $tid ) ) ) {
+		$every_tool = false;
+	}
+}
+st_assert( $every_tool, 'no live tool is missing from the Tools page' );
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

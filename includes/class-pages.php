@@ -32,6 +32,8 @@ class Pages {
 	public static function definitions() {
 		return array(
 			'about'          => array( 'About Stardew Tools', 'about', 'Stardew Tools is an independent, fan-made Stardew Valley planning site with free calculators and decision tools built on verified game data.' ),
+			'tools'          => array( 'Stardew Valley Tools and Calculators', 'tools', 'All free Stardew Valley tools in one place: what to plant, crop profit, kegs vs jars, greenhouse, fish ponds, animals, gifts and bundles, with verified 1.6 data.' ),
+			'guides'         => array( 'Stardew Valley Guides by Topic', 'guides', 'Stardew Valley guides built on verified 1.6 data: crops, artisan goods, animals, fishing and the greenhouse, each linked to a calculator.' ),
 			'contact'        => array( 'Contact', 'contact', 'Contact Stardew Tools to report a data error, suggest a tool or ask a question.' ),
 			'privacy-policy' => array( 'Privacy Policy', 'privacy', 'How Stardew Tools handles data: no accounts, tool settings stay in your browser, and how advertising cookies work.' ),
 			'terms'          => array( 'Terms of Use', 'terms', 'Terms of use for Stardew Tools, an independent fan-made Stardew Valley website.' ),
