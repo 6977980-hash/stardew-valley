@@ -8,7 +8,8 @@
     "data:import": "node tools/data/import-crops.mjs && node tools/data/import-rules.mjs && node tools/data/import-price-oracle.mjs",
     "data:validate": "node tools/data/validate.mjs",
     "test": "node tools/data/validate.mjs && node tools/build/answers.mjs --check && node --test \"tests/engine/*.test.js\"",
-    "test:e2e": "playwright test"
+    "test:e2e": "playwright test",
+    "art": "node tools/brand/pixel-scene.mjs && node tools/brand/pixel-icons.mjs"
   },
   "devDependencies": {
     "@axe-core/playwright": "4.10.2",
