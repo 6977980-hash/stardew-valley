@@ -25,6 +25,10 @@ class Head {
 	public static function icons() {
 		$colors = Config::get( 'colors' );
 		printf( "<meta name=\"theme-color\" content=\"%s\">\n", esc_attr( $colors['primary'] ) );
+		// Google Search Console ownership check (home page only, as Google asks).
+		if ( is_front_page() ) {
+			printf( "<meta name=\"google-site-verification\" content=\"%s\" />\n", esc_attr( '3PqbKf6_cJTo0tBsr3j8MzMLajjafIwrBca6GNgrvrE' ) );
+		}
 
 		if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
 			return;
