@@ -170,6 +170,7 @@ class Tools {
 
 	public static function init() {
 		add_shortcode( 'stardew_tool', array( __CLASS__, 'shortcode' ) );
+		add_shortcode( 'stardew_tools_index', array( __CLASS__, 'index_shortcode' ) );
 		add_action( 'init', array( __CLASS__, 'maybe_install' ), 21 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_action( 'wp_footer', array( __CLASS__, 'footer' ), 20 );
@@ -229,7 +230,41 @@ class Tools {
 		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
 	}
 
+	/** Group heading => tool ids, for the homepage toolbox and the /tools/ page. */
+	public static function categories() {
+		return array(
+			'Decision tools' => array( 'what-to-plant', 'keg-vs-preserves-jar', 'ancient-fruit-vs-starfruit', 'greenhouse-planner' ),
+			'Calculators'    => array( 'crop-profit-calculator', 'fish-pond-calculator', 'animal-profit-calculator', 'crafting-calculator', 'xp-calculator' ),
+			'Best crops'     => array( 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'best-greenhouse-crops' ),
+			'Finders'        => array( 'gift-finder' ),
+			'Trackers'       => array( 'bundle-tracker' ),
+		);
+	}
+
 	/* ---------- Rendering ---------- */
+
+	/** The /tools/ page: every live tool, grouped, with what each one answers. */
+	public static function index_shortcode() {
+		$defs = self::definitions();
+		ob_start();
+		echo '<div class="hub">';
+		echo '<p>Every tool is free, needs no account and shows the math behind its answer. Numbers come from the Stardew Valley Wiki for version ' . esc_html( Config::get( 'game_version' ) ) . ', and each page says when it was last checked. Not sure where to start? Try <a href="' . esc_url( self::url( 'what-to-plant' ) ) . '">What to Plant Today</a>.</p>';
+		foreach ( self::categories() as $heading => $ids ) {
+			$rows = array();
+			foreach ( $ids as $id ) {
+				$url = isset( $defs[ $id ] ) ? self::url( $id ) : '';
+				if ( $url ) {
+					$rows[] = '<li><a href="' . esc_url( $url ) . '">' . esc_html( $defs[ $id ]['short'] ) . '</a><span>' . esc_html( $defs[ $id ]['blurb'] ) . '</span></li>';
+				}
+			}
+			if ( $rows ) {
+				echo '<section><h2>' . esc_html( $heading ) . '</h2><ul class="related-list">' . implode( '', $rows ) . '</ul></section>'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above.
+			}
+		}
+		echo '<p>Looking for something we do not have yet? <a href="' . esc_url( home_url( '/contact/' ) ) . '">Tell us</a>, or read the <a href="' . esc_url( home_url( '/guides/' ) ) . '">guides</a>.</p>';
+		echo '</div>';
+		return ob_get_clean();
+	}
 
 	public static function shortcode( $atts ) {
 		$atts = shortcode_atts( array( 'id' => '' ), $atts, 'stardew_tool' );
@@ -307,7 +342,7 @@ class Tools {
 	/* ---------- Assets ---------- */
 
 	public static function enqueue() {
-		if ( ! self::current() ) {
+		if ( ! self::current() && ! is_page( array( 'tools', 'guides' ) ) ) {
 			return;
 		}
 		$css = 'assets/css/tools.css';

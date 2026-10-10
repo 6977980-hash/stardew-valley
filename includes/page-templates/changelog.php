@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 10, 2026: easier to find things</h2>
+<ul>
+<li>New: a Tools page and a Guides page that list everything in one place, both linked from the main menu.</li>
+<li>The home page now starts with the three most-used tools, and the "page not found" page has a search button and links to the tools and guides.</li>
+</ul>
+
 <h2>October 10, 2026: corrections after a full audit</h2>
 <ul>
 <li>Fixed: the "Last day to plant" on crop pages is now a real date (for example Corn: Fall 14).</li>

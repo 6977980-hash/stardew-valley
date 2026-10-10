@@ -39,13 +39,14 @@ foreach ( $home_order as $tid ) {
 $total_tools = count( $live );
 
 $live_names = wp_list_pluck( $live, 'short' );
-$categories = array(
-	'Decision tools' => array( 'What to Plant Today', 'Keg vs Preserves Jar', 'Ancient Fruit vs Starfruit', 'Greenhouse Planner' ),
-	'Calculators'    => array( 'Crop Profit Calculator', 'Fish Pond Calculator', 'Animal Profit Calculator', 'Crafting Calculator', 'XP Calculator' ),
-	'Best crops'     => array( 'Best Spring Crops', 'Best Summer Crops', 'Best Fall Crops', 'Best Greenhouse Crops' ),
-	'Finders'        => array( 'Gift Finder' ),
-	'Trackers'       => array( 'Bundle Tracker' ),
-);
+$categories = array();
+foreach ( class_exists( 'Stardew_Tools\\Tools' ) ? Stardew_Tools\Tools::categories() : array() as $heading => $ids ) {
+	foreach ( $ids as $cid ) {
+		if ( isset( $by_id[ $cid ] ) ) {
+			$categories[ $heading ][] = $by_id[ $cid ]['short'];
+		}
+	}
+}
 
 // Seasons strip: each season links to its Best Crops page once live (winter grows in the greenhouse).
 $tool_url  = function ( $short ) use ( $live, $live_names ) {
@@ -122,10 +123,22 @@ $plant_url = $tool_url( 'What to Plant Today' );
 
 <section class="section" aria-labelledby="ask-heading">
 	<div class="container">
-		<p class="section__kicker">Ask a question</p>
+		<p class="section__kicker">Start here</p>
 		<h2 id="ask-heading">What do you want to do?</h2>
+		<?php $featured = array_slice( $questions, 0, 3 ); $more = array_slice( $questions, 3 ); ?>
+		<ul class="card-grid card-grid--featured" role="list">
+			<?php foreach ( $featured as $q ) : ?>
+			<li class="card card--live card--featured">
+				<span class="slot card__slot"><?php st_theme_pixel_icon( $q[2], 32 ); ?></span>
+				<h3 class="card__title"><a class="card__link" href="<?php echo esc_url( $q[3] ); ?>"><?php echo esc_html( $q[0] ); ?></a></h3>
+				<p class="card__text"><?php echo esc_html( $q[1] ); ?></p>
+			</li>
+			<?php endforeach; ?>
+		</ul>
+		<?php if ( $more ) : ?>
+		<h3 class="section__sub">More questions</h3>
 		<ul class="card-grid" role="list">
-			<?php foreach ( $questions as $q ) : ?>
+			<?php foreach ( $more as $q ) : ?>
 			<li class="card card--live">
 				<span class="slot card__slot"><?php st_theme_pixel_icon( $q[2], 32 ); ?></span>
 				<h3 class="card__title"><a class="card__link" href="<?php echo esc_url( $q[3] ); ?>"><?php echo esc_html( $q[0] ); ?></a></h3>
@@ -133,7 +146,8 @@ $plant_url = $tool_url( 'What to Plant Today' );
 			</li>
 			<?php endforeach; ?>
 		</ul>
-		<p class="section__more"><a href="#tools-heading">See all <?php echo (int) $total_tools; ?> tools</a></p>
+		<?php endif; ?>
+		<p class="section__more"><a href="<?php echo esc_url( home_url( '/tools/' ) ); ?>">See all <?php echo (int) $total_tools; ?> tools</a></p>
 	</div>
 </section>
 
@@ -167,6 +181,7 @@ $plant_url = $tool_url( 'What to Plant Today' );
 			</li>
 			<?php endforeach; ?>
 		</ul>
+		<p class="section__more"><a href="<?php echo esc_url( home_url( '/guides/' ) ); ?>">See all guides</a></p>
 	</div>
 </section>
 <?php endif; ?>

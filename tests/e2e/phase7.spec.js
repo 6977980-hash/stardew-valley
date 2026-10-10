@@ -87,4 +87,24 @@ test.describe('phase 7 UX @live', () => {
     expect(text).toContain('/crop-profit-calculator/');
     expect(text.toLowerCase()).not.toContain('hello world');
   });
+  test('main menu reaches the Tools and Guides pages, and a missing page offers search', async ({ page }) => {
+    await page.goto('/');
+    const nav = page.locator('#primary-nav');
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await expect(nav.getByRole('link', { name: 'Tools' })).toBeVisible();
+    await nav.getByRole('link', { name: 'Guides' }).click();
+    await expect(page).toHaveURL(/\/guides\/$/);
+    await expect(page.locator('h1')).toContainText('Guides');
+    expect(await page.locator('.hub a[href*="/are-casks-worth-it/"]').count()).toBeGreaterThan(0);
+    await page.goto('/tools/');
+    expect(await page.locator('.hub a[href*="/crop-profit-calculator/"]').count()).toBeGreaterThan(0);
+    await page.goto('/this-page-does-not-exist/');
+    await page.getByRole('button', { name: 'Search tools, guides and data' }).click();
+    await expect(page.locator('#site-search')).toBeVisible();
+  });
+  test('home page leads with three featured tools', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('.card--featured')).toHaveCount(3);
+    await expect(page.locator('.card--featured').first()).toContainText('plant');
+  });
 });
