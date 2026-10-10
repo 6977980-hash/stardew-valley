@@ -22,6 +22,7 @@ defined( 'ABSPATH' ) || exit;
 			<?php st_theme_mark( 36 ); ?>
 			<span class="brand__name"><?php echo esc_html( st_theme_brand( 'brand_name', get_bloginfo( 'name' ) ) ); ?></span>
 		</a>
+		<?php do_action( 'stardew_tools_header_search' ); ?>
 		<button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
 			<span class="nav-toggle__bars" aria-hidden="true"></span>
 			<span class="nav-toggle__label">Menu</span>
