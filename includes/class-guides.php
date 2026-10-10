@@ -336,6 +336,20 @@ class Guides {
 		include $file;
 		$tools = self::tool_links( $guide['tools'] );
 		if ( $tools ) {
+			// A clear next step after the last paragraph: the matching tool, then a related guide.
+			$next_guide = '';
+			foreach ( $guides as $gid => $other ) {
+				$url = $gid !== $guide_id && $other['hub'] === $guide['hub'] ? self::guide_url( $gid ) : '';
+				if ( $url ) {
+					$next_guide = '<a href="' . esc_url( $url ) . '">' . esc_html( $other['short'] ) . '</a>';
+					break;
+				}
+			}
+			echo '<aside class="next-step" aria-label="Next step"><p class="next-step__text"><strong>Next step:</strong> put your own numbers in.</p><a class="btn btn--primary" href="' . esc_url( $tools[0][0] ) . '">Open the ' . esc_html( $tools[0][1] ) . '</a>';
+			if ( $next_guide ) {
+				echo '<p class="next-step__more">Then read ' . $next_guide . '.</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
+			}
+			echo '</aside>';
 			echo '<section class="guide-tools" aria-labelledby="guide-tools"><h2 id="guide-tools">Work it out for your farm</h2>';
 			self::link_list( $tools );
 			echo '</section>';
@@ -353,6 +367,20 @@ class Guides {
 				$more[] = array( $url, $other['short'], $other['blurb'] );
 			}
 		}
+		usort(
+			$more,
+			function ( $a, $b ) use ( $guides, $guide ) {
+				$same = function ( $row ) use ( $guides, $guide ) {
+					foreach ( $guides as $g ) {
+						if ( $g['short'] === $row[1] ) {
+							return $g['hub'] === $guide['hub'] ? 0 : 1;
+						}
+					}
+					return 1;
+				};
+				return $same( $a ) <=> $same( $b );
+			}
+		);
 		$hub_url = self::hub_url( $guide['hub'] );
 		if ( $more || $hub_url ) {
 			echo '<section aria-labelledby="guide-more"><h2 id="guide-more">More guides</h2>';

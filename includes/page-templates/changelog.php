@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 10, 2026: easier to use on phones</h2>
+<ul>
+<li>The home page is shorter, has a quick "What should I plant today?" form at the top, and no longer lists tools that are not built yet.</li>
+<li>One-row header on phones, plainer headings in guides, and a "Next step" box at the end of every guide.</li>
+</ul>
+
 <h2>October 10, 2026: reference pages, search and more guides</h2>
 <ul>
 <li>New: a page for every crop, farm animal and machine, with prices, quality chances, profit per tile, fertilizer, processing and the greenhouse, plus ranked tables of all crops, animals and machines.</li>
