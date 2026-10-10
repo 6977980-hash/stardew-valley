@@ -1,12 +1,12 @@
-id,name,building,price,days_to_mature,days_between_products,raw_gold_per_day_5_hearts,artisan_goods_gold_per_day_5_hearts,payback_days
-chicken,Chicken,Coop,800,3,1,165,399,2.01
-duck,Duck,Big Coop,1200,5,2,122,249,4.81
-rabbit,Rabbit,Deluxe Coop,8000,6,4,175,271,29.51
-void-chicken,Void Chicken,Big Coop,,3,1,113,385,
-golden-chicken,Golden Chicken,Big Coop,,3,1,868,1197,
-dinosaur,Dinosaur,Big Coop,,0,7,87,160,
-ostrich,Ostrich,Barn,,7,7,149,659,
-cow,Cow,Barn,1500,5,1,330,482,3.11
-goat,Goat,Big Barn,4000,5,2,299,420,9.52
-sheep,Sheep,Deluxe Barn,8000,4,3,295,562,14.23
-pig,Pig,Deluxe Barn,16000,10,,1875,4473,3.58
+id,name,building,price,days_to_mature,days_between_products,raw_gold_per_day_5_hearts,artisan_goods_gold_per_day_5_hearts,payback_days_raw,payback_days_best_case_artisan
+chicken,Chicken,Coop,800,3,1,165,399,4.86,2.01
+duck,Duck,Big Coop,1200,5,2,122,249,9.87,4.81
+rabbit,Rabbit,Deluxe Coop,8000,6,4,175,271,45.82,29.51
+void-chicken,Void Chicken,Big Coop,,3,1,113,385,,
+golden-chicken,Golden Chicken,Big Coop,,3,1,868,1197,,
+dinosaur,Dinosaur,Big Coop,,0,7,87,160,,
+ostrich,Ostrich,Barn,,7,7,149,659,,
+cow,Cow,Barn,1500,5,1,330,483,4.55,3.11
+goat,Goat,Big Barn,4000,5,2,299,420,13.36,9.52
+sheep,Sheep,Deluxe Barn,8000,4,3,295,562,27.1,14.23
+pig,Pig,Deluxe Barn,16000,10,,1875,4473,8.53,3.58

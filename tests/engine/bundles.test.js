@@ -50,3 +50,12 @@ test('room progress and still-needed follow ticks', () => {
   assert.ok(!left.some((x) => x.name === 'Wild Horseradish' && x.bundles.includes('Spring Foraging Bundle')));
   assert.ok(left.length > 20);
 });
+
+test('an item that fills two slots of one bundle is listed once, with both amounts added', () => {
+  const twice = data.bundles.find((x) => x.items && x.items.filter((i) => i.id === 'wood').length > 1);
+  assert.ok(twice, 'expected a bundle with two Wood slots');
+  const rows = stillNeeded(data, 'standard', { mine: [], ticked: {} });
+  const wood = rows.find((r) => r.id === 'wood');
+  assert.equal(wood.bundles.filter((n) => n === twice.name).length, 1);
+  assert.equal(wood.qty, 198);
+});

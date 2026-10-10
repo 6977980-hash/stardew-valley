@@ -1130,13 +1130,13 @@
       {
         "id": "lava-eel",
         "name": "Lava Eel",
-        "gold_per_day": 560,
+        "gold_per_day": 543,
         "jars": 0
       },
       {
         "id": "blobfish",
         "name": "Blobfish",
-        "gold_per_day": 528,
+        "gold_per_day": 496,
         "jars": 0
       },
       {
@@ -1148,13 +1148,13 @@
       {
         "id": "tiger-trout",
         "name": "Tiger Trout",
-        "gold_per_day": 234,
+        "gold_per_day": 212,
         "jars": 0
       },
       {
         "id": "void-salmon",
         "name": "Void Salmon",
-        "gold_per_day": 230,
+        "gold_per_day": 212,
         "jars": 0
       }
     ],
@@ -1162,32 +1162,32 @@
       {
         "id": "blobfish",
         "name": "Blobfish",
-        "gold_per_day": 1390,
-        "jars": 5
+        "gold_per_day": 1301,
+        "jars": 4
       },
       {
         "id": "lava-eel",
         "name": "Lava Eel",
-        "gold_per_day": 1345,
+        "gold_per_day": 1298,
         "jars": 3
       },
       {
         "id": "sturgeon",
         "name": "Sturgeon",
-        "gold_per_day": 1039,
+        "gold_per_day": 998,
         "jars": 6
       },
       {
         "id": "tiger-trout",
         "name": "Tiger Trout",
-        "gold_per_day": 656,
+        "gold_per_day": 595,
         "jars": 6
       },
       {
         "id": "scorpion-carp",
         "name": "Scorpion Carp",
-        "gold_per_day": 597,
-        "jars": 6
+        "gold_per_day": 538,
+        "jars": 5
       }
     ]
   },
@@ -1252,7 +1252,7 @@
       {
         "id": "cow",
         "name": "Cow",
-        "gold_per_day": 482,
+        "gold_per_day": 483,
         "price": 1500
       },
       {
@@ -2438,7 +2438,7 @@
           "id": "lava-eel",
           "name": "Lava Eel",
           "kind": "fish",
-          "gold_per_day": 560,
+          "gold_per_day": 543,
           "jars": 0,
           "max_population": 10
         },
@@ -2446,7 +2446,7 @@
           "id": "blobfish",
           "name": "Blobfish",
           "kind": "fish",
-          "gold_per_day": 528,
+          "gold_per_day": 496,
           "jars": 0,
           "max_population": 10
         },
@@ -2462,7 +2462,7 @@
           "id": "tiger-trout",
           "name": "Tiger Trout",
           "kind": "fish",
-          "gold_per_day": 234,
+          "gold_per_day": 212,
           "jars": 0,
           "max_population": 10
         },
@@ -2470,15 +2470,7 @@
           "id": "void-salmon",
           "name": "Void Salmon",
           "kind": "fish",
-          "gold_per_day": 230,
-          "jars": 0,
-          "max_population": 10
-        },
-        {
-          "id": "scorpion-carp",
-          "name": "Scorpion Carp",
-          "kind": "fish",
-          "gold_per_day": 213,
+          "gold_per_day": 212,
           "jars": 0,
           "max_population": 10
         },
@@ -2497,6 +2489,14 @@
           "gold_per_day": 202,
           "jars": 0,
           "max_population": 10
+        },
+        {
+          "id": "scorpion-carp",
+          "name": "Scorpion Carp",
+          "kind": "fish",
+          "gold_per_day": 192,
+          "jars": 0,
+          "max_population": 10
         }
       ],
       "processed": [
@@ -2504,15 +2504,15 @@
           "id": "blobfish",
           "name": "Blobfish",
           "kind": "fish",
-          "gold_per_day": 1390,
-          "jars": 5,
+          "gold_per_day": 1301,
+          "jars": 4,
           "max_population": 10
         },
         {
           "id": "lava-eel",
           "name": "Lava Eel",
           "kind": "fish",
-          "gold_per_day": 1345,
+          "gold_per_day": 1298,
           "jars": 3,
           "max_population": 10
         },
@@ -2520,7 +2520,7 @@
           "id": "sturgeon",
           "name": "Sturgeon",
           "kind": "fish",
-          "gold_per_day": 1039,
+          "gold_per_day": 998,
           "jars": 6,
           "max_population": 10
         },
@@ -2528,7 +2528,7 @@
           "id": "tiger-trout",
           "name": "Tiger Trout",
           "kind": "fish",
-          "gold_per_day": 656,
+          "gold_per_day": 595,
           "jars": 6,
           "max_population": 10
         },
@@ -2536,15 +2536,15 @@
           "id": "scorpion-carp",
           "name": "Scorpion Carp",
           "kind": "fish",
-          "gold_per_day": 597,
-          "jars": 6,
+          "gold_per_day": 538,
+          "jars": 5,
           "max_population": 10
         },
         {
           "id": "void-salmon",
           "name": "Void Salmon",
           "kind": "fish",
-          "gold_per_day": 587,
+          "gold_per_day": 536,
           "jars": 5,
           "max_population": 10
         },
@@ -2570,7 +2570,7 @@
           "id": "legend",
           "name": "Legend",
           "kind": "legendary",
-          "gold_per_day": 1356,
+          "gold_per_day": 1311,
           "jars": 0,
           "max_population": 1
         },
@@ -2578,15 +2578,15 @@
           "id": "legend-ii",
           "name": "Legend II",
           "kind": "legendary",
-          "gold_per_day": 1356,
+          "gold_per_day": 1311,
           "jars": 0,
           "max_population": 1
         },
         {
-          "id": "glacierfish",
-          "name": "Glacierfish",
+          "id": "crimsonfish",
+          "name": "Crimsonfish",
           "kind": "legendary",
-          "gold_per_day": 706,
+          "gold_per_day": 628,
           "jars": 0,
           "max_population": 1
         }
@@ -2595,7 +2595,7 @@
         "id": "sturgeon",
         "name": "Sturgeon",
         "kind": "fish",
-        "gold_per_day": 1039,
+        "gold_per_day": 998,
         "jars": 6,
         "max_population": 10
       },
@@ -2612,7 +2612,7 @@
             "1": 203,
             "3": 344,
             "5": 485,
-            "10": 1390
+            "10": 1301
           },
           "quests": [
             {
@@ -2663,7 +2663,7 @@
             "1": 245,
             "3": 378,
             "5": 534,
-            "10": 1345
+            "10": 1298
           },
           "quests": [
             {
@@ -2709,7 +2709,7 @@
             "1": 40,
             "3": 177,
             "5": 250,
-            "10": 1039
+            "10": 998
           },
           "quests": [
             {
@@ -2754,8 +2754,8 @@
           "gold": {
             "1": 85,
             "3": 143,
-            "5": 283,
-            "10": 656
+            "5": 267,
+            "10": 595
           },
           "quests": []
         },
@@ -2770,7 +2770,7 @@
             "1": 63,
             "3": 107,
             "5": 152,
-            "10": 597
+            "10": 538
           },
           "quests": [
             {
@@ -2801,7 +2801,7 @@
             "1": 85,
             "3": 143,
             "5": 202,
-            "10": 587
+            "10": 536
           },
           "quests": [
             {
@@ -2935,7 +2935,7 @@
           "building": "Barn",
           "price": 1500,
           "raw": 330,
-          "processed": 482,
+          "processed": 483,
           "payback": 3.11
         },
         {
@@ -3918,7 +3918,7 @@
             "hearts0": 133,
             "hearts3": 231,
             "hearts5": 330,
-            "processed5": 482,
+            "processed5": 483,
             "payback": 3.11,
             "machines": [
               {

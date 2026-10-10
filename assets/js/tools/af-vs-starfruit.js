@@ -34,12 +34,12 @@ function result(id, v) {
   if (id === 'starfruit' && v.where === 'spring') return { c, r: null, why: 'Starfruit only grows in Summer outdoors.' };
   const r = cropProfit(c, data, opts);
   const days = setup.horizonDays || (r.harvestDays.length ? Math.max(...r.harvestDays) : 28);
-  const p = data.machines.machines.flatMap((m) => m.products).find((x) => x.id === r.sellAs);
-  const machines = p ? (r.harvestDays.length * r.itemsPerHarvest * p.minutes) / data.machines.minutes_per_day / days : 0;
-  return { c, r, machines };
+  const p = data.machines.machines.flatMap((m) => m.products.map((x) => ({ ...x, machineId: m.id }))).find((x) => x.id === r.sellAs);
+  const machines = p ? (r.harvestDays.length * r.itemsPerHarvest * p.minutes) / (p.input?.count || 1) / data.machines.minutes_per_day / days : 0;
+  return { c, r, machines, machineName: p ? (p.machineId === 'keg' ? 'Kegs' : 'Preserves Jars') : '' };
 }
 
-function card({ c, r, machines, why }, tiles, best) {
+function card({ c, r, machines, machineName, why }, tiles, best) {
   if (!r) return `<article class="compare-card"><h3>${esc(c.name)}</h3><p>${esc(why)}</p></article>`;
   return `<article class="compare-card${best ? ' is-best' : ''}">
     <h3>${esc(c.name)} ${best ? '<span class="badge badge--ok">Earns more</span>' : ''}</h3>
@@ -49,7 +49,7 @@ function card({ c, r, machines, why }, tiles, best) {
       <dt>Value per harvest</dt><dd>${gold(r.perHarvest)}</dd>
       <dt>Seeds</dt><dd>${r.seedCost == null ? 'not sold for gold' : gold(r.seedCost)}</dd>
       <dt>${num(tiles)} tiles</dt><dd>${gold(r.profit * tiles)}</dd>
-      ${machines ? `<dt>${esc(SELL_LABEL[r.sellAs] === 'Wine' ? 'Kegs' : 'Jars')} to keep up</dt><dd>${num(Math.ceil(machines * tiles))}</dd>` : ''}
+      ${machines ? `<dt>${esc(machineName)} to keep up</dt><dd>${num(Math.ceil(machines * tiles))}</dd>` : ''}
     </dl>
     <details><summary>Explain the math</summary>${stepsHtml(r.steps)}</details>
   </article>`;
