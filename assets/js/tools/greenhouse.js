@@ -30,7 +30,7 @@ function cropResult(crop, v) {
     seedSource,
   });
   const p = products.find((x) => x.id === r.sellAs);
-  const perTileMachines = p ? (r.harvestDays.length * r.itemsPerHarvest * p.minutes) / data.machines.minutes_per_day / DAYS : 0;
+  const perTileMachines = p ? (r.harvestDays.length * r.itemsPerHarvest * p.minutes) / (p.input?.count || 1) / data.machines.minutes_per_day / DAYS : 0;
   return { r, machine: p ? p.machine : null, perTileMachines };
 }
 

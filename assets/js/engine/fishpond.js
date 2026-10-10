@@ -27,7 +27,8 @@ export function pondOutput(fish, data, o = {}) {
   const population = Math.max(0, Math.min(fish.max_population, Math.floor(o.population ?? fish.max_population)));
   const days = Math.max(1, Math.floor(o.days ?? 28));
   const base = baseChance(fish, population, data.rules);
-  const extraRoe = 1 + data.rules.produce.extra_roe.average_extra;
+  // Extra Roe is added to the rolled quantity (+1 with chance 0.2, repeating: +0.25 on average).
+  const extraRoe = data.rules.produce.extra_roe.average_extra;
   const proc = o.roeAs === 'processed' ? processedRoe(fish, o) : null;
 
   const items = [];
@@ -35,7 +36,7 @@ export function pondOutput(fish, data, o = {}) {
     if (population < row.population.min || population > row.population.max) continue;
     const isRoe = row.item_id === 'roe';
     const avgQty = (row.quantity.min + row.quantity.max) / 2;
-    const perDay = base * row.share * avgQty * (isRoe ? extraRoe : 1);
+    const perDay = base * row.share * (avgQty + (isRoe ? extraRoe : 0));
     const unit = isRoe && proc ? proc.price : row.item_price;
     items.push({
       item: isRoe ? (proc ? proc.name : row.wiki_name || 'Roe') : row.item,

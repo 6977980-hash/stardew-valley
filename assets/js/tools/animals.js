@@ -30,7 +30,7 @@ function render(v) {
   const o = opts(v);
   const r = animalOutput(animal, data, o);
   const forage = animal.produce.mode === 'outdoor-forage';
-  summary.innerHTML = `${num(r.count)} ${esc(animal.name)}${r.count > 1 ? 's' : ''}: about <strong>${gold(r.goldPerDay * r.count)} a day</strong>${forage ? ' on days the pig can go outside' : ''}, ${gold(r.total)} over ${num(r.days)} ${forage ? "outdoor " : ""}days${r.hayCost ? ` after ${gold(r.hayCost * r.count)} of hay` : ''}.${animal.purchase_price ? ` One costs ${gold(animal.purchase_price)} at Marnie's and pays for itself in about ${num(Math.ceil(r.paybackDays))} days.` : ' Not sold at Marnie\'s.'}`;
+  summary.innerHTML = `${num(r.count)} ${esc(animal.name)}${r.count > 1 ? 's' : ''}: about <strong>${gold(r.goldPerDay * r.count)} a day</strong>${forage ? ' on days the pig can go outside' : ''}, ${gold(r.total)} over ${num(r.days)} ${forage ? "outdoor " : ""}days${r.hayCost ? ` after ${gold(r.hayCost * r.count)} of hay` : ''}.${animal.purchase_price ? ` One costs ${gold(animal.purchase_price)} at Marnie's and ${r.paybackDays ? `pays for itself in about ${num(Math.ceil(r.paybackDays))} days` : 'never pays for itself with these settings (it earns nothing after hay)'}.` : ' Not sold at Marnie\'s.'}`;
   const machines = r.machines.length ? `<p>To keep up: ${r.machines.map((m) => `${num(Math.ceil(m.perAnimal * r.count))} ${esc(m.name)}${Math.ceil(m.perAnimal * r.count) > 1 ? 's' : ''}`).join(', ')}.</p>` : '';
   out.innerHTML = `<table class="results-table">
     <caption class="visually-hidden">What one ${esc(animal.name)} makes per day</caption>
@@ -51,7 +51,7 @@ function render(v) {
       .map((x) => `<tr${x.animal.id === animal.id ? ' class="is-best"' : ''}><th scope="row">${esc(x.animal.name)}${x.animal.produce.mode === 'outdoor-forage' ? '<span class="cell-sub">outdoor days only</span>' : ''}</th>
         <td class="num"><strong>${gold(x.out.goldPerDay)}</strong></td>
         <td class="num col-hide-sm">${x.animal.purchase_price ? gold(x.animal.purchase_price) : 'not sold'}</td>
-        <td class="num col-hide-sm">${x.out.paybackDays ? `${num(Math.ceil(x.out.paybackDays))} days` : '–'}</td></tr>`)
+        <td class="num col-hide-sm">${x.out.paybackDays ? `${num(Math.ceil(x.out.paybackDays))} days` : 'never'}</td></tr>`)
       .join('')}</tbody></table>`;
 }
 

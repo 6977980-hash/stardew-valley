@@ -68,6 +68,7 @@
             22
           ],
           "last_planting_day": 21,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 244,
             "level6": 294,
@@ -213,7 +214,8 @@
             71,
             78
           ],
-          "last_planting_day": 56,
+          "last_planting_day": 28,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 4444,
             "level6": 4934,
@@ -261,6 +263,7 @@
             50
           ],
           "last_planting_day": 28,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 2222,
             "level6": 2467,
@@ -303,6 +306,7 @@
           "growth": 28,
           "harvests": [],
           "last_planting_day": null,
+          "last_planting_season": null,
           "profit": {
             "level0": 0,
             "level6": 0,
@@ -442,6 +446,7 @@
             25
           ],
           "last_planting_day": 20,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 395,
             "level6": 448,
@@ -582,6 +587,7 @@
             25
           ],
           "last_planting_day": 22,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 324,
             "level6": 369,
@@ -722,6 +728,7 @@
             22
           ],
           "last_planting_day": 21,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 61,
             "level6": 78,
@@ -836,6 +843,7 @@
             26
           ],
           "last_planting_day": 15,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 526,
             "level6": 548,
@@ -979,6 +987,7 @@
             25
           ],
           "last_planting_day": 24,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 185,
             "level6": 238,
@@ -1118,6 +1127,7 @@
             25
           ],
           "last_planting_day": 20,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 353,
             "level6": 392,
@@ -1290,7 +1300,8 @@
             109,
             112
           ],
-          "last_planting_day": 100,
+          "last_planting_day": 16,
+          "last_planting_season": "winter",
           "profit": {
             "level0": 2425,
             "level6": 2702,
@@ -1357,7 +1368,8 @@
             79,
             82
           ],
-          "last_planting_day": 72,
+          "last_planting_day": 16,
+          "last_planting_season": "winter",
           "profit": {
             "level0": 1667,
             "level6": 1863,
@@ -1415,7 +1427,8 @@
             52,
             55
           ],
-          "last_planting_day": 44,
+          "last_planting_day": 16,
+          "last_planting_season": "winter",
           "profit": {
             "level0": 986,
             "level6": 1108,
@@ -1465,6 +1478,7 @@
             28
           ],
           "last_planting_day": 16,
+          "last_planting_season": "winter",
           "profit": {
             "level0": 304,
             "level6": 353,
@@ -1598,6 +1612,7 @@
             28
           ],
           "last_planting_day": 25,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 318,
             "level6": 351,
@@ -1737,6 +1752,7 @@
             25
           ],
           "last_planting_day": 16,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 193,
             "level6": 232,
@@ -1896,7 +1912,8 @@
             53,
             55
           ],
-          "last_planting_day": 46,
+          "last_planting_day": 18,
+          "last_planting_season": "summer",
           "profit": {
             "level0": -1110,
             "level6": -1076,
@@ -1949,6 +1966,7 @@
             27
           ],
           "last_planting_day": 18,
+          "last_planting_season": "summer",
           "profit": {
             "level0": -1956,
             "level6": -1943,
@@ -2085,7 +2103,8 @@
             51,
             55
           ],
-          "last_planting_day": 42,
+          "last_planting_day": 14,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 405,
             "level6": 466,
@@ -2133,6 +2152,7 @@
             27
           ],
           "last_planting_day": 14,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 52,
             "level6": 74,
@@ -2275,6 +2295,7 @@
             28
           ],
           "last_planting_day": 21,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 555,
             "level6": 596,
@@ -2417,6 +2438,7 @@
             26
           ],
           "last_planting_day": 23,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 284,
             "level6": 317,
@@ -2556,6 +2578,7 @@
             25
           ],
           "last_planting_day": 16,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 186,
             "level6": 250,
@@ -2672,6 +2695,7 @@
             25
           ],
           "last_planting_day": 24,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 124,
             "level6": 164,
@@ -2815,6 +2839,7 @@
             26
           ],
           "last_planting_day": 18,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 425,
             "level6": 478,
@@ -2958,6 +2983,7 @@
             26
           ],
           "last_planting_day": 18,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 182,
             "level6": 209,
@@ -3112,6 +3138,7 @@
             28
           ],
           "last_planting_day": 17,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 369,
             "level6": 415,
@@ -3257,6 +3284,7 @@
             27
           ],
           "last_planting_day": 23,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 293,
             "level6": 329,
@@ -3398,6 +3426,7 @@
             25
           ],
           "last_planting_day": 22,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 164,
             "level6": 213,
@@ -3537,6 +3566,7 @@
             25
           ],
           "last_planting_day": 16,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 345,
             "level6": 401,
@@ -3680,6 +3710,7 @@
             25
           ],
           "last_planting_day": 24,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 92,
             "level6": 114,
@@ -3816,6 +3847,7 @@
             22
           ],
           "last_planting_day": 14,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 606,
             "level6": 673,
@@ -3956,6 +3988,7 @@
             22
           ],
           "last_planting_day": 21,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 124,
             "level6": 171,
@@ -4071,6 +4104,7 @@
             25
           ],
           "last_planting_day": 22,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 203,
             "level6": 239,
@@ -4208,6 +4242,7 @@
             22
           ],
           "last_planting_day": 21,
+          "last_planting_season": "winter",
           "profit": {
             "level0": 182,
             "level6": 202,
@@ -4337,6 +4372,7 @@
             27
           ],
           "last_planting_day": 15,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 446,
             "level6": 518,
@@ -4478,6 +4514,7 @@
             25
           ],
           "last_planting_day": 22,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 204,
             "level6": 243,
@@ -4617,6 +4654,7 @@
             28
           ],
           "last_planting_day": 19,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 488,
             "level6": 575,
@@ -4755,6 +4793,7 @@
             27
           ],
           "last_planting_day": 15,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 244,
             "level6": 293,
@@ -4893,6 +4932,7 @@
             27
           ],
           "last_planting_day": 15,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 715,
             "level6": 882,
@@ -5034,6 +5074,7 @@
             25
           ],
           "last_planting_day": 20,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 518,
             "level6": 585,
@@ -5174,6 +5215,7 @@
             25
           ],
           "last_planting_day": 20,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 123,
             "level6": 152,
@@ -5290,6 +5332,7 @@
             28
           ],
           "last_planting_day": 22,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 364,
             "level6": 403,
@@ -5433,7 +5476,8 @@
             41,
             49
           ],
-          "last_planting_day": 48,
+          "last_planting_day": 20,
+          "last_planting_season": "fall",
           "profit": {
             "level0": -265,
             "level6": -212,
@@ -5480,6 +5524,7 @@
             25
           ],
           "last_planting_day": 20,
+          "last_planting_season": "fall",
           "profit": {
             "level0": -133,
             "level6": -106,
@@ -5591,6 +5636,7 @@
             25
           ],
           "last_planting_day": 4,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 2030,
             "level6": 2365,
@@ -5701,6 +5747,7 @@
             21
           ],
           "last_planting_day": 18,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 202,
             "level6": 224,
@@ -5843,6 +5890,7 @@
             28
           ],
           "last_planting_day": 17,
+          "last_planting_season": "summer",
           "profit": {
             "level0": 269,
             "level6": 302,
@@ -5984,6 +6032,7 @@
             25
           ],
           "last_planting_day": 22,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 41,
             "level6": 54,
@@ -6097,6 +6146,7 @@
             25
           ],
           "last_planting_day": 20,
+          "last_planting_season": "spring",
           "profit": {
             "level0": 26,
             "level6": 36,
@@ -6247,7 +6297,8 @@
             49,
             53
           ],
-          "last_planting_day": 52,
+          "last_planting_day": 24,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 198,
             "level6": 233,
@@ -6297,6 +6348,7 @@
             25
           ],
           "last_planting_day": 24,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 91,
             "level6": 108,
@@ -6436,6 +6488,7 @@
             21
           ],
           "last_planting_day": 18,
+          "last_planting_season": "fall",
           "profit": {
             "level0": 203,
             "level6": 239,
@@ -6668,7 +6721,8 @@
           }
         ]
       },
-      "payback_days": 2.01,
+      "payback_days_raw": 4.86,
+      "payback_days_best_case": 2.01,
       "rank_raw": 7,
       "of": 11,
       "notes": [
@@ -6846,7 +6900,8 @@
           }
         ]
       },
-      "payback_days": 4.81,
+      "payback_days_raw": 9.87,
+      "payback_days_best_case": 4.81,
       "rank_raw": 9,
       "of": 11,
       "notes": [
@@ -7024,7 +7079,8 @@
           }
         ]
       },
-      "payback_days": 29.51,
+      "payback_days_raw": 45.82,
+      "payback_days_best_case": 29.51,
       "rank_raw": 6,
       "of": 11,
       "notes": [
@@ -7156,7 +7212,8 @@
           }
         ]
       },
-      "payback_days": null,
+      "payback_days_raw": null,
+      "payback_days_best_case": null,
       "rank_raw": 10,
       "of": 11,
       "notes": [
@@ -7288,7 +7345,8 @@
           }
         ]
       },
-      "payback_days": null,
+      "payback_days_raw": null,
+      "payback_days_best_case": null,
       "rank_raw": 2,
       "of": 11,
       "notes": [
@@ -7420,7 +7478,8 @@
           }
         ]
       },
-      "payback_days": null,
+      "payback_days_raw": null,
+      "payback_days_best_case": null,
       "rank_raw": 11,
       "of": 11,
       "notes": [],
@@ -7550,7 +7609,8 @@
           }
         ]
       },
-      "payback_days": null,
+      "payback_days_raw": null,
+      "payback_days_best_case": null,
       "rank_raw": 8,
       "of": 11,
       "notes": [],
@@ -7640,7 +7700,7 @@
               "value": 234
             }
           ],
-          "processed": 426
+          "processed": 427
         },
         {
           "hearts": 3,
@@ -7660,7 +7720,7 @@
               "value": 247
             }
           ],
-          "processed": 453
+          "processed": 454
         },
         {
           "hearts": 4,
@@ -7680,7 +7740,7 @@
               "value": 258
             }
           ],
-          "processed": 480
+          "processed": 481
         },
         {
           "hearts": 5,
@@ -7694,12 +7754,12 @@
               "value": 330
             }
           ],
-          "processed": 482
+          "processed": 483
         }
       ],
       "full": {
         "raw": 330,
-        "processed": 482,
+        "processed": 483,
         "large_chance": 100,
         "quality": {
           "iridium": 56.67,
@@ -7714,7 +7774,8 @@
           }
         ]
       },
-      "payback_days": 3.11,
+      "payback_days_raw": 4.55,
+      "payback_days_best_case": 3.11,
       "rank_raw": 3,
       "of": 11,
       "notes": [
@@ -7880,7 +7941,8 @@
           }
         ]
       },
-      "payback_days": 9.52,
+      "payback_days_raw": 13.36,
+      "payback_days_best_case": 9.52,
       "rank_raw": 4,
       "of": 11,
       "notes": [
@@ -8012,7 +8074,8 @@
           }
         ]
       },
-      "payback_days": 14.23,
+      "payback_days_raw": 27.1,
+      "payback_days_best_case": 14.23,
       "rank_raw": 5,
       "of": 11,
       "notes": [
@@ -8145,7 +8208,8 @@
           }
         ]
       },
-      "payback_days": 3.58,
+      "payback_days_raw": 8.53,
+      "payback_days_best_case": 3.58,
       "rank_raw": 1,
       "of": 11,
       "notes": [

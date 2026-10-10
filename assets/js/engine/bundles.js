@@ -61,11 +61,14 @@ export function stillNeeded(data, set, state) {
     const ticked = state.ticked[b.id] || [];
     if (isDone(b, ticked) || !b.items) continue;
     const keys = itemKeys(b);
+    // The same item can fill two slots of one bundle (Wood 99 twice): list the bundle once, add the amounts.
+    const inThisBundle = new Map();
     b.items.forEach((it, i) => {
       if (ticked.includes(keys[i])) return;
       const row = byId.get(it.id) || { id: it.id, name: it.name, seasons: (info.get(it.id) || {}).seasons || null, obtain: (info.get(it.id) || {}).obtain || '', bundles: [], qty: 0 };
-      row.bundles.push(b.name);
-      row.qty = Math.max(row.qty, it.qty || 1);
+      if (!row.bundles.includes(b.name)) row.bundles.push(b.name);
+      inThisBundle.set(it.id, (inThisBundle.get(it.id) || 0) + (it.qty || 1));
+      row.qty = Math.max(row.qty, inThisBundle.get(it.id));
       byId.set(it.id, row);
     });
   }

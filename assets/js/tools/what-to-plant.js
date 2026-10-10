@@ -15,7 +15,7 @@ function render(v) {
   const greenhouse = v.season === 'greenhouse';
   const situation = {
     season: v.season,
-    today: parseInt(v.today, 10) || 1,
+    today: Math.min(28, Math.max(1, parseInt(v.today, 10) || 1)),
     tiles: Math.max(1, parseInt(v.tiles, 10) || 1),
     budget: v.budget === '' ? null : Math.max(0, parseInt(v.budget, 10) || 0),
     farmingLevel: parseInt(v.level, 10) || 0,
