@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles }).filter(([, d]) => d)) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -150,6 +150,21 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
       if (!isInt(f.difficulty, 1) || !isInt(f.base_xp, 1)) err('skills', `${f.id}: bad difficulty or xp`);
     }
   }
+  if (casks) {
+    for (const it of casks.aging.items) {
+      const d = it.total_days;
+      if (!(d.silver > 0 && d.gold > d.silver && d.iridium > d.gold)) err('casks', `${it.id}: days must rise silver < gold < iridium`);
+      if (it.base_price == null && !it.price_formula) err('casks', `${it.id}: no price`);
+    }
+    const m = casks.quality_multipliers;
+    if (!(m.silver === 1.25 && m.gold === 1.5 && m.iridium === 2)) err('casks', 'quality multipliers changed');
+    if (!casks.cellar.casks.some((f) => f.id === 'max-casks') || !casks.obtain.recipe_ingredients.length) err('casks', 'cellar facts missing');
+  }
+  if (dehydrator) {
+    const ids = dehydrator.machines.flatMap((m) => m.products.map((p) => p.id));
+    for (const id of ['dried-fruit', 'dried-mushrooms', 'raisins', 'smoked-fish']) if (!ids.includes(id)) err('dehydrator', `missing ${id}`);
+    for (const row of dehydrator.fruit_examples.table) if (!(row.artisan_price >= row.price)) err('dehydrator', `${row.fruit}: artisan price below plain`);
+  }
   if (crafting) {
     const ids = new Set(crafting.recipes.map((r) => r.id));
     if (ids.size !== crafting.recipes.length) err('crafting', 'duplicate recipe ids');
@@ -211,10 +226,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     crafting: load('crafting.json'),
     gifts: load('gifts.json'),
     bundles: load('bundles.json'),
+    casks: load('casks.json'),
+    dehydrator: load('dehydrator.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator');
 }

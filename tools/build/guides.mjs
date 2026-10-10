@@ -9,6 +9,8 @@ import { growthDays } from '../../assets/js/engine/growth.js';
 import { rankPonds, pondOutput } from '../../assets/js/engine/fishpond.js';
 import { animalOutput } from '../../assets/js/engine/animals.js';
 import { shoppingList } from '../../assets/js/engine/crafting.js';
+import { agingPlan, agedPrice, cellarCost } from '../../assets/js/engine/casks.js';
+import { driedPrice, smokedPrice } from '../../assets/js/engine/dehydrator.js';
 
 const r0 = (n) => Math.round(n);
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -185,5 +187,94 @@ export function buildGuides(data, crops, crafting, ghRank) {
   costs.iridium_6 = make('iridium-sprinkler', 6);
   costs.quality_16 = make('quality-sprinkler', 16);
 
-  return { kegs, greenhouse, fertilizer, fishponds, pigs, costs };
+  /* Casks: what aging adds, per item and per cask slot per day. */
+  const ck = data.casks;
+  const caskItem = (id) => ck.aging.items.find((i) => i.id === id);
+  const plan = (id, o) => {
+    const pl = agingPlan(ck, caskItem(id), o);
+    return { id, name: pl.name, normal: pl.prices.normal, silver: pl.prices.silver, gold: pl.prices.gold, iridium: pl.prices.iridium, days: pl.days, per_day: r2(pl.gainPerCaskDay), per_day_gold: r2(pl.gainPerCaskDayToGold) };
+  };
+  const wineFruit = ['ancient-fruit', 'starfruit', 'pineapple', 'melon', 'rhubarb', 'grape', 'blueberry', 'cranberries', 'strawberry'].map((id) => {
+    const c = byId(id);
+    const pl = plan('wine', { fruitBase: c.base_price });
+    const keg = allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: true }).options.find((o) => o.product === 'wine');
+    return { id, name: c.name, base: c.base_price, wine: pl.normal, silver: pl.silver, gold: pl.gold, iridium: pl.iridium, extra_cask: pl.iridium - pl.normal, per_cask_day: pl.per_day, keg_per_day: keg ? r0(keg.gainPerMachineDay) : null, cellar: (pl.iridium - pl.normal) * cellarCost(ck).max };
+  });
+  const cellar = cellarCost(ck);
+  const caskObtain = ck.obtain;
+  const casksData = {
+    items: ['pale-ale', 'beer', 'mead', 'cheese', 'goat-cheese'].map((id) => ({ ...plan(id, { artisan: false }), artisan: plan(id, { artisan: true }) })),
+    wine: wineFruit,
+    cellar: { ...cellar, upgrade_gold: caskObtain.cellar_upgrade.value, upgrade_days: caskObtain.upgrade_days.value, wine_days: caskItem('wine').total_days },
+    recipe: caskObtain.recipe_ingredients,
+    cask_cost: costs.cask,
+    artisan_percent: ck.professions.find((f) => f.id === 'artisan-bonus-percent').value,
+  };
+
+  /* Dehydrator: gold per machine-day versus gold per fruit, against Kegs. */
+  const dh = data.dehydrator;
+  const dehFruit = ['ancient-fruit', 'starfruit', 'pineapple', 'melon', 'rhubarb', 'blueberry', 'cranberries', 'strawberry', 'hot-pepper'].map((id) => {
+    const c = byId(id);
+    const dried = driedPrice(dh, 'dried-fruit', c.base_price);
+    const wine = agedPrice(ck, caskItem('wine'), 'normal', { fruitBase: c.base_price });
+    return { id, name: c.name, base: c.base_price, raw5: c.base_price * 5, wine, wine5: wine * 5, dried, dried_plain: driedPrice(dh, 'dried-fruit', c.base_price, { artisan: false }), per_dehydrator_day: dried, per_keg_day: r0(wine / (allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: true }).options.find((o) => o.product === 'wine')?.days ?? 6.25)), keg_days_for_5: r2(5 * 6.25) };
+  });
+  const grape = byId('grape');
+  const smoker = dh.machines.find((m) => m.id === 'fish-smoker');
+  const deh = dh.machines.find((m) => m.id === 'dehydrator');
+  const dehydrator = {
+    fruit: dehFruit,
+    raisins: { grape: grape.base_price, raisins: driedPrice(dh, 'raisins', grape.base_price), raisins_plain: driedPrice(dh, 'raisins', grape.base_price, { artisan: false }), wine5: 5 * agedPrice(ck, caskItem('wine'), 'normal', { fruitBase: grape.base_price }), raw5: 5 * grape.base_price },
+    smoker: [50, 100, 500].map((p) => ({ fish: p, plain: smokedPrice(dh, p, { artisan: false }), artisan: smokedPrice(dh, p) })),
+    recipe: { dehydrator: deh.recipe.ingredients, dehydrator_shop: deh.recipe.unlock, smoker: smoker.recipe.ingredients, smoker_shop: smoker.recipe.unlock },
+    minutes: dh.machines.flatMap((m) => m.products).find((p) => p.id === 'dried-fruit').minutes,
+    smoker_minutes: dh.machines.flatMap((m) => m.products).find((p) => p.id === 'smoked-fish').minutes,
+  };
+
+  /* Coop or barn first? Animals you can buy, grouped by building. */
+  const at = (x, fr, o = {}) => animalOutput(x, a, { friendship: fr, mood: 255, ...o });
+  const buildings = ['coop', 'barn'].map((b) => ({
+    building: b,
+    animals: a.animals
+      .filter((x) => x.building === b && x.purchase_price)
+      .map((x) => ({
+        id: x.id,
+        name: x.name,
+        price: x.purchase_price,
+        building_name: x.building_name,
+        mature: x.days_to_mature,
+        hearts0: r0(at(x, 0).goldPerDay),
+        hearts3: r0(at(x, 600).goldPerDay),
+        hearts5: r0(at(x, 1000).goldPerDay),
+        processed5: r0(at(x, 1000, { process: true, artisan: true }).goldPerDay),
+        payback: r2(x.purchase_price / Math.max(at(x, 1000).goldPerDay, at(x, 1000, { process: true, artisan: true }).goldPerDay)),
+        machines: at(x, 1000, { process: true, artisan: true }).machines.map((m) => ({ name: m.name, per_animal: r2(m.perAnimal) })),
+      })),
+  }));
+
+  const eggAnimals = a.animals
+    .filter((x) => !x.purchase_price)
+    .map((x) => ({ id: x.id, name: x.name, building_name: x.building_name, hearts5: r0(at(x, 1000).goldPerDay), processed5: r0(at(x, 1000, { process: true, artisan: true }).goldPerDay), how: x.acquisition ? x.acquisition.wiki_wording : null }));
+
+  /* A worked harvest: 100 Starfruit and a 6.25-day window, one full Keg cycle. */
+  const sf = dehFruit.find((x) => x.id === 'starfruit');
+  const window_days = 6.25;
+  const batches_per_dehydrator = Math.floor(window_days);
+  const scenario = { fruit: 'Starfruit', harvest: 100, window_days, raw_each: sf.base };
+  scenario.setups = [
+    { kegs: 0, dehydrators: 0 },
+    { kegs: 20, dehydrators: 0 },
+    { kegs: 0, dehydrators: 4 },
+    { kegs: 20, dehydrators: 2 },
+    { kegs: 20, dehydrators: 4 },
+  ].map((m) => {
+    const wine = Math.min(m.kegs, scenario.harvest);
+    const left = scenario.harvest - wine;
+    const batches = Math.min(m.dehydrators * batches_per_dehydrator, Math.floor(left / 5));
+    const raw = left - batches * 5;
+    return { ...m, wine, batches, raw, total: wine * sf.wine + batches * sf.dried + raw * sf.base };
+  });
+  dehydrator.scenario = scenario;
+
+  return { kegs, greenhouse, fertilizer, fishponds, pigs, costs, casks: casksData, dehydrator, buildings, egg_animals: eggAnimals };
 }

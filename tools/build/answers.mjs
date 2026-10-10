@@ -153,7 +153,7 @@ export function buildAnswers(data) {
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting'].map((s) => [s, load(`${s}.json`)]));
+  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting', 'casks', 'dehydrator'].map((s) => [s, load(`${s}.json`)]));
   const entities = buildEntities(data, data.crops.crops.filter((c) => c.verification_status === 'cross-checked'));
   const outputs = {
     'data/answers.json': JSON.stringify(buildAnswers(data), null, 2) + '\n',

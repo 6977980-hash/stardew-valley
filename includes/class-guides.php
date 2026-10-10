@@ -101,6 +101,33 @@ class Guides {
 				'published'   => '2026-10-09',
 				'tools'       => array( 'fish-pond-calculator' ),
 			),
+			'are-casks-worth-it'         => array(
+				'hub'         => 'artisan-goods',
+				'title'       => 'Are Casks Worth It? What Aging Adds to Wine, Cheese and Ale',
+				'short'       => 'Are Casks Worth It?',
+				'blurb'       => 'Gold per cask per day for wine, cheese and ale, and what a full cellar costs.',
+				'description' => 'Are casks worth it in Stardew Valley 1.6? Aged prices for wine, cheese, goat cheese, beer, mead and pale ale, gold per cask per day, and the wood to fill a 189-cask cellar.',
+				'published'   => '2026-10-10',
+				'tools'       => array( 'keg-vs-preserves-jar', 'crafting-calculator' ),
+			),
+			'dehydrator-vs-keg'          => array(
+				'hub'         => 'artisan-goods',
+				'title'       => 'Dehydrator vs Keg: Which Uses Your Fruit Better?',
+				'short'       => 'Dehydrator vs Keg',
+				'blurb'       => 'Dried fruit earns far more per machine per day, wine earns more per fruit. Which limit are you at?',
+				'description' => 'Dehydrator vs Keg in Stardew Valley 1.6: dried fruit, raisins and wine compared per fruit and per machine per day, with prices for nine fruits, plus the Fish Smoker.',
+				'published'   => '2026-10-10',
+				'tools'       => array( 'keg-vs-preserves-jar', 'crafting-calculator' ),
+			),
+			'coop-or-barn-first'         => array(
+				'hub'         => 'animals',
+				'title'       => 'Coop or Barn First? Every Animal You Can Buy, Compared',
+				'short'       => 'Coop or Barn First?',
+				'blurb'       => 'Which building starts earning sooner, and which animals pay themselves back fastest.',
+				'description' => 'Coop or barn first in Stardew Valley 1.6? Price, gold per day at 0, 3 and 5 hearts and payback days for chickens, ducks, rabbits, cows, goats, sheep and pigs.',
+				'published'   => '2026-10-10',
+				'tools'       => array( 'animal-profit-calculator' ),
+			),
 			'best-greenhouse-setup-for-money' => array(
 				'hub'         => 'greenhouse',
 				'title'       => 'Best Greenhouse Setup for Money: Kegs Decide the Crop',
@@ -159,7 +186,8 @@ class Guides {
 			'post_parent'  => $parent,
 			'post_author'  => self::author_id(),
 		);
-		if ( isset( $def['published'] ) ) {
+		// Back-date to the publication day, but never into the future or WordPress schedules the page.
+		if ( isset( $def['published'] ) && strtotime( $def['published'] . ' 09:00:00' ) <= current_time( 'timestamp' ) ) { // phpcs:ignore WordPress.DateTime.CurrentTimeTimestamp
 			$postarr['post_date'] = $def['published'] . ' 09:00:00';
 		}
 		if ( $existing ) {
