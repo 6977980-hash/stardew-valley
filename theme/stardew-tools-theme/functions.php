@@ -107,6 +107,7 @@ function st_theme_footer_fallback() {
 		array(
 			'about'          => 'About',
 			'methodology'    => 'Methodology',
+			'data'           => 'Data',
 			'changelog'      => 'Changelog',
 			'contact'        => 'Contact',
 			'privacy-policy' => 'Privacy Policy',

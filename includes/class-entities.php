@@ -108,6 +108,7 @@ class Entities {
 		add_action( 'init', array( __CLASS__, 'maybe_install' ), 24 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
+		add_filter( 'the_content', array( __CLASS__, 'autolink' ), 20 );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
 	}
 
@@ -292,6 +293,139 @@ class Entities {
 		}
 		echo '</div>';
 		return ob_get_clean();
+	}
+
+	/* ---------- Internal links ---------- */
+
+	/** Hub id => entity type whose reference pages belong on it. */
+	const HUB_TYPES = array(
+		'crops-and-farming' => 'crops',
+		'artisan-goods'     => 'machines',
+		'animals'           => 'animals',
+	);
+
+	/** Prints a "Reference pages" section on a hub: the index plus a link to every entry. */
+	public static function hub_section( $hub_id ) {
+		if ( ! isset( self::HUB_TYPES[ $hub_id ] ) ) {
+			return;
+		}
+		$type  = self::HUB_TYPES[ $hub_id ];
+		$index = self::url( $type, '' );
+		if ( ! $index ) {
+			return;
+		}
+		$links = array();
+		foreach ( self::data()[ $type ] as $id => $e ) {
+			$url = self::url( $type, $id );
+			if ( $url ) {
+				$links[] = '<a href="' . esc_url( $url ) . '">' . esc_html( $e['name'] ) . '</a>';
+			}
+		}
+		echo '<section aria-labelledby="hub-ref"><h2 id="hub-ref">Reference pages</h2>';
+		echo '<p><a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['title'] ) . '</a>: ' . esc_html( self::types()[ $type ]['blurb'] ) . '</p>';
+		echo '<p class="entity-links">' . implode( ' · ', $links ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
+		echo '</section>';
+	}
+
+	const AUTOLINK_MAX = 14;
+
+	/**
+	 * Links the first mention of each crop, animal and machine name in guide and entity page text
+	 * to its page. Headings, tables, existing links and the page's own subject are left alone.
+	 */
+	public static function autolink( $html ) {
+		if ( ! is_page() || ! in_the_loop() || ! is_main_query() || false === strpos( $html, '<' ) ) {
+			return $html;
+		}
+		$post_id = get_queried_object_id();
+		$cur     = self::current();
+		if ( $cur && 'entity' !== $cur[0] ) {
+			return $html;
+		}
+		if ( ! $cur && '' === (string) get_post_meta( $post_id, Guides::META, true ) ) {
+			return $html;
+		}
+		$names = array();
+		foreach ( self::data() as $type => $items ) {
+			foreach ( $items as $id => $e ) {
+				if ( $cur && $cur[1] === $type && $cur[2] === $id ) {
+					continue;
+				}
+				$url = self::url( $type, $id );
+				if ( $url ) {
+					$names[ $e['name'] ] = $url;
+				}
+			}
+		}
+		if ( ! $names ) {
+			return $html;
+		}
+		uksort(
+			$names,
+			function ( $a, $b ) {
+				return strlen( $b ) - strlen( $a );
+			}
+		);
+		$pattern = '/\b(' . implode( '|', array_map( 'preg_quote', array_keys( $names ) ) ) . ')(s|es)?\b/i';
+		$lookup  = array_change_key_case( $names );
+
+		$prev = libxml_use_internal_errors( true );
+		$doc  = new \DOMDocument();
+		$doc->loadHTML( '<?xml encoding="utf-8"?><div id="st-root">' . $html . '</div>', LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD );
+		libxml_clear_errors();
+		libxml_use_internal_errors( $prev );
+		$root = $doc->getElementById( 'st-root' );
+		if ( ! $root ) {
+			return $html;
+		}
+		$skip   = array( 'a', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'table', 'caption', 'button', 'script', 'style', 'code', 'select', 'label', 'summary' );
+		$done   = array();
+		$walk   = function ( $node ) use ( &$walk, $skip, $pattern, $lookup, &$done, $doc ) {
+			foreach ( iterator_to_array( $node->childNodes ) as $child ) {
+				if ( XML_ELEMENT_NODE === $child->nodeType ) {
+					if ( ! in_array( strtolower( $child->nodeName ), $skip, true ) && 'entity-links' !== $child->getAttribute( 'class' ) ) {
+						$walk( $child );
+					}
+					continue;
+				}
+				if ( XML_TEXT_NODE !== $child->nodeType || count( $done ) >= self::AUTOLINK_MAX ) {
+					continue;
+				}
+				$text = $child->nodeValue;
+				if ( ! preg_match_all( $pattern, $text, $m, PREG_OFFSET_CAPTURE ) ) {
+					continue;
+				}
+				$frag = $doc->createDocumentFragment();
+				$pos  = 0;
+				foreach ( $m[0] as $i => $hit ) {
+					$key = strtolower( $m[1][ $i ][0] );
+					if ( isset( $done[ $key ] ) || ! isset( $lookup[ $key ] ) || count( $done ) >= self::AUTOLINK_MAX ) {
+						continue;
+					}
+					$done[ $key ] = true;
+					if ( $hit[1] > $pos ) {
+						$frag->appendChild( $doc->createTextNode( substr( $text, $pos, $hit[1] - $pos ) ) );
+					}
+					$a = $doc->createElement( 'a' );
+					$a->setAttribute( 'href', $lookup[ $key ] );
+					$a->appendChild( $doc->createTextNode( $hit[0] ) );
+					$frag->appendChild( $a );
+					$pos = $hit[1] + strlen( $hit[0] );
+				}
+				if ( $pos > 0 ) {
+					if ( $pos < strlen( $text ) ) {
+						$frag->appendChild( $doc->createTextNode( substr( $text, $pos ) ) );
+					}
+					$node->replaceChild( $frag, $child );
+				}
+			}
+		};
+		$walk( $root );
+		$out = '';
+		foreach ( $root->childNodes as $c ) {
+			$out .= $doc->saveHTML( $c );
+		}
+		return $out;
 	}
 
 	/* ---------- Assets and structured data ---------- */

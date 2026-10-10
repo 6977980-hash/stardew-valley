@@ -272,6 +272,7 @@ class Guides {
 			self::link_list( $guides );
 			echo '</section>';
 		}
+		Entities::hub_section( $hub_id );
 		self::other_hubs( $hub_id );
 		echo '</div>';
 		return ob_get_clean();

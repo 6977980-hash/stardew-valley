@@ -94,6 +94,25 @@ $icons = array(
 </section>
 <?php endif; ?>
 
+<?php if ( class_exists( 'Stardew_Tools\\Entities' ) ) : ?>
+<section class="section" aria-labelledby="ref-heading">
+	<div class="container">
+		<h2 id="ref-heading">Reference tables</h2>
+		<ul class="card-grid" role="list">
+			<?php foreach ( Stardew_Tools\Entities::types() as $type => $t ) : ?>
+				<?php $ref_url = Stardew_Tools\Entities::url( $type, '' ); ?>
+				<?php if ( $ref_url ) : ?>
+			<li class="card card--live">
+				<h3 class="card__title"><a class="card__link" href="<?php echo esc_url( $ref_url ); ?>"><?php echo esc_html( $t['short'] ); ?></a></h3>
+				<p class="card__text"><?php echo esc_html( $t['blurb'] ); ?></p>
+			</li>
+				<?php endif; ?>
+			<?php endforeach; ?>
+		</ul>
+	</div>
+</section>
+<?php endif; ?>
+
 <div class="container"><?php st_theme_ad( 'home-mid' ); ?></div>
 
 <section class="section section--alt" aria-labelledby="how-heading">
