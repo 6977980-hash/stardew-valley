@@ -248,6 +248,11 @@ class Tools {
 		$checked = Data::summary()['checked'];
 		ob_start();
 		echo '<div class="tool" data-tool="' . esc_attr( $tool_id ) . '">';
+		if ( $checked ) {
+			?>
+		<p class="guide-byline">Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time> · <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
+			<?php
+		}
 		include $file;
 		self::render_footer_blocks( $tool_id, $version, $checked );
 		echo '</div>';
@@ -657,6 +662,7 @@ class Tools {
 			'url'                 => get_permalink( get_queried_object_id() ),
 			'description'         => $def['description'],
 			'applicationCategory' => 'GameApplication',
+			'dateModified'        => Data::summary()['checked'],
 			'operatingSystem'     => 'Any (web browser)',
 			'isAccessibleForFree' => true,
 			'offers'              => array(
