@@ -140,3 +140,24 @@ export function buildEntities(data, crops) {
 
   return { game_version: data.crops.game_version, crops: cropOut, animals: animalsOut, machines: machinesOut };
 }
+
+const csvCell = (v) => {
+  const s = v == null ? '' : String(v);
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+};
+const toCsv = (header, rows) => [header, ...rows].map((r) => r.map(csvCell).join(',')).join('\n') + '\n';
+
+/** Plain CSV downloads of the entity tables (file name => text). */
+export function buildCsv(ent) {
+  const crops = Object.values(ent.crops).map((c) => {
+    const best = c.plantings.reduce((b, p) => (!b || p.profit.level6 > b.profit.level6 ? p : b), null);
+    return [c.id, c.name, c.category, c.seasons.join('/'), c.growth_days, c.regrow_days, c.base_price, c.prices.silver, c.prices.gold, c.prices.iridium, best && best.season, best && best.profit.level0, best && best.profit.level6, best && best.profit.level10, best && best.seed_cost];
+  });
+  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.full.raw, a.full.processed, a.payback_days]);
+  const machines = Object.values(ent.machines).flatMap((m) => m.crops.map((c, i) => [m.id, i + 1, c.id, c.product, c.input, c.price, c.days, c.gain_per_machine_day]));
+  return {
+    'stardew-crops.csv': toCsv(['id', 'name', 'type', 'seasons', 'growth_days', 'regrow_days', 'sell_price', 'silver_price', 'gold_price', 'iridium_price', 'best_season', 'profit_per_tile_level0', 'profit_per_tile_level6', 'profit_per_tile_level10', 'seed_cost'], crops),
+    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days'], animals),
+    'stardew-machine-rankings.csv': toCsv(['machine', 'rank', 'crop_id', 'product', 'crops_needed', 'product_price', 'days', 'extra_gold_per_machine_day'], machines),
+  };
+}

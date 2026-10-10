@@ -1,0 +1,41 @@
+{
+  "note": "Expected values copied by hand from the wiki sentences quoted in `evidence`, with the page and revision they were read from. Several come from a page other than the one data/dehydrator.json takes the value from first (e.g. recipe price: Pierre's General Store / Fish Shop; Artisan 40%: Farming/Skill; worked fruit prices: Fruits).",
+  "dehydrator": {
+    "input_count": { "value": 5, "source": { "title": "Dehydrator", "revid": 193436 }, "evidence": "Dehydrator requires five Mushrooms (except Red Mushroom) or Fruits of the same type and quality." },
+    "minutes_all_products": { "value": 1750, "source": { "title": "Dried Fruit", "revid": 189759 }, "evidence": "|crafttime = 1750m (≈1d)" },
+    "ready_next_morning": { "value": true, "source": { "title": "Dehydrator", "revid": 193436 }, "evidence": "1 day (ready the next morning)" },
+    "unlock": { "shop": "Pierre's General Store", "price": 10000, "source": { "title": "Pierre's General Store", "revid": 195226 }, "evidence": "Dehydrator (Recipe) 10,000g; Dehydrator page: It can be crafted after purchasing the recipe from Pierre for 10,000g." },
+    "ingredients": { "value": { "wood": 30, "clay": 2, "fire-quartz": 1 }, "source": { "title": "Crafting", "revid": 195354 }, "evidence": "Dehydrator: Wood 30, Clay 2, Fire Quartz 1; recipe from Pierre's for 10,000g" },
+    "prize_machine_ticket": { "value": 12, "source": { "title": "Prize Ticket", "revid": 190677 }, "evidence": "Prize Ticket table row 12: Fish Smoker / Dehydrator, reward chosen at random." },
+    "output_quality": { "value": "normal", "source": { "title": "Dehydrator", "revid": 193436 }, "evidence": "The quality of the dried product is always normal and not affected by the quality of items used." },
+    "excluded": { "value": ["red-mushroom", "truffle", "grape"], "source": { "title": "Dehydrator", "revid": 193436 }, "evidence": "5 of Any Mushroom (except Red Mushroom); 5 of Any Fruit (except Grapes); Truffles are not classified as mushrooms and therefore cannot be placed into the Dehydrator." }
+  },
+  "products": {
+    "dried-mushrooms": { "price": { "multiplier": 7.5, "add": 25 }, "artisan_price": { "multiplier": 10.5, "add": 35 }, "energy_health_multiplier": 3, "source": { "title": "Dried Mushrooms", "revid": 185640 }, "evidence": "The sell price of Dried Mushrooms depends on the mushrooms used: ((7.5 x mushroom Base Price) + 25) total ... When the player has the Artisan profession, the sell price changes to ((10.5 x mushroom Base Price) + 35) total" },
+    "dried-fruit": { "price": { "multiplier": 7.5, "add": 25 }, "artisan_price": { "multiplier": 10.5, "add": 35 }, "energy_health_multiplier": 3, "source": { "title": "Dried Fruit", "revid": 189759 }, "evidence": "Since the Dehydrator requires 5 fruit per use, the sell price of Dried Fruit is (1.5 x Fruit Base Price + 5) per fruit used. With the Artisan Profession, the sell price is (2.1 x Fruit Base Price + 7) per fruit used." },
+    "raisins": { "price": { "fixed": 600 }, "artisan_price": { "fixed": 840 }, "input": { "item": "grape", "count": 5 }, "source": { "title": "Raisins", "revid": 193433 }, "evidence": "Raisins sell for 600 (infobox sellprice = 600); Fruits table Grape row: Raisins 600g, 840g with Artisan; Raisins are made from placing five Grapes inside a Dehydrator." }
+  },
+  "fruit_prices": {
+    "source": { "title": "Fruits", "revid": 193430 },
+    "evidence": "Rendered Fruits table, Dried Fruit / Raisins column (normal quality) and its Artisan (+40%) column",
+    "rows": [
+      { "fruit": "Apple", "base_price": 100, "price": 775, "artisan_price": 1085 },
+      { "fruit": "Rhubarb", "base_price": 220, "price": 1675, "artisan_price": 2345 },
+      { "fruit": "Ancient Fruit", "base_price": 550, "price": 4150, "artisan_price": 5810 },
+      { "fruit": "Coconut", "base_price": 100, "price": 775, "artisan_price": 1085 },
+      { "fruit": "Grape", "base_price": 80, "price": 600, "artisan_price": 840 },
+      { "fruit": "Cactus Fruit", "base_price": 75, "price": 587, "artisan_price": 821 }
+    ]
+  },
+  "artisan_multiplier": { "value": 1.4, "source": { "title": "Farming/Skill", "revid": 190383 }, "evidence": "Artisan goods (wine, cheese, oil, etc.) worth 40% more." },
+  "fish_smoker": {
+    "input": { "fish": 1, "coal": 1, "source": { "title": "Fish Smoker", "revid": 194228 }, "evidence": "used to create smoked fish using any fish and 1 coal." },
+    "minutes": { "value": 50, "source": { "title": "Smoked Fish", "revid": 191902 }, "evidence": "made from the Fish Smoker using any fish and 1 coal, taking 50 minutes." },
+    "price_multiplier": { "value": 2, "source": { "title": "Fish Smoker", "revid": 194228 }, "evidence": "It doubles the sell price of a fish while retaining quality" },
+    "artisan_multiplier": { "value": 2.8, "source": { "title": "Smoked Fish", "revid": 191902 }, "evidence": "If the player has the Artisan profession, the Smoked Fish will always sell for 2.8 times as much as the original fish." },
+    "energy_health_multiplier": { "value": 1.5, "source": { "title": "Smoked Fish", "revid": 191902 }, "evidence": "multiplying the energy and health restoration by 1.5" },
+    "unlock": { "shop": "Fish Shop", "price": 10000, "source": { "title": "Fish Shop", "revid": 194220 }, "evidence": "Fish Smoker (Recipe) 10,000g, fishing level N/A" },
+    "ingredients": { "value": { "hardwood": 10, "sea-jelly": 1, "river-jelly": 1, "cave-jelly": 1 }, "source": { "title": "Crafting", "revid": 195354 }, "evidence": "Fish Smoker: Hardwood 10, Sea Jelly 1, River Jelly 1, Cave Jelly 1" },
+    "riverland_start": { "value": true, "source": { "title": "Farm Maps", "revid": 195262 }, "evidence": "Players start with a Fish Smoker." }
+  }
+}

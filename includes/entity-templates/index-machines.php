@@ -26,6 +26,8 @@ defined( 'ABSPATH' ) || exit;
 <h2>Which one first?</h2>
 <p>Wine from a Keg takes far longer than jam from a Preserves Jar, but it sells for more, so the Keg wins on gold per item and the Jar wins on gold per machine per day for most cheap crops. Start with Jars if you have few machines and many crops, and add Kegs for high-value fruit like Starfruit or Ancient Fruit. Put your own numbers into <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a>, and read <a href="<?php echo esc_url( $guide_url( 'how-many-kegs-do-i-need' ) ); ?>">How many kegs do I need?</a> to size the setup.</p>
 
+<p><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'stardew-machine-rankings.csv' ) ); ?>" download>Download this table as CSV</a>, or see all <a href="<?php echo esc_url( home_url( '/data/' ) ); ?>">data downloads</a>.</p>
+
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a><span>Split a harvest across your machines.</span></li>

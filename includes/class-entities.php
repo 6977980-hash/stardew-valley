@@ -104,6 +104,7 @@ class Entities {
 	public static function init() {
 		add_shortcode( 'stardew_entity', array( __CLASS__, 'entity_shortcode' ) );
 		add_shortcode( 'stardew_entity_index', array( __CLASS__, 'index_shortcode' ) );
+		add_shortcode( 'stardew_data_page', array( __CLASS__, 'data_shortcode' ) );
 		add_action( 'init', array( __CLASS__, 'maybe_install' ), 24 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
@@ -130,7 +131,34 @@ class Entities {
 				self::ensure_page( $t['slug'] . '/' . $id, $def, '[stardew_entity type="' . $type . '" id="' . $id . '"]', $index, 'entity:' . $type . ':' . $id );
 			}
 		}
+		self::ensure_page( 'data', self::data_def(), '[stardew_data_page]', 0, 'data' );
 		update_option( self::VERSION_OPTION, STARDEW_TOOLS_VERSION );
+	}
+
+	/** The CSV downloads: file => [label, entity type it comes from, columns described]. */
+	public static function csv_files() {
+		return array(
+			'stardew-crops.csv'             => array( 'Crops', 'crops', 'one row per crop: seasons, growth and regrow days, sell prices by quality, and profit per tile at Farming levels 0, 6 and 10' ),
+			'stardew-farm-animals.csv'      => array( 'Farm animals', 'animals', 'one row per animal: building, price, days to mature, gold per day raw and as artisan goods at five hearts, and payback days' ),
+			'stardew-machine-rankings.csv'  => array( 'Machine rankings', 'machines', 'one row per crop per machine: the product, its price, the days it takes and extra gold per machine per day' ),
+		);
+	}
+
+	public static function csv_url( $file ) {
+		return STARDEW_TOOLS_URL . 'assets/data/' . $file;
+	}
+
+	public static function data_def() {
+		return array(
+			'title'       => 'Stardew Valley Data Downloads: Crops, Animals and Machines as CSV',
+			'short'       => 'Data Downloads',
+			'description' => 'Free CSV downloads of Stardew Valley 1.6 crop, farm animal and machine data, cross-checked against the wiki and calculated by the same engine as our tools.',
+		);
+	}
+
+	public static function data_shortcode() {
+		$file = STARDEW_TOOLS_DIR . 'includes/entity-templates/data.php';
+		return file_exists( $file ) ? self::render( $file, 'data', '', self::data() ) : '';
 	}
 
 	/** Creates a missing page, refreshes our meta on existing ones; published page text is never overwritten. */
@@ -180,6 +208,9 @@ class Entities {
 			return null;
 		}
 		$part = explode( ':', (string) get_post_meta( get_queried_object_id(), self::META, true ) );
+		if ( 'data' === $part[0] ) {
+			return array( 'data' );
+		}
 		if ( 'index' === $part[0] && isset( $part[1], self::types()[ $part[1] ] ) ) {
 			return array( 'index', $part[1] );
 		}
@@ -288,6 +319,30 @@ class Entities {
 			return $graph;
 		}
 		$url = get_permalink( get_queried_object_id() );
+		if ( 'data' === $cur[0] ) {
+			$def      = self::data_def();
+			$graph[]  = array(
+				'@type'       => 'Dataset',
+				'name'        => $def['title'],
+				'description' => $def['description'],
+				'url'         => $url,
+				'creator'     => array(
+					'@type' => 'Person',
+					'name'  => Config::get( 'author' ),
+				),
+				'distribution' => array_map(
+					function ( $f ) {
+						return array(
+							'@type'          => 'DataDownload',
+							'encodingFormat' => 'text/csv',
+							'contentUrl'     => self::csv_url( $f ),
+						);
+					},
+					array_keys( self::csv_files() )
+				),
+			);
+			return $graph;
+		}
 		if ( 'entity' === $cur[0] ) {
 			$def     = self::def( $cur[1], $cur[2] );
 			$graph[] = array(

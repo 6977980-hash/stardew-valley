@@ -63,6 +63,8 @@ $top = $rows[0];
 <h2>How to use this list</h2>
 <p>A high profit per tile is not the whole story. Crops that regrow, such as Strawberry or Blueberry, pay back after several harvests and need no replanting. Crops that take 28 days like Pumpkin are one big harvest per season. For the best choice on a given day with a given budget, ask <a href="<?php echo esc_url( $tool_url( 'what-to-plant' ) ); ?>">What to Plant Today</a>. For a season overview read <a href="<?php echo esc_url( home_url( '/' ) ); ?>">our season pages</a> from the home page, or the guide <a href="<?php echo esc_url( $guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Fertilizer</a> to see what fertilizer adds.</p>
 
+<p><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'stardew-crops.csv' ) ); ?>" download>Download this table as CSV</a>, or see all <a href="<?php echo esc_url( home_url( '/data/' ) ); ?>">data downloads</a>.</p>
+
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $tool_url( 'crop-profit-calculator' ) ); ?>">Crop Profit Calculator</a><span>Your level, fertilizer and professions.</span></li>

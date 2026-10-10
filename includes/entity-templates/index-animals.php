@@ -49,6 +49,8 @@ $top = $rows[ $ids[0] ];
 <h2>Reading the table</h2>
 <p>Figures assume five hearts of friendship and maximum happiness, an average day of luck, and no hay costs. Payback is the animal's price divided by its daily income, so it ignores the building and the weeks it takes to reach full friendship. Animals with no price are not sold in a shop. If you are choosing between a coop and a barn first, compare the top row of each building here, then check your own numbers in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>. For pigs in particular, <a href="<?php echo esc_url( $guide_url( 'are-pigs-worth-it' ) ); ?>">Are pigs worth it?</a> goes through the conditions.</p>
 
+<p><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'stardew-farm-animals.csv' ) ); ?>" download>Download this table as CSV</a>, or see all <a href="<?php echo esc_url( home_url( '/data/' ) ); ?>">data downloads</a>.</p>
+
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a><span>Hearts, mood and professions.</span></li>
