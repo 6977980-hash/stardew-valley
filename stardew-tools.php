@@ -3,7 +3,7 @@
  * Plugin Name:       Stardew Tools
  * Plugin URI:        https://stardewtools.net/
  * Description:       Core of StardewTools.net: brand identity, SEO foundation, ad slots, site pages, verified game data, calculators and the Stardew Tools theme.
- * Version:           0.7.4
+ * Version:           0.7.5
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Ali Ahmad
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'STARDEW_TOOLS_VERSION', '0.7.4' );
+define( 'STARDEW_TOOLS_VERSION', '0.7.5' );
 define( 'STARDEW_TOOLS_FILE', __FILE__ );
 define( 'STARDEW_TOOLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'STARDEW_TOOLS_URL', plugin_dir_url( __FILE__ ) );
