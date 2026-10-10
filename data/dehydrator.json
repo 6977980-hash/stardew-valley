@@ -1,0 +1,1410 @@
+{
+  "schema": "stardew-tools/dehydrator@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-10",
+  "last_verified": "2026-10-10",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between the machine pages, the product pages, Crafting, Artisan Goods, the shop pages, Fruits and Prize Ticket",
+  "sources": [
+    {
+      "title": "Dehydrator",
+      "url": "https://stardewvalleywiki.com/Dehydrator",
+      "revid": 193436
+    },
+    {
+      "title": "Fish Smoker",
+      "url": "https://stardewvalleywiki.com/Fish_Smoker",
+      "revid": 194228
+    },
+    {
+      "title": "Dried Mushrooms",
+      "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+      "revid": 185640
+    },
+    {
+      "title": "Dried Fruit",
+      "url": "https://stardewvalleywiki.com/Dried_Fruit",
+      "revid": 189759
+    },
+    {
+      "title": "Raisins",
+      "url": "https://stardewvalleywiki.com/Raisins",
+      "revid": 193433
+    },
+    {
+      "title": "Smoked Fish",
+      "url": "https://stardewvalleywiki.com/Smoked_Fish",
+      "revid": 191902
+    },
+    {
+      "title": "Crafting",
+      "url": "https://stardewvalleywiki.com/Crafting",
+      "revid": 195354
+    },
+    {
+      "title": "Artisan Goods",
+      "url": "https://stardewvalleywiki.com/Artisan_Goods",
+      "revid": 195351
+    },
+    {
+      "title": "Pierre's General Store",
+      "url": "https://stardewvalleywiki.com/Pierre's_General_Store",
+      "revid": 195226
+    },
+    {
+      "title": "Fish Shop",
+      "url": "https://stardewvalleywiki.com/Fish_Shop",
+      "revid": 194220
+    },
+    {
+      "title": "Fruits",
+      "url": "https://stardewvalleywiki.com/Fruits",
+      "revid": 193430
+    },
+    {
+      "title": "Farming/Skill",
+      "url": "https://stardewvalleywiki.com/Farming/Skill",
+      "revid": 190383
+    },
+    {
+      "title": "Prize Ticket",
+      "url": "https://stardewvalleywiki.com/Prize_Ticket",
+      "revid": 190677
+    },
+    {
+      "title": "The Cave",
+      "url": "https://stardewvalleywiki.com/The_Cave",
+      "revid": 193773
+    },
+    {
+      "title": "Farm Maps",
+      "url": "https://stardewvalleywiki.com/Farm_Maps",
+      "revid": 195262
+    },
+    {
+      "title": "Coal",
+      "url": "https://stardewvalleywiki.com/Coal",
+      "revid": 193153
+    }
+  ],
+  "artisan": {
+    "id": "artisan-profession",
+    "note": "Artisan makes Artisan Goods sell for this multiple of the normal price. Dehydrator and Fish Smoker products are Artisan Goods.",
+    "evidence": [
+      "Farming/Skill: \"Artisan goods (wine, cheese, oil, etc.) worth 40% more\"",
+      "Farming: \"Artisan now increases the value of Artisan Goods by 40%\"",
+      "Fruits: \"Artisan (+40%)\""
+    ],
+    "sources": [
+      {
+        "title": "Farming/Skill",
+        "url": "https://stardewvalleywiki.com/Farming/Skill",
+        "revid": 190383
+      },
+      {
+        "title": "Farming",
+        "url": "https://stardewvalleywiki.com/Farming",
+        "revid": 191914
+      },
+      {
+        "title": "Fruits",
+        "url": "https://stardewvalleywiki.com/Fruits",
+        "revid": 193430
+      }
+    ],
+    "verified": {
+      "multiplier": [
+        "Farming/Skill",
+        "Farming",
+        "Fruits"
+      ]
+    },
+    "problems": [],
+    "multiplier": 1.4,
+    "verification_status": "cross-checked"
+  },
+  "machines": [
+    {
+      "id": "dehydrator",
+      "name": "Dehydrator",
+      "category": "Artisan Equipment",
+      "recipe": {
+        "id": "dehydrator-recipe",
+        "evidence": [
+          "Dehydrator: \"WoodClayFire Quartz\"",
+          "Crafting: \"|Dehydrator |{{Description|Dehydrator}} |WoodClayFire Quartz\"",
+          "Artisan Goods: \"|Dehydrator |{{Description|Dehydrator}} |WoodClayFire Quartz\"",
+          "Dehydrator: \"|recipe = Pierre's for 10000g\"",
+          "Pierre's General Store: \"Dehydrator (Recipe) |{{Description|Recipe|Dehydrator}} |data-sort-value=\"10000\"|10000g\"",
+          "Dehydrator: \"as the 12th prize from the Prize Machine\"",
+          "Prize Ticket: \"|rowspan=\"2\"|12 |Fish Smoker |{{Description|Fish Smoker}} |rowspan=\"2\"|Reward chosen at random |- |Dehydrator\"",
+          "Dehydrator: \"One is included in the Farm Cave if the player chooses the mushroom option\"",
+          "The Cave: \"The mushroom cave comes with a free Dehydrator\""
+        ],
+        "sources": [
+          {
+            "title": "Dehydrator",
+            "url": "https://stardewvalleywiki.com/Dehydrator",
+            "revid": 193436
+          },
+          {
+            "title": "Crafting",
+            "url": "https://stardewvalleywiki.com/Crafting",
+            "revid": 195354
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          },
+          {
+            "title": "Pierre's General Store",
+            "url": "https://stardewvalleywiki.com/Pierre's_General_Store",
+            "revid": 195226
+          },
+          {
+            "title": "Prize Ticket",
+            "url": "https://stardewvalleywiki.com/Prize_Ticket",
+            "revid": 190677
+          },
+          {
+            "title": "The Cave",
+            "url": "https://stardewvalleywiki.com/The_Cave",
+            "revid": 193773
+          }
+        ],
+        "verified": {
+          "ingredients": [
+            "Dehydrator (infobox)",
+            "Crafting (Artisan Equipment)",
+            "Artisan Goods (Dehydrator)"
+          ],
+          "unlock": [
+            "Dehydrator (infobox)",
+            "Crafting (Artisan Equipment)",
+            "Pierre's General Store (stock)"
+          ],
+          "prize_machine_ticket": [
+            "Dehydrator",
+            "Prize Ticket"
+          ],
+          "free_with_mushroom_cave": [
+            "Dehydrator",
+            "The Cave"
+          ]
+        },
+        "problems": [],
+        "ingredients": [
+          {
+            "id": "wood",
+            "name": "Wood",
+            "qty": 30
+          },
+          {
+            "id": "clay",
+            "name": "Clay",
+            "qty": 2
+          },
+          {
+            "id": "fire-quartz",
+            "name": "Fire Quartz",
+            "qty": 1
+          }
+        ],
+        "unlock": {
+          "shop": "Pierre's General Store",
+          "price": 10000
+        },
+        "other_sources": [
+          {
+            "kind": "prize-machine",
+            "ticket_prize": 12,
+            "note": "Prize Ticket page: \"Reward chosen at random\" between Fish Smoker and Dehydrator; Dehydrator page: 50% chance."
+          },
+          {
+            "kind": "farm-cave-mushroom-option",
+            "free": true
+          }
+        ],
+        "verification_status": "cross-checked"
+      },
+      "rules": [
+        {
+          "id": "input-count",
+          "text": "Every Dehydrator batch takes five items.",
+          "evidence": [
+            "Dehydrator: \"Dehydrator requires five Mushrooms\"",
+            "Dried Mushrooms: \"5 mushrooms of the same quality are required to produce 1 bag\"",
+            "Dried Fruit: \"Since the Dehydrator requires 5 fruit per use\"",
+            "Fruits: \"Note that five matching Fruits are required\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            },
+            {
+              "title": "Dried Fruit",
+              "url": "https://stardewvalleywiki.com/Dried_Fruit",
+              "revid": 189759
+            },
+            {
+              "title": "Fruits",
+              "url": "https://stardewvalleywiki.com/Fruits",
+              "revid": 193430
+            }
+          ],
+          "verified": {
+            "value": [
+              "Dehydrator",
+              "Dried Mushrooms",
+              "Dried Fruit",
+              "Fruits"
+            ]
+          },
+          "problems": [],
+          "value": 5,
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "same-type-and-quality",
+          "text": "The five items must be of the same type and the same quality.",
+          "evidence": [
+            "Dehydrator: \"of the same type and quality\"",
+            "Dried Mushrooms: \"5 mushrooms of the same quality are required\"",
+            "Fruits: \"five matching Fruits are required\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            },
+            {
+              "title": "Fruits",
+              "url": "https://stardewvalleywiki.com/Fruits",
+              "revid": 193430
+            }
+          ],
+          "verified": {
+            "value": [
+              "Dehydrator",
+              "Dried Mushrooms",
+              "Fruits"
+            ]
+          },
+          "problems": [],
+          "value": true,
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "output-quality-normal",
+          "text": "Dehydrator products are always normal quality, whatever the input quality.",
+          "evidence": [
+            "Dehydrator: \"The quality of the dried product is always normal and not affected by the quality of items used.\"",
+            "Dried Fruit: \"Dried Fruit is always normal quality.\"",
+            "Raisins: \"Raisins are always normal quality.\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Fruit",
+              "url": "https://stardewvalleywiki.com/Dried_Fruit",
+              "revid": 189759
+            },
+            {
+              "title": "Raisins",
+              "url": "https://stardewvalleywiki.com/Raisins",
+              "revid": 193433
+            }
+          ],
+          "verified": {
+            "value": [
+              "Dehydrator",
+              "Dried Fruit",
+              "Raisins"
+            ]
+          },
+          "problems": [],
+          "value": "normal",
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "excluded-mushroom",
+          "text": "Red Mushroom cannot be dehydrated.",
+          "evidence": [
+            "Dehydrator: \"(except Red Mushroom)\"",
+            "Dried Mushrooms: \"(except for Red Mushroom)\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            }
+          ],
+          "verified": {
+            "value": [
+              "Dehydrator",
+              "Dried Mushrooms"
+            ]
+          },
+          "problems": [],
+          "value": "red-mushroom",
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "excluded-truffle",
+          "text": "Truffles are not classified as mushrooms and cannot be dehydrated.",
+          "evidence": [
+            "Dehydrator: \"Truffles are not classified as mushrooms and therefore cannot be placed into the Dehydrator.\"",
+            "Dried Mushrooms: \"Truffles are not classified as mushrooms and therefore cannot be placed into the Dehydrator.\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            }
+          ],
+          "verified": {
+            "value": [
+              "Dehydrator",
+              "Dried Mushrooms"
+            ]
+          },
+          "problems": [],
+          "value": "truffle",
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "grapes-make-raisins",
+          "text": "Grapes are not valid for Dried Fruit; five Grapes make Raisins.",
+          "evidence": [
+            "Dehydrator: \"5 of Any Fruit (except Grapes)\"",
+            "Dried Fruit: \"Any Fruit except Grapes (5)\"",
+            "Fruits: \"five Grapes to make Raisins\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Fruit",
+              "url": "https://stardewvalleywiki.com/Dried_Fruit",
+              "revid": 189759
+            },
+            {
+              "title": "Fruits",
+              "url": "https://stardewvalleywiki.com/Fruits",
+              "revid": 193430
+            }
+          ],
+          "verified": {
+            "value": [
+              "Dehydrator",
+              "Dried Fruit",
+              "Fruits"
+            ]
+          },
+          "problems": [],
+          "value": "grape",
+          "verification_status": "cross-checked"
+        }
+      ],
+      "products": [
+        {
+          "id": "dried-mushrooms",
+          "name": "Dried Mushrooms",
+          "evidence": [
+            "Dehydrator: \"5 of Any Mushroom (except Red Mushroom)\"",
+            "Dried Mushrooms: \"5 mushrooms of the same quality are required to produce 1 bag\"",
+            "Dried Mushrooms: \"|crafttime = 1750m (&#8776;1d)\"",
+            "Dried Fruit: \"|crafttime = 1750m (&#8776;1d)\"",
+            "Raisins: \"|crafttime = 1750m (&#8776;29h)\"",
+            "Dehydrator: \"{{Duration|1 day|class=inline}} (ready the next morning)\"",
+            "Dried Mushrooms: \"taking one in-game day\"",
+            "Dehydrator: \"7.5 × Mushroom Base Price + 25 (1.5 × Base + 5 per Mushroom)\"",
+            "Dried Mushrooms: \"|sellprice = (7.5 × mushroom Base Price) + 25\"",
+            "Dried Mushrooms: \"((7.5 x mushroom Base Price) + 25) total, or ((1.5x mushroom Base Price) + 5) per mushroom used\"",
+            "Dried Mushrooms: \"When the player has the Artisan profession, the sell price changes to ((10.5 x mushroom Base Price) + 35) total, or ((2.1x mushroom Base Price) + 7) per mushroom used.\"",
+            "Dehydrator: \"3 × base Mushroom Energy/Health restoration\"",
+            "Dried Mushrooms: \"Dried Mushrooms is 3 times the base mushroom Energy/Health restoration\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            },
+            {
+              "title": "Dried Fruit",
+              "url": "https://stardewvalleywiki.com/Dried_Fruit",
+              "revid": 189759
+            },
+            {
+              "title": "Raisins",
+              "url": "https://stardewvalleywiki.com/Raisins",
+              "revid": 193433
+            }
+          ],
+          "verified": {
+            "input_count": [
+              "Dehydrator (table)",
+              "Dried Mushrooms"
+            ],
+            "minutes": [
+              "Dried Mushrooms (infobox)",
+              "Dried Fruit (infobox)",
+              "Raisins (infobox)"
+            ],
+            "ready_next_morning": [
+              "Dehydrator (table)",
+              "Dried Mushrooms"
+            ],
+            "price": [
+              "Dehydrator (table)",
+              "Dried Mushrooms (infobox)",
+              "Dried Mushrooms (per mushroom ×5)"
+            ],
+            "artisan_price": [
+              "Dried Mushrooms (Artisan profession text)",
+              "Dehydrator price × Farming/Skill Artisan 1.4"
+            ],
+            "energy_health_multiplier": [
+              "Dehydrator (table)",
+              "Dried Mushrooms"
+            ]
+          },
+          "problems": [
+            "minutes: Dehydrator says \"1 day (ready the next morning)\" while the product pages say 1750 minutes (≈1d on Dried Mushrooms/Dried Fruit, ≈29h on Raisins); the wiki does not say how a run started at a given time maps to \"ready the next morning\""
+          ],
+          "input": {
+            "count": 5,
+            "category": "mushroom",
+            "excludes": [
+              "red-mushroom",
+              "truffle"
+            ],
+            "same_quality": true
+          },
+          "minutes": 1750,
+          "ready_next_morning": true,
+          "price": {
+            "multiplier": 7.5,
+            "add": 25
+          },
+          "artisan_price": {
+            "multiplier": 10.5,
+            "add": 35
+          },
+          "artisan": true,
+          "energy_health_multiplier": 3,
+          "examples": [],
+          "examples_note": "The wiki gives no worked Dried Mushrooms price; only the formula (7.5 × base + 25) and the gold-quality remark are stated.",
+          "verification_status": "needs-verification"
+        },
+        {
+          "id": "dried-fruit",
+          "name": "Dried Fruit",
+          "evidence": [
+            "Dehydrator: \"5 of Any Fruit (except Grapes)\"",
+            "Dried Fruit: \"Since the Dehydrator requires 5 fruit per use\"",
+            "Dried Mushrooms: \"|crafttime = 1750m (&#8776;1d)\"",
+            "Dried Fruit: \"|crafttime = 1750m (&#8776;1d)\"",
+            "Raisins: \"|crafttime = 1750m (&#8776;29h)\"",
+            "Dehydrator: \"{{Duration|1 day|class=inline}} (ready the next morning)\"",
+            "Dried Fruit: \"taking one in-game day\"",
+            "Dehydrator: \"7.5 × Fruit Base Price + 25 (1.5 × Base + 5 per Fruit)\"",
+            "Dried Fruit: \"|sellprice = 7.5 × Fruit Base Price + 25\"",
+            "Dried Fruit: \"the sell price of Dried Fruit is (1.5 x Fruit Base Price + 5) per fruit used\"",
+            "Dried Fruit: \"With the Artisan Profession, the sell price is (2.1 x Fruit Base Price + 7) per fruit used.\"",
+            "Dehydrator: \"3 × base Fruits Energy/Health restoration\"",
+            "Dried Fruit: \"Health]] restored from Dried Fruit is 3 times the base\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Dried Fruit",
+              "url": "https://stardewvalleywiki.com/Dried_Fruit",
+              "revid": 189759
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            },
+            {
+              "title": "Raisins",
+              "url": "https://stardewvalleywiki.com/Raisins",
+              "revid": 193433
+            }
+          ],
+          "verified": {
+            "input_count": [
+              "Dehydrator (table)",
+              "Dried Fruit"
+            ],
+            "minutes": [
+              "Dried Mushrooms (infobox)",
+              "Dried Fruit (infobox)",
+              "Raisins (infobox)"
+            ],
+            "ready_next_morning": [
+              "Dehydrator (table)",
+              "Dried Fruit"
+            ],
+            "price": [
+              "Dehydrator (table)",
+              "Dried Fruit (infobox)",
+              "Dried Fruit (per fruit ×5)"
+            ],
+            "artisan_price": [
+              "Dried Fruit (Artisan text, per fruit ×5)",
+              "Dehydrator price × Farming/Skill Artisan 1.4"
+            ],
+            "energy_health_multiplier": [
+              "Dehydrator (table)",
+              "Dried Fruit"
+            ]
+          },
+          "problems": [
+            "minutes: Dehydrator says \"1 day (ready the next morning)\" while the product pages say 1750 minutes (≈1d on Dried Mushrooms/Dried Fruit, ≈29h on Raisins); the wiki does not say how a run started at a given time maps to \"ready the next morning\""
+          ],
+          "input": {
+            "count": 5,
+            "category": "fruit",
+            "excludes": [
+              "grape"
+            ],
+            "same_quality": true
+          },
+          "minutes": 1750,
+          "ready_next_morning": true,
+          "price": {
+            "multiplier": 7.5,
+            "add": 25
+          },
+          "artisan_price": {
+            "multiplier": 10.5,
+            "add": 35
+          },
+          "artisan": true,
+          "energy_health_multiplier": 3,
+          "examples": [
+            {
+              "fruit": "Apple",
+              "product": "dried-fruit",
+              "base_price": 100,
+              "price": 775,
+              "artisan_price": 1085,
+              "source": {
+                "title": "Fruits",
+                "url": "https://stardewvalleywiki.com/Fruits",
+                "revid": 193430
+              }
+            },
+            {
+              "fruit": "Rhubarb",
+              "product": "dried-fruit",
+              "base_price": 220,
+              "price": 1675,
+              "artisan_price": 2345,
+              "source": {
+                "title": "Fruits",
+                "url": "https://stardewvalleywiki.com/Fruits",
+                "revid": 193430
+              }
+            },
+            {
+              "fruit": "Ancient Fruit",
+              "product": "dried-fruit",
+              "base_price": 550,
+              "price": 4150,
+              "artisan_price": 5810,
+              "source": {
+                "title": "Fruits",
+                "url": "https://stardewvalleywiki.com/Fruits",
+                "revid": 193430
+              }
+            },
+            {
+              "fruit": "Coconut",
+              "product": "dried-fruit",
+              "base_price": 100,
+              "price": 775,
+              "artisan_price": 1085,
+              "source": {
+                "title": "Fruits",
+                "url": "https://stardewvalleywiki.com/Fruits",
+                "revid": 193430
+              }
+            }
+          ],
+          "verification_status": "needs-verification"
+        },
+        {
+          "id": "raisins",
+          "name": "Raisins",
+          "evidence": [
+            "Dehydrator: \"5 Grapes\"",
+            "Raisins: \"made from placing five Grapes inside a Dehydrator\"",
+            "Dried Mushrooms: \"|crafttime = 1750m (&#8776;1d)\"",
+            "Dried Fruit: \"|crafttime = 1750m (&#8776;1d)\"",
+            "Raisins: \"|crafttime = 1750m (&#8776;29h)\"",
+            "Dehydrator: \"{{Duration|1 day|class=inline}} (ready the next morning)\"",
+            "Raisins: \"taking one in-game day\"",
+            "Dehydrator: \"600\"",
+            "Raisins: \"|sellprice = 600\"",
+            "Fruits: Grape / Raisins sells 600g, 840g with Artisan",
+            "Raisins: \"|ingredients = Grape\""
+          ],
+          "sources": [
+            {
+              "title": "Dehydrator",
+              "url": "https://stardewvalleywiki.com/Dehydrator",
+              "revid": 193436
+            },
+            {
+              "title": "Raisins",
+              "url": "https://stardewvalleywiki.com/Raisins",
+              "revid": 193433
+            },
+            {
+              "title": "Dried Mushrooms",
+              "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+              "revid": 185640
+            },
+            {
+              "title": "Dried Fruit",
+              "url": "https://stardewvalleywiki.com/Dried_Fruit",
+              "revid": 189759
+            },
+            {
+              "title": "Fruits",
+              "url": "https://stardewvalleywiki.com/Fruits",
+              "revid": 193430
+            }
+          ],
+          "verified": {
+            "input_count": [
+              "Dehydrator (table)",
+              "Raisins"
+            ],
+            "minutes": [
+              "Dried Mushrooms (infobox)",
+              "Dried Fruit (infobox)",
+              "Raisins (infobox)"
+            ],
+            "ready_next_morning": [
+              "Dehydrator (table)",
+              "Raisins"
+            ],
+            "price": [
+              "Dehydrator (table)",
+              "Raisins (infobox)"
+            ],
+            "artisan_price": [
+              "Fruits (rendered Grape row, Artisan column)",
+              "Raisins price × Farming/Skill Artisan 1.4"
+            ],
+            "input_item": [
+              "Raisins (infobox)",
+              "Dehydrator (table)"
+            ]
+          },
+          "problems": [
+            "minutes: Dehydrator says \"1 day (ready the next morning)\" while the product pages say 1750 minutes (≈1d on Dried Mushrooms/Dried Fruit, ≈29h on Raisins); the wiki does not say how a run started at a given time maps to \"ready the next morning\""
+          ],
+          "input": {
+            "count": 5,
+            "item": "grape",
+            "same_quality": true
+          },
+          "minutes": 1750,
+          "ready_next_morning": true,
+          "price": {
+            "fixed": 600
+          },
+          "artisan_price": {
+            "fixed": 840
+          },
+          "artisan": true,
+          "input_check": {
+            "id": "grape",
+            "qty": 5
+          },
+          "examples": [
+            {
+              "fruit": "Grape",
+              "product": "raisins",
+              "base_price": 80,
+              "price": 600,
+              "artisan_price": 840,
+              "source": {
+                "title": "Fruits",
+                "url": "https://stardewvalleywiki.com/Fruits",
+                "revid": 193430
+              }
+            }
+          ],
+          "verification_status": "needs-verification"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Dehydrator",
+          "url": "https://stardewvalleywiki.com/Dehydrator",
+          "revid": 193436
+        },
+        {
+          "title": "Dried Mushrooms",
+          "url": "https://stardewvalleywiki.com/Dried_Mushrooms",
+          "revid": 185640
+        },
+        {
+          "title": "Dried Fruit",
+          "url": "https://stardewvalleywiki.com/Dried_Fruit",
+          "revid": 189759
+        },
+        {
+          "title": "Raisins",
+          "url": "https://stardewvalleywiki.com/Raisins",
+          "revid": 193433
+        },
+        {
+          "title": "Crafting",
+          "url": "https://stardewvalleywiki.com/Crafting#Artisan_Equipment",
+          "revid": 195354
+        },
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods#Dehydrator",
+          "revid": 195351
+        },
+        {
+          "title": "Pierre's General Store",
+          "url": "https://stardewvalleywiki.com/Pierre's_General_Store",
+          "revid": 195226
+        }
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "fish-smoker",
+      "name": "Fish Smoker",
+      "category": "Artisan Equipment",
+      "recipe": {
+        "id": "fish-smoker-recipe",
+        "evidence": [
+          "Fish Smoker: \"|ingredients = HardwoodSea JellyRiver JellyCave Jelly\"",
+          "Crafting: \"|Fish Smoker |{{Description|Fish Smoker}} |HardwoodSea JellyRiver JellyCave Jelly\"",
+          "Artisan Goods: \"|Fish Smoker |{{Description|Fish Smoker}} |HardwoodSea JellyRiver JellyCave Jelly\"",
+          "Fish Smoker: \"|recipe = Fish Shop for 10000g\"",
+          "Fish Shop: \"Fish Smoker (Recipe) |{{Description|Recipe|Fish Smoker}} |data-sort-value=\"10000\"|10000g\"",
+          "Fish Smoker: \"as the 12th prize from the Prize Machine\"",
+          "Prize Ticket: \"|rowspan=\"2\"|12 |Fish Smoker\"",
+          "Fish Smoker: \"Players on the Riverland Farm start with one Fish Smoker\"",
+          "Farm Maps: \"Players start with a Fish Smoker\""
+        ],
+        "sources": [
+          {
+            "title": "Fish Smoker",
+            "url": "https://stardewvalleywiki.com/Fish_Smoker",
+            "revid": 194228
+          },
+          {
+            "title": "Crafting",
+            "url": "https://stardewvalleywiki.com/Crafting",
+            "revid": 195354
+          },
+          {
+            "title": "Artisan Goods",
+            "url": "https://stardewvalleywiki.com/Artisan_Goods",
+            "revid": 195351
+          },
+          {
+            "title": "Fish Shop",
+            "url": "https://stardewvalleywiki.com/Fish_Shop",
+            "revid": 194220
+          },
+          {
+            "title": "Prize Ticket",
+            "url": "https://stardewvalleywiki.com/Prize_Ticket",
+            "revid": 190677
+          },
+          {
+            "title": "Farm Maps",
+            "url": "https://stardewvalleywiki.com/Farm_Maps",
+            "revid": 195262
+          }
+        ],
+        "verified": {
+          "ingredients": [
+            "Fish Smoker (infobox)",
+            "Crafting (Artisan Equipment)",
+            "Artisan Goods (Fish Smoker)"
+          ],
+          "unlock": [
+            "Fish Smoker (infobox)",
+            "Crafting (Artisan Equipment)",
+            "Artisan Goods (Fish Smoker)",
+            "Fish Shop (stock)"
+          ],
+          "prize_machine_ticket": [
+            "Fish Smoker",
+            "Prize Ticket"
+          ],
+          "free_on_riverland_farm": [
+            "Fish Smoker",
+            "Farm Maps"
+          ]
+        },
+        "problems": [],
+        "ingredients": [
+          {
+            "id": "hardwood",
+            "name": "Hardwood",
+            "qty": 10
+          },
+          {
+            "id": "sea-jelly",
+            "name": "Sea Jelly",
+            "qty": 1
+          },
+          {
+            "id": "river-jelly",
+            "name": "River Jelly",
+            "qty": 1
+          },
+          {
+            "id": "cave-jelly",
+            "name": "Cave Jelly",
+            "qty": 1
+          }
+        ],
+        "unlock": {
+          "shop": "Fish Shop",
+          "price": 10000
+        },
+        "other_sources": [
+          {
+            "kind": "prize-machine",
+            "ticket_prize": 12
+          },
+          {
+            "kind": "riverland-farm-start",
+            "free": true
+          }
+        ],
+        "verification_status": "cross-checked"
+      },
+      "rules": [
+        {
+          "id": "input-any-fish",
+          "text": "Any fish is accepted, including Legendary Fish and Crab Pot fish.",
+          "evidence": [
+            "Fish Smoker: \"The smoker accepts Legendary Fish as well as Crab Pot specific fish\"",
+            "Smoked Fish: \"The smoker accepts Legendary Fish as well as Crab Pot specific fish\""
+          ],
+          "sources": [
+            {
+              "title": "Fish Smoker",
+              "url": "https://stardewvalleywiki.com/Fish_Smoker",
+              "revid": 194228
+            },
+            {
+              "title": "Smoked Fish",
+              "url": "https://stardewvalleywiki.com/Smoked_Fish",
+              "revid": 191902
+            }
+          ],
+          "verified": {
+            "value": [
+              "Fish Smoker",
+              "Smoked Fish"
+            ]
+          },
+          "problems": [],
+          "value": true,
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "output-quality-retained",
+          "text": "Smoked Fish keeps the quality of the fish used (unlike most Artisan Goods).",
+          "evidence": [
+            "Fish Smoker: \"while retaining quality\"",
+            "Smoked Fish: \"while retaining quality\"",
+            "Artisan Goods: \"produce a Smoked Fish of the same quality as the original fish\""
+          ],
+          "sources": [
+            {
+              "title": "Fish Smoker",
+              "url": "https://stardewvalleywiki.com/Fish_Smoker",
+              "revid": 194228
+            },
+            {
+              "title": "Smoked Fish",
+              "url": "https://stardewvalleywiki.com/Smoked_Fish",
+              "revid": 191902
+            },
+            {
+              "title": "Artisan Goods",
+              "url": "https://stardewvalleywiki.com/Artisan_Goods",
+              "revid": 195351
+            }
+          ],
+          "verified": {
+            "value": [
+              "Fish Smoker",
+              "Smoked Fish",
+              "Artisan Goods"
+            ]
+          },
+          "problems": [],
+          "value": "same-as-input",
+          "verification_status": "cross-checked"
+        },
+        {
+          "id": "crab-pot-fish-edible",
+          "text": "Smoked Crab Pot fish that is normally inedible becomes edible (edibility = sell price × 0.3).",
+          "evidence": [
+            "Fish Smoker: \"calculated as Sell Price × 0.3\"",
+            "Smoked Fish: \"calculated as Sell Price × 0.3\""
+          ],
+          "sources": [
+            {
+              "title": "Fish Smoker",
+              "url": "https://stardewvalleywiki.com/Fish_Smoker",
+              "revid": 194228
+            },
+            {
+              "title": "Smoked Fish",
+              "url": "https://stardewvalleywiki.com/Smoked_Fish",
+              "revid": 191902
+            }
+          ],
+          "verified": {
+            "value": [
+              "Fish Smoker",
+              "Smoked Fish"
+            ]
+          },
+          "problems": [],
+          "value": 0.3,
+          "verification_status": "cross-checked"
+        }
+      ],
+      "products": [
+        {
+          "id": "smoked-fish",
+          "name": "Smoked Fish",
+          "evidence": [
+            "Fish Smoker: \"using any fish and 1 coal\"",
+            "Smoked Fish: \"using any fish and 1 coal\"",
+            "Fish Smoker: \"Any Fish (1) Coal\"",
+            "Smoked Fish: \"|ingredients = Any Fish (1) Coal\"",
+            "Coal: \"smoking fish in a Fish Smoker\"",
+            "Fish Smoker: \"create smoked fish using any fish and 1\"",
+            "Fish Smoker: \"{{duration|50 mins}}\"",
+            "Smoked Fish: \"|crafttime = 50m\"",
+            "Smoked Fish: \"taking 50 minutes\"",
+            "Fish Smoker: \"2 × Fish Price\"",
+            "Smoked Fish: \"|sellprice = 2 × Fish Sell Price (includes Quality & Artisan prices)\"",
+            "Fish Smoker: \"It doubles the sell price of a fish\"",
+            "Smoked Fish: \"the Smoked Fish will always sell for 2 times as much as the original fish\"",
+            "Smoked Fish: \"If the player has the Artisan profession, the Smoked Fish will always sell for 2.8 times as much as the original fish\"",
+            "Fish Smoker: \"{{Energy|1.5 × Fish Energy}}{{Health|1.5 × Fish Health}}\"",
+            "Fish Smoker: \"multiplying the energy and health restoration by 1.5\"",
+            "Smoked Fish: \"multiplying the energy and health restoration by 1.5\""
+          ],
+          "sources": [
+            {
+              "title": "Fish Smoker",
+              "url": "https://stardewvalleywiki.com/Fish_Smoker",
+              "revid": 194228
+            },
+            {
+              "title": "Smoked Fish",
+              "url": "https://stardewvalleywiki.com/Smoked_Fish",
+              "revid": 191902
+            },
+            {
+              "title": "Coal",
+              "url": "https://stardewvalleywiki.com/Coal",
+              "revid": 193153
+            }
+          ],
+          "verified": {
+            "coal": [
+              "Fish Smoker",
+              "Smoked Fish",
+              "Fish Smoker (table)",
+              "Smoked Fish (infobox)",
+              "Coal"
+            ],
+            "fish_count": [
+              "Fish Smoker (table)",
+              "Smoked Fish (infobox)",
+              "Fish Smoker"
+            ],
+            "minutes": [
+              "Fish Smoker (table)",
+              "Smoked Fish (infobox)",
+              "Smoked Fish"
+            ],
+            "price": [
+              "Fish Smoker (table)",
+              "Smoked Fish (infobox)",
+              "Fish Smoker",
+              "Smoked Fish"
+            ],
+            "artisan_price": [
+              "Smoked Fish",
+              "Fish Smoker price × Farming/Skill Artisan 1.4"
+            ],
+            "energy_health_multiplier": [
+              "Fish Smoker (table)",
+              "Fish Smoker",
+              "Smoked Fish"
+            ]
+          },
+          "problems": [],
+          "input": {
+            "category": "fish",
+            "count": 1,
+            "extra": [
+              {
+                "id": "coal",
+                "qty": 1
+              }
+            ],
+            "includes": [
+              "legendary-fish",
+              "crab-pot-fish"
+            ]
+          },
+          "minutes": 50,
+          "price": {
+            "multiplier": 2,
+            "add": 0
+          },
+          "artisan_price": {
+            "multiplier": 2.8,
+            "add": 0
+          },
+          "artisan": true,
+          "energy_health_multiplier": 1.5,
+          "price_note": "Price multiplier applies to the fish price the wiki calls \"Fish Sell Price (includes Quality & Artisan prices)\"; the Smoked Fish page says the Artisan total is 2.8× the original fish price.",
+          "examples": [
+            {
+              "case": "no Artisan profession",
+              "multiplier": 2,
+              "evidence": "Smoked Fish: \"Thus, if the player does not have the Artisan profession, the Smoked Fish will always sell for 2 times as much as the original fish.\""
+            },
+            {
+              "case": "Artisan profession",
+              "multiplier": 2.8,
+              "evidence": "Smoked Fish: \"If the player has the Artisan profession, the Smoked Fish will always sell for 2.8 times as much as the original fish.\""
+            }
+          ],
+          "verification_status": "cross-checked"
+        }
+      ],
+      "sources": [
+        {
+          "title": "Fish Smoker",
+          "url": "https://stardewvalleywiki.com/Fish_Smoker",
+          "revid": 194228
+        },
+        {
+          "title": "Smoked Fish",
+          "url": "https://stardewvalleywiki.com/Smoked_Fish",
+          "revid": 191902
+        },
+        {
+          "title": "Crafting",
+          "url": "https://stardewvalleywiki.com/Crafting#Artisan_Equipment",
+          "revid": 195354
+        },
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods#Fish_Smoker",
+          "revid": 195351
+        },
+        {
+          "title": "Fish Shop",
+          "url": "https://stardewvalleywiki.com/Fish_Shop",
+          "revid": 194220
+        },
+        {
+          "title": "Coal",
+          "url": "https://stardewvalleywiki.com/Coal",
+          "revid": 193153
+        }
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    }
+  ],
+  "fruit_examples": {
+    "id": "fruit-table-check",
+    "evidence": [
+      "Fruits: \"Below is a list of Fruits from the game, where to obtain them and how much they sell for when processed into Jelly using the Preserves Jar, into Wine using the Keg, or into Dried Fruit or Raisins using the Dehydrator. Note that five matching Fruits are required to make one Dried Fruit (five Grapes to make Raisins).\"",
+      "Fruits: rendered table, 24 fruits, dried/Raisins price at normal quality without and with the Artisan profession"
+    ],
+    "sources": [
+      {
+        "title": "Fruits",
+        "url": "https://stardewvalleywiki.com/Fruits",
+        "revid": 193430
+      },
+      {
+        "title": "Dehydrator",
+        "url": "https://stardewvalleywiki.com/Dehydrator",
+        "revid": 193436
+      }
+    ],
+    "verified": {},
+    "problems": [],
+    "rounding_differences": [
+      {
+        "fruit": "Cactus Fruit",
+        "table": 821,
+        "exact_formula": 822
+      },
+      {
+        "fruit": "Cranberries",
+        "table": 821,
+        "exact_formula": 822
+      }
+    ],
+    "rounding": "Artisan price = truncate(truncate(normal price) × 1.4); the closed form 10.5 × base + 35 can be 1g higher (see rounding_differences).",
+    "rows": 24,
+    "verification_status": "cross-checked",
+    "table": [
+      {
+        "fruit": "Ancient Fruit",
+        "product": "dried-fruit",
+        "base_price": 550,
+        "price": 4150,
+        "artisan_price": 5810
+      },
+      {
+        "fruit": "Apple",
+        "product": "dried-fruit",
+        "base_price": 100,
+        "price": 775,
+        "artisan_price": 1085
+      },
+      {
+        "fruit": "Apricot",
+        "product": "dried-fruit",
+        "base_price": 50,
+        "price": 400,
+        "artisan_price": 560
+      },
+      {
+        "fruit": "Banana",
+        "product": "dried-fruit",
+        "base_price": 150,
+        "price": 1150,
+        "artisan_price": 1610
+      },
+      {
+        "fruit": "Blueberry",
+        "product": "dried-fruit",
+        "base_price": 50,
+        "price": 400,
+        "artisan_price": 560
+      },
+      {
+        "fruit": "Cactus Fruit",
+        "product": "dried-fruit",
+        "base_price": 75,
+        "price": 587,
+        "artisan_price": 821
+      },
+      {
+        "fruit": "Cherry",
+        "product": "dried-fruit",
+        "base_price": 80,
+        "price": 625,
+        "artisan_price": 875
+      },
+      {
+        "fruit": "Coconut",
+        "product": "dried-fruit",
+        "base_price": 100,
+        "price": 775,
+        "artisan_price": 1085
+      },
+      {
+        "fruit": "Cranberries",
+        "product": "dried-fruit",
+        "base_price": 75,
+        "price": 587,
+        "artisan_price": 821
+      },
+      {
+        "fruit": "Crystal Fruit",
+        "product": "dried-fruit",
+        "base_price": 150,
+        "price": 1150,
+        "artisan_price": 1610
+      },
+      {
+        "fruit": "Grape",
+        "product": "raisins",
+        "base_price": 80,
+        "price": 600,
+        "artisan_price": 840
+      },
+      {
+        "fruit": "Hot Pepper",
+        "product": "dried-fruit",
+        "base_price": 40,
+        "price": 325,
+        "artisan_price": 455
+      },
+      {
+        "fruit": "Mango",
+        "product": "dried-fruit",
+        "base_price": 130,
+        "price": 1000,
+        "artisan_price": 1400
+      },
+      {
+        "fruit": "Melon",
+        "product": "dried-fruit",
+        "base_price": 250,
+        "price": 1900,
+        "artisan_price": 2660
+      },
+      {
+        "fruit": "Orange",
+        "product": "dried-fruit",
+        "base_price": 100,
+        "price": 775,
+        "artisan_price": 1085
+      },
+      {
+        "fruit": "Peach",
+        "product": "dried-fruit",
+        "base_price": 140,
+        "price": 1075,
+        "artisan_price": 1505
+      },
+      {
+        "fruit": "Pineapple",
+        "product": "dried-fruit",
+        "base_price": 300,
+        "price": 2275,
+        "artisan_price": 3185
+      },
+      {
+        "fruit": "Pomegranate",
+        "product": "dried-fruit",
+        "base_price": 140,
+        "price": 1075,
+        "artisan_price": 1505
+      },
+      {
+        "fruit": "Powdermelon",
+        "product": "dried-fruit",
+        "base_price": 60,
+        "price": 475,
+        "artisan_price": 665
+      },
+      {
+        "fruit": "Rhubarb",
+        "product": "dried-fruit",
+        "base_price": 220,
+        "price": 1675,
+        "artisan_price": 2345
+      },
+      {
+        "fruit": "Spice Berry",
+        "product": "dried-fruit",
+        "base_price": 80,
+        "price": 625,
+        "artisan_price": 875
+      },
+      {
+        "fruit": "Starfruit",
+        "product": "dried-fruit",
+        "base_price": 750,
+        "price": 5650,
+        "artisan_price": 7910
+      },
+      {
+        "fruit": "Strawberry",
+        "product": "dried-fruit",
+        "base_price": 120,
+        "price": 925,
+        "artisan_price": 1295
+      },
+      {
+        "fruit": "Wild Plum",
+        "product": "dried-fruit",
+        "base_price": 80,
+        "price": 625,
+        "artisan_price": 875
+      }
+    ]
+  },
+  "skipped": [
+    {
+      "what": "Raisins energy 125 / health 56",
+      "why": "stated only in the Dehydrator products table (the Raisins page gives edibility 50 only); left out of the verified fields"
+    },
+    {
+      "what": "Dried Mushrooms worked prices",
+      "why": "the wiki gives no mushroom price table or example; formula only (the Category:Mushrooms page is empty)"
+    },
+    {
+      "what": "Dehydrator: prize-machine 50% chance",
+      "why": "stated on the Dehydrator and Fish Smoker pages only; Prize Ticket just says \"Reward chosen at random\" between the two"
+    },
+    {
+      "what": "Smoked Fish and the Fisher/Angler professions",
+      "why": "the Smoked Fish page says smoked fish benefit from Fisher and Angler; no second page states it, and the exact stacking order with Artisan is not given"
+    }
+  ]
+}

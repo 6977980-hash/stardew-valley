@@ -1,0 +1,1355 @@
+{
+  "schema": "stardew-tools/casks@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-10",
+  "last_verified": "2026-10-10",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between Cask, the item pages (Wine, Pale Ale, Beer, Mead, Cheese, Goat Cheese), Cask Productivity, Farmhouse, Carpenter's Shop, Crafting, Artisan Goods, Skills and Farming",
+  "sources": [
+    {
+      "title": "Cask",
+      "url": "https://stardewvalleywiki.com/Cask",
+      "revid": 179542
+    },
+    {
+      "title": "Cask Productivity",
+      "url": "https://stardewvalleywiki.com/Cask_Productivity",
+      "revid": 189244
+    },
+    {
+      "title": "Farmhouse",
+      "url": "https://stardewvalleywiki.com/Farmhouse",
+      "revid": 190738
+    },
+    {
+      "title": "Carpenter's Shop",
+      "url": "https://stardewvalleywiki.com/Carpenter's_Shop",
+      "revid": 195197
+    },
+    {
+      "title": "Crafting",
+      "url": "https://stardewvalleywiki.com/Crafting",
+      "revid": 195354
+    },
+    {
+      "title": "Artisan Goods",
+      "url": "https://stardewvalleywiki.com/Artisan_Goods",
+      "revid": 195351
+    },
+    {
+      "title": "Skills",
+      "url": "https://stardewvalleywiki.com/Skills",
+      "revid": 195347
+    },
+    {
+      "title": "Farming",
+      "url": "https://stardewvalleywiki.com/Farming",
+      "revid": 191914
+    },
+    {
+      "title": "Cheese Press",
+      "url": "https://stardewvalleywiki.com/Cheese_Press",
+      "revid": 183811
+    },
+    {
+      "title": "Version History",
+      "url": "https://stardewvalleywiki.com/Version_History",
+      "revid": 192874
+    },
+    {
+      "title": "Wine",
+      "url": "https://stardewvalleywiki.com/Wine",
+      "revid": 192625
+    },
+    {
+      "title": "Pale Ale",
+      "url": "https://stardewvalleywiki.com/Pale_Ale",
+      "revid": 190580
+    },
+    {
+      "title": "Beer",
+      "url": "https://stardewvalleywiki.com/Beer",
+      "revid": 177001
+    },
+    {
+      "title": "Mead",
+      "url": "https://stardewvalleywiki.com/Mead",
+      "revid": 190688
+    },
+    {
+      "title": "Cheese",
+      "url": "https://stardewvalleywiki.com/Cheese",
+      "revid": 189929
+    },
+    {
+      "title": "Goat Cheese",
+      "url": "https://stardewvalleywiki.com/Goat_Cheese",
+      "revid": 190347
+    }
+  ],
+  "quality_multipliers": {
+    "silver": 1.25,
+    "gold": 1.5,
+    "iridium": 2,
+    "note": "Applied to the item's normal-quality base price; Artisan and the other professions multiply the result (see professions).",
+    "evidence": [
+      "Cask: \"Iridium star is the highest level of quality, which doubles the value of an item.\"",
+      "Farming: \"Since iridium products are worth 2× base price, gold products are worth 1.5× base price, and silver products are worth 1.25× base price\"",
+      "Wine: \"Iridium quality doubles the base sell price of Wine.\""
+    ],
+    "sources": [
+      {
+        "title": "Cask",
+        "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+        "revid": 179542
+      },
+      {
+        "title": "Wine",
+        "url": "https://stardewvalleywiki.com/Wine#Aged_Values",
+        "revid": 192625
+      },
+      {
+        "title": "Pale Ale",
+        "url": "https://stardewvalleywiki.com/Pale_Ale#Aged_Values",
+        "revid": 190580
+      },
+      {
+        "title": "Beer",
+        "url": "https://stardewvalleywiki.com/Beer#Aged_Values",
+        "revid": 177001
+      },
+      {
+        "title": "Mead",
+        "url": "https://stardewvalleywiki.com/Mead#Aged_Values",
+        "revid": 190688
+      },
+      {
+        "title": "Cheese",
+        "url": "https://stardewvalleywiki.com/Cheese#Aged_Values",
+        "revid": 189929
+      },
+      {
+        "title": "Goat Cheese",
+        "url": "https://stardewvalleywiki.com/Goat_Cheese#Aged_Values",
+        "revid": 190347
+      },
+      {
+        "title": "Farming",
+        "url": "https://stardewvalleywiki.com/Farming",
+        "revid": 191914
+      }
+    ],
+    "verified": {
+      "silver": [
+        "Cask (table header)",
+        "Wine (table header)",
+        "Pale Ale (table header)",
+        "Beer (table header)",
+        "Mead (table header)",
+        "Cheese (table header)",
+        "Goat Cheese (table header)",
+        "Farming (profit example)"
+      ],
+      "gold": [
+        "Cask (table header)",
+        "Wine (table header)",
+        "Pale Ale (table header)",
+        "Beer (table header)",
+        "Mead (table header)",
+        "Cheese (table header)",
+        "Goat Cheese (table header)",
+        "Farming (profit example)"
+      ],
+      "iridium": [
+        "Cask (table header)",
+        "Wine (table header)",
+        "Pale Ale (table header)",
+        "Beer (table header)",
+        "Mead (table header)",
+        "Cheese (table header)",
+        "Goat Cheese (table header)",
+        "Farming (profit example)"
+      ]
+    },
+    "problems": [],
+    "verification_status": "cross-checked"
+  },
+  "aged_items": {
+    "items": [
+      {
+        "id": "beer",
+        "name": "Beer"
+      },
+      {
+        "id": "cheese",
+        "name": "Cheese"
+      },
+      {
+        "id": "goat-cheese",
+        "name": "Goat Cheese"
+      },
+      {
+        "id": "mead",
+        "name": "Mead"
+      },
+      {
+        "id": "pale-ale",
+        "name": "Pale Ale"
+      },
+      {
+        "id": "wine",
+        "name": "Wine"
+      }
+    ],
+    "evidence": [
+      "Cask: \"It takes Beer, Cheese, Goat Cheese, Mead, Pale Ale, and Wine, and ages them to increase their quality and value.\"",
+      "Carpenter's Shop: \"The cellar allows the player to craft and house Casks which can age specific products (i.e., Cheese, Goat Cheese, Beer, Mead, Pale Ale, and Wine)\"",
+      "Cask Productivity: \"This page lists the productivity of processing Wine, Cheese, Goat Cheese, Pale Ale, Mead, and Beer in a Cask.\""
+    ],
+    "sources": [
+      {
+        "title": "Cask",
+        "url": "https://stardewvalleywiki.com/Cask",
+        "revid": 179542
+      },
+      {
+        "title": "Carpenter's Shop",
+        "url": "https://stardewvalleywiki.com/Carpenter's_Shop#House_Upgrades",
+        "revid": 195197
+      },
+      {
+        "title": "Cask Productivity",
+        "url": "https://stardewvalleywiki.com/Cask_Productivity",
+        "revid": 189244
+      }
+    ],
+    "verified": {
+      "names": [
+        "Cask (intro sentence)",
+        "Cask (Aged Values table)",
+        "Carpenter's Shop (House Upgrade 3)",
+        "Cask Productivity (intro)"
+      ]
+    },
+    "problems": [],
+    "verification_status": "cross-checked"
+  },
+  "aging": {
+    "stage_semantics": "aged_days = days spent at that step since the previous quality step (the wiki's \"Aged: N Days\"); total_days = days since the item went into the cask (the wiki's \"Total: N Days\"). Items go normal -> silver -> gold -> iridium.",
+    "items": [
+      {
+        "id": "wine",
+        "name": "Wine",
+        "ingredients": [
+          {
+            "item": "Any Fruit",
+            "qty": 1
+          }
+        ],
+        "base_price": null,
+        "price_formula": {
+          "fruit_multiple": 3,
+          "note": "sells for this multiple of the ingredient fruit's base sell price"
+        },
+        "aged_days": {
+          "silver": 14,
+          "gold": 14,
+          "iridium": 28
+        },
+        "total_days": {
+          "silver": 14,
+          "gold": 28,
+          "iridium": 56
+        },
+        "evidence": [
+          "Cask (Aged Values table, Wine row): \"|Wine Any fruit (1) [3 x Base [[Fruits] [(3 x Base) x 1.25] Aged: 14 Days [(3 x Base) x 1.5] Aged: 14 Days Total: 28 Days [(3 x Base) x 2] Aged: 28 Days Total: 56 Days\"",
+          "Wine (Aged Values): \"{| !Normal Quality !Silver Quality (x 1.25) !Gold Quality (x 1.5) !Iridium Quality (x 2) - [3 × [[Fruits] [(3 × Base) × 1.25] Aged: 14 Days [(3 × Base) × 1.50] Aged: 14 Days Total: 28 Days [(3 × Base) × 2] Aged: 28 Days Total: 56 Days - }\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+            "revid": 179542
+          },
+          {
+            "title": "Wine",
+            "url": "https://stardewvalleywiki.com/Wine#Aged_Values",
+            "revid": 192625
+          },
+          {
+            "title": "Cask Productivity",
+            "url": "https://stardewvalleywiki.com/Cask_Productivity",
+            "revid": 189244
+          }
+        ],
+        "verified": {
+          "normal_price": [
+            "Cask (Aged Values table)",
+            "Wine (Aged Values)",
+            "Wine (infobox sell price)"
+          ],
+          "ingredients": [
+            "Cask (Aged Values table)",
+            "Wine (infobox)"
+          ],
+          "silver_aged_days": [
+            "Cask (Aged Values table)",
+            "Wine (Aged Values)"
+          ],
+          "gold_aged_days": [
+            "Cask (Aged Values table)",
+            "Wine (Aged Values)"
+          ],
+          "iridium_aged_days": [
+            "Cask (Aged Values table)",
+            "Wine (Aged Values)"
+          ],
+          "gold_total_days": [
+            "Cask (Aged Values table)",
+            "Wine (Aged Values)"
+          ],
+          "iridium_total_days": [
+            "Cask (Aged Values table)",
+            "Wine (Aged Values)",
+            "Cask Productivity (Processing Time)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "pale-ale",
+        "name": "Pale Ale",
+        "ingredients": [
+          {
+            "item": "Hops",
+            "qty": 1
+          }
+        ],
+        "base_price": 300,
+        "price_formula": null,
+        "aged_days": {
+          "silver": 9,
+          "gold": 8,
+          "iridium": 17
+        },
+        "total_days": {
+          "silver": 9,
+          "gold": 17,
+          "iridium": 34
+        },
+        "evidence": [
+          "Cask (Aged Values table, Pale Ale row): \"|Pale Ale Hops [300] [300] Aged: 9 Days [300] Aged: 8 Days Total: 17 Days [300] Aged: 17 Days Total: 34 Days\"",
+          "Pale Ale (Aged Values): \"{| !Normal Quality !Silver Quality (x 1.25) !Gold Quality (x 1.5) !Iridium Quality (x 2) - [300] [300] Aged: 9 Days [300] Aged: 8 Days Total: 17 Days [300] Aged: 17 Days Total: 34 Days - }\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+            "revid": 179542
+          },
+          {
+            "title": "Pale Ale",
+            "url": "https://stardewvalleywiki.com/Pale_Ale#Aged_Values",
+            "revid": 190580
+          },
+          {
+            "title": "Cask Productivity",
+            "url": "https://stardewvalleywiki.com/Cask_Productivity",
+            "revid": 189244
+          }
+        ],
+        "verified": {
+          "normal_price": [
+            "Cask (Aged Values table)",
+            "Pale Ale (Aged Values)",
+            "Pale Ale (infobox sell price)"
+          ],
+          "ingredients": [
+            "Cask (Aged Values table)",
+            "Pale Ale (infobox)"
+          ],
+          "silver_aged_days": [
+            "Cask (Aged Values table)",
+            "Pale Ale (Aged Values)"
+          ],
+          "gold_aged_days": [
+            "Cask (Aged Values table)",
+            "Pale Ale (Aged Values)"
+          ],
+          "iridium_aged_days": [
+            "Cask (Aged Values table)",
+            "Pale Ale (Aged Values)"
+          ],
+          "gold_total_days": [
+            "Cask (Aged Values table)",
+            "Pale Ale (Aged Values)"
+          ],
+          "iridium_total_days": [
+            "Cask (Aged Values table)",
+            "Pale Ale (Aged Values)",
+            "Cask Productivity (Processing Time)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "beer",
+        "name": "Beer",
+        "ingredients": [
+          {
+            "item": "Wheat",
+            "qty": 1
+          }
+        ],
+        "base_price": 200,
+        "price_formula": null,
+        "aged_days": {
+          "silver": 7,
+          "gold": 7,
+          "iridium": 14
+        },
+        "total_days": {
+          "silver": 7,
+          "gold": 14,
+          "iridium": 28
+        },
+        "evidence": [
+          "Cask (Aged Values table, Beer row): \"|Beer Wheat [200] [200] Aged: 7 Days [200] Aged: 7 Days Total: 14 Days [200] Aged: 14 Days Total: 28 Days\"",
+          "Beer (Aged Values): \"{| !Normal Quality !Silver Quality (x 1.25) !Gold Quality (x 1.5) !Iridium Quality (x 2) - [200] [200] Aged: 7 Days [200] Aged: 7 Days Total: 14 Days [200] Aged: 14 Days Total: 28 Days - }\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+            "revid": 179542
+          },
+          {
+            "title": "Beer",
+            "url": "https://stardewvalleywiki.com/Beer#Aged_Values",
+            "revid": 177001
+          },
+          {
+            "title": "Cask Productivity",
+            "url": "https://stardewvalleywiki.com/Cask_Productivity",
+            "revid": 189244
+          }
+        ],
+        "verified": {
+          "normal_price": [
+            "Cask (Aged Values table)",
+            "Beer (Aged Values)",
+            "Beer (infobox sell price)"
+          ],
+          "ingredients": [
+            "Cask (Aged Values table)",
+            "Beer (infobox)"
+          ],
+          "silver_aged_days": [
+            "Cask (Aged Values table)",
+            "Beer (Aged Values)"
+          ],
+          "gold_aged_days": [
+            "Cask (Aged Values table)",
+            "Beer (Aged Values)"
+          ],
+          "iridium_aged_days": [
+            "Cask (Aged Values table)",
+            "Beer (Aged Values)"
+          ],
+          "gold_total_days": [
+            "Cask (Aged Values table)",
+            "Beer (Aged Values)"
+          ],
+          "iridium_total_days": [
+            "Cask (Aged Values table)",
+            "Beer (Aged Values)",
+            "Cask Productivity (Processing Time)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "mead",
+        "name": "Mead",
+        "ingredients": [
+          {
+            "item": "Honey",
+            "qty": 1
+          }
+        ],
+        "base_price": 300,
+        "price_formula": null,
+        "aged_days": {
+          "silver": 7,
+          "gold": 7,
+          "iridium": 14
+        },
+        "total_days": {
+          "silver": 7,
+          "gold": 14,
+          "iridium": 28
+        },
+        "evidence": [
+          "Cask (Aged Values table, Mead row): \"|Mead Honey [300] [300] Aged: 7 Days [300] Aged: 7 Days Total: 14 Days [300] Aged: 14 Days Total: 28 Days\"",
+          "Mead (Aged Values): \"{| !Normal Quality !Silver Quality (x 1.25) !Gold Quality (x 1.5) !Iridium Quality (x 2) - [300] [300] Aged: 7 Days [300] Aged: 7 Days Total: 14 Days [300] Aged: 14 Days Total: 28 Days - }\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+            "revid": 179542
+          },
+          {
+            "title": "Mead",
+            "url": "https://stardewvalleywiki.com/Mead#Aged_Values",
+            "revid": 190688
+          },
+          {
+            "title": "Cask Productivity",
+            "url": "https://stardewvalleywiki.com/Cask_Productivity",
+            "revid": 189244
+          }
+        ],
+        "verified": {
+          "normal_price": [
+            "Cask (Aged Values table)",
+            "Mead (Aged Values)",
+            "Mead (infobox sell price)"
+          ],
+          "ingredients": [
+            "Cask (Aged Values table)",
+            "Mead (infobox)"
+          ],
+          "silver_aged_days": [
+            "Cask (Aged Values table)",
+            "Mead (Aged Values)"
+          ],
+          "gold_aged_days": [
+            "Cask (Aged Values table)",
+            "Mead (Aged Values)"
+          ],
+          "iridium_aged_days": [
+            "Cask (Aged Values table)",
+            "Mead (Aged Values)"
+          ],
+          "gold_total_days": [
+            "Cask (Aged Values table)",
+            "Mead (Aged Values)"
+          ],
+          "iridium_total_days": [
+            "Cask (Aged Values table)",
+            "Mead (Aged Values)",
+            "Cask Productivity (Processing Time)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "cheese",
+        "name": "Cheese",
+        "ingredients": [
+          {
+            "item": "Milk",
+            "qty": 1
+          },
+          {
+            "item": "Large Milk",
+            "qty": 1
+          }
+        ],
+        "base_price": 230,
+        "price_formula": null,
+        "aged_days": {
+          "silver": 3,
+          "gold": 4,
+          "iridium": 7
+        },
+        "total_days": {
+          "silver": 3,
+          "gold": 7,
+          "iridium": 14
+        },
+        "evidence": [
+          "Cask (Aged Values table, Cheese row): \"|Cheese Milk orLarge Milk [230] [230] Aged: 3 Days [230] Aged: 4 Days Total: 7 Days [230] Aged: 7 Days Total: 14 Days\"",
+          "Cheese (Aged Values): \"{| !Normal Quality !Silver Quality (x 1.25) !Gold Quality (x 1.5) !Iridium Quality (x 2) - [230] [230] Aged: 3 Days [230] Aged: 4 Days Total: 7 Days [230] Aged: 7 Days Total: 14 Days }\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+            "revid": 179542
+          },
+          {
+            "title": "Cheese",
+            "url": "https://stardewvalleywiki.com/Cheese#Aged_Values",
+            "revid": 189929
+          },
+          {
+            "title": "Cask Productivity",
+            "url": "https://stardewvalleywiki.com/Cask_Productivity",
+            "revid": 189244
+          }
+        ],
+        "verified": {
+          "normal_price": [
+            "Cask (Aged Values table)",
+            "Cheese (Aged Values)",
+            "Cheese (infobox sell price)"
+          ],
+          "ingredients": [
+            "Cask (Aged Values table)",
+            "Cheese (infobox)"
+          ],
+          "silver_aged_days": [
+            "Cask (Aged Values table)",
+            "Cheese (Aged Values)"
+          ],
+          "gold_aged_days": [
+            "Cask (Aged Values table)",
+            "Cheese (Aged Values)"
+          ],
+          "iridium_aged_days": [
+            "Cask (Aged Values table)",
+            "Cheese (Aged Values)"
+          ],
+          "gold_total_days": [
+            "Cask (Aged Values table)",
+            "Cheese (Aged Values)"
+          ],
+          "iridium_total_days": [
+            "Cask (Aged Values table)",
+            "Cheese (Aged Values)",
+            "Cask Productivity (Processing Time)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "goat-cheese",
+        "name": "Goat Cheese",
+        "ingredients": [
+          {
+            "item": "Goat Milk",
+            "qty": 1
+          },
+          {
+            "item": "Large Goat Milk",
+            "qty": 1
+          }
+        ],
+        "base_price": 400,
+        "price_formula": null,
+        "aged_days": {
+          "silver": 3,
+          "gold": 4,
+          "iridium": 7
+        },
+        "total_days": {
+          "silver": 3,
+          "gold": 7,
+          "iridium": 14
+        },
+        "evidence": [
+          "Cask (Aged Values table, Goat Cheese row): \"|Goat Cheese Goat Milk orLarge Goat Milk [400] [400] Aged: 3 Days [400] Aged: 4 Days Total: 7 Days [400] Aged: 7 Days Total: 14 Days\"",
+          "Goat Cheese (Aged Values): \"{| !Normal Quality !Silver Quality (x 1.25) !Gold Quality (x 1.5) !Iridium Quality (x 2) - [400] [400] Aged: 3 Days [400] Aged: 4 Days Total: 7 Days [400] Aged: 7 Days Total: 14 Days }\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask#Aged_Values",
+            "revid": 179542
+          },
+          {
+            "title": "Goat Cheese",
+            "url": "https://stardewvalleywiki.com/Goat_Cheese#Aged_Values",
+            "revid": 190347
+          },
+          {
+            "title": "Cask Productivity",
+            "url": "https://stardewvalleywiki.com/Cask_Productivity",
+            "revid": 189244
+          }
+        ],
+        "verified": {
+          "normal_price": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (Aged Values)",
+            "Goat Cheese (infobox sell price)"
+          ],
+          "ingredients": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (infobox)"
+          ],
+          "silver_aged_days": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (Aged Values)"
+          ],
+          "gold_aged_days": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (Aged Values)"
+          ],
+          "iridium_aged_days": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (Aged Values)"
+          ],
+          "gold_total_days": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (Aged Values)"
+          ],
+          "iridium_total_days": [
+            "Cask (Aged Values table)",
+            "Goat Cheese (Aged Values)",
+            "Cask Productivity (Processing Time)"
+          ]
+        },
+        "problems": [],
+        "verification_status": "cross-checked"
+      }
+    ]
+  },
+  "rules": [
+    {
+      "id": "wine-seasons",
+      "label": "Wine takes the longest of any cask item: this many seasons of aging from basic to iridium wine",
+      "value": 2,
+      "unit": "seasons",
+      "note": "A season is 28 days, so 2 seasons = 56 days, the wine row's total.",
+      "evidence": [
+        "Cask: \"Wine takes the longest, at 2 seasons of aging\"",
+        "Wine: \"It takes 2 seasons of aging to go from basic wine to iridium quality wine.\"",
+        "Artisan Goods: \"Wine takes the longest: 2 seasons of aging to go from basic wine to iridium quality wine.\""
+      ],
+      "sources": [
+        {
+          "title": "Cask",
+          "url": "https://stardewvalleywiki.com/Cask",
+          "revid": 179542
+        },
+        {
+          "title": "Wine",
+          "url": "https://stardewvalleywiki.com/Wine#Aged_Values",
+          "revid": 192625
+        },
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods#Cask",
+          "revid": 195351
+        }
+      ],
+      "verified": [
+        "Cask",
+        "Wine",
+        "Artisan Goods"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "premature-removal",
+      "label": "Normal, silver and gold quality items can be removed early by striking the cask with an Axe, Hoe or Pickaxe",
+      "value": true,
+      "evidence": [
+        "Cask: \"Normal, silver, and gold quality items can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\"",
+        "Wine: \"quality Wine can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\"",
+        "Pale Ale: \"quality Pale Ale can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\"",
+        "Beer: \"quality Beer can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\"",
+        "Mead: \"quality Mead can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\"",
+        "Cheese: \"quality Cheese can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\"",
+        "Goat Cheese: \"quality Goat Cheese can be prematurely removed from a cask at any time by striking the cask with an Axe, Hoe, or Pickaxe.\""
+      ],
+      "sources": [
+        {
+          "title": "Cask",
+          "url": "https://stardewvalleywiki.com/Cask",
+          "revid": 179542
+        },
+        {
+          "title": "Wine",
+          "url": "https://stardewvalleywiki.com/Wine",
+          "revid": 192625
+        },
+        {
+          "title": "Pale Ale",
+          "url": "https://stardewvalleywiki.com/Pale_Ale",
+          "revid": 190580
+        },
+        {
+          "title": "Beer",
+          "url": "https://stardewvalleywiki.com/Beer",
+          "revid": 177001
+        },
+        {
+          "title": "Mead",
+          "url": "https://stardewvalleywiki.com/Mead",
+          "revid": 190688
+        },
+        {
+          "title": "Cheese",
+          "url": "https://stardewvalleywiki.com/Cheese",
+          "revid": 189929
+        },
+        {
+          "title": "Goat Cheese",
+          "url": "https://stardewvalleywiki.com/Goat_Cheese",
+          "revid": 190347
+        }
+      ],
+      "verified": [
+        "Cask",
+        "Wine",
+        "Pale Ale",
+        "Beer",
+        "Mead",
+        "Cheese",
+        "Goat Cheese"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "large-milk-gold-cheese",
+      "label": "Large Milk / Large Goat Milk make gold quality Cheese / Goat Cheese directly, so such cheese only needs the final aging step",
+      "value": true,
+      "note": "Note that although the large milks make gold quality cheeses directly, the final aging step is both 50% of the total value increase and 50% of the required time, so the g/day remains the same. (Cask Productivity; single page, so this note is not a verified value)",
+      "evidence": [
+        "Cheese Press: \"Large Milk and Large Goat Milk produce gold quality cheeses.\"",
+        "Cheese: \"while Large Milk will produce gold quality Cheese\"",
+        "Goat Cheese: \"while Large Goat Milk will produce gold quality Goat Cheese\"",
+        "Artisan Goods: \"Using a Large Milk or Large Goat Milk will always give gold star quality Cheese or Goat Cheese, respectively.\""
+      ],
+      "sources": [
+        {
+          "title": "Cheese Press",
+          "url": "https://stardewvalleywiki.com/Cheese_Press",
+          "revid": 183811
+        },
+        {
+          "title": "Cheese",
+          "url": "https://stardewvalleywiki.com/Cheese",
+          "revid": 189929
+        },
+        {
+          "title": "Goat Cheese",
+          "url": "https://stardewvalleywiki.com/Goat_Cheese",
+          "revid": 190347
+        },
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods",
+          "revid": 195351
+        }
+      ],
+      "verified": [
+        "Cheese Press",
+        "Cheese",
+        "Goat Cheese",
+        "Artisan Goods"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "iridium-not-accepted",
+      "label": "Iridium quality items can no longer be put into casks (since 1.4)",
+      "value": true,
+      "evidence": [
+        "Cask: \"{{History|1.4|Iridium quality items can no longer be put into casks.\""
+      ],
+      "sources": [
+        {
+          "title": "Cask",
+          "url": "https://stardewvalleywiki.com/Cask",
+          "revid": 179542
+        }
+      ],
+      "verified": [
+        "Cask"
+      ],
+      "problems": [
+        "value: only one wiki page (Cask) states this value; no second page to confirm it"
+      ],
+      "verification_status": "needs-verification"
+    },
+    {
+      "id": "only-in-cellar",
+      "label": "Casks can be placed anywhere but only accept goods to refine inside the cellar",
+      "value": true,
+      "note": "The second page says the cellar houses casks; only the Cask page states that casks elsewhere do not work.",
+      "evidence": [
+        "Cask: \"Casks can be placed anywhere; however, they will only accept goods to refine if they are actually in the cellar.\"",
+        "Carpenter's Shop: \"The cellar allows the player to craft and house Casks\""
+      ],
+      "sources": [
+        {
+          "title": "Cask",
+          "url": "https://stardewvalleywiki.com/Cask",
+          "revid": 179542
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop",
+          "revid": 195197
+        }
+      ],
+      "verified": [
+        "Cask",
+        "Carpenter's Shop"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "input-quality-ignored",
+      "label": "The star quality of the ingredient is ignored for most Artisan Goods (aged goods start at normal quality; Large Milk is the exception that makes gold Cheese)",
+      "value": true,
+      "evidence": [
+        "Artisan Goods: \"For most Artisan Goods, the star quality of the ingredients used is ignored.\""
+      ],
+      "sources": [
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods",
+          "revid": 195351
+        }
+      ],
+      "verified": [
+        "Artisan Goods"
+      ],
+      "problems": [
+        "value: only one wiki page (Artisan Goods) states this value; no second page to confirm it"
+      ],
+      "verification_status": "needs-verification"
+    }
+  ],
+  "cellar": {
+    "casks": [
+      {
+        "id": "starting-casks",
+        "label": "Casks the cellar comes with",
+        "value": 33,
+        "evidence": [
+          "Cask: \"The cellar comes with 33 casks.\"",
+          "Farmhouse: \"The cellar comes with 33 casks, though\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask",
+            "revid": 179542
+          },
+          {
+            "title": "Farmhouse",
+            "url": "https://stardewvalleywiki.com/Farmhouse#Upgrades",
+            "revid": 190738
+          }
+        ],
+        "verified": [
+          "Cask",
+          "Farmhouse"
+        ],
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "max-casks",
+        "label": "Most casks the cellar can hold (completely filled)",
+        "value": 189,
+        "evidence": [
+          "Cask: \"This requires 189 casks, made of\"",
+          "Cask: \"Cellar filled with the maximum 189 casks\"",
+          "Farmhouse: \"though it may house as many as 189 casks\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask",
+            "revid": 179542
+          },
+          {
+            "title": "Farmhouse",
+            "url": "https://stardewvalleywiki.com/Farmhouse#Upgrades",
+            "revid": 190738
+          }
+        ],
+        "verified": [
+          "Cask",
+          "Cask",
+          "Farmhouse"
+        ],
+        "problems": [],
+        "verification_status": "cross-checked"
+      },
+      {
+        "id": "max-casks-reachable-pc",
+        "label": "Casks that fit while leaving a path to every one (mouse/keyboard, PC)",
+        "value": 125,
+        "evidence": [
+          "Cask: \"fill the cellar with 125 casks (on PC) and still leave paths\"",
+          "Cask: \"Optimal layout for mouse/keyboard: 125 accessible casks\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask",
+            "revid": 179542
+          }
+        ],
+        "verified": [
+          "Cask",
+          "Cask"
+        ],
+        "problems": [
+          "value: only one wiki page (Cask) states this value; no second page to confirm it"
+        ],
+        "verification_status": "needs-verification"
+      },
+      {
+        "id": "max-casks-reachable-mobile",
+        "label": "Most reachable casks on mobile (corner casks cannot be reached)",
+        "value": 118,
+        "evidence": [
+          "Cask: \"so 118 is the maximum reachable number of casks\"",
+          "Cask: \"Optimal layout for mobile: 118 accessible casks\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask",
+            "revid": 179542
+          }
+        ],
+        "verified": [
+          "Cask",
+          "Cask"
+        ],
+        "problems": [
+          "value: only one wiki page (Cask) states this value; no second page to confirm it"
+        ],
+        "verification_status": "needs-verification"
+      },
+      {
+        "id": "full-cellar-hardwood",
+        "label": "Hardwood needed to craft the casks for a completely full cellar (189 casks, 33 supplied)",
+        "value": 156,
+        "note": "Consistency (not a second page): 189 Hardwood = (189 - 33) casks x 1; 3120 Wood = (189 - 33) x 20.",
+        "evidence": [
+          "Cask: \"This requires 189 casks, made of 156 Hardwood and 3120 Wood\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask",
+            "revid": 179542
+          }
+        ],
+        "verified": [
+          "Cask"
+        ],
+        "problems": [
+          "value: only one wiki page (Cask) states this value; no second page to confirm it"
+        ],
+        "verification_status": "needs-verification"
+      },
+      {
+        "id": "full-cellar-wood",
+        "label": "Wood needed to craft the casks for a completely full cellar",
+        "value": 3120,
+        "evidence": [
+          "Cask: \"This requires 189 casks, made of 156 Hardwood and 3120 Wood\""
+        ],
+        "sources": [
+          {
+            "title": "Cask",
+            "url": "https://stardewvalleywiki.com/Cask",
+            "revid": 179542
+          }
+        ],
+        "verified": [
+          "Cask"
+        ],
+        "problems": [
+          "value: only one wiki page (Cask) states this value; no second page to confirm it"
+        ],
+        "verification_status": "needs-verification"
+      }
+    ]
+  },
+  "obtain": {
+    "recipe_source": "farmhouse-cellar-upgrade",
+    "recipe_ingredients": [
+      {
+        "item": "Wood",
+        "qty": 20
+      },
+      {
+        "item": "Hardwood",
+        "qty": 1
+      }
+    ],
+    "craft_yield": 1,
+    "sellable": false,
+    "cellar_upgrade": {
+      "id": "cellar-upgrade-cost",
+      "label": "Gold cost of the third Farmhouse upgrade (adds the cellar)",
+      "value": 100000,
+      "unit": "gold",
+      "note": "No materials are listed for this upgrade on either page.",
+      "evidence": [
+        "Farmhouse: \"3 | 100000g\"",
+        "Carpenter's Shop: \"House Upgrade 3 Adds a cellar under the house, allowing access via the kitchen.The cellar allows the player to craft and house Casks which can age specific products (i.e., Cheese, Goat Cheese, Beer, Mead, Pale Ale, and Wine) to increase their quality and value.The exterior appearance of the house remains identical. 100000g\""
+      ],
+      "sources": [
+        {
+          "title": "Farmhouse",
+          "url": "https://stardewvalleywiki.com/Farmhouse#Upgrades",
+          "revid": 190738
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#House_Upgrades",
+          "revid": 195197
+        }
+      ],
+      "verified": [
+        "Farmhouse",
+        "Carpenter's Shop"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    "upgrade_days": {
+      "id": "farmhouse-upgrade-days",
+      "label": "Days Robin needs to finish a Farmhouse upgrade",
+      "value": 3,
+      "evidence": [
+        "Farmhouse: \"Robin requires three days to complete each farmhouse upgrade.\"",
+        "Carpenter's Shop: \"Farmhouse upgrades require three days to complete.\""
+      ],
+      "sources": [
+        {
+          "title": "Farmhouse",
+          "url": "https://stardewvalleywiki.com/Farmhouse#Upgrades",
+          "revid": 190738
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#House_Upgrades",
+          "revid": 195197
+        }
+      ],
+      "verified": [
+        "Farmhouse",
+        "Carpenter's Shop"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    "cellar_description": "Adds a cellar under the house, allowing access via the kitchen. The cellar houses casks which can age products such as cheese and wine to increase quality and value. The cellar comes with 33 casks, though it may house as many as 189 casks.",
+    "evidence": [
+      "Cask: \"Recipe: Final Farmhouse upgrade; ingredients: WoodHardwood; sell price: Cannot be sold\"",
+      "Crafting: \"Cask: WoodHardwood - Farmhouse cellar upgrade\"",
+      "Carpenter's Shop: \"House Upgrade 3: Adds a cellar under the house, allowing access via the kitchen.\""
+    ],
+    "sources": [
+      {
+        "title": "Cask",
+        "url": "https://stardewvalleywiki.com/Cask",
+        "revid": 179542
+      },
+      {
+        "title": "Crafting",
+        "url": "https://stardewvalleywiki.com/Crafting#Artisan_Equipment",
+        "revid": 195354
+      },
+      {
+        "title": "Carpenter's Shop",
+        "url": "https://stardewvalleywiki.com/Carpenter's_Shop#House_Upgrades",
+        "revid": 195197
+      },
+      {
+        "title": "Farmhouse",
+        "url": "https://stardewvalleywiki.com/Farmhouse#Upgrades",
+        "revid": 190738
+      }
+    ],
+    "verified": {
+      "ingredients": [
+        "Cask (infobox)",
+        "Crafting (Artisan Equipment table)"
+      ],
+      "recipe_source": [
+        "Cask (infobox)",
+        "Crafting (Artisan Equipment table)",
+        "Carpenter's Shop (House Upgrade 3)"
+      ]
+    },
+    "problems": [],
+    "verification_status": "cross-checked"
+  },
+  "professions": [
+    {
+      "id": "artisan-bonus-percent",
+      "label": "Artisan profession: Artisan Goods (including cask-aged goods) sell for this percent more",
+      "value": 40,
+      "unit": "percent",
+      "multiplier": 1.4,
+      "evidence": [
+        "Skills: \"Artisan Artisan goods (wine, cheese, oil, etc.) worth 40% more\"",
+        "Artisan Goods: \"Artisan Goods will be worth 40% more\"",
+        "Farming: \"Artisan now increases the value of Artisan Goods by 40%\""
+      ],
+      "sources": [
+        {
+          "title": "Skills",
+          "url": "https://stardewvalleywiki.com/Skills",
+          "revid": 195347
+        },
+        {
+          "title": "Artisan Goods",
+          "url": "https://stardewvalleywiki.com/Artisan_Goods",
+          "revid": 195351
+        },
+        {
+          "title": "Farming",
+          "url": "https://stardewvalleywiki.com/Farming#History",
+          "revid": 191914
+        }
+      ],
+      "verified": [
+        "Skills",
+        "Artisan Goods",
+        "Farming"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "artisan-applies-to-aged",
+      "label": "Artisan raises the price of all cask-aged products",
+      "value": true,
+      "evidence": [
+        "Cask Productivity: \"Choosing Artisan raises the base prices of all cask-aged products by the same percentage\"",
+        "Mead: \"only aging or the Artisan Profession can increase it\"",
+        "Wine: \"selling price of 400g (or 560g with the Artisan Profession)\""
+      ],
+      "sources": [
+        {
+          "title": "Cask Productivity",
+          "url": "https://stardewvalleywiki.com/Cask_Productivity",
+          "revid": 189244
+        },
+        {
+          "title": "Mead",
+          "url": "https://stardewvalleywiki.com/Mead",
+          "revid": 190688
+        },
+        {
+          "title": "Wine",
+          "url": "https://stardewvalleywiki.com/Wine",
+          "revid": 192625
+        }
+      ],
+      "verified": [
+        "Cask Productivity",
+        "Mead",
+        "Wine"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "rancher-bonus-percent",
+      "label": "Rancher profession: animal products sell for this percent more",
+      "value": 20,
+      "unit": "percent",
+      "multiplier": 1.2,
+      "evidence": [
+        "Skills: \"Rancher Animal products worth 20% more\"",
+        "Farming: \"Adjusted Rancher bonus to 20%, up from 10%\""
+      ],
+      "sources": [
+        {
+          "title": "Skills",
+          "url": "https://stardewvalleywiki.com/Skills",
+          "revid": 195347
+        },
+        {
+          "title": "Farming",
+          "url": "https://stardewvalleywiki.com/Farming#History",
+          "revid": 191914
+        }
+      ],
+      "verified": [
+        "Skills",
+        "Farming"
+      ],
+      "problems": [],
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "rancher-applies-to-aged-cheese",
+      "label": "Rancher raises the price of cheeses (only), so it raises aged Cheese and Goat Cheese",
+      "value": true,
+      "note": "Whether Rancher applies to cheese comes from a single page (Cask Productivity); the Rancher bonus itself is verified separately above.",
+      "evidence": [
+        "Cask Productivity: \"Choosing Rancher, however, will only increase the price of the cheeses\""
+      ],
+      "sources": [
+        {
+          "title": "Cask Productivity",
+          "url": "https://stardewvalleywiki.com/Cask_Productivity",
+          "revid": 189244
+        }
+      ],
+      "verified": [
+        "Cask Productivity"
+      ],
+      "problems": [
+        "value: only one wiki page (Cask Productivity) states this value; no second page to confirm it"
+      ],
+      "verification_status": "needs-verification"
+    },
+    {
+      "id": "wine-without-fruit-price",
+      "label": "Wine with no base fruit (Traveling Cart, Statue Of Endless Fortune, gifts) sells for this many gold",
+      "value": 400,
+      "unit": "gold",
+      "with_artisan": 560,
+      "evidence": [
+        "Wine: \"has a selling price of 400g (or\""
+      ],
+      "sources": [
+        {
+          "title": "Wine",
+          "url": "https://stardewvalleywiki.com/Wine",
+          "revid": 192625
+        }
+      ],
+      "verified": [
+        "Wine"
+      ],
+      "problems": [
+        "value: only one wiki page (Wine) states this value; no second page to confirm it"
+      ],
+      "verification_status": "needs-verification"
+    }
+  ],
+  "skipped": [
+    {
+      "what": "Cellar tile count / dimensions",
+      "why": "no wiki page states the cellar's size in tiles; only cask counts are given"
+    },
+    {
+      "what": "Tiller profession and cask products",
+      "why": "no cask-related page says Tiller affects Wine or other aged goods; not included"
+    },
+    {
+      "what": "Wine sell price per fruit",
+      "why": "wine is 3 × the fruit's base sell price (stated by Cask and Wine); per-fruit prices belong to data/crops.json and the Fruits page, not this file"
+    }
+  ]
+}

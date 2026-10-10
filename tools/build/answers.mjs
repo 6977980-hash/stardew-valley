@@ -12,6 +12,7 @@ import { rankCrops, reasons } from '../../assets/js/engine/decision.js';
 import { rankPonds } from '../../assets/js/engine/fishpond.js';
 import { rankAnimals } from '../../assets/js/engine/animals.js';
 import { buildGuides } from './guides.mjs';
+import { buildEntities } from './entities.mjs';
 import { fishXp, farmingXpPerDay, actionsFor } from '../../assets/js/engine/skills.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -153,20 +154,30 @@ export function buildAnswers(data) {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting'].map((s) => [s, load(`${s}.json`)]));
-  const body = JSON.stringify(buildAnswers(data), null, 2) + '\n';
-  const file = join(ROOT, 'data', 'answers.json');
-  if (process.argv.includes('--check')) {
-    let current = '';
-    try {
-      current = readFileSync(file, 'utf8');
-    } catch {}
-    if (current !== body) {
-      console.error('data/answers.json is stale: run `node tools/build/answers.mjs`');
-      process.exit(1);
+  const outputs = {
+    'answers.json': buildAnswers(data),
+    'entities.json': buildEntities(data, data.crops.crops.filter((c) => c.verification_status === 'cross-checked')),
+  };
+  let stale = false;
+  for (const [name, value] of Object.entries(outputs)) {
+    const body = JSON.stringify(value, null, 2) + '\n';
+    const file = join(ROOT, 'data', name);
+    if (process.argv.includes('--check')) {
+      let current = '';
+      try {
+        current = readFileSync(file, 'utf8');
+      } catch {}
+      if (current !== body) {
+        console.error(`data/${name} is stale: run \`node tools/build/answers.mjs\``);
+        stale = true;
+      }
+    } else {
+      writeFileSync(file, body);
+      console.log(`data/${name} written`);
     }
-    console.log('data/answers.json is up to date');
-  } else {
-    writeFileSync(file, body);
-    console.log('data/answers.json written');
+  }
+  if (process.argv.includes('--check')) {
+    if (stale) process.exit(1);
+    console.log('data/answers.json and data/entities.json are up to date');
   }
 }
