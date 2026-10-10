@@ -55,4 +55,8 @@ test.describe('phase 7 UX @live', () => {
     const box = await page.locator('.quick-plan button[type=submit]').boundingBox();
     expect(box.y + box.height).toBeLessThanOrEqual(600);
   });
+  test('tool pages show when the data was checked at the top', async ({ page }) => {
+    await page.goto('/keg-vs-preserves-jar/');
+    await expect(page.locator('.tool > .guide-byline').first()).toContainText(/Updated .*2026.*Verified for Stardew Valley/);
+  });
 });
