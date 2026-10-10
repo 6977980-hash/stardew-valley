@@ -4,6 +4,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 10, 2026: reference pages, search and more guides</h2>
+<ul>
+<li>New: a page for every crop, farm animal and machine, with prices, quality chances, profit per tile, fertilizer, processing and the greenhouse, plus ranked tables of all crops, animals and machines.</li>
+<li>New: free CSV downloads of those tables on the Data page, and a site search (press Ctrl+K, Cmd+K or /).</li>
+<li>New guides: are casks worth it, Dehydrator vs Keg, and which animals to buy first. The first five guides now have 1,500 words or more, with more tables built from the game data.</li>
+<li>Game data for casks, the Dehydrator and the Fish Smoker, cross-checked on the Stardew Valley Wiki.</li>
+</ul>
+
 <h2>October 9, 2026: trackers and guides</h2>
 <ul>
 <li>New: XP Calculator (Farming and Fishing), Crafting Calculator with a shopping list, Gift Finder for all villagers, and a Bundle Tracker for standard and Remixed bundles that saves in your browser.</li>

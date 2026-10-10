@@ -89,9 +89,16 @@ Values need two agreeing pages or are flagged.
 - **Bundles:** Remixed saves pick bundles at random, which can't be read from here, so the tracker
   asks the player which ones they have.
 
+## Casks and Dehydrator (`casks.json`, `dehydrator.json`)
+
+Imported by `tools/data/import-casks.mjs` and `import-dehydrator.mjs` with the same rules as the other
+sets (wiki sentence stored as evidence, two agreeing pages or `needs-verification`). Casks: six aged
+products with days per quality step, the 1.25 / 1.5 / 2 quality multipliers, cellar size and recipe.
+Dehydrator: Dried Fruit, Dried Mushrooms, Raisins and Smoked Fish formulas.
+
 ## Not yet covered
 
-Fruit trees and other artisan machines (Dehydrator, Fish Smoker…) are added with the tools that need them. Taro Root and Unmilled Rice
+Fruit trees and other artisan machines (Mayonnaise Machine, Cheese Press, Oil Maker…) are added with the tools that need them. Taro Root and Unmilled Rice
 use their unirrigated growth times; irrigation is not modelled yet.
 
 Wiki content is licensed CC BY-NC-SA 3.0. Sources are credited on every record and on the

@@ -1,0 +1,45 @@
+id,name,type,seasons,growth_days,regrow_days,sell_price,silver_price,gold_price,iridium_price,best_season,profit_per_tile_level0,profit_per_tile_level6,profit_per_tile_level10,seed_cost
+amaranth,Amaranth,vegetable,fall,7,,150,187,225,300,fall,244,294,324,210
+ancient-fruit,Ancient Fruit,fruit,spring/summer/fall,28,7,550,687,825,1100,spring,4444,4934,5226,
+artichoke,Artichoke,vegetable,fall,8,,160,200,240,320,fall,395,448,480,90
+beet,Beet,vegetable,fall,6,,100,125,150,200,fall,324,369,395,80
+blue-jazz,Blue Jazz,flower,spring,7,,50,62,75,100,spring,61,78,88,90
+blueberry,Blueberry,fruit,summer,13,4,50,62,75,100,summer,526,548,561,80
+bok-choy,Bok Choy,vegetable,fall,4,,80,100,120,160,fall,185,238,270,300
+broccoli,Broccoli,vegetable,fall,8,4,70,87,105,140,fall,353,392,415,
+cactus-fruit,Cactus Fruit,fruit,spring/summer/fall/winter,12,3,75,93,112,150,spring,2425,2702,2867,150
+carrot,Carrot,vegetable,spring,3,,35,43,52,70,spring,318,351,371,
+cauliflower,Cauliflower,vegetable,spring,12,,175,218,262,350,spring,193,232,255,160
+coffee-bean,Coffee Bean,other,spring/summer,10,2,15,18,22,30,spring,-1110,-1076,-1056,2500
+corn,Corn,vegetable,summer/fall,14,4,50,62,75,100,summer,405,466,502,150
+cranberries,Cranberries,fruit,fall,7,5,75,93,112,150,fall,555,596,620,240
+eggplant,Eggplant,vegetable,fall,5,5,60,75,90,120,fall,284,317,337,20
+fairy-rose,Fairy Rose,flower,fall,12,,290,362,435,580,fall,186,250,289,400
+garlic,Garlic,vegetable,spring,4,,60,75,90,120,spring,124,164,188,240
+grape,Grape,fruit,fall,10,3,80,100,120,160,fall,425,478,510,60
+green-bean,Green Bean,vegetable,spring,10,3,40,50,60,80,spring,182,209,225,60
+hops,Hops,vegetable,summer,11,1,25,31,37,50,summer,369,415,442,60
+hot-pepper,Hot Pepper,fruit,summer,5,3,40,50,60,80,summer,293,329,350,40
+kale,Kale,vegetable,spring,6,,110,137,165,220,spring,164,213,242,280
+melon,Melon,fruit,summer,12,,250,312,375,500,summer,345,401,434,160
+parsnip,Parsnip,vegetable,spring,4,,35,43,52,70,spring,92,114,127,120
+pineapple,Pineapple,fruit,summer,14,7,300,375,450,600,summer,606,673,713,
+poppy,Poppy,flower,summer,7,,140,175,210,280,summer,124,171,199,300
+potato,Potato,vegetable,spring,6,,80,100,120,160,spring,203,239,260,200
+powdermelon,Powdermelon,fruit,winter,7,,60,75,90,120,winter,182,202,214,
+pumpkin,Pumpkin,vegetable,fall,13,,320,400,480,640,fall,446,518,560,200
+radish,Radish,vegetable,summer,6,,90,112,135,180,summer,204,243,267,160
+red-cabbage,Red Cabbage,vegetable,summer,9,,260,325,390,520,summer,488,575,627,300
+rhubarb,Rhubarb,fruit,spring,13,,220,275,330,440,spring,244,293,323,200
+starfruit,Starfruit,fruit,summer,13,,750,937,1125,1500,summer,715,882,982,800
+strawberry,Strawberry,fruit,spring,8,4,120,150,180,240,spring,518,585,625,100
+summer-spangle,Summer Spangle,flower,summer,8,,90,112,135,180,summer,123,152,170,150
+summer-squash,Summer Squash,vegetable,summer,6,3,45,56,67,90,summer,364,403,426,
+sunflower,Sunflower,flower,summer/fall,8,,80,100,120,160,fall,-133,-106,-90,375
+sweet-gem-berry,Sweet Gem Berry,other,fall,24,,3000,3750,4500,6000,fall,2030,2365,2564,1000
+taro-root,Taro Root,vegetable,summer,10,,100,125,150,200,summer,202,224,238,
+tomato,Tomato,vegetable,summer,11,4,60,75,90,120,summer,269,302,322,50
+tulip,Tulip,flower,spring,6,,30,37,45,60,spring,41,54,62,80
+unmilled-rice,Unmilled Rice,vegetable,spring,8,,30,37,45,60,spring,26,36,86,120
+wheat,Wheat,vegetable,summer/fall,4,,25,31,37,50,summer,198,233,254,130
+yam,Yam,vegetable,fall,10,,160,200,240,320,fall,203,239,260,120

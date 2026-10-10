@@ -207,6 +207,40 @@ $kegs_html = do_shortcode( '[stardew_guide id="how-many-kegs-do-i-need"]' );
 st_assert( false !== strpos( $kegs_html, (string) $g_answers['kegs'][0]['name'] ), 'kegs guide prints the engine numbers' );
 st_assert( count( Guides::for_tool( 'keg-vs-preserves-jar' ) ) >= 1, 'tools list the guides that mention them' );
 
+echo "Reference pages, data downloads and search\n";
+use Stardew_Tools\Entities;
+use Stardew_Tools\Search;
+Entities::install();
+$ent = Entities::data();
+st_assert( count( $ent['crops'] ) >= 40 && count( $ent['animals'] ) >= 10 && 2 === count( $ent['machines'] ), 'entities.json has crops, animals and both machines' );
+foreach ( Entities::types() as $type => $t ) {
+	$index = get_page_by_path( $t['slug'], OBJECT, 'page' );
+	st_assert( $index && 'publish' === $index->post_status && '' !== get_post_meta( $index->ID, Seo::META_DESCRIPTION, true ), "index page published with a description: {$type}" );
+	foreach ( array_keys( $ent[ $type ] ) as $id ) {
+		$page = get_page_by_path( $t['slug'] . '/' . $id, OBJECT, 'page' );
+		if ( ! $page || 'publish' !== $page->post_status || (int) $page->post_parent !== $index->ID ) {
+			st_assert( false, "entity page is a published child of its index: {$type}/{$id}" );
+			continue;
+		}
+		$html  = do_shortcode( '[stardew_entity type="' . $type . '" id="' . $id . '"]' );
+		$words = str_word_count( wp_strip_all_tags( $html ) );
+		if ( $words < 350 || false === strpos( $html, 'results-table' ) || false !== strpos( $html, 'NaN' ) || false !== strpos( $html, 'Warning:' ) ) {
+			st_assert( false, "entity page is not thin and renders cleanly ({$words} words): {$type}/{$id}" );
+		}
+	}
+}
+st_assert( true, 'every entity page published, not thin, no NaN or PHP warnings' );
+$data_page = get_page_by_path( 'data', OBJECT, 'page' );
+st_assert( $data_page && 'publish' === $data_page->post_status, 'data page is published' );
+foreach ( array_keys( Entities::csv_files() ) as $csv ) {
+	$path = STARDEW_TOOLS_DIR . 'assets/data/' . $csv;
+	st_assert( is_readable( $path ) && substr_count( (string) file_get_contents( $path ), "\n" ) > 10, "CSV exists: {$csv}" ); // phpcs:ignore WordPress.WP.AlternativeFunctions
+}
+$index_items = Search::index();
+$kinds       = array_count_values( array_column( $index_items, 'k' ) );
+st_assert( count( $index_items ) > 80 && ! empty( $kinds['Tool'] ) && ! empty( $kinds['Guide'] ) && ! empty( $kinds['Crop'] ) && ! empty( $kinds['Animal'] ), 'search index covers tools, guides, crops and animals' );
+st_assert( 0 === count( array_filter( $index_items, function ( $i ) { return '' === $i['u'] || '' === $i['t']; } ) ), 'every search entry has a title and a url' );
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

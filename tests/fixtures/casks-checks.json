@@ -1,0 +1,53 @@
+{
+  "note": "Expected values copied from wiki pages other than the one data/casks.json takes each value from first (aging days: Cask table -> here each item's own page; cellar counts: Cask -> here Farmhouse; recipe: Cask infobox -> here Crafting; upgrade cost: Farmhouse -> here Carpenter's Shop). `evidence` is the wiki's own text.",
+  "items": [
+    { "id": "wine", "base_price_fruit_multiple": 3, "aged_days": { "silver": 14, "gold": 14, "iridium": 28 }, "total_days": { "silver": 14, "gold": 28, "iridium": 56 },
+      "source": { "title": "Wine", "revid": 192625 }, "evidence": "Silver Quality (x 1.25) Aged: 14 Days | Gold Quality (x 1.5) Aged: 14 Days Total: 28 Days | Iridium Quality (x 2) Aged: 28 Days Total: 56 Days" },
+    { "id": "pale-ale", "base_price": 300, "aged_days": { "silver": 9, "gold": 8, "iridium": 17 }, "total_days": { "silver": 9, "gold": 17, "iridium": 34 },
+      "source": { "title": "Pale Ale", "revid": 190580 }, "evidence": "Aged: 9 Days | Aged: 8 Days Total: 17 Days | Aged: 17 Days Total: 34 Days (sell price 300)" },
+    { "id": "beer", "base_price": 200, "aged_days": { "silver": 7, "gold": 7, "iridium": 14 }, "total_days": { "silver": 7, "gold": 14, "iridium": 28 },
+      "source": { "title": "Beer", "revid": 177001 }, "evidence": "Aged: 7 Days | Aged: 7 Days Total: 14 Days | Aged: 14 Days Total: 28 Days (sell price 200)" },
+    { "id": "mead", "base_price": 300, "aged_days": { "silver": 7, "gold": 7, "iridium": 14 }, "total_days": { "silver": 7, "gold": 14, "iridium": 28 },
+      "source": { "title": "Mead", "revid": 190688 }, "evidence": "Aged: 7 Days | Aged: 7 Days Total: 14 Days | Aged: 14 Days Total: 28 Days. The sell price of Mead is 300g" },
+    { "id": "cheese", "base_price": 230, "aged_days": { "silver": 3, "gold": 4, "iridium": 7 }, "total_days": { "silver": 3, "gold": 7, "iridium": 14 },
+      "source": { "title": "Cheese", "revid": 189929 }, "evidence": "Aged: 3 Days | Aged: 4 Days Total: 7 Days | Aged: 7 Days Total: 14 Days (sell price 230)" },
+    { "id": "goat-cheese", "base_price": 400, "aged_days": { "silver": 3, "gold": 4, "iridium": 7 }, "total_days": { "silver": 3, "gold": 7, "iridium": 14 },
+      "source": { "title": "Goat Cheese", "revid": 190347 }, "evidence": "Aged: 3 Days | Aged: 4 Days Total: 7 Days | Aged: 7 Days Total: 14 Days (sell price 400)" }
+  ],
+  "quality_multipliers": {
+    "source": { "title": "Pale Ale", "revid": 190580 },
+    "silver": 1.25, "gold": 1.5, "iridium": 2,
+    "evidence": "Iridium quality doubles the base sell price of Pale Ale. Silver Quality (x 1.25), Gold Quality (x 1.5), Iridium Quality (x 2)"
+  },
+  "wine_seasons": {
+    "source": { "title": "Artisan Goods", "revid": 195351 },
+    "seasons": 2, "days_per_season": 28,
+    "evidence": "Wine takes the longest: 2 seasons of aging to go from basic wine to iridium quality wine."
+  },
+  "cellar": {
+    "source": { "title": "Farmhouse", "revid": 190738 },
+    "starting_casks": 33, "max_casks": 189,
+    "evidence": "The cellar comes with 33 casks, though it may house as many as 189 casks."
+  },
+  "cellar_cost": {
+    "source": { "title": "Carpenter's Shop", "revid": 195197 },
+    "gold": 100000,
+    "evidence": "House Upgrade 3: Adds a cellar under the house, allowing access via the kitchen. ... 100000g"
+  },
+  "recipe": {
+    "source": { "title": "Crafting", "revid": 195354 },
+    "ingredients": [{ "item": "Wood", "qty": 20 }, { "item": "Hardwood", "qty": 1 }],
+    "recipe_source": "farmhouse-cellar-upgrade",
+    "evidence": "Cask: Wood (20), Hardwood (1); recipe source: Farmhouse cellar upgrade"
+  },
+  "aged_items": {
+    "source": { "title": "Carpenter's Shop", "revid": 195197 },
+    "ids": ["beer", "cheese", "goat-cheese", "mead", "pale-ale", "wine"],
+    "evidence": "age specific products (i.e., Cheese, Goat Cheese, Beer, Mead, Pale Ale, and Wine) to increase their quality and value."
+  },
+  "artisan": {
+    "source": { "title": "Skills", "revid": 195347 },
+    "percent": 40, "wine_without_fruit": 400, "wine_without_fruit_with_artisan": 560,
+    "evidence": "Artisan goods (wine, cheese, oil, etc.) worth 40% more. / Wine ... has a selling price of 400g (or 560g with the Artisan Profession)"
+  }
+}

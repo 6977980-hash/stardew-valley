@@ -1487,6 +1487,122 @@
           ]
         }
       ],
+      "unlimited": [
+        {
+          "id": "hops",
+          "name": "Hops",
+          "per_tile": 47040,
+          "sell_as": "pale-ale",
+          "total": 5456640,
+          "machines": 164
+        },
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "per_tile": 36960,
+          "sell_as": "wine",
+          "total": 4287360,
+          "machines": 104
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "per_tile": 22000,
+          "sell_as": "wine",
+          "total": 2552000,
+          "machines": 52
+        }
+      ],
+      "raw_top": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "per_tile": 8887,
+          "sell_as": "raw",
+          "total": 1030939,
+          "machines": 0
+        },
+        {
+          "id": "sweet-gem-berry",
+          "name": "Sweet Gem Berry",
+          "per_tile": 8119,
+          "sell_as": "raw",
+          "total": 941850,
+          "machines": 0
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "per_tile": 4848,
+          "sell_as": "raw",
+          "total": 562340,
+          "machines": 0
+        }
+      ],
+      "layouts": [
+        {
+          "id": "none",
+          "name": "No sprinklers (watering can)",
+          "sprinklers": 0,
+          "tiles": 120,
+          "ancient_fruit_raw": 1066488,
+          "starfruit_raw": 343154
+        },
+        {
+          "id": "quality",
+          "name": "Quality Sprinklers",
+          "sprinklers": 16,
+          "tiles": 108,
+          "ancient_fruit_raw": 959839,
+          "starfruit_raw": 308839
+        },
+        {
+          "id": "iridium",
+          "name": "Iridium Sprinklers",
+          "sprinklers": 6,
+          "tiles": 116,
+          "ancient_fruit_raw": 1030939,
+          "starfruit_raw": 331716
+        }
+      ],
+      "first_year": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "first_profit": 6666,
+          "first_harvests": 12,
+          "established_profit": 8887,
+          "established_harvests": 16,
+          "growth": 28
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "first_profit": 2860,
+          "first_harvests": 8,
+          "established_profit": 2860,
+          "established_harvests": 8,
+          "growth": 13
+        },
+        {
+          "id": "hops",
+          "name": "Hops",
+          "first_profit": 2489,
+          "first_harvests": 101,
+          "established_profit": 2827,
+          "established_harvests": 112,
+          "growth": 11
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "first_profit": 4242,
+          "first_harvests": 14,
+          "established_profit": 4848,
+          "established_harvests": 16,
+          "growth": 14
+        }
+      ],
       "per_keg_day": [
         {
           "name": "Starfruit",
@@ -1914,7 +2030,407 @@
           "name": "Hyper Speed-Gro",
           "prices": {}
         }
-      }
+      },
+      "schedule": [
+        {
+          "id": "cauliflower",
+          "name": "Cauliflower",
+          "season": "spring",
+          "growth": 12,
+          "none": [
+            13,
+            25
+          ],
+          "speed": [
+            11,
+            21
+          ],
+          "deluxe": [
+            10,
+            19,
+            28
+          ]
+        },
+        {
+          "id": "potato",
+          "name": "Potato",
+          "season": "spring",
+          "growth": 6,
+          "none": [
+            7,
+            13,
+            19,
+            25
+          ],
+          "speed": [
+            6,
+            11,
+            16,
+            21,
+            26
+          ],
+          "deluxe": [
+            5,
+            9,
+            13,
+            17,
+            21,
+            25
+          ]
+        },
+        {
+          "id": "melon",
+          "name": "Melon",
+          "season": "summer",
+          "growth": 12,
+          "none": [
+            13,
+            25
+          ],
+          "speed": [
+            11,
+            21
+          ],
+          "deluxe": [
+            10,
+            19,
+            28
+          ]
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "season": "summer",
+          "growth": 13,
+          "none": [
+            14,
+            27
+          ],
+          "speed": [
+            12,
+            23
+          ],
+          "deluxe": [
+            10,
+            19,
+            28
+          ]
+        },
+        {
+          "id": "blueberry",
+          "name": "Blueberry",
+          "season": "summer",
+          "growth": 13,
+          "none": [
+            14,
+            18,
+            22,
+            26
+          ],
+          "speed": [
+            12,
+            16,
+            20,
+            24,
+            28
+          ],
+          "deluxe": [
+            10,
+            14,
+            18,
+            22,
+            26
+          ]
+        },
+        {
+          "id": "pumpkin",
+          "name": "Pumpkin",
+          "season": "fall",
+          "growth": 13,
+          "none": [
+            14,
+            27
+          ],
+          "speed": [
+            12,
+            23
+          ],
+          "deluxe": [
+            10,
+            19,
+            28
+          ]
+        },
+        {
+          "id": "cranberries",
+          "name": "Cranberries",
+          "season": "fall",
+          "growth": 7,
+          "none": [
+            8,
+            13,
+            18,
+            23,
+            28
+          ],
+          "speed": [
+            7,
+            12,
+            17,
+            22,
+            27
+          ],
+          "deluxe": [
+            6,
+            11,
+            16,
+            21,
+            26
+          ]
+        }
+      ],
+      "late": [
+        {
+          "day": 8,
+          "rows": [
+            {
+              "id": "cauliflower",
+              "name": "Cauliflower",
+              "season": "spring",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 116,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 132,
+                  "harvests": 2
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 152,
+                  "harvests": 2
+                }
+              ],
+              "best": "deluxe-speed-gro"
+            },
+            {
+              "id": "potato",
+              "name": "Potato",
+              "season": "spring",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 179,
+                  "harvests": 3
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 139,
+                  "harvests": 4
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 219,
+                  "harvests": 5
+                }
+              ],
+              "best": "deluxe-speed-gro"
+            },
+            {
+              "id": "melon",
+              "name": "Melon",
+              "season": "summer",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 200,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 301,
+                  "harvests": 2
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 321,
+                  "harvests": 2
+                }
+              ],
+              "best": "deluxe-speed-gro"
+            },
+            {
+              "id": "starfruit",
+              "name": "Starfruit",
+              "season": "summer",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 441,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 341,
+                  "harvests": 1
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 802,
+                  "harvests": 2
+                }
+              ],
+              "best": "deluxe-speed-gro"
+            },
+            {
+              "id": "pumpkin",
+              "name": "Pumpkin",
+              "season": "fall",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 259,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 159,
+                  "harvests": 1
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 438,
+                  "harvests": 2
+                }
+              ],
+              "best": "deluxe-speed-gro"
+            }
+          ]
+        },
+        {
+          "day": 15,
+          "rows": [
+            {
+              "id": "cauliflower",
+              "name": "Cauliflower",
+              "season": "spring",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 116,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 16,
+                  "harvests": 1
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 36,
+                  "harvests": 1
+                }
+              ],
+              "best": "none"
+            },
+            {
+              "id": "potato",
+              "name": "Potato",
+              "season": "spring",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 119,
+                  "harvests": 2
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 19,
+                  "harvests": 2
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 99,
+                  "harvests": 3
+                }
+              ],
+              "best": "none"
+            },
+            {
+              "id": "melon",
+              "name": "Melon",
+              "season": "summer",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 200,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 100,
+                  "harvests": 1
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 120,
+                  "harvests": 1
+                }
+              ],
+              "best": "none"
+            },
+            {
+              "id": "starfruit",
+              "name": "Starfruit",
+              "season": "summer",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 441,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 341,
+                  "harvests": 1
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 361,
+                  "harvests": 1
+                }
+              ],
+              "best": "none"
+            },
+            {
+              "id": "pumpkin",
+              "name": "Pumpkin",
+              "season": "fall",
+              "options": [
+                {
+                  "k": "none",
+                  "profit": 259,
+                  "harvests": 1
+                },
+                {
+                  "k": "speed-gro",
+                  "profit": 159,
+                  "harvests": 1
+                },
+                {
+                  "k": "deluxe-speed-gro",
+                  "profit": 179,
+                  "harvests": 1
+                }
+              ],
+              "best": "none"
+            }
+          ]
+        }
+      ]
     },
     "fishponds": {
       "raw": [
@@ -2083,7 +2599,243 @@
         "jars": 6,
         "max_population": 10
       },
-      "count": 73
+      "count": 73,
+      "ramp": [
+        {
+          "id": "blobfish",
+          "name": "Blobfish",
+          "initial_capacity": 1,
+          "spawn_days": 4,
+          "reproduces": true,
+          "days_to_fill": 36,
+          "gold": {
+            "1": 203,
+            "3": 344,
+            "5": 485,
+            "10": 1390
+          },
+          "quests": [
+            {
+              "population": 1,
+              "to": 3,
+              "options": [
+                "3 Coral",
+                "2 Frozen Tear",
+                "2 Sea Urchin"
+              ]
+            },
+            {
+              "population": 3,
+              "to": 5,
+              "options": [
+                "5 Coffee Bean",
+                "Mayonnaise",
+                "Pizza"
+              ]
+            },
+            {
+              "population": 5,
+              "to": 7,
+              "options": [
+                "Cookie",
+                "Green Tea",
+                "Wine"
+              ]
+            },
+            {
+              "population": 7,
+              "to": 10,
+              "options": [
+                "Rainbow Shell",
+                "Rice Pudding"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "lava-eel",
+          "name": "Lava Eel",
+          "initial_capacity": 1,
+          "spawn_days": 5,
+          "reproduces": true,
+          "days_to_fill": 45,
+          "gold": {
+            "1": 245,
+            "3": 378,
+            "5": 534,
+            "10": 1345
+          },
+          "quests": [
+            {
+              "population": 1,
+              "to": 3,
+              "options": [
+                "3 Fire Quartz"
+              ]
+            },
+            {
+              "population": 3,
+              "to": 5,
+              "options": [
+                "Basalt",
+                "2 Diamond",
+                "Dwarf Scroll III"
+              ]
+            },
+            {
+              "population": 5,
+              "to": 7,
+              "options": [
+                "2 Mega Bomb"
+              ]
+            },
+            {
+              "population": 7,
+              "to": 10,
+              "options": [
+                "Iridium Bar"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "sturgeon",
+          "name": "Sturgeon",
+          "initial_capacity": 1,
+          "spawn_days": 4,
+          "reproduces": true,
+          "days_to_fill": 36,
+          "gold": {
+            "1": 40,
+            "3": 177,
+            "5": 250,
+            "10": 1039
+          },
+          "quests": [
+            {
+              "population": 1,
+              "to": 3,
+              "options": [
+                "Diamond"
+              ]
+            },
+            {
+              "population": 3,
+              "to": 5,
+              "options": [
+                "Jelly",
+                "2 Maple Syrup",
+                "Pickles"
+              ]
+            },
+            {
+              "population": 5,
+              "to": 7,
+              "options": [
+                "3 Omni Geode"
+              ]
+            },
+            {
+              "population": 7,
+              "to": 10,
+              "options": [
+                "Nautilus Shell"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "tiger-trout",
+          "name": "Tiger Trout",
+          "initial_capacity": 10,
+          "spawn_days": null,
+          "reproduces": false,
+          "days_to_fill": null,
+          "gold": {
+            "1": 85,
+            "3": 143,
+            "5": 283,
+            "10": 656
+          },
+          "quests": []
+        },
+        {
+          "id": "scorpion-carp",
+          "name": "Scorpion Carp",
+          "initial_capacity": 3,
+          "spawn_days": 4,
+          "reproduces": true,
+          "days_to_fill": 36,
+          "gold": {
+            "1": 63,
+            "3": 107,
+            "5": 152,
+            "10": 597
+          },
+          "quests": [
+            {
+              "population": 3,
+              "to": 5,
+              "options": [
+                "3 Cactus Fruit",
+                "3 Coconut"
+              ]
+            },
+            {
+              "population": 5,
+              "to": 10,
+              "options": [
+                "Golden Relic"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "void-salmon",
+          "name": "Void Salmon",
+          "initial_capacity": 1,
+          "spawn_days": 4,
+          "reproduces": true,
+          "days_to_fill": 36,
+          "gold": {
+            "1": 85,
+            "3": 143,
+            "5": 202,
+            "10": 587
+          },
+          "quests": [
+            {
+              "population": 1,
+              "to": 3,
+              "options": [
+                "5 Void Essence"
+              ]
+            },
+            {
+              "population": 3,
+              "to": 5,
+              "options": [
+                "10 Bat Wing"
+              ]
+            },
+            {
+              "population": 5,
+              "to": 7,
+              "options": [
+                "Diamond",
+                "Void Egg"
+              ]
+            },
+            {
+              "population": 7,
+              "to": 10,
+              "options": [
+                "Iridium Ore"
+              ]
+            }
+          ]
+        }
+      ]
     },
     "pigs": {
       "price": 16000,
@@ -2107,9 +2859,1165 @@
       "oil_artisan_per_day": 4473,
       "oil_makers_per_pig": 0.67,
       "cow_per_day": 330,
+      "by_friendship": [
+        {
+          "hearts": 0,
+          "friendship": 0,
+          "truffles": 1,
+          "raw": 625,
+          "oil_artisan": 1491
+        },
+        {
+          "hearts": 1,
+          "friendship": 200,
+          "truffles": 1.15,
+          "raw": 721,
+          "oil_artisan": 1720
+        },
+        {
+          "hearts": 2,
+          "friendship": 400,
+          "truffles": 1.36,
+          "raw": 852,
+          "oil_artisan": 2033
+        },
+        {
+          "hearts": 3,
+          "friendship": 600,
+          "truffles": 1.67,
+          "raw": 1042,
+          "oil_artisan": 2485
+        },
+        {
+          "hearts": 4,
+          "friendship": 800,
+          "truffles": 2.14,
+          "raw": 1339,
+          "oil_artisan": 3195
+        },
+        {
+          "hearts": 5,
+          "friendship": 1000,
+          "truffles": 3,
+          "raw": 1875,
+          "oil_artisan": 4473
+        }
+      ],
+      "conditions": [
+        "the pig has been fed",
+        "the pig has been let outside the barn",
+        "it is not raining/storming",
+        "it is not winter",
+        "there are tiles available outside upon which to place a truffle"
+      ],
+      "compare": [
+        {
+          "id": "pig",
+          "name": "Pig",
+          "building": "Deluxe Barn",
+          "price": 16000,
+          "raw": 1875,
+          "processed": 4473,
+          "payback": 3.58
+        },
+        {
+          "id": "sheep",
+          "name": "Sheep",
+          "building": "Deluxe Barn",
+          "price": 8000,
+          "raw": 295,
+          "processed": 562,
+          "payback": 14.23
+        },
+        {
+          "id": "cow",
+          "name": "Cow",
+          "building": "Barn",
+          "price": 1500,
+          "raw": 330,
+          "processed": 482,
+          "payback": 3.11
+        },
+        {
+          "id": "goat",
+          "name": "Goat",
+          "building": "Big Barn",
+          "price": 4000,
+          "raw": 299,
+          "processed": 420,
+          "payback": 9.52
+        },
+        {
+          "id": "chicken",
+          "name": "Chicken",
+          "building": "Coop",
+          "price": 800,
+          "raw": 165,
+          "processed": 399,
+          "payback": 2.01
+        },
+        {
+          "id": "rabbit",
+          "name": "Rabbit",
+          "building": "Deluxe Coop",
+          "price": 8000,
+          "raw": 175,
+          "processed": 271,
+          "payback": 29.52
+        },
+        {
+          "id": "duck",
+          "name": "Duck",
+          "building": "Big Coop",
+          "price": 1200,
+          "raw": 122,
+          "processed": 249,
+          "payback": 4.82
+        }
+      ],
       "payback_raw": 8.53,
       "payback_oil_artisan": 3.58
-    }
+    },
+    "costs": {
+      "keg": {
+        "id": "keg",
+        "name": "Keg",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Wood",
+            "qty": 30
+          },
+          {
+            "name": "Copper Ore",
+            "qty": 5
+          },
+          {
+            "name": "Iron Ore",
+            "qty": 5
+          },
+          {
+            "name": "Coal",
+            "qty": 2
+          },
+          {
+            "name": "Oak Resin",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farming Level 8"
+      },
+      "preserves-jar": {
+        "id": "preserves-jar",
+        "name": "Preserves Jar",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Wood",
+            "qty": 50
+          },
+          {
+            "name": "Stone",
+            "qty": 40
+          },
+          {
+            "name": "Coal",
+            "qty": 8
+          }
+        ],
+        "obtained": "Farming Level 4"
+      },
+      "oil-maker": {
+        "id": "oil-maker",
+        "name": "Oil Maker",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Slime",
+            "qty": 50
+          },
+          {
+            "name": "Hardwood",
+            "qty": 20
+          },
+          {
+            "name": "Gold Ore",
+            "qty": 5
+          },
+          {
+            "name": "Coal",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farming Level 8"
+      },
+      "iridium-sprinkler": {
+        "id": "iridium-sprinkler",
+        "name": "Iridium Sprinkler",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Gold Ore",
+            "qty": 5
+          },
+          {
+            "name": "Iridium Ore",
+            "qty": 5
+          },
+          {
+            "name": "Coal",
+            "qty": 2
+          },
+          {
+            "name": "Battery Pack",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farming Level 9"
+      },
+      "quality-sprinkler": {
+        "id": "quality-sprinkler",
+        "name": "Quality Sprinkler",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Gold Ore",
+            "qty": 5
+          },
+          {
+            "name": "Iron Ore",
+            "qty": 5
+          },
+          {
+            "name": "Coal",
+            "qty": 3
+          },
+          {
+            "name": "Quartz",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farming Level 6"
+      },
+      "sprinkler": {
+        "id": "sprinkler",
+        "name": "Sprinkler",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Copper Ore",
+            "qty": 5
+          },
+          {
+            "name": "Iron Ore",
+            "qty": 5
+          },
+          {
+            "name": "Coal",
+            "qty": 2
+          }
+        ],
+        "obtained": "Farming Level 2"
+      },
+      "speed-gro": {
+        "id": "speed-gro",
+        "name": "Speed-Gro",
+        "qty": 1,
+        "makes": 5,
+        "materials": [
+          {
+            "name": "Moss",
+            "qty": 5
+          },
+          {
+            "name": "Pine Tar",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farming Level 3"
+      },
+      "deluxe-speed-gro": {
+        "id": "deluxe-speed-gro",
+        "name": "Deluxe Speed-Gro",
+        "qty": 1,
+        "makes": 5,
+        "materials": [
+          {
+            "name": "Bone Fragment",
+            "qty": 5
+          },
+          {
+            "name": "Oak Resin",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farming Level 8"
+      },
+      "cask": {
+        "id": "cask",
+        "name": "Cask",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Wood",
+            "qty": 20
+          },
+          {
+            "name": "Hardwood",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farmhouse cellar upgrade"
+      },
+      "kegs_50": {
+        "id": "keg",
+        "name": "Keg",
+        "qty": 50,
+        "makes": 50,
+        "materials": [
+          {
+            "name": "Wood",
+            "qty": 1500
+          },
+          {
+            "name": "Copper Ore",
+            "qty": 250
+          },
+          {
+            "name": "Iron Ore",
+            "qty": 250
+          },
+          {
+            "name": "Coal",
+            "qty": 100
+          },
+          {
+            "name": "Oak Resin",
+            "qty": 50
+          }
+        ],
+        "obtained": "Farming Level 8"
+      },
+      "jars_50": {
+        "id": "preserves-jar",
+        "name": "Preserves Jar",
+        "qty": 50,
+        "makes": 50,
+        "materials": [
+          {
+            "name": "Wood",
+            "qty": 2500
+          },
+          {
+            "name": "Stone",
+            "qty": 2000
+          },
+          {
+            "name": "Coal",
+            "qty": 400
+          }
+        ],
+        "obtained": "Farming Level 4"
+      },
+      "iridium_6": {
+        "id": "iridium-sprinkler",
+        "name": "Iridium Sprinkler",
+        "qty": 6,
+        "makes": 6,
+        "materials": [
+          {
+            "name": "Gold Ore",
+            "qty": 30
+          },
+          {
+            "name": "Iridium Ore",
+            "qty": 30
+          },
+          {
+            "name": "Coal",
+            "qty": 12
+          },
+          {
+            "name": "Battery Pack",
+            "qty": 6
+          }
+        ],
+        "obtained": "Farming Level 9"
+      },
+      "quality_16": {
+        "id": "quality-sprinkler",
+        "name": "Quality Sprinkler",
+        "qty": 16,
+        "makes": 16,
+        "materials": [
+          {
+            "name": "Gold Ore",
+            "qty": 80
+          },
+          {
+            "name": "Iron Ore",
+            "qty": 80
+          },
+          {
+            "name": "Coal",
+            "qty": 48
+          },
+          {
+            "name": "Quartz",
+            "qty": 16
+          }
+        ],
+        "obtained": "Farming Level 6"
+      }
+    },
+    "casks": {
+      "items": [
+        {
+          "id": "pale-ale",
+          "name": "Pale Ale",
+          "normal": 300,
+          "silver": 375,
+          "gold": 450,
+          "iridium": 600,
+          "days": {
+            "normal": 0,
+            "silver": 9,
+            "gold": 17,
+            "iridium": 34
+          },
+          "per_day": 8.82,
+          "per_day_gold": 8.82,
+          "artisan": {
+            "id": "pale-ale",
+            "name": "Pale Ale",
+            "normal": 420,
+            "silver": 525,
+            "gold": 630,
+            "iridium": 840,
+            "days": {
+              "normal": 0,
+              "silver": 9,
+              "gold": 17,
+              "iridium": 34
+            },
+            "per_day": 12.35,
+            "per_day_gold": 12.35
+          }
+        },
+        {
+          "id": "beer",
+          "name": "Beer",
+          "normal": 200,
+          "silver": 250,
+          "gold": 300,
+          "iridium": 400,
+          "days": {
+            "normal": 0,
+            "silver": 7,
+            "gold": 14,
+            "iridium": 28
+          },
+          "per_day": 7.14,
+          "per_day_gold": 7.14,
+          "artisan": {
+            "id": "beer",
+            "name": "Beer",
+            "normal": 280,
+            "silver": 350,
+            "gold": 420,
+            "iridium": 560,
+            "days": {
+              "normal": 0,
+              "silver": 7,
+              "gold": 14,
+              "iridium": 28
+            },
+            "per_day": 10,
+            "per_day_gold": 10
+          }
+        },
+        {
+          "id": "mead",
+          "name": "Mead",
+          "normal": 300,
+          "silver": 375,
+          "gold": 450,
+          "iridium": 600,
+          "days": {
+            "normal": 0,
+            "silver": 7,
+            "gold": 14,
+            "iridium": 28
+          },
+          "per_day": 10.71,
+          "per_day_gold": 10.71,
+          "artisan": {
+            "id": "mead",
+            "name": "Mead",
+            "normal": 420,
+            "silver": 525,
+            "gold": 630,
+            "iridium": 840,
+            "days": {
+              "normal": 0,
+              "silver": 7,
+              "gold": 14,
+              "iridium": 28
+            },
+            "per_day": 15,
+            "per_day_gold": 15
+          }
+        },
+        {
+          "id": "cheese",
+          "name": "Cheese",
+          "normal": 230,
+          "silver": 287,
+          "gold": 345,
+          "iridium": 460,
+          "days": {
+            "normal": 0,
+            "silver": 3,
+            "gold": 7,
+            "iridium": 14
+          },
+          "per_day": 16.43,
+          "per_day_gold": 16.43,
+          "artisan": {
+            "id": "cheese",
+            "name": "Cheese",
+            "normal": 322,
+            "silver": 401,
+            "gold": 483,
+            "iridium": 644,
+            "days": {
+              "normal": 0,
+              "silver": 3,
+              "gold": 7,
+              "iridium": 14
+            },
+            "per_day": 23,
+            "per_day_gold": 23
+          }
+        },
+        {
+          "id": "goat-cheese",
+          "name": "Goat Cheese",
+          "normal": 400,
+          "silver": 500,
+          "gold": 600,
+          "iridium": 800,
+          "days": {
+            "normal": 0,
+            "silver": 3,
+            "gold": 7,
+            "iridium": 14
+          },
+          "per_day": 28.57,
+          "per_day_gold": 28.57,
+          "artisan": {
+            "id": "goat-cheese",
+            "name": "Goat Cheese",
+            "normal": 560,
+            "silver": 700,
+            "gold": 840,
+            "iridium": 1120,
+            "days": {
+              "normal": 0,
+              "silver": 3,
+              "gold": 7,
+              "iridium": 14
+            },
+            "per_day": 40,
+            "per_day_gold": 40
+          }
+        }
+      ],
+      "wine": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "base": 550,
+          "wine": 2310,
+          "silver": 2886,
+          "gold": 3465,
+          "iridium": 4620,
+          "extra_cask": 2310,
+          "per_cask_day": 41.25,
+          "keg_per_day": 282,
+          "cellar": 436590
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "base": 750,
+          "wine": 3150,
+          "silver": 3936,
+          "gold": 4725,
+          "iridium": 6300,
+          "extra_cask": 3150,
+          "per_cask_day": 56.25,
+          "keg_per_day": 384,
+          "cellar": 595350
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "base": 300,
+          "wine": 1260,
+          "silver": 1575,
+          "gold": 1890,
+          "iridium": 2520,
+          "extra_cask": 1260,
+          "per_cask_day": 22.5,
+          "keg_per_day": 154,
+          "cellar": 238140
+        },
+        {
+          "id": "melon",
+          "name": "Melon",
+          "base": 250,
+          "wine": 1050,
+          "silver": 1311,
+          "gold": 1575,
+          "iridium": 2100,
+          "extra_cask": 1050,
+          "per_cask_day": 18.75,
+          "keg_per_day": 128,
+          "cellar": 198450
+        },
+        {
+          "id": "rhubarb",
+          "name": "Rhubarb",
+          "base": 220,
+          "wine": 924,
+          "silver": 1155,
+          "gold": 1386,
+          "iridium": 1848,
+          "extra_cask": 924,
+          "per_cask_day": 16.5,
+          "keg_per_day": 113,
+          "cellar": 174636
+        },
+        {
+          "id": "grape",
+          "name": "Grape",
+          "base": 80,
+          "wine": 336,
+          "silver": 420,
+          "gold": 504,
+          "iridium": 672,
+          "extra_cask": 336,
+          "per_cask_day": 6,
+          "keg_per_day": 41,
+          "cellar": 63504
+        },
+        {
+          "id": "blueberry",
+          "name": "Blueberry",
+          "base": 50,
+          "wine": 210,
+          "silver": 261,
+          "gold": 315,
+          "iridium": 420,
+          "extra_cask": 210,
+          "per_cask_day": 3.75,
+          "keg_per_day": 26,
+          "cellar": 39690
+        },
+        {
+          "id": "cranberries",
+          "name": "Cranberries",
+          "base": 75,
+          "wine": 315,
+          "silver": 393,
+          "gold": 471,
+          "iridium": 630,
+          "extra_cask": 315,
+          "per_cask_day": 5.63,
+          "keg_per_day": 38,
+          "cellar": 59535
+        },
+        {
+          "id": "strawberry",
+          "name": "Strawberry",
+          "base": 120,
+          "wine": 504,
+          "silver": 630,
+          "gold": 756,
+          "iridium": 1008,
+          "extra_cask": 504,
+          "per_cask_day": 9,
+          "keg_per_day": 61,
+          "cellar": 95256
+        }
+      ],
+      "cellar": {
+        "start": 33,
+        "max": 189,
+        "extra": 156,
+        "wood": 3120,
+        "hardwood": 156,
+        "upgrade_gold": 100000,
+        "upgrade_days": 3,
+        "wine_days": {
+          "silver": 14,
+          "gold": 28,
+          "iridium": 56
+        }
+      },
+      "recipe": [
+        {
+          "item": "Wood",
+          "qty": 20
+        },
+        {
+          "item": "Hardwood",
+          "qty": 1
+        }
+      ],
+      "cask_cost": {
+        "id": "cask",
+        "name": "Cask",
+        "qty": 1,
+        "makes": 1,
+        "materials": [
+          {
+            "name": "Wood",
+            "qty": 20
+          },
+          {
+            "name": "Hardwood",
+            "qty": 1
+          }
+        ],
+        "obtained": "Farmhouse cellar upgrade"
+      },
+      "artisan_percent": 40
+    },
+    "dehydrator": {
+      "fruit": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "base": 550,
+          "raw5": 2750,
+          "wine": 2310,
+          "wine5": 11550,
+          "dried": 5810,
+          "dried_plain": 4150,
+          "per_dehydrator_day": 5810,
+          "per_keg_day": 370,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "base": 750,
+          "raw5": 3750,
+          "wine": 3150,
+          "wine5": 15750,
+          "dried": 7910,
+          "dried_plain": 5650,
+          "per_dehydrator_day": 7910,
+          "per_keg_day": 504,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "base": 300,
+          "raw5": 1500,
+          "wine": 1260,
+          "wine5": 6300,
+          "dried": 3185,
+          "dried_plain": 2275,
+          "per_dehydrator_day": 3185,
+          "per_keg_day": 202,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "melon",
+          "name": "Melon",
+          "base": 250,
+          "raw5": 1250,
+          "wine": 1050,
+          "wine5": 5250,
+          "dried": 2660,
+          "dried_plain": 1900,
+          "per_dehydrator_day": 2660,
+          "per_keg_day": 168,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "rhubarb",
+          "name": "Rhubarb",
+          "base": 220,
+          "raw5": 1100,
+          "wine": 924,
+          "wine5": 4620,
+          "dried": 2345,
+          "dried_plain": 1675,
+          "per_dehydrator_day": 2345,
+          "per_keg_day": 148,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "blueberry",
+          "name": "Blueberry",
+          "base": 50,
+          "raw5": 250,
+          "wine": 210,
+          "wine5": 1050,
+          "dried": 560,
+          "dried_plain": 400,
+          "per_dehydrator_day": 560,
+          "per_keg_day": 34,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "cranberries",
+          "name": "Cranberries",
+          "base": 75,
+          "raw5": 375,
+          "wine": 315,
+          "wine5": 1575,
+          "dried": 821,
+          "dried_plain": 587,
+          "per_dehydrator_day": 821,
+          "per_keg_day": 50,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "strawberry",
+          "name": "Strawberry",
+          "base": 120,
+          "raw5": 600,
+          "wine": 504,
+          "wine5": 2520,
+          "dried": 1295,
+          "dried_plain": 925,
+          "per_dehydrator_day": 1295,
+          "per_keg_day": 81,
+          "keg_days_for_5": 31.25
+        },
+        {
+          "id": "hot-pepper",
+          "name": "Hot Pepper",
+          "base": 40,
+          "raw5": 200,
+          "wine": 168,
+          "wine5": 840,
+          "dried": 455,
+          "dried_plain": 325,
+          "per_dehydrator_day": 455,
+          "per_keg_day": 27,
+          "keg_days_for_5": 31.25
+        }
+      ],
+      "raisins": {
+        "grape": 80,
+        "raisins": 840,
+        "raisins_plain": 600,
+        "wine5": 1680,
+        "raw5": 400
+      },
+      "smoker": [
+        {
+          "fish": 50,
+          "plain": 100,
+          "artisan": 140
+        },
+        {
+          "fish": 100,
+          "plain": 200,
+          "artisan": 280
+        },
+        {
+          "fish": 500,
+          "plain": 1000,
+          "artisan": 1400
+        }
+      ],
+      "recipe": {
+        "dehydrator": [
+          {
+            "id": "wood",
+            "name": "Wood",
+            "qty": 30
+          },
+          {
+            "id": "clay",
+            "name": "Clay",
+            "qty": 2
+          },
+          {
+            "id": "fire-quartz",
+            "name": "Fire Quartz",
+            "qty": 1
+          }
+        ],
+        "dehydrator_shop": {
+          "shop": "Pierre's General Store",
+          "price": 10000
+        },
+        "smoker": [
+          {
+            "id": "hardwood",
+            "name": "Hardwood",
+            "qty": 10
+          },
+          {
+            "id": "sea-jelly",
+            "name": "Sea Jelly",
+            "qty": 1
+          },
+          {
+            "id": "river-jelly",
+            "name": "River Jelly",
+            "qty": 1
+          },
+          {
+            "id": "cave-jelly",
+            "name": "Cave Jelly",
+            "qty": 1
+          }
+        ],
+        "smoker_shop": {
+          "shop": "Fish Shop",
+          "price": 10000
+        }
+      },
+      "minutes": 1750,
+      "smoker_minutes": 50,
+      "scenario": {
+        "fruit": "Starfruit",
+        "harvest": 100,
+        "window_days": 6.25,
+        "raw_each": 750,
+        "setups": [
+          {
+            "kegs": 0,
+            "dehydrators": 0,
+            "wine": 0,
+            "batches": 0,
+            "raw": 100,
+            "total": 75000
+          },
+          {
+            "kegs": 20,
+            "dehydrators": 0,
+            "wine": 20,
+            "batches": 0,
+            "raw": 80,
+            "total": 123000
+          },
+          {
+            "kegs": 0,
+            "dehydrators": 4,
+            "wine": 0,
+            "batches": 20,
+            "raw": 0,
+            "total": 158200
+          },
+          {
+            "kegs": 20,
+            "dehydrators": 2,
+            "wine": 20,
+            "batches": 12,
+            "raw": 20,
+            "total": 172920
+          },
+          {
+            "kegs": 20,
+            "dehydrators": 4,
+            "wine": 20,
+            "batches": 16,
+            "raw": 0,
+            "total": 189560
+          }
+        ]
+      }
+    },
+    "buildings": [
+      {
+        "building": "coop",
+        "animals": [
+          {
+            "id": "chicken",
+            "name": "Chicken",
+            "price": 800,
+            "building_name": "Coop",
+            "mature": 3,
+            "hearts0": 53,
+            "hearts3": 112,
+            "hearts5": 165,
+            "processed5": 399,
+            "payback": 2.01,
+            "machines": [
+              {
+                "name": "Mayonnaise Machine",
+                "per_animal": 0.11
+              }
+            ]
+          },
+          {
+            "id": "duck",
+            "name": "Duck",
+            "price": 1200,
+            "building_name": "Big Coop",
+            "mature": 5,
+            "hearts0": 57,
+            "hearts3": 82,
+            "hearts5": 122,
+            "processed5": 249,
+            "payback": 4.81,
+            "machines": [
+              {
+                "name": "Mayonnaise Machine",
+                "per_animal": 0.04
+              }
+            ]
+          },
+          {
+            "id": "rabbit",
+            "name": "Rabbit",
+            "price": 8000,
+            "building_name": "Deluxe Coop",
+            "mature": 6,
+            "hearts0": 95,
+            "hearts3": 125,
+            "hearts5": 175,
+            "processed5": 271,
+            "payback": 29.51,
+            "machines": [
+              {
+                "name": "Loom",
+                "per_animal": 0.03
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "building": "barn",
+        "animals": [
+          {
+            "id": "cow",
+            "name": "Cow",
+            "price": 1500,
+            "building_name": "Barn",
+            "mature": 5,
+            "hearts0": 133,
+            "hearts3": 231,
+            "hearts5": 330,
+            "processed5": 482,
+            "payback": 3.11,
+            "machines": [
+              {
+                "name": "Cheese Press",
+                "per_animal": 0.13
+              }
+            ]
+          },
+          {
+            "id": "goat",
+            "name": "Goat",
+            "price": 4000,
+            "building_name": "Big Barn",
+            "mature": 5,
+            "hearts0": 120,
+            "hearts3": 210,
+            "hearts5": 299,
+            "processed5": 420,
+            "payback": 9.52,
+            "machines": [
+              {
+                "name": "Cheese Press",
+                "per_animal": 0.06
+              }
+            ]
+          },
+          {
+            "id": "sheep",
+            "name": "Sheep",
+            "price": 8000,
+            "building_name": "Deluxe Barn",
+            "mature": 4,
+            "hearts0": 121,
+            "hearts3": 147,
+            "hearts5": 295,
+            "processed5": 562,
+            "payback": 14.23,
+            "machines": [
+              {
+                "name": "Loom",
+                "per_animal": 0.08
+              }
+            ]
+          },
+          {
+            "id": "pig",
+            "name": "Pig",
+            "price": 16000,
+            "building_name": "Deluxe Barn",
+            "mature": 10,
+            "hearts0": 625,
+            "hearts3": 1042,
+            "hearts5": 1875,
+            "processed5": 4473,
+            "payback": 3.58,
+            "machines": [
+              {
+                "name": "Oil Maker",
+                "per_animal": 0.67
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "egg_animals": [
+      {
+        "id": "void-chicken",
+        "name": "Void Chicken",
+        "building_name": "Big Coop",
+        "hearts5": 113,
+        "processed5": 385,
+        "how": "Void Chickens can be hatched by placing a Void Egg into an Incubator, taking 9,000m (5d 16h 40m) to incubate, or 4,500m (2d 21h 40m) with the Coopmaster Profession. There is no other way to obtain a Void Chicken."
+      },
+      {
+        "id": "golden-chicken",
+        "name": "Golden Chicken",
+        "building_name": "Big Coop",
+        "hearts5": 868,
+        "processed5": 1197,
+        "how": "Golden Chickens can be hatched by placing a Golden Egg into an Incubator, taking 9,000m (5d 16h 40m) to incubate, or 4,500m (2d 21h 40m) with the Coopmaster Profession."
+      },
+      {
+        "id": "dinosaur",
+        "name": "Dinosaur",
+        "building_name": "Big Coop",
+        "hearts5": 87,
+        "processed5": 160,
+        "how": "Dinosaurs can be hatched by placing a Dinosaur Egg into an Incubator, taking 18,000m (11d 6h 40m) to incubate, or 9,000m (5d 16h 40m) with the Coopmaster Profession."
+      },
+      {
+        "id": "ostrich",
+        "name": "Ostrich",
+        "building_name": "Barn",
+        "hearts5": 149,
+        "processed5": 659,
+        "how": "Ostriches can be hatched by placing an Ostrich Egg into an Ostrich Incubator, taking 15,000m (9d 10h) to incubate, or 7,500m (4d 18h 20m) with the Coopmaster Profession. An Ostrich Egg can be initially found by solving Journal Scrap #10, or as a random drop from the chests in the Volcano Dungeon."
+      }
+    ]
   },
   "xp": {
     "level_10": 15000,

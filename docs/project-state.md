@@ -1,6 +1,6 @@
 # Project state
 
-**Current Phase:** 5 — Trackers and first guides (built, awaiting merge, live test and approval for Phase 6)
+**Current Phase:** 6 — Knowledge and search (built, awaiting merge, live test and approval for Phase 7)
 
 **Completed Phases:**
 - 0 — Discovery & research (see docs/research/README.md)
@@ -11,13 +11,23 @@
 - 4 — Decision engine: What to Plant Today, Fish Pond Calculator, Animal Profit Calculator, Best
   Spring / Summer / Fall / Greenhouse Crops (live 2026-10-09, v0.5.0)
 - 5 — XP Calculator, Crafting Calculator, Gift Finder, Bundle Tracker, 5 topic hubs, first 5 guides
-  (v0.6.0)
+  (live 2026-10-10, v0.6.0)
+- 6 — Reference pages (44 crops, 11 animals, 2 machines), CSV data page, Ctrl+K search, internal
+  linking, cask and dehydrator data, 3 new guides, first 5 guides expanded to 1,500+ words (v0.7.0)
 
-**Current Branch:** phase-5-trackers (PR into main)
+**Current Branch:** phase-6-content (PR into main)
 
 **Latest Commit:** see PR
 
-**Tests Run (Phase 5):**
+**Tests Run (Phase 6):**
+- `npm test`: data validation (now incl. casks, dehydrator), answers and entities freshness check
+  (also the three CSVs), Node tests incl. cask and dehydrator engines and wiki fixtures
+- Integration tests inside WordPress: 217 checks (every entity page published, not thin, no PHP
+  warnings; data page and CSVs; search index)
+- Playwright: 144 tests locally (Phase 6: 12 pages x 2 widths, axe WCAG 2.1 AA, 1,500+ words per
+  guide, schema and breadcrumbs, internal links resolve, CSVs, search dialog keyboard and focus)
+
+**Earlier tests (Phase 5):**
 - `npm test`: data validation (now incl. skills, crafting, gifts, bundles), answers freshness check,
   170 Node tests (new: skills, crafting expansion, gift tastes and points, bundle progress, and wiki
   fixtures for the four new data sets)
@@ -33,7 +43,12 @@
 - E2E: 116 passed, 0 failed (local)
 
 **Known Issues:**
-- Fruit trees and other artisan machines (Dehydrator, Fish Smoker…) are not in the data yet.
+- Fruit trees and other artisan machines (Mayonnaise Machine, Cheese Press…) are not in the data yet;
+  Dehydrator, Fish Smoker and Casks are.
+- Dehydrator time: the machine page says ready the next morning (1 day), the product pages say 1,750
+  minutes; both are stored, the guide uses one day and says so (`needs-verification`).
+- Cask facts stated on one wiki page only (iridium items not accepted, max casks reachable, ingredient
+  quality ignored) are stored as `needs-verification` and not used in guides.
 - Rice and Taro use unirrigated growth times.
 - Powdermelon and Summer Squash: their own wiki pages split stages differently from the Crops page and
   the growth calendar (same total days). Two sources agree, so the data uses that split.
@@ -80,3 +95,11 @@
 
 **Next Phase:** 6 — entity pages, comparisons, data pages, remaining guides, search and internal
 linking, per the plan document; confirm with the owner before starting.
+
+- Phase 6: reference pages come from `data/entities.json` (built from the engine by
+  `tools/build/entities.mjs`), not hand-written; every page needs 450+ words of computed content or
+  it is not created. CSVs are built by the same script and checked by `--check`.
+- Site search is client-side over an index built from the same definitions that create the pages
+  (no extra service, no tracking). Internal links to entity pages are added to guide and reference
+  pages by a content filter (first mention only, max 14, never in headings, tables or links).
+- Wiki data is CC BY-NC-SA 3.0: the data page asks for credit; no licence is claimed for the CSVs.

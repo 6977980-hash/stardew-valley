@@ -14,3 +14,5 @@ export * from './skills.js';
 export * from './crafting.js';
 export * from './gifts.js';
 export * from './bundles.js';
+export * from './casks.js';
+export * from './dehydrator.js';

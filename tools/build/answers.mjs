@@ -12,6 +12,7 @@ import { rankCrops, reasons } from '../../assets/js/engine/decision.js';
 import { rankPonds } from '../../assets/js/engine/fishpond.js';
 import { rankAnimals } from '../../assets/js/engine/animals.js';
 import { buildGuides } from './guides.mjs';
+import { buildEntities, buildCsv } from './entities.mjs';
 import { fishXp, farmingXpPerDay, actionsFor } from '../../assets/js/engine/skills.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -148,25 +149,37 @@ export function buildAnswers(data) {
     };
   }
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals, guides: buildGuides(data, crops), xp };
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills'].map((s) => [s, load(`${s}.json`)]));
-  const body = JSON.stringify(buildAnswers(data), null, 2) + '\n';
-  const file = join(ROOT, 'data', 'answers.json');
-  if (process.argv.includes('--check')) {
-    let current = '';
-    try {
-      current = readFileSync(file, 'utf8');
-    } catch {}
-    if (current !== body) {
-      console.error('data/answers.json is stale: run `node tools/build/answers.mjs`');
-      process.exit(1);
+  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting', 'casks', 'dehydrator'].map((s) => [s, load(`${s}.json`)]));
+  const entities = buildEntities(data, data.crops.crops.filter((c) => c.verification_status === 'cross-checked'));
+  const outputs = {
+    'data/answers.json': JSON.stringify(buildAnswers(data), null, 2) + '\n',
+    'data/entities.json': JSON.stringify(entities, null, 2) + '\n',
+    ...Object.fromEntries(Object.entries(buildCsv(entities)).map(([n, t]) => [`assets/data/${n}`, t])),
+  };
+  let stale = false;
+  for (const [name, value] of Object.entries(outputs)) {
+    const body = value;
+    const file = join(ROOT, name);
+    if (process.argv.includes('--check')) {
+      let current = '';
+      try {
+        current = readFileSync(file, 'utf8');
+      } catch {}
+      if (current !== body) {
+        console.error(`${name} is stale: run \`node tools/build/answers.mjs\``);
+        stale = true;
+      }
+    } else {
+      writeFileSync(file, body);
+      console.log(`${name} written`);
     }
-    console.log('data/answers.json is up to date');
-  } else {
-    writeFileSync(file, body);
-    console.log('data/answers.json written');
+  }
+  if (process.argv.includes('--check')) {
+    if (stale) process.exit(1);
+    console.log('generated data files are up to date');
   }
 }

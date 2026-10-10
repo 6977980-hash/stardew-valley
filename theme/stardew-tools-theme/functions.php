@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STARDEW_THEME_VERSION', '0.6.1' );
+define( 'STARDEW_THEME_VERSION', '0.7.0' );
 
 /**
  * Brand value with a fallback, so the theme never fatals if the plugin is missing.
@@ -107,6 +107,7 @@ function st_theme_footer_fallback() {
 		array(
 			'about'          => 'About',
 			'methodology'    => 'Methodology',
+			'data'           => 'Data',
 			'changelog'      => 'Changelog',
 			'contact'        => 'Contact',
 			'privacy-policy' => 'Privacy Policy',
