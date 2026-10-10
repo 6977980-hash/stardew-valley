@@ -442,8 +442,9 @@ body .article .answer::before, body.is-tool .answer::before {
 }
 body .article .answer p, body.is-tool .answer p { font-size: 1.06rem; line-height: 1.6; }
 @media (max-width: 520px) {
-	body .article .answer, body.is-tool .answer { padding: 56px 16px 16px; }
-	body .article .answer::before, body.is-tool .answer::before { left: 16px; top: 14px; width: 32px; height: 32px; }
+	body .article .answer, body.is-tool .answer { padding: 14px 14px 14px 52px; margin-bottom: 18px; }
+	body .article .answer::before, body.is-tool .answer::before { left: 12px; top: 14px; width: 28px; height: 28px; }
+	body .article .answer p, body.is-tool .answer p { font-size: 1rem; line-height: 1.5; }
 }
 
 /* Tables */
@@ -516,4 +517,49 @@ body .article .hub-lead { font-size: 1.15rem; color: var(--c-ink); }
 @media (prefers-reduced-motion: reduce) {
 	html { scroll-behavior: auto; }
 	* { animation: none !important; transition: none !important; }
+}
+
+/* ---------- Phase 7 UX fixes ---------- */
+
+/* Plain sans for headings inside articles and tools; pixel font stays for the logo, H1 and home sections. */
+.entry-content h2, .entry-content h3, .entry-content h4 { font-family: var(--font); font-weight: 800; letter-spacing: -.005em; }
+
+/* Mobile header on one row: logo, search icon, menu icon. */
+@media (max-width: 759px) {
+	.brand { font-size: 1.2rem; }
+	.nav-toggle { padding: 8px; min-width: 44px; justify-content: center; }
+	.nav-toggle__label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+	.site-header__inner > .search-open { margin-left: auto; }
+}
+@media (min-width: 760px) {
+	.site-header__inner > .search-open { margin-left: auto; margin-right: 12px; }
+}
+
+/* Hero mini planner */
+.quick-plan { margin: 4px 0 16px; padding: 14px; background: var(--c-alt); border: 2px solid var(--c-wood-light); border-radius: 10px; }
+.quick-plan__title { margin: 0 0 10px; font-family: var(--font-pixel); font-weight: 700; font-size: 1.15rem; }
+.quick-plan__fields { display: grid; grid-template-columns: 1.3fr .7fr 1fr; gap: 10px; margin-bottom: 12px; }
+.quick-plan label { display: grid; gap: 4px; font-weight: 600; font-size: .9rem; color: var(--c-muted); }
+.quick-plan select, .quick-plan input { min-height: 44px; width: 100%; padding: 6px 10px; border: 2px solid var(--c-border); border-radius: 8px; background: var(--c-surface); color: var(--c-ink); font: inherit; font-size: 1rem; }
+.quick-plan select:focus-visible, .quick-plan input:focus-visible { outline: 3px solid var(--c-focus); outline-offset: 2px; }
+.quick-plan .btn { width: 100%; }
+.quick-plan__all { display: inline-block; margin-top: 10px; font-weight: 600; }
+@media (min-width: 560px) { .quick-plan .btn { width: auto; } .quick-plan__all { margin-left: 14px; } }
+
+.section__more { margin: 16px 0 0; font-weight: 700; }
+.newest { margin: 0 0 14px; font-weight: 600; }
+.newest a { white-space: nowrap; }
+
+/* Next step after a guide */
+.next-step { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 2em 0 1em; padding: 16px 18px; background: var(--c-field); border: 2px solid var(--c-primary); border-radius: 12px; max-width: 72ch; }
+.next-step p { margin: 0; }
+.next-step__more { flex-basis: 100%; }
+
+/* Shorter home page on phones: titles only for guide and reference cards, toolbox in two columns. */
+@media (max-width: 759px) {
+	.card--hub .card__text, #ref-heading ~ .card-grid .card__text { display: none; }
+	.card--hub, #ref-heading ~ .card-grid .card { padding-top: 12px; padding-bottom: 12px; }
+	.category-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+	.category h3 { padding: 8px 10px; font-size: 1rem; }
+	.category li { font-size: .92rem; }
 }
