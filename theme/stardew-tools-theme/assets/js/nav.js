@@ -17,3 +17,9 @@
 		}
 	});
 })();
+
+/* "On this page" starts collapsed on narrow screens so the article comes first. */
+(function () {
+	var toc = document.querySelector('.article-toc details');
+	if (toc && window.matchMedia('(max-width: 1039px)').matches) toc.removeAttribute('open');
+})();

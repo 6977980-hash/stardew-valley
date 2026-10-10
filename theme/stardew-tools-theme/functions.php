@@ -8,7 +8,7 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STARDEW_THEME_VERSION', '0.6.0' );
+define( 'STARDEW_THEME_VERSION', '0.6.1' );
 
 /**
  * Brand value with a fallback, so the theme never fatals if the plugin is missing.
@@ -141,6 +141,89 @@ function st_theme_mark( $size = 36 ) {
 		(int) $size
 	);
 }
+
+/** Inline 16x16 pixel icon (see inc/pixel-icons.php). Prints nothing for an unknown name. */
+function st_theme_pixel_icon( $name, $size = 32, $class = 'px-icon' ) {
+	static $icons = null;
+	if ( null === $icons ) {
+		$icons = require __DIR__ . '/inc/pixel-icons.php';
+	}
+	if ( ! isset( $icons[ $name ] ) ) {
+		return;
+	}
+	printf(
+		'<svg class="%1$s" width="%2$d" height="%2$d" viewBox="0 0 16 16" shape-rendering="crispEdges" aria-hidden="true" focusable="false">%3$s</svg>',
+		esc_attr( $class ),
+		(int) $size,
+		$icons[ $name ] // phpcs:ignore WordPress.Security.EscapeOutput -- static generated SVG.
+	);
+}
+
+/** Pixel icon for each topic hub. */
+function st_theme_hub_icon( $hub_id ) {
+	$map = array(
+		'crops-and-farming' => 'sprout',
+		'artisan-goods'     => 'keg',
+		'animals'           => 'pig',
+		'fishing'           => 'fish',
+		'greenhouse'        => 'greenhouse',
+	);
+	return isset( $map[ $hub_id ] ) ? $map[ $hub_id ] : 'scroll';
+}
+
+/** ['hub'|'guide', id] for a guide or hub page, or null. */
+function st_theme_guide_context() {
+	return class_exists( 'Stardew_Tools\Guides' ) ? Stardew_Tools\Guides::current() : null;
+}
+
+/**
+ * Adds ids to the <h2>s of rendered article HTML and returns [html, toc] where toc is a list
+ * of [id, text]. Headings that already carry an id keep it.
+ */
+function st_theme_toc( $html ) {
+	$toc  = array();
+	$used = array();
+	$html = preg_replace_callback(
+		'#<h2([^>]*)>(.*?)</h2>#is',
+		function ( $m ) use ( &$toc, &$used ) {
+			$text = trim( wp_strip_all_tags( $m[2] ) );
+			if ( preg_match( '/\sid=["\']([^"\']+)["\']/', $m[1], $id ) ) {
+				$id = $id[1];
+				$tag = $m[0];
+			} else {
+				$base = sanitize_title( $text );
+				$base = $base ? $base : 'section';
+				$id   = $base;
+				for ( $i = 2; isset( $used[ $id ] ); $i++ ) {
+					$id = $base . '-' . $i;
+				}
+				$tag = '<h2' . $m[1] . ' id="' . esc_attr( $id ) . '">' . $m[2] . '</h2>';
+			}
+			$used[ $id ] = true;
+			if ( '' !== $text ) {
+				$toc[] = array( $id, $text );
+			}
+			return $tag;
+		},
+		$html
+	);
+	return array( $html, $toc );
+}
+
+/** Minutes to read rendered HTML, at 220 words a minute. */
+function st_theme_reading_minutes( $html ) {
+	$words = str_word_count( wp_strip_all_tags( $html ) );
+	return max( 1, (int) round( $words / 220 ) );
+}
+
+/** Preload the pixel display font so headings do not swap late. */
+add_action(
+	'wp_head',
+	function () {
+		printf( '<link rel="preload" href="%s" as="font" type="font/woff2" crossorigin>' . "\n", esc_url( get_template_directory_uri() . '/assets/fonts/pixelify-sans-latin.woff2' ) );
+	},
+	1
+);
 
 /** Mark JS support before first paint so the mobile menu does not flash open. */
 add_action(
