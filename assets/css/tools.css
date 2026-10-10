@@ -20,6 +20,8 @@
 .field { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .field label { font-weight: 700; font-size: .95rem; }
 .field__hint { margin: 0; font-size: .85rem; color: var(--c-muted); }
+.farm-note { margin-top: 12px; }
+.linklike { background: none; border: 0; padding: 0; font: inherit; color: var(--c-link, inherit); text-decoration: underline; cursor: pointer; }
 .field select, .field input {
 	font: inherit; font-size: 1rem; min-height: 44px; width: 100%; padding: 8px 10px;
 	color: var(--c-ink); background: var(--c-bg); border: 1px solid var(--c-muted); border-radius: 8px;

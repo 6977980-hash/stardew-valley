@@ -52,4 +52,4 @@ function render(v) {
       .join('')}</tbody></table>`;
 }
 
-bindTool({ form, storageKey: 'st:xp', render });
+bindTool({ form, storageKey: 'st:xp', render, farmFields: [] });

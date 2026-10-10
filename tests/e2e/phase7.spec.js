@@ -59,4 +59,21 @@ test.describe('phase 7 UX @live', () => {
     await page.goto('/keg-vs-preserves-jar/');
     await expect(page.locator('.tool > .guide-byline').first()).toContainText(/Updated .*2026.*Verified for Stardew Valley/);
   });
+  test('level and professions carry over between tools, a shared link does not overwrite them', async ({ page }) => {
+    await page.goto('/best-crops-by-season/');
+    await page.goto('/crop-profit-calculator/');
+    await page.selectOption('#st-level', '7');
+    await page.check('input[name=tiller]');
+    await page.goto('/keg-vs-preserves-jar/');
+    await expect(page.locator('input[name=tiller]')).toBeChecked();
+    await expect(page.locator('.farm-note')).toContainText('remembered in this browser');
+    // Someone else's link shows their values but keeps my saved farm.
+    await page.goto('/crop-profit-calculator/?level=2');
+    await expect(page.locator('#st-level')).toHaveValue('2');
+    await page.goto('/crop-profit-calculator/');
+    await expect(page.locator('#st-level')).toHaveValue('7');
+    // Forgetting resets it.
+    await page.click('[data-forget-farm]');
+    await expect(page.locator('input[name=tiller]')).not.toBeChecked();
+  });
 });

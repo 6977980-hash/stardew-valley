@@ -31,6 +31,11 @@ const store = {
   },
 };
 
+// Choices that describe the player's farm rather than one question, shared by every tool that
+// has the control. Remembered in this browser only.
+const FARM_KEY = 'st:farm';
+const FARM_FIELDS = ['level', 'tiller', 'artisan', 'agri', 'rancher', 'shepherd', 'trapper'];
+
 /** Current values of every named control in the form. */
 export function readForm(form) {
   const out = {};
@@ -60,16 +65,22 @@ function writeForm(form, values) {
  * Wires a tool form: restores state (URL first, then saved settings), recalculates on every
  * change, keeps the URL shareable and remembers the settings in this browser.
  */
-export function bindTool({ form, storageKey, render }) {
+export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS }) {
   const defaults = readForm(form);
   const fromUrl = Object.fromEntries(new URLSearchParams(location.search));
-  const saved = store.get(storageKey) || {};
+  const mine = farmFields.filter((k) => k in defaults);
+  const farm = store.get(FARM_KEY) || {};
+  const farmHere = Object.fromEntries(mine.filter((k) => k in farm).map((k) => [k, farm[k]]));
+  // Saved farm settings win over this tool's own saved copy; a shared link wins over both.
+  const saved = { ...(store.get(storageKey) || {}), ...farmHere };
   writeForm(form, Object.keys(fromUrl).length ? { ...saved, ...fromUrl } : saved);
   // Unchecked boxes are absent from a shared URL; a shared link describes the whole state.
   if (Object.keys(fromUrl).length) {
     for (const el of form.elements) if (el.type === 'checkbox' && el.name && !(el.name in fromUrl)) el.checked = false;
   }
 
+  // Opening someone else's link must not overwrite your own saved farm until you change something.
+  let fromLink = Object.keys(fromUrl).length > 0;
   const update = () => {
     const values = readForm(form);
     render(values);
@@ -81,9 +92,14 @@ export function bindTool({ form, storageKey, render }) {
     const qs = params.toString();
     history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
     store.set(storageKey, values);
+    if (mine.length && !fromLink) store.set(FARM_KEY, { ...(store.get(FARM_KEY) || {}), ...Object.fromEntries(mine.map((k) => [k, values[k]])) });
   };
-  form.addEventListener('input', update);
-  form.addEventListener('change', update);
+  const edited = () => {
+    fromLink = false;
+    update();
+  };
+  form.addEventListener('input', edited);
+  form.addEventListener('change', edited);
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     update();
@@ -98,6 +114,24 @@ export function bindTool({ form, storageKey, render }) {
   }
   const share = form.closest('.tool').querySelector('[data-share]');
   if (share) share.addEventListener('click', () => copy(location.href, share, 'Link copied'));
+
+  // Say so, and let people forget it. Only on tools that share farm settings.
+  if (mine.length && !Object.keys(fromUrl).length) {
+    const note = document.createElement('p');
+    note.className = 'field__hint farm-note';
+    note.innerHTML = 'Your farm settings (level and professions) are remembered in this browser and shared by the tools. <button type="button" class="linklike" data-forget-farm>Forget my farm</button>';
+    form.appendChild(note);
+    note.querySelector('button').addEventListener('click', () => {
+      try {
+        localStorage.removeItem(FARM_KEY);
+        localStorage.removeItem(storageKey);
+      } catch {
+        /* nothing saved */
+      }
+      writeForm(form, defaults);
+      update();
+    });
+  }
 
   document.documentElement.classList.add('tool-ready');
   update();
