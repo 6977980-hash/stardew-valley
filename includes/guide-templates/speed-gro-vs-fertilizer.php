@@ -77,6 +77,68 @@ $p0    = $f['level0'][0];
 <h2>What about Deluxe Fertilizer and Hyper Speed-Gro?</h2>
 <p>Neither is sold for gold. You craft them after buying the recipes in Qi's Walnut Room on Ginger Island, so the table leaves them out. If you already have Deluxe Fertilizer, use it on your most valuable crop. Without counting its cost, it takes Starfruit to <?php echo esc_html( $gold( $sf['deluxe'] ) ); ?> a tile and Cranberries to <?php echo esc_html( $gold( $cr['deluxe'] ) ); ?>.</p>
 
+<h2>Which days you harvest</h2>
+<p>The table above is easier to trust when you can see the calendar behind it. This one lists the harvest days for a crop planted on day 1 of its season, with nothing, Speed-Gro and Deluxe Speed-Gro. A season ends on day 28, so a harvest on day 29 or later never happens.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
+<table class="results-table">
+	<caption>Harvest days when planted on day 1</caption>
+	<thead><tr><th scope="col">Crop</th><th scope="col">Days to grow</th><th scope="col">Nothing</th><th scope="col">Speed-Gro</th><th scope="col">Deluxe Speed-Gro</th></tr></thead>
+	<tbody>
+	<?php foreach ( $f['schedule'] as $r ) : ?>
+		<tr>
+			<th scope="row"><?php echo esc_html( $r['name'] ); ?> <small><?php echo esc_html( ucfirst( $r['season'] ) ); ?></small></th>
+			<td><?php echo (int) $r['growth']; ?></td>
+			<td><?php echo esc_html( implode( ', ', $r['none'] ) ); ?></td>
+			<td<?php echo count( $r['speed'] ) > count( $r['none'] ) ? ' class="is-best"' : ''; ?>><?php echo esc_html( implode( ', ', $r['speed'] ) ); ?></td>
+			<td<?php echo count( $r['deluxe'] ) > count( $r['none'] ) ? ' class="is-best"' : ''; ?>><?php echo esc_html( implode( ', ', $r['deluxe'] ) ); ?></td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<p class="table-note">Highlighted cells have more harvests than the unfertilized crop. Regrowing crops (Blueberry, Cranberries) harvest again every few days after the first.</p>
+<p>Read the Starfruit row. Without help it is ready on day 14 and again on day 27, two harvests. Speed-Gro moves them to days 12 and 23, still two, and the next would be day 34. Deluxe Speed-Gro gives days 10, 19 and 28. The third harvest lands on the very last day of the season, which is why a crop that looks fast enough on paper can still miss it by one day. Check the last number in the Deluxe column before you buy: if it is 28, every day of delay costs you the harvest.</p>
+<p>The same arithmetic explains the Potato row. Potato grows in 6 days, so it is a short-cycle crop where one day saved is a lot: Deluxe Speed-Gro turns four harvests into six. Speed-Gro alone gets you a fifth harvest on day 26, but one extra potato harvest is worth less than the 100g bag, which is why the profit table shows it losing.</p>
+
+<h2>Planting later than day 1</h2>
+<p>Most players don't plant everything on the first morning. Here is the same comparison for a planting on day 8 and on day 15 of the season, with the best option for each crop highlighted. Profit is per tile after paying for the bag, at farming level <?php echo (int) $f['level']; ?>.</p>
+<?php foreach ( $f['late'] as $block ) : ?>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
+<table class="results-table">
+	<caption>Planted on day <?php echo (int) $block['day']; ?></caption>
+	<thead><tr><th scope="col">Crop</th><th scope="col">Nothing</th><th scope="col">Speed-Gro</th><th scope="col">Deluxe Speed-Gro</th></tr></thead>
+	<tbody>
+	<?php foreach ( $block['rows'] as $r ) : ?>
+		<tr>
+			<th scope="row"><?php echo esc_html( $r['name'] ); ?> <small><?php echo esc_html( ucfirst( $r['season'] ) ); ?></small></th>
+			<?php foreach ( $r['options'] as $o ) : ?>
+			<td<?php echo $o['k'] === $r['best'] ? ' class="is-best"' : ''; ?>><?php echo esc_html( $gold( $o['profit'] ) ); ?> <small>(<?php echo (int) $o['harvests']; ?> harvest<?php echo 1 === (int) $o['harvests'] ? '' : 's'; ?>)</small></td>
+			<?php endforeach; ?>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<?php endforeach; ?>
+<p>On day 8 Deluxe Speed-Gro still wins on every crop in the table, because with 21 days left it can still add a second harvest. On day 15 there are only 14 days left, no fertilizer adds a harvest to these crops, and the bag is pure cost. By then the best choice for all of them is to plant bare. If you reach the middle of a season with gold to spend, put it into seeds or machines, not into the bag.</p>
+
+<h2>Making your own</h2>
+<p>You don't have to buy speed fertilizer. Both are crafted, and one craft makes five bags.</p>
+<ul>
+	<li><strong>Speed-Gro</strong> (Farming level 3): <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return $m['qty'] . ' ' . $m['name']; }, $g['costs']['speed-gro']['materials'] ) ) ); ?> makes <?php echo (int) $g['costs']['speed-gro']['makes']; ?> bags.</li>
+	<li><strong>Deluxe Speed-Gro</strong> (Farming level 8): <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return $m['qty'] . ' ' . $m['name']; }, $g['costs']['deluxe-speed-gro']['materials'] ) ) ); ?> makes <?php echo (int) $g['costs']['deluxe-speed-gro']['makes']; ?> bags.</li>
+</ul>
+<p>Moss, Pine Tar, Bone Fragments and Oak Resin are gathered or made, not sold, so there is no shop price to compare. What matters is the number of bags. A greenhouse of <?php echo (int) $g['greenhouse']['tiles']; ?> tiles needs <?php echo (int) $g['greenhouse']['tiles']; ?> bags per planting: <?php echo (int) ceil( $g['greenhouse']['tiles'] / 5 ); ?> crafts, or <?php echo (int) ceil( $g['greenhouse']['tiles'] / 5 ); ?> Oak Resin. Oak Resin comes from Oak Tree tappers, so a few tappers running all season cover it. Crafting Deluxe Speed-Gro in bulk before the season starts is how you reach the day-1 planting that the table assumes. The <a href="<?php echo esc_url( $tool_url( 'crafting-calculator' ) ); ?>">Crafting Calculator</a> adds up the materials for any number of crafts.</p>
+
+<h2>Common mistakes</h2>
+<ul>
+	<li><strong>Buying one bag per seed packet instead of one per tile.</strong> One bag covers a tile for the whole season, however many times you replant it.</li>
+	<li><strong>Using Speed-Gro on a regrowing crop for the regrow time.</strong> It shortens the first growth only. A Blueberry still gives berries every 4 days.</li>
+	<li><strong>Planting on day 2 for a three-harvest plan.</strong> The Starfruit schedule above ends on day 28 exactly. One day late and you lose the third harvest and the whole reason for the bag.</li>
+	<li><strong>Fertilizing every tile.</strong> Put it on the few tiles of your most valuable crop first. Starfruit and Pumpkin gain the most per bag, Potato and Kale gain the least.</li>
+	<li><strong>Counting Quality Fertilizer as a speed tool.</strong> It does nothing for timing. Judge it only on the chance of better quality.</li>
+</ul>
+
 <h2>Quick rules</h2>
 <ul>
 	<li>Planting a 12 or 13 day crop on day 1? Use Deluxe Speed-Gro.</li>

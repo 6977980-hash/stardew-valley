@@ -61,6 +61,60 @@ $pond_url = $tool_url( 'fish-pond-calculator' );
 <p>A pond starts with room for 3 fish, and you raise that to 10 by finishing the quests the fish give you. The best money fish start smaller. The wiki's Fish Pond page lists Blobfish, Lava Eel, Sturgeon, Void Salmon and Ice Pip among the fish that start with room for just one. Each quest raises the limit one step, so these ponds take weeks to reach 10, and they earn far less until then. Open the <a href="<?php echo esc_url( $pond_url ); ?>">Fish Pond Calculator</a> and set the population to what you have now to see what a half-full pond really earns.</p>
 <p>Tiger Trout is the opposite: it starts with room for all 10. It sits at #<?php echo (int) ( array_search( 'tiger-trout', array_column( $raw, 'id' ), true ) + 1 ); ?> raw and #<?php echo (int) ( array_search( 'tiger-trout', array_column( $proc, 'id' ), true ) + 1 ); ?> processed, and it is a river fish you can catch in fall and winter, so it is the easiest strong pond to set up early.</p>
 
+<h2>Why the last fish pays the most</h2>
+<p>The rankings above are for a full pond of 10. A half-full pond earns far less than half as much, because the daily chance of producing anything and the best items both improve with population. Here is what the top processed ponds earn at 1, 3, 5 and 10 fish, with Artisan:</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
+<table class="results-table">
+	<caption>Gold per day by number of fish, roe processed, with Artisan</caption>
+	<thead><tr><th scope="col">Fish</th><th scope="col">Starts with room for</th><th scope="col">1 fish</th><th scope="col">3 fish</th><th scope="col">5 fish</th><th scope="col">10 fish</th></tr></thead>
+	<tbody>
+	<?php foreach ( $fp['ramp'] as $r ) : ?>
+		<tr>
+			<th scope="row"><?php echo esc_html( $r['name'] ); ?></th>
+			<td><?php echo (int) $r['initial_capacity']; ?></td>
+			<td><?php echo esc_html( $gold( $r['gold']['1'] ) ); ?></td>
+			<td><?php echo esc_html( $gold( $r['gold']['3'] ) ); ?></td>
+			<td><?php echo esc_html( $gold( $r['gold']['5'] ) ); ?></td>
+			<td class="is-best"><?php echo esc_html( $gold( $r['gold']['10'] ) ); ?></td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<p>Look at <?php echo esc_html( $fp['ramp'][0]['name'] ); ?>. Five fish make <?php echo esc_html( $gold( $fp['ramp'][0]['gold']['5'] ) ); ?> a day and ten make <?php echo esc_html( $gold( $fp['ramp'][0]['gold']['10'] ) ); ?>. Doubling the fish nearly triples the income. The same is true of Sturgeon, which earns <?php echo esc_html( $gold( $fp['ramp'][2]['gold']['3'] ) ); ?> a day with three fish and over <?php echo esc_html( $gold( floor( $fp['ramp'][2]['gold']['10'] / 100 ) * 100 ) ); ?> with ten. Don't judge a pond by its first month. The payoff comes late.</p>
+
+<h2>How long it takes to fill</h2>
+<p>Fish in a pond reproduce on a timer that depends on the species. A new fish arrives every few days until the pond reaches its capacity, then a quest asks you for items, and finishing it raises the capacity. After a quest the timer starts over. Starting from a single fish, the fastest possible route to ten is nine spawns. At a spawn time of <?php echo (int) $fp['ramp'][0]['spawn_days']; ?> days, Blobfish and Sturgeon take at least <?php echo (int) $fp['ramp'][0]['days_to_fill']; ?> days, which is more than a season. Lava Eel spawns every <?php echo (int) $fp['ramp'][1]['spawn_days']; ?> days and needs at least <?php echo (int) $fp['ramp'][1]['days_to_fill']; ?>. Those are minimums that assume you hand in each quest the moment it appears. If you put in more fish by hand, you skip some of the wait.</p>
+<p><strong>Tiger Trout is the exception.</strong> It does not reproduce at all. A Tiger Trout pond starts with room for ten fish, but it only ever holds the ones you catch and put in. That's why it earns <?php echo esc_html( $gold( $fp['ramp'][3]['gold']['10'] ) ); ?> a day when full and nothing extra while you are still fishing for more.</p>
+
+<h2>What the quests ask for</h2>
+<p>Each time a pond reaches its limit, the fish ask for one of a few items. These are the requests for the three best ponds:</p>
+<?php foreach ( array_slice( $fp['ramp'], 0, 3 ) as $r ) : ?>
+<h3><?php echo esc_html( $r['name'] ); ?></h3>
+<ul>
+	<?php foreach ( $r['quests'] as $q ) : ?>
+	<li>At <?php echo (int) $q['population']; ?> fish (room for <?php echo (int) $q['to']; ?> after): <?php echo esc_html( implode( ', or ', $q['options'] ) ); ?>.</li>
+	<?php endforeach; ?>
+</ul>
+<?php endforeach; ?>
+<p>Some of these are not things you have lying around. Sturgeon's first request is a Diamond with no alternative, and its last is a Nautilus Shell. Read the list before you commit a pond, and save the item when you find it. Several of them (Rainbow Shell, Omni Geode, Frozen Tear) can be collected months before you need them.</p>
+
+<h2>Which pond to build first</h2>
+<ul>
+	<li><strong>Early game, few jars:</strong> Tiger Trout if you can catch ten, since it needs no waiting and no quests.</li>
+	<li><strong>Mid game, jars running:</strong> Sturgeon. It makes Caviar, which is worth more than Aged Roe, and the pond fills in about <?php echo (int) $fp['ramp'][2]['days_to_fill']; ?> days at the earliest.</li>
+	<li><strong>Late game, everything unlocked:</strong> Blobfish or Lava Eel. They earn the most, but they start with a single fish and need the longest runway.</li>
+	<li><strong>Several ponds:</strong> mix species. Jars are the real limit, so check how many jars your chosen fish need (the tables above show it) before you add a second pond.</li>
+</ul>
+
+<h2>Common mistakes</h2>
+<ul>
+	<li><strong>Comparing ponds by the full-pond number only.</strong> A pond that takes 36 days to fill earns very little for those 36 days.</li>
+	<li><strong>Selling roe raw when you own jars.</strong> Aged Roe is worth double the roe for most fish.</li>
+	<li><strong>Letting roe pile up with no jars.</strong> A pond makes roe every day. Without jars it either sits in the pond or goes to the shipping bin at the raw price.</li>
+	<li><strong>Overlooking the quest items.</strong> A pond can sit at capacity for weeks waiting on one Diamond.</li>
+</ul>
+
 <h2>Where to catch the top fish</h2>
 <ul>
 	<li><strong>Blobfish:</strong> the submarine at the Night Market in winter.</li>

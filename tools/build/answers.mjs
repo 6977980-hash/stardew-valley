@@ -148,11 +148,11 @@ export function buildAnswers(data) {
     };
   }
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals, guides: buildGuides(data, crops), xp };
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills'].map((s) => [s, load(`${s}.json`)]));
+  const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting'].map((s) => [s, load(`${s}.json`)]));
   const body = JSON.stringify(buildAnswers(data), null, 2) + '\n';
   const file = join(ROOT, 'data', 'answers.json');
   if (process.argv.includes('--check')) {
