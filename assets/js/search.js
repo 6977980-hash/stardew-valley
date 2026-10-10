@@ -50,9 +50,7 @@
 			li.id = 'site-search-opt-' + i;
 			li.setAttribute('role', 'option');
 			li.setAttribute('aria-selected', 'false');
-			var a = document.createElement('a');
-			a.href = it.u;
-			a.tabIndex = -1;
+			li.setAttribute('data-href', it.u);
 			var t = document.createElement('span');
 			t.className = 'search-dialog__t';
 			t.textContent = it.t;
@@ -62,8 +60,7 @@
 			var d = document.createElement('span');
 			d.className = 'search-dialog__d';
 			d.textContent = it.d;
-			a.appendChild(t); a.appendChild(k); a.appendChild(d);
-			li.appendChild(a);
+			li.appendChild(t); li.appendChild(k); li.appendChild(d);
 			list.appendChild(li);
 		});
 		active = rows.length ? 0 : -1;
@@ -98,10 +95,13 @@
 		else if (e.key === 'ArrowUp' && n) { e.preventDefault(); active = (active - 1 + n) % n; mark(); }
 		else if (e.key === 'Enter' && active > -1) {
 			e.preventDefault();
-			window.location.href = list.children[active].querySelector('a').href;
+			window.location.href = list.children[active].getAttribute('data-href');
 		}
 	});
-	list.addEventListener('click', function () { dialog.close(); });
+	list.addEventListener('click', function (e) {
+		var li = e.target.closest('li');
+		if (li) window.location.href = li.getAttribute('data-href');
+	});
 	dialog.addEventListener('click', function (e) { if (e.target === dialog) dialog.close(); });
 	dialog.addEventListener('close', function () {
 		if (opener && opener.focus) opener.focus();
