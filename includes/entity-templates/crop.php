@@ -220,3 +220,16 @@ if ( $rank > 3 && $best['peers'] ) {
 	<li><a href="<?php echo esc_url( $ent_url( 'crops', '' ) ); ?>">All crops</a><span>Every crop in one table, with a CSV download.</span></li>
 	<?php endif; ?>
 </ul>
+<?php
+if ( 'flower' === $e['category'] ) {
+	$peers = array();
+	foreach ( $all['crops'] as $pid => $pe ) {
+		if ( $pid !== $id && 'flower' === $pe['category'] && $ent_url( 'crops', $pid ) ) {
+			$peers[] = '<a href="' . esc_url( $ent_url( 'crops', $pid ) ) . '">' . esc_html( $pe['name'] ) . '</a>';
+		}
+	}
+	if ( $peers ) {
+		echo '<p class="entity-links">Other flowers: ' . implode( ' · ', $peers ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
+	}
+}
+?>

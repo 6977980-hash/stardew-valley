@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 10, 2026: fuller topic pages</h2>
+<ul>
+<li>The Crops, Artisan Goods, Animals, Fishing and Greenhouse pages now explain what decides the answer, with tables built from the same game data as the tools: best crops by season, kegs per plant, every animal at full hearts, what a full fish pond earns, and the best greenhouse crop for the number of kegs you own.</li>
+<li>Flower crop pages link to each other, and the Fish Pond Calculator notes the three fish where the wiki gives two different times between new fish.</li>
+</ul>
+
 <h2>October 10, 2026: easier to find things</h2>
 <ul>
 <li>New: a Tools page and a Guides page that list everything in one place, both linked from the main menu.</li>
