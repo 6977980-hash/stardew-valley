@@ -4,6 +4,15 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 10, 2026: corrections after a full audit</h2>
+<ul>
+<li>Fixed: the "Last day to plant" on crop pages is now a real date (for example Corn: Fall 14).</li>
+<li>Fixed: the Fish Pond Calculator added extra roe as a percentage instead of a fixed amount, which overstated roe for some fish by up to 13%. Rankings and the fish pond guide are updated.</li>
+<li>Fixed: machine counts in the Greenhouse Planner and Ancient Fruit vs Starfruit now allow for recipes that take several items (Coffee Beans), the animal payback is shown as "never" when an animal earns nothing, and animal tables show both a raw and a best-case payback.</li>
+<li>Fixed: a Potato price in the Speed-Gro guide, the Deluxe Fertilizer rule for iridium quality, Cheese prices with Artisan (483g), and bundles that list the same item twice.</li>
+<li>New: your farm level and professions are remembered across tools in your browser, with a "Forget my farm" button. Every tool page now shows when its data was last checked.</li>
+</ul>
+
 <h2>October 10, 2026: easier to use on phones</h2>
 <ul>
 <li>The home page is shorter, has a quick "What should I plant today?" form at the top, and no longer lists tools that are not built yet.</li>

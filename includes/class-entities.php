@@ -25,7 +25,7 @@ class Entities {
 			'crops'    => array(
 				'slug'        => 'crops',
 				'noun'        => 'crop',
-				'title'       => 'Stardew Valley Crops: Prices, Growth Times and Profit per Tile',
+				'title'       => 'Stardew Valley Crops: Prices, Growth and Profit',
 				'short'       => 'All Crops',
 				'blurb'       => 'Every crop with its price, growth time and profit per tile.',
 				'description' => 'Every Stardew Valley 1.6 crop in one table: season, days to grow, regrow time, sell price and profit per tile, with a page and CSV download.',
@@ -34,7 +34,7 @@ class Entities {
 			'animals'  => array(
 				'slug'        => 'farm-animals',
 				'noun'        => 'animal',
-				'title'       => 'Stardew Valley Farm Animals: Prices, Products and Gold per Day',
+				'title'       => 'Stardew Valley Farm Animals: Prices and Income',
 				'short'       => 'All Farm Animals',
 				'blurb'       => 'Every farm animal with its price, products and income per day.',
 				'description' => 'Every Stardew Valley 1.6 farm animal ranked: price, building, products and gold per day at full friendship, with a page for each and a CSV download.',
@@ -155,7 +155,7 @@ class Entities {
 
 	public static function data_def() {
 		return array(
-			'title'       => 'Stardew Valley Data Downloads: Crops, Animals and Machines as CSV',
+			'title'       => 'Stardew Valley Data Downloads (CSV)',
 			'short'       => 'Data Downloads',
 			'description' => 'Free CSV downloads of Stardew Valley 1.6 crop, farm animal and machine data, cross-checked against the wiki and calculated by the same engine as our tools.',
 		);
@@ -272,7 +272,8 @@ class Entities {
 		$e        = $id ? $data[ $type ][ $id ] : null;
 		$all      = $data;
 		$version  = Config::get( 'game_version' );
-		$checked  = Data::summary()['checked'];
+		$checked  = Data::modified( '2026-10-10' );
+		$data_checked = Data::summary()['checked'];
 		$tool_url = function ( $tool ) {
 			return Tools::url( $tool );
 		};
@@ -300,7 +301,7 @@ class Entities {
 			?>
 		<section class="tool-meta" aria-labelledby="entity-sources">
 			<h2 id="entity-sources">Where these numbers come from</h2>
-			<p>Game data comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a>, cross-checked between at least two of its pages (last checked <?php echo esc_html( $checked ); ?>). Profit figures are calculated by the same engine as our calculators. See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.<?php echo $index ? ' All entries: <a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['short'] ) . '</a>.' : ''; ?></p>
+			<p>Game data comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a>, cross-checked between at least two of its pages (last checked <?php echo esc_html( $data_checked ); ?>). Profit figures are calculated by the same engine as our calculators. See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.<?php echo $index ? ' All entries: <a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['short'] ) . '</a>.' : ''; ?></p>
 		</section>
 			<?php
 		}
@@ -498,12 +499,14 @@ class Entities {
 				'description'      => $def['description'],
 				'url'              => $url,
 				'mainEntityOfPage' => $url,
+				'image'            => Config::asset( Config::get( 'og_image' ) ),
 				'datePublished'    => '2026-10-10',
-				'dateModified'     => Data::summary()['checked'],
+				'dateModified'     => Data::modified( '2026-10-10' ),
 				'author'           => array(
 					'@type' => 'Person',
-					'name'  => Config::get( 'author' ),
-					'url'   => home_url( '/about/' ),
+					'name'   => Config::get( 'author' ),
+					'url'    => home_url( '/about/' ),
+					'sameAs' => array( Config::get( 'author_linkedin' ) ),
 				),
 				'publisher'        => array( '@id' => home_url( '/' ) . '#organization' ),
 				'about'            => array(

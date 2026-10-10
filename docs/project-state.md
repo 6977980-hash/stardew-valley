@@ -62,8 +62,10 @@
 - Winter has no Best Crops page (nothing grows outdoors); the Greenhouse page covers it.
 - Owner decision (2026-10-09): "Discourage search engines" stays ON and the sitemap is submitted once,
   when the whole site is finished (Phase 7).
-- The live Changelog page was created in Phase 1 and is never overwritten; new entries only reach
-  fresh installs unless the page is edited.
+- The About, Methodology and Changelog pages are refreshed from the plugin on a version change, but
+  only while the live text is still what the plugin generated (a hash is kept in post meta) or the page
+  was never edited. If the owner edits one of them by hand, the plugin leaves it alone. Titles and meta
+  descriptions of tool and guide pages are refreshed the same way.
 - Ancient Seeds have no gold price, so their cost is not counted (shown on the page).
 - LiteSpeed / Hostinger CDN: the plugin purges LiteSpeed on a version change, but the hPanel CDN may
   still need a manual purge after a deploy.

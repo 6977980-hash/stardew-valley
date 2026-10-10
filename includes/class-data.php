@@ -68,6 +68,18 @@ class Data {
 		);
 	}
 
+	/**
+	 * Date a page was last updated: the data check date, but never earlier than the day the page
+	 * itself was published (a guide written after the last data check was updated that day).
+	 */
+	public static function modified( $published = '' ) {
+		$checked = self::summary()['checked'];
+		if ( $published && ( ! $checked || strtotime( $published ) > strtotime( $checked ) ) ) {
+			return $published;
+		}
+		return $checked;
+	}
+
 	public static function reset() {
 		self::$cache = array();
 	}

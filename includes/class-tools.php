@@ -76,7 +76,7 @@ class Tools {
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),
 			),
 			'fish-pond-calculator'       => array(
-				'title'       => 'Stardew Valley Fish Pond Calculator: Best Fish for Ponds',
+				'title'       => 'Stardew Valley Fish Pond Calculator: Best Fish',
 				'short'       => 'Fish Pond Calculator',
 				'question'    => 'Which fish for my pond?',
 				'blurb'       => 'Daily roe and items for any fish, gold per day, and which fish earns the most in a pond.',
@@ -87,7 +87,7 @@ class Tools {
 				'related'     => array( 'keg-vs-preserves-jar', 'what-to-plant', 'crop-profit-calculator' ),
 			),
 			'animal-profit-calculator'   => array(
-				'title'       => 'Stardew Valley Animal Profit Calculator: Which Animal Earns Most?',
+				'title'       => 'Stardew Valley Animal Profit Calculator',
 				'short'       => 'Animal Profit Calculator',
 				'question'    => 'Which animal earns the most?',
 				'blurb'       => 'Gold per day for every farm animal, raw or through machines, with hearts, mood and professions.',
@@ -98,7 +98,7 @@ class Tools {
 				'related'     => array( 'fish-pond-calculator', 'keg-vs-preserves-jar', 'what-to-plant' ),
 			),
 			'xp-calculator'              => array(
-				'title'       => 'Stardew Valley XP Calculator: Farming and Fishing Levels',
+				'title'       => 'Stardew Valley XP Calculator (Farming, Fishing)',
 				'short'       => 'XP Calculator',
 				'question'    => 'How long to level 10?',
 				'blurb'       => 'XP to your next Farming or Fishing level, and how many harvests or catches that takes.',
@@ -109,7 +109,7 @@ class Tools {
 				'related'     => array( 'what-to-plant', 'fish-pond-calculator', 'crop-profit-calculator' ),
 			),
 			'gift-finder'                => array(
-				'title'       => 'Stardew Valley Gift Finder: Loved and Liked Gifts for Every Villager',
+				'title'       => 'Stardew Valley Gift Finder: Loved and Liked Gifts',
 				'short'       => 'Gift Finder',
 				'question'    => 'What should I give them?',
 				'blurb'       => 'Loved and liked gifts for every villager, and who loves any item. Includes how many hearts a gift is worth.',
@@ -120,11 +120,11 @@ class Tools {
 				'related'     => array( 'crafting-calculator', 'what-to-plant', 'xp-calculator' ),
 			),
 			'bundle-tracker'             => array(
-				'title'       => 'Stardew Valley Community Center Bundle Tracker (Standard and Remixed)',
+				'title'       => 'Stardew Valley Bundle Tracker (Standard, Remixed)',
 				'short'       => 'Bundle Tracker',
 				'question'    => 'Which bundle items are left?',
 				'blurb'       => 'Tick off Community Center bundle items and see what is left to find, by season. Saved in your browser.',
-				'description' => 'Stardew Valley Community Center bundle tracker for 1.6: every standard and Remixed bundle, tick off items as you collect them, and see what is still missing. Saves in your browser.',
+				'description' => 'Stardew Valley Community Center bundle tracker for 1.6: every standard and Remixed bundle, tick off items as you collect them and see what is missing. Saves in your browser.',
 				'icon'        => 'check',
 				'script'      => 'bundles',
 				'data'        => array( 'bundles' ),
@@ -192,6 +192,7 @@ class Tools {
 			$existing = get_page_by_path( $id, OBJECT, 'page' );
 			if ( $existing && 'draft' !== $existing->post_status ) {
 				update_post_meta( $existing->ID, self::META, $id );
+				Pages::sync_generated( $existing->ID, $def['title'], $def['description'] );
 				continue;
 			}
 			$postarr = array(

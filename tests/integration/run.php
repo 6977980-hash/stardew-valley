@@ -241,6 +241,22 @@ $kinds       = array_count_values( array_column( $index_items, 'k' ) );
 st_assert( count( $index_items ) > 80 && ! empty( $kinds['Tool'] ) && ! empty( $kinds['Guide'] ) && ! empty( $kinds['Crop'] ) && ! empty( $kinds['Animal'] ), 'search index covers tools, guides, crops and animals' );
 st_assert( 0 === count( array_filter( $index_items, function ( $i ) { return '' === $i['u'] || '' === $i['t']; } ) ), 'every search entry has a title and a url' );
 
+echo "Page refresh, llms.txt, dates, LinkedIn\n";
+$llms = Stardew_Tools\Llms::build();
+st_assert( false !== strpos( $llms, '# Stardew Tools' ) && false !== strpos( $llms, '/crop-profit-calculator/' ) && false !== strpos( $llms, '/are-casks-worth-it/' ) && false === stripos( $llms, 'hello world' ), 'llms.txt lists real tools and guides, not the sample post' );
+st_assert( Data::modified( '2099-01-01' ) === '2099-01-01' && Data::modified( '2000-01-01' ) === Data::summary()['checked'], 'modified date is never earlier than the page was published' );
+$about = get_page_by_path( 'about', OBJECT, 'page' );
+$meth  = get_page_by_path( 'methodology', OBJECT, 'page' );
+st_assert( $about && $meth && false !== strpos( Pages::render_template( 'about' ), 'linkedin.com/in/' ) && false !== strpos( Pages::render_template( 'methodology' ), 'linkedin.com/in/' ), 'About and Methodology templates link the founder LinkedIn' );
+// An edited title is left alone; an untouched one is refreshed.
+$probe = wp_insert_post( array( 'post_type' => 'page', 'post_status' => 'draft', 'post_title' => 'Probe old', 'post_content' => 'x' ) );
+Pages::sync_generated( $probe, 'Probe new' );
+st_assert( 'Probe new' === get_post( $probe )->post_title, 'legacy generated title is refreshed' );
+wp_update_post( array( 'ID' => $probe, 'post_title' => 'Owner edit' ) );
+Pages::sync_generated( $probe, 'Probe newer' );
+st_assert( 'Owner edit' === get_post( $probe )->post_title, 'a title edited by the owner is kept' );
+wp_delete_post( $probe, true );
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

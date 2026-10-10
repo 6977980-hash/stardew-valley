@@ -13,7 +13,8 @@ defined( 'ABSPATH' ) || exit;
 </ul>
 
 <h2>Who runs it</h2>
-<p><?php echo esc_html( $brand ); ?> is built and maintained by <?php echo esc_html( $author ); ?>. It is an independent project with no connection to the game's developer or publisher.</p>
+<p><?php echo esc_html( $brand ); ?> was founded, and is built and maintained, by <?php echo esc_html( $author ); ?>. You can find <?php echo esc_html( $author ); ?> on <a href="<?php echo esc_url( $linkedin ); ?>" rel="me noopener">LinkedIn</a>. It is an independent project with no connection to the game's developer or publisher.</p>
+<p>The game data is taken from the Stardew Valley Wiki, and every calculation uses one shared, tested engine. The <a href="<?php echo esc_url( $home_url . 'methodology/' ); ?>">methodology</a> page explains how a value gets onto the site and how it is checked.</p>
 
 <h2>Get in touch</h2>
 <p>Found a wrong number, or want a tool we do not have yet? Email <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a>.</p>

@@ -27,5 +27,8 @@ defined( 'ABSPATH' ) || exit;
 <h2>How calculations work</h2>
 <p>All tools use one shared calculation engine, so the same crop gives the same result everywhere on the site. Each tool shows an "Explain the Math" section with the actual numbers from your inputs, and lists its assumptions, such as professions, fertilizer, crop quality and days left in the season.</p>
 
+<h2>Who maintains the data</h2>
+<p>The data, the calculation engine and these pages are maintained by <?php echo esc_html( $author ); ?>, founder of <?php echo esc_html( $brand ); ?> (<a href="<?php echo esc_url( $linkedin ); ?>" rel="me noopener">LinkedIn</a>). Every record keeps its source and the date it was last checked, and a value that two sources disagree on stays out of the calculations until it is resolved.</p>
+
 <h2>Report a mistake</h2>
 <p>If a value looks wrong, email <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a> with the page and your game version.</p>

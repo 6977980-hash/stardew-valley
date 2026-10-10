@@ -76,4 +76,15 @@ test.describe('phase 7 UX @live', () => {
     await page.click('[data-forget-farm]');
     await expect(page.locator('input[name=tiller]')).not.toBeChecked();
   });
+  test('About and Methodology link the founder profile, and llms.txt maps the real site', async ({ page, request }) => {
+    for (const path of ['/about/', '/methodology/']) {
+      await page.goto(path);
+      await expect(page.locator('.entry-content a[href*="linkedin.com/in/"]')).toHaveCount(1);
+    }
+    const res = await request.get('/llms.txt');
+    const text = await res.text();
+    expect(text).toContain('## Calculators and tools');
+    expect(text).toContain('/crop-profit-calculator/');
+    expect(text.toLowerCase()).not.toContain('hello world');
+  });
 });
