@@ -73,26 +73,30 @@ class Entities {
 		$e = $d[ $type ][ $id ];
 		if ( 'crops' === $type ) {
 			$seasons = implode( ' and ', array_map( 'ucfirst', $e['seasons'] ) );
-			$title   = $e['name'] . ' in Stardew Valley: Profit, Growth Time and Best Use';
+			$title   = $e['name'] . ' in Stardew Valley: Profit and Best Use';
 			$desc    = sprintf(
-				'%1$s grows in %2$d days and sells for %3$dg. Profit per tile by farming level and fertilizer, the best machine for it and when to plant it, for Stardew Valley 1.6 (%4$s).',
+				'%1$s grows in %2$d days and sells for %3$dg. Profit per tile by level and fertilizer, best machine and when to plant (Stardew Valley 1.6, %4$s).',
 				$e['name'],
 				$e['growth_days'],
 				$e['base_price'],
 				$seasons
 			);
 		} elseif ( 'animals' === $type ) {
-			$title = $e['name'] . ' in Stardew Valley: Products, Income per Day and Price';
+			$title = $e['name'] . ' in Stardew Valley: Income and Price';
 			$desc  = sprintf(
-				'%1$s in Stardew Valley 1.6: %2$s, makes about %3$dg a day at full friendship (%4$dg with artisan goods). Income by hearts and how it compares with other animals.',
+				'%1$s in Stardew Valley 1.6: %2$s, earns about %3$dg a day at full friendship (%4$dg with artisan goods). Income by hearts, compared.',
 				$e['name'],
 				$e['price'] ? 'costs ' . number_format( $e['price'] ) . 'g in the ' . $e['building'] : 'lives in the ' . $e['building'],
 				$e['full']['raw'],
 				$e['full']['processed']
 			);
 		} else {
-			$title = $e['name'] . ' in Stardew Valley: Best Crops and Gold per Day';
+			$title = $e['name'] . ': Best Crops per Day in Stardew Valley';
 			$desc  = sprintf( 'Which crops earn the most in a %1$s in Stardew Valley 1.6: all %2$d crops it accepts ranked by gold per machine per day, with times and prices.', $e['name'], $e['accepted'] );
+		}
+		// Keep meta descriptions where search results will not cut them off.
+		if ( strlen( $desc ) > 158 ) {
+			$desc = rtrim( substr( $desc, 0, strrpos( substr( $desc, 0, 157 ), ' ' ) ), ' ,.;:' ) . '…';
 		}
 		return array(
 			'title'       => $title,
@@ -170,6 +174,15 @@ class Entities {
 			if ( '' === (string) get_post_meta( $existing->ID, Seo::META_DESCRIPTION, true ) || get_post_meta( $existing->ID, self::META . '_auto', true ) ) {
 				update_post_meta( $existing->ID, Seo::META_DESCRIPTION, $def['description'] );
 				update_post_meta( $existing->ID, self::META . '_auto', 1 );
+				// Pages we generated follow our current title; a title the owner edited by hand is flagged by removing _auto.
+				if ( $existing->post_title !== $def['title'] ) {
+					wp_update_post(
+						array(
+							'ID'         => $existing->ID,
+							'post_title' => $def['title'],
+						)
+					);
+				}
 			}
 			return $existing->ID;
 		}

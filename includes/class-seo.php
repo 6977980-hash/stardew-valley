@@ -177,7 +177,7 @@ class Seo {
 	/* ---------- Robots ---------- */
 
 	public static function robots( $robots ) {
-		$noindex = is_404() || is_search() || is_author() || is_date() || is_attachment();
+		$noindex = is_404() || is_search() || is_author() || is_date() || is_attachment() || is_category() || is_tag() || is_tax();
 		if ( is_singular() && get_post_meta( get_queried_object_id(), self::META_NOINDEX, true ) ) {
 			$noindex = true;
 		}
@@ -215,7 +215,8 @@ class Seo {
 	/* ---------- Sitemap ---------- */
 
 	public static function sitemap_providers( $provider, $name ) {
-		return 'users' === $name ? false : $provider;
+		// No author or category pages in the sitemap: one author, and no blog.
+		return in_array( $name, array( 'users', 'taxonomies' ), true ) ? false : $provider;
 	}
 
 	public static function sitemap_exclude_noindex( $args ) {
