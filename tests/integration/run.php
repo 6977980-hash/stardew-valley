@@ -273,6 +273,13 @@ foreach ( Tools::definitions() as $tid => $tdef ) {
 }
 st_assert( $every_tool, 'no live tool is missing from the Tools page' );
 
+echo "Topic hubs\n";
+foreach ( array( 'crops-and-farming', 'artisan-goods', 'animals', 'fishing', 'greenhouse' ) as $hub_id ) {
+	$hub_html = do_shortcode( '[stardew_hub id="' . $hub_id . '"]' );
+	$hub_words = str_word_count( wp_strip_all_tags( $hub_html ) );
+	st_assert( $hub_words >= 500 && false !== strpos( $hub_html, '<table' ) && false === strpos( $hub_html, 'Warning' ) && false === strpos( $hub_html, 'Notice' ), "hub $hub_id has substantive text and a data table ($hub_words words)" );
+}
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

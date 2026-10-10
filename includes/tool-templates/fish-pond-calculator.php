@@ -77,6 +77,7 @@ $g = function ( $n ) {
 	<ul>
 		<li>The population stays the same for the days you enter, and you collect the pond every day (an uncollected item is replaced by the next one).</li>
 		<li>Items without a sell price (such as Golden Coconut) count as 0g.</li>
+		<li>The wiki gives two different times between new fish for three fish: Anchovy (2 days on its fish page, 1 in the Fish Pond table), Halibut (3 or 2) and Super Cucumber (5 or 4). We use the fish page, so for these three the real time may differ by a day.</li>
 		<li>Building a pond costs <?php echo esc_html( $pond ? $g( $pond['building']['cost'] ) : '' ); ?> plus materials at Robin's.</li>
 	</ul>
 </section>
