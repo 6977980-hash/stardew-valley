@@ -470,18 +470,34 @@ class Entities {
 		if ( 'data' === $cur[0] ) {
 			$def      = self::data_def();
 			$graph[]  = array(
-				'@type'       => 'Dataset',
-				'name'        => $def['title'],
-				'description' => $def['description'],
-				'url'         => $url,
-				'creator'     => array(
-					'@type' => 'Person',
-					'name'  => Config::get( 'author' ),
+				'@type'               => 'Dataset',
+				'name'                => $def['title'],
+				'description'         => $def['description'],
+				'url'                 => $url,
+				// Google's Dataset report warns without a license; this is the wiki licence the page itself states.
+				'license'             => 'https://creativecommons.org/licenses/by-nc-sa/3.0/',
+				'isAccessibleForFree' => true,
+				'keywords'            => array( 'Stardew Valley', 'crops', 'farm animals', 'artisan machines', 'profit', 'CSV' ),
+				'version'             => Config::get( 'game_version' ),
+				'dateModified'        => Data::modified( '2026-10-10' ),
+				'inLanguage'          => 'en',
+				'isBasedOn'           => 'https://stardewvalleywiki.com/',
+				'creator'             => array(
+					'@type'  => 'Person',
+					'name'   => Config::get( 'author' ),
+					'url'    => home_url( '/about/' ),
+					'sameAs' => array( Config::get( 'author_linkedin' ) ),
 				),
-				'distribution' => array_map(
+				'publisher'           => array(
+					'@type' => 'Organization',
+					'name'  => Config::get( 'brand_name' ),
+					'url'   => home_url( '/' ),
+				),
+				'distribution'        => array_map(
 					function ( $f ) {
 						return array(
 							'@type'          => 'DataDownload',
+							'name'           => $f,
 							'encodingFormat' => 'text/csv',
 							'contentUrl'     => self::csv_url( $f ),
 						);
