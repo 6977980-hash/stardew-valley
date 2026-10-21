@@ -231,11 +231,14 @@ add_action(
 	1
 );
 
-/** Mark JS support before first paint so the mobile menu does not flash open. */
+/**
+ * Mark JS support before first paint so the mobile menu does not flash open. The menu toggle
+ * lives here too, not in nav.js, so the Menu button works even if nav.js fails or is delayed.
+ */
 add_action(
 	'wp_head',
 	function () {
-		echo "<script>document.documentElement.classList.add('js')</script>\n";
+		echo "<script>document.documentElement.classList.add('js');document.addEventListener('click',function(e){var t=e.target.closest&&e.target.closest('.nav-toggle'),n=document.getElementById('primary-nav');if(!t||!n)return;var o=t.getAttribute('aria-expanded')!=='true';t.setAttribute('aria-expanded',o?'true':'false');n.classList.toggle('is-open',o)});</script>\n";
 	},
 	0
 );

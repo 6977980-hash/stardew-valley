@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.11.0
+Stable tag: 0.12.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,13 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.12.0 (2026-10-21) =
+* Tools: result next to the form on laptops, short answer folds on phones, home planner and shared links open at the result.
+* Inputs: every number box is read the same way (min/max, blank = default, 1e5, decimals) and says what it used; XP target follows the level; plurals.
+* Crafting list in share links and cleared by Reset; Bundle Tracker keeps focus, survives bad saved data, enforces Remixed slots, season filter.
+* Search: villagers, pond fish and recipes; one Escape closes; index cached and loaded on first open instead of inlined on every page.
+* Fallbacks: notice when a tool can't load, menu works without nav.js. Home: one "Browse all tools" link, New badges expire after 30 days.
 
 = 0.11.0 (2026-10-21) =
 * Security: no username leak through ?author= or the REST users list, XML-RPC and pingbacks off, no WordPress version in feeds, dev files and raw data blocked.

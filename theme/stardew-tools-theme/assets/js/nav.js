@@ -1,18 +1,13 @@
-/* Mobile menu toggle. The html.js class is set in <head> by functions.php; without JS the menu stays visible. */
+/* Mobile menu: the html.js class and the Menu button's click handler are inline in <head>
+   (functions.php), so the menu opens even if this file fails. Escape closes it. */
 (function () {
 	var toggle = document.querySelector('.nav-toggle');
 	var nav = document.getElementById('primary-nav');
 	if (!toggle || !nav) return;
-	function setOpen(open) {
-		toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
-		nav.classList.toggle('is-open', open);
-	}
-	toggle.addEventListener('click', function () {
-		setOpen(toggle.getAttribute('aria-expanded') !== 'true');
-	});
 	document.addEventListener('keydown', function (e) {
 		if (e.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') {
-			setOpen(false);
+			toggle.setAttribute('aria-expanded', 'false');
+			nav.classList.remove('is-open');
 			toggle.focus();
 		}
 	});

@@ -38,13 +38,25 @@ foreach ( $bundles ? $bundles['bundles'] : array() as $b ) {
 	</div>
 </form>
 <noscript><p class="notice">The tracker needs JavaScript. The bundle list below is shown without ticks.</p></noscript>
+<?php stardew_tools_load_check(); ?>
 
 <section class="tool-results" aria-labelledby="results-heading">
 	<h2 id="results-heading">Your progress</h2>
 	<p class="result-summary" data-summary role="status" aria-live="polite"></p>
 	<div data-rooms></div>
 	<h2 id="needed-heading">Still to find</h2>
-	<div class="table-wrap" tabindex="0" role="region" aria-label="Results table" data-results></div>
+	<div class="field needed-filter">
+		<label for="st-needed-season">Show items you can find in</label>
+		<select id="st-needed-season" data-season>
+			<option value="">Any season</option>
+			<option value="Spring">Spring</option>
+			<option value="Summer">Summer</option>
+			<option value="Fall">Fall</option>
+			<option value="Winter">Winter</option>
+		</select>
+	</div>
+	<div class="table-wrap" tabindex="0" role="region" aria-labelledby="needed-heading" id="st-needed" data-results></div>
+	<button type="button" class="button button--ghost needed-more" data-more aria-controls="st-needed" hidden>Show all items</button>
 </section>
 
 <?php stardew_tools_ad( 'below-result' ); ?>

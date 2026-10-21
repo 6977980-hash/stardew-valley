@@ -1,23 +1,35 @@
-// Site search dialog (Ctrl+K, Cmd+K or "/"). Filters the small index embedded in the page.
+// Site search dialog (Ctrl+K, Cmd+K or "/"). The index is a small JSON file fetched the first
+// time search is opened (or the button is pointed at), then filtered in the browser.
 (function () {
 	var dialog = document.getElementById('site-search');
-	var raw = document.getElementById('site-search-index');
-	if (!dialog || !raw || typeof dialog.showModal !== 'function') {
+	var url = dialog && dialog.getAttribute('data-index-url');
+	if (!dialog || !url || typeof dialog.showModal !== 'function' || !window.fetch) {
 		document.querySelectorAll('[data-search-open]').forEach(function (b) { b.hidden = true; });
 		return;
 	}
-	var index = [];
-	try { index = JSON.parse(raw.textContent); } catch (e) { return; }
+	var index = null;
+	var loading = null;
+	function load() {
+		if (!loading) {
+			loading = fetch(url, { credentials: 'omit' })
+				.then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+				.then(function (items) {
+					items.forEach(function (it) {
+						it.n = norm(it.t);
+						it.all = norm([it.t, it.k, it.d, it.x].join(' '));
+					});
+					index = items;
+				})
+				.catch(function () { loading = null; });
+		}
+		return loading;
+	}
 	var input = dialog.querySelector('[data-search-input]');
 	var list = dialog.querySelector('[data-search-results]');
 	var status = dialog.querySelector('[data-search-status]');
 	var active = -1;
 	var opener = null;
 	var norm = function (s) { return String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim(); };
-	index.forEach(function (it) {
-		it.n = norm(it.t);
-		it.all = norm([it.t, it.k, it.d, it.x].join(' '));
-	});
 
 	function score(it, words, q) {
 		var s = 0;
@@ -32,6 +44,13 @@
 	}
 
 	function render() {
+		if (!index) {
+			list.textContent = '';
+			active = -1;
+			mark();
+			status.textContent = loading ? 'Loading…' : 'Search could not load. Check your connection and try again.';
+			return;
+		}
 		var q = norm(input.value);
 		var words = q ? q.split(' ') : [];
 		var rows;
@@ -84,14 +103,18 @@
 		opener = from || document.activeElement;
 		dialog.showModal();
 		input.value = '';
+		var wait = load();
 		render();
 		input.focus();
+		if (wait) wait.then(function () { if (dialog.open) render(); });
 	}
 
 	input.addEventListener('input', render);
 	input.addEventListener('keydown', function (e) {
 		var n = list.children.length;
-		if (e.key === 'ArrowDown' && n) { e.preventDefault(); active = (active + 1) % n; mark(); }
+		// A type="search" box eats the first Escape to clear itself; close the dialog at once.
+		if (e.key === 'Escape') { e.preventDefault(); dialog.close(); }
+		else if (e.key === 'ArrowDown' && n) { e.preventDefault(); active = (active + 1) % n; mark(); }
 		else if (e.key === 'ArrowUp' && n) { e.preventDefault(); active = (active - 1 + n) % n; mark(); }
 		else if (e.key === 'Enter' && active > -1) {
 			e.preventDefault();
@@ -111,12 +134,18 @@
 		if (b) { e.preventDefault(); open(b); }
 	});
 	document.addEventListener('keydown', function (e) {
-		var k = e.key.toLowerCase();
+		var k = (e.key || '').toLowerCase();
 		var typing = /^(input|textarea|select)$/i.test((document.activeElement || {}).tagName || '') || (document.activeElement && document.activeElement.isContentEditable);
 		if ((k === 'k' && (e.ctrlKey || e.metaKey)) || (k === '/' && !typing && !e.ctrlKey && !e.metaKey && !e.altKey)) {
 			e.preventDefault();
 			open();
 		}
+	});
+	// Start fetching as soon as someone heads for the button, so results are there when it opens.
+	['pointerover', 'focusin', 'touchstart'].forEach(function (type) {
+		document.addEventListener(type, function (e) {
+			if (e.target.closest && e.target.closest('[data-search-open]')) load();
+		}, { passive: true });
 	});
 	var key = document.querySelector('.search-open__key');
 	if (key && /Mac|iPhone|iPad/.test(navigator.platform || '')) key.textContent = '⌘ K';

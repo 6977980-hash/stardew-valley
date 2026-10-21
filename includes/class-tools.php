@@ -352,10 +352,28 @@ class Tools {
 		<p class="guide-byline">Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time> · <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
 			<?php
 		}
+		ob_start();
 		include $file;
+		echo self::mobile_extras( ob_get_clean() ); // phpcs:ignore WordPress.Security.EscapeOutput -- template output.
 		self::render_footer_blocks( $tool_id, $version, $checked );
 		echo '</div>';
 		return ob_get_clean();
+	}
+
+	/**
+	 * Two hooks for the result-first layout: id="result" on the results (the home page planner
+	 * links to #result), and a "Read the full answer" button in the short answer box, which CSS
+	 * clamps to a few lines on phones so the form and result come sooner. The button is in the
+	 * HTML from the start so nothing moves when the script loads.
+	 */
+	private static function mobile_extras( $html ) {
+		$html  = preg_replace( '/<section class="tool-results"/', '<section class="tool-results" id="result"', $html, 1 );
+		$start = strpos( $html, '<div class="answer">' );
+		$end   = false === $start ? false : strpos( $html, '</div>', $start );
+		if ( false !== $end ) {
+			$html = substr( $html, 0, $end ) . '<button type="button" class="answer__more" aria-expanded="false">Read the full answer</button>' . substr( $html, $end );
+		}
+		return $html;
 	}
 
 	/**

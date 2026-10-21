@@ -4,6 +4,18 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: tools that show your answer sooner</h2>
+<ul>
+<li>On a laptop the result now sits next to the form, so you see it change as you type. On a phone the short answer at the top folds to a few lines (tap "Read the full answer" to open it).</li>
+<li>"Show my best crop" on the home page, and any shared link, now opens right at your answer instead of the top of the page.</li>
+<li>Number boxes behave the same in every tool. A number that is too high, too low, empty or not whole is changed to one the tool can use, and a note under the box says what was used. Fish ponds can no longer hold 0 fish, and the XP Calculator moves the target level up when it is below your current level.</li>
+<li>What to Plant Today says when an empty gold box means no limit. Small wording fixes: "1 day" and "1 tile" instead of "1 days" and "1 tiles".</li>
+<li>Crafting Calculator: "Copy link to this result" now includes your whole shopping list, and Reset clears the list.</li>
+<li>Bundle Tracker: ticking a box keeps your place for keyboard and screen reader users, Remixed rooms only let you pick as many bundles as a save really has, and "Still to find" can be filtered by season and shows the first 15 items until you ask for all.</li>
+<li>Search finds villagers, fish and crafting recipes (try "Abigail" or "Sturgeon") and opens the right tool already set to them. One press of Escape closes it, and pages load a little lighter.</li>
+<li>If a calculator can't load in your browser, the page now says so, and the phone menu opens even when other scripts are blocked.</li>
+</ul>
+
 <h2>October 21, 2026: easier to find your way, safer behind the scenes</h2>
 <ul>
 <li>Crop names in the Best Spring, Summer, Fall and Greenhouse Crops tables now link to each crop's page.</li>

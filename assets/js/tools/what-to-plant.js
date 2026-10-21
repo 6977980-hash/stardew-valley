@@ -1,6 +1,6 @@
 // What to Plant Today: one recommendation, the reasons, a shopping list and the full ranking.
 import { rankCrops, reasons } from '../engine/index.js';
-import { loadData, bindTool, esc, gold, num, stepsHtml } from './common.js';
+import { loadData, bindTool, esc, gold, num, plural, stepsHtml } from './common.js';
 
 const data = loadData();
 const form = document.getElementById('what-to-plant-form');
@@ -41,7 +41,7 @@ function render(v) {
   }
   const best = ranked[0];
   const next = ranked[1];
-  summary.innerHTML = `Plant <strong>${esc(best.crop.name)}</strong> ${esc(when)}: about ${gold(best.total)} profit on ${num(best.tiles)} tile${best.tiles > 1 ? 's' : ''}${next ? `, ${gold(best.total - next.total)} more than ${esc(next.crop.name)}` : ''}.`;
+  summary.innerHTML = `Plant <strong>${esc(best.crop.name)}</strong> ${esc(when)}: about ${gold(best.total)} profit on ${num(best.tiles)} tile${best.tiles > 1 ? 's' : ''}${next ? `, ${gold(best.total - next.total)} more than ${esc(next.crop.name)}` : ''}${situation.budget === null ? ' (no gold limit)' : ''}.`;
 
   const shop = [
     `${num(best.tiles)} ${esc(best.crop.seed || `${best.crop.name} seeds`)} from ${esc(SHOP[best.seed.source] || best.seed.source)}: ${gold(best.seed.price * best.tiles)}`,
@@ -53,7 +53,7 @@ function render(v) {
     : '';
   pick.innerHTML = `<article class="pick">
     <h3>Plant ${esc(best.crop.name)}</h3>
-    <p class="big">${gold(best.total)} <span class="cell-sub">profit${greenhouse ? ' over a year' : ''} on ${num(best.tiles)} tiles</span></p>
+    <p class="big">${gold(best.total)} <span class="cell-sub">profit${greenhouse ? ' over a year' : ''} on ${plural(best.tiles, 'tile')}</span></p>
     ${best.limitedByBudget ? `<p class="notice">Your gold covers ${num(best.tiles)} of ${num(situation.tiles)} tiles.</p>` : ''}
     <h4>Why</h4><ul>${reasons(best, next, gold).map((r) => `<li>${esc(r)}</li>`).join('')}</ul>
     ${machine}

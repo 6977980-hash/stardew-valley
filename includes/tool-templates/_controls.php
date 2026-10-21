@@ -23,11 +23,11 @@ if ( ! function_exists( 'stardew_tools_select' ) ) {
 		echo '</div>';
 	}
 
-	/** <label> + number input. */
-	function stardew_tools_number( $name, $label, $value, $min, $max, $hint = '' ) {
+	/** <label> + number input. $blank_ok: an empty box is a valid answer (e.g. "no limit"). */
+	function stardew_tools_number( $name, $label, $value, $min, $max, $hint = '', $blank_ok = false ) {
 		$id = 'st-' . $name;
 		printf(
-			'<div class="field"><label for="%1$s">%2$s</label><input id="%1$s" name="%3$s" type="number" inputmode="numeric" min="%4$d" max="%5$d" step="1" value="%6$d"%7$s>%8$s</div>',
+			'<div class="field"><label for="%1$s">%2$s</label><input id="%1$s" name="%3$s" type="number" inputmode="numeric" min="%4$d" max="%5$d" step="1" value="%6$d"%7$s%9$s>%8$s</div>',
 			esc_attr( $id ),
 			esc_html( $label ),
 			esc_attr( $name ),
@@ -35,7 +35,8 @@ if ( ! function_exists( 'stardew_tools_select' ) ) {
 			(int) $max,
 			(int) $value,
 			$hint ? ' aria-describedby="' . esc_attr( $id ) . '-hint"' : '',
-			$hint ? '<p class="field__hint" id="' . esc_attr( $id ) . '-hint">' . esc_html( $hint ) . '</p>' : ''
+			$hint ? '<p class="field__hint" id="' . esc_attr( $id ) . '-hint">' . esc_html( $hint ) . '</p>' : '',
+			$blank_ok ? ' data-blank="none"' : ''
 		);
 	}
 
@@ -74,5 +75,16 @@ if ( ! function_exists( 'stardew_tools_select' ) ) {
 
 	function stardew_tools_noscript() {
 		echo '<noscript><p class="notice">This calculator needs JavaScript. The summary above shows results for the default settings.</p></noscript>';
+		stardew_tools_load_check();
+	}
+
+	/**
+	 * With JavaScript on but the tool module blocked or broken, the results would stay empty with
+	 * no word why. A classic inline script shows this notice if the tool has not started 3 seconds
+	 * after the page loaded.
+	 */
+	function stardew_tools_load_check() {
+		echo '<p class="notice tool-failed" data-tool-failed role="alert" hidden>The calculator could not load. Reload the page. If it still does not work, try another browser or turn off extensions that block scripts.</p>';
+		echo "<script>window.addEventListener('load',function(){setTimeout(function(){if(!document.documentElement.classList.contains('tool-ready')){var n=document.querySelector('[data-tool-failed]');if(n)n.hidden=false}},3000)})</script>";
 	}
 }

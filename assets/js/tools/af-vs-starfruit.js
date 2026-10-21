@@ -1,6 +1,6 @@
 // Ancient Fruit vs Starfruit, side by side for one setup.
 import { cropProfit } from '../engine/index.js';
-import { loadData, bindTool, esc, gold, num, stepsHtml, SELL_LABEL } from './common.js';
+import { loadData, bindTool, esc, gold, num, plural, stepsHtml, SELL_LABEL } from './common.js';
 
 const data = loadData();
 const form = document.getElementById('af-sf-form');
@@ -48,7 +48,7 @@ function card({ c, r, machines, machineName, why }, tiles, best) {
       <dt>Harvests</dt><dd>${r.harvestDays.length}</dd>
       <dt>Value per harvest</dt><dd>${gold(r.perHarvest)}</dd>
       <dt>Seeds</dt><dd>${r.seedCost == null ? 'not sold for gold' : gold(r.seedCost)}</dd>
-      <dt>${num(tiles)} tiles</dt><dd>${gold(r.profit * tiles)}</dd>
+      <dt>${plural(tiles, 'tile')}</dt><dd>${gold(r.profit * tiles)}</dd>
       ${machines ? `<dt>${esc(machineName)} to keep up</dt><dd>${num(Math.ceil(machines * tiles))}</dd>` : ''}
     </dl>
     <details><summary>Explain the math</summary>${stepsHtml(r.steps)}</details>
@@ -66,7 +66,7 @@ function render(v) {
     const winner = a.r.profit >= s.r.profit ? a : s;
     const loser = winner === a ? s : a;
     const diff = winner.r.profit - loser.r.profit;
-    summary.innerHTML = `${label.charAt(0).toUpperCase() + label.slice(1)}: <strong>${esc(winner.c.name)}</strong> earns ${gold(diff)} more per tile (${gold(winner.r.profit)} vs ${gold(loser.r.profit)}), ${gold(diff * tiles)} more on ${num(tiles)} tiles.`;
+    summary.innerHTML = `${label.charAt(0).toUpperCase() + label.slice(1)}: <strong>${esc(winner.c.name)}</strong> earns ${gold(diff)} more per tile (${gold(winner.r.profit)} vs ${gold(loser.r.profit)}), ${gold(diff * tiles)} more on ${plural(tiles, 'tile')}.`;
   }
   const aBest = !s.r || a.r.profit >= s.r.profit;
   out.innerHTML = card(a, tiles, aBest) + card(s, tiles, !aBest);

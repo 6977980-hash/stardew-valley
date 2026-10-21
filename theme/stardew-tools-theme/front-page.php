@@ -37,16 +37,15 @@ foreach ( $home_order as $tid ) {
 	}
 }
 $total_tools = count( $live );
+$all_tools   = home_url( '/tools/' );
 
 $live_names = wp_list_pluck( $live, 'short' );
-$categories = array();
-foreach ( class_exists( 'Stardew_Tools\\Tools' ) ? Stardew_Tools\Tools::categories() : array() as $heading => $ids ) {
-	foreach ( $ids as $cid ) {
-		if ( isset( $by_id[ $cid ] ) ) {
-			$categories[ $heading ][] = $by_id[ $cid ]['short'];
-		}
-	}
-}
+
+// A "New" badge shows for 30 days after the date it is given, then goes away by itself.
+$is_new = function ( $date ) {
+	$time = $date ? strtotime( $date ) : false;
+	return $time && ( time() - $time ) <= 30 * DAY_IN_SECONDS;
+};
 
 // Seasons strip: each season links to its Best Crops page once live (winter grows in the greenhouse).
 $tool_url  = function ( $short ) use ( $live, $live_names ) {
@@ -60,6 +59,7 @@ $seasons   = array(
 	array( 'winter', 'Greenhouse', 'Best Greenhouse Crops' ),
 );
 $plant_url = $tool_url( 'What to Plant Today' );
+// #result: the tool page opens at the visitor's own answer, not at the top of the page.
 ?>
 <section class="hero" aria-labelledby="hero-title">
 	<img class="hero__scene" src="<?php echo esc_url( get_template_directory_uri() . '/assets/img/hero-farm.svg' ); ?>" width="1440" height="600" alt="" fetchpriority="high">
@@ -70,7 +70,7 @@ $plant_url = $tool_url( 'What to Plant Today' );
 			<p class="hero__tagline"><?php echo esc_html( st_theme_brand( 'tagline' ) ); ?></p>
 			<p class="hero__lead"><?php echo esc_html( st_theme_brand( 'short_desc' ) ); ?></p>
 			<?php if ( $plant_url ) : ?>
-			<form class="quick-plan" action="<?php echo esc_url( $plant_url ); ?>" method="get" aria-labelledby="quick-plan-title">
+			<form class="quick-plan" action="<?php echo esc_url( $plant_url . '#result' ); ?>" method="get" aria-labelledby="quick-plan-title">
 				<p class="quick-plan__title" id="quick-plan-title">What should I plant today?</p>
 				<div class="quick-plan__fields">
 					<label>Season
@@ -89,10 +89,10 @@ $plant_url = $tool_url( 'What to Plant Today' );
 					</label>
 				</div>
 				<button class="btn btn--primary" type="submit">Show my best crop</button>
-				<a class="quick-plan__all" href="#tools-heading">Browse all tools</a>
+				<a class="quick-plan__all" href="<?php echo esc_url( $all_tools ); ?>">Browse all <?php echo (int) $total_tools; ?> tools</a>
 			</form>
 			<?php else : ?>
-			<div class="hero__actions"><a class="btn btn--wood" href="#tools-heading">Browse all tools</a></div>
+			<div class="hero__actions"><a class="btn btn--wood" href="<?php echo esc_url( $all_tools ); ?>">Browse all <?php echo (int) $total_tools; ?> tools</a></div>
 			<?php endif; ?>
 			<ul class="hero__facts" role="list">
 				<li>Verified for <?php echo esc_html( st_theme_brand( 'game_version' ) ); ?></li>
@@ -147,7 +147,7 @@ $plant_url = $tool_url( 'What to Plant Today' );
 			<?php endforeach; ?>
 		</ul>
 		<?php endif; ?>
-		<p class="section__more"><a href="<?php echo esc_url( home_url( '/tools/' ) ); ?>">See all <?php echo (int) $total_tools; ?> tools</a></p>
+		<p class="section__more"><a href="<?php echo esc_url( $all_tools ); ?>">See all <?php echo (int) $total_tools; ?> tools</a></p>
 	</div>
 </section>
 
@@ -160,7 +160,7 @@ $plant_url = $tool_url( 'What to Plant Today' );
 		$newest = array();
 		$all_guides = Stardew_Tools\Guides::guides();
 		$latest     = max( array_column( $all_guides, 'published' ) );
-		foreach ( array_slice( array_filter( $all_guides, function ( $g ) use ( $latest ) {
+		foreach ( ! $is_new( $latest ) ? array() : array_slice( array_filter( $all_guides, function ( $g ) use ( $latest ) {
 			return $g['published'] === $latest;
 		} ), 0, 3, true ) as $gid => $guide ) {
 			$gurl = Stardew_Tools\Guides::guide_url( $gid );
@@ -189,14 +189,14 @@ $plant_url = $tool_url( 'What to Plant Today' );
 <?php if ( class_exists( 'Stardew_Tools\\Entities' ) ) : ?>
 <section class="section" aria-labelledby="ref-heading">
 	<div class="container">
-		<p class="section__kicker">New</p>
+		<p class="section__kicker">Look it up</p>
 		<h2 id="ref-heading">Reference tables</h2>
 		<ul class="card-grid" role="list">
 			<?php foreach ( Stardew_Tools\Entities::types() as $type => $t ) : ?>
 				<?php $ref_url = Stardew_Tools\Entities::url( $type, '' ); ?>
 				<?php if ( $ref_url ) : ?>
 			<li class="card card--live">
-				<h3 class="card__title"><a class="card__link" href="<?php echo esc_url( $ref_url ); ?>"><?php echo esc_html( $t['short'] ); ?></a> <span class="badge">New</span></h3>
+				<h3 class="card__title"><a class="card__link" href="<?php echo esc_url( $ref_url ); ?>"><?php echo esc_html( $t['short'] ); ?></a><?php echo isset( $t['published'] ) && $is_new( $t['published'] ) ? ' <span class="badge">New</span>' : ''; // phpcs:ignore WordPress.Security.EscapeOutput -- fixed markup. ?></h3>
 				<p class="card__text"><?php echo esc_html( $t['blurb'] ); ?></p>
 			</li>
 				<?php endif; ?>
@@ -221,27 +221,5 @@ $plant_url = $tool_url( 'What to Plant Today' );
 	</div>
 </section>
 
-<section class="section" aria-labelledby="tools-heading">
-	<div class="container">
-		<p class="section__kicker">Toolbox</p>
-		<h2 id="tools-heading">All tools</h2>
-		<div class="category-grid">
-			<?php foreach ( $categories as $name => $tools ) : ?>
-			<div class="category">
-				<h3><?php echo esc_html( $name ); ?></h3>
-				<ul>
-					<?php foreach ( $tools as $tool ) : ?>
-						<?php $hit = array_search( $tool, $live_names, true ); ?>
-						<?php if ( false !== $hit ) : ?>
-					<li><a href="<?php echo esc_url( $live[ $hit ]['url'] ); ?>"><?php echo esc_html( $tool ); ?></a></li>
-						<?php endif; ?>
-					<?php endforeach; ?>
-				</ul>
-			</div>
-			<?php endforeach; ?>
-		</div>
-		<p class="note">Free, no account needed. Want a tool we do not have yet? <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Tell us</a>.</p>
-	</div>
-</section>
 <?php
 get_footer();

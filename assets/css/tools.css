@@ -141,3 +141,34 @@ html:not(.tool-ready) .tool-results [data-results]:empty { min-height: 240px; }
 .bundle__items label, .bundle__mine, .bundle-controls label { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
 .bundle__items input, .bundle__mine input, .bundle-controls input { width: 22px; height: 22px; flex: none; }
 .bundle-controls { margin-bottom: 8px; }
+
+/* Number boxes: the browser flags a bad value once the visitor has touched the box, and the tool
+   says what it used instead (readInt in tools/common.js). */
+.field input:user-invalid { border-color: var(--c-focus); box-shadow: 0 0 0 1px var(--c-focus); }
+.field__fix { color: var(--c-ink); font-weight: 600; }
+.field__fix::before { content: "⚠ "; color: var(--c-focus); }
+.tool-failed { margin-top: 12px; border-color: var(--c-focus); }
+
+/* Phones: the short answer is clamped to a few lines (the button opens it) so the form and the
+   result come sooner. The button is in the HTML from the start, so nothing moves on load. */
+.answer__more { display: none; }
+@media (max-width: 699px) {
+	.js .answer__more { display: inline-flex; align-items: center; min-height: 44px; margin-top: 2px; padding: 0; background: none; border: 0; font: inherit; font-weight: 700; color: var(--c-link); text-decoration: underline; text-underline-offset: 2px; cursor: pointer; }
+	.js .answer:not(.is-open) .answer__lead { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; line-clamp: 4; overflow: hidden; }
+	.js .answer:not(.is-open) > p:not(.answer__lead) { display: none; }
+}
+
+/* Laptops and up: form and result side by side, so a change shows at once without scrolling.
+   The Bundle Tracker keeps one column: its form is two radio buttons and its result is long. */
+@media (min-width: 1000px) {
+	.tool:not([data-tool="bundle-tracker"]) { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 28px; align-items: start; }
+	.tool:not([data-tool="bundle-tracker"]) > * { grid-column: 1 / -1; }
+	.tool:not([data-tool="bundle-tracker"]) > .tool-form { grid-column: 1; }
+	.tool:not([data-tool="bundle-tracker"]) > .tool-results { grid-column: 2; margin-top: 24px; min-height: 0; }
+	.tool:not([data-tool="bundle-tracker"]) > .tool-form .field-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.tool-results { scroll-margin-top: 12px; }
+
+/* Bundle Tracker "Still to find" */
+.needed-filter { max-width: 280px; margin: 0 0 12px; }
+.needed-more { margin-top: 12px; }

@@ -1,6 +1,6 @@
 // Greenhouse Planner: sprinkler layout, crops per tile, a year of profit and machines needed.
 import { cropProfit, sprinklerCoverage, paintGrid } from '../engine/index.js';
-import { loadData, bindTool, esc, gold, num, stepsHtml, SELL_LABEL } from './common.js';
+import { loadData, bindTool, esc, gold, num, plural, stepsHtml, SELL_LABEL } from './common.js';
 
 const data = loadData();
 const form = document.getElementById('greenhouse-form');
@@ -86,7 +86,7 @@ function render(v) {
   const machines = {};
   for (const p of plan) if (p.machine) machines[p.machine] = (machines[p.machine] || 0) + Math.ceil(p.perTileMachines * p.tiles);
   const machineText = Object.entries(machines).map(([m, n]) => `${num(n)} ${m}${n > 1 ? 's' : ''}`).join(' and ');
-  summary.innerHTML = `${v.stage === 'established' ? 'Year 2+' : 'First year'}: <strong>${gold(total)}</strong> profit from ${num(cov.plantable - left)} tiles${machineText ? `, with ${machineText} to keep up` : ''}.`;
+  summary.innerHTML = `${v.stage === 'established' ? 'Year 2+' : 'First year'}: <strong>${gold(total)}</strong> profit from ${plural(cov.plantable - left, 'tile')}${machineText ? `, with ${machineText} to keep up` : ''}.`;
 
   out.innerHTML = `<table class="results-table">
     <caption class="visually-hidden">Profit for each crop in the plan over one greenhouse year</caption>

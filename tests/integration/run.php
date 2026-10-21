@@ -309,6 +309,25 @@ $index_items = Search::index();
 $kinds       = array_count_values( array_column( $index_items, 'k' ) );
 st_assert( count( $index_items ) > 80 && ! empty( $kinds['Tool'] ) && ! empty( $kinds['Guide'] ) && ! empty( $kinds['Crop'] ) && ! empty( $kinds['Animal'] ), 'search index covers tools, guides, crops and animals' );
 st_assert( 0 === count( array_filter( $index_items, function ( $i ) { return '' === $i['u'] || '' === $i['t']; } ) ), 'every search entry has a title and a url' );
+$find = function ( $title, $kind ) use ( $index_items ) {
+	foreach ( $index_items as $i ) {
+		if ( $title === $i['t'] && $kind === $i['k'] ) {
+			return $i['u'];
+		}
+	}
+	return '';
+};
+st_assert( false !== strpos( $find( 'Abigail', 'Villager' ), '/gift-finder/?villager=abigail' ) && false !== strpos( $find( 'Sturgeon', 'Fish pond' ), '/fish-pond-calculator/?fish=sturgeon' ) && false !== strpos( $find( 'Keg', 'Recipe' ), '/crafting-calculator/?recipe=keg' ), 'search finds villagers, pond fish and recipes and opens the tool set to them' );
+Search::flush();
+$cached = Search::cached();
+st_assert( Search::cached()['hash'] === $cached['hash'] && false !== strpos( Search::index_url(), 'stardew-tools/v1/search' ) && false !== strpos( Search::index_url(), 'v=' . $cached['hash'] ), 'search index is cached and served from a versioned URL' );
+$req = new WP_REST_Request( 'GET', '/stardew-tools/v1/search' );
+$res = rest_do_request( $req );
+st_assert( 200 === $res->get_status() && count( $res->get_data() ) === count( $index_items ), 'search index REST route returns the index' );
+ob_start();
+Search::dialog();
+$dialog_html = ob_get_clean();
+st_assert( false === strpos( $dialog_html, 'site-search-index' ) && false !== strpos( $dialog_html, 'data-index-url=' ), 'search index is no longer inlined in every page' );
 
 echo "Page refresh, llms.txt, dates, LinkedIn\n";
 $llms = Stardew_Tools\Llms::build();

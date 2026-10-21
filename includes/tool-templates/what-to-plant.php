@@ -44,7 +44,7 @@ $g  = function ( $n ) {
 				'spring'
 			);
 			stardew_tools_number( 'today', 'Day of the season', 1, 1, 28 );
-			stardew_tools_number( 'budget', 'Gold to spend on seeds', 500, 0, 10000000, 'Seeds and fertilizer for the first planting. Replanting is paid from your sales.' );
+			stardew_tools_number( 'budget', 'Gold to spend on seeds', 500, 0, 10000000, 'Seeds and fertilizer for the first planting. Replanting is paid from your sales. Leave it empty for no limit.', true );
 			stardew_tools_number( 'tiles', 'Tiles you can plant', 15, 1, 5000 );
 			?>
 		</div>
