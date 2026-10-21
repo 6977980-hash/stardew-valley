@@ -1,6 +1,6 @@
 // Fish Pond Calculator: one pond's daily produce, and every fish ranked for a full pond.
 import { pondOutput, rankPonds } from '../engine/index.js';
-import { loadData, bindTool, esc, gold, num } from './common.js';
+import { loadData, bindTool, esc, gold, num, plural } from './common.js';
 
 const data = loadData().fishponds;
 const form = document.getElementById('fish-pond-form');
@@ -12,11 +12,10 @@ const pct = (n) => `${num(n * 100, 1)}%`;
 
 function render(v) {
   const fish = data.fish.find((f) => f.id === v.fish) || data.fish[0];
-  const popInput = form.querySelector('[name="pop"]');
-  popInput.max = fish.max_population;
-  const opts = { population: parseInt(v.pop, 10) || 1, days: parseInt(v.days, 10) || 28, roeAs: v.roe, artisan: v.artisan };
+  // pop and days arrive already inside their limits (readInt); the pond limit is set in prepare().
+  const opts = { population: Math.min(fish.max_population, Math.max(1, parseInt(v.pop, 10) || 1)), days: Math.max(1, parseInt(v.days, 10) || 28), roeAs: v.roe, artisan: v.artisan };
   const r = pondOutput(fish, data, opts);
-  summary.innerHTML = `A pond of ${r.population} ${esc(fish.name)} makes something on ${pct(r.baseChance)} of days, worth about <strong>${gold(r.goldPerDay)} a day</strong> (${gold(r.gold)} in ${num(r.days)} days)${r.processed ? `, with ${num(Math.ceil(r.jarsNeeded))} Preserves Jar${Math.ceil(r.jarsNeeded) > 1 ? 's' : ''} for the ${esc(r.processed.name)}` : ''}.${fish.max_population < 10 ? ' Legendary ponds hold one fish.' : ''}`;
+  summary.innerHTML = `A pond of ${r.population} ${esc(fish.name)} makes something on ${pct(r.baseChance)} of days, worth about <strong>${gold(r.goldPerDay)} a day</strong> (${gold(r.gold)} in ${plural(r.days, 'day')})${r.processed ? `, with ${num(Math.ceil(r.jarsNeeded))} Preserves Jar${Math.ceil(r.jarsNeeded) > 1 ? 's' : ''} for the ${esc(r.processed.name)}` : ''}.${fish.max_population < 10 ? ' Legendary ponds hold one fish.' : ''}`;
   out.innerHTML = `<table class="results-table">
     <caption class="visually-hidden">What the pond produces per day</caption>
     <thead><tr><th scope="col">Item</th><th scope="col" class="num">Chance a day</th><th scope="col" class="num col-hide-sm">Per day</th><th scope="col" class="num">Gold a day</th></tr></thead>
@@ -40,4 +39,10 @@ function render(v) {
     <tbody>${legendary.map(row).join('')}</tbody></table></details>`;
 }
 
-bindTool({ form, storageKey: 'st:fish-pond', render });
+// A legendary pond holds one fish, the others ten.
+function prepare() {
+  const fish = data.fish.find((f) => f.id === form.elements.fish.value) || data.fish[0];
+  form.elements.pop.max = fish.max_population;
+}
+
+bindTool({ form, storageKey: 'st:fish-pond', render, prepare });

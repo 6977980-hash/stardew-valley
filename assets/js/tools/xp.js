@@ -55,4 +55,14 @@ function render(v) {
       .join('')}</tbody></table>`;
 }
 
-bindTool({ form, storageKey: 'st:xp', render, farmFields: [] });
+// The target must be above the current level, and XP into a level can't reach the next one, so
+// the boxes show the values the answer uses.
+function prepare() {
+  const level = Math.min(9, Math.max(0, parseInt(form.elements.level.value, 10) || 0));
+  const target = form.elements.target;
+  for (const o of target.options) o.disabled = Number(o.value) <= level;
+  if (Number(target.value) <= level) target.value = String(level + 1);
+  form.elements.xp.max = totalForLevel(level + 1, t) - totalForLevel(level, t) - 1;
+}
+
+bindTool({ form, storageKey: 'st:xp', render, prepare, farmFields: [] });

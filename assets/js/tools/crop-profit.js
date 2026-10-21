@@ -51,7 +51,10 @@ function render(v) {
   const day = Math.min(28, Math.max(1, parseInt(v.today, 10) || 1));
   const where = v.season === 'greenhouse' ? 'in the greenhouse over one year' : `planted on ${cap(v.season)} ${day}`;
   if (!list.length) {
-    summary.textContent = `No crop can be harvested ${where}. Try an earlier day or another season.`;
+    summary.textContent =
+      v.season === 'winter'
+        ? 'Nothing with shop-bought seeds grows outdoors in Winter. Try the greenhouse.'
+        : `No crop can be harvested ${where}. ${day > 1 ? 'Try an earlier day or another season.' : 'Try another season or the greenhouse.'}`;
     out.innerHTML = '';
     return;
   }

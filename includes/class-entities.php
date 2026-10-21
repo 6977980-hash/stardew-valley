@@ -38,6 +38,7 @@ class Entities {
 				'blurb'       => 'Every crop with its price, growth time and profit per tile.',
 				'description' => 'Every Stardew Valley 1.6 crop in one table: season, days to grow, regrow time, sell price and profit per tile, with a page and CSV download.',
 				'tools'       => array( 'crop-profit-calculator', 'what-to-plant', 'xp-calculator' ),
+				'published'   => '2026-10-10',
 			),
 			'animals'  => array(
 				'slug'        => 'farm-animals',
@@ -47,6 +48,7 @@ class Entities {
 				'blurb'       => 'Every farm animal with its price, products and income per day.',
 				'description' => 'Every Stardew Valley 1.6 farm animal ranked: price, building, products and gold per day at full friendship, with a page for each and a CSV download.',
 				'tools'       => array( 'animal-profit-calculator' ),
+				'published'   => '2026-10-10',
 			),
 			'machines' => array(
 				'slug'        => 'machines',
@@ -56,6 +58,7 @@ class Entities {
 				'blurb'       => 'Kegs and Preserves Jars: which crop earns the most in each.',
 				'description' => 'Stardew Valley 1.6 artisan machines ranked by gold per machine per day: which crops to put in Kegs and Preserves Jars, with times and prices.',
 				'tools'       => array( 'keg-vs-preserves-jar', 'greenhouse-planner' ),
+				'published'   => '2026-10-10',
 			),
 		);
 	}

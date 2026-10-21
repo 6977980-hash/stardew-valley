@@ -1,6 +1,6 @@
 // Keg vs Preserves Jar: compare per item and per machine-day, then split the harvest.
 import { allocate } from '../engine/index.js';
-import { loadData, bindTool, esc, gold, num } from './common.js';
+import { loadData, bindTool, esc, gold, num, plural } from './common.js';
 
 const data = loadData();
 const form = document.getElementById('keg-jar-form');
@@ -11,10 +11,11 @@ const int = (v, d = 0) => Math.max(0, parseInt(v, 10) || d);
 
 function render(v) {
   const crop = data.crops.find((c) => c.id === v.crop) || data.crops[0];
+  const days = Math.max(1, int(v.days, 28));
   const r = allocate(crop, data.machines, {
     items: int(v.items),
     counts: { keg: int(v.kegs), 'preserves-jar': int(v.jars) },
-    days: Math.max(1, int(v.days, 28)),
+    days,
     artisan: v.artisan,
     tiller: v.tiller,
     rawQuality: v.quality,
@@ -41,7 +42,7 @@ function render(v) {
 
   out.innerHTML = `${verdict}<div class="table-wrap"><table class="results-table">
     <caption class="visually-hidden">Keg and Preserves Jar compared for ${esc(crop.name)}</caption>
-    <thead><tr><th scope="col">Machine</th><th scope="col" class="num">Sells for</th><th scope="col" class="num">Adds per item</th><th scope="col" class="num">Per machine per day</th><th scope="col" class="num col-hide-sm">Runs in ${num(int(v.days, 28))} days</th></tr></thead>
+    <thead><tr><th scope="col">Machine</th><th scope="col" class="num">Sells for</th><th scope="col" class="num">Adds per item</th><th scope="col" class="num">Per machine per day</th><th scope="col" class="num col-hide-sm">Runs in ${plural(days, 'day')}</th></tr></thead>
     <tbody>
       <tr><th scope="row">Sell raw<span class="cell-sub">${esc(crop.name)}</span></th><td class="num">${gold(r.rawPrice)}</td><td class="num">—</td><td class="num">—</td><td class="num col-hide-sm">—</td></tr>
       ${opts

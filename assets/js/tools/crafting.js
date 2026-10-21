@@ -1,6 +1,6 @@
 // Crafting Calculator: a shopping list of raw materials for everything you want to craft.
 import { shoppingList } from '../engine/index.js';
-import { loadData, bindTool, esc, num, gold } from './common.js';
+import { loadData, bindTool, esc, num, gold, plural } from './common.js';
 
 const crafting = loadData().crafting;
 const form = document.getElementById('craft-form');
@@ -11,11 +11,32 @@ const out = tool.querySelector('[data-results]');
 const madeEl = tool.querySelector('[data-made]');
 const KEY = 'st:craft-list';
 
+const known = (id) => crafting.recipes.some((r) => r.id === id);
+const MAX = 999;
+const clean = (rows) => rows.filter((w) => w && known(w.id) && w.qty > 0).map((w) => ({ id: w.id, qty: Math.min(MAX, Math.floor(w.qty)) }));
+
+/** The list as it goes in a share link: ?list=keg:999,crab-pot:5 */
+const listParam = (rows) => rows.map((w) => `${w.id}:${w.qty}`).join(',');
+const fromParam = (s) =>
+  clean(
+    String(s || '')
+      .split(',')
+      .map((part) => {
+        const [id, qty] = part.split(':');
+        return { id, qty: parseInt(qty, 10) || 1 };
+      }),
+  );
+
+// A shared link's list wins, but is only saved here once the visitor changes it.
+const linked = new URLSearchParams(location.search).get('list');
 let list = [];
-try {
-  list = (JSON.parse(localStorage.getItem(KEY) || '[]') || []).filter((w) => crafting.recipes.some((r) => r.id === w.id) && w.qty > 0);
-} catch {
-  list = [];
+if (linked) list = fromParam(linked);
+else {
+  try {
+    list = clean(JSON.parse(localStorage.getItem(KEY) || '[]') || []);
+  } catch {
+    list = [];
+  }
 }
 const save = () => {
   try {
@@ -29,17 +50,17 @@ const nameOf = (id) => (crafting.recipes.find((r) => r.id === id) || {}).name ||
 let last = {};
 function render(v) {
   last = v;
-  const qty = Math.min(999, Math.max(1, parseInt(v.qty, 10) || 1));
+  const qty = Math.min(MAX, Math.max(1, parseInt(v.qty, 10) || 1));
   const wanted = list.length ? list : [{ id: v.recipe, qty }];
   const res = shoppingList(wanted, crafting, { trapper: v.trapper, year2: v.year2 });
 
   listEl.innerHTML = list.length
-    ? `<ul class="craft-list">${list.map((w, i) => `<li><span>${num(w.qty)} × ${esc(nameOf(w.id))}</span> <button type="button" class="link-button" data-remove="${i}" aria-label="Remove ${esc(nameOf(w.id))} from the list">Remove</button></li>`).join('')}</ul>`
+    ? `<ul class="craft-list">${list.map((w, i) => `<li><span>${num(w.qty)} × ${esc(nameOf(w.id))}</span> <button type="button" class="link-button" id="craft-remove-${i}" data-remove="${i}" aria-label="Remove ${esc(nameOf(w.id))} from the list">Remove</button></li>`).join('')}</ul>`
     : '<p class="table-note">Nothing on the list yet, so this shows the recipe selected above. Press “Add to list” to build a list.</p>';
 
   const unpriced = res.unpriced.length ? ` Not for sale, so not counted: ${esc(res.unpriced.join(', '))}.` : '';
   summary.innerHTML = res.materials.length
-    ? `You need <strong>${res.materials.length} different materials</strong>. Buying every part a shop sells would cost <strong>${gold(res.buyCost)}</strong>.${unpriced}`
+    ? `You need <strong>${plural(res.materials.length, 'different material')}</strong>. ${res.buyCost > 0 ? `Buying every part a shop sells would cost <strong>${gold(res.buyCost)}</strong>.` : 'None of these parts are sold in shops.'}${unpriced}`
     : 'Pick a recipe to see what it needs.';
 
   out.innerHTML = `<table class="results-table">
@@ -55,20 +76,38 @@ function render(v) {
     : '';
 }
 
-bindTool({ form, storageKey: 'st:craft', render });
+const tool$ = bindTool({
+  form,
+  storageKey: 'st:craft',
+  render,
+  own: { keys: ['list'], query: () => ({ list: listParam(list) }) },
+  // Reset empties the list too, so the page is back to how it first opened.
+  onReset: () => {
+    list = [];
+    save();
+  },
+});
 
 form.querySelector('[data-add]').addEventListener('click', () => {
-  const qty = Math.min(999, Math.max(1, parseInt(last.qty, 10) || 1));
+  const qty = Math.min(MAX, Math.max(1, parseInt(last.qty, 10) || 1));
   const same = list.find((w) => w.id === last.recipe);
-  if (same) same.qty = Math.min(999, same.qty + qty);
+  if (same) same.qty = Math.min(MAX, same.qty + qty);
   else list.push({ id: last.recipe, qty });
   save();
-  render(last);
+  tool$.refresh();
 });
 listEl.addEventListener('click', (e) => {
   const b = e.target.closest('[data-remove]');
   if (!b) return;
-  list.splice(Number(b.dataset.remove), 1);
+  const i = Number(b.dataset.remove);
+  list.splice(i, 1);
   save();
-  render(last);
+  tool$.refresh();
+  // Keep keyboard focus in the list: the next Remove button, the one before, or the list itself.
+  const next = document.getElementById(`craft-remove-${Math.min(i, list.length - 1)}`);
+  if (next) next.focus();
+  else {
+    listEl.setAttribute('tabindex', '-1');
+    listEl.focus();
+  }
 });
