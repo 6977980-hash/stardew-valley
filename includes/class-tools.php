@@ -33,6 +33,7 @@ class Tools {
 				'description' => 'What should you plant today in Stardew Valley? Enter the day, gold and tiles; get the best crop, why it wins and a seed shopping list (1.6).',
 				'icon'        => 'sprout',
 				'script'      => 'what-to-plant',
+				'data'        => array( 'crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'year-one' ),
 				'related'     => array( 'crop-profit-calculator', 'best-spring-crops', 'keg-vs-preserves-jar' ),
 				'learn'       => array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'best-greenhouse-setup-for-money' ),
 			),
@@ -492,6 +493,17 @@ class Tools {
 				$data[ $set ] = self::slim_gifts();
 			} elseif ( 'bundles' === $set ) {
 				$data[ $set ] = self::slim_bundles();
+			} elseif ( 'year-one' === $set ) {
+				// Only what the decision engine reads: which Pierre seeds wait for Year 2.
+				$y1                = Data::get( 'year-one' );
+				$data['yearOne'] = array(
+					'pierre_year2_seeds' => array_map(
+						function ( $s ) {
+							return array( 'crop' => $s['crop'] );
+						},
+						$y1 ? $y1['pierre_year2_seeds'] : array()
+					),
+				);
 			} else {
 				$data[ $set ] = Data::get( $set );
 			}

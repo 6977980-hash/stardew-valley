@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { rankCrops, reasons } from '../../assets/js/engine/decision.js';
 import { cropProfit } from '../../assets/js/engine/profit.js';
-import { data } from './helpers.js';
+import { data, json } from './helpers.js';
 
 const crops = data.crops.crops;
 const base = { farmingLevel: 0, tiles: 1, budget: null };
@@ -48,4 +48,14 @@ test('reasons name a real difference between the top two', () => {
   const why = reasons(ranked[0], ranked[1]);
   assert.ok(why.length >= 1 && why.length <= 3);
   assert.match(why.join(' '), new RegExp(ranked[0].crop.name));
+});
+
+test('farmYear 1 leaves out seeds Pierre only sells from Year 2', () => {
+  const withYear = { ...data, yearOne: json('data/year-one.json') };
+  const s = { ...base, season: 'spring', today: 1, tiles: 15, budget: 500 };
+  const ids = (o) => rankCrops(crops, withYear, o).map((x) => x.crop.id);
+  assert.ok(ids(s).includes('garlic'), 'no year given: Garlic is ranked');
+  assert.ok(!ids({ ...s, farmYear: 1 }).includes('garlic'), 'Year 1: no Garlic');
+  assert.ok(!ids({ ...s, season: 'summer', farmYear: 1 }).includes('red-cabbage'), 'Year 1: no Red Cabbage');
+  assert.ok(ids({ ...s, season: 'summer', farmYear: 2 }).includes('red-cabbage'), 'Year 2: Red Cabbage is back');
 });

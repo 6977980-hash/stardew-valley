@@ -119,8 +119,8 @@ export function buildAnswers(data) {
     return { situation: s, best: { id: ranked[0].crop.id, name: ranked[0].crop.name, tiles: ranked[0].tiles, total: r0(ranked[0].total) }, runner_up: { name: ranked[1].crop.name, total: r0(ranked[1].total) }, reasons: reasons(ranked[0], ranked[1]) };
   };
   const decision = {
-    new_farm: example({ season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0 }),
-    summer_15: example({ season: 'summer', today: 15, tiles: 40, budget: 2000, farmingLevel: 4 }),
+    new_farm: example({ season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0, farmYear: 1 }),
+    summer_15: example({ season: 'summer', today: 15, tiles: 40, budget: 2000, farmingLevel: 4, farmYear: 1 }),
   };
 
   // Fish ponds: best full pond per day, roe sold raw and as Aged Roe/Caviar with Artisan.
@@ -170,6 +170,7 @@ export function buildAnswers(data) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting', 'casks', 'dehydrator', 'buildings', 'bundles', 'gifts', 'fruittrees'].map((s) => [s, load(`${s}.json`)]));
   data.yearone = load('year-one.json');
+  data.yearOne = data.yearone;
   const entities = buildEntities(data, data.crops.crops.filter((c) => c.verification_status === 'cross-checked'));
   const outputs = {
     'data/answers.json': JSON.stringify(buildAnswers(data), null, 2) + '\n',

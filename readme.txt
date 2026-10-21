@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.15.0
+Stable tag: 0.15.1
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.15.1 (2026-10-21) =
+* What to Plant Today: new Year field (default Year 1). In Year 1 it no longer suggests Garlic, Unmilled Rice, Red Cabbage or Artichoke, whose seeds Pierre sells from Year 2 (data/year-one.json). The short answer on the page uses Year 1.
 
 = 0.15.0 (2026-10-21) =
 * New guide: Best Fruit Trees (/crops-and-farming/best-fruit-trees/): all 8 trees, sapling prices, when to plant, fruit price by quality and year, payback, Wine/Jelly/Dried Fruit per fruit, four-year totals, Greenhouse income, Banana and Mango, bundles.

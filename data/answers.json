@@ -1112,7 +1112,8 @@
         "today": 1,
         "tiles": 15,
         "budget": 500,
-        "farmingLevel": 0
+        "farmingLevel": 0,
+        "farmYear": 1
       },
       "best": {
         "id": "potato",
@@ -1121,11 +1122,12 @@
         "total": 2032
       },
       "runner_up": {
-        "name": "Garlic",
-        "total": 1483
+        "name": "Green Bean",
+        "total": 1459
       },
       "reasons": [
-        "Each Potato harvest is worth 101g per tile against 61g for Garlic."
+        "Your gold buys seeds for 10 tiles of Potato but only 8 of Green Bean.",
+        "Each Potato harvest is worth 101g per tile against 40g for Green Bean."
       ]
     },
     "summer_15": {
@@ -1134,7 +1136,8 @@
         "today": 15,
         "tiles": 40,
         "budget": 2000,
-        "farmingLevel": 4
+        "farmingLevel": 4,
+        "farmYear": 1
       },
       "best": {
         "id": "wheat",

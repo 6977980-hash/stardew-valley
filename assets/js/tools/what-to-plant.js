@@ -25,6 +25,7 @@ function render(v) {
     tiller: v.tiller,
     artisan: v.artisan,
     agriculturist: v.agri,
+    farmYear: v.farmyear === '1' ? 1 : 2,
   };
   const all = rankCrops(data.crops, data, situation);
   const ranked = all.filter((o) => !o.unaffordable);
