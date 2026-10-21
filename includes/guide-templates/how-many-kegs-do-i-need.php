@@ -24,7 +24,7 @@ $num  = function ( $n ) {
 };
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> about <strong>9 kegs for every 10 Ancient Fruit</strong> plants, <strong>1 keg for every 2 Starfruit</strong>, and <strong>14 kegs for every 10 Hops</strong>. A full greenhouse of <?php echo (int) $gh['tiles']; ?> Ancient Fruit needs <?php echo (int) ceil( $k['ancient-fruit']['kegs_per_plant'] * $gh['tiles'] ); ?> kegs to never fall behind. Blueberries and Cranberries make so much fruit that kegging all of it is rarely realistic.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> about <strong><?php echo (int) ceil( $k['ancient-fruit']['kegs_per_plant'] * 10 ); ?> kegs for every 10 Ancient Fruit</strong> plants, <strong><?php echo (int) ceil( $k['starfruit']['kegs_per_plant'] * 10 ); ?> kegs for every 10 Starfruit</strong>, and <strong><?php echo (int) ceil( $k['hops']['kegs_per_plant'] * 10 ); ?> kegs for every 10 Hops</strong>. A full greenhouse of <?php echo (int) $gh['tiles']; ?> Ancient Fruit needs <?php echo (int) ceil( $k['ancient-fruit']['kegs_per_plant'] * $gh['tiles'] ); ?> kegs to never fall behind. Blueberries and Cranberries make so much fruit that kegging all of it is rarely realistic.</p>
 </div>
 
 <p>The question is really: how many kegs does one plant keep busy? A keg takes a fixed time per item, and a plant gives fruit at a fixed pace. Divide one by the other and you get kegs per plant. Below that number, fruit piles up in a chest. Above it, kegs sit empty.</p>
@@ -50,7 +50,7 @@ $num  = function ( $n ) {
 <p class="table-note">Items a day is the long-run pace once a plant is producing: one harvest every regrow cycle for regrowing crops, or one every growing cycle if you replant. Average extra items per harvest are included, at farming level 0. Keg times use the wiki's 1,600 game minutes per day.</p>
 
 <h2>How the numbers work</h2>
-<p>Take Ancient Fruit. It regrows every 7 days, so one plant gives 1 fruit a week. Wine takes 10,000 minutes in a keg, which is <?php echo esc_html( $num( $k['ancient-fruit']['keg_days'] ) ); ?> days. One keg finishes a bit more than a week's fruit in a week, so each plant needs <?php echo esc_html( $num( $k['ancient-fruit']['kegs_per_plant'] ) ); ?> of a keg. Round up per 10 plants and you get 9.</p>
+<p>Take Ancient Fruit. It regrows every 7 days, so one plant gives 1 fruit a week. Wine takes 10,000 minutes in a keg, which is <?php echo esc_html( $num( $k['ancient-fruit']['keg_days'] ) ); ?> days. One keg finishes a bit more than a week's fruit in a week, so each plant needs <?php echo esc_html( $num( $k['ancient-fruit']['kegs_per_plant'] ) ); ?> of a keg. Round up per 10 plants and you get <?php echo (int) ceil( $k['ancient-fruit']['kegs_per_plant'] * 10 ); ?>.</p>
 <p>Hops go the other way. A Hops vine gives one cone every day, and Pale Ale takes <?php echo esc_html( $num( $k['hops']['keg_days'] ) ); ?> days. One vine keeps <?php echo esc_html( $num( $k['hops']['kegs_per_plant'] ) ); ?> kegs busy, so 100 vines need <?php echo (int) $k['hops']['kegs_per_100']; ?> kegs. That is why Hops look amazing on paper and disappoint on a farm with 30 kegs.</p>
 
 <h2>Berries: don't try to keg them all</h2>
@@ -63,10 +63,19 @@ $num  = function ( $n ) {
 	<li>Starfruit: <?php echo (int) ceil( $k['starfruit']['kegs_per_plant'] * $gh['tiles'] ); ?> kegs.</li>
 	<li>Hops: <?php echo (int) ceil( $k['hops']['kegs_per_plant'] * $gh['tiles'] ); ?> kegs.</li>
 </ul>
+<?php
+$sf_year = null;
+foreach ( isset( $gh['unlimited'] ) ? $gh['unlimited'] : array() as $u ) {
+	if ( 'starfruit' === $u['id'] ) {
+		$sf_year = $u;
+	}
+}
+?>
+<p>These are steady-state paces: enough kegs that no fruit ever waits.<?php if ( $sf_year ) : ?> Averaged over one 112-day greenhouse year instead (the year's wine spread evenly over 112 days, and only the 8 harvests that fit in it), a Starfruit greenhouse needs about <?php echo (int) $sf_year['machines']; ?> kegs, which is the figure the greenhouse guide and the Greenhouse Planner use.<?php endif; ?></p>
 <p>If you have fewer kegs than that, the best crop changes. Our <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'best-greenhouse-setup-for-money' ) ); ?>">greenhouse money guide</a> shows which crop wins at 20, 50 and 100 kegs, and the <a href="<?php echo esc_url( $tool_url( 'greenhouse-planner' ) ); ?>">Greenhouse Planner</a> counts the machines for any mix of crops.</p>
 
 <h2>Kegs or Preserves Jars?</h2>
-<p>A jar is faster than a keg: 4,000 minutes (2.5 days) for any fruit or vegetable. So it takes fewer jars to keep up, for example <?php echo esc_html( $num( $k['ancient-fruit']['jars_per_plant'] ) ); ?> jars per Ancient Fruit plant against <?php echo esc_html( $num( $k['ancient-fruit']['kegs_per_plant'] ) ); ?> kegs. Wine is worth much more than jelly for expensive fruit though, so for Ancient Fruit and Starfruit, more kegs are the better use of your materials. For cheap fruit the jar often wins. The Keg vs Preserves Jar tool shows the gold per machine for every crop.</p>
+<p>A jar is faster than a keg: 4,000 minutes (2.5 days) for any fruit or vegetable. So it takes fewer jars to keep up, for example <?php echo esc_html( $num( $k['ancient-fruit']['jars_per_plant'] ) ); ?> jars per Ancient Fruit plant against <?php echo esc_html( $num( $k['ancient-fruit']['kegs_per_plant'] ) ); ?> kegs. The rule we use everywhere on this site: if you are short of fruit, use kegs, because wine is worth more per fruit than jelly; if you are short of machines, use jars, because a jar earns more per machine per day for almost every crop (Hops and Wheat are the exceptions: Pale Ale and Beer beat Pickles either way). The Keg vs Preserves Jar tool shows the gold per machine for every crop.</p>
 
 <h2>Kegs for the plot you actually have</h2>
 <p>Few farms are 100 plants of one crop. This table turns the per-plant figure into kegs for plots of 10, 25 and 50 plants, rounded up, because you can't own a third of a keg.</p>
@@ -89,7 +98,7 @@ $num  = function ( $n ) {
 <p>Use it as a ceiling, not a target. Ancient Fruit and Pineapple both need <?php echo (int) ceil( $k['ancient-fruit']['kegs_per_plant'] * 25 ); ?> kegs for 25 plants, nearly one keg per plant, because each plant gives one fruit every 7 days and Wine takes 6.25 days. If you have 15 kegs, fifteen kegs are always busy and the other ten plants' fruit goes into a chest or a jar. That's not a problem. It means your next keg is worth building, which is the real use of this table.</p>
 
 <h2>What a keg is worth</h2>
-<p>More kegs only help if the extra output sells for enough. This is the gold a keg adds per day it runs, over the raw price of the item, at farming level 0 with the Artisan profession:</p>
+<p>More kegs only help if the extra output sells for enough. This is the gold a keg adds per day it runs, over the raw price of the item, using level-0 quality chances and Artisan prices (Artisan comes with Tiller at farming level 10, so the raw price includes Tiller's 10%):</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Gold added per keg per day</caption>
@@ -116,10 +125,10 @@ $num  = function ( $n ) {
 </ol>
 
 <h2>Why the plan changes with luck and levels</h2>
-<p>The figures use average yields at farming level 0. Higher levels raise the average number of items per harvest for crops that can drop extra, like Blueberries and Cranberries, so those two need more machines than shown once your level is up. Single-item crops such as Ancient Fruit and Starfruit don't change, so their numbers hold at any level. If a table figure and your own chest disagree, trust the chest and adjust.</p>
+<p>The figures use average yields. Extra Blueberries and Cranberries come from a fixed chance per harvest, not from your farming level, so a lucky week can bring more berries than the table shows; Unmilled Rice is the one crop whose harvest grows with farming level. Single-item crops such as Ancient Fruit and Starfruit don't change, so their numbers hold at any level. If a table figure and your own chest disagree, trust the chest and adjust.</p>
 
 <h2>One-harvest crops arrive in a burst</h2>
-<p>Everything above is a steady pace. A crop that gives one harvest and is then replanted, like Pumpkin, doesn't work that way: all of its fruit shows up on the same day. Fifty Pumpkin plants give fifty pumpkins at once. Juice takes <?php echo esc_html( $num( $k['pumpkin']['keg_days'] ) ); ?> days in a keg, so with 10 kegs the last pumpkin is in a keg after five rounds, about <?php echo esc_html( $num( 5 * $k['pumpkin']['keg_days'] ) ); ?> days later. With 50 kegs it all starts the same day. Neither is wrong. Fewer kegs just stretch the work over more days, and the products come out the same.</p>
+<p>Everything above is a steady pace. A crop that gives one harvest and is then replanted, like Pumpkin, doesn't work that way: all of its fruit shows up on the same day. Fifty Pumpkin plants give fifty pumpkins at once. Juice takes <?php echo esc_html( $num( $k['pumpkin']['keg_days'] ) ); ?> days in a keg, so 10 kegs need five rounds: the last pumpkins go in after four rounds, about <?php echo esc_html( $num( 4 * $k['pumpkin']['keg_days'] ) ); ?> days later, and come out about <?php echo esc_html( $num( 5 * $k['pumpkin']['keg_days'] ) ); ?> days after the harvest. With 50 kegs it all starts the same day. Neither is wrong. Fewer kegs just stretch the work over more days, and the products come out the same.</p>
 
 <h2>Mistakes that waste kegs</h2>
 <ul>

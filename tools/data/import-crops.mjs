@@ -8,6 +8,7 @@
 //
 //   node tools/data/import-crops.mjs            # fetch live, write data/crops.json
 //   node tools/data/import-crops.mjs --cached   # reuse tools/data/.cache (offline re-run)
+//   node tools/data/import-crops.mjs --facts    # re-apply CROP_FACTS to the current data/crops.json
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -44,6 +45,31 @@ const YIELD_OVERRIDES = {
   // (1.61 rice on average, or 2.11 at farming level 10+)" (Unmilled Rice page).
   'Unmilled Rice': { min: 1, max: 2, max_per_level: 0.1, extra_chance: 0.1, stated: true },
 };
+
+// Facts the Crops table cannot express, applied after parsing. Each entry quotes its source.
+export const CROP_FACTS = {
+  // "Coffee Beans cannot be purchased from any other stores" than the Traveling Cart, which sells
+  // them for 2,500g (25% chance in Fall/Winter) or as standard stock for 100-1,000g; most come from
+  // Dust Sprites (Coffee Bean page). No steady gold price, so no seed cost is counted.
+  'Coffee Bean': {
+    seed_prices: {},
+    seed_note: 'Not sold in shops: Dust Sprites in the Mines drop them, the Traveling Cart sometimes sells them (100-1,000g, or 2,500g), and after that you replant your own beans.',
+  },
+  'Ancient Fruit': {
+    seed_prices: {},
+    seed_note: 'Not sold in shops: craft Ancient Seeds from the Ancient Seed artifact, or make more in a Seed Maker.',
+  },
+  // "Harvesting a sunflower will drop 1 Sunflower, and 0-2 Sunflower Seeds ... the total seed drop
+  // averages the number of sunflowers harvested" (Sunflower page): replanting is free on average.
+  'Sunflower': { returns_seeds: 1 },
+  // "Growth Time: 8 days (6 when irrigated)" (Unmilled Rice page); "10 days (7 when irrigated)" (Taro Root page).
+  'Unmilled Rice': { irrigated_growth_days: 6 },
+  'Taro Root': { irrigated_growth_days: 7 },
+};
+
+export function applyCropFacts(record) {
+  return { ...record, ...(CROP_FACTS[record.name] || {}) };
+}
 
 const WORDS = { one: 1, two: 2, three: 3, four: 4, five: 5 };
 
@@ -183,6 +209,7 @@ async function main() {
   }
 
   records.sort((x, y) => x.name.localeCompare(y.name));
+  for (let i = 0; i < records.length; i++) records[i] = applyCropFacts(records[i]);
   const out = {
     schema: 'stardew-tools/crops@1',
     game_version: GAME_VERSION,
@@ -201,7 +228,17 @@ async function main() {
   for (const r of bad) console.log(`  ${r.name}: ${r.problems.join('; ')}`);
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+function factsOnly() {
+  const file = join(ROOT, 'data', 'crops.json');
+  const d = JSON.parse(readFileSync(file, 'utf8'));
+  d.crops = d.crops.map(applyCropFacts);
+  writeFileSync(file, JSON.stringify(d, null, 2) + '\n');
+  console.log(`crop facts applied to ${d.crops.length} crops`);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--facts')) {
+  factsOnly();
+} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main().catch((e) => {
     console.error(e);
     process.exit(1);

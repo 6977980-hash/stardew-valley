@@ -88,7 +88,7 @@ $hard  = $c['recipe'][1]['qty'];
 	</tbody>
 </table>
 </div>
-<p>Starfruit leads at <?php echo esc_html( $gold( $star['iridium'] ) ); ?> for an iridium bottle, and Ancient Fruit follows at <?php echo esc_html( $gold( $af['iridium'] ) ); ?>. They are the two fruits worth planning around, and they are also the two fruits behind the best greenhouses in <a href="<?php echo esc_url( $tool_url( 'greenhouse-planner' ) ); ?>">the Greenhouse Planner</a>. Cheap fruit like Blueberry (<?php echo esc_html( $gold( $wine['blueberry']['iridium'] ) ); ?> iridium) or Grape (<?php echo esc_html( $gold( $wine['grape']['iridium'] ) ); ?>) gains only a few gold per cask day. They are better made into jam or sold, so the cask slot goes to Starfruit.</p>
+<p>Starfruit leads at <?php echo esc_html( $gold( $star['iridium'] ) ); ?> for an iridium bottle, and Ancient Fruit follows at <?php echo esc_html( $gold( $af['iridium'] ) ); ?>. They are the two fruits worth planning around, and they are also the two fruits behind the best greenhouses in <a href="<?php echo esc_url( $tool_url( 'greenhouse-planner' ) ); ?>">the Greenhouse Planner</a>. Cheap fruit like Blueberry (<?php echo esc_html( $gold( $wine['blueberry']['iridium'] ) ); ?> iridium) or Grape (<?php echo esc_html( $gold( $wine['grape']['iridium'] ) ); ?>) gains only a few gold per cask day. They are better made into jelly or sold, so the cask slot goes to Starfruit.</p>
 
 <h2>Casks are an add-on, not a replacement</h2>
 <p>It is tempting to compare a cask with a Keg directly, but they do different jobs. A Keg turns fruit into wine, and a cask then ages wine that already exists. Look at the numbers for Starfruit with Artisan:</p>

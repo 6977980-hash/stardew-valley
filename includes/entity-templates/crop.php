@@ -19,26 +19,48 @@ foreach ( $e['plantings'] as $p ) {
 		$best = $p;
 	}
 }
+$indoor    = ! $best;
 $seasons   = implode( ', ', array_map( 'ucfirst', $e['seasons'] ) );
 $regrows   = ! empty( $e['regrow_days'] );
-$rank      = $best['rank'];
-$of        = $best['of'];
-$tier      = $rank <= 3 ? 'one of the best' : ( $rank <= ceil( $of / 3 ) ? 'above average' : ( $rank > floor( 2 * $of / 3 ) ? 'one of the weaker' : 'middle-of-the-pack' ) );
-$cheapest  = null;
-foreach ( $e['seed_prices'] as $shop => $price ) {
-	if ( null === $cheapest || $price < $cheapest[1] ) {
-		$cheapest = array( $shop, $price );
-	}
+$every     = function ( $d ) {
+	return 1 === (int) $d ? 'every day' : 'every ' . (int) $d . ' days';
+};
+$cat_names = array(
+	'fruit'     => 'fruit',
+	'vegetable' => 'vegetable',
+	'flower'    => 'flower',
+);
+$category  = isset( $cat_names[ $e['category'] ] ) ? $cat_names[ $e['category'] ] : 'crop';
+$rank      = $best ? $best['rank'] : null;
+$of        = $best ? $best['of'] : 0;
+$tier      = '';
+if ( $rank && $of > 3 ) {
+	$tier = $rank <= 3 ? 'one of the best' : ( $rank <= ceil( $of / 3 ) ? 'above average' : ( $rank > floor( 2 * $of / 3 ) ? 'one of the weaker' : 'middle-of-the-pack' ) );
 }
+$season_list = function ( $list ) {
+	$list = array_map( 'ucfirst', $list );
+	return count( $list ) > 1 ? implode( ', ', array_slice( $list, 0, -1 ) ) . ' and ' . end( $list ) : implode( '', $list );
+};
 $shops     = array(
-	'pierre'    => "Pierre's",
-	'jojamart'  => 'JoJaMart',
-	'oasis'     => 'the Oasis',
-	'krobus'    => 'Krobus',
-	'traveling' => 'the Traveling Cart',
+	'pierre'         => "Pierre's",
+	'jojamart'       => 'JojaMart',
+	'oasis'          => 'the Oasis',
+	'krobus'         => 'Krobus',
+	'traveling'      => 'the Traveling Cart',
+	'traveling_cart' => 'the Traveling Cart',
+	'egg_festival'   => 'the Egg Festival (Spring 13)',
 );
 $shop_name = function ( $s ) use ( $shops ) {
-	return isset( $shops[ $s ] ) ? $shops[ $s ] : ucwords( str_replace( '-', ' ', $s ) );
+	return isset( $shops[ $s ] ) ? $shops[ $s ] : ucwords( str_replace( array( '-', '_' ), ' ', $s ) );
+};
+$seed_parts = array();
+foreach ( $e['seed_prices'] as $shop => $price ) {
+	if ( $price > 0 ) {
+		$seed_parts[] = $gold( $price ) . ' at ' . $shop_name( $shop );
+	}
+}
+$n2        = function ( $v ) {
+	return rtrim( rtrim( number_format( (float) $v, 2 ), '0' ), '.' );
 };
 $kegs      = null;
 $jars      = null;
@@ -65,7 +87,20 @@ $fert_names = array(
 $calc_url = $tool_url( 'crop-profit-calculator' );
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> <?php echo esc_html( $e['name'] ); ?> is a <?php echo esc_html( $seasons ); ?> <?php echo esc_html( $e['category'] ); ?> that takes <?php echo (int) $e['growth_days']; ?> days to grow<?php echo $regrows ? ' and then gives a harvest every ' . (int) $e['regrow_days'] . ' days' : ''; ?>. It sells for <?php echo esc_html( $gold( $e['base_price'] ) ); ?>. Planted on day 1 of <?php echo esc_html( ucfirst( $best['season'] ) ); ?> at farming level 6 it makes about <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?> per tile after seeds, <?php echo esc_html( $tier ); ?> (number <?php echo (int) $rank; ?> of <?php echo (int) $of; ?> <?php echo esc_html( ucfirst( $best['season'] ) ); ?> crops).</p>
+	<p class="answer__lead"><strong>Short answer:</strong> <?php echo esc_html( $e['name'] ); ?> is <?php echo $indoor ? 'an indoor ' . esc_html( $category ) : 'a ' . esc_html( $seasons ) . ' ' . esc_html( $category ); ?> that takes <?php echo (int) $e['growth_days']; ?> days to grow<?php echo $regrows ? ' and then gives a harvest ' . esc_html( $every( $e['regrow_days'] ) ) : ''; ?>. It sells for <?php echo esc_html( $gold( $e['base_price'] ) ); ?>.
+	<?php if ( $indoor ) : ?>
+	It can't be planted in the farm's outdoor fields, so it has no season ranking: grow it in the greenhouse or in Garden Pots indoors, where it makes about <?php echo esc_html( $gold( $e['greenhouse']['established'] ) ); ?> a tile over a 112-day year once established, at farming level 6.
+	<?php else : ?>
+	Planted on day 1 of <?php echo esc_html( ucfirst( $best['season'] ) ); ?> at farming level 6 it makes about <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?> per tile<?php echo null !== $best['seed_cost'] ? ' after seeds' : ' (no seed cost counted, since no shop sells the seeds)'; ?><?php echo $best['carries_into'] ? ', counting the harvests it keeps giving in ' . esc_html( $season_list( $best['carries_into'] ) ) : ''; ?>.
+		<?php if ( $rank ) : ?>
+	That is <?php echo $tier ? esc_html( $tier ) . ', ' : ''; ?>number <?php echo (int) $rank; ?> of <?php echo (int) $of; ?> <?php echo esc_html( ucfirst( $best['season'] ) ); ?> crops whose seeds you can buy.
+		<?php elseif ( $of ) : ?>
+	Its seeds are not sold in shops every day, so it is left out of the <?php echo esc_html( ucfirst( $best['season'] ) ); ?> ranking; on profit alone it would sit at number <?php echo (int) $best['would_rank']; ?> of <?php echo (int) $of + 1; ?>.
+		<?php else : ?>
+	Its seeds are not sold in shops, and no other <?php echo esc_html( ucfirst( $best['season'] ) ); ?> crop grows outdoors, so there is no ranking to compare it with.
+		<?php endif; ?>
+	<?php endif; ?>
+	</p>
 </div>
 
 <h2>Quick facts</h2>
@@ -73,25 +108,29 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 <table class="results-table">
 	<caption><?php echo esc_html( $e['name'] ); ?> at a glance</caption>
 	<tbody>
-		<tr><th scope="row">Seasons</th><td><?php echo esc_html( $seasons ); ?><?php echo $e['indoor_only'] ? ' (indoors only)' : ''; ?></td></tr>
+		<tr><th scope="row">Seasons</th><td><?php echo $e['indoor_only'] ? 'Any season, indoors only (greenhouse or Garden Pots)' : esc_html( $seasons ); ?></td></tr>
 		<tr><th scope="row">Days to first harvest</th><td><?php echo (int) $e['growth_days']; ?></td></tr>
-		<tr><th scope="row">After the first harvest</th><td><?php echo $regrows ? 'Regrows every ' . (int) $e['regrow_days'] . ' days, no replanting' : 'Replant after each harvest'; ?></td></tr>
+		<tr><th scope="row">After the first harvest</th><td><?php echo esc_html( $regrows ? 'Regrows ' . $every( $e['regrow_days'] ) . ', no replanting' : 'Replant after each harvest' ); ?></td></tr>
 		<tr><th scope="row">Sell price</th><td><?php echo esc_html( $gold( $e['base_price'] ) ); ?></td></tr>
+		<?php if ( ! empty( $e['irrigated_growth_days'] ) ) : ?>
+		<tr><th scope="row">Next to water</th><td><?php echo (int) $e['irrigated_growth_days']; ?> days instead of <?php echo (int) $e['growth_days']; ?> when planted beside water (irrigated); the numbers on this page use the slower, unirrigated time</td></tr>
+		<?php endif; ?>
 		<tr><th scope="row">Seeds</th><td>
 			<?php
-			if ( $e['seed_prices'] ) {
-				$parts = array();
-				foreach ( $e['seed_prices'] as $shop => $price ) {
-					$parts[] = esc_html( $gold( $price ) . ' at ' . $shop_name( $shop ) );
+			if ( $seed_parts ) {
+				echo esc_html( implode( '; ', $seed_parts ) );
+				if ( ! empty( $e['returns_seeds'] ) && ! $regrows ) {
+					echo ' (each harvest drops about one seed, so you only buy them once)';
 				}
-				echo implode( '; ', $parts ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above.
 			} else {
-				echo 'Not sold in shops';
+				echo esc_html( ! empty( $e['seed_note'] ) ? $e['seed_note'] : 'Not sold in shops for gold' );
 			}
 			?>
 		</td></tr>
-		<tr><th scope="row">Items per harvest</th><td><?php echo esc_html( rtrim( rtrim( number_format( $e['items_per_harvest']['level0'], 2 ), '0' ), '.' ) ); ?> at farming level 0, <?php echo esc_html( rtrim( rtrim( number_format( $e['items_per_harvest']['level10'], 2 ), '0' ), '.' ) ); ?> at level 10</td></tr>
-		<?php if ( $best['last_planting_day'] ) : ?>
+		<?php if ( $e['items_per_harvest']['level0'] > 1 || $e['items_per_harvest']['level10'] > 1 ) : ?>
+		<tr><th scope="row">Items per harvest</th><td><?php echo esc_html( $n2( $e['items_per_harvest']['level0'] ) ); ?> at farming level 0, <?php echo esc_html( $n2( $e['items_per_harvest']['level10'] ) ); ?> at level 10</td></tr>
+		<?php endif; ?>
+		<?php if ( $best && $best['last_planting_day'] ) : ?>
 		<tr><th scope="row">Last day to plant</th><td>Day <?php echo (int) $best['last_planting_day']; ?> of <?php echo esc_html( ucfirst( $best['last_planting_season'] ? $best['last_planting_season'] : $best['season'] ) ); ?> for one harvest</td></tr>
 		<?php endif; ?>
 		<?php if ( $e['trellis'] ) : ?>
@@ -129,8 +168,9 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 </div>
 <p class="table-note">Iridium quality only becomes possible with Deluxe Fertilizer, which is why the chance is 0% here.</p>
 
+<?php if ( ! $indoor ) : ?>
 <h2>Profit per tile</h2>
-<p>This is profit for one tile planted on day 1 of the season and replanted after each harvest, sold raw, after paying for seeds. It counts every harvest that fits before the season ends<?php echo count( $e['seasons'] ) > 1 ? ', and carries the crop into the next season if it also grows there' : ''; ?>.</p>
+<p>This is profit for one tile planted on day 1 of the season and replanted after each harvest, sold raw<?php echo null !== $best['seed_cost'] ? ', after paying for seeds' : ''; ?>. It counts every harvest that fits before the season ends<?php echo count( $e['seasons'] ) > 1 ? ', and carries the crop into the next season if it also grows there, so a planting that continues covers more than one season' : ''; ?>. The rank compares only crops whose seeds a shop sells every day, the same list as the Best Crops pages (they rank at farming level 0, so neighbours can swap places).</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Profit per tile by planting season and farming level</caption>
@@ -138,12 +178,12 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 	<tbody>
 	<?php foreach ( $e['plantings'] as $p ) : ?>
 		<tr<?php echo $p['season'] === $best['season'] ? ' class="is-best"' : ''; ?>>
-			<th scope="row"><?php echo esc_html( ucfirst( $p['season'] ) ); ?></th>
+			<th scope="row"><?php echo esc_html( ucfirst( $p['season'] ) ); ?><?php echo $p['carries_into'] ? ' <small>(into ' . esc_html( $season_list( $p['carries_into'] ) ) . ')</small>' : ''; ?></th>
 			<td><?php echo count( $p['harvests'] ); ?></td>
 			<td><?php echo esc_html( $gold( $p['profit']['level0'] ) ); ?></td>
 			<td><?php echo esc_html( $gold( $p['profit']['level6'] ) ); ?></td>
 			<td><?php echo esc_html( $gold( $p['profit']['level10'] ) ); ?></td>
-			<td><?php echo (int) $p['rank']; ?> of <?php echo (int) $p['of']; ?></td>
+			<td><?php echo $p['rank'] ? (int) $p['rank'] . ' of ' . (int) $p['of'] : 'Not ranked (no shop seeds)'; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
@@ -152,65 +192,98 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 <?php
 $gain = $best['profit']['level0'] > 0 ? round( ( $best['profit']['level10'] / $best['profit']['level0'] - 1 ) * 100 ) : null;
 $days = $best['harvests'];
+if ( $regrows ) {
+	$seed_text = 'Because it regrows, you pay for seeds once and then collect ' . $every( $e['regrow_days'] ) . ', which is why the number rises quickly the earlier in the season you plant it.';
+} elseif ( null === $best['seed_cost'] ) {
+	$seed_text = 'It has to be replanted after every harvest; no shop sells the seeds, so their cost is not counted.';
+} elseif ( ! empty( $e['returns_seeds'] ) ) {
+	$seed_text = 'Each harvest drops about one seed on average, so after the first bag (' . $gold( $best['seed_cost'] ) . ') you replant for free.';
+} else {
+	$seed_text = 'It has to be replanted after every harvest, so the seed cost repeats: ' . $gold( $best['seed_cost'] ) . ' over the season.';
+}
 ?>
-<p>Planted on day 1 of <?php echo esc_html( ucfirst( $best['season'] ) ); ?>, <?php echo esc_html( $e['name'] ); ?> is harvested on day <?php echo esc_html( implode( ', ', array_slice( $days, 0, 8 ) ) ); ?><?php echo count( $days ) > 8 ? ' and ' . ( count( $days ) - 8 ) . ' more times' : ''; ?>. <?php if ( null !== $gain && $gain > 0 ) : ?>Going from farming level 0 to 10 raises its profit by about <?php echo (int) $gain; ?>%, mostly through better quality<?php echo $e['items_per_harvest']['level10'] > $e['items_per_harvest']['level0'] ? ' and extra items per harvest' : ''; ?>.<?php endif; ?> <?php if ( $regrows ) : ?>Because it regrows, you pay for seeds once and then collect every <?php echo (int) $e['regrow_days']; ?> days, which is why the number rises quickly the earlier in the season you plant it.<?php else : ?>It has to be replanted after every harvest, so the seed cost repeats: <?php echo esc_html( $gold( $best['seed_cost'] ) ); ?> over the season.<?php endif; ?> For a different day, farming level, profession or fertilizer, use the <a href="<?php echo esc_url( $calc_url ); ?>">Crop Profit Calculator</a>.</p>
+<p>Planted on day 1 of <?php echo esc_html( ucfirst( $best['season'] ) ); ?>, <?php echo esc_html( $e['name'] ); ?> is harvested on day <?php echo esc_html( implode( ', ', array_slice( $days, 0, 8 ) ) ); ?><?php echo count( $days ) > 8 ? ' and ' . ( count( $days ) - 8 ) . ' more times' : ''; ?>. <?php if ( null !== $gain && $gain > 0 ) : ?>Going from farming level 0 to 10 raises its profit by about <?php echo (int) $gain; ?>%, mostly through better quality<?php echo $e['items_per_harvest']['level10'] > $e['items_per_harvest']['level0'] ? ' and extra items per harvest' : ''; ?>.<?php endif; ?> <?php echo esc_html( $seed_text ); ?> For a different day, farming level, profession or fertilizer, use the <a href="<?php echo esc_url( $calc_url ); ?>">Crop Profit Calculator</a>.</p>
 
 <h2>Does fertilizer help?</h2>
+<?php $paying = isset( $best['paying_fertilizers'] ) ? $best['paying_fertilizers'] : array(); ?>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Profit per tile at farming level 6, planted on day 1 of <?php echo esc_html( ucfirst( $best['season'] ) ); ?></caption>
 	<thead><tr><th scope="col">Nothing</th><?php foreach ( $fert_names as $label ) : ?><th scope="col"><?php echo esc_html( $label ); ?></th><?php endforeach; ?></tr></thead>
 	<tbody><tr>
-		<td<?php echo 'none' === $best['best_fertilizer'][0] ? '' : ''; ?>><?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?></td>
+		<td><?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?></td>
 		<?php foreach ( $fert_names as $key => $label ) : ?>
-		<td<?php echo $best['best_fertilizer'][0] === $key && $best['best_fertilizer'][1] > $best['profit']['level6'] ? ' class="is-best"' : ''; ?>><?php echo esc_html( $gold( $best['fertilizer_level6'][ $key ] ) ); ?></td>
+		<td<?php echo $paying && $paying[0] === $key ? ' class="is-best"' : ''; ?>><?php echo esc_html( $gold( $best['fertilizer_level6'][ $key ] ) ); ?></td>
 		<?php endforeach; ?>
 	</tr></tbody>
 </table>
 </div>
-<?php if ( $best['best_fertilizer'][1] > $best['profit']['level6'] ) : ?>
-<p>For <?php echo esc_html( $e['name'] ); ?>, <?php echo esc_html( $fert_names[ $best['best_fertilizer'][0] ] ); ?> is the only one that pays: it lifts profit from <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?> to <?php echo esc_html( $gold( $best['best_fertilizer'][1] ) ); ?> a tile. The others cost more than they bring in. <?php if ( in_array( $best['best_fertilizer'][0], array( 'speed-gro', 'deluxe-speed-gro' ), true ) ) : ?>Speed fertilizer works by fitting an extra harvest into the season; see <a href="<?php echo esc_url( $guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Deluxe Fertilizer</a> for when that happens.<?php endif; ?></p>
+<?php if ( $paying ) : ?>
+	<?php
+	$top_f  = $paying[0];
+	$others = array_map(
+		function ( $k ) use ( $fert_names ) {
+			return $fert_names[ $k ];
+		},
+		array_slice( $paying, 1 )
+	);
+	?>
+<p>For <?php echo esc_html( $e['name'] ); ?>, the best is <?php echo esc_html( $fert_names[ $top_f ] ); ?>: it lifts profit from <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?> to <?php echo esc_html( $gold( $best['fertilizer_level6'][ $top_f ] ) ); ?> a tile. <?php echo $others ? esc_html( $season_list( $others ) . ( count( $others ) > 1 ? ' also pay' : ' also pays' ) . ', by less.' ) : 'It is the only one that pays; the others cost more than they bring in.'; ?> <?php if ( in_array( $top_f, array( 'speed-gro', 'deluxe-speed-gro' ), true ) ) : ?>Speed fertilizer works by fitting an extra harvest into the season; see <a href="<?php echo esc_url( $guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Fertilizer</a> for when that happens.<?php endif; ?></p>
 <?php else : ?>
-<p>No fertilizer pays for itself on <?php echo esc_html( $e['name'] ); ?> here: each bag costs more than the extra harvests or better quality bring in. Skip it and plant more tiles. <a href="<?php echo esc_url( $guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Deluxe Fertilizer</a> explains why this is common.</p>
+<p>No fertilizer pays for itself on <?php echo esc_html( $e['name'] ); ?> here: each bag costs more than the extra harvests or better quality bring in. Skip it and plant more tiles. <a href="<?php echo esc_url( $guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Fertilizer</a> explains why this is common.</p>
+<?php endif; ?>
 <?php endif; ?>
 
 <h2>Sell it raw or process it?</h2>
 <?php if ( $e['products'] ) : ?>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
-	<caption>What <?php echo esc_html( $e['name'] ); ?> becomes in a machine (Artisan prices)</caption>
+	<caption>What <?php echo esc_html( $e['name'] ); ?> becomes in a machine (Artisan prices, compared with the Tiller raw price)</caption>
 	<thead><tr><th scope="col">Machine</th><th scope="col">Makes</th><th scope="col">Price</th><th scope="col">Days in machine</th><th scope="col">Extra gold per machine per day</th></tr></thead>
 	<tbody>
-	<?php foreach ( $e['products'] as $i => $pr ) : ?>
-		<tr><th scope="row"><?php echo esc_html( $pr['machine'] ); ?></th><td><?php echo esc_html( $pr['product'] ); ?><?php echo $pr['input'] > 1 ? ' <small>(' . (int) $pr['input'] . ' needed)</small>' : ''; ?></td><td><?php echo esc_html( $gold( $pr['price'] ) ); ?></td><td><?php echo esc_html( $pr['days'] ); ?></td><td><?php echo esc_html( isset( $e['machine_gain'][ $i ] ) ? $gold( $e['machine_gain'][ $i ]['gain_per_machine_day'] ) : '' ); ?></td></tr>
+	<?php foreach ( $e['products'] as $pr ) : ?>
+		<?php
+		$pg = null;
+		foreach ( $e['machine_gain'] as $mg ) {
+			if ( $mg['machine'] === $pr['machine'] && $mg['product'] === $pr['product'] ) {
+				$pg = $mg;
+			}
+		}
+		?>
+		<tr><th scope="row"><?php echo esc_html( $pr['machine'] ); ?></th><td><?php echo esc_html( $pr['product'] ); ?><?php echo $pr['input'] > 1 ? ' <small>(' . (int) $pr['input'] . ' needed)</small>' : ''; ?></td><td><?php echo esc_html( $gold( $pr['price'] ) ); ?></td><td><?php echo esc_html( $pr['days'] ); ?></td><td><?php echo esc_html( $pg ? $gold( $pg['gain_per_machine_day'] ) : 'Not the better product' ); ?></td></tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
 </div>
-<p>The last column is what one machine adds per day over selling the crop raw, if it is never idle. <?php if ( $best_machine ) : ?>For <?php echo esc_html( $e['name'] ); ?> the better machine is the <?php echo esc_html( $best_machine['machine'] ); ?> (<?php echo esc_html( $best_machine['product'] ); ?>, <?php echo esc_html( $gold( $best_machine['gain_per_machine_day'] ) ); ?> a machine-day). <?php endif; ?><?php if ( $kegs && $jars ) : ?><?php echo $kegs['gain_per_machine_day'] >= $jars['gain_per_machine_day'] ? 'Kegs earn more here, so give this crop to your Kegs first.' : 'Preserves Jars earn more here, so keep your Kegs for crops with a higher gain.'; ?> The <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a> tool splits a harvest across the machines you actually own.<?php endif; ?></p>
+<p>The last column is what one machine adds per day over selling the crop raw, if it is never idle. Artisan comes after Tiller at farming level 10, so the raw price it is compared with includes Tiller's 10%. <?php if ( $best_machine ) : ?>For <?php echo esc_html( $e['name'] ); ?> the better machine is the <?php echo esc_html( $best_machine['machine'] ); ?> (<?php echo esc_html( $best_machine['product'] ); ?>, <?php echo esc_html( $gold( $best_machine['gain_per_machine_day'] ) ); ?> a machine-day). <?php endif; ?><?php if ( $kegs && $jars ) : ?><?php echo $kegs['gain_per_machine_day'] >= $jars['gain_per_machine_day'] ? 'Kegs earn more here per machine-day too, so this crop belongs in Kegs whether you are short of crops or of machines.' : 'Per machine-day the Preserves Jar earns more here, so use Jars when machines are your limit; when crops are your limit, pick the product worth more per item.'; ?> The <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a> tool splits a harvest across the machines you actually own.<?php endif; ?></p>
 <?php else : ?>
 <p><?php echo esc_html( $e['name'] ); ?> can't be made into an artisan good in a Keg or Preserves Jar, so the only decision is when to sell it.</p>
 <?php endif; ?>
 
 <h2>In the greenhouse</h2>
-<p>Grown in the greenhouse all year (112 days), <?php echo esc_html( $e['name'] ); ?> makes about <?php echo esc_html( $gold( $e['greenhouse']['established'] ) ); ?> a tile once established, from <?php echo (int) $e['greenhouse']['harvests']; ?> harvests<?php echo $e['greenhouse']['first_year'] !== $e['greenhouse']['established'] ? ', and ' . esc_html( $gold( $e['greenhouse']['first_year'] ) ) . ' in the first year while it is still growing' : ''; ?>. Compare crops for a full greenhouse in <a href="<?php echo esc_url( $guide_url( 'best-greenhouse-setup-for-money' ) ); ?>">Best Greenhouse Setup for Money</a>.</p>
+<p>Grown in the greenhouse all year (112 days) at farming level 6, <?php echo esc_html( $e['name'] ); ?> makes about <?php echo esc_html( $gold( $e['greenhouse']['established'] ) ); ?> a tile once established, from <?php echo (int) $e['greenhouse']['harvests']; ?> harvests<?php echo $e['greenhouse']['first_year'] !== $e['greenhouse']['established'] ? ', and ' . esc_html( $gold( $e['greenhouse']['first_year'] ) ) . ' in the first year while it is still growing' : ''; ?>. Compare crops for a full greenhouse in <a href="<?php echo esc_url( $guide_url( 'best-greenhouse-setup-for-money' ) ); ?>">Best Greenhouse Setup for Money</a>.</p>
 
+<?php if ( ! $indoor ) : ?>
 <h2>How it compares</h2>
-<?php if ( $best['peers'] ) : ?>
-<p>The top <?php echo esc_html( ucfirst( $best['season'] ) ); ?> crops at farming level 6 are:</p>
+	<?php if ( $best['peers'] ) : ?>
+<p><?php echo $rank ? esc_html( ucfirst( $best['season'] ) ) . ' crops with shop seeds that make about the same at farming level 6:' : 'For comparison, ' . esc_html( ucfirst( $best['season'] ) ) . ' crops with shop seeds that make the closest amount at farming level 6:'; ?></p>
 <ul>
-	<?php foreach ( $best['peers'] as $peer ) : ?>
+		<?php foreach ( $best['peers'] as $peer ) : ?>
 	<li><?php echo $link( 'crops', $peer['id'], $peer['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link. ?>: <?php echo esc_html( $gold( $peer['profit'] ) ); ?> per tile</li>
-	<?php endforeach; ?>
+		<?php endforeach; ?>
 </ul>
+	<?php endif; ?>
+<p><?php echo esc_html( $e['name'] ); ?> makes <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?><?php echo $rank ? ', number ' . (int) $rank . ' of ' . (int) $of : ''; ?>.
+	<?php
+	if ( 1 === (int) $rank ) {
+		echo 'It is the most profitable ' . esc_html( ucfirst( $best['season'] ) ) . ' crop you can buy seeds for.';
+	} elseif ( $best['leader'] ) {
+		echo 'The leader, ' . $link( 'crops', $best['leader']['id'], $best['leader']['name'] ) . ', makes ' . esc_html( $gold( $best['leader']['profit'] ) ) . ' a tile' . ( $best['leader']['profit'] > $best['profit']['level6'] ? ', ' . esc_html( $gold( $best['leader']['profit'] - $best['profit']['level6'] ) ) . ' more' : '' ) . '.'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link.
+		echo $rank && $rank <= 3 ? ' It is near the top of its season, so it is a safe choice.' : '';
+	}
+	?>
+ <?php $season_url = $tool_url( 'best-' . $best['season'] . '-crops' ); ?><?php if ( $season_url ) : ?>See every crop for the season on <a href="<?php echo esc_url( $season_url ); ?>">Best <?php echo esc_html( ucfirst( $best['season'] ) ); ?> Crops</a>, or ask <a href="<?php echo esc_url( $tool_url( 'what-to-plant' ) ); ?>">What to Plant Today</a> for a pick that fits your day and budget.<?php endif; ?></p>
 <?php endif; ?>
-<p><?php echo esc_html( $e['name'] ); ?> makes <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?>, number <?php echo (int) $rank; ?> of <?php echo (int) $of; ?>. <?php
-if ( $rank > 3 && $best['peers'] ) {
-	echo 'The gap to the leader is ' . esc_html( $gold( $best['peers'][0]['profit'] - $best['profit']['level6'] ) ) . ' a tile, so ' . esc_html( $e['name'] ) . ' is worth planting for the reasons above, not for the profit table alone.';
-} else {
-	echo 'It is near the top of its season, so it is a safe choice.';
-}
-?> See every crop for the season on <a href="<?php echo esc_url( $tool_url( 'best-' . $best['season'] . '-crops' ) ); ?>">Best <?php echo esc_html( ucfirst( $best['season'] ) ); ?> Crops</a>, or ask <a href="<?php echo esc_url( $tool_url( 'what-to-plant' ) ); ?>">What to Plant Today</a> for a pick that fits your day and budget.</p>
 
 <h2>Related</h2>
 <ul class="related-list">

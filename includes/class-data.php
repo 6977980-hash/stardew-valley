@@ -68,16 +68,32 @@ class Data {
 		);
 	}
 
-	/**
-	 * Date a page was last updated: the data check date, but never earlier than the day the page
-	 * itself was published (a guide written after the last data check was updated that day).
-	 */
-	public static function modified( $published = '' ) {
-		$checked = self::summary()['checked'];
-		if ( $published && ( ! $checked || strtotime( $published ) > strtotime( $checked ) ) ) {
-			return $published;
+	/** Latest date the given data sets were checked against the wiki (Y-m-d, or ''). */
+	public static function checked( $sets = array( 'crops' ) ) {
+		$latest = '';
+		foreach ( (array) $sets as $set ) {
+			$d = self::get( $set );
+			foreach ( array( 'last_verified', 'generated' ) as $key ) {
+				if ( $d && ! empty( $d[ $key ] ) && strtotime( $d[ $key ] ) > strtotime( $latest ? $latest : '1970-01-01' ) ) {
+					$latest = $d[ $key ];
+				}
+			}
 		}
-		return $checked;
+		return $latest;
+	}
+
+	/**
+	 * Date a page was last updated: the latest of the day it was published, the day its text was
+	 * last changed and the day the data it uses was checked.
+	 */
+	public static function modified( $published = '', $sets = array( 'crops' ), $updated = '' ) {
+		$out = self::checked( $sets );
+		foreach ( array( $published, $updated ) as $d ) {
+			if ( $d && ( ! $out || strtotime( $d ) > strtotime( $out ) ) ) {
+				$out = $d;
+			}
+		}
+		return $out;
 	}
 
 	public static function reset() {

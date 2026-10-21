@@ -70,7 +70,7 @@ class Tools {
 				'short'       => 'Greenhouse Planner',
 				'question'    => 'Plan my greenhouse',
 				'blurb'       => 'Choose sprinklers and crops, see the layout and a year of profit, and how many kegs you need.',
-				'description' => 'Plan your Stardew Valley greenhouse: sprinkler layouts that water all 120 tiles, crops per tile, yearly profit and how many kegs or jars you need.',
+				'description' => 'Plan your Stardew Valley greenhouse: sprinkler layouts for the 120 soil tiles (116 left for crops with Iridium Sprinklers), yearly profit per crop and how many kegs or jars you need.',
 				'icon'        => 'house',
 				'script'      => 'greenhouse',
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),

@@ -30,7 +30,7 @@ $planner   = $tool_url( 'greenhouse-planner' );
 	<p class="answer__lead"><strong>Short answer:</strong> fill the greenhouse with <strong>Ancient Fruit</strong> unless you own well over 100 kegs. Ancient Fruit is the best crop to sell raw, and it stays the best as you add kegs up to about 100. Hops only take over when you have enough kegs to turn every cone into Pale Ale, about <?php echo (int) $hops_kegs; ?> of them. Then a Hops greenhouse makes around <?php echo esc_html( $gold( $at[170][0]['total'] ) ); ?> a year.</p>
 </div>
 
-<p>Most "best greenhouse crop" lists rank crops per tile as if you could process every harvest. You can't, unless you have built a lot of kegs. So we asked a different question: with the kegs you actually own, which single crop makes the most in a year? Everything is for an established greenhouse (year 2 onward) with 6 Iridium Sprinklers, which leaves <?php echo (int) $gh['tiles']; ?> tiles. It counts 112 days, all four seasons, with the Artisan profession. Kegs get the most valuable fruit first and everything else is sold raw.</p>
+<p>Most "best greenhouse crop" lists rank crops per tile as if you could process every harvest. You can't, unless you have built a lot of kegs. So we asked a different question: with the kegs you actually own, which single crop makes the most in a year? Everything is for an established greenhouse (year 2 onward) with 6 Iridium Sprinklers, which leaves <?php echo (int) $gh['tiles']; ?> tiles. It counts 112 days, all four seasons, with Artisan prices for wine and the Tiller price for fruit sold raw (Artisan comes after Tiller at farming level 10). Kegs get the most valuable fruit first and everything else is sold raw.</p>
 
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
@@ -89,11 +89,11 @@ $planner   = $tool_url( 'greenhouse-planner' );
 	<li><strong>A year is 112 days.</strong> The greenhouse has no seasons, so all four count, 28 days each.</li>
 	<li><strong>Established means year two.</strong> Ancient Fruit and similar plants are already growing at the start of the year.</li>
 	<li><strong>Kegs take the most valuable fruit first</strong> and everything left over is sold raw.</li>
-	<li><strong>Artisan profession, raw quality at level 0.</strong> Higher levels and the Tiller profession change the totals, so treat the gold figures as a comparison, not a forecast.</li>
+	<li><strong>Level-0 quality chances, Artisan and Tiller prices.</strong> The keg tables use Artisan prices for wine and the Tiller price for anything sold raw; the plain "sold raw" list uses no professions. A real level-10 farmer gets more gold and iridium fruit, which raises the raw totals a little, so treat the gold figures as a comparison, not a forecast.</li>
 </ul>
 
 <h2>Sprinklers: how many tiles you really get</h2>
-<p>The greenhouse has 120 soil tiles, but sprinklers sit on soil and take tiles away from crops. The layout decides how many are left to plant, and how much of your day goes to watering.</p>
+<p>The greenhouse has 120 soil tiles. A sprinkler placed on soil takes a tile away from crops; one placed on the wooden border around the soil does not. The layout decides how many are left to plant, and how much of your day goes to watering.</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Greenhouse layouts, with Ancient Fruit sold raw for a year</caption>
@@ -106,7 +106,7 @@ $planner   = $tool_url( 'greenhouse-planner' );
 </table>
 </div>
 <p>Without sprinklers you get every tile, <?php echo (int) $gh['layouts'][0]['tiles']; ?>, but you water all of them by hand every day. Sixteen Quality Sprinklers cover everything and leave <?php echo (int) $gh['layouts'][1]['tiles']; ?> tiles. Six Iridium Sprinklers also cover everything and leave <?php echo (int) $gh['layouts'][2]['tiles']; ?>, so Iridium is worth about <?php echo esc_html( $gold( $gh['layouts'][2]['ancient_fruit_raw'] - $gh['layouts'][1]['ancient_fruit_raw'] ) ); ?> a year more than Quality in Ancient Fruit alone, and takes far fewer sprinklers to build.</p>
-<p>The materials: six Iridium Sprinklers are <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return number_format( $m['qty'] ) . ' ' . $m['name']; }, $g['costs']['iridium_6']['materials'] ) ) ); ?>. Sixteen Quality Sprinklers are <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return number_format( $m['qty'] ) . ' ' . $m['name']; }, $g['costs']['quality_16']['materials'] ) ) ); ?>. Iridium needs <?php echo esc_html( $g['costs']['iridium-sprinkler']['obtained'] ); ?>, and Quality needs <?php echo esc_html( $g['costs']['quality-sprinkler']['obtained'] ); ?>, so build Quality first if you are earlier in the game and replace them when you can. The <a href="<?php echo esc_url( $planner ); ?>">Greenhouse Planner</a> shows the exact placement.</p>
+<p>The materials: six Iridium Sprinklers are <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return number_format( $m['qty'] ) . ' ' . $m['name']; }, $g['costs']['iridium_6']['materials'] ) ) ); ?>. Sixteen Quality Sprinklers are <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return number_format( $m['qty'] ) . ' ' . $m['name']; }, $g['costs']['quality_16']['materials'] ) ) ); ?>. Iridium needs <?php echo esc_html( $g['costs']['iridium-sprinkler']['obtained'] ); ?>, and Quality needs <?php echo esc_html( $g['costs']['quality-sprinkler']['obtained'] ); ?>, so build Quality first if you are earlier in the game and replace them when you can. The <a href="<?php echo esc_url( $planner ); ?>">Greenhouse Planner</a> shows the exact placement. A Pressure Nozzle on Iridium Sprinklers waters a bigger area, so fewer sprinklers sit on soil, and Deluxe Retaining Soil keeps tiles watered with no sprinkler at all; the planner does not model those two yet.</p>
 
 <h2>Your first year is slower</h2>
 <p>All the numbers above are for an established greenhouse. In the first year, crops with a long first growth lose days to growing. Ancient Fruit takes <?php echo (int) $gh['first_year'][0]['growth']; ?> days to give its first fruit, which is a whole season with nothing to pick.</p>
@@ -134,7 +134,7 @@ $planner   = $tool_url( 'greenhouse-planner' );
 <h2>Mistakes to avoid</h2>
 <ul>
 	<li><strong>Copying a per-tile list.</strong> The best crop per tile is only the best crop if you can process all of it.</li>
-	<li><strong>Covering every tile with sprinklers.</strong> Each sprinkler gives up a tile. Count what you need to water, not what you can.</li>
+	<li><strong>Covering every tile with sprinklers.</strong> Each sprinkler on soil gives up a tile. Count what you need to water, not what you can.</li>
 	<li><strong>Replanting Ancient Fruit.</strong> It keeps producing. Digging it up to replant only throws away the 28-day wait.</li>
 	<li><strong>Ignoring the first year.</strong> Judge the greenhouse over two years, not one.</li>
 </ul>

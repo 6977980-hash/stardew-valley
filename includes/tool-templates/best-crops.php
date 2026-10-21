@@ -25,10 +25,36 @@ $shops  = array(
 $top    = array_slice( $rows, 0, 3 );
 ?>
 <div class="answer">
-	<?php if ( count( $top ) >= 3 ) : ?>
+	<?php
+	$gh_best = 'greenhouse' === $season && ! empty( $answers['greenhouse']['raw'][0] ) ? $answers['greenhouse']['raw'][0] : null;
+	if ( $gh_best && count( $top ) >= 3 ) :
+		$gh_url = Stardew_Tools\Entities::url( 'crops', $gh_best['id'] );
+		?>
+	<p class="answer__lead"><strong>Short answer:</strong> <?php echo $gh_url ? '<a href="' . esc_url( $gh_url ) . '">' . esc_html( $gh_best['name'] ) . '</a>' : esc_html( $gh_best['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped here. ?> is the best greenhouse crop overall: about <?php echo esc_html( $g( $gh_best['per_tile'] ) ); ?> per tile a year sold raw once the plants are grown, but no shop sells its seeds (you make them in a Seed Maker). Among seeds you can buy every day, the most profitable per tile, planted on day 1 and replanted all year, are <strong><?php echo esc_html( $top[0]['name'] ); ?></strong> (<?php echo esc_html( $g( $top[0]['profit'] ) ); ?>), <?php echo esc_html( $top[1]['name'] ); ?> (<?php echo esc_html( $g( $top[1]['profit'] ) ); ?>) and <?php echo esc_html( $top[2]['name'] ); ?> (<?php echo esc_html( $g( $top[2]['profit'] ) ); ?>), sold raw with no professions or fertilizer.</p>
+	<?php elseif ( count( $top ) >= 3 ) : ?>
 	<p class="answer__lead"><strong>Short answer:</strong> planted on day 1<?php echo 'greenhouse' === $season ? ' and replanted all year' : ''; ?>, the most profitable <?php echo esc_html( 'greenhouse' === $season ? 'greenhouse' : strtolower( $label ) ); ?> crops per tile are <strong><?php echo esc_html( $top[0]['name'] ); ?></strong> (<?php echo esc_html( $g( $top[0]['profit'] ) ); ?>), <?php echo esc_html( $top[1]['name'] ); ?> (<?php echo esc_html( $g( $top[1]['profit'] ) ); ?>) and <?php echo esc_html( $top[2]['name'] ); ?> (<?php echo esc_html( $g( $top[2]['profit'] ) ); ?>), sold raw with no professions or fertilizer.</p>
 	<?php endif; ?>
-	<p>Profit is sale value minus seeds over the <?php echo 'greenhouse' === $season ? 'greenhouse year (112 days)' : 'season'; ?>. Change your farming level, fertilizer or Tiller below and the ranking updates. Planting later in the season? Use <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'what-to-plant' ) ); ?>">What to Plant Today</a>.</p>
+	<?php
+	// Availability: Oasis seeds need the bus repaired, so name the best crop without it.
+	if ( $top && 'oasis' === $top[0]['seed_source'] ) {
+		$no_bus = null;
+		foreach ( $rows as $r ) {
+			if ( 'oasis' !== $r['seed_source'] ) {
+				$no_bus = $r;
+				break;
+			}
+		}
+		if ( $no_bus ) {
+			echo '<p><strong>Year 1 note:</strong> ' . esc_html( $top[0]['name'] ) . ' seeds are sold only at the Oasis, which you can reach once the bus is repaired. Without it, the best is ' . esc_html( $no_bus['name'] ) . ' (' . esc_html( $g( $no_bus['profit'] ) ) . ').</p>';
+		}
+	}
+	if ( 'spring' === $season ) {
+		$sb     = isset( $answers['best_crops_festival']['strawberry'] ) ? $answers['best_crops_festival']['strawberry'] : null;
+		$sb_url = Stardew_Tools\Entities::url( 'crops', 'strawberry' );
+		echo '<p>Strawberry is not in this list because its seeds are sold only at the Egg Festival (Spring 13)' . ( $sb ? ': bought there and planted on Spring 13, a tile makes about ' . esc_html( $g( $sb['profit'] ) ) . ' by the end of Spring' : '' ) . '.' . ( $sb_url ? ' See <a href="' . esc_url( $sb_url ) . '">Strawberry</a> for a full-season planting in Year 2.' : '' ) . '</p>';
+	}
+	?>
+	<p>Profit is sale value minus seeds over the <?php echo 'greenhouse' === $season ? 'greenhouse year (112 days)' : 'season'; ?>, with seeds bought on day 1 at the cheapest shop that sells them every day. Change your farming level, fertilizer or Tiller below and the ranking updates.<?php if ( 'greenhouse' !== $season ) : ?> Planting later in the season? Use <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'what-to-plant' ) ); ?>">What to Plant Today</a>.<?php endif; ?></p>
 </div>
 
 <form class="tool-form" id="best-crops-form" data-season="<?php echo esc_attr( $season ); ?>" novalidate>

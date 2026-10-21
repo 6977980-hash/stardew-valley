@@ -25,7 +25,7 @@ $g  = function ( $n ) {
 </ol>
 <?php if ( ! empty( $gg['layouts'] ) ) : ?>
 <h2>Sprinklers: fewer tiles, less work</h2>
-<p>The greenhouse floor has 120 plantable tiles. Every sprinkler takes a tile, so the layout is a trade between tiles lost and watering saved. For a full greenhouse of Ancient Fruit, sold raw, a year looks like this:</p>
+<p>The greenhouse floor has 120 soil tiles. A sprinkler placed on soil takes a tile; one placed on the wooden border around the soil does not, so the layout is a trade between tiles lost and watering saved. For a full greenhouse of Ancient Fruit, sold raw, a year looks like this:</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Ancient Fruit, sold raw, one year (established plants)</caption>
@@ -37,7 +37,7 @@ $g  = function ( $n ) {
 	</tbody>
 </table>
 </div>
-<p>Watering by hand squeezes in the most tiles, but you do it every day. Iridium Sprinklers give up only a few tiles and water everything for you, which is why most farms end up with them. The planner shows each layout on the real greenhouse grid.</p>
+<p>Watering by hand squeezes in the most tiles, but you do it every day. Iridium Sprinklers give up only a few tiles and water everything for you, which is why most farms end up with them. The planner shows each layout on the real greenhouse grid. A Pressure Nozzle on Iridium Sprinklers waters a bigger area, so fewer sprinklers sit on soil, and Deluxe Retaining Soil keeps tiles watered with no sprinkler at all; the planner does not model those two yet.</p>
 <?php endif; ?>
 <?php if ( ! empty( $gg['by_kegs'] ) ) : ?>
 <h2>The best crop depends on your kegs</h2>
@@ -63,5 +63,5 @@ $g  = function ( $n ) {
 <ul>
 	<li><strong>Filling it with Hops on a small keg shed.</strong> One vine fills a keg more than once over, so most cones end up sold raw and Hops fall behind Ancient Fruit.</li>
 	<li><strong>Judging by the second year.</strong> Year two numbers assume the plants are already grown. Check the first-year figure for money you need soon.</li>
-	<li><strong>Counting tiles you do not have.</strong> Every sprinkler sits on a tile you can no longer plant, so compare layouts in the planner instead of assuming all 120 tiles are free.</li>
+	<li><strong>Counting tiles you do not have.</strong> Every sprinkler placed on soil takes a tile you can no longer plant, so compare layouts in the planner instead of assuming all 120 tiles are free.</li>
 </ul>

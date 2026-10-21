@@ -16,6 +16,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Entities {
 
+	/** Day the page templates' text last changed (shown as "Updated" with the data check date). */
+	const UPDATED = '2026-10-21';
+
+	/** Data files an entity type's pages are built from. */
+	public static function data_sets( $type ) {
+		return 'animals' === $type ? array( 'animals' ) : ( 'machines' === $type ? array( 'machines', 'crops' ) : array( 'crops', 'fertilizers', 'machines' ) );
+	}
+
 	const META           = '_stardew_tools_entity';
 	const VERSION_OPTION = 'stardew_tools_entities_version';
 
@@ -272,8 +280,9 @@ class Entities {
 		$e        = $id ? $data[ $type ][ $id ] : null;
 		$all      = $data;
 		$version  = Config::get( 'game_version' );
-		$checked  = Data::modified( '2026-10-10' );
-		$data_checked = Data::summary()['checked'];
+		$sets     = self::data_sets( $type );
+		$checked  = Data::modified( '2026-10-10', $sets, self::UPDATED );
+		$data_checked = Data::checked( $sets );
 		$tool_url = function ( $tool ) {
 			return Tools::url( $tool );
 		};
@@ -517,7 +526,7 @@ class Entities {
 				'mainEntityOfPage' => $url,
 				'image'            => Config::asset( Config::get( 'og_image' ) ),
 				'datePublished'    => '2026-10-10',
-				'dateModified'     => Data::modified( '2026-10-10' ),
+				'dateModified'     => Data::modified( '2026-10-10', self::data_sets( $cur[1] ), self::UPDATED ),
 				'author'           => array(
 					'@type' => 'Person',
 					'name'   => Config::get( 'author' ),

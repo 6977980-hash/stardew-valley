@@ -4,6 +4,17 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: corrections after the second audit</h2>
+<ul>
+<li>Crop pages now rank a crop only against crops whose seeds you can buy every day and that grow outdoors, the same list as the Best Crops pages. Cactus Fruit is shown as an indoor crop, crops without shop seeds say so, and multi-season crops say when their total includes the next season.</li>
+<li>What to Plant Today gives every crop the same number of days for your Kegs and Jars, and only processes fruit after it is harvested. With 10 kegs on Summer 1 it now picks Starfruit, not Wheat.</li>
+<li>Best Greenhouse Crops says plainly that Ancient Fruit is the best greenhouse crop overall, and that its list covers seeds you can buy.</li>
+<li>Your farm settings are saved only when you change something. Opening one tool no longer changes another tool's level or professions, and links with extra tracking codes or from the home page form no longer untick your professions.</li>
+<li>Fixed: Sunflower counts the seeds each harvest drops (it now makes a profit), Coffee Bean no longer charges the rare 2,500g Traveling Cart price, Sheep say "every 2 days" at full friendship, gift points round down like the game, and the Bundle Tracker adds up items needed by more than one bundle and shows the amount.</li>
+<li>Fixed: fish ponds take longer to fill than we said (each quest restarts the spawn timer), fertilizer advice lists every option that pays, Artisan figures use the Tiller raw price, and the shop notes now say when Deluxe Speed-Gro, Quality Fertilizer and Oasis seeds become available.</li>
+<li>Smaller wording fixes across the Kegs, Greenhouse, Speed-Gro, Dehydrator and Pigs guides, and each page now shows the date its own data was checked.</li>
+</ul>
+
 <h2>October 10, 2026: fuller topic pages</h2>
 <ul>
 <li>The Crops, Artisan Goods, Animals, Fishing and Greenhouse pages now explain what decides the answer, with tables built from the same game data as the tools: best crops by season, kegs per plant, every animal at full hearts, what a full fish pond earns, and the best greenhouse crop for the number of kegs you own.</li>
@@ -42,7 +53,7 @@ defined( 'ABSPATH' ) || exit;
 <h2>October 9, 2026: trackers and guides</h2>
 <ul>
 <li>New: XP Calculator (Farming and Fishing), Crafting Calculator with a shopping list, Gift Finder for all villagers, and a Bundle Tracker for standard and Remixed bundles that saves in your browser.</li>
-<li>New: five topic hubs and the first five guides (Speed-Gro vs Deluxe Fertilizer, how many Kegs you need, whether pigs are worth it, the best fish for Fish Ponds, the best Greenhouse setup). Every number in a guide comes from the same data as the calculators.</li>
+<li>New: five topic hubs and the first five guides (Speed-Gro vs Fertilizer, how many Kegs you need, whether pigs are worth it, the best fish for Fish Ponds, the best Greenhouse setup). Every number in a guide comes from the same data as the calculators.</li>
 </ul>
 
 <h2>October 9, 2026: decision tools</h2>

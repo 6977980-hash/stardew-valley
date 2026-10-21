@@ -75,7 +75,7 @@ $ratio = $star['per_dehydrator_day'] / max( 1, $star['per_keg_day'] );
 </table>
 </div>
 <p>For Starfruit a Dehydrator takes in <?php echo esc_html( $gold( $star['per_dehydrator_day'] ) ); ?> a day against <?php echo esc_html( $gold( $star['per_keg_day'] ) ); ?> for a Keg, about <?php echo esc_html( $num( $ratio ) ); ?> times as much. These are gross sale prices, not extra gold over selling raw, but the comparison is the same either way, since the gap is far bigger than the raw price.</p>
-<p>In practice one Dehydrator out-earns about <?php echo (int) round( $ratio ); ?> Kegs a day when fruit is plentiful, though each fruit is worth less. The Dehydrator recipe is <?php echo esc_html( $mats( $rec['dehydrator'] ) ); ?>, and Pierre sells it for <?php echo esc_html( $gold( $rec['dehydrator_shop']['price'] ) ); ?>. See <a href="<?php echo esc_url( $tool_url( 'crafting-calculator' ) ); ?>">the Crafting Calculator</a> for the cost of several.</p>
+<p>In practice one Dehydrator out-earns about <?php echo (int) round( $ratio ); ?> Kegs a day when fruit is plentiful, though each fruit is worth less. The Dehydrator recipe is <?php echo esc_html( $mats( $rec['dehydrator'] ) ); ?>, and Pierre sells the recipe for <?php echo esc_html( $gold( $rec['dehydrator_shop']['price'] ) ); ?>. See <a href="<?php echo esc_url( $tool_url( 'crafting-calculator' ) ); ?>">the Crafting Calculator</a> for the cost of several.</p>
 
 <h2>A worked harvest: 100 Starfruit</h2>
 <p>Numbers per machine are easy to misread, so here is one concrete harvest. You have <?php echo (int) $d['scenario']['harvest']; ?> <?php echo esc_html( $d['scenario']['fruit'] ); ?> to deal with and one Keg cycle of <?php echo esc_html( rtrim( number_format( $d['scenario']['window_days'], 2 ), '0' ) ); ?> days to do it in. Each Keg takes one fruit. Each Dehydrator takes five fruit a day, so it finishes up to six batches in the window. Fruit nobody has time for is sold raw at <?php echo esc_html( $gold( $d['scenario']['raw_each'] ) ); ?>. All prices use Artisan.</p>
@@ -118,7 +118,7 @@ $ratio = $star['per_dehydrator_day'] / max( 1, $star['per_keg_day'] );
 	</tbody>
 </table>
 </div>
-<p>Each fish uses one Coal, so smoke only fish that sell for clearly more than the Coal you spend. The Fish Smoker recipe is <?php echo esc_html( $mats( $rec['smoker'] ) ); ?>, and the Fish Shop sells it for <?php echo esc_html( $gold( $rec['smoker_shop']['price'] ) ); ?>. Fish ponds make roe rather than fish, so for those see <a href="<?php echo esc_url( home_url( '/fishing/best-fish-for-fish-ponds/' ) ); ?>">Best fish for fish ponds</a>.</p>
+<p>Each fish uses one Coal, so smoke only fish that sell for clearly more than the Coal you spend. The Fish Smoker recipe is <?php echo esc_html( $mats( $rec['smoker'] ) ); ?>, and the Fish Shop sells the recipe for <?php echo esc_html( $gold( $rec['smoker_shop']['price'] ) ); ?>. Fish ponds make roe rather than fish, so for those see <a href="<?php echo esc_url( home_url( '/fishing/best-fish-for-fish-ponds/' ) ); ?>">Best fish for fish ponds</a>.</p>
 
 <h2>Related</h2>
 <p>For the Keg's own numbers, see <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a>. For a greenhouse that makes this much fruit, see <a href="<?php echo esc_url( home_url( '/greenhouse/best-greenhouse-setup-for-money/' ) ); ?>">Best Greenhouse Setup for Money</a>.</p>

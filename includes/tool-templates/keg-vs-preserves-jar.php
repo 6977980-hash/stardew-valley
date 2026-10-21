@@ -20,9 +20,19 @@ foreach ( Stardew_Tools\Data::crops() as $id => $c ) {
 asort( $crops );
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> per item, the Keg earns more for fruit worth more than 50g and vegetables worth more than 200g; below that the Preserves Jar wins (Wine is 3× the fruit price, Juice 2.25×, Jelly and Pickles 2× + 50g).
+	<p class="answer__lead"><strong>Short answer:</strong> if you are short of crops (more machines than harvest), use the Keg for fruit worth more than 50g and vegetables worth more than 200g, because Wine (3× the fruit price) and Juice (2.25×) are worth more per item than Jelly and Pickles (2× + 50g).<?php
+	if ( ! empty( $kj['keg_cheap'] ) ) {
+		$cheap = array_map(
+			function ( $c ) {
+				return $c['name'] . ' (' . $c['product'] . ', ' . number_format( $c['price'] ) . 'g)';
+			},
+			$kj['keg_cheap']
+		);
+		echo ' ' . esc_html( implode( ' and ', $cheap ) ) . ' also go in the Keg, whatever the limit.';
+	}
+	?>
 	<?php if ( $sf ) : ?>
-	But a jar finishes in about 2.5 days and a keg takes up to 6.25, so when your machines are the limit, jars usually earn more per machine: Starfruit Wine adds <?php echo esc_html( number_format( $sf['wine']['gain_per_machine_day'] ) ); ?>g per keg per day over selling raw, Starfruit Jelly <?php echo esc_html( number_format( $sf['jelly']['gain_per_machine_day'] ) ); ?>g per jar per day.
+	If you are short of machines (more harvest than machines), use Preserves Jars for nearly everything else: a jar finishes in about 2.5 days and a keg takes up to 6.25, so it earns more per machine per day. Starfruit Wine adds <?php echo esc_html( number_format( $sf['wine']['gain_per_machine_day'] ) ); ?>g per keg per day over selling raw without professions (<?php echo esc_html( number_format( $kj['starfruit_artisan']['wine']['gain_per_machine_day'] ) ); ?>g with Tiller and Artisan); Starfruit Jelly adds <?php echo esc_html( number_format( $sf['jelly']['gain_per_machine_day'] ) ); ?>g per jar per day (<?php echo esc_html( number_format( $kj['starfruit_artisan']['jelly']['gain_per_machine_day'] ) ); ?>g with Tiller and Artisan).
 	<?php endif; ?>
 	</p>
 	<p>Enter your crop, how many you have and your machines to get the best split.</p>

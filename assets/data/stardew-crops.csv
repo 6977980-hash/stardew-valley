@@ -7,10 +7,10 @@ blue-jazz,Blue Jazz,flower,spring,7,,50,62,75,100,spring,61,78,88,90
 blueberry,Blueberry,fruit,summer,13,4,50,62,75,100,summer,526,548,561,80
 bok-choy,Bok Choy,vegetable,fall,4,,80,100,120,160,fall,185,238,270,300
 broccoli,Broccoli,vegetable,fall,8,4,70,87,105,140,fall,353,392,415,
-cactus-fruit,Cactus Fruit,fruit,spring/summer/fall/winter,12,3,75,93,112,150,spring,2425,2702,2867,150
+cactus-fruit,Cactus Fruit,fruit,spring/summer/fall/winter,12,3,75,93,112,150,,,,,
 carrot,Carrot,vegetable,spring,3,,35,43,52,70,spring,318,351,371,
 cauliflower,Cauliflower,vegetable,spring,12,,175,218,262,350,spring,193,232,255,160
-coffee-bean,Coffee Bean,other,spring/summer,10,2,15,18,22,30,spring,-1110,-1076,-1056,2500
+coffee-bean,Coffee Bean,other,spring/summer,10,2,15,18,22,30,spring,1390,1424,1444,
 corn,Corn,vegetable,summer/fall,14,4,50,62,75,100,summer,405,466,502,150
 cranberries,Cranberries,fruit,fall,7,5,75,93,112,150,fall,555,596,620,240
 eggplant,Eggplant,vegetable,fall,5,5,60,75,90,120,fall,284,317,337,20
@@ -35,7 +35,7 @@ starfruit,Starfruit,fruit,summer,13,,750,937,1125,1500,summer,715,882,982,800
 strawberry,Strawberry,fruit,spring,8,4,120,150,180,240,spring,518,585,625,100
 summer-spangle,Summer Spangle,flower,summer,8,,90,112,135,180,summer,123,152,170,150
 summer-squash,Summer Squash,vegetable,summer,6,3,45,56,67,90,summer,364,403,426,
-sunflower,Sunflower,flower,summer/fall,8,,80,100,120,160,fall,-133,-106,-90,375
+sunflower,Sunflower,flower,summer/fall,8,,80,100,120,160,summer,360,413,445,125
 sweet-gem-berry,Sweet Gem Berry,other,fall,24,,3000,3750,4500,6000,fall,2030,2365,2564,1000
 taro-root,Taro Root,vegetable,summer,10,,100,125,150,200,summer,202,224,238,
 tomato,Tomato,vegetable,summer,11,4,60,75,90,120,summer,269,302,322,50

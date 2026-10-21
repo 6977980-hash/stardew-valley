@@ -41,7 +41,7 @@ $rows  = array(
 </div>
 
 <h2>How the numbers are made</h2>
-<p>Prices, growth times and rules are read from the Stardew Valley Wiki and kept only when two separate pages agree. Profit per tile, gold per day and the machine rankings are calculated from them by the same code that powers our calculators, so a number in a CSV matches the number on the page. Profit assumes seeds bought at the shop, no fertilizer and regular-quality mixing at the stated Farming level. Empty cells mean the value does not exist, for example a crop with no regrow time or a seed that no shop sells.</p>
+<p>Prices, growth times and rules are read from the Stardew Valley Wiki and kept only when two separate pages agree. Profit per tile, gold per day and the machine rankings are calculated from them by the same code that powers our calculators, so a number in a CSV matches the number on the page. Profit counts seeds bought at the cheapest shop where a shop sells them; for crops whose seeds no shop sells (Ancient Fruit, Coffee Bean and a few others) the seed cost is left out. It assumes no fertilizer and the quality mix of the stated Farming level. Artisan figures use the Tiller raw price, since Artisan comes after Tiller. Empty cells mean the value does not exist, for example a crop with no regrow time or a seed that no shop sells.</p>
 <p>The game facts come from the wiki, whose text is licensed CC BY-NC-SA 3.0, so please credit the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> if you republish them. The calculated columns are ours; a link back to this site is appreciated. Read the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a> for the checking rules.</p>
 
 <h2>Related</h2>

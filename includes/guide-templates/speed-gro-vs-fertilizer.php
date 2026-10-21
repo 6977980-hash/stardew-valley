@@ -35,7 +35,7 @@ $cr    = $rows['cranberries'];
 $p0    = $f['level0'][0];
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> buy Speed-Gro only when it gets you one more harvest before the season ends. On most crops it doesn't, and the 100g bag just eats your profit. Deluxe Speed-Gro (80g at the Oasis) is the one that pays: it fits a third Cauliflower, Melon, Starfruit or Pumpkin harvest into the season. Basic and Quality Fertilizer from Pierre lose money on almost everything except Starfruit once your farming level is up.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> buy Speed-Gro only when it gets you one more harvest before the season ends. On most crops it doesn't, and the 100g bag just eats your profit. Deluxe Speed-Gro (80g at the Oasis on Thursdays, or 150g at Pierre's from Year 2) is the one that pays: it fits a third Cauliflower, Melon, Starfruit or Pumpkin harvest into the season. Basic Fertilizer and Quality Fertilizer (Pierre's, Quality from Year 2) lose money on almost everything except Starfruit once your farming level is up.</p>
 </div>
 
 <p>Every number below is profit per tile for one season, planted on day 1 and replanted the same day after each harvest, at farming level <?php echo (int) $f['level']; ?>, sold raw, no professions. The cost of one bag per tile is already taken off. One bag is enough for the season: the wiki's Fertilizer page says fertilizer "remains in the soil all season", so you don't pay again when you replant. The best option for each crop is highlighted.</p>
@@ -68,10 +68,11 @@ $p0    = $f['level0'][0];
 
 <h2>Deluxe Speed-Gro: the one worth buying</h2>
 <p>Deluxe Speed-Gro cuts growing time by at least 25%. Cauliflower drops to 9 days and is ready on days 10, 19 and 28. That is enough to squeeze a third harvest of a 12 or 13 day crop into a 28-day season. That is where the big jumps in the table come from: Starfruit goes from <?php echo esc_html( $gold( $sf['none']['profit'] ) ); ?> to <?php echo esc_html( $gold( $sf['deluxe-speed-gro']['profit'] ) ); ?> a tile, and Pumpkin from <?php echo esc_html( $gold( $rows['pumpkin']['none']['profit'] ) ); ?> to <?php echo esc_html( $gold( $rows['pumpkin']['deluxe-speed-gro']['profit'] ) ); ?>.</p>
-<p>Buy it at the Oasis for 80g if you can. Pierre sells it for 150g, which is still worth it on Starfruit and Pumpkin but eats most of the gain on cheaper crops. To get the third harvest you have to plant on day 1, so buy the bags at the end of the season before.</p>
+<p>Buy it at the Oasis for 80g if you can: the Oasis sells it on Thursdays, and only once the bus to the desert is repaired. Pierre sells it for 150g from Year 2 onward, which is still worth it on Starfruit and Pumpkin but eats most of the gain on cheaper crops. To get the third harvest you have to plant on day 1, so buy the bags at the end of the season before.</p>
+<p>Year 1 is different. Pierre stocks Basic Fertilizer and Speed-Gro only from Spring 15 of Year 1, and Quality Fertilizer and Deluxe Speed-Gro only from Year 2, so the "plant on day 1 with a bought bag" plan starts in Summer of Year 1 at the earliest, and with Deluxe Speed-Gro only once you can reach the Oasis or it is Year 2.</p>
 
 <h2>Basic and Quality Fertilizer</h2>
-<p>Quality fertilizer raises the chance of a silver or gold crop, but only on the first item of each harvest. For a <?php echo esc_html( $gold( Stardew_Tools\Data::crops()['potato']['base_price'] ) ); ?> Potato, a better chance at silver isn't worth 100g a tile. It only pays on expensive crops: at level <?php echo (int) $f['level']; ?>, Quality Fertilizer takes Starfruit from <?php echo esc_html( $gold( $sf['none']['profit'] ) ); ?> to <?php echo esc_html( $gold( $sf['quality-fertilizer']['profit'] ) ); ?>. At farming level 0 it doesn't even pay there (<?php echo esc_html( $gold( $f['level0'][1]['quality-fertilizer']['profit'] ) ); ?> against <?php echo esc_html( $gold( $f['level0'][1]['none']['profit'] ) ); ?>), because your quality chances are still low.</p>
+<p>Quality fertilizer raises the chance of a silver or gold crop, but only on the first item of each harvest. For a <?php echo esc_html( $gold( Stardew_Tools\Data::crops()['potato']['base_price'] ) ); ?> Potato, a better chance at silver isn't worth <?php echo esc_html( $gold( $f['prices']['quality-fertilizer']['prices']['pierre'] ) ); ?> a tile. It only pays on expensive crops: at level <?php echo (int) $f['level']; ?>, Quality Fertilizer takes Starfruit from <?php echo esc_html( $gold( $sf['none']['profit'] ) ); ?> to <?php echo esc_html( $gold( $sf['quality-fertilizer']['profit'] ) ); ?>. At farming level 0 it doesn't even pay there (<?php echo esc_html( $gold( $f['level0'][1]['quality-fertilizer']['profit'] ) ); ?> against <?php echo esc_html( $gold( $f['level0'][1]['none']['profit'] ) ); ?>), because your quality chances are still low.</p>
 <p>Early in the game the gap is wider. A level 0 Potato makes <?php echo esc_html( $gold( $p0['none']['profit'] ) ); ?> a tile bare and only <?php echo esc_html( $gold( $p0['quality-fertilizer']['profit'] ) ); ?> with Quality Fertilizer. Spend that gold on more seeds instead.</p>
 
 <h2>What about Deluxe Fertilizer and Hyper Speed-Gro?</h2>
@@ -143,7 +144,7 @@ $p0    = $f['level0'][0];
 <ul>
 	<li>Planting a 12 or 13 day crop on day 1? Use Deluxe Speed-Gro.</li>
 	<li>Regrowing crop? Speed-Gro only if it adds a harvest. Check with the <a href="<?php echo esc_url( $tool_url( 'crop-profit-calculator' ) ); ?>">Crop Profit Calculator</a>.</li>
-	<li>Cheap crop under 100g? Skip fertilizer and plant more tiles.</li>
+	<li>Cheap crop under 100g? Skip Basic Fertilizer, Quality Fertilizer and plain Speed-Gro. Only Deluxe Speed-Gro pays, and only when you plant on day 1 so it adds harvests (Potato, Bok Choy, Kale, Amaranth in the table above).</li>
 	<li>Starfruit at farming level 6 or higher? Quality Fertilizer pays for itself.</li>
 	<li>Planting mid-season? Use <a href="<?php echo esc_url( $tool_url( 'what-to-plant' ) ); ?>">What to Plant Today</a>, which counts the days you have left.</li>
 </ul>

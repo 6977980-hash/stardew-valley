@@ -61,42 +61,73 @@ function writeForm(form, values) {
   }
 }
 
+// Marker added to links made by this site's own share button and address bar: such a link
+// describes the whole form, so a box missing from it is unticked. Any other query string (home
+// page quick form, utm_*, fbclid) only overrides the fields it names. Not "s": WordPress
+// treats ?s= as a search.
+const SHARE_KEY = 'share';
+
+/**
+ * The values a tool form opens with. Pure, so it can be tested without a browser.
+ * @param o { defaults, search (location.search), saved (this tool's saved copy), farm (shared
+ *          farm settings), farmFields, checkboxes (names of checkbox fields) }
+ * @returns { values, fromLink, extra } extra = query params that are not form fields
+ */
+export function initialState({ defaults, search = '', saved = null, farm = null, farmFields = FARM_FIELDS, checkboxes = [] }) {
+  const params = new URLSearchParams(search);
+  const fromUrl = {};
+  const extra = [];
+  for (const [k, v] of params) {
+    if (k in defaults) fromUrl[k] = v;
+    else if (k !== SHARE_KEY) extra.push([k, v]);
+  }
+  const full = params.get(SHARE_KEY) === '1';
+  const mine = farmFields.filter((k) => k in defaults);
+  const farmHere = Object.fromEntries(mine.filter((k) => farm && k in farm).map((k) => [k, farm[k]]));
+  // A shared link is the whole form: a field it leaves out was at its default, and an unchecked
+  // box is simply absent. Otherwise saved farm settings win over this tool's own saved copy, and
+  // the link's fields win over both.
+  const values = full ? { ...defaults, ...fromUrl } : { ...defaults, ...(saved || {}), ...farmHere, ...fromUrl };
+  if (full) for (const k of checkboxes) if (!(k in fromUrl)) values[k] = false;
+  return { values, fromLink: full || Object.keys(fromUrl).length > 0, extra };
+}
+
+/** Query string for the current values: changed fields, the share marker, then foreign params. */
+export function stateQuery(values, defaults, extra = []) {
+  const params = new URLSearchParams();
+  for (const [k, v] of Object.entries(values)) {
+    if (v === false) continue;
+    if (v !== defaults[k] || v === true) params.set(k, v === true ? '1' : v);
+  }
+  if ([...params.keys()].length) params.set(SHARE_KEY, '1');
+  for (const [k, v] of extra) params.append(k, v);
+  return params.toString();
+}
+
 /**
  * Wires a tool form: restores state (URL first, then saved settings), recalculates on every
- * change, keeps the URL shareable and remembers the settings in this browser.
+ * change and keeps the URL shareable. Settings are saved in this browser only when the visitor
+ * changes something, so opening a tool, a link, Reset or "Forget my farm" never writes them.
  */
 export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS }) {
   const defaults = readForm(form);
-  const fromUrl = Object.fromEntries(new URLSearchParams(location.search));
+  const checkboxes = [...form.elements].filter((el) => el.type === 'checkbox' && el.name).map((el) => el.name);
   const mine = farmFields.filter((k) => k in defaults);
-  const farm = store.get(FARM_KEY) || {};
-  const farmHere = Object.fromEntries(mine.filter((k) => k in farm).map((k) => [k, farm[k]]));
-  // Saved farm settings win over this tool's own saved copy; a shared link wins over both.
-  const saved = { ...(store.get(storageKey) || {}), ...farmHere };
-  writeForm(form, Object.keys(fromUrl).length ? { ...saved, ...fromUrl } : saved);
-  // Unchecked boxes are absent from a shared URL; a shared link describes the whole state.
-  if (Object.keys(fromUrl).length) {
-    for (const el of form.elements) if (el.type === 'checkbox' && el.name && !(el.name in fromUrl)) el.checked = false;
-  }
+  const start = initialState({ defaults, search: location.search, saved: store.get(storageKey), farm: store.get(FARM_KEY), farmFields, checkboxes });
+  writeForm(form, start.values);
 
-  // Opening someone else's link must not overwrite your own saved farm until you change something.
-  let fromLink = Object.keys(fromUrl).length > 0;
   const update = () => {
     const values = readForm(form);
     render(values);
-    const params = new URLSearchParams();
-    for (const [k, v] of Object.entries(values)) {
-      if (v === false) continue;
-      if (v !== defaults[k] || v === true) params.set(k, v === true ? '1' : v);
-    }
-    const qs = params.toString();
+    const qs = stateQuery(values, defaults, start.extra);
     history.replaceState(null, '', qs ? `?${qs}` : location.pathname);
-    store.set(storageKey, values);
-    if (mine.length && !fromLink) store.set(FARM_KEY, { ...(store.get(FARM_KEY) || {}), ...Object.fromEntries(mine.map((k) => [k, values[k]])) });
+    return values;
   };
+  // Only a real edit saves: the tool's own copy and the farm fields shared with other tools.
   const edited = () => {
-    fromLink = false;
-    update();
+    const values = update();
+    store.set(storageKey, values);
+    if (mine.length) store.set(FARM_KEY, { ...(store.get(FARM_KEY) || {}), ...Object.fromEntries(mine.map((k) => [k, values[k]])) });
   };
   form.addEventListener('input', edited);
   form.addEventListener('change', edited);
@@ -108,6 +139,12 @@ export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS })
   const reset = form.querySelector('[data-reset]');
   if (reset) {
     reset.addEventListener('click', () => {
+      // Back to the page defaults; the shared farm settings are left alone.
+      try {
+        localStorage.removeItem(storageKey);
+      } catch {
+        /* nothing saved */
+      }
       writeForm(form, defaults);
       update();
     });
@@ -116,7 +153,7 @@ export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS })
   if (share) share.addEventListener('click', () => copy(location.href, share, 'Link copied'));
 
   // Say so, and let people forget it. Only on tools that share farm settings.
-  if (mine.length && !Object.keys(fromUrl).length) {
+  if (mine.length && !start.fromLink) {
     const note = document.createElement('p');
     note.className = 'field__hint farm-note';
     note.innerHTML = 'Your farm settings (level and professions) are remembered in this browser and shared by the tools. <button type="button" class="linklike" data-forget-farm>Forget my farm</button>';

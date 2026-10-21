@@ -27,7 +27,7 @@ export function rankCrops(crops, data, s) {
   const counts = { keg: Math.max(0, s.kegs || 0), 'preserves-jar': Math.max(0, s.jars || 0) };
   const hasMachines = counts.keg + counts['preserves-jar'] > 0;
 
-  const out = [];
+  const candidates = [];
   for (const crop of crops) {
     const seasons = crop.seasons.map((x) => x.toLowerCase());
     if (!greenhouse && (!seasons.includes(s.season) || crop.indoor_only)) continue;
@@ -49,7 +49,16 @@ export function rankCrops(crops, data, s) {
       sellAs: 'raw',
     });
     if (!r.harvestDays.length) continue;
+    candidates.push({ crop, seed, r });
+  }
 
+  // Every crop gets the same machine window: from today until the last harvest of any crop in the
+  // list (the end of the season if none carries on), so a crop that keeps growing into the next
+  // season does not get more machine-days than one that stops at the season's end.
+  const end = candidates.reduce((m, c) => Math.max(m, c.r.harvestDays[c.r.harvestDays.length - 1]), lastDay);
+
+  const out = [];
+  for (const { crop, seed, r } of candidates) {
     // Gold needed today: one seed (and fertilizer) per tile; replanting is paid from sales.
     const startCost = (seed.price ?? 0) + (fertPrice ?? 0);
     const affordable = s.budget == null || startCost === 0 ? tilesWanted : Math.floor(s.budget / startCost);
@@ -64,12 +73,10 @@ export function rankCrops(crops, data, s) {
     let revenue = r.revenue * tiles;
     let processing = null;
     if (hasMachines) {
-      // Machines work from the first harvest until the end of the season (or the last harvest,
-      // for crops that carry on into the next season).
-      const end = Math.max(lastDay, r.harvestDays[r.harvestDays.length - 1]);
+      // Each harvest's items reach the machines on their harvest day; machines stop at `end`.
       const days = Math.max(1, end - r.harvestDays[0] + 1);
-      const a = allocate(crop, data.machines, { items, counts, days, artisan: !!s.artisan, tiller: !!s.tiller });
-      const machinePlan = a.plan.filter((p) => p.machine);
+      const arrivals = r.harvestDays.map((day, i) => ({ day, items: Math.floor(r.itemsPerHarvest * tiles * (i + 1)) - Math.floor(r.itemsPerHarvest * tiles * i) }));
+      const machinePlan = processStock(crop, data.machines, { arrivals, counts, end, artisan: !!s.artisan, tiller: !!s.tiller });
       if (machinePlan.length) {
         const processedItems = machinePlan.reduce((n, p) => n + p.items, 0);
         const processedValue = machinePlan.reduce((n, p) => n + p.value, 0);
@@ -82,7 +89,7 @@ export function rankCrops(crops, data, s) {
     }
     const costs = ((r.seedCost ?? 0) + (r.fertilizerCost ?? 0)) * tiles;
     const total = revenue - costs;
-    const plantings = crop.regrow_days ? 1 : r.harvestDays.length;
+    const plantings = crop.regrow_days || crop.returns_seeds >= 1 ? 1 : r.harvestDays.length;
     out.push({
       crop,
       r,
@@ -91,7 +98,7 @@ export function rankCrops(crops, data, s) {
       seed,
       startCost,
       spendNow: startCost * tiles,
-      seedsLater: crop.regrow_days ? 0 : (plantings - 1) * tiles,
+      seedsLater: (plantings - 1) * tiles,
       fertilizer: fert ? { name: fert.name, count: tiles, price: fertPrice } : null,
       items,
       processing,
@@ -141,6 +148,55 @@ export function reasons(best, next, gold = (n) => `${Math.round(n).toLocaleStrin
   }
   if (!why.length) why.push(`${best.crop.name} earns ${gold(best.total - next.total)} more in total with your settings.`);
   return why.slice(0, 3);
+}
+
+/**
+ * Runs the machines day by day over a stock that arrives harvest by harvest. The machine with the
+ * best gain per item is filled first, from the earliest items; a run that would not finish by the
+ * end of day `end` is not started. Returns the machine lines of the plan (raw sales excluded).
+ * @param o { arrivals: [{ day, items }], counts, end, artisan, tiller }
+ */
+export function processStock(crop, machinesData, o) {
+  const pool = o.arrivals.filter((a) => a.items > 0).map((a) => ({ day: a.day, left: a.items }));
+  const options = allocate(crop, machinesData, { items: 0, counts: o.counts, days: 1, artisan: o.artisan, tiller: o.tiller })
+    .options.filter((x) => x.gainPerItem > 0 && x.count > 0)
+    .sort((a, b) => b.gainPerItem - a.gainPerItem);
+  const plan = [];
+  for (const opt of options) {
+    const dur = opt.minutes / machinesData.minutes_per_day;
+    // Identical machines with identical runs free up in the order they started.
+    const free = new Array(opt.count).fill(0);
+    let head = 0;
+    let outputs = 0;
+    for (;;) {
+      // Day the opt.inputCount-th unused item arrives.
+      let need = opt.inputCount;
+      let ready = null;
+      for (const p of pool) {
+        need -= p.left;
+        if (need <= 0) {
+          ready = p.day;
+          break;
+        }
+      }
+      if (ready == null) break;
+      const start = Math.max(free[head], ready);
+      if (start + dur > o.end + 1 + 1e-9) break;
+      let take = opt.inputCount;
+      for (const p of pool) {
+        const t = Math.min(p.left, take);
+        p.left -= t;
+        take -= t;
+        if (!take) break;
+      }
+      while (pool.length && pool[0].left === 0) pool.shift();
+      free[head] = start + dur;
+      head = (head + 1) % opt.count;
+      outputs++;
+    }
+    if (outputs) plan.push({ machine: opt.machine, machineName: opt.machineName, product: opt.product, productName: opt.productName, items: outputs * opt.inputCount, outputs, value: outputs * opt.price });
+  }
+  return plan;
 }
 
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, Number(v) || lo));
