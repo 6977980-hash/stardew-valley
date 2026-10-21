@@ -11,8 +11,8 @@ test.describe('content and answers @live', () => {
   test('every tool sends a filled reference table before any script runs', async ({ request }) => {
     for (const path of TOOLS) {
       const html = await (await request.get(path)).text();
-      const ref = html.slice(html.indexOf('class="tool-reference"'));
-      expect(html, path).toContain('class="tool-reference"');
+      const ref = html.slice(html.search(/class="?tool-reference/));
+      expect(html, path).toMatch(/class="?tool-reference/);
       expect((ref.match(/<tr/g) || []).length, path).toBeGreaterThanOrEqual(3);
     }
   });
