@@ -75,7 +75,8 @@ test.describe('phase 6 pages @live', () => {
   test('CSV downloads exist and have the right header', async ({ page, request }) => {
     await page.goto('/data/');
     const links = await page.locator('a[download]').evaluateAll((as) => as.map((a) => a.getAttribute('href')));
-    expect(links.length).toBe(3);
+    // Each CSV twice: the stable name and a copy named for the game version.
+    expect(links.length).toBe(6);
     for (const href of links) {
       const res = await request.get(href);
       expect(res.status()).toBe(200);

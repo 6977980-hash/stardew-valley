@@ -192,5 +192,27 @@ usort(
 	<li><strong>Bundles.</strong> White and brown eggs, and large versions, matter for some Community Center bundles. See <a href="<?php echo esc_url( $tool_url( 'bundle-tracker' ) ); ?>">the Bundle Tracker</a>.</li>
 </ul>
 
+<h2>Your first week with the new building</h2>
+<p>Most of the early income from animals is lost to small habits, not to the wrong building. A few things to set up the day the building is done:</p>
+<ul>
+	<li><strong>Build a Silo first or alongside.</strong> Robin builds one for 100g, 100 Stone, 10 Clay and 5 Copper Bars. Grass you cut with the scythe goes into it as hay, which saves buying hay from Marnie for the winter.</li>
+	<li><strong>Fill the feeding bench.</strong> Take hay from the hopper inside the building and put it on the bench. An animal that goes hungry produces nothing the next day and loses friendship.</li>
+	<li><strong>Open the door on dry days.</strong> In Spring, Summer and Fall the animals eat grass outside for free and are happier. Close it before night and in rain.</li>
+	<li><strong>Pet every animal every day.</strong> It is the cheapest friendship there is, and five hearts is where the numbers in this guide come from.</li>
+</ul>
+<p>The upgrades change the routine later. The Deluxe Coop and Deluxe Barn fill the benches by themselves from the Silo, and an Auto-Grabber from Marnie collects eggs and milk. Until then, the morning round of feeding, petting and collecting takes a few minutes, which is why a small building done well beats a big building you can't look after.</p>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Should I build a coop or a barn first?' => 'A coop if gold is tight, because a ' . esc_html( $chicken['name'] ) . ' costs only ' . esc_html( $gold( $chicken['price'] ) ) . '. A barn if you can afford a ' . esc_html( $cow['name'] ) . ' (' . esc_html( $gold( $cow['price'] ) ) . '), which earns ' . esc_html( $gold( $cow['hearts5'] ) ) . ' a day at full friendship against ' . esc_html( $gold( $chicken['hearts5'] ) ) . ' for a chicken.',
+		'How much does a coop cost?'             => $has_b ? 'Robin charges ' . esc_html( $gold( $coop_l[0]['gold'] ) ) . ', ' . (int) $coop_l[0]['wood'] . ' Wood and ' . (int) $coop_l[0]['stone'] . ' Stone. A Barn is ' . esc_html( $gold( $barn_l[0]['gold'] ) ) . ', ' . (int) $barn_l[0]['wood'] . ' Wood and ' . (int) $barn_l[0]['stone'] . ' Stone.' : 'See the Animal Prices page for Robin\'s prices.',
+		'Which farm animal makes the most money?' => 'The ' . esc_html( $pig['name'] ) . ', once its truffles go into an Oil Maker: about ' . esc_html( $gold( $pig['processed5'] ) ) . ' a day at five hearts. It needs a Deluxe Barn and only finds truffles outdoors.',
+		'What happens if I forget to feed my animals?' => 'They produce nothing the next day and lose some friendship. Keep hay in the Silo and the benches full, or let them graze outside on dry days.',
+		'Is a Rabbit worth it?'                  => 'Rabbits earn ' . esc_html( $gold( $rabbit['hearts5'] ) ) . ' a day at five hearts and need a Deluxe Coop. The occasional Rabbit\'s Foot makes them better as a source of gifts than of gold.',
+	)
+);
+?>
+
 <h2>Related</h2>
 <p>For every animal ranked in one table see <a href="<?php echo esc_url( home_url( '/farm-animals/' ) ); ?>">all farm animals</a>, and for the other way to earn from a building, <a href="<?php echo esc_url( home_url( '/fishing/best-fish-for-fish-ponds/' ) ); ?>">Best fish for fish ponds</a>.</p>

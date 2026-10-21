@@ -96,3 +96,21 @@ asort( $crops );
 		<li>Aged wine (casks) is not included yet.</li>
 	</ul>
 </section>
+<?php
+$ref  = array();
+$best = array(
+	'keg' => 'Keg',
+	'jar' => 'Preserves Jar',
+	'tie' => 'Tie',
+);
+foreach ( array_slice( isset( $answers['tables']['keg_vs_jar'] ) ? $answers['tables']['keg_vs_jar'] : array(), 0, 20 ) as $row ) {
+	$ref[] = array( $row['name'], $row['keg']['product'] . ' ' . number_format( $row['keg']['price'] ) . 'g', $row['jar']['product'] . ' ' . number_format( $row['jar']['price'] ) . 'g', $best[ $row['better'] ], number_format( $row['keg']['per_day'] ) . 'g', number_format( $row['jar']['per_day'] ) . 'g' );
+}
+stardew_tools_reference_table(
+	'ref-keg-jar',
+	'Keg or Preserves Jar for each crop',
+	'The 20 crops that earn the most per machine per day, with no professions and normal-quality crops. "Better per item" is the machine that adds more gold to each crop you put in; the last two columns are what one busy machine adds a day. When you have more crops than machines, the per-day columns decide.',
+	'Keg and Preserves Jar product prices and gold per machine per day, by crop',
+	array( 'Crop', 'Keg product', 'Jar product', 'Better per item', '#Keg per day', '#Jar per day' ),
+	$ref
+);

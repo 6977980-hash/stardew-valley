@@ -1,0 +1,260 @@
+{
+  "name": "stardew-tools-data",
+  "title": "Stardew Tools data downloads (Stardew Valley 1.6.15)",
+  "description": "Crop, farm animal and artisan machine tables calculated by the Stardew Tools engine from game data on the Stardew Valley Wiki. Assumptions for each column are in its description.",
+  "homepage": "https://stardewtools.net/data/",
+  "version": "1.6.15",
+  "licenses": [
+    {
+      "name": "CC-BY-NC-SA-3.0",
+      "path": "https://creativecommons.org/licenses/by-nc-sa/3.0/",
+      "title": "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (the Stardew Valley Wiki licence)"
+    }
+  ],
+  "sources": [
+    {
+      "title": "Stardew Valley Wiki",
+      "path": "https://stardewvalleywiki.com/"
+    }
+  ],
+  "contributors": [
+    {
+      "title": "Stardew Tools",
+      "path": "https://stardewtools.net/",
+      "role": "author"
+    }
+  ],
+  "keywords": [
+    "Stardew Valley",
+    "crops",
+    "farm animals",
+    "artisan machines",
+    "profit"
+  ],
+  "resources": [
+    {
+      "name": "stardew-crops",
+      "path": "stardew-crops-1.6.15.csv",
+      "title": "Crops",
+      "description": "One row per crop: seasons, growth, sell prices by quality and profit per tile in its best season.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "description": "Our slug for the crop, also its page URL: /crops/{id}/"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "Crop name as in the game"
+          },
+          {
+            "name": "type",
+            "type": "string",
+            "description": "vegetable, fruit, flower or other"
+          },
+          {
+            "name": "seasons",
+            "type": "string",
+            "description": "Seasons it grows outdoors, separated by /"
+          },
+          {
+            "name": "growth_days",
+            "type": "integer",
+            "description": "Days from planting to the first harvest, no fertilizer"
+          },
+          {
+            "name": "regrow_days",
+            "type": "integer",
+            "description": "Days between harvests for regrowing crops; empty if it is replanted"
+          },
+          {
+            "name": "sell_price",
+            "type": "integer",
+            "description": "Sell price of one normal-quality crop in gold, no professions"
+          },
+          {
+            "name": "silver_price",
+            "type": "integer",
+            "description": "Sell price at silver quality"
+          },
+          {
+            "name": "gold_price",
+            "type": "integer",
+            "description": "Sell price at gold quality"
+          },
+          {
+            "name": "iridium_price",
+            "type": "integer",
+            "description": "Sell price at iridium quality"
+          },
+          {
+            "name": "best_season",
+            "type": "string",
+            "description": "Season with the highest profit per tile at Farming level 6, planted on day 1"
+          },
+          {
+            "name": "profit_per_tile_level0",
+            "type": "integer",
+            "description": "Gold per tile over that season at Farming level 0: harvests sold raw, minus seeds"
+          },
+          {
+            "name": "profit_per_tile_level6",
+            "type": "integer",
+            "description": "The same at Farming level 6"
+          },
+          {
+            "name": "profit_per_tile_level10",
+            "type": "integer",
+            "description": "The same at Farming level 10"
+          },
+          {
+            "name": "seed_cost",
+            "type": "integer",
+            "description": "Seed gold spent on one tile over that season (cheapest shop); empty if seeds have no shop price"
+          }
+        ]
+      }
+    },
+    {
+      "name": "stardew-farm-animals",
+      "path": "stardew-farm-animals-1.6.15.csv",
+      "title": "Farm animals",
+      "description": "One row per farm animal: building, price, product timing, gold per day at five hearts and payback.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "description": "Our slug for the animal, also its page URL: /farm-animals/{id}/"
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "description": "Animal name as in the game"
+          },
+          {
+            "name": "building",
+            "type": "string",
+            "description": "coop or barn"
+          },
+          {
+            "name": "price",
+            "type": "integer",
+            "description": "Price at Marnie's Ranch; empty if it is not sold"
+          },
+          {
+            "name": "days_to_mature",
+            "type": "integer",
+            "description": "Days before it starts producing"
+          },
+          {
+            "name": "days_between_products_base",
+            "type": "number",
+            "description": "Days between products before friendship or professions"
+          },
+          {
+            "name": "days_between_products_5_hearts",
+            "type": "number",
+            "description": "Days between products at five hearts and full mood"
+          },
+          {
+            "name": "raw_gold_per_day_5_hearts",
+            "type": "integer",
+            "description": "Gold a day selling its products raw at five hearts, no professions, average luck"
+          },
+          {
+            "name": "artisan_goods_gold_per_day_5_hearts",
+            "type": "integer",
+            "description": "Gold a day with products made into artisan goods, with the Artisan profession"
+          },
+          {
+            "name": "payback_days_raw",
+            "type": "integer",
+            "description": "Animal price divided by raw gold per day"
+          },
+          {
+            "name": "payback_days_best_case_artisan",
+            "type": "integer",
+            "description": "Animal price divided by artisan gold per day"
+          },
+          {
+            "name": "building_gold_from_scratch",
+            "type": "integer",
+            "description": "Gold to build the smallest building it needs from an empty plot (wood and stone not priced)"
+          },
+          {
+            "name": "payback_days_raw_incl_whole_building",
+            "type": "integer",
+            "description": "Days to pay back the animal and that whole building with raw sales"
+          },
+          {
+            "name": "payback_days_raw_incl_building_share_full",
+            "type": "integer",
+            "description": "Days to pay back the animal and its share of a full building with raw sales"
+          }
+        ]
+      }
+    },
+    {
+      "name": "stardew-machine-rankings",
+      "path": "stardew-machine-rankings-1.6.15.csv",
+      "title": "Machine rankings",
+      "description": "One row per crop per machine (Keg, Preserves Jar): the product, its price, the time and extra gold per machine per day.",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "schema": {
+        "fields": [
+          {
+            "name": "machine",
+            "type": "string",
+            "description": "keg or preserves-jar"
+          },
+          {
+            "name": "rank",
+            "type": "integer",
+            "description": "Place in that machine's list, best extra gold per machine per day first"
+          },
+          {
+            "name": "crop_id",
+            "type": "string",
+            "description": "Crop slug, as in the crops file"
+          },
+          {
+            "name": "product",
+            "type": "string",
+            "description": "What the machine makes from it"
+          },
+          {
+            "name": "crops_needed",
+            "type": "integer",
+            "description": "Crops needed for one run (5 for Coffee, 1 for the rest)"
+          },
+          {
+            "name": "product_price",
+            "type": "integer",
+            "description": "Product price with the Artisan profession"
+          },
+          {
+            "name": "days",
+            "type": "number",
+            "description": "Days one run takes, at 1,600 game minutes a day"
+          },
+          {
+            "name": "extra_gold_per_machine_day",
+            "type": "integer",
+            "description": "Product price minus the crops' raw value (with Tiller), per day of machine time"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -43,7 +43,7 @@ $hard  = $c['recipe'][1]['qty'];
 
 <h2>What a cask does</h2>
 <p>A cask holds one aged product and slowly raises its quality. The item starts at normal quality and moves to silver, then gold, then iridium. Each step multiplies the item's normal price: 1.25 for silver, 1.5 for gold and 2 for iridium. The Artisan profession then adds <?php echo (int) $c['artisan_percent']; ?>% on top, and it applies to everything aged in a cask. That is why an iridium Starfruit wine is exactly twice a normal one.</p>
-<p>Only six products can be aged: wine, beer, pale ale, mead, cheese and goat cheese. Make them in a Keg or a Cheese Press as usual, then carry them to the cellar. A cask only works inside the cellar, so you cannot place one on the farm or in a barn. If you need the slot back before the item reaches iridium, you can take it out early with an Axe, Hoe or Pickaxe.</p>
+<p>Only six products can be aged: wine, beer, pale ale, mead, cheese and goat cheese. Make them in a Keg or a Cheese Press as usual, then carry them to the cellar. You can place a cask anywhere, but it only ages goods inside the cellar, so casks on the farm or in a shed are just decoration. If you need the slot back before the item reaches iridium, you can take it out early with an Axe, Hoe or Pickaxe.</p>
 <p>The time per step is fixed for each product. Everything below is the total number of days since you put the item in:</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
@@ -124,6 +124,36 @@ $hard  = $c['recipe'][1]['qty'];
 	<li><strong>Using Kegs for cheap fruit.</strong> A Keg slot is worth more than the cask slot, so keep Kegs on Starfruit and Ancient Fruit and use the cellar for what they make.</li>
 	<li><strong>Forgetting Artisan.</strong> It adds <?php echo (int) $c['artisan_percent']; ?>% to everything on this page. Without it, divide the prices above by 1.4.</li>
 </ul>
+
+<?php
+// Calendar for a bottle of wine put in on Spring 1: day N after that, as "Season day".
+$seasons = array( 'Spring', 'Summer', 'Fall', 'Winter' );
+$on      = function ( $after ) use ( $seasons ) {
+	$n = $after; // Days after Spring 1.
+	return $seasons[ (int) floor( $n / 28 ) % 4 ] . ' ' . ( $n % 28 + 1 );
+};
+$wd = $cell['wine_days'];
+?>
+<h2>A 56-day wine calendar</h2>
+<p>Wine is the slowest thing you can age, so it helps to see the dates. A bottle you put in a cask on Spring 1 turns silver on <?php echo esc_html( $on( $wd['silver'] ) ); ?>, gold on <?php echo esc_html( $on( $wd['gold'] ) ); ?> and iridium on <?php echo esc_html( $on( $wd['iridium'] ) ); ?>. In other words, wine you load at the start of a season is ready two seasons later, on the first day of the season after next.</p>
+<p>That rhythm makes casks easy to manage: fill the cellar once at the start of a season, then go down once a season to empty the iridium bottles and refill. You never have to check it daily. Cheese is different: it reaches iridium in <?php echo (int) $chee['days']['iridium']; ?> days, so a cheese cask is emptied twice a season. If you visit the cellar rarely, keep it for wine and put cheese in only when you know you will come back.</p>
+
+<h2>Worth it now, or later?</h2>
+<p>A cask doubles the price, but you wait for the money. A Starfruit wine sold today brings <?php echo esc_html( $gold( $star['wine'] ) ); ?> now; aged, it brings <?php echo esc_html( $gold( $star['iridium'] ) ); ?> two seasons later. Early in a save, gold today can buy more Kegs and seeds, and those earn back faster than a cask doubles one bottle, so it is usually better to sell your first wine and build machines. Once your farm makes more gold than you can spend, the waiting costs nothing and every bottle should go in a cask. A simple test: if you are still short of Kegs, sell the wine; if you have more wine than Kegs can make use of, age it.</p>
+<p>Plan the cellar into your upgrades: it is the third Farmhouse upgrade, so the gold for the first two comes first, and by then most farms already have Kegs running. That is the right order anyway, because a cask has nothing to age until Kegs or a Cheese Press make it.</p>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Can you put a cask outside the cellar?'        => 'You can place it anywhere, but it only accepts and ages goods inside the cellar. Outside, a cask does nothing.',
+		'How long does wine take to reach iridium?'     => (int) $wd['iridium'] . ' days, two full seasons: ' . (int) $wd['silver'] . ' days to silver and ' . (int) $wd['gold'] . ' to gold.',
+		'Can you take an item out of a cask early?'     => 'Yes. Hit the cask with an Axe, Hoe or Pickaxe to take out a normal, silver or gold item; it keeps the quality it has reached.',
+		'Does Artisan apply to aged wine and cheese?'   => 'Yes. Artisan adds ' . (int) $c['artisan_percent'] . '% to everything aged in a cask, on top of the quality multiplier.',
+		'What is the best thing to age in a cask?'      => 'Starfruit wine, at ' . esc_html( $gold( $star['iridium'] ) ) . ' iridium with Artisan. If you want results faster, Goat Cheese reaches ' . esc_html( $gold( $goat['artisan']['iridium'] ) ) . ' in ' . (int) $goat['days']['iridium'] . ' days.',
+		'How many casks fit in the cellar?'             => 'The cellar comes with ' . (int) $cell['start'] . ' casks and holds up to ' . (int) $cell['max'] . ' if you fill every tile; each extra cask costs ' . (int) $wood . ' Wood and ' . (int) $hard . ' Hardwood.',
+	)
+);
+?>
 
 <h2>Related</h2>
 <p>Know how many Kegs one plant keeps busy in <a href="<?php echo esc_url( home_url( '/artisan-goods/how-many-kegs-do-i-need/' ) ); ?>">How many kegs do I need?</a>, and see Dehydrators as a faster machine for fruit in <a href="<?php echo esc_url( home_url( '/artisan-goods/dehydrator-vs-keg/' ) ); ?>">Dehydrator vs Keg</a>.</p>

@@ -94,3 +94,25 @@ $g  = function ( $n ) {
 		<li>Outdoors, each crop counts until it dies: Starfruit at the end of Summer, Ancient Fruit at the end of Fall.</li>
 	</ul>
 </section>
+<?php
+$af  = isset( $answers['af_vs_starfruit'] ) ? $answers['af_vs_starfruit'] : array();
+$ref = array();
+$lbl = array(
+	'greenhouse_year1'       => 'Greenhouse, first year (planted from seed)',
+	'greenhouse_established' => 'Greenhouse, year 2+ (Ancient Fruit already grown)',
+	'summer'                 => 'Outdoors, planted Summer 1',
+);
+foreach ( $lbl as $k => $label ) {
+	if ( isset( $af[ $k ] ) ) {
+		$win   = $af[ $k ]['ancient'] >= $af[ $k ]['starfruit'] ? 'Ancient Fruit' : 'Starfruit';
+		$ref[] = array( $label, number_format( $af[ $k ]['ancient'] ) . 'g', number_format( $af[ $k ]['starfruit'] ) . 'g', $win );
+	}
+}
+stardew_tools_reference_table(
+	'ref-af-sf',
+	'Ancient Fruit vs Starfruit per tile',
+	'Profit per tile made into wine with the Artisan profession and a free Keg for every harvest, as the tool opens. Ancient Fruit seeds have no shop price, so their cost is not counted; Starfruit seeds are bought at the Oasis.',
+	'Wine profit per tile for Ancient Fruit and Starfruit in three situations',
+	array( 'Situation', '#Ancient Fruit', '#Starfruit', 'Wins' ),
+	$ref
+);

@@ -37,7 +37,7 @@ $cp = isset( $answers['crop_profit'] ) ? $answers['crop_profit'] : array();
 	</tbody>
 </table>
 </div>
-<p>In winter only Powdermelon grows outdoors, and its seeds are not sold in shops, so winter money comes from the greenhouse, animals and machines. The best-crops pages below rank every crop in each season, and the greenhouse page covers year-round growing.</p>
+<p>In winter only Powdermelon grows outdoors, and its seeds are not sold in shops, so winter money comes from the greenhouse, animals and machines. The best-crops pages below rank every crop in each season, the page for <a href="<?php echo esc_url( Stardew_Tools\Entities::url( 'crops', '' ) ? Stardew_Tools\Entities::url( 'crops', '' ) : home_url( '/crops/' ) ); ?>">every crop</a> has prices, growth days and uses for each one, and the greenhouse page covers year-round growing.</p>
 <?php endif; ?>
 <h2>Why the answer changes during the season</h2>
 <ul>
@@ -46,3 +46,13 @@ $cp = isset( $answers['crop_profit'] ) ? $answers['crop_profit'] : array();
 	<li><strong>Machines.</strong> A crop that can be made into wine or juice can be worth far more than its raw price, but only up to the number of kegs and jars you own.</li>
 	<li><strong>Skills.</strong> The Tiller, Artisan and Agriculturist professions and fertilizer all change the ranking.</li>
 </ul>
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'What is the most profitable crop in Stardew Valley?' => ! empty( $cp['summer'][0] ) ? 'Per tile and season, sold raw, ' . esc_html( $cp['summer'][0]['name'] ) . ' in summer (' . esc_html( number_format( (int) $cp['summer'][0]['profit'] ) ) . 'g a tile). In spring it is ' . esc_html( $cp['spring'][0]['name'] ) . ', in fall ' . esc_html( $cp['fall'][0]['name'] ) . '. With kegs and a greenhouse, Ancient Fruit and Starfruit pull ahead.' : '',
+		'What should I plant on Spring 1?' => 'Plant the Parsnip seeds you start with, then spend your gold on seeds that finish before the season ends. What to Plant Today picks the best crop for the gold and days you have.',
+		'Do crops die when the season changes?' => 'Yes. A crop that cannot grow in the next season dies on day 1 of that season, so plant only what will finish in time. Crops that grow in two seasons, like Corn and Wheat, keep going.',
+		'Can I grow crops in winter?' => 'Outdoors, Powdermelon is the only winter crop, and Winter Seeds grow winter forage. For anything else, use the greenhouse or Garden Pots indoors.',
+		'Is Speed-Gro worth buying?' => 'Only when it adds a harvest before the season ends. Speed-Gro vs Fertilizer shows which crops gain from it.',
+	)
+);

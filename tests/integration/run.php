@@ -268,6 +268,9 @@ foreach ( Entities::types() as $type => $t ) {
 	$index = get_page_by_path( $t['slug'], OBJECT, 'page' );
 	st_assert( $index && 'publish' === $index->post_status && '' !== get_post_meta( $index->ID, Seo::META_DESCRIPTION, true ), "index page published with a description: {$type}" );
 	foreach ( array_keys( $ent[ $type ] ) as $id ) {
+		if ( ! Entities::has_page( $type, $id ) ) {
+			continue;
+		}
 		$page = get_page_by_path( $t['slug'] . '/' . $id, OBJECT, 'page' );
 		if ( ! $page || 'publish' !== $page->post_status || (int) $page->post_parent !== $index->ID ) {
 			st_assert( false, "entity page is a published child of its index: {$type}/{$id}" );
@@ -317,7 +320,7 @@ $find = function ( $title, $kind ) use ( $index_items ) {
 	}
 	return '';
 };
-st_assert( false !== strpos( $find( 'Abigail', 'Villager' ), '/gift-finder/?villager=abigail' ) && false !== strpos( $find( 'Sturgeon', 'Fish pond' ), '/fish-pond-calculator/?fish=sturgeon' ) && false !== strpos( $find( 'Keg', 'Recipe' ), '/crafting-calculator/?recipe=keg' ), 'search finds villagers, pond fish and recipes and opens the tool set to them' );
+st_assert( false !== strpos( $find( 'Abigail', 'Villager' ), '/villagers/abigail/' ) && false !== strpos( $find( 'Sturgeon', 'Fish pond' ), '/fish-pond-calculator/?fish=sturgeon' ) && false !== strpos( $find( 'Keg', 'Recipe' ), '/crafting-calculator/?recipe=keg' ), 'search finds villager pages, pond fish and recipes (tools open set to them)' );
 Search::flush();
 $cached = Search::cached();
 st_assert( Search::cached()['hash'] === $cached['hash'] && false !== strpos( Search::index_url(), 'stardew-tools/v1/search' ) && false !== strpos( Search::index_url(), 'v=' . $cached['hash'] ), 'search index is cached and served from a versioned URL' );
@@ -367,6 +370,33 @@ foreach ( array( 'crops-and-farming', 'artisan-goods', 'animals', 'fishing', 'gr
 	$hub_words = str_word_count( wp_strip_all_tags( $hub_html ) );
 	st_assert( $hub_words >= 500 && false !== strpos( $hub_html, '<table' ) && false === strpos( $hub_html, 'Warning' ) && false === strpos( $hub_html, 'Notice' ), "hub $hub_id has substantive text and a data table ($hub_words words)" );
 }
+
+echo "Phase 6 content: tables, villagers, bundles, share images, llms.txt\n";
+foreach ( array( 'crop-profit-calculator', 'what-to-plant', 'keg-vs-preserves-jar', 'ancient-fruit-vs-starfruit', 'greenhouse-planner', 'fish-pond-calculator', 'animal-profit-calculator', 'xp-calculator', 'gift-finder', 'bundle-tracker', 'crafting-calculator' ) as $tid ) {
+	$tool_html = do_shortcode( '[stardew_tool id="' . $tid . '"]' );
+	st_assert( false !== strpos( $tool_html, 'tool-reference' ) && substr_count( $tool_html, '<tr' ) >= 3, "tool $tid sends a filled reference table in the HTML" );
+}
+$ent = Stardew_Tools\Data::get( 'entities' );
+st_assert( count( $ent['villagers'] ) >= 30 && isset( $ent['villagers']['haley'] ), 'entities.json has the villagers' );
+$haley = get_page_by_path( 'villagers/haley', OBJECT, 'page' );
+st_assert( $haley && 'publish' === $haley->post_status, 'villager page /villagers/haley/ is published' );
+$haley_html = $haley ? do_shortcode( $haley->post_content ) : '';
+st_assert( false !== strpos( $haley_html, 'Sunflower' ) && false !== strpos( $haley_html, 'Spring 14' ), 'Haley page names a loved gift and her birthday' );
+$pantry = get_page_by_path( 'bundles/pantry', OBJECT, 'page' );
+st_assert( $pantry && false !== strpos( do_shortcode( $pantry->post_content ), 'Greenhouse' ), 'Pantry bundle page is published and names its reward' );
+st_assert( ! get_page_by_path( 'bundles/vault', OBJECT, 'page' ), 'Vault has no thin page of its own' );
+st_assert( file_exists( STARDEW_TOOLS_DIR . 'assets/og/crop-starfruit.jpg' ) && file_exists( STARDEW_TOOLS_DIR . 'assets/og/villager-haley.jpg' ), 'share images exist for entity pages' );
+st_assert( file_exists( STARDEW_TOOLS_DIR . 'assets/data/datapackage.json' ), 'datapackage.json is written' );
+$llms = Stardew_Tools\Llms::build();
+st_assert( false === strpos( $llms, 'in-game check' ) && false !== strpos( $llms, 'datapackage.json' ) && false !== strpos( $llms, '/fishing/' ), 'llms.txt lists hubs and data without the in-game claim' );
+foreach ( array( 'crops-and-farming', 'artisan-goods', 'animals', 'fishing', 'greenhouse' ) as $hub_id ) {
+	st_assert( false !== strpos( do_shortcode( '[stardew_hub id="' . $hub_id . '"]' ), 'quick-questions' ), "hub $hub_id has Quick questions" );
+}
+$faq = false;
+foreach ( glob( STARDEW_TOOLS_DIR . 'includes/*.php' ) as $php_file ) {
+	$faq = $faq || false !== strpos( file_get_contents( $php_file ), '"FAQPage"' ) || false !== strpos( file_get_contents( $php_file ), "'FAQPage'" );
+}
+st_assert( ! $faq, 'Quick questions add no FAQPage schema' );
 
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );

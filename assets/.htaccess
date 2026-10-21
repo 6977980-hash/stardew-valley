@@ -10,10 +10,10 @@
 	<FilesMatch "\.(js|css|woff2)$">
 		Header set Cache-Control "public, max-age=31536000, immutable"
 	</FilesMatch>
-	<FilesMatch "\.(png|svg|ico|webp)$">
+	<FilesMatch "\.(png|jpg|svg|ico|webp)$">
 		Header set Cache-Control "public, max-age=2592000"
 	</FilesMatch>
-	<FilesMatch "\.(csv|webmanifest)$">
+	<FilesMatch "\.(csv|json|webmanifest)$">
 		Header set Cache-Control "public, max-age=86400"
 	</FilesMatch>
 </IfModule>

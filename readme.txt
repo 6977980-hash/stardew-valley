@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.13.0
+Stable tag: 0.14.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,15 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.14.0 (2026-10-21) =
+* Every tool sends a reference table in the first HTML (default answer readable without JavaScript and by crawlers): 11 tools, data from answers.json "tables".
+* New reference pages: /villagers/ (one per villager: birthday, loved/liked gifts, growable gifts, gifts to avoid, 10-heart math) and /bundles/ (one per Community Center room with item tables and seasons; Vault and Missing Bundle on the index).
+* Own 1200x630 share image per crop, animal, machine, villager, room and guide (npm run og), og:type article, hand-written tips on top crop and all animal pages.
+* All 8 guides over 1,500 words; Quick questions (visible Q&A, no FAQPage schema) on guides and hubs; fishing hub covers catching, tackle, crab pots, legendary fish and the Fish Smoker; /machines/ lists every artisan machine.
+* About/Methodology/Contact: no unsupported in-game test claim, corrections policy, AI-assistance note, ProfilePage schema. llms.txt rewritten with key facts, hubs, reference pages and data.
+* Data: versioned CSV copies, datapackage.json (Frictionless) and a column dictionary on /data/.
+* Tests: stale e2e checks fixed (greenhouse share link, home tool links), JS tables are focusable regions; new content-aeo e2e spec and integration checks.
 
 = 0.13.0 (2026-10-21) =
 * Speed: guide and hub pages no longer jump while loading (the "On this page" box is sent closed and opened on wide screens before first paint); short answer sits above it on phones.

@@ -12,6 +12,8 @@
 defined( 'ABSPATH' ) || exit;
 
 $files = Stardew_Tools\Entities::csv_files();
+$ver   = Stardew_Tools\Config::get( 'game_version' );
+$pkg   = json_decode( (string) file_get_contents( STARDEW_TOOLS_DIR . 'assets/data/datapackage.json' ), true ); // phpcs:ignore WordPress.WP.AlternativeFunctions
 $rows  = array(
 	'stardew-crops.csv'            => count( $all['crops'] ),
 	'stardew-farm-animals.csv'     => count( $all['animals'] ),
@@ -26,7 +28,7 @@ $rows  = array(
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>CSV files</caption>
-	<thead><tr><th scope="col">File</th><th scope="col">Rows</th><th scope="col">What is in it</th><th scope="col">Page</th></tr></thead>
+	<thead><tr><th scope="col">File</th><th scope="col">Rows</th><th scope="col">What is in it</th><th scope="col">Page</th><th scope="col">Copy for <?php echo esc_html( $ver ); ?></th></tr></thead>
 	<tbody>
 	<?php foreach ( $files as $file => $f ) : ?>
 		<tr>
@@ -34,15 +36,37 @@ $rows  = array(
 			<td><?php echo (int) $rows[ $file ]; ?></td>
 			<td><?php echo esc_html( ucfirst( $f[2] ) ); ?>.</td>
 			<td><?php echo $link( $f[1], '', $f[0] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link. ?></td>
+			<?php $versioned = str_replace( '.csv', '-' . $ver . '.csv', $file ); ?>
+			<td><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( $versioned ) ); ?>" download><?php echo esc_html( $versioned ); ?></a></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
 </div>
 
+<p>The file names without a version always hold the latest data. The copies named with the game version (for example <code><?php echo esc_html( 'stardew-crops-' . $ver . '.csv' ); ?></code>) never change once that version is published, so link to those when you cite a number. <a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'datapackage.json' ) ); ?>">datapackage.json</a> describes all three files in the <a href="https://datapackage.org/" rel="noopener">Data Package</a> format: source, licence, version and every column.</p>
+
+<?php if ( $pkg ) : ?>
+<h2>What each column means</h2>
+	<?php foreach ( $pkg['resources'] as $res ) : ?>
+<h3><?php echo esc_html( $res['title'] ); ?> (<?php echo esc_html( $res['name'] ); ?>.csv)</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="<?php echo esc_attr( Stardew_Tools\Entities::TABLE_LABEL ); ?>">
+<table class="results-table">
+	<caption>Columns of <?php echo esc_html( $res['name'] ); ?>.csv</caption>
+	<thead><tr><th scope="col">Column</th><th scope="col">Type</th><th scope="col">Meaning</th></tr></thead>
+	<tbody>
+		<?php foreach ( $res['schema']['fields'] as $field ) : ?>
+		<tr><th scope="row"><code><?php echo esc_html( $field['name'] ); ?></code></th><td><?php echo esc_html( $field['type'] ); ?></td><td><?php echo esc_html( $field['description'] ); ?></td></tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+	<?php endforeach; ?>
+<?php endif; ?>
+
 <h2>How the numbers are made</h2>
 <p>Prices, growth times and rules are read from the Stardew Valley Wiki and kept only when two separate pages agree. Profit per tile, gold per day and the machine rankings are calculated from them by the same code that powers our calculators, so a number in a CSV matches the number on the page. Profit counts seeds bought at the cheapest shop where a shop sells them; for crops whose seeds no shop sells (Ancient Fruit, Coffee Bean and a few others) the seed cost is left out. It assumes no fertilizer and the quality mix of the stated Farming level. Artisan figures use the Tiller raw price, since Artisan comes after Tiller. Empty cells mean the value does not exist, for example a crop with no regrow time or a seed that no shop sells.</p>
-<p>The game facts come from the wiki, whose text is licensed CC BY-NC-SA 3.0, so please credit the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> if you republish them. The calculated columns are ours; a link back to this site is appreciated. Read the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a> for the checking rules.</p>
+<p>The game facts come from the wiki, whose text is licensed CC BY-NC-SA 3.0, so please credit the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> if you republish them. The calculated columns are ours; a link back to this site is appreciated. A citation that works: <em>Stardew Tools, "<?php echo esc_html( 'stardew-crops-' . $ver . '.csv' ); ?>", stardewtools.net/data/, data from the Stardew Valley Wiki (CC BY-NC-SA 3.0)</em>. Read the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a> for the checking rules.</p>
 
 <h2>Related</h2>
 <ul class="related-list">

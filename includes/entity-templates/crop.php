@@ -375,6 +375,12 @@ if ( $regrows ) {
  <?php $season_url = $tool_url( 'best-' . $best['season'] . '-crops' ); ?><?php if ( $season_url ) : ?>See every crop for the season on <a href="<?php echo esc_url( $season_url ); ?>">Best <?php echo esc_html( ucfirst( $best['season'] ) ); ?> Crops</a>, or ask <a href="<?php echo esc_url( $tool_url( 'what-to-plant' ) ); ?>">What to Plant Today</a> for a pick that fits your day and budget.<?php endif; ?></p>
 <?php endif; ?>
 
+<?php $st_tips = include __DIR__ . '/tips.php'; ?>
+<?php if ( ! empty( $st_tips['crops'][ $e['id'] ] ) ) : ?>
+<h2>Tip</h2>
+<p><?php echo esc_html( $st_tips['crops'][ $e['id'] ] ); ?></p>
+<?php endif; ?>
+
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $calc_url ); ?>">Crop Profit Calculator</a><span>Set the day, level and fertilizer yourself.</span></li>

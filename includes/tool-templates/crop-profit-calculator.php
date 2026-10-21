@@ -108,3 +108,25 @@ $best = isset( $answers['crop_profit'] ) ? $answers['crop_profit'] : array();
 		<li>Giant crops, luck and random extra harvests beyond the average are not counted.</li>
 	</ul>
 </section>
+<?php
+$ref = array();
+foreach ( array( 'spring', 'summer', 'fall' ) as $season ) {
+	foreach ( array_slice( isset( $answers['best_crops'][ $season ] ) ? $answers['best_crops'][ $season ] : array(), 0, 6 ) as $row ) {
+		$ref[] = array( $row['name'], ucfirst( $season ), number_format( $row['profit'] ) . 'g', $row['harvests'], number_format( $row['seed_price'] ) . 'g' );
+	}
+}
+$links = array();
+foreach ( array( 'best-spring-crops', 'best-summer-crops', 'best-fall-crops' ) as $page ) {
+	$url = Stardew_Tools\Tools::url( $page );
+	if ( $url ) {
+		$links[] = '<a href="' . esc_url( $url ) . '">' . esc_html( ucfirst( strtok( substr( $page, 5 ), '-' ) ) ) . '</a>';
+	}
+}
+stardew_tools_reference_table(
+	'ref-crop-profit',
+	'Top crops per season at the default settings',
+	'These are the six best crops of each season with the calculator as it opens: planted on day 1, seeds from the cheapest shop, no fertilizer, farming level 0, sold raw, no professions. Profit is per tile for the whole season, after seeds.' . ( $links ? ' Full lists: ' . implode( ', ', $links ) . '.' : '' ),
+	'Most profitable crops per tile by season, default settings',
+	array( 'Crop', 'Season', '#Profit per tile', '#Harvests', '#Seed price' ),
+	$ref
+);

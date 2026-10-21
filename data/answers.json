@@ -4335,5 +4335,2375 @@
       "perfect": 31
     },
     "crab_pot": 5
+  },
+  "tables": {
+    "what_to_plant": [
+      {
+        "id": "potato",
+        "name": "Potato",
+        "tiles": 10,
+        "seed_price": 50,
+        "spend_now": 500,
+        "harvests": 4,
+        "total": 2032
+      },
+      {
+        "id": "garlic",
+        "name": "Garlic",
+        "tiles": 12,
+        "seed_price": 40,
+        "spend_now": 480,
+        "harvests": 6,
+        "total": 1483
+      },
+      {
+        "id": "green-bean",
+        "name": "Green Bean",
+        "tiles": 8,
+        "seed_price": 60,
+        "spend_now": 480,
+        "harvests": 6,
+        "total": 1459
+      },
+      {
+        "id": "parsnip",
+        "name": "Parsnip",
+        "tiles": 15,
+        "seed_price": 20,
+        "spend_now": 300,
+        "harvests": 6,
+        "total": 1380
+      },
+      {
+        "id": "rhubarb",
+        "name": "Rhubarb",
+        "tiles": 5,
+        "seed_price": 100,
+        "spend_now": 500,
+        "harvests": 2,
+        "total": 1222
+      },
+      {
+        "id": "cauliflower",
+        "name": "Cauliflower",
+        "tiles": 6,
+        "seed_price": 80,
+        "spend_now": 480,
+        "harvests": 2,
+        "total": 1161
+      },
+      {
+        "id": "kale",
+        "name": "Kale",
+        "tiles": 7,
+        "seed_price": 70,
+        "spend_now": 490,
+        "harvests": 4,
+        "total": 1150
+      },
+      {
+        "id": "blue-jazz",
+        "name": "Blue Jazz",
+        "tiles": 15,
+        "seed_price": 30,
+        "spend_now": 450,
+        "harvests": 3,
+        "total": 922
+      },
+      {
+        "id": "tulip",
+        "name": "Tulip",
+        "tiles": 15,
+        "seed_price": 20,
+        "spend_now": 300,
+        "harvests": 4,
+        "total": 617
+      },
+      {
+        "id": "unmilled-rice",
+        "name": "Unmilled Rice",
+        "tiles": 12,
+        "seed_price": 40,
+        "spend_now": 480,
+        "harvests": 3,
+        "total": 310
+      }
+    ],
+    "keg_vs_jar": [
+      {
+        "id": "starfruit",
+        "name": "Starfruit",
+        "keg": {
+          "product": "Wine",
+          "price": 2250,
+          "per_item": 1500,
+          "per_day": 240
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 1550,
+          "per_item": 800,
+          "per_day": 320
+        },
+        "better": "keg"
+      },
+      {
+        "id": "ancient-fruit",
+        "name": "Ancient Fruit",
+        "keg": {
+          "product": "Wine",
+          "price": 1650,
+          "per_item": 1100,
+          "per_day": 176
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 1150,
+          "per_item": 600,
+          "per_day": 240
+        },
+        "better": "keg"
+      },
+      {
+        "id": "hops",
+        "name": "Hops",
+        "keg": {
+          "product": "Pale Ale",
+          "price": 300,
+          "per_item": 275,
+          "per_day": 196
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 100,
+          "per_item": 75,
+          "per_day": 30
+        },
+        "better": "keg"
+      },
+      {
+        "id": "wheat",
+        "name": "Wheat",
+        "keg": {
+          "product": "Beer",
+          "price": 200,
+          "per_item": 175,
+          "per_day": 160
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 100,
+          "per_item": 75,
+          "per_day": 30
+        },
+        "better": "keg"
+      },
+      {
+        "id": "pumpkin",
+        "name": "Pumpkin",
+        "keg": {
+          "product": "Juice",
+          "price": 720,
+          "per_item": 400,
+          "per_day": 107
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 690,
+          "per_item": 370,
+          "per_day": 148
+        },
+        "better": "keg"
+      },
+      {
+        "id": "pineapple",
+        "name": "Pineapple",
+        "keg": {
+          "product": "Wine",
+          "price": 900,
+          "per_item": 600,
+          "per_day": 96
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 650,
+          "per_item": 350,
+          "per_day": 140
+        },
+        "better": "keg"
+      },
+      {
+        "id": "red-cabbage",
+        "name": "Red Cabbage",
+        "keg": {
+          "product": "Juice",
+          "price": 585,
+          "per_item": 325,
+          "per_day": 87
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 570,
+          "per_item": 310,
+          "per_day": 124
+        },
+        "better": "keg"
+      },
+      {
+        "id": "melon",
+        "name": "Melon",
+        "keg": {
+          "product": "Wine",
+          "price": 750,
+          "per_item": 500,
+          "per_day": 80
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 550,
+          "per_item": 300,
+          "per_day": 120
+        },
+        "better": "keg"
+      },
+      {
+        "id": "rhubarb",
+        "name": "Rhubarb",
+        "keg": {
+          "product": "Wine",
+          "price": 660,
+          "per_item": 440,
+          "per_day": 70
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 490,
+          "per_item": 270,
+          "per_day": 108
+        },
+        "better": "keg"
+      },
+      {
+        "id": "cauliflower",
+        "name": "Cauliflower",
+        "keg": {
+          "product": "Juice",
+          "price": 393,
+          "per_item": 218,
+          "per_day": 58
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 400,
+          "per_item": 225,
+          "per_day": 90
+        },
+        "better": "jar"
+      },
+      {
+        "id": "artichoke",
+        "name": "Artichoke",
+        "keg": {
+          "product": "Juice",
+          "price": 360,
+          "per_item": 200,
+          "per_day": 53
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 370,
+          "per_item": 210,
+          "per_day": 84
+        },
+        "better": "jar"
+      },
+      {
+        "id": "yam",
+        "name": "Yam",
+        "keg": {
+          "product": "Juice",
+          "price": 360,
+          "per_item": 200,
+          "per_day": 53
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 370,
+          "per_item": 210,
+          "per_day": 84
+        },
+        "better": "jar"
+      },
+      {
+        "id": "amaranth",
+        "name": "Amaranth",
+        "keg": {
+          "product": "Juice",
+          "price": 337,
+          "per_item": 187,
+          "per_day": 50
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 350,
+          "per_item": 200,
+          "per_day": 80
+        },
+        "better": "jar"
+      },
+      {
+        "id": "strawberry",
+        "name": "Strawberry",
+        "keg": {
+          "product": "Wine",
+          "price": 360,
+          "per_item": 240,
+          "per_day": 38
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 290,
+          "per_item": 170,
+          "per_day": 68
+        },
+        "better": "keg"
+      },
+      {
+        "id": "kale",
+        "name": "Kale",
+        "keg": {
+          "product": "Juice",
+          "price": 247,
+          "per_item": 137,
+          "per_day": 37
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 270,
+          "per_item": 160,
+          "per_day": 64
+        },
+        "better": "jar"
+      },
+      {
+        "id": "beet",
+        "name": "Beet",
+        "keg": {
+          "product": "Juice",
+          "price": 225,
+          "per_item": 125,
+          "per_day": 33
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 250,
+          "per_item": 150,
+          "per_day": 60
+        },
+        "better": "jar"
+      },
+      {
+        "id": "taro-root",
+        "name": "Taro Root",
+        "keg": {
+          "product": "Juice",
+          "price": 225,
+          "per_item": 125,
+          "per_day": 33
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 250,
+          "per_item": 150,
+          "per_day": 60
+        },
+        "better": "jar"
+      },
+      {
+        "id": "radish",
+        "name": "Radish",
+        "keg": {
+          "product": "Juice",
+          "price": 202,
+          "per_item": 112,
+          "per_day": 30
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 230,
+          "per_item": 140,
+          "per_day": 56
+        },
+        "better": "jar"
+      },
+      {
+        "id": "bok-choy",
+        "name": "Bok Choy",
+        "keg": {
+          "product": "Juice",
+          "price": 180,
+          "per_item": 100,
+          "per_day": 27
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 210,
+          "per_item": 130,
+          "per_day": 52
+        },
+        "better": "jar"
+      },
+      {
+        "id": "grape",
+        "name": "Grape",
+        "keg": {
+          "product": "Wine",
+          "price": 240,
+          "per_item": 160,
+          "per_day": 26
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 210,
+          "per_item": 130,
+          "per_day": 52
+        },
+        "better": "keg"
+      },
+      {
+        "id": "potato",
+        "name": "Potato",
+        "keg": {
+          "product": "Juice",
+          "price": 180,
+          "per_item": 100,
+          "per_day": 27
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 210,
+          "per_item": 130,
+          "per_day": 52
+        },
+        "better": "jar"
+      },
+      {
+        "id": "cactus-fruit",
+        "name": "Cactus Fruit",
+        "keg": {
+          "product": "Wine",
+          "price": 225,
+          "per_item": 150,
+          "per_day": 24
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 200,
+          "per_item": 125,
+          "per_day": 50
+        },
+        "better": "keg"
+      },
+      {
+        "id": "cranberries",
+        "name": "Cranberries",
+        "keg": {
+          "product": "Wine",
+          "price": 225,
+          "per_item": 150,
+          "per_day": 24
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 200,
+          "per_item": 125,
+          "per_day": 50
+        },
+        "better": "keg"
+      },
+      {
+        "id": "broccoli",
+        "name": "Broccoli",
+        "keg": {
+          "product": "Juice",
+          "price": 157,
+          "per_item": 87,
+          "per_day": 23
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 190,
+          "per_item": 120,
+          "per_day": 48
+        },
+        "better": "jar"
+      },
+      {
+        "id": "eggplant",
+        "name": "Eggplant",
+        "keg": {
+          "product": "Juice",
+          "price": 135,
+          "per_item": 75,
+          "per_day": 20
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 170,
+          "per_item": 110,
+          "per_day": 44
+        },
+        "better": "jar"
+      },
+      {
+        "id": "garlic",
+        "name": "Garlic",
+        "keg": {
+          "product": "Juice",
+          "price": 135,
+          "per_item": 75,
+          "per_day": 20
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 170,
+          "per_item": 110,
+          "per_day": 44
+        },
+        "better": "jar"
+      },
+      {
+        "id": "powdermelon",
+        "name": "Powdermelon",
+        "keg": {
+          "product": "Wine",
+          "price": 180,
+          "per_item": 120,
+          "per_day": 19
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 170,
+          "per_item": 110,
+          "per_day": 44
+        },
+        "better": "keg"
+      },
+      {
+        "id": "tomato",
+        "name": "Tomato",
+        "keg": {
+          "product": "Juice",
+          "price": 135,
+          "per_item": 75,
+          "per_day": 20
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 170,
+          "per_item": 110,
+          "per_day": 44
+        },
+        "better": "jar"
+      },
+      {
+        "id": "blueberry",
+        "name": "Blueberry",
+        "keg": {
+          "product": "Wine",
+          "price": 150,
+          "per_item": 100,
+          "per_day": 16
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 150,
+          "per_item": 100,
+          "per_day": 40
+        },
+        "better": "tie"
+      },
+      {
+        "id": "corn",
+        "name": "Corn",
+        "keg": {
+          "product": "Juice",
+          "price": 112,
+          "per_item": 62,
+          "per_day": 17
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 150,
+          "per_item": 100,
+          "per_day": 40
+        },
+        "better": "jar"
+      },
+      {
+        "id": "summer-squash",
+        "name": "Summer Squash",
+        "keg": {
+          "product": "Juice",
+          "price": 101,
+          "per_item": 56,
+          "per_day": 15
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 140,
+          "per_item": 95,
+          "per_day": 38
+        },
+        "better": "jar"
+      },
+      {
+        "id": "green-bean",
+        "name": "Green Bean",
+        "keg": {
+          "product": "Juice",
+          "price": 90,
+          "per_item": 50,
+          "per_day": 13
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 130,
+          "per_item": 90,
+          "per_day": 36
+        },
+        "better": "jar"
+      },
+      {
+        "id": "hot-pepper",
+        "name": "Hot Pepper",
+        "keg": {
+          "product": "Wine",
+          "price": 120,
+          "per_item": 80,
+          "per_day": 13
+        },
+        "jar": {
+          "product": "Jelly",
+          "price": 130,
+          "per_item": 90,
+          "per_day": 36
+        },
+        "better": "jar"
+      },
+      {
+        "id": "carrot",
+        "name": "Carrot",
+        "keg": {
+          "product": "Juice",
+          "price": 78,
+          "per_item": 43,
+          "per_day": 11
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 120,
+          "per_item": 85,
+          "per_day": 34
+        },
+        "better": "jar"
+      },
+      {
+        "id": "parsnip",
+        "name": "Parsnip",
+        "keg": {
+          "product": "Juice",
+          "price": 78,
+          "per_item": 43,
+          "per_day": 11
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 120,
+          "per_item": 85,
+          "per_day": 34
+        },
+        "better": "jar"
+      },
+      {
+        "id": "unmilled-rice",
+        "name": "Unmilled Rice",
+        "keg": {
+          "product": "Juice",
+          "price": 67,
+          "per_item": 37,
+          "per_day": 10
+        },
+        "jar": {
+          "product": "Pickles",
+          "price": 110,
+          "per_item": 80,
+          "per_day": 32
+        },
+        "better": "jar"
+      }
+    ],
+    "greenhouse": {
+      "tiles": 116,
+      "rows": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "harvests": 16,
+          "raw": 8887,
+          "raw_total": 1030939,
+          "best": 36960,
+          "best_as": "wine"
+        },
+        {
+          "id": "sweet-gem-berry",
+          "name": "Sweet Gem Berry",
+          "harvests": 4,
+          "raw": 8119,
+          "raw_total": 941850,
+          "best": 8119,
+          "best_as": "raw"
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "harvests": 16,
+          "raw": 4848,
+          "raw_total": 562340,
+          "best": 20160,
+          "best_as": "wine"
+        },
+        {
+          "id": "blueberry",
+          "name": "Blueberry",
+          "harvests": 28,
+          "raw": 4242,
+          "raw_total": 492098,
+          "best": 17760,
+          "best_as": "wine"
+        },
+        {
+          "id": "cranberries",
+          "name": "Cranberries",
+          "harvests": 22,
+          "raw": 3499,
+          "raw_total": 405920,
+          "best": 14630,
+          "best_as": "wine"
+        },
+        {
+          "id": "strawberry",
+          "name": "Strawberry",
+          "harvests": 28,
+          "raw": 3462,
+          "raw_total": 401592,
+          "best": 14400,
+          "best_as": "wine"
+        },
+        {
+          "id": "coffee-bean",
+          "name": "Coffee Bean",
+          "harvests": 56,
+          "raw": 3384,
+          "raw_total": 392589,
+          "best": 6754,
+          "best_as": "coffee"
+        },
+        {
+          "id": "grape",
+          "name": "Grape",
+          "harvests": 37,
+          "raw": 2989,
+          "raw_total": 346776,
+          "best": 12432,
+          "best_as": "wine"
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "harvests": 8,
+          "raw": 2860,
+          "raw_total": 331716,
+          "best": 22000,
+          "best_as": "wine"
+        },
+        {
+          "id": "hops",
+          "name": "Hops",
+          "harvests": 112,
+          "raw": 2827,
+          "raw_total": 327902,
+          "best": 47040,
+          "best_as": "pale-ale"
+        },
+        {
+          "id": "cactus-fruit",
+          "name": "Cactus Fruit",
+          "harvests": 37,
+          "raw": 2802,
+          "raw_total": 325018,
+          "best": 11655,
+          "best_as": "wine"
+        },
+        {
+          "id": "broccoli",
+          "name": "Broccoli",
+          "harvests": 28,
+          "raw": 1979,
+          "raw_total": 229590,
+          "best": 7448,
+          "best_as": "pickles"
+        }
+      ]
+    },
+    "fishpond": [
+      {
+        "id": "lava-eel",
+        "name": "Lava Eel",
+        "max": 10,
+        "raw": 543,
+        "processed": 1298
+      },
+      {
+        "id": "blobfish",
+        "name": "Blobfish",
+        "max": 10,
+        "raw": 496,
+        "processed": 1301
+      },
+      {
+        "id": "lionfish",
+        "name": "Lionfish",
+        "max": 10,
+        "raw": 237,
+        "processed": 359
+      },
+      {
+        "id": "tiger-trout",
+        "name": "Tiger Trout",
+        "max": 10,
+        "raw": 212,
+        "processed": 595
+      },
+      {
+        "id": "void-salmon",
+        "name": "Void Salmon",
+        "max": 10,
+        "raw": 212,
+        "processed": 536
+      },
+      {
+        "id": "ice-pip",
+        "name": "Ice Pip",
+        "max": 10,
+        "raw": 212,
+        "processed": 469
+      },
+      {
+        "id": "stingray",
+        "name": "Stingray",
+        "max": 10,
+        "raw": 202,
+        "processed": 387
+      },
+      {
+        "id": "scorpion-carp",
+        "name": "Scorpion Carp",
+        "max": 10,
+        "raw": 192,
+        "processed": 538
+      },
+      {
+        "id": "sturgeon",
+        "name": "Sturgeon",
+        "max": 10,
+        "raw": 185,
+        "processed": 998
+      },
+      {
+        "id": "super-cucumber",
+        "name": "Super Cucumber",
+        "max": 10,
+        "raw": 185,
+        "processed": 483
+      },
+      {
+        "id": "spook-fish",
+        "name": "Spook Fish",
+        "max": 10,
+        "raw": 180,
+        "processed": 478
+      },
+      {
+        "id": "catfish",
+        "name": "Catfish",
+        "max": 10,
+        "raw": 154,
+        "processed": 432
+      },
+      {
+        "id": "pufferfish",
+        "name": "Pufferfish",
+        "max": 10,
+        "raw": 154,
+        "processed": 432
+      },
+      {
+        "id": "midnight-squid",
+        "name": "Midnight Squid",
+        "max": 10,
+        "raw": 127,
+        "processed": 127
+      },
+      {
+        "id": "midnight-carp",
+        "name": "Midnight Carp",
+        "max": 10,
+        "raw": 124,
+        "processed": 330
+      },
+      {
+        "id": "sandfish",
+        "name": "Sandfish",
+        "max": 10,
+        "raw": 123,
+        "processed": 342
+      },
+      {
+        "id": "stonefish",
+        "name": "Stonefish",
+        "max": 10,
+        "raw": 121,
+        "processed": 286
+      },
+      {
+        "id": "goby",
+        "name": "Goby",
+        "max": 10,
+        "raw": 112,
+        "processed": 314
+      },
+      {
+        "id": "lingcod",
+        "name": "Lingcod",
+        "max": 10,
+        "raw": 109,
+        "processed": 292
+      },
+      {
+        "id": "blue-discus",
+        "name": "Blue Discus",
+        "max": 10,
+        "raw": 107,
+        "processed": 259
+      }
+    ],
+    "xp": {
+      "levels": [
+        {
+          "level": 1,
+          "step": 100,
+          "total": 100
+        },
+        {
+          "level": 2,
+          "step": 280,
+          "total": 380
+        },
+        {
+          "level": 3,
+          "step": 390,
+          "total": 770
+        },
+        {
+          "level": 4,
+          "step": 530,
+          "total": 1300
+        },
+        {
+          "level": 5,
+          "step": 850,
+          "total": 2150
+        },
+        {
+          "level": 6,
+          "step": 1150,
+          "total": 3300
+        },
+        {
+          "level": 7,
+          "step": 1500,
+          "total": 4800
+        },
+        {
+          "level": 8,
+          "step": 2100,
+          "total": 6900
+        },
+        {
+          "level": 9,
+          "step": 3100,
+          "total": 10000
+        },
+        {
+          "level": 10,
+          "step": 5000,
+          "total": 15000
+        }
+      ],
+      "farming": [
+        {
+          "name": "Hops",
+          "xp": 6,
+          "per_day": 6
+        },
+        {
+          "name": "Cactus Fruit",
+          "xp": 14,
+          "per_day": 4.67
+        },
+        {
+          "name": "Grape",
+          "xp": 14,
+          "per_day": 4.67
+        },
+        {
+          "name": "Bok Choy",
+          "xp": 14,
+          "per_day": 3.5
+        },
+        {
+          "name": "Starfruit",
+          "xp": 43,
+          "per_day": 3.31
+        },
+        {
+          "name": "Red Cabbage",
+          "xp": 28,
+          "per_day": 3.11
+        },
+        {
+          "name": "Amaranth",
+          "xp": 21,
+          "per_day": 3
+        },
+        {
+          "name": "Garlic",
+          "xp": 12,
+          "per_day": 3
+        },
+        {
+          "name": "Green Bean",
+          "xp": 9,
+          "per_day": 3
+        },
+        {
+          "name": "Hot Pepper",
+          "xp": 9,
+          "per_day": 3
+        }
+      ],
+      "fishing": [
+        {
+          "name": "Octopus",
+          "difficulty": 95,
+          "xp": 34,
+          "perfect": 81
+        },
+        {
+          "name": "Lava Eel",
+          "difficulty": 90,
+          "xp": 33,
+          "perfect": 79
+        },
+        {
+          "name": "Scorpion Carp",
+          "difficulty": 90,
+          "xp": 33,
+          "perfect": 79
+        },
+        {
+          "name": "Ice Pip",
+          "difficulty": 85,
+          "xp": 31,
+          "perfect": 74
+        },
+        {
+          "name": "Lingcod",
+          "difficulty": 85,
+          "xp": 31,
+          "perfect": 74
+        },
+        {
+          "name": "Pufferfish",
+          "difficulty": 80,
+          "xp": 29,
+          "perfect": 69
+        },
+        {
+          "name": "Super Cucumber",
+          "difficulty": 80,
+          "xp": 29,
+          "perfect": 69
+        },
+        {
+          "name": "Sturgeon",
+          "difficulty": 78,
+          "xp": 29,
+          "perfect": 69
+        },
+        {
+          "name": "Dorado",
+          "difficulty": 78,
+          "xp": 29,
+          "perfect": 69
+        },
+        {
+          "name": "Void Salmon",
+          "difficulty": 80,
+          "xp": 29,
+          "perfect": 69
+        }
+      ]
+    },
+    "gifts": [
+      {
+        "id": "alex",
+        "name": "Alex",
+        "birthday": {
+          "season": "summer",
+          "day": 13
+        },
+        "loves": [
+          "Complete Breakfast",
+          "Jack Be Nimble, Jack Be Thick",
+          "Salmon Dinner"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "elliott",
+        "name": "Elliott",
+        "birthday": {
+          "season": "fall",
+          "day": 5
+        },
+        "loves": [
+          "Crab Cakes",
+          "Duck Feather",
+          "Lobster",
+          "Pomegranate",
+          "Squid Ink",
+          "Tom Kha Soup"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "harvey",
+        "name": "Harvey",
+        "birthday": {
+          "season": "winter",
+          "day": 14
+        },
+        "loves": [
+          "Coffee",
+          "Pickles",
+          "Super Meal",
+          "Truffle Oil",
+          "Wine"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "sam",
+        "name": "Sam",
+        "birthday": {
+          "season": "summer",
+          "day": 17
+        },
+        "loves": [
+          "Cactus Fruit",
+          "Maple Bar",
+          "Pizza",
+          "Tigerseye"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "sebastian",
+        "name": "Sebastian",
+        "birthday": {
+          "season": "winter",
+          "day": 10
+        },
+        "loves": [
+          "Frog Egg",
+          "Frozen Tear",
+          "Obsidian",
+          "Pumpkin Soup",
+          "Sashimi",
+          "Void Egg"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "shane",
+        "name": "Shane",
+        "birthday": {
+          "season": "spring",
+          "day": 20
+        },
+        "loves": [
+          "Beer",
+          "Hot Pepper",
+          "Pepper Poppers",
+          "Pizza"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "abigail",
+        "name": "Abigail",
+        "birthday": {
+          "season": "fall",
+          "day": 13
+        },
+        "loves": [
+          "Amethyst",
+          "Banana Pudding",
+          "Blackberry Cobbler",
+          "Chocolate Cake",
+          "Monster Compendium",
+          "Pufferfish",
+          "Pumpkin",
+          "Spicy Eel"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "emily",
+        "name": "Emily",
+        "birthday": {
+          "season": "spring",
+          "day": 27
+        },
+        "loves": [
+          "Amethyst",
+          "Aquamarine",
+          "Cloth",
+          "Emerald",
+          "Jade",
+          "Parrot Egg",
+          "Ruby",
+          "Survival Burger",
+          "Topaz",
+          "Wool"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "haley",
+        "name": "Haley",
+        "birthday": {
+          "season": "spring",
+          "day": 14
+        },
+        "loves": [
+          "Coconut",
+          "Fruit Salad",
+          "Pink Cake",
+          "Sunflower"
+        ],
+        "love_categories": [],
+        "universal": 5
+      },
+      {
+        "id": "leah",
+        "name": "Leah",
+        "birthday": {
+          "season": "winter",
+          "day": 23
+        },
+        "loves": [
+          "Goat Cheese",
+          "Poppyseed Muffin",
+          "Salad",
+          "Stir Fry",
+          "Truffle",
+          "Vegetable Medley",
+          "Wine"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "maru",
+        "name": "Maru",
+        "birthday": {
+          "season": "summer",
+          "day": 10
+        },
+        "loves": [
+          "Battery Pack",
+          "Cauliflower",
+          "Cheese Cauliflower",
+          "Diamond",
+          "Dwarf Gadget",
+          "Gold Bar",
+          "Iridium Bar",
+          "Miner's Treat",
+          "Pepper Poppers",
+          "Radioactive Bar",
+          "Rhubarb Pie",
+          "Strawberry"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "penny",
+        "name": "Penny",
+        "birthday": {
+          "season": "fall",
+          "day": 2
+        },
+        "loves": [
+          "Diamond",
+          "Emerald",
+          "Melon",
+          "Poppy",
+          "Poppyseed Muffin",
+          "Red Plate",
+          "Roots Platter",
+          "Sandfish",
+          "Tom Kha Soup"
+        ],
+        "love_categories": [
+          "All Books"
+        ],
+        "universal": 5
+      },
+      {
+        "id": "caroline",
+        "name": "Caroline",
+        "birthday": {
+          "season": "winter",
+          "day": 7
+        },
+        "loves": [
+          "Fish Taco",
+          "Green Tea",
+          "Summer Spangle",
+          "Tropical Curry"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "clint",
+        "name": "Clint",
+        "birthday": {
+          "season": "winter",
+          "day": 26
+        },
+        "loves": [
+          "Amethyst",
+          "Aquamarine",
+          "Artichoke Dip",
+          "Emerald",
+          "Fiddlehead Risotto",
+          "Gold Bar",
+          "Iridium Bar",
+          "Jade",
+          "Omni Geode",
+          "Ruby",
+          "Topaz"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "demetrius",
+        "name": "Demetrius",
+        "birthday": {
+          "season": "summer",
+          "day": 19
+        },
+        "loves": [
+          "Bean Hotpot",
+          "Ice Cream",
+          "Rice Pudding",
+          "Strawberry"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "dwarf",
+        "name": "Dwarf",
+        "birthday": {
+          "season": "summer",
+          "day": 22
+        },
+        "loves": [
+          "Amethyst",
+          "Aquamarine",
+          "Emerald",
+          "Jade",
+          "Lava Eel",
+          "Lemon Stone",
+          "Omni Geode",
+          "Ruby",
+          "Topaz"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "evelyn",
+        "name": "Evelyn",
+        "birthday": {
+          "season": "winter",
+          "day": 20
+        },
+        "loves": [
+          "Beet",
+          "Chocolate Cake",
+          "Diamond",
+          "Fairy Rose",
+          "Raisins",
+          "Stuffing",
+          "Tulip"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "george",
+        "name": "George",
+        "birthday": {
+          "season": "fall",
+          "day": 24
+        },
+        "loves": [
+          "Fried Mushroom",
+          "Leek"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "gus",
+        "name": "Gus",
+        "birthday": {
+          "season": "summer",
+          "day": 8
+        },
+        "loves": [
+          "Diamond",
+          "Escargot",
+          "Fish Taco",
+          "Orange",
+          "Tropical Curry"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "jas",
+        "name": "Jas",
+        "birthday": {
+          "season": "summer",
+          "day": 4
+        },
+        "loves": [
+          "Ancient Doll",
+          "Fairy Box",
+          "Fairy Rose",
+          "Pink Cake",
+          "Plum Pudding",
+          "Strange Doll (green)",
+          "Strange Doll (yellow)"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "jodi",
+        "name": "Jodi",
+        "birthday": {
+          "season": "fall",
+          "day": 11
+        },
+        "loves": [
+          "Chocolate Cake",
+          "Crispy Bass",
+          "Diamond",
+          "Eggplant Parmesan",
+          "Fried Eel",
+          "Pancakes",
+          "Rhubarb Pie",
+          "Vegetable Medley"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "kent",
+        "name": "Kent",
+        "birthday": {
+          "season": "spring",
+          "day": 4
+        },
+        "loves": [
+          "Fiddlehead Risotto",
+          "Roasted Hazelnuts"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "krobus",
+        "name": "Krobus",
+        "birthday": {
+          "season": "winter",
+          "day": 1
+        },
+        "loves": [
+          "Diamond",
+          "Iridium Bar",
+          "Monster Compendium",
+          "Monster Musk",
+          "Pumpkin",
+          "Void Egg",
+          "Void Mayonnaise",
+          "Wild Horseradish"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "leo",
+        "name": "Leo",
+        "birthday": {
+          "season": "summer",
+          "day": 26
+        },
+        "loves": [
+          "Duck Feather",
+          "Mango",
+          "Ostrich Egg",
+          "Parrot Egg",
+          "Poi"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "lewis",
+        "name": "Lewis",
+        "birthday": {
+          "season": "spring",
+          "day": 7
+        },
+        "loves": [
+          "Autumn's Bounty",
+          "Glazed Yams",
+          "Green Tea",
+          "Hot Pepper",
+          "Vegetable Medley"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "linus",
+        "name": "Linus",
+        "birthday": {
+          "season": "winter",
+          "day": 3
+        },
+        "loves": [
+          "Blueberry Tart",
+          "Cactus Fruit",
+          "Coconut",
+          "Dish O' The Sea",
+          "The Alleyway Buffet",
+          "Yam"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "marnie",
+        "name": "Marnie",
+        "birthday": {
+          "season": "fall",
+          "day": 18
+        },
+        "loves": [
+          "Diamond",
+          "Farmer's Lunch",
+          "Pink Cake",
+          "Pumpkin Pie"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "pam",
+        "name": "Pam",
+        "birthday": {
+          "season": "spring",
+          "day": 18
+        },
+        "loves": [
+          "Beer",
+          "Cactus Fruit",
+          "Glazed Yams",
+          "Mead",
+          "Pale Ale",
+          "Parsnip",
+          "Parsnip Soup",
+          "Piña Colada"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "pierre",
+        "name": "Pierre",
+        "birthday": {
+          "season": "spring",
+          "day": 26
+        },
+        "loves": [
+          "Fried Calamari",
+          "Price Catalogue"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "robin",
+        "name": "Robin",
+        "birthday": {
+          "season": "fall",
+          "day": 21
+        },
+        "loves": [
+          "Goat Cheese",
+          "Peach",
+          "Spaghetti",
+          "Woody's Secret"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "sandy",
+        "name": "Sandy",
+        "birthday": {
+          "season": "fall",
+          "day": 15
+        },
+        "loves": [
+          "Crocus",
+          "Daffodil",
+          "Mango Sticky Rice",
+          "Sweet Pea"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "vincent",
+        "name": "Vincent",
+        "birthday": {
+          "season": "spring",
+          "day": 10
+        },
+        "loves": [
+          "Cranberry Candy",
+          "Frog Egg",
+          "Ginger Ale",
+          "Grape",
+          "Pink Cake",
+          "Snail"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "willy",
+        "name": "Willy",
+        "birthday": {
+          "season": "summer",
+          "day": 24
+        },
+        "loves": [
+          "Catfish",
+          "Diamond",
+          "Gold Bar",
+          "Iridium Bar",
+          "Jewels Of The Sea",
+          "Mead",
+          "Octopus",
+          "Pumpkin",
+          "Sea Cucumber",
+          "Sturgeon",
+          "The Art O' Crabbing"
+        ],
+        "love_categories": [],
+        "universal": 6
+      },
+      {
+        "id": "wizard",
+        "name": "Wizard",
+        "birthday": {
+          "season": "winter",
+          "day": 17
+        },
+        "loves": [
+          "Book of Mysteries",
+          "Purple Mushroom",
+          "Solar Essence",
+          "Super Cucumber",
+          "Void Essence"
+        ],
+        "love_categories": [],
+        "universal": 6
+      }
+    ],
+    "bundles": [
+      {
+        "id": "crafts-room",
+        "name": "Crafts Room",
+        "reward": "Bridge Repair",
+        "bundles": [
+          {
+            "id": "spring-foraging",
+            "name": "Spring Foraging Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Wild Horseradish",
+              "Daffodil",
+              "Leek",
+              "Dandelion"
+            ],
+            "reward": "30 Spring Seeds"
+          },
+          {
+            "id": "summer-foraging",
+            "name": "Summer Foraging Bundle",
+            "gold": 0,
+            "slots": 3,
+            "items": [
+              "Grape",
+              "Spice Berry",
+              "Sweet Pea"
+            ],
+            "reward": "30 Summer Seeds"
+          },
+          {
+            "id": "fall-foraging",
+            "name": "Fall Foraging Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Common Mushroom",
+              "Wild Plum",
+              "Hazelnut",
+              "Blackberry"
+            ],
+            "reward": "30 Fall Seeds"
+          },
+          {
+            "id": "winter-foraging",
+            "name": "Winter Foraging Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Winter Root",
+              "Crystal Fruit",
+              "Snow Yam",
+              "Crocus"
+            ],
+            "reward": "30 Winter Seeds"
+          },
+          {
+            "id": "construction",
+            "name": "Construction Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "99 Wood",
+              "99 Wood",
+              "99 Stone",
+              "10 Hardwood"
+            ],
+            "reward": "Charcoal Kiln"
+          },
+          {
+            "id": "exotic-foraging",
+            "name": "Exotic Foraging Bundle",
+            "gold": 0,
+            "slots": 5,
+            "items": [
+              "Coconut",
+              "Cactus Fruit",
+              "Cave Carrot",
+              "Red Mushroom",
+              "Purple Mushroom",
+              "Maple Syrup",
+              "Oak Resin",
+              "Pine Tar",
+              "Morel"
+            ],
+            "reward": "5 Autumn's Bounty"
+          }
+        ]
+      },
+      {
+        "id": "pantry",
+        "name": "Pantry",
+        "reward": "Greenhouse",
+        "bundles": [
+          {
+            "id": "spring-crops",
+            "name": "Spring Crops Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Parsnip",
+              "Green Bean",
+              "Cauliflower",
+              "Potato"
+            ],
+            "reward": "20 Speed-Gro"
+          },
+          {
+            "id": "summer-crops",
+            "name": "Summer Crops Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Tomato",
+              "Hot Pepper",
+              "Blueberry",
+              "Melon"
+            ],
+            "reward": "Quality Sprinkler"
+          },
+          {
+            "id": "fall-crops",
+            "name": "Fall Crops Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Corn",
+              "Eggplant",
+              "Pumpkin",
+              "Yam"
+            ],
+            "reward": "Bee House"
+          },
+          {
+            "id": "quality-crops",
+            "name": "Quality Crops Bundle",
+            "gold": 0,
+            "slots": 3,
+            "items": [
+              "5 Parsnip (gold)",
+              "5 Melon (gold)",
+              "5 Pumpkin (gold)",
+              "5 Corn (gold)"
+            ],
+            "reward": "Preserves Jar"
+          },
+          {
+            "id": "animal",
+            "name": "Animal Bundle",
+            "gold": 0,
+            "slots": 5,
+            "items": [
+              "Large Milk",
+              "Large Brown Egg",
+              "Large Egg",
+              "Large Goat Milk",
+              "Wool",
+              "Duck Egg"
+            ],
+            "reward": "Cheese Press"
+          },
+          {
+            "id": "artisan",
+            "name": "Artisan Bundle",
+            "gold": 0,
+            "slots": 6,
+            "items": [
+              "Truffle Oil",
+              "Cloth",
+              "Goat Cheese",
+              "Cheese",
+              "Honey",
+              "Jelly",
+              "Apple",
+              "Apricot",
+              "Orange",
+              "Peach",
+              "Pomegranate",
+              "Cherry"
+            ],
+            "reward": "Keg"
+          }
+        ]
+      },
+      {
+        "id": "fish-tank",
+        "name": "Fish Tank",
+        "reward": "Glittering Boulder Removed",
+        "bundles": [
+          {
+            "id": "river-fish",
+            "name": "River Fish Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Sunfish",
+              "Catfish",
+              "Shad",
+              "Tiger Trout"
+            ],
+            "reward": "30 Deluxe Bait"
+          },
+          {
+            "id": "lake-fish",
+            "name": "Lake Fish Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Largemouth Bass",
+              "Carp",
+              "Bullhead",
+              "Sturgeon"
+            ],
+            "reward": "Dressed Spinner"
+          },
+          {
+            "id": "ocean-fish",
+            "name": "Ocean Fish Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Sardine",
+              "Tuna",
+              "Red Snapper",
+              "Tilapia"
+            ],
+            "reward": "5 Warp Totem Beach"
+          },
+          {
+            "id": "night-fishing",
+            "name": "Night Fishing Bundle",
+            "gold": 0,
+            "slots": 3,
+            "items": [
+              "Walleye",
+              "Bream",
+              "Eel"
+            ],
+            "reward": "Glow Ring"
+          },
+          {
+            "id": "crab-pot",
+            "name": "Crab Pot Bundle",
+            "gold": 0,
+            "slots": 5,
+            "items": [
+              "Lobster",
+              "Crayfish",
+              "Crab",
+              "Cockle",
+              "Mussel",
+              "Shrimp",
+              "Snail",
+              "Periwinkle",
+              "Oyster",
+              "Clam"
+            ],
+            "reward": "3 Crab Pot"
+          },
+          {
+            "id": "specialty-fish",
+            "name": "Specialty Fish Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Pufferfish",
+              "Ghostfish",
+              "Sandfish",
+              "Woodskip"
+            ],
+            "reward": "5 Dish O' The Sea"
+          }
+        ]
+      },
+      {
+        "id": "boiler-room",
+        "name": "Boiler Room",
+        "reward": "Minecarts Repaired",
+        "bundles": [
+          {
+            "id": "blacksmiths",
+            "name": "Blacksmith's Bundle",
+            "gold": 0,
+            "slots": 3,
+            "items": [
+              "Copper Bar",
+              "Iron Bar",
+              "Gold Bar"
+            ],
+            "reward": "Furnace"
+          },
+          {
+            "id": "geologists",
+            "name": "Geologist's Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Quartz",
+              "Earth Crystal",
+              "Frozen Tear",
+              "Fire Quartz"
+            ],
+            "reward": "5 Omni Geode"
+          },
+          {
+            "id": "adventurers",
+            "name": "Adventurer's Bundle",
+            "gold": 0,
+            "slots": 2,
+            "items": [
+              "99 Slime",
+              "10 Bat Wing",
+              "Solar Essence",
+              "Void Essence"
+            ],
+            "reward": "Small Magnet Ring"
+          }
+        ]
+      },
+      {
+        "id": "bulletin-board",
+        "name": "Bulletin Board",
+        "reward": "Friendship ♡",
+        "bundles": [
+          {
+            "id": "chefs",
+            "name": "Chef's Bundle",
+            "gold": 0,
+            "slots": 6,
+            "items": [
+              "Maple Syrup",
+              "Fiddlehead Fern",
+              "Truffle",
+              "Poppy",
+              "Maki Roll",
+              "Fried Egg"
+            ],
+            "reward": "3 Pink Cake"
+          },
+          {
+            "id": "dye",
+            "name": "Dye Bundle",
+            "gold": 0,
+            "slots": 6,
+            "items": [
+              "Red Mushroom",
+              "Sea Urchin",
+              "Sunflower",
+              "Duck Feather",
+              "Aquamarine",
+              "Red Cabbage"
+            ],
+            "reward": "Seed Maker"
+          },
+          {
+            "id": "field-research",
+            "name": "Field Research Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Purple Mushroom",
+              "Nautilus Shell",
+              "Chub",
+              "Frozen Geode"
+            ],
+            "reward": "Recycling Machine"
+          },
+          {
+            "id": "fodder",
+            "name": "Fodder Bundle",
+            "gold": 0,
+            "slots": 3,
+            "items": [
+              "10 Wheat",
+              "10 Hay",
+              "3 Apple"
+            ],
+            "reward": "Heater"
+          },
+          {
+            "id": "enchanters",
+            "name": "Enchanter's Bundle",
+            "gold": 0,
+            "slots": 4,
+            "items": [
+              "Oak Resin",
+              "Wine",
+              "Rabbit's Foot",
+              "Pomegranate"
+            ],
+            "reward": "5 Gold Bar"
+          }
+        ]
+      },
+      {
+        "id": "vault",
+        "name": "Vault",
+        "reward": "Bus Repair",
+        "bundles": [
+          {
+            "id": "vault-2500",
+            "name": "2,500 Bundle",
+            "gold": 2500,
+            "slots": 0,
+            "items": [],
+            "reward": "3 Chocolate Cake"
+          },
+          {
+            "id": "vault-5000",
+            "name": "5,000 Bundle",
+            "gold": 5000,
+            "slots": 0,
+            "items": [],
+            "reward": "30 Quality Fertilizer"
+          },
+          {
+            "id": "vault-10000",
+            "name": "10,000 Bundle",
+            "gold": 10000,
+            "slots": 0,
+            "items": [],
+            "reward": "Lightning Rod"
+          },
+          {
+            "id": "vault-25000",
+            "name": "25,000 Bundle",
+            "gold": 25000,
+            "slots": 0,
+            "items": [],
+            "reward": "Crystalarium"
+          }
+        ]
+      },
+      {
+        "id": "abandoned-jojamart",
+        "name": "Abandoned JojaMart",
+        "reward": "Movie Theater",
+        "bundles": [
+          {
+            "id": "missing",
+            "name": "The Missing Bundle",
+            "gold": 0,
+            "slots": 5,
+            "items": [
+              "Wine (silver)",
+              "Dinosaur Mayonnaise",
+              "Prismatic Shard",
+              "5 Ancient Fruit (gold)",
+              "Void Salmon (gold)",
+              "Caviar"
+            ],
+            "reward": "undefined"
+          }
+        ]
+      }
+    ],
+    "crafting": [
+      {
+        "id": "keg",
+        "name": "Keg",
+        "ingredients": [
+          "30 Wood",
+          "1 Copper Bar",
+          "1 Iron Bar",
+          "1 Oak Resin"
+        ],
+        "obtained": "Farming Level 8"
+      },
+      {
+        "id": "preserves-jar",
+        "name": "Preserves Jar",
+        "ingredients": [
+          "50 Wood",
+          "40 Stone",
+          "8 Coal"
+        ],
+        "obtained": "Farming Level 4"
+      },
+      {
+        "id": "cask",
+        "name": "Cask",
+        "ingredients": [
+          "20 Wood",
+          "1 Hardwood"
+        ],
+        "obtained": "Farmhouse cellar upgrade"
+      },
+      {
+        "id": "dehydrator",
+        "name": "Dehydrator",
+        "ingredients": [
+          "30 Wood",
+          "2 Clay",
+          "1 Fire Quartz"
+        ],
+        "obtained": "Pierre's for 10,000g"
+      },
+      {
+        "id": "bee-house",
+        "name": "Bee House",
+        "ingredients": [
+          "40 Wood",
+          "8 Coal",
+          "1 Iron Bar",
+          "1 Maple Syrup"
+        ],
+        "obtained": "Farming Level 3"
+      },
+      {
+        "id": "cheese-press",
+        "name": "Cheese Press",
+        "ingredients": [
+          "45 Wood",
+          "45 Stone",
+          "10 Hardwood",
+          "1 Copper Bar"
+        ],
+        "obtained": "Farming Level 6"
+      },
+      {
+        "id": "mayonnaise-machine",
+        "name": "Mayonnaise Machine",
+        "ingredients": [
+          "15 Wood",
+          "15 Stone",
+          "1 Earth Crystal",
+          "1 Copper Bar"
+        ],
+        "obtained": "Farming Level 2"
+      },
+      {
+        "id": "loom",
+        "name": "Loom",
+        "ingredients": [
+          "60 Wood",
+          "30 Fiber",
+          "1 Pine Tar"
+        ],
+        "obtained": "Farming Level 7"
+      },
+      {
+        "id": "oil-maker",
+        "name": "Oil Maker",
+        "ingredients": [
+          "50 Slime",
+          "20 Hardwood",
+          "1 Gold Bar"
+        ],
+        "obtained": "Farming Level 8"
+      },
+      {
+        "id": "fish-smoker",
+        "name": "Fish Smoker",
+        "ingredients": [
+          "10 Hardwood",
+          "1 Sea Jelly",
+          "1 River Jelly",
+          "1 Cave Jelly"
+        ],
+        "obtained": "Fish Shop for 10,000g"
+      },
+      {
+        "id": "crab-pot",
+        "name": "Crab Pot",
+        "ingredients": [
+          "40 Wood",
+          "3 Iron Bar"
+        ],
+        "obtained": "Fishing Level 3"
+      },
+      {
+        "id": "sprinkler",
+        "name": "Sprinkler",
+        "ingredients": [
+          "1 Copper Bar",
+          "1 Iron Bar"
+        ],
+        "obtained": "Farming Level 2"
+      },
+      {
+        "id": "quality-sprinkler",
+        "name": "Quality Sprinkler",
+        "ingredients": [
+          "1 Iron Bar",
+          "1 Gold Bar",
+          "1 Refined Quartz"
+        ],
+        "obtained": "Farming Level 6"
+      },
+      {
+        "id": "iridium-sprinkler",
+        "name": "Iridium Sprinkler",
+        "ingredients": [
+          "1 Gold Bar",
+          "1 Iridium Bar",
+          "1 Battery Pack"
+        ],
+        "obtained": "Farming Level 9"
+      },
+      {
+        "id": "seed-maker",
+        "name": "Seed Maker",
+        "ingredients": [
+          "25 Wood",
+          "10 Coal",
+          "1 Gold Bar"
+        ],
+        "obtained": "Farming Level 9"
+      },
+      {
+        "id": "crystalarium",
+        "name": "Crystalarium",
+        "ingredients": [
+          "99 Stone",
+          "5 Gold Bar",
+          "2 Iridium Bar",
+          "1 Battery Pack"
+        ],
+        "obtained": "Mining Level 9"
+      }
+    ]
   }
 }

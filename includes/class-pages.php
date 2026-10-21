@@ -101,7 +101,7 @@ class Pages {
 
 			if ( $existing && 'draft' !== $existing->post_status ) {
 				// Page text is refreshed only where the plugin keeps it current (not the legal pages, which show a date).
-				self::sync_generated( $existing->ID, $def[0], $def[2], in_array( $slug, array( 'about', 'methodology', 'changelog' ), true ) ? $content : null );
+				self::sync_generated( $existing->ID, $def[0], $def[2], in_array( $slug, array( 'about', 'methodology', 'changelog', 'contact' ), true ) ? $content : null );
 				continue;
 			}
 			$postarr = array(

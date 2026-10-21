@@ -28,14 +28,14 @@ $g  = function ( $n ) {
 	<?php endif; ?>
 </ol>
 <?php if ( ! empty( $pg['compare'] ) ) : ?>
-<h2>Every animal at full hearts</h2>
-<p>This is the whole ranking in one table. "Processed" means the products are turned into artisan goods (cheese, mayonnaise, cloth, oil) by a player with the Artisan profession. Payback is how many days of processed production it takes to earn back the animal's price.</p>
+<h2>The top three at full hearts</h2>
+<p>These are the three animals that earn the most per day once processed. The full list, with every animal's products, building and price, is on <a href="<?php echo esc_url( Stardew_Tools\Entities::url( 'animals', '' ) ? Stardew_Tools\Entities::url( 'animals', '' ) : home_url( '/farm-animals/' ) ); ?>">all farm animals</a>. "Processed" means the products are turned into artisan goods (cheese, mayonnaise, cloth, oil) by a player with the Artisan profession. Payback is how many days of processed production it takes to earn back the animal's price.</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
-	<caption>Gold per day at full hearts</caption>
+	<caption>The three best animals, gold per day at full hearts</caption>
 	<thead><tr><th scope="col">Animal</th><th scope="col">Lives in</th><th scope="col">Price</th><th scope="col">Raw</th><th scope="col">Processed</th><th scope="col">Payback (days, processed)</th></tr></thead>
 	<tbody>
-	<?php foreach ( $pg['compare'] as $r ) : ?>
+	<?php foreach ( array_slice( $pg['compare'], 0, 3 ) as $r ) : ?>
 		<tr><th scope="row"><?php echo esc_html( $r['name'] ); ?></th><td><?php echo esc_html( $r['building'] ); ?></td><td><?php echo esc_html( $g( $r['price'] ) ); ?></td><td><?php echo esc_html( $g( $r['raw'] ) ); ?></td><td><?php echo esc_html( $g( $r['processed'] ) ); ?></td><td><?php echo esc_html( number_format( (float) $r['payback'], 1 ) ); ?></td></tr>
 	<?php endforeach; ?>
 	</tbody>
@@ -54,3 +54,13 @@ $g  = function ( $n ) {
 	<li><strong>Weather and season.</strong> Only truffle-finding animals depend on it, but for a Pig it is the biggest factor.</li>
 	<li><strong>Space.</strong> Each building holds a fixed number of animals, so the real question is often which animal fills a slot best.</li>
 </ul>
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Which farm animal makes the most money?' => ! empty( $pg['compare'][0] ) ? 'The ' . esc_html( $pg['compare'][0]['name'] ) . ', at about ' . esc_html( $g( $pg['compare'][0]['processed'] ) ) . ' a day at full hearts once its truffles go into an Oil Maker. It only finds truffles outdoors, so it earns nothing in winter or on rainy days.' : '',
+		'What is the best first animal?'          => 'A Chicken if gold is tight, a Cow if you can afford a Barn. Both earn every day and pay for themselves quickly. Coop or Barn First? compares them in detail.',
+		'Do animals have to go outside?'          => 'No, but they are happier when they can graze, and grass outside saves hay. Pigs only find truffles outside, so for them it matters most.',
+		'How do I raise animal friendship?'       => 'Pet each animal every day, keep it fed, and let it outside on dry days. Friendship climbs to five hearts over a few weeks, and most products get better with it.',
+		'Is processing animal products worth it?' => 'Almost always. A Cheese Press, Mayonnaise Machine, Loom or Oil Maker raises what each product sells for, and the Artisan profession adds another 40% to those goods.',
+	)
+);

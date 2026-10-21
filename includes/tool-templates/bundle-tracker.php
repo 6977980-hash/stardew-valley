@@ -75,3 +75,19 @@ foreach ( $bundles ? $bundles['bundles'] : array() as $b ) {
 		<li>Gold bundles in the Vault are ticked once you've paid them.</li>
 	</ul>
 </section>
+<?php
+foreach ( isset( $answers['tables']['bundles'] ) ? $answers['tables']['bundles'] : array() as $room ) {
+	$ref = array();
+	foreach ( $room['bundles'] as $b ) {
+		$what  = $b['gold'] ? number_format( $b['gold'] ) . 'g' : implode( ', ', $b['items'] ) . ( $b['slots'] && $b['slots'] < count( $b['items'] ) ? ' (any ' . (int) $b['slots'] . ')' : '' );
+		$ref[] = array( $b['name'], $what, $b['reward'] );
+	}
+	stardew_tools_reference_table(
+		'ref-bundles-' . $room['id'],
+		$room['name'] . ' bundles',
+		'The standard (not Remixed) ' . esc_html( $room['name'] ) . ' bundles. Finishing the room unlocks: ' . esc_html( $room['reward'] ) . '.' . ( Stardew_Tools\Entities::url( 'bundles', $room['id'] ) ? ' <a href="' . esc_url( Stardew_Tools\Entities::url( 'bundles', $room['id'] ) ) . '">Where to find every item</a>.' : '' ),
+		$room['name'] . ': bundles, items and rewards',
+		array( 'Bundle', 'Items', 'Reward' ),
+		$ref
+	);
+}

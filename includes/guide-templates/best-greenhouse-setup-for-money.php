@@ -138,3 +138,27 @@ $planner   = $tool_url( 'greenhouse-planner' );
 	<li><strong>Replanting Ancient Fruit.</strong> It keeps producing. Digging it up to replant only throws away the 28-day wait.</li>
 	<li><strong>Ignoring the first year.</strong> Judge the greenhouse over two years, not one.</li>
 </ul>
+
+<?php
+$af_tile = isset( $answers['greenhouse']['raw'][0] ) ? $answers['greenhouse']['raw'][0] : null;
+$afs     = isset( $answers['af_vs_starfruit']['greenhouse_established'] ) ? $answers['af_vs_starfruit']['greenhouse_established'] : null;
+?>
+<h2>The edge: fruit trees and sprinklers on the border</h2>
+<p>The wooden border around the greenhouse soil is not wasted space. Sprinklers can stand on it, which is why the Iridium layout above keeps two of its six sprinklers off the soil. Fruit trees can also be planted on the border, and inside the greenhouse they fruit all year instead of only in their own season. Our planner does not count them yet, so the totals on this page are for the soil only, and every fruit tree you add on the edge is extra income on top.</p>
+<p>A fruit tree takes 28 days to grow from a sapling and then gives one fruit a day, which slowly improves in quality as the tree ages. Saplings are expensive, so plant them in Year 1 if you can: the sooner they start, the longer they earn. Pick trees whose fruit you can use: Pomegranate, Apple, Orange, Peach, Apricot and Cherry fruit can go in your Kegs and Dehydrators with the rest of the greenhouse fruit. See <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'dehydrator-vs-keg' ) ); ?>">Dehydrator vs Keg</a> for what to do with a steady stream of cheap fruit.</p>
+
+<h2>Mixed plantings</h2>
+<p>This guide compares one crop per greenhouse, because that is the clearest way to see which crop is best. In a real save you may want a few tiles for something else: a crop for a bundle, a loved gift for a villager's birthday, or ingredients for cooking. That is fine, and the cost is easy to work out. Each tile of Ancient Fruit you give up is worth <?php echo $af_tile ? esc_html( $gold( $af_tile['per_tile'] ) ) : 'about 9,000g'; ?> a year sold raw, before professions. A handful of tiles for crops you need costs little; a whole row of a cheap crop costs a lot.</p>
+<p>A mix can also make sense if your Kegs cannot keep up. With fewer Kegs than a full Ancient Fruit greenhouse needs (about <?php echo (int) $af_kegs; ?>), the extra fruit sells raw at a good price, so there is no loss. With more Kegs than that and not enough for Hops, some Starfruit tiles keep the extra Kegs busy with the best wine per Keg day. Use the <a href="<?php echo esc_url( $planner ); ?>">Greenhouse Planner</a> to try up to three crops side by side.</p>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'What is the best crop for the greenhouse?'           => 'Ancient Fruit for most farms: it gives the most gold sold raw and stays the best until you own enough Kegs (about ' . (int) $hops_kegs . ') to turn a full greenhouse of Hops into Pale Ale.',
+		'Is Ancient Fruit or Starfruit better in the greenhouse?' => $afs ? 'Ancient Fruit. Once it is grown, it makes about ' . esc_html( $gold( $afs['ancient'] ) ) . ' per tile a year as wine with Artisan, against ' . esc_html( $gold( $afs['starfruit'] ) ) . ' for Starfruit, and it never needs replanting.' : 'Ancient Fruit, because it never needs replanting.',
+		'How many Kegs does a full Ancient Fruit greenhouse need?' => 'About ' . (int) $af_kegs . ' Kegs for ' . (int) $gh['tiles'] . ' plants, because each plant gives one fruit a week and wine takes ' . esc_html( $k['ancient-fruit']['keg_days'] ) . ' days.',
+		'Do crops die in the greenhouse when the season changes?' => 'No. The greenhouse has no seasons, so any crop grows there all year, and regrowing crops keep producing.',
+		'Can you plant fruit trees in the greenhouse?'        => 'Yes, on the wooden border around the soil. They give fruit every day all year there.',
+		'Do greenhouse crops need watering?'                  => 'Yes, every day, like outdoor crops. Six Iridium Sprinklers (two of them on the border) water all the soil and leave ' . (int) $gh['tiles'] . ' tiles to plant.',
+	)
+);

@@ -149,8 +149,10 @@ class Seo {
 		$desc  = self::description();
 		$url   = self::canonical_url();
 		$title = wp_get_document_title();
-		$image = Config::asset( Config::get( 'og_image' ) );
-		$type  = is_front_page() ? 'website' : ( is_singular( 'post' ) ? 'article' : 'website' );
+		// Guides and reference pages have their own share image (assets/og/) and are articles.
+		$own   = (string) apply_filters( 'stardew_tools_og_image', '' );
+		$image = $own ? $own : Config::asset( Config::get( 'og_image' ) );
+		$type  = is_front_page() ? 'website' : ( is_singular( 'post' ) || $own ? 'article' : 'website' );
 
 		printf( "<meta name=\"description\" content=\"%s\">\n", esc_attr( $desc ) );
 		// Core prints rel=canonical for singular content; add it where core does not.
@@ -167,7 +169,7 @@ class Seo {
 			'og:image'        => $image,
 			'og:image:width'  => '1200',
 			'og:image:height' => '630',
-			'og:image:alt'    => Config::get( 'brand_name' ) . ' — ' . Config::get( 'primary_h1' ),
+			'og:image:alt'    => $own ? $title : Config::get( 'brand_name' ) . ' — ' . Config::get( 'primary_h1' ),
 		);
 		foreach ( $og as $property => $content ) {
 			if ( '' === $content ) {
@@ -321,6 +323,27 @@ class Seo {
 		} elseif ( is_singular() ) {
 			$graph[] = self::breadcrumb_schema( get_queried_object_id() );
 		}
+		if ( is_page( 'about' ) ) {
+			// The About page is the author's profile: Article bylines link here with rel="author".
+			$about   = home_url( '/about/' );
+			$graph[] = array(
+				'@type'        => 'ProfilePage',
+				'@id'          => $about . '#profile',
+				'url'          => $about,
+				'name'         => wp_get_document_title(),
+				'inLanguage'   => 'en',
+				'dateModified' => get_post_modified_time( 'c', true, get_queried_object_id() ),
+				'mainEntity'   => array_merge(
+					self::author(),
+					array(
+						'@id'      => $about . '#author',
+						'jobTitle' => 'Founder',
+						'worksFor' => array( '@id' => $home . '#organization' ),
+						'knowsAbout' => array( 'Stardew Valley', 'Stardew Valley farming', 'Game data' ),
+					)
+				),
+			);
+		}
 		// Every page's Article or WebApplication names this node as publisher, and search engines
 		// do not follow an @id to another page, so it is printed on every page.
 		$graph[] = self::organization();
@@ -364,7 +387,7 @@ class Seo {
 			$items[] = array(
 				'@type'    => 'ListItem',
 				'position' => $i + 1,
-				'name'     => $crumb['name'],
+				'name'     => html_entity_decode( $crumb['name'], ENT_QUOTES, 'UTF-8' ),
 				'item'     => $crumb['url'],
 			);
 		}

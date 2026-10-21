@@ -167,6 +167,12 @@ $five = $e['by_hearts'][5]['gold'];
 </div>
 <p>The animals above are the four best earners other than the <?php echo esc_html( $e['name'] ); ?>. Rank by your own hearts and professions in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>.<?php echo 'pig' === $e['id'] ? ' For whether a pig is worth the price, read <a href="' . esc_url( $guide_url( 'are-pigs-worth-it' ) ) . '">Are pigs worth it?</a>' : ''; ?></p>
 
+<?php $st_tips = include __DIR__ . '/tips.php'; ?>
+<?php if ( ! empty( $st_tips['animals'][ $e['id'] ] ) ) : ?>
+<h2>Tip</h2>
+<p><?php echo esc_html( $st_tips['animals'][ $e['id'] ] ); ?></p>
+<?php endif; ?>
+
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a><span>Gold per day for any animal, hearts and professions.</span></li>

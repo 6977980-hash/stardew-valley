@@ -69,3 +69,16 @@ asort( $recipes );
 		<li>Refined Quartz is smelted from Quartz. Recycling a Broken CD or Broken Glasses also works but isn't used here.</li>
 	</ul>
 </section>
+<?php
+$ref = array();
+foreach ( isset( $answers['tables']['crafting'] ) ? $answers['tables']['crafting'] : array() as $row ) {
+	$ref[] = array( $row['name'], implode( ', ', $row['ingredients'] ), $row['obtained'] );
+}
+stardew_tools_reference_table(
+	'ref-crafting',
+	'Crafting recipes for farm machines and sprinklers',
+	'The ingredients for one of each machine players plan around, and where the recipe comes from. Add them to the calculator above to turn bars into ore and coal and see the total for any number.',
+	'Ingredients for common farm machines and sprinklers',
+	array( 'Item', 'Ingredients', 'Recipe from' ),
+	$ref
+);

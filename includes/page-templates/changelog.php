@@ -4,6 +4,16 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: villager and bundle pages, fuller guides</h2>
+<ul>
+<li>New: a page for every villager with their birthday, loved and liked gifts, the gifts you can grow and the ones to avoid, starting at <a href="<?php echo esc_url( home_url( '/villagers/' ) ); ?>">all villagers</a>.</li>
+<li>New: a page for each Community Center room with every bundle item, its season and where to find it, starting at <a href="<?php echo esc_url( home_url( '/bundles/' ) ); ?>">Community Center bundles</a>.</li>
+<li>Every calculator now shows a ready-made table of the default answer at the end of the page, so you can read it even before the tool loads.</li>
+<li>All guides are longer, with new sections and "Quick questions" at the end. The topic pages got Quick questions too, the Fishing page now covers catching fish, tackle, crab pots, legendary fish and the Fish Smoker, and the Machines page lists every artisan machine.</li>
+<li>Crop and animal pages have a practical tip, and links you share show a picture of that page.</li>
+<li>About, How We Calculate and Contact say more plainly how the site is made and how we fix mistakes. The data downloads have a file for each game version and a description of every column.</li>
+</ul>
+
 <h2>October 21, 2026: steadier, faster pages</h2>
 <ul>
 <li>Guides and topic pages no longer jump while they load on a phone. The short answer now comes first, with the "On this page" list right under it.</li>
