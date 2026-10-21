@@ -116,3 +116,26 @@ Methodology page.
 ## Checking for a new game version
 
 After a game patch (or about once a week) run `npm run data:check-version`. It reads the wiki's Version History page and compares the newest version with `game_version` in `data/crops.json`. Exit code 0 means up to date, 1 means a newer version exists (re-run the importers in `tools/data/`, review the diff and bump the version), 2 means the wiki could not be read.
+
+## Fruit trees and Year 1 facts (`fruittrees.json`, `year-one.json`)
+
+`tools/data/import-fruittrees.mjs` writes `fruittrees.json`: the 8 fruit trees, sapling prices (Pierre,
+Traveling Cart range, Island Trader trade), season, days to mature and the fruit's price at each
+quality. Every tree is read from the Fruit Trees page, its sapling's page and the Fruits list, and each
+value must agree on at least two of them. The rules (28 days, one fruit a day, up to 3 on the tree,
+quality per year, every day in the Greenhouse and on Ginger Island, sapling quality speed, Tiller and
+Artisan, lightning) are each stored with the sentence that states them, and the stated price of all six
+Pierre saplings must equal their sum. The Fruits page's own rendered prices (Tiller, Wine, Jelly, Dried
+Fruit, with and without Artisan) are kept in `wiki_prices` and `tests/engine/fruittrees.test.js` checks
+the engine against every one of them.
+
+`tools/data/import-year-one.mjs` writes `year-one.json` for the Year 1 money guide: starting gold
+(Gold), the 15 Parsnip Seeds (Parsnip Seeds), the Egg Festival day and Strawberry Seed price (Egg
+Festival; must match `crops.json`), which Pierre seeds are only sold from Year 2 (read from every
+seed page Pierre sells: today Artichoke, Garlic, Red Cabbage and Rice Shoot) and that the desert and its
+Oasis seeds open with the bus (Calico Desert).
+
+Both importers read the rendered pages and fall back to the article URL when the wiki API is down; on
+2026-10-21 the API returned 503 and some uncached article pages did too, so the importers retry and
+`--cached` reruns them offline.
+

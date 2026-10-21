@@ -316,7 +316,7 @@ class Tools {
 		}
 		// Not sure which tool fits? A guide explains the decision first, then points to its tool.
 		$starts = array();
-		foreach ( array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'best-greenhouse-setup-for-money', 'coop-or-barn-first' ) as $gid ) {
+		foreach ( array( 'how-to-make-money-year-1', 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'best-greenhouse-setup-for-money', 'coop-or-barn-first' ) as $gid ) {
 			$gurl = Guides::guide_url( $gid );
 			if ( $gurl ) {
 				$starts[] = '<li><a href="' . esc_url( $gurl ) . '">' . esc_html( Guides::guides()[ $gid ]['short'] ) . '</a><span>' . esc_html( Guides::guides()[ $gid ]['blurb'] ) . '</span></li>';

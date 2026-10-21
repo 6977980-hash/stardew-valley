@@ -15,6 +15,7 @@ $cp = isset( $answers['crop_profit'] ) ? $answers['crop_profit'] : array();
 <?php endif; ?>
 <h2>Start here</h2>
 <ol>
+	<li>Just started? <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'how-to-make-money-year-1' ) ); ?>">Making Money in Year 1</a> plans your first year season by season.</li>
 	<li>New farm or mid-season? <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'what-to-plant' ) ); ?>">What to Plant Today</a> picks one crop for your day, gold and tiles.</li>
 	<li>Comparing crops for a whole season? Use the <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'crop-profit-calculator' ) ); ?>">Crop Profit Calculator</a>.</li>
 	<li>Thinking of buying Speed-Gro or fertilizer? Read <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Fertilizer</a> first.</li>

@@ -11,6 +11,9 @@ import { animalOutput } from '../../assets/js/engine/animals.js';
 import { shoppingList } from '../../assets/js/engine/crafting.js';
 import { agingPlan, agedPrice, cellarCost } from '../../assets/js/engine/casks.js';
 import { driedPrice, smokedPrice } from '../../assets/js/engine/dehydrator.js';
+import { treePlan, fruitValue, plantBy, firstYear, fruitPerYear } from '../../assets/js/engine/fruittrees.js';
+import { cropSellPrice } from '../../assets/js/engine/price.js';
+import { rankCrops } from '../../assets/js/engine/decision.js';
 
 const r0 = (n) => Math.round(n);
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -318,5 +321,191 @@ export function buildGuides(data, crops, crafting, ghRank) {
   });
   dehydrator.scenario = scenario;
 
-  return { kegs, greenhouse, fertilizer, fishponds, pigs, costs, casks: casksData, dehydrator, buildings, egg_animals: eggAnimals };
+  const fruitTrees = data.fruittrees ? buildFruitTrees(data, ck) : null;
+  const yearOne = data.yearone ? buildYearOne(data, crops, costs, buildings, fruitTrees) : null;
+
+  return { kegs, greenhouse, fertilizer, fishponds, pigs, costs, casks: casksData, dehydrator, buildings, egg_animals: eggAnimals, fruit_trees: fruitTrees, year_one: yearOne };
+}
+
+/* Fruit trees: every tree's sapling, season, fruit prices, and what it earns over four years. */
+function buildFruitTrees(data, ck) {
+  const ft = data.fruittrees;
+  const rule = (k) => ft.rules[k].value;
+  const wineItem = ck.aging.items.find((i) => i.id === 'wine');
+  const bundles = data.bundles ? data.bundles.bundles.filter((b) => b.set === 'standard' && b.items && b.items.some((i) => ft.trees.some((t) => t.id === i.id))) : [];
+  const trees = ft.trees.map((t) => {
+    const plan = (o) => treePlan(t, data, { years: 4, ...o });
+    const raw = plan({});
+    const rawT = plan({ tiller: true });
+    const wine = plan({ sellAs: 'wine' });
+    const wineA = plan({ sellAs: 'wine', artisan: true });
+    const jelly = plan({ sellAs: 'jelly' });
+    const gh = plan({ location: 'greenhouse' });
+    const ghWine = plan({ location: 'greenhouse', sellAs: 'wine', artisan: true });
+    const each = (sellAs, o = {}) => r2(fruitValue(t, data, { sellAs, ...o }));
+    const fourYear = (p) => r0(p.years[3].cumulative - (t.sapling_prices.pierre || 0));
+    return {
+      id: t.id,
+      name: t.name,
+      tree: t.tree,
+      sapling: t.sapling,
+      season: t.season,
+      island: t.island_year_round,
+      pierre: t.sapling_prices.pierre || null,
+      cart: t.sapling_prices.traveling_cart || null,
+      trade: t.sapling_prices.island_trader || null,
+      base: t.base_price,
+      prices: t.price_by_quality,
+      tiller: t.wiki_prices.tiller,
+      plant_by: plantBy(t, data),
+      first_year_spring1: firstYear(t, data, { plantSeason: 'spring', plantDay: 1 }).fruit,
+      raw: raw.years.map((y) => r0(y.gold)),
+      raw_tiller_y4: r0(rawT.years[3].gold),
+      each: { jelly: each('jelly'), wine: each('wine'), dried: each('dried-fruit'), wine_artisan: each('wine', { artisan: true }), jelly_artisan: each('jelly', { artisan: true }), dried_artisan: each('dried-fruit', { artisan: true }) },
+      wine_year: r0(wine.years[0].gold),
+      wine_artisan_year: r0(wineA.years[0].gold),
+      jelly_year: r0(jelly.years[0].gold),
+      aged_wine_iridium: agedPrice(ck, wineItem, 'iridium', { fruitBase: t.base_price }),
+      payback: { raw_fruit: raw.paybackFruit, raw_year: raw.paybackYear, wine_fruit: wine.paybackFruit, jelly_fruit: jelly.paybackFruit, greenhouse_raw_days: gh.paybackFruit },
+      four_year: { raw: raw.sapling ? fourYear(raw) : null, wine: wine.sapling ? fourYear(wine) : null, wine_artisan: wineA.sapling ? fourYear(wineA) : null },
+      greenhouse: { raw_y1: r0(gh.years[0].gold), raw_y4: r0(gh.years[3].gold), wine_artisan: r0(ghWine.years[0].gold) },
+    };
+  });
+  const bought = trees.filter((t) => t.pierre);
+  return {
+    count: trees.length,
+    days_to_mature: rule('days_to_mature'),
+    fruit_per_season: fruitPerYear(ft.trees[0], data, 'farm'),
+    fruit_per_year_greenhouse: fruitPerYear(ft.trees[0], data, 'greenhouse'),
+    max_on_tree: rule('max_on_tree'),
+    quality_years: rule('quality_per_year'),
+    sapling_speed: rule('sapling_quality_speed'),
+    lightning_days: rule('lightning_days'),
+    all_six: rule('all_saplings_pierre'),
+    // A tree gives one fruit a day: machines that keep up with it are the machine's days per item.
+    machines_per_tree: Object.fromEntries(['jelly', 'wine'].map((id) => {
+      const p = data.machines.machines.flatMap((m) => m.products).find((x) => x.id === id);
+      return [id === 'jelly' ? 'jar' : 'keg', r2((p.minutes / data.machines.minutes_per_day) * rule('fruit_per_day'))];
+    })),
+    trees,
+    by_four_year_raw: [...bought].sort((a, b) => b.four_year.raw - a.four_year.raw).map((t) => t.id),
+    by_payback: [...bought].sort((a, b) => a.payback.raw_fruit - b.payback.raw_fruit || a.pierre - b.pierre).map((t) => t.id),
+    bundles: bundles.map((b) => ({ name: b.name, room: b.room, slots: b.slots, items: b.items.length, fruit: b.items.filter((i) => ft.trees.some((t) => t.id === i.id)).map((i) => i.name) })),
+    rules_evidence: Object.fromEntries(Object.entries(ft.rules).map(([k, v]) => [k, v.evidence])),
+  };
+}
+
+/* Year 1 money: the crops you can buy in Year 1, what a gold of seed earns back, and when the
+   machines, coop and greenhouse come in. */
+function buildYearOne(data, crops, costs, buildings, fruitTrees) {
+  const y = data.yearone;
+  const byId = (id) => crops.find((c) => c.id === id);
+  const year2 = y.pierre_year2_seeds.map((s) => s.crop);
+  const shops = ['pierre', 'jojamart'];
+  const xp = data.skills ? Object.fromEntries(data.skills.farming.crops.map((c) => [c.id, c.xp])) : {};
+  const levelTotal = (lvl) => data.skills.levels.thresholds.find((t) => t.level === lvl).total;
+  const seasonRows = (season, day = 1) =>
+    rankCrops(crops, data, { season, today: day, tiles: 1, budget: null, farmingLevel: 0 })
+      .filter((x) => !year2.includes(x.crop.id) && x.seed.source !== 'oasis')
+      .map((x) => {
+        const c = x.crop;
+        // Cash is the limit in Year 1: how soon the seed's cost comes back, and what each gold
+        // spent on seed over the season returns.
+        const seed = x.seed.price;
+        const need = Math.ceil(seed / x.r.perHarvest);
+        const payback = c.regrow_days ? (need <= x.r.harvestDays.length ? x.r.harvestDays[need - 1] - day : null) : x.r.growth;
+        return {
+          id: c.id,
+          name: c.name,
+          seed_price: seed,
+          shop: x.seed.source,
+          growth: x.r.growth,
+          regrows: c.regrow_days || null,
+          harvests: x.r.harvestDays.length,
+          profit: r0(x.total),
+          continues: x.nextSeasons,
+          per_harvest: r0(x.r.perHarvest),
+          payback_days: payback,
+          per_gold: r2(x.r.revenue / x.r.seedCost),
+          xp: xp[c.id] || null,
+        };
+      });
+  const spring = seasonRows('spring');
+  const summer = seasonRows('summer');
+  const fall = seasonRows('fall');
+  const left = (season) =>
+    crops
+      .filter((c) => c.seasons.map((s) => s.toLowerCase()).includes(season) && (year2.includes(c.id) || (c.seed_prices.oasis > 0 && !shops.some((k) => c.seed_prices[k] > 0))))
+      .map((c) => ({ id: c.id, name: c.name, why: year2.includes(c.id) ? 'year2' : 'desert' }));
+
+  // Strawberries: seeds bought at the Egg Festival, planted the next morning, against a potato
+  // planted the same day.
+  const sb = byId('strawberry');
+  const eggDay = y.egg_festival.day;
+  const sbr = cropProfit(sb, data, { plantSeason: 'spring', plantDay: eggDay + 1, seedSource: 'egg_festival' });
+  const late = (id) => cropProfit(byId(id), data, { plantSeason: 'spring', plantDay: eggDay + 1 });
+  const strawberry = {
+    day: eggDay,
+    plant_day: eggDay + 1,
+    seed_price: y.egg_festival.seed_price,
+    harvests: sbr.harvestDays.length,
+    harvest_days: sbr.harvestDays,
+    profit: r0(sbr.profit),
+    potato: r0(late('potato').profit),
+    cauliflower: r0(late('cauliflower').profit),
+    next_spring: r0(cropProfit(sb, data, { plantSeason: 'spring', plantDay: 1, seedSource: 'egg_festival' }).profit),
+    next_spring_harvests: cropProfit(sb, data, { plantSeason: 'spring', plantDay: 1, seedSource: 'egg_festival' }).harvestDays.length,
+  };
+
+  const parsnip = byId('parsnip');
+  // Day 1 with the starting gold and room for 40 tiles: what the gold buys and earns by Spring 28.
+  const dayOne = rankCrops(crops, data, { season: 'spring', today: 1, tiles: 40, budget: y.start_gold.value, farmingLevel: 0 })
+    .filter((x) => !x.unaffordable && !year2.includes(x.crop.id) && x.seed.source !== 'oasis')
+    .slice(0, 4)
+    .map((x) => ({ id: x.crop.id, name: x.crop.name, tiles: x.tiles, total: r0(x.total) }));
+  const start = {
+    day_one: dayOne,
+    gold: y.start_gold.value,
+    seeds: y.start_seeds.qty,
+    seed_name: y.start_seeds.seed,
+    parsnip_price: cropSellPrice(parsnip, 'regular'),
+    parsnip_value: y.start_seeds.qty * cropSellPrice(parsnip, 'regular'),
+    parsnip_xp: y.start_seeds.qty * (xp.parsnip || 0),
+    potato_seeds: Math.floor(y.start_gold.value / byId('potato').seed_prices.pierre),
+    parsnip_seeds: Math.floor(y.start_gold.value / parsnip.seed_prices.pierre),
+    cauliflower_seeds: Math.floor(y.start_gold.value / byId('cauliflower').seed_prices.pierre),
+  };
+
+  const level = (lvl) => ({ level: lvl, xp: levelTotal(lvl), harvests: Object.fromEntries(['parsnip', 'potato', 'cauliflower', 'blueberry', 'melon', 'cranberries', 'pumpkin'].map((id) => [id, Math.ceil(levelTotal(lvl) / xp[id])])) });
+  const recipe = (id) => data.crafting.recipes.find((r) => r.id === id);
+  const processed = ['blueberry', 'melon', 'hot-pepper', 'cranberries', 'pumpkin', 'grape'].map((id) => {
+    const c = byId(id);
+    const jar = productsFor(c, data.machines).find((p) => p.machine === 'preserves-jar');
+    const keg = productsFor(c, data.machines).find((p) => p.machine === 'keg');
+    return { id, name: c.name, raw: c.base_price, jar: jar.productName, jar_price: jar.price, jar_days: r2(jar.days), keg: keg.productName, keg_price: keg.price, keg_days: r2(keg.days) };
+  });
+  const coop = buildings.find((b) => b.building === 'coop');
+  const chicken = coop.animals.find((a) => a.id === 'chicken');
+  const pantry = data.bundles.bundles.filter((b) => b.room === 'pantry' && b.set === 'standard' && b.items);
+  const vault = data.bundles.bundles.filter((b) => b.room === 'vault' && b.set === 'standard');
+  const apricot = fruitTrees ? fruitTrees.trees.find((t) => t.id === 'apricot') : null;
+  return {
+    start,
+    spring,
+    summer,
+    fall,
+    not_year_one: { spring: left('spring'), summer: left('summer'), fall: left('fall') },
+    year2_evidence: y.pierre_year2_seeds.map((s) => ({ crop: s.crop, seed: s.seed })),
+    desert: { joja: y.desert.bus_repair_joja, vault: vault.reduce((sum, b) => sum + b.gold, 0), vault_bundles: vault.map((b) => b.gold) },
+    winter_shop_crops: crops.filter((c) => c.seasons.includes('Winter') && shops.some((k) => c.seed_prices[k] > 0)).length,
+    strawberry,
+    levels: { jar: level(Number(recipe('preserves-jar').obtained.match(/\d+/)[0])), keg: level(Number(recipe('keg').obtained.match(/\d+/)[0])) },
+    jar: { obtained: recipe('preserves-jar').obtained, materials: costs['preserves-jar'].materials },
+    keg: { obtained: recipe('keg').obtained, materials: costs.keg.materials },
+    processed,
+    coop: { level: coop.levels[0], chicken: { price: chicken.price, mature: chicken.mature, hearts0: chicken.hearts0, hearts5: chicken.hearts5, processed5: chicken.processed5, payback: chicken.payback, payback_building_share: chicken.payback_building_share } },
+    pantry: pantry.map((b) => ({ name: b.name, slots: b.slots, items: b.items.map((i) => ({ name: i.name, qty: i.qty, quality: i.quality })) })),
+    pantry_reward: data.bundles.rooms.find((r) => r.id === 'pantry').reward,
+    apricot: apricot ? { sapling: apricot.pierre, payback_fruit: apricot.payback.raw_fruit, payback_year: apricot.payback.raw_year, first_year_raw: apricot.raw[0] } : null,
+  };
 }

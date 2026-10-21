@@ -145,6 +145,28 @@ class Guides {
 				'data'        => array( 'animals', 'buildings' ),
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
+			'how-to-make-money-year-1'   => array(
+				'hub'         => 'crops-and-farming',
+				'title'       => 'How to Make Money in Year 1: A Season-by-Season Plan',
+				'short'       => 'Making Money in Year 1',
+				'blurb'       => 'What to buy with your first 500g, the best crop each season, and when jars, a coop and trees pay.',
+				'description' => 'How to make money fast in Stardew Valley Year 1 (1.6): what to plant on Spring 1, the best crop you can buy each season, jars and the Greenhouse.',
+				'published'   => '2026-10-21',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'crops', 'year-one', 'crafting', 'skills', 'bundles', 'buildings' ),
+				'tools'       => array( 'what-to-plant', 'crop-profit-calculator', 'best-spring-crops', 'best-summer-crops', 'best-fall-crops' ),
+			),
+			'best-fruit-trees'           => array(
+				'hub'         => 'crops-and-farming',
+				'title'       => 'Best Fruit Trees in Stardew Valley: Which Sapling Pays Back?',
+				'short'       => 'Best Fruit Trees',
+				'blurb'       => 'Every sapling\'s cost, when to plant it, what it earns each year and whether to make Wine.',
+				'description' => 'Best fruit trees in Stardew Valley 1.6: sapling prices, when to plant, fruit price by quality, payback, Wine vs Jelly and greenhouse income.',
+				'published'   => '2026-10-21',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'fruittrees', 'machines', 'dehydrator', 'casks', 'bundles' ),
+				'tools'       => array( 'keg-vs-preserves-jar', 'greenhouse-planner', 'crop-profit-calculator' ),
+			),
 			'best-greenhouse-setup-for-money' => array(
 				'hub'         => 'greenhouse',
 				'title'       => 'Best Greenhouse Setup for Money: Kegs Decide the Crop',
@@ -375,9 +397,9 @@ class Guides {
 	/** "Start here" path on /guides/: the pages that matter at each stage of a save, in order. */
 	private static function stages() {
 		$stages = array(
-			'Year 1, Spring: your first crops'          => array( 'tool:what-to-plant', 'tool:best-spring-crops', 'guide:speed-gro-vs-fertilizer', 'entity:bundles' ),
+			'Year 1, Spring: your first crops'          => array( 'guide:how-to-make-money-year-1', 'tool:what-to-plant', 'tool:best-spring-crops', 'guide:speed-gro-vs-fertilizer', 'entity:bundles' ),
 			'Year 1, Summer and Fall: grow the farm'    => array( 'tool:best-summer-crops', 'guide:coop-or-barn-first', 'guide:how-many-kegs-do-i-need', 'entity:villagers' ),
-			'Greenhouse and Year 2: build the machines' => array( 'guide:best-greenhouse-setup-for-money', 'guide:dehydrator-vs-keg', 'guide:best-fish-for-fish-ponds', 'guide:are-pigs-worth-it' ),
+			'Greenhouse and Year 2: build the machines' => array( 'guide:best-greenhouse-setup-for-money', 'guide:best-fruit-trees', 'guide:dehydrator-vs-keg', 'guide:best-fish-for-fish-ponds', 'guide:are-pigs-worth-it' ),
 			'Late game: age and scale up'               => array( 'guide:are-casks-worth-it', 'tool:greenhouse-planner', 'tool:keg-vs-preserves-jar' ),
 		);
 		$all    = self::guides();

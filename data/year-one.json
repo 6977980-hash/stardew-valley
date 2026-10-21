@@ -1,0 +1,116 @@
+{
+  "schema": "stardew-tools/yearone@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-21",
+  "last_verified": "2026-10-21",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "start_gold": {
+    "value": 500,
+    "evidence": "All players start with 500g .",
+    "sources": [
+      {
+        "title": "Gold",
+        "url": "https://stardewvalleywiki.com/Gold",
+        "revid": 185736
+      }
+    ]
+  },
+  "start_seeds": {
+    "crop": "parsnip",
+    "seed": "Parsnip Seeds",
+    "qty": 15,
+    "not_on": [
+      "Meadowlands Farm"
+    ],
+    "evidence": "Fifteen Seeds are provided by Mayor Lewis at the start of the game on every map other than the Meadowlands Farm .",
+    "sources": [
+      {
+        "title": "Parsnip Seeds",
+        "url": "https://stardewvalleywiki.com/Parsnip_Seeds",
+        "revid": 193542
+      }
+    ]
+  },
+  "desert": {
+    "bus_repair_joja": 40000,
+    "oasis_seeds": true,
+    "evidence": [
+      "The desert is inaccessible until the Bus at the Bus Stop has been repaired by completing the Vault Bundles at the Community Center or by purchasing \"Bus Repair\" for 40,000g from the Joja Community Development Form .",
+      "The Oasis is a store located in the southwest section of the area. It is run by Sandy and sells a number of seeds not available in Pelican Town"
+    ],
+    "sources": [
+      {
+        "title": "The Desert",
+        "url": "https://stardewvalleywiki.com/The_Desert",
+        "revid": 192758
+      }
+    ]
+  },
+  "pierre_year2_seeds": [
+    {
+      "crop": "artichoke",
+      "seed": "Artichoke Seeds",
+      "evidence": "They can be purchased at Pierre's General Store starting in year 2, from the Magic Shop Boat at the Night Market on Winter 17 (starting in year 2), and occasionally from the Traveling Cart .",
+      "sources": [
+        {
+          "title": "Artichoke Seeds",
+          "url": "https://stardewvalleywiki.com/Artichoke_Seeds",
+          "revid": 193180
+        }
+      ]
+    },
+    {
+      "crop": "garlic",
+      "seed": "Garlic Seeds",
+      "evidence": "They can be purchased at Pierre's General Store starting in year 2, from the Magic Shop Boat at the Night Market on Winter 15 (starting in year 2), and occasionally from the Traveling Cart .",
+      "sources": [
+        {
+          "title": "Garlic Seeds",
+          "url": "https://stardewvalleywiki.com/Garlic_Seeds",
+          "revid": 193128
+        }
+      ]
+    },
+    {
+      "crop": "red-cabbage",
+      "seed": "Red Cabbage Seeds",
+      "evidence": "at Pierre's General Store for 100g starting in Year 2.",
+      "sources": [
+        {
+          "title": "Red Cabbage Seeds",
+          "url": "https://stardewvalleywiki.com/Red_Cabbage_Seeds",
+          "revid": 193364
+        }
+      ]
+    },
+    {
+      "crop": "unmilled-rice",
+      "seed": "Rice Shoot",
+      "evidence": "Rice Shoots can be purchased at Pierre's General Store starting in year 2 and occasionally from the Traveling Cart .",
+      "sources": [
+        {
+          "title": "Rice Shoot",
+          "url": "https://stardewvalleywiki.com/Rice_Shoot",
+          "revid": 193356
+        }
+      ]
+    }
+  ],
+  "egg_festival": {
+    "season": "spring",
+    "day": 13,
+    "sells": "strawberry",
+    "seed_price": 100,
+    "evidence": [
+      "taking place on the 13th of every Spring",
+      "Strawberry Seeds Plant these in spring. Takes 8 days to mature, and keeps producing strawberries after that. 100g"
+    ],
+    "sources": [
+      {
+        "title": "Egg Festival",
+        "url": "https://stardewvalleywiki.com/Egg_Festival",
+        "revid": 192059
+      }
+    ]
+  }
+}

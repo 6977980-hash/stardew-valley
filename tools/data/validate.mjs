@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings }).filter(([, d]) => d)) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -240,6 +240,29 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
       }
     }
   }
+  if (fruittrees) {
+    const ids = new Set();
+    for (const t of fruittrees.trees) {
+      const where = `fruit tree ${t.id}`;
+      if (ids.has(t.id)) err(where, 'duplicate id');
+      ids.add(t.id);
+      checkSources(where, t.sources);
+      if (t.sources.length < 2 || t.verification_status !== 'cross-checked') err(where, 'needs two agreeing sources');
+      if (!seasonNames.has(t.season)) err(where, `season ${t.season}`);
+      if (t.category !== 'fruit' || !isInt(t.base_price, 1) || t.price_by_quality.regular !== t.base_price) err(where, 'base price');
+      const q = ['regular', 'silver', 'gold', 'iridium'].map((k) => t.price_by_quality[k]);
+      if (q.some((v, i) => !isInt(v, 1) || (i && v <= q[i - 1]))) err(where, 'quality prices');
+      if (!isInt(t.days_to_mature, 1)) err(where, 'days to mature');
+      if (!(isInt(t.sapling_prices.pierre, 1) || (t.sapling_prices.island_trader && isInt(t.sapling_prices.island_trader.qty, 1)))) err(where, 'no sapling price');
+    }
+    checkSources('fruittrees', fruittrees.sources);
+    for (const [k, r] of Object.entries(fruittrees.rules)) if (!r.evidence) err('fruittrees', `rule ${k} has no evidence`);
+  }
+  if (yearone) {
+    if (!isInt(yearone.start_gold.value, 1)) err('year-one', 'start gold');
+    if (!isInt(yearone.egg_festival.day, 1) || yearone.egg_festival.day > 28) err('year-one', 'egg festival day');
+    for (const k of ['start_gold', 'start_seeds', 'egg_festival']) checkSources(`year-one ${k}`, yearone[k].sources);
+  }
   return errors;
 }
 
@@ -260,10 +283,12 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     casks: load('casks.json'),
     dehydrator: load('dehydrator.json'),
     buildings: load('buildings.json'),
+    fruittrees: load('fruittrees.json'),
+    yearone: load('year-one.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, year-one');
 }
