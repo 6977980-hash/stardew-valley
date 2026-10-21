@@ -73,6 +73,8 @@ Never edit these files by hand; fix the importer and re-run it. See `docs/data.m
 | `crafting.json` | 150 recipes with ingredients (raw or made via a recipe/furnace conversion), 9 furnace conversions, 10 shop prices (year 1 and 2) |
 | `gifts.json` | 34 villagers: birthday, marriage, loved/liked/neutral/disliked/hated items and categories; universal tastes and exceptions; friendship points |
 | `bundles.json` | Community Center rooms, 31 standard and 47 Remixed bundles, items with quantity and quality, season and how to obtain |
+| `fruittrees.json` | 8 fruit trees: sapling prices and trades, season, fruit price by quality, the wiki's own processed prices, and the fruit tree rules with their wiki sentences |
+| `year-one.json` | Start-of-game facts for the Year 1 guide: starting gold and seeds, Egg Festival, Pierre's Year 2 seeds, desert access |
 | `answers.json` | Built, not imported: short answers shown on the tool pages, and the numbers printed in guides (`guides`, from `tools/build/guides.mjs`) |
 
 ## Calculation engine (`assets/js/engine/`)
@@ -96,6 +98,7 @@ tests. Functions are pure: data goes in as arguments.
 | `crafting.js` | Expands a list of recipes into raw materials (bars into ore and coal), rounds crafts up once per made item, prices shop-sold parts |
 | `gifts.js` | A villager's taste for an item (own list, then universal, then recorded exceptions), items at a taste level, friendship points per gift |
 | `bundles.js` | Slots filled, bundle and room progress, items still needed; Remixed alternatives |
+| `fruittrees.js` | Fruit quality by tree age, fruit per year on the farm and in the Greenhouse, gold per fruit raw or as Jelly, Wine and Dried Fruit, payback and planting days |
 | `decision.js` | Decision engine: ranks crops for one player's day, gold, tiles, machines and skills (`rankCrops`) and explains the winner against the runner-up in plain sentences (`reasons`) |
 
 ## Theme (presentation)

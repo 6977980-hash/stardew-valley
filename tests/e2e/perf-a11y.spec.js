@@ -3,7 +3,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
 const HUBS = ['/crops-and-farming/', '/artisan-goods/', '/animals/', '/fishing/', '/greenhouse/'];
-const GUIDES = ['/crops-and-farming/speed-gro-vs-fertilizer/', '/artisan-goods/how-many-kegs-do-i-need/', '/animals/are-pigs-worth-it/', '/fishing/best-fish-for-fish-ponds/', '/greenhouse/best-greenhouse-setup-for-money/', '/artisan-goods/are-casks-worth-it/', '/artisan-goods/dehydrator-vs-keg/', '/animals/coop-or-barn-first/'];
+const GUIDES = ['/crops-and-farming/speed-gro-vs-fertilizer/', '/artisan-goods/how-many-kegs-do-i-need/', '/animals/are-pigs-worth-it/', '/fishing/best-fish-for-fish-ponds/', '/greenhouse/best-greenhouse-setup-for-money/', '/artisan-goods/are-casks-worth-it/', '/artisan-goods/dehydrator-vs-keg/', '/animals/coop-or-barn-first/', '/crops-and-farming/best-fruit-trees/', '/crops-and-farming/how-to-make-money-year-1/'];
 
 // Layout shift not caused by input, summed over the load, on a phone with a slowed CPU.
 async function cls(page, path) {

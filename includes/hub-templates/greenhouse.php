@@ -21,6 +21,7 @@ $g  = function ( $n ) {
 <ol>
 	<li>Lay it out and see a year of profit in the <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'greenhouse-planner' ) ); ?>">Greenhouse Planner</a>.</li>
 	<li>Which crop, for the kegs you own? Read <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'best-greenhouse-setup-for-money' ) ); ?>">Best Greenhouse Setup for Money</a>.</li>
+	<li>Space on the border? A fruit tree there fruits every day of the year; <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'best-fruit-trees' ) ); ?>">Best Fruit Trees</a> shows what each one earns.</li>
 	<li>Choosing between the two famous fruits? <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'ancient-fruit-vs-starfruit' ) ); ?>">Ancient Fruit vs Starfruit</a> compares them with your professions.</li>
 </ol>
 <?php if ( ! empty( $gg['layouts'] ) ) : ?>
@@ -71,7 +72,7 @@ Stardew_Tools\Guides::quick_questions(
 		'What is the best crop for the greenhouse?' => ! empty( $gh['raw'][0] ) ? esc_html( $gh['raw'][0]['name'] ) . ' for most farms: it keeps fruiting all year without replanting, about ' . esc_html( $g( $gh['raw'][0]['total'] ) ) . ' a year sold raw once grown. With a very large keg shed, Hops can pass it.' : '',
 		'How do I unlock the greenhouse?' => 'Finish the Pantry bundles in the Community Center. On the Joja route, buy the greenhouse repair from the Joja Community Development Form.',
 		'How many tiles does the greenhouse have?' => 'The floor has 120 soil tiles. Sprinklers placed on the soil take some of them, which is why the layout matters.',
-		'Can I plant fruit trees in the greenhouse?' => 'Yes, on the soil or around the edge, and they fruit all year. Trees on the edge leave the soil free for crops.',
+		'Can I plant fruit trees in the greenhouse?' => 'Yes, on the soil or around the edge, and they fruit all year. Trees on the edge leave the soil free for crops.' . ( Stardew_Tools\Guides::guide_url( 'best-fruit-trees' ) ? ' See <a href="' . esc_url( Stardew_Tools\Guides::guide_url( 'best-fruit-trees' ) ) . '">Best Fruit Trees</a>.' : '' ),
 		'Do I need to water the greenhouse?' => 'Yes, every tile every day, unless sprinklers reach it. Six Iridium Sprinklers cover the whole floor.',
 	)
 );

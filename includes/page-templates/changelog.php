@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: fruit trees and Year 1 money</h2>
+<ul>
+<li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/best-fruit-trees/' ) ); ?>">Best Fruit Trees</a>, with every sapling's price, when to plant it, what it earns each year as the fruit improves, and whether to make Wine or Jelly.</li>
+<li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/how-to-make-money-year-1/' ) ); ?>">Making Money in Year 1</a>, a season-by-season plan from your first 500g, with only the seeds you can really buy in Year 1.</li>
+</ul>
+
 <h2>October 21, 2026: about the creator</h2>
 <ul>
 <li>The <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About</a> page now has a short note from the site's creator about why the site exists.</li>

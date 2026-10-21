@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.14.1
+Stable tag: 0.15.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,12 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.15.0 (2026-10-21) =
+* New guide: Best Fruit Trees (/crops-and-farming/best-fruit-trees/): all 8 trees, sapling prices, when to plant, fruit price by quality and year, payback, Wine/Jelly/Dried Fruit per fruit, four-year totals, Greenhouse income, Banana and Mango, bundles.
+* New guide: Making Money in Year 1 (/crops-and-farming/how-to-make-money-year-1/): Spring 1 with 500g, every crop you can buy in Year 1 by season with seed payback and gold back per gold of seed, Egg Festival Strawberries, Year 2 and desert seeds, Farming XP to Preserves Jars and Kegs, Pantry bundles, coop and trees.
+* Data: data/fruittrees.json (tools/data/import-fruittrees.mjs: Fruit Trees, each sapling page and Fruits must agree) and data/year-one.json (tools/data/import-year-one.mjs: starting gold and seeds, Egg Festival, Pierre's Year 2 seeds, desert access). Engine assets/js/engine/fruittrees.js, tested against the wiki's own prices for every quality, Tiller, Wine, Jelly and Dried Fruit.
+* Links: both guides on the Crops and Farming hub, /guides/ start-here path, /tools/, the Greenhouse hub and the tool pages they use.
 
 = 0.14.1 (2026-10-21) =
 * About: "About the creator" section in the founder's own words (two years playing on PlayStation, mobile and Xbox); Person description in the ProfilePage schema.

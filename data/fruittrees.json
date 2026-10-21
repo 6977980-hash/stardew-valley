@@ -1,0 +1,634 @@
+{
+  "schema": "stardew-tools/fruittrees@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-21",
+  "last_verified": "2026-10-21",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between Fruit Trees, each sapling page and Fruits",
+  "sources": [
+    {
+      "title": "Fruit Trees",
+      "url": "https://stardewvalleywiki.com/Fruit_Trees",
+      "revid": 195302
+    }
+  ],
+  "seasons": [
+    "spring",
+    "summer",
+    "fall",
+    "winter"
+  ],
+  "rules": {
+    "days_to_mature": {
+      "value": 28,
+      "evidence": "Fruit Trees require 28 days to mature, after which they produce one fruit per day when in season."
+    },
+    "fruit_per_day": {
+      "value": 1,
+      "evidence": "produce one fruit per day when in season"
+    },
+    "max_on_tree": {
+      "value": 3,
+      "evidence": "Fruit can accumulate up to three days before harvesting."
+    },
+    "no_water_no_winter_death": {
+      "value": true,
+      "evidence": "Fruit trees do not need to be watered, and will not die in the winter."
+    },
+    "grows_any_season": {
+      "value": true,
+      "evidence": "Fruit saplings will grow during any season, allowing players to plant and prepare for upcoming seasons to bear fruit."
+    },
+    "clear_area": {
+      "value": 3,
+      "evidence": "Each Fruit tree must be planted in the center of a clear 3x3 ground area"
+    },
+    "greenhouse_and_island_every_day": {
+      "value": true,
+      "evidence": "Fruit trees planted in the greenhouse or on Ginger Island bear fruit every day after maturity"
+    },
+    "greenhouse_border": {
+      "value": true,
+      "evidence": "Fruit trees can grow in the Greenhouse , in the center soil or around the border."
+    },
+    "quality_per_year": {
+      "value": {
+        "silver": 1,
+        "gold": 2,
+        "iridium": 3
+      },
+      "evidence": "Fruit trees will produce silver star fruit after one year, gold after two years, and iridium after three."
+    },
+    "sapling_quality_speed": {
+      "value": {
+        "silver": 2,
+        "gold": 3,
+        "iridium": 5
+      },
+      "evidence": "a silver sapling grows 2 times faster, a gold sapling grows 3 times faster, and an iridium sapling grows 5 times faster"
+    },
+    "chop_for_sapling": {
+      "value": true,
+      "evidence": "Fruit trees can be chopped down, yielding normal wood and a matching sapling of the same quality as the fruit."
+    },
+    "tiller_and_artisan": {
+      "value": true,
+      "evidence": "Fruit Tree fruit receives the Tiller Profession price bonus when sold, and jelly , wine , or dried fruits made from fruit tree fruit receives the Artisan Profession price bonus when sold."
+    },
+    "lightning_days": {
+      "value": 4,
+      "evidence": "causing them to become burnt for 4 days"
+    },
+    "weather_proof": {
+      "value": true,
+      "evidence": "Fruit trees will not be affected by weather"
+    },
+    "all_saplings_pierre": {
+      "value": 25400,
+      "evidence": "A complete set of all six fruit tree saplings costs a total of 25,400g if purchased from Pierre's General Store"
+    }
+  },
+  "trees": [
+    {
+      "id": "apricot",
+      "name": "Apricot",
+      "tree": "Apricot Tree",
+      "sapling": "Apricot Sapling",
+      "season": "spring",
+      "island_year_round": false,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 50,
+      "price_by_quality": {
+        "regular": 50,
+        "silver": 62,
+        "gold": 75,
+        "iridium": 100
+      },
+      "sapling_prices": {
+        "pierre": 2000,
+        "traveling_cart": {
+          "min": 1500,
+          "max": 2500
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 55,
+          "silver": 68,
+          "gold": 82,
+          "iridium": 110
+        },
+        "wine": {
+          "regular": 150,
+          "silver": 187,
+          "gold": 225,
+          "iridium": 300
+        },
+        "jelly": 150,
+        "dried_fruit": 400,
+        "wine_artisan": {
+          "regular": 210,
+          "silver": 261,
+          "gold": 315,
+          "iridium": 420
+        },
+        "jelly_artisan": 210,
+        "dried_fruit_artisan": 560
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Apricot_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Apricot Sapling",
+          "url": "https://stardewvalleywiki.com/Apricot_Sapling",
+          "revid": 193136
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry",
+      "tree": "Cherry Tree",
+      "sapling": "Cherry Sapling",
+      "season": "spring",
+      "island_year_round": false,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 80,
+      "price_by_quality": {
+        "regular": 80,
+        "silver": 100,
+        "gold": 120,
+        "iridium": 160
+      },
+      "sapling_prices": {
+        "pierre": 3400,
+        "traveling_cart": {
+          "min": 2550,
+          "max": 4250
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 88,
+          "silver": 110,
+          "gold": 132,
+          "iridium": 176
+        },
+        "wine": {
+          "regular": 240,
+          "silver": 300,
+          "gold": 360,
+          "iridium": 480
+        },
+        "jelly": 210,
+        "dried_fruit": 625,
+        "wine_artisan": {
+          "regular": 336,
+          "silver": 420,
+          "gold": 504,
+          "iridium": 672
+        },
+        "jelly_artisan": 294,
+        "dried_fruit_artisan": 875
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Cherry_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Cherry Sapling",
+          "url": "https://stardewvalleywiki.com/Cherry_Sapling",
+          "revid": 193193
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "banana",
+      "name": "Banana",
+      "tree": "Banana Tree",
+      "sapling": "Banana Sapling",
+      "season": "summer",
+      "island_year_round": true,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 150,
+      "price_by_quality": {
+        "regular": 150,
+        "silver": 187,
+        "gold": 225,
+        "iridium": 300
+      },
+      "sapling_prices": {
+        "island_trader": {
+          "item": "Dragon Tooth",
+          "qty": 5
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 165,
+          "silver": 205,
+          "gold": 247,
+          "iridium": 330
+        },
+        "wine": {
+          "regular": 450,
+          "silver": 562,
+          "gold": 675,
+          "iridium": 900
+        },
+        "jelly": 350,
+        "dried_fruit": 1150,
+        "wine_artisan": {
+          "regular": 630,
+          "silver": 786,
+          "gold": 945,
+          "iridium": 1260
+        },
+        "jelly_artisan": 490,
+        "dried_fruit_artisan": 1610
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Banana_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Banana Sapling",
+          "url": "https://stardewvalleywiki.com/Banana_Sapling",
+          "revid": 178005
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "mango",
+      "name": "Mango",
+      "tree": "Mango Tree",
+      "sapling": "Mango Sapling",
+      "season": "summer",
+      "island_year_round": true,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 130,
+      "price_by_quality": {
+        "regular": 130,
+        "silver": 162,
+        "gold": 195,
+        "iridium": 260
+      },
+      "sapling_prices": {
+        "island_trader": {
+          "item": "Mussel",
+          "qty": 75
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 143,
+          "silver": 178,
+          "gold": 214,
+          "iridium": 286
+        },
+        "wine": {
+          "regular": 390,
+          "silver": 487,
+          "gold": 585,
+          "iridium": 780
+        },
+        "jelly": 310,
+        "dried_fruit": 1000,
+        "wine_artisan": {
+          "regular": 546,
+          "silver": 681,
+          "gold": 819,
+          "iridium": 1092
+        },
+        "jelly_artisan": 434,
+        "dried_fruit_artisan": 1400
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Mango_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Mango Sapling",
+          "url": "https://stardewvalleywiki.com/Mango_Sapling",
+          "revid": 190272
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "orange",
+      "name": "Orange",
+      "tree": "Orange Tree",
+      "sapling": "Orange Sapling",
+      "season": "summer",
+      "island_year_round": false,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 100,
+      "price_by_quality": {
+        "regular": 100,
+        "silver": 125,
+        "gold": 150,
+        "iridium": 200
+      },
+      "sapling_prices": {
+        "pierre": 4000,
+        "traveling_cart": {
+          "min": 3000,
+          "max": 5000
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 110,
+          "silver": 137,
+          "gold": 165,
+          "iridium": 220
+        },
+        "wine": {
+          "regular": 300,
+          "silver": 375,
+          "gold": 450,
+          "iridium": 600
+        },
+        "jelly": 250,
+        "dried_fruit": 775,
+        "wine_artisan": {
+          "regular": 420,
+          "silver": 525,
+          "gold": 630,
+          "iridium": 840
+        },
+        "jelly_artisan": 350,
+        "dried_fruit_artisan": 1085
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Orange_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Orange Sapling",
+          "url": "https://stardewvalleywiki.com/Orange_Sapling",
+          "revid": 193222
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "tree": "Peach Tree",
+      "sapling": "Peach Sapling",
+      "season": "summer",
+      "island_year_round": false,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 140,
+      "price_by_quality": {
+        "regular": 140,
+        "silver": 175,
+        "gold": 210,
+        "iridium": 280
+      },
+      "sapling_prices": {
+        "pierre": 6000,
+        "traveling_cart": {
+          "min": 4500,
+          "max": 7500
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 154,
+          "silver": 192,
+          "gold": 231,
+          "iridium": 308
+        },
+        "wine": {
+          "regular": 420,
+          "silver": 525,
+          "gold": 630,
+          "iridium": 840
+        },
+        "jelly": 330,
+        "dried_fruit": 1075,
+        "wine_artisan": {
+          "regular": 588,
+          "silver": 735,
+          "gold": 882,
+          "iridium": 1176
+        },
+        "jelly_artisan": 462,
+        "dried_fruit_artisan": 1505
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Peach_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Peach Sapling",
+          "url": "https://stardewvalleywiki.com/Peach_Sapling",
+          "revid": 193164
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "apple",
+      "name": "Apple",
+      "tree": "Apple Tree",
+      "sapling": "Apple Sapling",
+      "season": "fall",
+      "island_year_round": false,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 100,
+      "price_by_quality": {
+        "regular": 100,
+        "silver": 125,
+        "gold": 150,
+        "iridium": 200
+      },
+      "sapling_prices": {
+        "pierre": 4000,
+        "traveling_cart": {
+          "min": 3000,
+          "max": 5000
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 110,
+          "silver": 137,
+          "gold": 165,
+          "iridium": 220
+        },
+        "wine": {
+          "regular": 300,
+          "silver": 375,
+          "gold": 450,
+          "iridium": 600
+        },
+        "jelly": 250,
+        "dried_fruit": 775,
+        "wine_artisan": {
+          "regular": 420,
+          "silver": 525,
+          "gold": 630,
+          "iridium": 840
+        },
+        "jelly_artisan": 350,
+        "dried_fruit_artisan": 1085
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Apple_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Apple Sapling",
+          "url": "https://stardewvalleywiki.com/Apple_Sapling",
+          "revid": 193343
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "pomegranate",
+      "name": "Pomegranate",
+      "tree": "Pomegranate Tree",
+      "sapling": "Pomegranate Sapling",
+      "season": "fall",
+      "island_year_round": false,
+      "category": "fruit",
+      "days_to_mature": 28,
+      "base_price": 140,
+      "price_by_quality": {
+        "regular": 140,
+        "silver": 175,
+        "gold": 210,
+        "iridium": 280
+      },
+      "sapling_prices": {
+        "pierre": 6000,
+        "traveling_cart": {
+          "min": 4500,
+          "max": 7500
+        }
+      },
+      "wiki_prices": {
+        "tiller": {
+          "regular": 154,
+          "silver": 192,
+          "gold": 231,
+          "iridium": 308
+        },
+        "wine": {
+          "regular": 420,
+          "silver": 525,
+          "gold": 630,
+          "iridium": 840
+        },
+        "jelly": 330,
+        "dried_fruit": 1075,
+        "wine_artisan": {
+          "regular": 588,
+          "silver": 735,
+          "gold": 882,
+          "iridium": 1176
+        },
+        "jelly_artisan": 462,
+        "dried_fruit_artisan": 1505
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fruit Trees",
+          "url": "https://stardewvalleywiki.com/Fruit_Trees#Pomegranate_Tree",
+          "revid": 195302
+        },
+        {
+          "title": "Pomegranate Sapling",
+          "url": "https://stardewvalleywiki.com/Pomegranate_Sapling",
+          "revid": 193298
+        },
+        {
+          "title": "Fruits",
+          "url": "https://stardewvalleywiki.com/Fruits",
+          "revid": 193430
+        }
+      ],
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked"
+    }
+  ]
+}
