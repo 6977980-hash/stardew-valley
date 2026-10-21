@@ -68,6 +68,9 @@ class Llms {
 				$lines[] = '- [' . $def['short'] . '](' . $url . '): ' . $def['blurb'];
 			}
 		}
+		if ( Entities::prices_url() ) {
+			$lines[] = '- [Animal prices](' . Entities::prices_url() . '): Every farm animal with its price, the Coop or Barn it needs and that building\'s cost, gold per day and payback days.';
+		}
 		$data = get_page_by_path( 'data', OBJECT, 'page' );
 		if ( $data && 'publish' === $data->post_status ) {
 			$lines[] = '- [Data downloads](' . get_permalink( $data ) . '): The same tables as CSV files, with credit to the Stardew Valley Wiki (CC BY-NC-SA 3.0).';

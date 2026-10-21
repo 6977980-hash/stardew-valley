@@ -3089,6 +3089,26 @@
         }
       ],
       "payback_raw": 8.53,
+      "building_total": 43000,
+      "building_wood": 1350,
+      "building_stone": 650,
+      "building_capacity": 12,
+      "building_path": [
+        {
+          "name": "Barn",
+          "gold": 6000
+        },
+        {
+          "name": "Big Barn",
+          "gold": 12000
+        },
+        {
+          "name": "Deluxe Barn",
+          "gold": 25000
+        }
+      ],
+      "payback_with_building": 31.47,
+      "payback_building_share": 10.44,
       "payback_oil_artisan": 3.58
     },
     "costs": {
@@ -3962,6 +3982,41 @@
     "buildings": [
       {
         "building": "coop",
+        "levels": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100,
+            "capacity": 4,
+            "total": 4000,
+            "total_wood": 300,
+            "total_stone": 100
+          },
+          {
+            "id": "big-coop",
+            "name": "Big Coop",
+            "gold": 10000,
+            "wood": 400,
+            "stone": 150,
+            "capacity": 8,
+            "total": 14000,
+            "total_wood": 700,
+            "total_stone": 250
+          },
+          {
+            "id": "deluxe-coop",
+            "name": "Deluxe Coop",
+            "gold": 20000,
+            "wood": 500,
+            "stone": 200,
+            "capacity": 12,
+            "total": 34000,
+            "total_wood": 1200,
+            "total_stone": 450
+          }
+        ],
         "animals": [
           {
             "id": "chicken",
@@ -3979,7 +4034,11 @@
                 "name": "Mayonnaise Machine",
                 "per_animal": 0.11
               }
-            ]
+            ],
+            "building_total": 4000,
+            "capacity": 4,
+            "payback_with_building": 29.15,
+            "payback_building_share": 10.93
           },
           {
             "id": "duck",
@@ -3997,7 +4056,11 @@
                 "name": "Mayonnaise Machine",
                 "per_animal": 0.04
               }
-            ]
+            ],
+            "building_total": 14000,
+            "capacity": 8,
+            "payback_with_building": 125.06,
+            "payback_building_share": 24.27
           },
           {
             "id": "rabbit",
@@ -4015,12 +4078,51 @@
                 "name": "Loom",
                 "per_animal": 0.03
               }
-            ]
+            ],
+            "building_total": 34000,
+            "capacity": 12,
+            "payback_with_building": 240.57,
+            "payback_building_share": 62.05
           }
         ]
       },
       {
         "building": "barn",
+        "levels": [
+          {
+            "id": "barn",
+            "name": "Barn",
+            "gold": 6000,
+            "wood": 350,
+            "stone": 150,
+            "capacity": 4,
+            "total": 6000,
+            "total_wood": 350,
+            "total_stone": 150
+          },
+          {
+            "id": "big-barn",
+            "name": "Big Barn",
+            "gold": 12000,
+            "wood": 450,
+            "stone": 200,
+            "capacity": 8,
+            "total": 18000,
+            "total_wood": 800,
+            "total_stone": 350
+          },
+          {
+            "id": "deluxe-barn",
+            "name": "Deluxe Barn",
+            "gold": 25000,
+            "wood": 550,
+            "stone": 300,
+            "capacity": 12,
+            "total": 43000,
+            "total_wood": 1350,
+            "total_stone": 650
+          }
+        ],
         "animals": [
           {
             "id": "cow",
@@ -4038,7 +4140,11 @@
                 "name": "Cheese Press",
                 "per_animal": 0.13
               }
-            ]
+            ],
+            "building_total": 6000,
+            "capacity": 4,
+            "payback_with_building": 22.74,
+            "payback_building_share": 9.1
           },
           {
             "id": "goat",
@@ -4056,7 +4162,11 @@
                 "name": "Cheese Press",
                 "per_animal": 0.06
               }
-            ]
+            ],
+            "building_total": 18000,
+            "capacity": 8,
+            "payback_with_building": 73.47,
+            "payback_building_share": 20.87
           },
           {
             "id": "sheep",
@@ -4074,7 +4184,11 @@
                 "name": "Loom",
                 "per_animal": 0.08
               }
-            ]
+            ],
+            "building_total": 43000,
+            "capacity": 12,
+            "payback_with_building": 172.77,
+            "payback_building_share": 39.24
           },
           {
             "id": "pig",
@@ -4092,7 +4206,11 @@
                 "name": "Oil Maker",
                 "per_animal": 0.67
               }
-            ]
+            ],
+            "building_total": 43000,
+            "capacity": 12,
+            "payback_with_building": 31.47,
+            "payback_building_share": 10.44
           }
         ]
       }

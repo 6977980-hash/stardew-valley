@@ -159,6 +159,32 @@
         "first_year": 1472,
         "harvests": 15
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [
+            "Caroline"
+          ],
+          "hate": [
+            "Elliott"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Amaranth",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "ancient-fruit": {
@@ -426,6 +452,35 @@
         "first_year": 7401,
         "harvests": 16
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "The Missing Bundle",
+            "room": "Abandoned JojaMart",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Rare Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Ancient_Fruit",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "artichoke": {
@@ -585,6 +640,21 @@
         "first_year": 1943,
         "harvests": 13
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Artichoke",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "beet": {
@@ -745,6 +815,30 @@
         "first_year": 1659,
         "harvests": 18
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Evelyn"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Beet",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "blue-jazz": {
@@ -877,6 +971,28 @@
         "first_year": 389,
         "harvests": 15
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Garden Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Blue_Jazz",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "blueberry": {
@@ -1038,6 +1154,43 @@
         "first_year": 3845,
         "harvests": 28
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Summer Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          },
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [
+            "Lewis"
+          ],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Blueberry",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "bok-choy": {
@@ -1202,6 +1355,21 @@
         "first_year": 1073,
         "harvests": 27
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Bok_Choy",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "broccoli": {
@@ -1359,6 +1527,28 @@
         "first_year": 2038,
         "harvests": 28
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Fall Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Broccoli",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "cactus-fruit": {
@@ -1458,6 +1648,41 @@
         "first_year": 2702,
         "harvests": 37
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Exotic Foraging Bundle",
+            "room": "Crafts Room",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Sam",
+            "Linus",
+            "Pam"
+          ],
+          "like": [
+            "Lewis"
+          ],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Cactus_Fruit",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "carrot": {
@@ -1612,6 +1837,28 @@
         "first_year": 1444,
         "harvests": 37
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Spring Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Carrot",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "cauliflower": {
@@ -1771,6 +2018,37 @@
         "first_year": 1044,
         "harvests": 9
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Spring Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Maru"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Cauliflower",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "coffee-bean": {
@@ -1997,6 +2275,21 @@
         "first_year": 3157,
         "harvests": 56
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Coffee_Bean",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "corn": {
@@ -2217,6 +2510,43 @@
         "first_year": 1249,
         "harvests": 28
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Fall Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          },
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Spirit's Eve Bundle",
+            "room": "Bulletin Board",
+            "qty": 10,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [
+            "Pierre"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Corn",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "cranberries": {
@@ -2363,6 +2693,21 @@
         "first_year": 3272,
         "harvests": 22
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Cranberries",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "eggplant": {
@@ -2523,6 +2868,35 @@
         "first_year": 1463,
         "harvests": 22
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Fall Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Eggplant",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "fairy-rose": {
@@ -2656,6 +3030,37 @@
         "first_year": 1126,
         "harvests": 9
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Garden Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [
+          {
+            "name": "Fairy Dust",
+            "qty": 1,
+            "category": "Consumables"
+          }
+        ],
+        "gifts": {
+          "love": [
+            "Evelyn",
+            "Jas"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Fairy_Rose",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "garlic": {
@@ -2818,6 +3223,32 @@
         "first_year": 737,
         "harvests": 27
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [
+          {
+            "name": "Oil of Garlic",
+            "qty": 10,
+            "category": "Edible Items"
+          }
+        ],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [
+            "Jodi"
+          ],
+          "hate": [
+            "Evelyn",
+            "Pierre"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Garlic",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "grape": {
@@ -2981,6 +3412,38 @@
         "first_year": 2991,
         "harvests": 37
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Summer Foraging Bundle",
+            "room": "Crafts Room",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [
+          {
+            "name": "Summer Seeds",
+            "qty": 1,
+            "category": "Seeds"
+          }
+        ],
+        "gifts": {
+          "love": [
+            "Vincent"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [
+            "Penny"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Grape",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "green-bean": {
@@ -3142,6 +3605,35 @@
         "first_year": 1465,
         "harvests": 37
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Spring Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Green_Bean",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "hops": {
@@ -3316,6 +3808,31 @@
         "first_year": 2760,
         "harvests": 112
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Wild Medicine Bundle",
+            "room": "Crafts Room",
+            "qty": 5,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 32,
+          "dislike": [],
+          "hate": [
+            "Penny",
+            "Leo"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Hops",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "hot-pepper": {
@@ -3479,6 +3996,38 @@
         "first_year": 1620,
         "harvests": 37
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Summer Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Shane",
+            "Lewis"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Hot_Pepper",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "kale": {
@@ -3640,6 +4189,28 @@
         "first_year": 959,
         "harvests": 18
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Spring Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Kale",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "melon": {
@@ -3799,6 +4370,36 @@
         "first_year": 1802,
         "harvests": 9
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Summer Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          },
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Penny"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Melon",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "parsnip": {
@@ -3960,6 +4561,36 @@
         "first_year": 514,
         "harvests": 27
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Spring Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          },
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Pam"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Parsnip",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "pineapple": {
@@ -4112,6 +4743,21 @@
         "first_year": 4711,
         "harvests": 16
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Pineapple",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "poppy": {
@@ -4241,6 +4887,64 @@
         "first_year": 855,
         "harvests": 15
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Chef's Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Penny"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Sebastian",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Haley",
+            "Leah",
+            "Maru",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jas",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Poppy",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "potato": {
@@ -4397,6 +5101,35 @@
         "first_year": 1075,
         "harvests": 18
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Spring Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Potato",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "powdermelon": {
@@ -4529,6 +5262,28 @@
         "first_year": 1009,
         "harvests": 15
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Winter Star Bundle",
+            "room": "Bulletin Board",
+            "qty": 5,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Powdermelon",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "pumpkin": {
@@ -4683,6 +5438,44 @@
         "first_year": 2071,
         "harvests": 8
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Fall Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          },
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [
+          {
+            "name": "Jack-O-Lantern",
+            "qty": 1,
+            "category": "Lighting"
+          }
+        ],
+        "gifts": {
+          "love": [
+            "Abigail",
+            "Krobus",
+            "Willy"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Pumpkin",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "radish": {
@@ -4844,6 +5637,21 @@
         "first_year": 1095,
         "harvests": 18
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Radish",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "red-cabbage": {
@@ -4998,6 +5806,28 @@
         "first_year": 2299,
         "harvests": 12
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Red_Cabbage",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "rhubarb": {
@@ -5142,6 +5972,21 @@
         "first_year": 1174,
         "harvests": 8
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Rhubarb",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "starfruit": {
@@ -5288,6 +6133,28 @@
         "first_year": 3528,
         "harvests": 8
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Starfruit",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "strawberry": {
@@ -5440,6 +6307,24 @@
         "first_year": 3463,
         "harvests": 28
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Maru",
+            "Demetrius"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Strawberry",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "summer-spangle": {
@@ -5562,6 +6447,30 @@
         "first_year": 661,
         "harvests": 13
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Garden Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Caroline"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Summer_Spangle",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "summer-squash": {
@@ -5722,6 +6631,28 @@
         "first_year": 1813,
         "harvests": 37
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Summer Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Summer_Squash",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "sunflower": {
@@ -5924,6 +6855,37 @@
         "first_year": 1041,
         "harvests": 13
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Dye Bundle",
+            "room": "Bulletin Board",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Garden Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Haley"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Sunflower",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "sweet-gem-berry": {
@@ -5951,7 +6913,7 @@
       "indoor_only": false,
       "shop_seeds": false,
       "returns_seeds": 0,
-      "seed_note": null,
+      "seed_note": "Rare Seeds: the Traveling Cart sells 1 to 5 for 1,000g each in Spring and Summer, and now and then for 600-1,000g in any season. A Seed Maker turns one berry into about two Rare Seeds.",
       "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
@@ -6045,6 +7007,48 @@
         "established": 9459,
         "first_year": 9459,
         "harvests": 4
+      },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Rare Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 34,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Sweet_Gem_Berry",
+      "special_use": {
+        "title": "Trade one for a Stardrop",
+        "text": "Give one Sweet Gem Berry to the Old Master Cannoli statue in the northwest corner of the Secret Woods and it gives you a Stardrop, which raises your maximum energy for good. It works once per save; in multiplayer every player gets a Stardrop from that one berry. After that, sell the rest: it is not a fruit or vegetable, so it cannot go in a Keg, Preserves Jar or Dehydrator, and Tiller does not raise its price.",
+        "sources": [
+          {
+            "title": "Sweet Gem Berry",
+            "url": "https://stardewvalleywiki.com/Sweet_Gem_Berry",
+            "revid": 192754
+          },
+          {
+            "title": "Old Master Cannoli",
+            "url": "https://stardewvalleywiki.com/Old_Master_Cannoli",
+            "revid": 193319
+          },
+          {
+            "title": "Rare Seed",
+            "url": "https://stardewvalleywiki.com/Rare_Seed",
+            "revid": 193321
+          }
+        ]
       },
       "verification": "cross-checked"
     },
@@ -6203,6 +7207,21 @@
         "first_year": 1234,
         "harvests": 11
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Taro_Root",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "tomato": {
@@ -6363,6 +7382,28 @@
         "first_year": 1782,
         "harvests": 28
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Summer Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Tomato",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "tulip": {
@@ -6491,6 +7532,30 @@
         "first_year": 244,
         "harvests": 18
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [
+          {
+            "name": "Garden Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Evelyn"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Tulip",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "unmilled-rice": {
@@ -6638,6 +7703,57 @@
         "first_year": 154,
         "harvests": 13
       },
+      "uses": {
+        "bundles": [],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 0,
+          "dislike": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Sebastian",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Haley",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jas",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "hate": [
+            "Leo"
+          ],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Unmilled_Rice",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "wheat": {
@@ -6869,6 +7985,28 @@
         "first_year": 484,
         "harvests": 27
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Fodder Bundle",
+            "room": "Bulletin Board",
+            "qty": 10,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [],
+        "crafting": [],
+        "gifts": {
+          "love": [],
+          "like": [],
+          "neutral": 34,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Wheat",
+      "special_use": null,
       "verification": "cross-checked"
     },
     "yam": {
@@ -7029,6 +8167,37 @@
         "first_year": 1314,
         "harvests": 11
       },
+      "uses": {
+        "bundles": [
+          {
+            "name": "Fall Crops Bundle",
+            "room": "Pantry",
+            "qty": 1,
+            "quality": "normal"
+          }
+        ],
+        "remixed_bundles": [
+          {
+            "name": "Quality Crops Bundle",
+            "room": "Pantry",
+            "qty": 5,
+            "quality": "gold"
+          }
+        ],
+        "crafting": [],
+        "gifts": {
+          "love": [
+            "Linus"
+          ],
+          "like": [],
+          "neutral": 0,
+          "dislike": [],
+          "hate": [],
+          "of": 34
+        }
+      },
+      "wiki_url": "https://stardewvalleywiki.com/Yam",
+      "special_use": null,
       "verification": "cross-checked"
     }
   },
@@ -7194,6 +8363,33 @@
       },
       "payback_days_raw": 4.86,
       "payback_days_best_case": 2.01,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "coop",
+        "name": "Coop",
+        "level": 1,
+        "capacity": 4,
+        "gold": 4000,
+        "path": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100
+          }
+        ],
+        "total": {
+          "gold": 4000,
+          "wood": 300,
+          "stone": 100,
+          "gold_year1": 9000,
+          "gold_year2": 29000
+        }
+      },
+      "payback_days_with_building": 29.15,
+      "payback_days_full_building": 10.93,
       "rank_raw": 7,
       "of": 11,
       "notes": [
@@ -7375,6 +8571,40 @@
       },
       "payback_days_raw": 9.87,
       "payback_days_best_case": 4.81,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "big-coop",
+        "name": "Big Coop",
+        "level": 2,
+        "capacity": 8,
+        "gold": 10000,
+        "path": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100
+          },
+          {
+            "id": "big-coop",
+            "name": "Big Coop",
+            "gold": 10000,
+            "wood": 400,
+            "stone": 150
+          }
+        ],
+        "total": {
+          "gold": 14000,
+          "wood": 700,
+          "stone": 250,
+          "gold_year1": 26000,
+          "gold_year2": 74000
+        }
+      },
+      "payback_days_with_building": 125.06,
+      "payback_days_full_building": 24.27,
       "rank_raw": 9,
       "of": 11,
       "notes": [
@@ -7556,6 +8786,47 @@
       },
       "payback_days_raw": 45.82,
       "payback_days_best_case": 29.51,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "deluxe-coop",
+        "name": "Deluxe Coop",
+        "level": 3,
+        "capacity": 12,
+        "gold": 20000,
+        "path": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100
+          },
+          {
+            "id": "big-coop",
+            "name": "Big Coop",
+            "gold": 10000,
+            "wood": 400,
+            "stone": 150
+          },
+          {
+            "id": "deluxe-coop",
+            "name": "Deluxe Coop",
+            "gold": 20000,
+            "wood": 500,
+            "stone": 200
+          }
+        ],
+        "total": {
+          "gold": 34000,
+          "wood": 1200,
+          "stone": 450,
+          "gold_year1": 55000,
+          "gold_year2": 139000
+        }
+      },
+      "payback_days_with_building": 240.57,
+      "payback_days_full_building": 62.05,
       "rank_raw": 6,
       "of": 11,
       "notes": [
@@ -7691,6 +8962,47 @@
       },
       "payback_days_raw": null,
       "payback_days_best_case": null,
+      "shop": null,
+      "acquisition": {
+        "how": "Void Chickens can be hatched by placing a Void Egg into an Incubator, taking 9,000m (5d 16h 40m) to incubate, or 4,500m (2d 21h 40m) with the Coopmaster Profession. There is no other way to obtain a Void Chicken.",
+        "egg": {
+          "item": "void-egg",
+          "shop": "krobus",
+          "price": 5000
+        }
+      },
+      "building_needed": {
+        "id": "big-coop",
+        "name": "Big Coop",
+        "level": 2,
+        "capacity": 8,
+        "gold": 10000,
+        "path": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100
+          },
+          {
+            "id": "big-coop",
+            "name": "Big Coop",
+            "gold": 10000,
+            "wood": 400,
+            "stone": 150
+          }
+        ],
+        "total": {
+          "gold": 14000,
+          "wood": 700,
+          "stone": 250,
+          "gold_year1": 26000,
+          "gold_year2": 74000
+        }
+      },
+      "payback_days_with_building": null,
+      "payback_days_full_building": null,
       "rank_raw": 10,
       "of": 11,
       "notes": [
@@ -7826,6 +9138,48 @@
       },
       "payback_days_raw": null,
       "payback_days_best_case": null,
+      "shop": null,
+      "acquisition": {
+        "how": "Golden Chickens can be hatched by placing a Golden Egg into an Incubator, taking 9,000m (5d 16h 40m) to incubate, or 4,500m (2d 21h 40m) with the Coopmaster Profession.",
+        "egg": {
+          "item": "golden-egg",
+          "shop": "marnie",
+          "price": 100000,
+          "requirement": "To obtain Golden Eggs and Golden Chickens, Perfection must be reached."
+        }
+      },
+      "building_needed": {
+        "id": "big-coop",
+        "name": "Big Coop",
+        "level": 2,
+        "capacity": 8,
+        "gold": 10000,
+        "path": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100
+          },
+          {
+            "id": "big-coop",
+            "name": "Big Coop",
+            "gold": 10000,
+            "wood": 400,
+            "stone": 150
+          }
+        ],
+        "total": {
+          "gold": 14000,
+          "wood": 700,
+          "stone": 250,
+          "gold_year1": 26000,
+          "gold_year2": 74000
+        }
+      },
+      "payback_days_with_building": null,
+      "payback_days_full_building": null,
       "rank_raw": 2,
       "of": 11,
       "notes": [
@@ -7961,6 +9315,43 @@
       },
       "payback_days_raw": null,
       "payback_days_best_case": null,
+      "shop": null,
+      "acquisition": {
+        "how": "Dinosaurs can be hatched by placing a Dinosaur Egg into an Incubator, taking 18,000m (11d 6h 40m) to incubate, or 9,000m (5d 16h 40m) with the Coopmaster Profession.",
+        "egg": null
+      },
+      "building_needed": {
+        "id": "big-coop",
+        "name": "Big Coop",
+        "level": 2,
+        "capacity": 8,
+        "gold": 10000,
+        "path": [
+          {
+            "id": "coop",
+            "name": "Coop",
+            "gold": 4000,
+            "wood": 300,
+            "stone": 100
+          },
+          {
+            "id": "big-coop",
+            "name": "Big Coop",
+            "gold": 10000,
+            "wood": 400,
+            "stone": 150
+          }
+        ],
+        "total": {
+          "gold": 14000,
+          "wood": 700,
+          "stone": 250,
+          "gold_year1": 26000,
+          "gold_year2": 74000
+        }
+      },
+      "payback_days_with_building": null,
+      "payback_days_full_building": null,
       "rank_raw": 11,
       "of": 11,
       "notes": [],
@@ -8094,6 +9485,36 @@
       },
       "payback_days_raw": null,
       "payback_days_best_case": null,
+      "shop": null,
+      "acquisition": {
+        "how": "Ostriches can be hatched by placing an Ostrich Egg into an Ostrich Incubator, taking 15,000m (9d 10h) to incubate, or 7,500m (4d 18h 20m) with the Coopmaster Profession. An Ostrich Egg can be initially found by solving Journal Scrap #10, or as a random drop from the chests in the Volcano Dungeon.",
+        "egg": null
+      },
+      "building_needed": {
+        "id": "barn",
+        "name": "Barn",
+        "level": 1,
+        "capacity": 4,
+        "gold": 6000,
+        "path": [
+          {
+            "id": "barn",
+            "name": "Barn",
+            "gold": 6000,
+            "wood": 350,
+            "stone": 150
+          }
+        ],
+        "total": {
+          "gold": 6000,
+          "wood": 350,
+          "stone": 150,
+          "gold_year1": 12500,
+          "gold_year2": 38500
+        }
+      },
+      "payback_days_with_building": null,
+      "payback_days_full_building": null,
       "rank_raw": 8,
       "of": 11,
       "notes": [],
@@ -8261,6 +9682,33 @@
       },
       "payback_days_raw": 4.55,
       "payback_days_best_case": 3.11,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "barn",
+        "name": "Barn",
+        "level": 1,
+        "capacity": 4,
+        "gold": 6000,
+        "path": [
+          {
+            "id": "barn",
+            "name": "Barn",
+            "gold": 6000,
+            "wood": 350,
+            "stone": 150
+          }
+        ],
+        "total": {
+          "gold": 6000,
+          "wood": 350,
+          "stone": 150,
+          "gold_year1": 12500,
+          "gold_year2": 38500
+        }
+      },
+      "payback_days_with_building": 22.74,
+      "payback_days_full_building": 9.1,
       "rank_raw": 3,
       "of": 11,
       "notes": [
@@ -8430,6 +9878,40 @@
       },
       "payback_days_raw": 13.36,
       "payback_days_best_case": 9.52,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "big-barn",
+        "name": "Big Barn",
+        "level": 2,
+        "capacity": 8,
+        "gold": 12000,
+        "path": [
+          {
+            "id": "barn",
+            "name": "Barn",
+            "gold": 6000,
+            "wood": 350,
+            "stone": 150
+          },
+          {
+            "id": "big-barn",
+            "name": "Big Barn",
+            "gold": 12000,
+            "wood": 450,
+            "stone": 200
+          }
+        ],
+        "total": {
+          "gold": 18000,
+          "wood": 800,
+          "stone": 350,
+          "gold_year1": 33000,
+          "gold_year2": 93000
+        }
+      },
+      "payback_days_with_building": 73.47,
+      "payback_days_full_building": 20.87,
       "rank_raw": 4,
       "of": 11,
       "notes": [
@@ -8570,6 +10052,47 @@
       },
       "payback_days_raw": 27.1,
       "payback_days_best_case": 14.23,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "deluxe-barn",
+        "name": "Deluxe Barn",
+        "level": 3,
+        "capacity": 12,
+        "gold": 25000,
+        "path": [
+          {
+            "id": "barn",
+            "name": "Barn",
+            "gold": 6000,
+            "wood": 350,
+            "stone": 150
+          },
+          {
+            "id": "big-barn",
+            "name": "Big Barn",
+            "gold": 12000,
+            "wood": 450,
+            "stone": 200
+          },
+          {
+            "id": "deluxe-barn",
+            "name": "Deluxe Barn",
+            "gold": 25000,
+            "wood": 550,
+            "stone": 300
+          }
+        ],
+        "total": {
+          "gold": 43000,
+          "wood": 1350,
+          "stone": 650,
+          "gold_year1": 69500,
+          "gold_year2": 175500
+        }
+      },
+      "payback_days_with_building": 172.77,
+      "payback_days_full_building": 39.24,
       "rank_raw": 5,
       "of": 11,
       "notes": [
@@ -8706,6 +10229,47 @@
       },
       "payback_days_raw": 8.53,
       "payback_days_best_case": 3.58,
+      "shop": "Marnie's Ranch",
+      "acquisition": null,
+      "building_needed": {
+        "id": "deluxe-barn",
+        "name": "Deluxe Barn",
+        "level": 3,
+        "capacity": 12,
+        "gold": 25000,
+        "path": [
+          {
+            "id": "barn",
+            "name": "Barn",
+            "gold": 6000,
+            "wood": 350,
+            "stone": 150
+          },
+          {
+            "id": "big-barn",
+            "name": "Big Barn",
+            "gold": 12000,
+            "wood": 450,
+            "stone": 200
+          },
+          {
+            "id": "deluxe-barn",
+            "name": "Deluxe Barn",
+            "gold": 25000,
+            "wood": 550,
+            "stone": 300
+          }
+        ],
+        "total": {
+          "gold": 43000,
+          "wood": 1350,
+          "stone": 650,
+          "gold_year1": 69500,
+          "gold_year2": 175500
+        }
+      },
+      "payback_days_with_building": 31.47,
+      "payback_days_full_building": 10.44,
       "rank_raw": 1,
       "of": 11,
       "notes": [

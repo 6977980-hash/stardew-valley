@@ -51,6 +51,7 @@ class Search {
 				$add( $e['name'], Entities::url( $type, $id ), 'crops' === $type ? 'Crop' : ( 'animals' === $type ? 'Animal' : 'Machine' ), $desc );
 			}
 		}
+		$add( 'Animal Prices', Entities::prices_url(), 'List', 'Every farm animal: price, building, upgrade cost and payback.' );
 		$add( 'Data Downloads', Entities::url( 'data', '' ) ?: self::page_url( 'data' ), 'Data', 'CSV files for crops, animals and machines.' );
 		return $items;
 	}

@@ -1,0 +1,410 @@
+{
+  "schema": "stardew-tools/buildings@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-21",
+  "last_verified": "2026-10-21",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), cross-checked between the Coop and Barn pages and Carpenter's Shop",
+  "materials": {
+    "wood": {
+      "year1": 10,
+      "year2": 50
+    },
+    "stone": {
+      "year1": 20,
+      "year2": 100
+    },
+    "note": "Robin's prices for Wood and Stone; they rise from Year 2. Gathering them yourself costs nothing.",
+    "sources": [
+      {
+        "title": "Carpenter's Shop",
+        "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Shop_Inventory",
+        "revid": 195197
+      }
+    ]
+  },
+  "families": [
+    {
+      "id": "coop",
+      "name": "Coop",
+      "total_wording": "total cost of a Deluxe Coop, built from scratch, is 34,000g , Wood (1200) and Stone (450) (Or, if all wood and stone are bought from Robin during Year 1, 55,000g , and 139,000g if bought in Year 2+",
+      "sources": [
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop#Construction",
+          "revid": 193803
+        }
+      ]
+    },
+    {
+      "id": "barn",
+      "name": "Barn",
+      "total_wording": "total cost of a Deluxe Barn, built from scratch, is 43,000g Wood (1350) Stone (650) ; or, if all wood and stone are bought from Robin during year 1, 69,500g , and 175,500g if bought in year 2+",
+      "sources": [
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn#Construction",
+          "revid": 193419
+        }
+      ]
+    }
+  ],
+  "buildings": [
+    {
+      "id": "coop",
+      "name": "Coop",
+      "family": "coop",
+      "level": 1,
+      "upgrades_from": null,
+      "gold": 4000,
+      "materials": {
+        "wood": 300,
+        "stone": 100
+      },
+      "capacity": 4,
+      "adds_animals": [
+        "chicken"
+      ],
+      "houses": [
+        "chicken"
+      ],
+      "total": {
+        "gold": 4000,
+        "wood": 300,
+        "stone": 100,
+        "gold_year1": 9000,
+        "gold_year2": 29000
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Farm_Buildings",
+          "revid": 195197
+        }
+      ],
+      "verified": {
+        "gold": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ],
+        "materials": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ],
+        "capacity": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ]
+      },
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "big-coop",
+      "name": "Big Coop",
+      "family": "coop",
+      "level": 2,
+      "upgrades_from": "coop",
+      "gold": 10000,
+      "materials": {
+        "wood": 400,
+        "stone": 150
+      },
+      "capacity": 8,
+      "adds_animals": [
+        "duck",
+        "void-chicken",
+        "dinosaur",
+        "golden-chicken"
+      ],
+      "houses": [
+        "chicken",
+        "duck",
+        "void-chicken",
+        "dinosaur",
+        "golden-chicken"
+      ],
+      "total": {
+        "gold": 14000,
+        "wood": 700,
+        "stone": 250,
+        "gold_year1": 26000,
+        "gold_year2": 74000
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Farm_Buildings",
+          "revid": 195197
+        }
+      ],
+      "verified": {
+        "gold": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ],
+        "materials": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ],
+        "capacity": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ]
+      },
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "deluxe-coop",
+      "name": "Deluxe Coop",
+      "family": "coop",
+      "level": 3,
+      "upgrades_from": "big-coop",
+      "gold": 20000,
+      "materials": {
+        "wood": 500,
+        "stone": 200
+      },
+      "capacity": 12,
+      "adds_animals": [
+        "rabbit"
+      ],
+      "houses": [
+        "chicken",
+        "duck",
+        "void-chicken",
+        "dinosaur",
+        "golden-chicken",
+        "rabbit"
+      ],
+      "total": {
+        "gold": 34000,
+        "wood": 1200,
+        "stone": 450,
+        "gold_year1": 55000,
+        "gold_year2": 139000
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Coop",
+          "url": "https://stardewvalleywiki.com/Coop",
+          "revid": 193803
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Farm_Buildings",
+          "revid": 195197
+        }
+      ],
+      "verified": {
+        "gold": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ],
+        "materials": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ],
+        "capacity": [
+          "Coop (infobox)",
+          "Carpenter's Shop"
+        ]
+      },
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "barn",
+      "name": "Barn",
+      "family": "barn",
+      "level": 1,
+      "upgrades_from": null,
+      "gold": 6000,
+      "materials": {
+        "wood": 350,
+        "stone": 150
+      },
+      "capacity": 4,
+      "adds_animals": [
+        "cow",
+        "ostrich"
+      ],
+      "houses": [
+        "cow",
+        "ostrich"
+      ],
+      "total": {
+        "gold": 6000,
+        "wood": 350,
+        "stone": 150,
+        "gold_year1": 12500,
+        "gold_year2": 38500
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Farm_Buildings",
+          "revid": 195197
+        }
+      ],
+      "verified": {
+        "gold": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ],
+        "materials": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ],
+        "capacity": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ]
+      },
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "big-barn",
+      "name": "Big Barn",
+      "family": "barn",
+      "level": 2,
+      "upgrades_from": "barn",
+      "gold": 12000,
+      "materials": {
+        "wood": 450,
+        "stone": 200
+      },
+      "capacity": 8,
+      "adds_animals": [
+        "goat"
+      ],
+      "houses": [
+        "cow",
+        "goat",
+        "ostrich"
+      ],
+      "total": {
+        "gold": 18000,
+        "wood": 800,
+        "stone": 350,
+        "gold_year1": 33000,
+        "gold_year2": 93000
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Farm_Buildings",
+          "revid": 195197
+        }
+      ],
+      "verified": {
+        "gold": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ],
+        "materials": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ],
+        "capacity": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ]
+      },
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked",
+      "problems": []
+    },
+    {
+      "id": "deluxe-barn",
+      "name": "Deluxe Barn",
+      "family": "barn",
+      "level": 3,
+      "upgrades_from": "big-barn",
+      "gold": 25000,
+      "materials": {
+        "wood": 550,
+        "stone": 300
+      },
+      "capacity": 12,
+      "adds_animals": [
+        "sheep",
+        "pig"
+      ],
+      "houses": [
+        "cow",
+        "goat",
+        "sheep",
+        "pig",
+        "ostrich"
+      ],
+      "total": {
+        "gold": 43000,
+        "wood": 1350,
+        "stone": 650,
+        "gold_year1": 69500,
+        "gold_year2": 175500
+      },
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Barn",
+          "url": "https://stardewvalleywiki.com/Barn",
+          "revid": 193419
+        },
+        {
+          "title": "Carpenter's Shop",
+          "url": "https://stardewvalleywiki.com/Carpenter's_Shop#Farm_Buildings",
+          "revid": 195197
+        }
+      ],
+      "verified": {
+        "gold": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ],
+        "materials": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ],
+        "capacity": [
+          "Barn (infobox)",
+          "Carpenter's Shop"
+        ]
+      },
+      "last_verified": "2026-10-21",
+      "verification_status": "cross-checked",
+      "problems": []
+    }
+  ]
+}

@@ -36,9 +36,15 @@ foreach ( $g['egg_animals'] as $e ) {
 $raw_pay = function ( $a ) {
 	return $a['price'] / max( 1, $a['hearts5'] );
 };
+$coop_l  = ! empty( $g['buildings'][0]['levels'] ) ? $g['buildings'][0]['levels'] : array();
+$barn_l  = ! empty( $g['buildings'][1]['levels'] ) ? $g['buildings'][1]['levels'] : array();
+$has_b   = $coop_l && $barn_l && isset( $chicken['payback_building_share'], $cow['payback_building_share'] );
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> start with a coop if gold is tight, and with a barn if you can afford a cow. A <?php echo esc_html( $chicken['name'] ); ?> costs <?php echo esc_html( $gold( $chicken['price'] ) ); ?> and earns <?php echo esc_html( $gold( $chicken['hearts5'] ) ); ?> a day at full friendship, paying itself back in about <?php echo esc_html( $num( $raw_pay( $chicken ) ) ); ?> days of production. A <?php echo esc_html( $cow['name'] ); ?> costs <?php echo esc_html( $gold( $cow['price'] ) ); ?> and earns <?php echo esc_html( $gold( $cow['hearts5'] ) ); ?> a day, paying back in about <?php echo esc_html( $num( $raw_pay( $cow ) ) ); ?> days. Per animal the cow is the better buy from the first week, and the chicken is the cheaper way in.</p>
+	<?php if ( $has_b ) : ?>
+	<p>The building costs more than the animal. Robin charges <?php echo esc_html( $gold( $coop_l[0]['gold'] ) ); ?> for a Coop (<?php echo (int) $coop_l[0]['wood']; ?> Wood, <?php echo (int) $coop_l[0]['stone']; ?> Stone) and <?php echo esc_html( $gold( $barn_l[0]['gold'] ) ); ?> for a Barn (<?php echo (int) $barn_l[0]['wood']; ?> Wood, <?php echo (int) $barn_l[0]['stone']; ?> Stone), each for <?php echo (int) $coop_l[0]['capacity']; ?> animals. Counting the building, a full Coop of chickens pays back in about <?php echo esc_html( $num( $chicken['payback_building_share'] ) ); ?> days and a full Barn of cows in about <?php echo esc_html( $num( $cow['payback_building_share'] ) ); ?>.</p>
+	<?php endif; ?>
 </div>
 
 <h2>Which building does each animal need?</h2>
@@ -51,31 +57,45 @@ $raw_pay = function ( $a ) {
 	<li><strong>Big Barn:</strong> <?php echo esc_html( $goat['name'] ); ?> (<?php echo esc_html( $gold( $goat['price'] ) ); ?>).</li>
 	<li><strong>Deluxe Barn:</strong> <?php echo esc_html( $sheep['name'] ); ?> (<?php echo esc_html( $gold( $sheep['price'] ) ); ?>) and <?php echo esc_html( $pig['name'] ); ?> (<?php echo esc_html( $gold( $pig['price'] ) ); ?>).</li>
 </ul>
-<p>That means the first-level choice is only two animals: the chicken or the cow. The building prices and the number of animals each holds aren't in our verified data, so check Robin's list in the game before you commit your gold. The rest of this guide compares the animals themselves.</p>
+<p>That means the first-level choice is only two animals: the chicken or the cow.<?php echo $has_b ? ' Here is what Robin charges for each level, and what it adds up to from an empty plot:' : ' The rest of this guide compares the animals themselves.'; ?></p>
+<?php if ( $has_b ) : ?>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
+<table class="results-table">
+	<caption>Coop and Barn levels, Robin's prices</caption>
+	<thead><tr><th scope="col">Building</th><th scope="col">Gold</th><th scope="col">Wood</th><th scope="col">Stone</th><th scope="col">Holds</th><th scope="col">Gold from an empty plot</th></tr></thead>
+	<tbody>
+		<?php foreach ( array_merge( $coop_l, $barn_l ) as $l ) : ?>
+		<tr><th scope="row"><?php echo esc_html( $l['name'] ); ?></th><td><?php echo esc_html( $gold( $l['gold'] ) ); ?></td><td><?php echo (int) $l['wood']; ?></td><td><?php echo (int) $l['stone']; ?></td><td><?php echo (int) $l['capacity']; ?></td><td><?php echo esc_html( $gold( $l['total'] ) ); ?></td></tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<p>A Barn costs <?php echo esc_html( $gold( $barn_l[0]['gold'] - $coop_l[0]['gold'] ) ); ?> more than a Coop, and the gap grows with each upgrade: a Deluxe Barn comes to <?php echo esc_html( $gold( end( $barn_l )['total'] ) ); ?> against <?php echo esc_html( $gold( end( $coop_l )['total'] ) ); ?> for a Deluxe Coop. Wood and stone can be gathered for free, so the payback figures below count gold only. The rest of this guide compares the animals themselves.<?php echo Stardew_Tools\Entities::prices_url() ? ' Every animal with its building cost is also on <a href="' . esc_url( Stardew_Tools\Entities::prices_url() ) . '">Stardew Valley Animal Prices</a>.' : ''; ?></p>
+<?php endif; ?>
 
 <h2>The coop: chickens, ducks and rabbits</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Coop animals, gold per day at three friendship levels</caption>
-	<thead><tr><th scope="col">Animal</th><th scope="col">Needs</th><th scope="col">Price</th><th scope="col">Days to mature</th><th scope="col">0 hearts</th><th scope="col">3 hearts</th><th scope="col">5 hearts</th><th scope="col">5 hearts, artisan goods</th><th scope="col">Pays back in (raw)</th></tr></thead>
+	<thead><tr><th scope="col">Animal</th><th scope="col">Needs</th><th scope="col">Price</th><th scope="col">Days to mature</th><th scope="col">0 hearts</th><th scope="col">3 hearts</th><th scope="col">5 hearts</th><th scope="col">5 hearts, artisan goods</th><th scope="col">Pays back in (raw)</th><?php if ( $has_b ) : ?><th scope="col">Pays back, with a full building's share</th><?php endif; ?></tr></thead>
 	<tbody>
 		<?php foreach ( $g['buildings'][0]['animals'] as $a ) : ?>
-		<tr><th scope="row"><?php echo esc_html( $a['name'] ); ?></th><td><?php echo esc_html( $a['building_name'] ); ?></td><td><?php echo esc_html( $gold( $a['price'] ) ); ?></td><td><?php echo (int) $a['mature']; ?></td><td><?php echo esc_html( $gold( $a['hearts0'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts3'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts5'] ) ); ?></td><td><?php echo esc_html( $gold( $a['processed5'] ) ); ?></td><td><?php echo esc_html( $num( $raw_pay( $a ) ) ); ?> days</td></tr>
+		<tr><th scope="row"><?php echo esc_html( $a['name'] ); ?></th><td><?php echo esc_html( $a['building_name'] ); ?></td><td><?php echo esc_html( $gold( $a['price'] ) ); ?></td><td><?php echo (int) $a['mature']; ?></td><td><?php echo esc_html( $gold( $a['hearts0'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts3'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts5'] ) ); ?></td><td><?php echo esc_html( $gold( $a['processed5'] ) ); ?></td><td><?php echo esc_html( $num( $raw_pay( $a ) ) ); ?> days</td><?php if ( $has_b ) : ?><td><?php echo isset( $a['payback_building_share'] ) ? esc_html( $num( $a['payback_building_share'] ) ) . ' days' : '—'; ?></td><?php endif; ?></tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
 </div>
-<p class="table-note">Average daily luck, maximum happiness, no hay cost. Artisan goods assume the Artisan profession and a machine for every animal.</p>
+<p class="table-note">Average daily luck, maximum happiness, no hay cost. Artisan goods assume the Artisan profession and a machine for every animal.<?php echo $has_b ? " The last column adds the gold for the building the animal needs (from an empty plot), split across the animals it holds." : ''; ?></p>
 <p>The Chicken is the cheapest animal in the game and the best value in the coop. It is mature in <?php echo (int) $chicken['mature']; ?> days and its eggs sell for <?php echo esc_html( $gold( $chicken['hearts5'] ) ); ?> a day at full hearts once you have petted it for a while. With Mayonnaise Machines and the Artisan profession that rises to <?php echo esc_html( $gold( $chicken['processed5'] ) ); ?>. The Duck costs <?php echo esc_html( $num( $duck['price'] / $chicken['price'] ) ); ?> times as much and earns less (<?php echo esc_html( $gold( $duck['hearts5'] ) ); ?> a day), so it is not a first choice. Its one perk, according to the wiki, is that it does not need hay or grass when it can swim on water. The Rabbit is expensive at <?php echo esc_html( $gold( $rabbit['price'] ) ); ?> and pays back slowly, in about <?php echo esc_html( $num( $raw_pay( $rabbit ) ) ); ?> days raw.</p>
 
 <h2>The barn: cows, goats, sheep and pigs</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>Barn animals, gold per day at three friendship levels</caption>
-	<thead><tr><th scope="col">Animal</th><th scope="col">Needs</th><th scope="col">Price</th><th scope="col">Days to mature</th><th scope="col">0 hearts</th><th scope="col">3 hearts</th><th scope="col">5 hearts</th><th scope="col">5 hearts, artisan goods</th><th scope="col">Pays back in (raw)</th></tr></thead>
+	<thead><tr><th scope="col">Animal</th><th scope="col">Needs</th><th scope="col">Price</th><th scope="col">Days to mature</th><th scope="col">0 hearts</th><th scope="col">3 hearts</th><th scope="col">5 hearts</th><th scope="col">5 hearts, artisan goods</th><th scope="col">Pays back in (raw)</th><?php if ( $has_b ) : ?><th scope="col">Pays back, with a full building's share</th><?php endif; ?></tr></thead>
 	<tbody>
 		<?php foreach ( $g['buildings'][1]['animals'] as $a ) : ?>
-		<tr><th scope="row"><?php echo esc_html( $a['name'] ); ?></th><td><?php echo esc_html( $a['building_name'] ); ?></td><td><?php echo esc_html( $gold( $a['price'] ) ); ?></td><td><?php echo (int) $a['mature']; ?></td><td><?php echo esc_html( $gold( $a['hearts0'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts3'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts5'] ) ); ?></td><td><?php echo esc_html( $gold( $a['processed5'] ) ); ?></td><td><?php echo esc_html( $num( $raw_pay( $a ) ) ); ?> days</td></tr>
+		<tr><th scope="row"><?php echo esc_html( $a['name'] ); ?></th><td><?php echo esc_html( $a['building_name'] ); ?></td><td><?php echo esc_html( $gold( $a['price'] ) ); ?></td><td><?php echo (int) $a['mature']; ?></td><td><?php echo esc_html( $gold( $a['hearts0'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts3'] ) ); ?></td><td><?php echo esc_html( $gold( $a['hearts5'] ) ); ?></td><td><?php echo esc_html( $gold( $a['processed5'] ) ); ?></td><td><?php echo esc_html( $num( $raw_pay( $a ) ) ); ?> days</td><?php if ( $has_b ) : ?><td><?php echo isset( $a['payback_building_share'] ) ? esc_html( $num( $a['payback_building_share'] ) ) . ' days' : '—'; ?></td><?php endif; ?></tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
@@ -161,7 +181,12 @@ usort(
 
 <h2>What these numbers leave out</h2>
 <ul>
+	<?php if ( $has_b ) : ?>
+	<li><strong>Wood and stone.</strong> Building payback counts Robin's gold only. If you buy the wood and stone from him too, a Coop costs more; the <a href="<?php echo esc_url( Stardew_Tools\Entities::prices_url() ? Stardew_Tools\Entities::prices_url() : home_url( '/farm-animals/' ) ); ?>">Animal Prices</a> page has those totals.</li>
+	<li><strong>An empty building.</strong> The "full building's share" assumes you fill it. With one animal in a new Barn, the Cow alone takes about <?php echo esc_html( $num( $cow['payback_with_building'] ) ); ?> days to pay back the Barn and itself.</li>
+	<?php else : ?>
 	<li><strong>Building prices.</strong> Our data doesn't include what Robin charges, so the "pays back" columns count only the animal.</li>
+	<?php endif; ?>
 	<li><strong>Hay.</strong> Feeding costs are not included. Animals can eat grass outside instead.</li>
 	<li><strong>Time to full hearts.</strong> The full-heart figures take weeks to reach.</li>
 	<li><strong>Bundles.</strong> White and brown eggs, and large versions, matter for some Community Center bundles. See <a href="<?php echo esc_url( $tool_url( 'bundle-tracker' ) ); ?>">the Bundle Tracker</a>.</li>

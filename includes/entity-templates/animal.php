@@ -49,9 +49,25 @@ uasort(
 	}
 );
 ?>
+<?php
+$bld      = isset( $e['building_needed'] ) ? $e['building_needed'] : null;
+$days     = function ( $v ) use ( $n ) {
+	return $v < 10 ? $n( round( $v, 1 ) ) : number_format( round( $v ) );
+};
+$prices_u = Stardew_Tools\Entities::prices_url();
+?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> a <?php echo esc_html( $e['name'] ); ?> <?php echo $e['price'] ? 'costs ' . esc_html( $gold( $e['price'] ) ) . ' and lives in a ' . esc_html( $e['building'] ) : 'lives in a ' . esc_html( $e['building'] ) . ' and is not sold in a shop'; ?>. At full friendship it <?php echo esc_html( $pace ); ?> and earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products as they are, or <?php echo esc_html( $gold( $full['processed'] ) ); ?> a day made into artisan goods by an Artisan player. That makes it <?php echo esc_html( $tier ); ?> (number <?php echo (int) $e['rank_raw']; ?> of <?php echo (int) $e['of']; ?> by raw income).<?php echo ! empty( $e['payback_days_raw'] ) ? ' Selling its products raw, it pays back its price in about ' . esc_html( $n( $e['payback_days_raw'] ) ) . ' days of production.' : ''; ?></p>
+	<?php if ( $e['price'] ) : ?>
+	<p class="answer__lead"><strong>Short answer:</strong> <?php echo esc_html( Stardew_Tools\Entities::article( $e['name'] ) . ' ' . $e['name'] ); ?> costs <strong><?php echo esc_html( $gold( $e['price'] ) ); ?></strong> at <?php echo esc_html( $e['shop'] ? $e['shop'] : "Marnie's Ranch" ); ?><?php if ( $bld ) : ?>, and you need a <?php echo esc_html( $bld['name'] ); ?> to buy one. Built from an empty plot, that building costs <?php echo esc_html( $gold( $bld['total']['gold'] ) ); ?> plus <?php echo esc_html( number_format( $bld['total']['wood'] ) ); ?> Wood and <?php echo esc_html( number_format( $bld['total']['stone'] ) ); ?> Stone<?php echo count( $bld['path'] ) > 1 ? ' (' . esc_html( implode( ', ', array_map( function ( $l ) use ( $gold ) { return $l['name'] . ' ' . $gold( $l['gold'] ); }, $bld['path'] ) ) ) . ')' : ''; ?>, and it holds <?php echo (int) $bld['capacity']; ?> animals<?php endif; ?>.</p>
+	<?php if ( ! empty( $e['payback_days_raw'] ) ) : ?>
+	<p>At five hearts it earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products raw, so it pays back its own price in about <?php echo esc_html( $days( $e['payback_days_raw'] ) ); ?> days<?php if ( ! empty( $e['payback_days_with_building'] ) ) : ?>, <?php echo esc_html( $days( $e['payback_days_with_building'] ) ); ?> days if it also has to pay for the whole <?php echo esc_html( $bld['name'] ); ?>, or <?php echo esc_html( $days( $e['payback_days_full_building'] ) ); ?> days as one of <?php echo (int) $bld['capacity']; ?> animals sharing the building's cost<?php endif; ?>.</p>
+	<?php endif; ?>
+	<?php else : ?>
+	<p class="answer__lead"><strong>Short answer:</strong> the <?php echo esc_html( $e['name'] ); ?> is not sold in any shop: you hatch it from an egg<?php echo $bld ? ' in a ' . esc_html( $bld['name'] ) . ' (' . esc_html( $gold( $bld['total']['gold'] ) ) . ' to build from an empty plot)' : ''; ?>. At five hearts it earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products raw.</p>
+	<?php endif; ?>
 </div>
+
+<p>At full friendship a <?php echo esc_html( $e['name'] ); ?> <?php echo esc_html( $pace ); ?> and earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products as they are, or <?php echo esc_html( $gold( $full['processed'] ) ); ?> a day made into artisan goods by an Artisan player. That makes it <?php echo esc_html( $tier ); ?> (number <?php echo (int) $e['rank_raw']; ?> of <?php echo (int) $e['of']; ?> by raw income).<?php echo $prices_u ? ' Compare every animal and building on <a href="' . esc_url( $prices_u ) . '">Stardew Valley Animal Prices</a>.' : ''; ?></p>
 
 <h2>Quick facts</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
@@ -59,7 +75,13 @@ uasort(
 	<caption><?php echo esc_html( $e['name'] ); ?> at a glance</caption>
 	<tbody>
 		<tr><th scope="row">Building</th><td><?php echo esc_html( $e['building'] ); ?></td></tr>
-		<tr><th scope="row">Price</th><td><?php echo $e['price'] ? esc_html( $gold( $e['price'] ) ) : 'Not sold in a shop'; ?></td></tr>
+		<tr><th scope="row">Price</th><td><?php echo $e['price'] ? esc_html( $gold( $e['price'] ) . ' at ' . ( $e['shop'] ? $e['shop'] : "Marnie's Ranch" ) ) : 'Not sold in a shop'; ?></td></tr>
+		<?php if ( $bld ) : ?>
+		<tr><th scope="row"><?php echo esc_html( $bld['name'] ); ?> cost</th><td><?php echo esc_html( $gold( $bld['gold'] ) ); ?><?php echo count( $bld['path'] ) > 1 ? esc_html( ' for this upgrade; ' . $gold( $bld['total']['gold'] ) . ', ' . number_format( $bld['total']['wood'] ) . ' Wood and ' . number_format( $bld['total']['stone'] ) . ' Stone from an empty plot' ) : esc_html( ', ' . number_format( $bld['total']['wood'] ) . ' Wood and ' . number_format( $bld['total']['stone'] ) . ' Stone' ); ?> (from Robin)</td></tr>
+		<?php endif; ?>
+		<?php if ( ! empty( $e['payback_days_with_building'] ) ) : ?>
+		<tr><th scope="row">Payback, raw</th><td><?php echo esc_html( $days( $e['payback_days_raw'] ) ); ?> days for the animal alone; <?php echo esc_html( $days( $e['payback_days_with_building'] ) ); ?> with the whole building; <?php echo esc_html( $days( $e['payback_days_full_building'] ) ); ?> with a full building's share</td></tr>
+		<?php endif; ?>
 		<?php if ( $e['days_to_mature'] ) : ?>
 		<tr><th scope="row">Days to mature</th><td><?php echo (int) $e['days_to_mature']; ?></td></tr>
 		<?php endif; ?>
@@ -71,6 +93,9 @@ uasort(
 	</tbody>
 </table>
 </div>
+<?php if ( ! empty( $e['payback_days_with_building'] ) ) : ?>
+<p class="table-note">Payback divides the gold you spend by raw income at five hearts. The building counts its gold only: its wood and stone can be gathered for free, and hay and the days before five hearts are not counted.</p>
+<?php endif; ?>
 
 <h2>Income by hearts</h2>
 <p>Animal friendship is counted in hearts, 200 points each, up to five. Friendship raises the chance of silver, gold and iridium products<?php echo $large ? ' and of the Large product' : ''; ?>, so income climbs as you pet and feed it. Gold per day for one animal, with happiness at the maximum:</p>
@@ -145,6 +170,9 @@ $five = $e['by_hearts'][5]['gold'];
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a><span>Gold per day for any animal, hearts and professions.</span></li>
+	<?php if ( $prices_u ) : ?>
+	<li><a href="<?php echo esc_url( $prices_u ); ?>">Animal prices</a><span>Every animal's price, building cost and payback in one table.</span></li>
+	<?php endif; ?>
 	<?php if ( $ent_url( 'animals', '' ) ) : ?>
 	<li><a href="<?php echo esc_url( $ent_url( 'animals', '' ) ); ?>">All farm animals</a><span>Every animal in one table, with a CSV download.</span></li>
 	<?php endif; ?>

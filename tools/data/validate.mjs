@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator }).filter(([, d]) => d)) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -209,6 +209,37 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
       } else if (!isInt(b.gold, 1)) err('bundles', `${b.id}: no items and no gold`);
     }
   }
+  if (buildings) {
+    const byId = new Map(buildings.buildings.map((b) => [b.id, b]));
+    if (byId.size !== buildings.buildings.length) err('buildings', 'duplicate ids');
+    for (const k of ['wood', 'stone']) {
+      const m = buildings.materials[k];
+      if (!m || !isInt(m.year1, 1) || !(m.year2 > m.year1)) err('buildings', `${k} price`);
+    }
+    checkSources('buildings materials', buildings.materials.sources);
+    for (const f of ['coop', 'barn']) {
+      const levels = buildings.buildings.filter((b) => b.family === f).sort((a, b) => a.level - b.level);
+      if (levels.map((b) => b.level).join() !== '1,2,3') err('buildings', `${f}: expected levels 1-3`);
+      let total = { gold: 0, wood: 0, stone: 0 };
+      levels.forEach((b, i) => {
+        const where = `building ${b.id}`;
+        checkSources(where, b.sources);
+        if (b.sources.length < 2 || b.verification_status !== 'cross-checked' || b.problems.length) err(where, 'needs two agreeing sources');
+        if (!isInt(b.gold, 1) || !isInt(b.materials.wood, 1) || !isInt(b.materials.stone, 1)) err(where, 'cost');
+        if (b.capacity !== 4 * b.level) err(where, `capacity ${b.capacity}`);
+        if (i && (b.upgrades_from !== levels[i - 1].id || !(b.gold > levels[i - 1].gold))) err(where, 'upgrade chain');
+        total = { gold: total.gold + b.gold, wood: total.wood + b.materials.wood, stone: total.stone + b.materials.stone };
+        if (b.total.gold !== total.gold || b.total.wood !== total.wood || b.total.stone !== total.stone) err(where, 'running total');
+        if (b.total.gold_year1 !== total.gold + total.wood * buildings.materials.wood.year1 + total.stone * buildings.materials.stone.year1) err(where, 'year 1 total');
+      });
+    }
+    if (animals) {
+      for (const a of animals.animals) {
+        const b = buildings.buildings.find((x) => x.family === a.building && x.level === a.building_level);
+        if (!b || b.name !== a.building_name || !b.adds_animals.includes(a.id)) err(`animal ${a.id}`, `building ${a.building_name} not in buildings.json`);
+      }
+    }
+  }
   return errors;
 }
 
@@ -228,10 +259,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     bundles: load('bundles.json'),
     casks: load('casks.json'),
     dehydrator: load('dehydrator.json'),
+    buildings: load('buildings.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings');
 }

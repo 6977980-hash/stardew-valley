@@ -23,6 +23,9 @@ $g  = function ( $n ) {
 	<li>Which animal to buy next? The <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a> ranks them all with payback days.</li>
 	<li>Saving up for a Deluxe Barn? Read <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'are-pigs-worth-it' ) ); ?>">Are Pigs Worth It?</a></li>
 	<li>Building your first barn or coop? <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'coop-or-barn-first' ) ); ?>">Coop or Barn First?</a> compares them.</li>
+	<?php if ( Stardew_Tools\Entities::prices_url() ) : ?>
+	<li>What does each animal cost, with its Coop or Barn? <a href="<?php echo esc_url( Stardew_Tools\Entities::prices_url() ); ?>">Stardew Valley Animal Prices</a> lists every price, building level and payback.</li>
+	<?php endif; ?>
 </ol>
 <?php if ( ! empty( $pg['compare'] ) ) : ?>
 <h2>Every animal at full hearts</h2>
