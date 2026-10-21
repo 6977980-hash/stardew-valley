@@ -1,5 +1,5 @@
 // Crafting Calculator: a shopping list of raw materials for everything you want to craft.
-import { shoppingList } from '../engine/index.js';
+import { shoppingList } from '../engine/crafting.js';
 import { loadData, bindTool, esc, num, gold, plural } from './common.js';
 
 const crafting = loadData().crafting;

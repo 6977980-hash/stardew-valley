@@ -44,10 +44,11 @@ foreach ( $rows as $r ) {
 
 <h2>Every crop, ranked by profit per tile</h2>
 <p>Profit is net of seeds, sold raw at regular quality mixed by the level-6 chances, planted on day 1 of the best season for that crop. Crops that only grow in the greenhouse are shown with their greenhouse profit for a year. "Per harvest" is the gold from one harvest of one plant. For your own level, fertilizer and professions use the <a href="<?php echo esc_url( $tool_url( 'crop-profit-calculator' ) ); ?>">Crop Profit Calculator</a>.</p>
-<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
+<p class="table-hint" aria-hidden="true">Swipe the table sideways for more columns →</p>
+<div class="table-wrap table-wrap--sticky" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>All crops, best profit per tile first</caption>
-	<thead><tr><th scope="col">Crop</th><th scope="col">Type</th><th scope="col">Seasons</th><th scope="col">Days to grow</th><th scope="col">Regrow</th><th scope="col">Sell price</th><th scope="col">Best profit per tile</th></tr></thead>
+	<thead><tr><th scope="col">Crop</th><th scope="col">Best profit per tile</th><th scope="col">Seasons</th><th scope="col">Type</th><th scope="col">Days to grow</th><th scope="col">Regrow</th><th scope="col">Sell price</th></tr></thead>
 	<tbody>
 	<?php foreach ( $rows as $r ) : ?>
 		<?php
@@ -56,12 +57,12 @@ foreach ( $rows as $r ) {
 		?>
 		<tr>
 			<th scope="row"><?php echo $link( 'crops', $r[0], $c['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link. ?></th>
-			<td><?php echo esc_html( ucfirst( $c['category'] ) ); ?></td>
+			<td><?php echo $p ? esc_html( $gold( $p['profit']['level6'] ) ) . ' <small>(' . esc_html( ucfirst( $p['season'] ) ) . ')</small>' : esc_html( $gold( $c['greenhouse']['established'] ) ) . ' <small>(greenhouse year)</small>'; ?></td>
 			<td><?php echo esc_html( implode( ', ', array_map( 'ucfirst', $c['seasons'] ) ) ); ?></td>
+			<td><?php echo esc_html( ucfirst( $c['category'] ) ); ?></td>
 			<td><?php echo (int) $c['growth_days']; ?></td>
 			<td><?php echo $c['regrow_days'] ? (int) $c['regrow_days'] . ' days' : '—'; ?></td>
 			<td><?php echo esc_html( $gold( $c['base_price'] ) ); ?></td>
-			<td><?php echo $p ? esc_html( $gold( $p['profit']['level6'] ) ) . ' <small>(' . esc_html( ucfirst( $p['season'] ) ) . ')</small>' : esc_html( $gold( $c['greenhouse']['established'] ) ) . ' <small>(greenhouse year)</small>'; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>

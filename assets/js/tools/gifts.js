@@ -1,5 +1,5 @@
 // Gift Finder: a villager's loved and liked gifts, or every villager's opinion of one item.
-import { TASTES, tasteOf, itemsAt, villagersFor, giftPoints, heartsFor } from '../engine/index.js';
+import { TASTES, tasteOf, itemsAt, villagersFor, giftPoints, heartsFor } from '../engine/gifts.js';
 import { loadData, bindTool, esc, num } from './common.js';
 
 const g = loadData().gifts;

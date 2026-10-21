@@ -1,5 +1,5 @@
 // XP Calculator: XP left to a target level, and how many harvests or catches that takes.
-import { xpToLevel, totalForLevel, fishXp, farmingXpPerDay, actionsFor } from '../engine/index.js';
+import { xpToLevel, totalForLevel, fishXp, farmingXpPerDay, actionsFor } from '../engine/skills.js';
 import { loadData, bindTool, esc, num } from './common.js';
 
 const all = loadData();

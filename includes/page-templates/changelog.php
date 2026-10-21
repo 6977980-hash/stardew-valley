@@ -4,6 +4,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: steadier, faster pages</h2>
+<ul>
+<li>Guides and topic pages no longer jump while they load on a phone. The short answer now comes first, with the "On this page" list right under it.</li>
+<li>Calculators load less code before they start working, and the farm picture on the home page is half the size it was, with the same look.</li>
+<li>The All Crops table puts the profit right after the crop name. On a phone the crop names stay in view while you swipe the table sideways.</li>
+<li>Screen readers now hear the name of each table (for example "Kegs needed to keep up with one plant") instead of the same generic label every time.</li>
+</ul>
+
 <h2>October 21, 2026: tools that show your answer sooner</h2>
 <ul>
 <li>On a laptop the result now sits next to the form, so you see it change as you type. On a phone the short answer at the top folds to a few lines (tap "Read the full answer" to open it).</li>

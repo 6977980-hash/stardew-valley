@@ -382,10 +382,14 @@ a.season:active { transform: translateY(2px); box-shadow: 0 1px 0 #5C3A1E; }
 .article-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 20px; padding-top: 28px; padding-bottom: 48px; }
 .article .entry-content { min-width: 0; }
 .article .entry-content > * { max-width: 72ch; }
+/* Phones: byline and short answer, then "On this page", then the rest. Wide screens: the list gets
+   its own column next to both. */
+.article-intro > div > :last-child { margin-bottom: 0; }
 @media (min-width: 1040px) {
-	.article-layout.has-toc { grid-template-columns: minmax(0, 1fr) 270px; gap: 56px; }
-	.article-layout.has-toc .article-toc { grid-column: 2; grid-row: 1; }
-	.article-layout.has-toc .entry-content { grid-column: 1; grid-row: 1; }
+	.article-layout.has-toc { grid-template-columns: minmax(0, 1fr) 270px; grid-template-rows: auto 1fr; gap: 0 56px; }
+	.article-layout.has-toc .article-toc { grid-column: 2; grid-row: 1 / span 2; }
+	.article-layout.has-toc .entry-content { grid-column: 1; grid-row: 2; }
+	.article-layout.has-toc .article-intro { grid-row: 1; padding-bottom: 20px; }
 }
 
 .toc { padding: 14px 18px 14px; }
@@ -424,7 +428,7 @@ a.season:active { transform: translateY(2px); box-shadow: 0 1px 0 #5C3A1E; }
 
 /* Byline printed by the plugin at the top of every guide */
 body .guide-byline {
-	display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px;
+	display: flex; flex-wrap: wrap; align-items: center; gap: 6px 18px;
 	padding: 0 0 16px; margin: 0 0 22px; border-bottom: 2px dashed var(--c-border);
 	font-size: .95rem; color: var(--c-muted);
 }
@@ -454,6 +458,15 @@ body .article .results-table thead th, body.is-tool .results-table thead th { ba
 body .article .results-table tbody tr:nth-child(even) th:not(.is-best), body .article .results-table tbody tr:nth-child(even) td:not(.is-best) { background: color-mix(in srgb, var(--c-alt) 70%, transparent); }
 body .article .results-table tbody tr:hover th:not(.is-best), body .article .results-table tbody tr:hover td:not(.is-best) { background: color-mix(in srgb, var(--c-accent) 14%, transparent); }
 body .article .results-table td, body.is-tool .results-table td { font-variant-numeric: tabular-nums; }
+/* Wide ranking tables on phones: the name column stays put while the rest scrolls, with a hint above. */
+.table-hint { display: none; }
+@media (max-width: 599px) {
+	body .table-hint { display: block; margin: 0 0 6px; font-size: .9rem; color: var(--c-muted); }
+	body .table-wrap--sticky .results-table tr > :first-child { position: sticky; left: 0; z-index: 1; box-shadow: 2px 0 0 var(--c-border); }
+	/* Opaque, so the scrolled cells do not show through. */
+	body .table-wrap--sticky .results-table tbody tr th:first-child { background: var(--c-surface); }
+	body .table-wrap--sticky .results-table tbody tr:nth-child(even) th:first-child { background: color-mix(in srgb, var(--c-alt) 70%, var(--c-surface)); }
+}
 
 /* Tool and guide link lists become cards */
 body .article .related-list, body.is-tool .related-list, body .content .hub .related-list { grid-template-columns: 1fr; gap: 12px; max-width: none; padding-left: 0; }

@@ -5,7 +5,8 @@ import { fileURLToPath } from 'node:url';
 
 const W = 240, H = 100;
 const out = [];
-const rect = (x, y, w, h, c) => out.push(`<rect x="${x}" y="${y}" width="${w}" height="${h}" class="px-${c}"/>`);
+// Each pixel block is one subpath; neighbouring blocks of the same colour share a <path> (see draw()).
+const rect = (x, y, w, h, c) => out.push({ c, d: `M${x} ${y}h${w}v${h}h-${w}z` });
 // Merge horizontal runs per row for a sprite.
 function sprite(rows, map, ox, oy) {
   rows.forEach((row, y) => {
@@ -190,7 +191,19 @@ for (let x = 3; x < W; x += 11) {
 
 const day = {sky1:'#7EC8E3',sky2:'#9ED6EA',sky3:'#C2E5EE',sky4:'#E4F2E6',star:'#FFF6C8',sun:'#FFD25A',cloud:'#FFFFFF',cloud2:'#D9EEF5',far:'#8FB8A8',mid:'#5E9B5A',pine:'#2F6B34',trunk:'#6B4423',leaf:'#3F8A3A',leaf2:'#7BC062',grass:'#6DB24F',path:'#D8B67A',chimney:'#7A4A2A',roof:'#B5462E',roof2:'#7E2E1E',wall:'#F2DDB0',wall2:'#A87443',frame:'#5C3A1E',window:'#9FD3EA',door:'#8B5A2B',smoke:'#B8C6CC',fence:'#8B5A2B',fence2:'#6B4423',soil:'#8A5A32',soil2:'#6B4423',crop:'#3E9B3A',crop2:'#8ED36A',bloom:'#F6D04D',pump:'#E8862A',pump2:'#C9661A',stem:'#3E7A2A',berry:'#E86A8A',tuft:'#4E9A3C'};
 const night = {sky1:'#141B3A',sky2:'#1E2A55',sky3:'#2C3B6B',sky4:'#43507E',sun:'#F3EFD8',cloud:'#3D4A78',cloud2:'#323E68',far:'#2E4058',mid:'#24433A',pine:'#16301F',trunk:'#3A2816',leaf:'#1F4A2C',leaf2:'#2E6A3A',grass:'#2C5A33',path:'#6E5A3C',roof:'#6E2C22',roof2:'#4A1C15',wall:'#9C8A6A',wall2:'#5E4428',window:'#FFD36A',door:'#4E3218',fence:'#4E3218',fence2:'#3A2816',soil:'#4A3220',soil2:'#3A2816',crop:'#2A6A2E',crop2:'#4A8A42',bloom:'#C9A63E',pump:'#A8601E',pump2:'#844A14',berry:'#A84A62',tuft:'#24502C',smoke:'#6A7390'};
+// Joins runs of same-colour blocks into one <path>. Only consecutive blocks are joined, so the
+// paint order (what covers what) stays exactly as drawn.
+function draw(items) {
+  let html = '', run = null;
+  const flush = () => { if (run) html += `<path d="${run.d}" class="px-${run.c}"/>`; run = null; };
+  for (const it of items) {
+    if (typeof it === 'string') { flush(); html += it; continue; }
+    if (run && run.c === it.c) run.d += it.d; else { flush(); run = { ...it }; }
+  }
+  flush();
+  return html;
+}
 const css = (p) => Object.entries(p).map(([k,v]) => `.px-${k}{fill:${v}}`).join('');
 const style = `<style>${css(day)}.px-stars{display:none}@media (prefers-color-scheme:dark){${css(night)}.px-stars{display:inline}}</style>`;
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W*6}" height="${H*6}" shape-rendering="crispEdges"><title>Pixel art farm: a cottage, crop fields, fence and hills</title>${style}${out.join('')}</svg>`;
+const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W*6}" height="${H*6}" shape-rendering="crispEdges"><title>Pixel art farm: a cottage, crop fields, fence and hills</title>${style}${draw(out)}</svg>`;
 writeFileSync(fileURLToPath(new URL('../../theme/stardew-tools-theme/assets/img/hero-farm.svg', import.meta.url)), svg + '\n');

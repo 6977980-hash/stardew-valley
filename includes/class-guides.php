@@ -388,7 +388,7 @@ class Guides {
 		ob_start();
 		echo '<div class="guide" data-guide="' . esc_attr( $guide_id ) . '">';
 		?>
-		<p class="guide-byline">By <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" rel="author"><?php echo esc_html( Config::get( 'author' ) ); ?></a> · Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time> · <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
+		<p class="guide-byline"><span>By <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" rel="author"><?php echo esc_html( Config::get( 'author' ) ); ?></a></span> <span>Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time></span> <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
 		<?php
 		include $file;
 		$tools = self::tool_links( $guide['tools'] );
@@ -402,11 +402,11 @@ class Guides {
 					break;
 				}
 			}
-			echo '<aside class="next-step" aria-label="Next step"><p class="next-step__text"><strong>Next step:</strong> put your own numbers in.</p><a class="btn btn--primary" href="' . esc_url( $tools[0][0] ) . '">Open the ' . esc_html( $tools[0][1] ) . '</a>';
+			echo '<div class="next-step"><p class="next-step__text"><strong>Next step:</strong> put your own numbers in.</p><a class="btn btn--primary" href="' . esc_url( $tools[0][0] ) . '">Open the ' . esc_html( $tools[0][1] ) . '</a>';
 			if ( $next_guide ) {
 				echo '<p class="next-step__more">Then read ' . $next_guide . '.</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
 			}
-			echo '</aside>';
+			echo '</div>';
 			echo '<section class="guide-tools" aria-labelledby="guide-tools"><h2 id="guide-tools">Work it out for your farm</h2>';
 			self::link_list( $tools );
 			echo '</section>';

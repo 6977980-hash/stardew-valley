@@ -1,5 +1,5 @@
 // Fish Pond Calculator: one pond's daily produce, and every fish ranked for a full pond.
-import { pondOutput, rankPonds } from '../engine/index.js';
+import { pondOutput, rankPonds } from '../engine/fishpond.js';
 import { loadData, bindTool, esc, gold, num, plural } from './common.js';
 
 const data = loadData().fishponds;

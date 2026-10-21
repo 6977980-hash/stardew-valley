@@ -221,6 +221,7 @@ class Tools {
 		add_shortcode( 'stardew_tool', array( __CLASS__, 'shortcode' ) );
 		add_shortcode( 'stardew_tools_index', array( __CLASS__, 'index_shortcode' ) );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
+		add_action( 'wp_head', array( __CLASS__, 'module_preload' ), 3 );
 		add_action( 'wp_footer', array( __CLASS__, 'footer' ), 20 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
@@ -349,7 +350,7 @@ class Tools {
 		echo '<div class="tool" data-tool="' . esc_attr( $tool_id ) . '">';
 		if ( $checked ) {
 			?>
-		<p class="guide-byline">Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time> · <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
+		<p class="guide-byline"><span>Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time></span> <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
 			<?php
 		}
 		ob_start();
@@ -492,10 +493,60 @@ class Tools {
 			}
 		}
 		echo '<script type="application/json" id="st-data">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG ) . "</script>\n";
-		echo '<script type="importmap">' . wp_json_encode( array( 'imports' => self::module_versions() ), JSON_UNESCAPED_SLASHES ) . "</script>\n";
-		$file = 'assets/js/tools/' . self::definitions()[ $id ]['script'] . '.js';
+		$file = self::module_file( $id );
 		$ver  = STARDEW_TOOLS_VERSION . '.' . filemtime( STARDEW_TOOLS_DIR . $file );
 		printf( "<script type=\"module\" src=\"%s\"></script>\n", esc_url( add_query_arg( 'ver', $ver, STARDEW_TOOLS_URL . $file ) ) );
+	}
+
+	/** The tool's own ES module, relative to the plugin folder. */
+	private static function module_file( $id ) {
+		return 'assets/js/tools/' . self::definitions()[ $id ]['script'] . '.js';
+	}
+
+	/**
+	 * Import map plus a modulepreload for every file the tool module imports, printed early in <head>.
+	 * Without the preloads the browser finds the imports one level at a time (tool, then common.js
+	 * and the engine files, then their imports). The map comes first: it has to be in place before
+	 * any module starts loading.
+	 */
+	public static function module_preload() {
+		$id = self::current();
+		if ( ! $id ) {
+			return;
+		}
+		$versions = self::module_versions();
+		echo '<script type="importmap">' . wp_json_encode( array( 'imports' => $versions ), JSON_UNESCAPED_SLASHES ) . "</script>\n";
+		foreach ( self::module_graph( self::module_file( $id ) ) as $file ) {
+			$url = STARDEW_TOOLS_URL . $file;
+			printf( "<link rel=\"modulepreload\" href=\"%s\">\n", esc_url( isset( $versions[ $url ] ) ? $versions[ $url ] : $url ) );
+		}
+	}
+
+	/** A module and every file it imports, directly or through other imports (relative paths only). */
+	public static function module_graph( $file ) {
+		$seen  = array();
+		$queue = array( $file );
+		while ( $queue ) {
+			$f = array_shift( $queue );
+			if ( isset( $seen[ $f ] ) || ! is_readable( STARDEW_TOOLS_DIR . $f ) ) {
+				continue;
+			}
+			$seen[ $f ] = true;
+			preg_match_all( '#^\s*import\s[^;]*?from\s*[\'"](\.{1,2}/[^\'"]+)[\'"]#m', (string) file_get_contents( STARDEW_TOOLS_DIR . $f ), $m );
+			foreach ( $m[1] as $rel ) {
+				$parts = explode( '/', dirname( $f ) . '/' . $rel );
+				$path  = array();
+				foreach ( $parts as $part ) {
+					if ( '..' === $part ) {
+						array_pop( $path );
+					} elseif ( '.' !== $part && '' !== $part ) {
+						$path[] = $part;
+					}
+				}
+				$queue[] = implode( '/', $path );
+			}
+		}
+		return array_keys( $seen );
 	}
 
 	/**

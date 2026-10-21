@@ -1,5 +1,5 @@
 // Keg vs Preserves Jar: compare per item and per machine-day, then split the harvest.
-import { allocate } from '../engine/index.js';
+import { allocate } from '../engine/machines.js';
 import { loadData, bindTool, esc, gold, num, plural } from './common.js';
 
 const data = loadData();
