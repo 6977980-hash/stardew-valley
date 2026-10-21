@@ -96,9 +96,10 @@ class Search {
 		foreach ( Entities::types() as $type => $t ) {
 			$add( $t['short'], Entities::url( $type, '' ), 'List', $t['blurb'] );
 			foreach ( $data[ $type ] as $id => $e ) {
-				$def   = Entities::def( $type, $id );
-				$desc  = 'crops' === $type ? ucfirst( $e['category'] ) . ', ' . implode( ' / ', array_map( 'ucfirst', $e['seasons'] ) ) : ( 'animals' === $type ? ucfirst( $e['building'] ) : 'Artisan machine' );
-				$add( $e['name'], Entities::url( $type, $id ), 'crops' === $type ? 'Crop' : ( 'animals' === $type ? 'Animal' : 'Machine' ), $desc );
+				if ( ! Entities::has_page( $type, $id ) ) {
+					continue;
+				}
+				$add( $e['name'], Entities::url( $type, $id ), $t['label'], Entities::search_text( $type, $e ) );
 			}
 		}
 		$add( 'Animal Prices', Entities::prices_url(), 'List', 'Every farm animal: price, building, upgrade cost and payback.' );
@@ -106,7 +107,6 @@ class Search {
 
 		// Names people search for that live inside a tool: open the tool already set to them.
 		$deep = array(
-			array( 'gifts', 'villagers', 'gift-finder', 'villager', 'Villager', 'Gifts they love and like, in the Gift Finder' ),
 			array( 'fishponds', 'fish', 'fish-pond-calculator', 'fish', 'Fish pond', 'What a pond of them makes, in the Fish Pond Calculator' ),
 			array( 'crafting', 'recipes', 'crafting-calculator', 'recipe', 'Recipe', 'Materials to craft it, in the Crafting Calculator' ),
 		);

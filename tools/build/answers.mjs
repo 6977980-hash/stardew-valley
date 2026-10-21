@@ -13,6 +13,7 @@ import { rankPonds } from '../../assets/js/engine/fishpond.js';
 import { rankAnimals } from '../../assets/js/engine/animals.js';
 import { buildGuides } from './guides.mjs';
 import { buildEntities, buildCsv } from './entities.mjs';
+import { buildToolTables } from './tool-tables.mjs';
 import { fishXp, farmingXpPerDay, actionsFor } from '../../assets/js/engine/skills.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -163,7 +164,7 @@ export function buildAnswers(data) {
     };
   }
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp };
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp, tables: buildToolTables(data, crops) };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

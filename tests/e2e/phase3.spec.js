@@ -24,9 +24,13 @@ test.describe('tool pages @live', () => {
     });
   }
 
-  test('homepage links to the live tools', async ({ page }) => {
+  // The home page shows the main tools; /tools/ lists every one (the home design of 2026-10-10
+  // dropped the Ancient Fruit vs Starfruit card).
+  test('homepage and /tools/ link to the live tools', async ({ page }) => {
     await page.goto('/');
-    for (const path of TOOLS) await expect(page.locator(`a[href$="${path}"]`).first()).toBeVisible();
+    for (const path of TOOLS.filter((p) => p !== '/ancient-fruit-vs-starfruit/')) await expect(page.locator(`a[href$="${path}"]`).first()).toBeVisible();
+    await page.goto('/tools/');
+    for (const path of TOOLS) await expect(page.locator(`main a[href$="${path}"]`).first()).toBeVisible();
   });
 });
 
@@ -64,7 +68,7 @@ test.describe('calculations @live', () => {
   });
 
   test('greenhouse: full Ancient Fruit, year 2+, raw', async ({ page }) => {
-    await page.goto('/greenhouse-planner/?stage=established&level=0&c1=ancient-fruit&n1=116');
+    await page.goto('/greenhouse-planner/?share=1&stage=established&level=0&c1=ancient-fruit&n1=116');
     await expect(summary(page)).toContainText('1,030,939g');
     await expect(page.locator('.gh-grid .gh-cell--sprinkler')).toHaveCount(6);
     await expect(page.locator('.gh-grid')).toHaveAttribute('role', 'img');

@@ -51,7 +51,7 @@ function renderItem(v) {
     .filter((t) => by[t].length)
     .map((t) => `<tr><th scope="row">${t === 'unknown' ? 'Not listed' : LABEL[t]}</th><td>${esc(by[t].map((x) => x.name).join(', '))}</td><td class="num col-hide-sm">${t === 'unknown' ? '—' : pts(giftPoints(t, g.friendship, { quality: v.quality, event: v.event, friendship101: v.friendship101 }))}</td></tr>`)
     .join('');
-  out.innerHTML = `<div class="table-wrap"><table class="results-table">
+  out.innerHTML = `<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens"><table class="results-table">
     <caption class="visually-hidden">What each villager thinks of ${esc(nameOf(id))}</caption>
     <thead><tr><th scope="col">Opinion</th><th scope="col">Villagers</th><th scope="col" class="num col-hide-sm">Points</th></tr></thead>
     <tbody>${rows}</tbody></table></div>

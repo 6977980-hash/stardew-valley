@@ -40,7 +40,7 @@ function render(v) {
   const sameItem = opts.length > 1 && opts[0].gainPerItem === opts[1].gainPerItem;
   const verdict = opts.length < 2 ? '' : `<p>Per item: <strong>${sameItem ? 'a tie' : esc(perItem.machineName)}</strong>. Per machine per day: <strong>${esc(perDay.machineName)}</strong>.${perItem.machine !== perDay.machine && !sameItem ? ` If you have more ${esc(crop.name)} than your machines can process, build more ${esc(perDay.machineName)}s.` : ''}</p>`;
 
-  out.innerHTML = `${verdict}<div class="table-wrap"><table class="results-table">
+  out.innerHTML = `${verdict}<div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens"><table class="results-table">
     <caption class="visually-hidden">Keg and Preserves Jar compared for ${esc(crop.name)}</caption>
     <thead><tr><th scope="col">Machine</th><th scope="col" class="num">Sells for</th><th scope="col" class="num">Adds per item</th><th scope="col" class="num">Per machine per day</th><th scope="col" class="num col-hide-sm">Runs in ${plural(days, 'day')}</th></tr></thead>
     <tbody>

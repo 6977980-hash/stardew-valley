@@ -95,3 +95,16 @@ $g  = function ( $n ) {
 		<li>Machine products ignore crop quality, as in the game.</li>
 	</ul>
 </section>
+<?php
+$ref = array();
+foreach ( isset( $answers['tables']['what_to_plant'] ) ? $answers['tables']['what_to_plant'] : array() as $row ) {
+	$ref[] = array( $row['name'], $row['tiles'], number_format( $row['seed_price'] ) . 'g', number_format( $row['spend_now'] ) . 'g', $row['harvests'], number_format( $row['total'] ) . 'g' );
+}
+stardew_tools_reference_table(
+	'ref-what-to-plant',
+	'What to plant on Spring 1 with 500g',
+	'The ranking the tool shows as it opens: Spring 1, 500g for seeds, 15 tiles, farming level 0, no fertilizer and no machines. The gold limits how many tiles each crop can fill on day one, which is why cheap seeds such as Potato and Garlic beat crops with a higher profit per tile.',
+	'Crops ranked for a new farm on Spring 1 with 500g and 15 tiles',
+	array( 'Crop', '#Tiles you can plant', '#Seed price', '#Spend today', '#Harvests', '#Profit this season' ),
+	$ref
+);

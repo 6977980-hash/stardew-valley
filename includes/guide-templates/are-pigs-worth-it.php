@@ -123,3 +123,25 @@ $animal_url = $tool_url( 'animal-profit-calculator' );
 	<li><strong>Collect truffles each morning and feed an Oil Maker.</strong> Sell what's left raw or hold it for the next machine.</li>
 	<li><strong>Add pigs as your Oil Makers catch up.</strong> More pigs than machines just means a backlog.</li>
 </ol>
+
+<?php
+$cap      = ! empty( $p['building_capacity'] ) ? (int) $p['building_capacity'] : 0;
+$full_raw = $cap * $p['raw_per_day'];
+?>
+<?php if ( $cap ) : ?>
+<h2>A whole barn of pigs</h2>
+<p>A <?php echo esc_html( $p['building'] ); ?> holds <?php echo (int) $cap; ?> animals. Filled with pigs at full friendship, that is about <?php echo esc_html( $gold( $full_raw ) ); ?> a day from raw truffles on every dry day, or about <?php echo esc_html( $gold( $cap * $p['oil_artisan_per_day'] ) ); ?> as Truffle Oil with Artisan, which takes about <?php echo (int) ceil( $cap * $p['oil_makers_per_pig'] ); ?> Oil Makers. The pigs alone cost <?php echo esc_html( $gold( $cap * $p['price'] ) ); ?>, so most farms fill the barn over a season or two, adding a pig each time the last one has paid for itself.</p>
+<p>The catch is space outside. Each truffle needs a free tile, and twelve pigs looking for spots on a crowded farm will find fewer truffles than the table says. Put the barn next to an open area that you keep clear of crops, paths and decorations, and walk it each morning to pick up the truffles. A second barn of pigs only makes sense once the first one is full, its Oil Makers keep up and the land around both barns is clear.</p>
+<?php endif; ?>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Do pigs find truffles in winter?'           => 'No. Pigs stay inside in winter and on rainy, stormy or snowy days, so they find nothing on those days.',
+		'How many truffles does a pig find a day?'   => 'One on a good day at low friendship, and about ' . esc_html( $num( $p['truffles_per_day_max'] ) ) . ' at five hearts, because friendship adds a repeating chance of an extra truffle.',
+		'Do pigs find truffles in the barn?'         => 'No. Truffles are only found outside, on a free tile of grass or dirt, so the barn door has to be open.',
+		'Is Truffle Oil better than selling truffles?' => 'For normal truffles, yes: ' . esc_html( $gold( $p['oil']['price'] ) ) . ' against ' . esc_html( $gold( $p['truffle']['normal'] ) ) . ', and ' . esc_html( $gold( $p['oil']['artisan'] ) ) . ' with Artisan. Without Artisan, iridium truffles are worth more raw.',
+		'How long does a pig take to pay for itself?' => 'About ' . esc_html( $num( $p['payback_raw'] ) ) . ' good days selling truffles raw at full hearts, not counting the ' . esc_html( $p['building'] ) . '.',
+		'Do Golden Animal Crackers work on pigs?'    => 'No. They double the produce of other farm animals, but not pigs.',
+	)
+);

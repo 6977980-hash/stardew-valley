@@ -24,8 +24,17 @@ class Entities {
 
 	/** Data files an entity type's pages are built from. */
 	public static function data_sets( $type ) {
-		return 'animals' === $type ? array( 'animals', 'buildings' ) : ( 'machines' === $type ? array( 'machines', 'crops' ) : array( 'crops', 'fertilizers', 'machines' ) );
+		$sets = array(
+			'animals'   => array( 'animals', 'buildings' ),
+			'machines'  => array( 'machines', 'crops' ),
+			'villagers' => array( 'gifts' ),
+			'bundles'   => array( 'bundles' ),
+		);
+		return isset( $sets[ $type ] ) ? $sets[ $type ] : array( 'crops', 'fertilizers', 'machines' );
 	}
+
+	/** Entity types whose names are linked automatically in guide and reference text. */
+	const AUTOLINK_TYPES = array( 'crops', 'animals', 'machines' );
 
 	const META           = '_stardew_tools_entity';
 	const VERSION_OPTION = 'stardew_tools_entities_version';
@@ -42,6 +51,8 @@ class Entities {
 				'description' => 'Every Stardew Valley 1.6 crop in one table: season, days to grow, regrow time, sell price and profit per tile, with a page and CSV download.',
 				'tools'       => array( 'crop-profit-calculator', 'what-to-plant', 'xp-calculator' ),
 				'published'   => '2026-10-10',
+				'template'    => 'crop',
+				'label'       => 'Crop',
 			),
 			'animals'  => array(
 				'slug'        => 'farm-animals',
@@ -52,6 +63,8 @@ class Entities {
 				'description' => 'Every Stardew Valley 1.6 farm animal ranked: price, building, products and gold per day at full friendship, with a page for each and a CSV download.',
 				'tools'       => array( 'animal-profit-calculator' ),
 				'published'   => '2026-10-10',
+				'template'    => 'animal',
+				'label'       => 'Animal',
 			),
 			'machines' => array(
 				'slug'        => 'machines',
@@ -62,8 +75,49 @@ class Entities {
 				'description' => 'Stardew Valley 1.6 artisan machines ranked by gold per machine per day: which crops to put in Kegs and Preserves Jars, with times and prices.',
 				'tools'       => array( 'keg-vs-preserves-jar', 'greenhouse-planner' ),
 				'published'   => '2026-10-10',
+				'template'    => 'machine',
+				'label'       => 'Machine',
+			),
+			'villagers' => array(
+				'slug'        => 'villagers',
+				'noun'        => 'villager',
+				'title'       => 'Stardew Valley Villagers: Birthdays and Loved Gifts',
+				'short'       => 'All Villagers',
+				'blurb'       => 'Every villager\'s birthday and the gifts they love, like and hate.',
+				'description' => 'Every Stardew Valley 1.6 villager in one table: birthday, loved gifts and the crops you can grow for them, with a page for each villager.',
+				'tools'       => array( 'gift-finder' ),
+				'published'   => '2026-10-21',
+				'template'    => 'villager',
+				'label'       => 'Villager',
+			),
+			'bundles'   => array(
+				'slug'        => 'bundles',
+				'noun'        => 'room',
+				'title'       => 'Stardew Valley Community Center Bundles: Every Room',
+				'short'       => 'Community Center Bundles',
+				'blurb'       => 'Every bundle room by room: the items, where to find them and the rewards.',
+				'description' => 'All Stardew Valley 1.6 Community Center bundles room by room: every item with its season and where to find it, quality needed and the rewards.',
+				'tools'       => array( 'bundle-tracker' ),
+				'published'   => '2026-10-21',
+				'template'    => 'bundle',
+				'label'       => 'Bundle room',
 			),
 		);
+	}
+
+	/** One line under an entry's name in site search. */
+	public static function search_text( $type, $e ) {
+		switch ( $type ) {
+			case 'crops':
+				return ucfirst( $e['category'] ) . ', ' . implode( ' / ', array_map( 'ucfirst', $e['seasons'] ) );
+			case 'animals':
+				return ucfirst( $e['building'] );
+			case 'villagers':
+				return 'Birthday ' . ucfirst( $e['birthday']['season'] ) . ' ' . (int) $e['birthday']['day'] . '; loved gifts';
+			case 'bundles':
+				return 'Community Center room: ' . count( $e['bundles'] ) . ' bundles';
+		}
+		return 'Artisan machine';
 	}
 
 	public static function data() {
@@ -71,11 +125,8 @@ class Entities {
 		if ( null === $d ) {
 			$d = Data::get( 'entities' );
 		}
-		return $d ? $d : array(
-			'crops'    => array(),
-			'animals'  => array(),
-			'machines' => array(),
-		);
+		$empty = array_fill_keys( array_keys( self::types() ), array() );
+		return $d ? array_merge( $empty, $d ) : $empty;
 	}
 
 	/** Page definition for one entity (title, short name, meta description). */
@@ -129,6 +180,23 @@ class Entities {
 					number_format( $e['full']['raw'] ) . 'g'
 				);
 			}
+		} elseif ( 'villagers' === $type ) {
+			$title = $e['name'] . '\'s Loved Gifts and Birthday in Stardew Valley';
+			$loves = array_slice( $e['tastes']['love']['own'], 0, 3 );
+			$desc  = sprintf(
+				'%1$s loves %2$s and more. Birthday: %3$s. Every loved, liked and hated gift, and crops you can grow for %1$s.',
+				$e['name'],
+				$loves ? implode( ', ', $loves ) : 'the universal loves',
+				ucfirst( $e['birthday']['season'] ) . ' ' . (int) $e['birthday']['day']
+			);
+		} elseif ( 'bundles' === $type ) {
+			$title = $e['name'] . ' Bundles in Stardew Valley: Items and Rewards';
+			$desc  = sprintf(
+				'All %1$d %2$s bundles: every item with its quantity, quality, season and where to find it, plus the rewards. Completing the room gives: %3$s.',
+				count( $e['bundles'] ),
+				$e['name'],
+				$e['reward']
+			);
 		} else {
 			$title = $e['name'] . ': Best Crops per Day in Stardew Valley';
 			$desc  = sprintf( 'Which crops earn the most in a %1$s in Stardew Valley 1.6: all %2$d crops it accepts ranked by gold per machine per day, with times and prices.', $e['name'], $e['accepted'] );
@@ -142,6 +210,12 @@ class Entities {
 			'short'       => $e['name'],
 			'description' => $desc,
 		);
+	}
+
+	/** Whether an entry gets a page of its own (a few Community Center rooms are only on the index). */
+	public static function has_page( $type, $id ) {
+		$e = self::data()[ $type ][ $id ];
+		return ! isset( $e['page'] ) || $e['page'];
 	}
 
 	/** "a" or "an" for a name. */
@@ -170,6 +244,31 @@ class Entities {
 		add_filter( 'the_content', array( __CLASS__, 'label_tables' ), 21 );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
 		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
+		add_filter( 'stardew_tools_og_image', array( __CLASS__, 'og_image' ) );
+	}
+
+	/** File prefix of each type's share images in assets/og/ (built by tools/brand/og-cards.mjs). */
+	const OG_PREFIX = array(
+		'crops'     => 'crop',
+		'animals'   => 'animal',
+		'machines'  => 'machine',
+		'villagers' => 'villager',
+		'bundles'   => 'bundles',
+	);
+
+	/** URL of a share image in assets/og/, or '' when it was not built. */
+	public static function og_file( $name ) {
+		$file = 'assets/og/' . $name . '.jpg';
+		return file_exists( STARDEW_TOOLS_DIR . $file ) ? STARDEW_TOOLS_URL . $file . '?ver=' . STARDEW_TOOLS_VERSION : '';
+	}
+
+	/** The current reference page's own share image. */
+	public static function og_image( $url ) {
+		$cur = self::current();
+		if ( $url || ! $cur || 'entity' !== $cur[0] || ! isset( self::OG_PREFIX[ $cur[1] ] ) ) {
+			return $url;
+		}
+		return self::og_file( self::OG_PREFIX[ $cur[1] ] . '-' . $cur[2] );
 	}
 
 	/** Breadcrumb name for a reference page: "Parsnip" or "Crops", not the full SEO title. */
@@ -197,6 +296,9 @@ class Entities {
 				continue;
 			}
 			foreach ( array_keys( $d[ $type ] ) as $id ) {
+				if ( ! self::has_page( $type, $id ) ) {
+					continue;
+				}
 				$def = self::def( $type, $id );
 				self::ensure_page( $t['slug'] . '/' . $id, $def, '[stardew_entity type="' . $type . '" id="' . $id . '"]', $index, 'entity:' . $type . ':' . $id );
 			}
@@ -330,8 +432,12 @@ class Entities {
 		$type  = $atts['type'];
 		$id    = $atts['id'];
 		$data  = self::data();
-		$file  = STARDEW_TOOLS_DIR . 'includes/entity-templates/' . ( 'crops' === $type ? 'crop' : ( 'animals' === $type ? 'animal' : 'machine' ) ) . '.php';
-		if ( ! isset( $data[ $type ][ $id ] ) || ! file_exists( $file ) ) {
+		$types = self::types();
+		if ( ! isset( $types[ $type ], $data[ $type ][ $id ] ) ) {
+			return '';
+		}
+		$file  = STARDEW_TOOLS_DIR . 'includes/entity-templates/' . $types[ $type ]['template'] . '.php';
+		if ( ! file_exists( $file ) ) {
 			return '';
 		}
 		return self::render( $file, $type, $id, $data );
@@ -381,7 +487,7 @@ class Entities {
 			?>
 		<section class="tool-meta" aria-labelledby="entity-sources">
 			<h2 id="entity-sources">Where these numbers come from</h2>
-			<p>Game data comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a>, cross-checked between at least two of its pages (last checked <?php echo esc_html( $data_checked ); ?>). Profit figures are calculated by the same engine as our calculators. See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.<?php echo $index ? ' All entries: <a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['short'] ) . '</a>.' : ''; ?></p>
+			<p>Game data comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a>, cross-checked between at least two of its pages (last checked <?php echo esc_html( $data_checked ); ?>).<?php echo in_array( $type, self::AUTOLINK_TYPES, true ) ? ' Profit figures are calculated by the same engine as our calculators.' : ''; ?> See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.<?php echo $index ? ' All entries: <a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['short'] ) . '</a>.' : ''; ?></p>
 		</section>
 			<?php
 		}
@@ -455,16 +561,16 @@ class Entities {
 		}
 		$post_id = get_queried_object_id();
 		$cur     = self::current();
-		if ( $cur && 'entity' !== $cur[0] ) {
-			return $html;
+		if ( $cur && ( 'entity' !== $cur[0] || ! in_array( $cur[1], self::AUTOLINK_TYPES, true ) ) ) {
+			return $html; // Villager and room pages link their crops themselves ("Golden Pumpkin" is not Pumpkin).
 		}
 		if ( ! $cur && '' === (string) get_post_meta( $post_id, Guides::META, true ) ) {
 			return $html;
 		}
 		$names = array();
 		foreach ( self::data() as $type => $items ) {
-			if ( ! is_array( $items ) ) {
-				continue; // game_version.
+			if ( ! is_array( $items ) || ! in_array( $type, self::AUTOLINK_TYPES, true ) ) {
+				continue; // game_version, and villager and room names (common words such as "Sandy").
 			}
 			foreach ( $items as $id => $e ) {
 				if ( $cur && $cur[1] === $type && $cur[2] === $id ) {
@@ -647,8 +753,8 @@ class Entities {
 				'description'      => $def['description'],
 				'url'              => $url,
 				'mainEntityOfPage' => $url,
-				'image'            => Config::asset( Config::get( 'og_image' ) ),
-				'datePublished'    => '2026-10-10',
+				'image'            => self::og_image( '' ) ? self::og_image( '' ) : Config::asset( Config::get( 'og_image' ) ),
+				'datePublished'    => self::types()[ $cur[1] ]['published'],
 				'dateModified'     => Data::modified( '2026-10-10', self::data_sets( $cur[1] ), self::UPDATED ),
 				'author'           => array(
 					'@type' => 'Person',

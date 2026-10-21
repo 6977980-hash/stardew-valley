@@ -81,3 +81,16 @@ $g = function ( $n ) {
 		<li>Building a pond costs <?php echo esc_html( $pond ? $g( $pond['building']['cost'] ) : '' ); ?> plus materials at Robin's.</li>
 	</ul>
 </section>
+<?php
+$ref = array();
+foreach ( isset( $answers['tables']['fishpond'] ) ? $answers['tables']['fishpond'] : array() as $row ) {
+	$ref[] = array( $row['name'], $row['max'], number_format( $row['raw'] ) . 'g', number_format( $row['processed'] ) . 'g' );
+}
+stardew_tools_reference_table(
+	'ref-fishpond',
+	'The 20 best fish ponds a day',
+	'Expected gold a day from one full pond, the way the calculator works it out: the daily chance of an item times its share and quantity. "Roe as Aged Roe or Caviar" turns the roe into Aged Roe (Sturgeon roe into Caviar) with the Artisan profession. Legendary fish are left out because their ponds hold only one fish.',
+	'Gold per day from a full fish pond, by fish',
+	array( 'Fish', '#Fish in a full pond', '#Gold a day, roe sold raw', '#Gold a day, roe as Aged Roe or Caviar' ),
+	$ref
+);

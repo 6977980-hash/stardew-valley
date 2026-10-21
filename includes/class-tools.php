@@ -123,7 +123,7 @@ class Tools {
 				'script'      => 'gifts',
 				'data'        => array( 'gifts' ),
 				'related'     => array( 'crafting-calculator', 'what-to-plant', 'xp-calculator' ),
-				'learn'       => array( 'crops', 'hub:crops-and-farming' ),
+				'learn'       => array( 'villagers', 'crops', 'hub:crops-and-farming' ),
 			),
 			'bundle-tracker'             => array(
 				'title'       => 'Stardew Valley Bundle Tracker (Standard, Remixed)',
@@ -135,7 +135,7 @@ class Tools {
 				'script'      => 'bundles',
 				'data'        => array( 'bundles' ),
 				'related'     => array( 'gift-finder', 'what-to-plant', 'crafting-calculator' ),
-				'learn'       => array( 'crops', 'hub:crops-and-farming' ),
+				'learn'       => array( 'bundles', 'crops', 'hub:crops-and-farming' ),
 			),
 			'crafting-calculator'        => array(
 				'title'       => 'Stardew Valley Crafting Calculator and Shopping List',
@@ -392,6 +392,10 @@ class Tools {
 				$url  = Entities::url( 'crops', '' );
 				$name = 'All crops';
 				$text = "Every crop's page: price, profit, who loves it and which bundles need it.";
+			} elseif ( isset( Entities::types()[ $ref ] ) ) {
+				$url  = Entities::url( $ref, '' );
+				$name = Entities::types()[ $ref ]['short'];
+				$text = Entities::types()[ $ref ]['blurb'];
 			} elseif ( 0 === strpos( $ref, 'hub:' ) ) {
 				$hub  = substr( $ref, 4 );
 				$url  = Guides::hub_url( $hub );

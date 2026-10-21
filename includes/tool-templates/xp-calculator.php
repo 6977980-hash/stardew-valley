@@ -116,3 +116,43 @@ $n = function ( $v ) {
 		<li>The wiki's own fishing examples disagree on the value used for gold fish; we use gold = 2, as in its Sardine example.</li>
 	</ul>
 </section>
+<?php
+$xpt = isset( $answers['tables']['xp'] ) ? $answers['tables']['xp'] : null;
+if ( $xpt ) {
+	$ref = array();
+	foreach ( $xpt['levels'] as $row ) {
+		$ref[] = array( 'Level ' . $row['level'], number_format( $row['step'] ), number_format( $row['total'] ) );
+	}
+	stardew_tools_reference_table(
+		'ref-xp-levels',
+		'XP needed for each skill level',
+		'Every skill (Farming, Fishing, Foraging, Mining and Combat) uses the same table. "Total" is the XP from level 0; the calculator starts from these numbers.',
+		'Experience points needed for skill levels 1 to 10',
+		array( 'Level', '#XP from the level before', '#Total XP' ),
+		$ref
+	);
+	$ref = array();
+	foreach ( $xpt['farming'] as $row ) {
+		$ref[] = array( $row['name'], $row['xp'], $row['per_day'] );
+	}
+	stardew_tools_reference_table(
+		'ref-xp-farming',
+		'Best crops for Farming XP per tile',
+		'Crops whose seeds are sold in shops, ranked by Farming XP per tile per day once the tile is producing (no fertilizer, no Agriculturist).',
+		'Farming XP per harvest and per tile per day, best ten crops',
+		array( 'Crop', '#XP per harvest', '#XP per tile per day' ),
+		$ref
+	);
+	$ref = array();
+	foreach ( $xpt['fishing'] as $row ) {
+		$ref[] = array( $row['name'], $row['difficulty'], $row['xp'], $row['perfect'] );
+	}
+	stardew_tools_reference_table(
+		'ref-xp-fishing',
+		'Fish that give the most Fishing XP',
+		'Fishing XP for one normal-quality catch, and for a perfect catch, where the fish never leaves the green bar (the game multiplies the XP by 2.4). Legendary fish are left out.',
+		'Fishing XP per catch, best ten non-legendary fish',
+		array( 'Fish', '#Difficulty', '#XP per catch', '#XP, perfect catch' ),
+		$ref
+	);
+}

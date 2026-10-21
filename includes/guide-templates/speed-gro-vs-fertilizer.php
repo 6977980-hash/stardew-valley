@@ -140,6 +140,21 @@ $p0    = $f['level0'][0];
 	<li><strong>Counting Quality Fertilizer as a speed tool.</strong> It does nothing for timing. Judge it only on the chance of better quality.</li>
 </ul>
 
+<h2>Speed-Gro with the Agriculturist profession</h2>
+<p>At Farming level 10 you choose between Artisan and Agriculturist. Agriculturist makes every crop grow 10% faster, and that bonus adds to Speed-Gro. With both, plain Speed-Gro behaves more like Deluxe Speed-Gro, and some crops that miss a third harvest with the bag alone get it. Most players pick Artisan for the higher prices of wine and cheese, so the tables above leave Agriculturist out. If you took it, run your crop through the <a href="<?php echo esc_url( $tool_url( 'crop-profit-calculator' ) ); ?>">Crop Profit Calculator</a> with the profession set, because the harvest days change.</p>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Is Speed-Gro worth it?'                      => 'Only when it adds a harvest before the season ends. On Cauliflower it saves two days but still gives two harvests, so the bag is wasted. Deluxe Speed-Gro pays far more often.',
+		'Can I put fertilizer and Speed-Gro on the same tile?' => 'No. A tile holds one fertilizer at a time, so choose between better quality and faster growth.',
+		'Does Speed-Gro make regrowing crops faster?' => 'Only the first growth. After that a Blueberry still regrows every 4 days and Cranberries every 5.',
+		'Is fertilizer worth it in the greenhouse?'  => 'Yes, more than outside. The greenhouse has no season end, so every day saved on a crop you replant turns into extra harvests over the year, and the fertilizer stays in the soil when you replant the same tile.',
+		'Where do I buy Deluxe Speed-Gro?'            => 'At the Oasis in the desert on Thursdays for 80g, or at Pierre\'s for 150g from Year 2.',
+	)
+);
+?>
+
 <h2>Quick rules</h2>
 <ul>
 	<li>Planting a 12 or 13 day crop on day 1? Use Deluxe Speed-Gro.</li>

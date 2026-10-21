@@ -137,3 +137,30 @@ foreach ( isset( $gh['unlimited'] ) ? $gh['unlimited'] : array() as $u ) {
 	<li><strong>Leaving a finished keg alone.</strong> Wine only counts when you collect it. A full keg is an idle keg.</li>
 	<li><strong>Treating the table as a promise.</strong> Real harvests vary. Use the figures to decide how many kegs to build next, not to decide you are finished.</li>
 </ul>
+
+<?php
+$kj = array();
+foreach ( isset( $answers['tables']['keg_vs_jar'] ) ? $answers['tables']['keg_vs_jar'] : array() as $row ) {
+	$kj[ $row['id'] ] = $row;
+}
+?>
+<?php if ( isset( $kj['hops'], $kj['wheat'] ) ) : ?>
+<h2>Pale Ale or Beer?</h2>
+<p>Both are quick Keg products, so they are often compared. Pale Ale from Hops sells for <?php echo esc_html( $gold( $kj['hops']['keg']['price'] ) ); ?> and adds about <?php echo esc_html( $gold( $kj['hops']['keg']['per_day'] ) ); ?> per Keg per day over the raw cone (no professions). Beer from Wheat sells for <?php echo esc_html( $gold( $kj['wheat']['keg']['price'] ) ); ?> and adds about <?php echo esc_html( $gold( $kj['wheat']['keg']['per_day'] ) ); ?> per Keg per day, because Beer is ready even sooner. Per Keg day they are close; the real difference is the field. A Hops vine gives a cone every day once grown and needs no replanting, but it grows on a trellis you cannot walk through. Wheat is replanted after every harvest, gives one stalk per tile, and is also Hay when you cut it with a Scythe and have a Silo. If you want a steady stream of Keg input from a small plot, Hops wins. If you want cheap filler for idle Kegs late in a season, Wheat is enough.</p>
+<p>Both lose to fruit wine per item, so they are a way to keep spare Kegs busy, not a reason to build more. Starfruit wine adds <?php echo esc_html( isset( $kj['starfruit'] ) ? $gold( $kj['starfruit']['keg']['per_item'] ) : '' ); ?> for each fruit, against <?php echo esc_html( $gold( $kj['hops']['keg']['per_item'] ) ); ?> for each Hops cone.</p>
+<?php endif; ?>
+
+<h2>Kegs on Ginger Island</h2>
+<p>The Island farm has no seasons, so the crops there grow all year like in the greenhouse. That changes the Keg math in one way: a fruit field on the island keeps producing every month, so plan Kegs for the steady pace in the table at the top of this page, not for a burst. Pineapple is the island's own fruit (its seeds come from the Island Trader, not for gold); its wine sells for <?php echo esc_html( isset( $kj['pineapple'] ) ? $gold( $kj['pineapple']['keg']['price'] ) : '' ); ?> before Artisan, and like Ancient Fruit it needs close to one Keg per plant. Kegs placed on the island work there, so you can process the harvest without carrying it home; many players put a row of Kegs or Dehydrators next to the island field.</p>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'How many kegs do I need for 100 Ancient Fruit?' => 'About ' . (int) $k['ancient-fruit']['kegs_per_100'] . '. Each plant gives one fruit every 7 days and wine takes ' . esc_html( $num( $k['ancient-fruit']['keg_days'] ) ) . ' days, so you need nearly one Keg per plant.',
+		'How many kegs do I need for Hops?'          => 'About ' . esc_html( $num( $k['hops']['kegs_per_plant'] ) ) . ' Kegs per vine, or ' . (int) $k['hops']['kegs_per_100'] . ' for 100 vines, because every vine gives a cone a day and Pale Ale takes ' . esc_html( $num( $k['hops']['keg_days'] ) ) . ' days.',
+		'How many kegs do I need for Starfruit?'     => 'About ' . (int) $k['starfruit']['kegs_per_100'] . ' for 100 plants. Starfruit is replanted after each harvest, so it ripens less often than Ancient Fruit.',
+		'How long does a Keg take to make wine?'     => esc_html( $num( $k['ancient-fruit']['keg_days'] ) ) . ' days (10,000 game minutes). Juice is faster, and Pale Ale and Beer take a day or two.',
+		'Does crop quality change the wine price?'   => 'No. Keg products ignore the quality of the fruit you put in, so gold and iridium fruit are often worth more sold raw. Wine quality comes only from aging it in a cask.',
+		'Keg or Preserves Jar when I have few machines?' => 'Per machine per day, a Jar often earns more because it finishes in about 2.5 days. Per fruit, the Keg earns more. Use the <a href="' . esc_url( $tool_url( 'keg-vs-preserves-jar' ) ) . '">Keg vs Preserves Jar</a> tool for your crop.',
+	)
+);

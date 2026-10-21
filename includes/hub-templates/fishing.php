@@ -67,3 +67,93 @@ $cap1 = isset( $sc['1'] ) ? (int) $sc['1'] : 0;
 <h2>Fishing levels</h2>
 <p>Fishing level 10 takes <?php echo esc_html( number_format( (int) $xp['level_10'] ) ); ?> XP in total. A single <?php echo esc_html( $xp['fishing_top'][0]['name'] ); ?> gives <?php echo (int) $xp['fishing_top'][0]['xp']; ?> XP, or <?php echo (int) $xp['fishing_top'][0]['perfect']; ?> with a perfect catch, which is among the best of any fish.</p>
 <?php endif; ?>
+<?php
+$craft = Stardew_Tools\Data::get( 'crafting' );
+$rec   = array();
+foreach ( $craft ? $craft['recipes'] : array() as $r ) {
+	$rec[ $r['id'] ] = $r;
+}
+$mats  = function ( $id ) use ( $rec ) {
+	return isset( $rec[ $id ] ) ? implode( ', ', array_map( function ( $i ) { return $i['qty'] . ' ' . $i['name']; }, $rec[ $id ]['ingredients'] ) ) : '';
+};
+$pond  = Stardew_Tools\Data::get( 'fishponds' );
+$legs  = array();
+foreach ( $pond ? $pond['fish'] : array() as $f ) {
+	if ( 'legendary' === $f['kind'] ) {
+		$legs[ $f['id'] ] = $f;
+	}
+}
+$where = array(
+	'crimsonfish' => array( 'Summer', 'the far end of the eastern pier on the beach', 5 ),
+	'angler'      => array( 'Fall', 'the wooden bridge north of JojaMart in Pelican Town', 3 ),
+	'legend'      => array( 'Spring, on rainy days', 'the mountain lake near the Carpenter\'s Shop', 10 ),
+	'glacierfish' => array( 'Winter', 'the south tip of the river island in Cindersap Forest', 6 ),
+	'mutant-carp' => array( 'Any season', 'the Sewers', 0 ),
+);
+?>
+<h2>Catching more fish</h2>
+<p>The fishing minigame gets easier in three ways: a higher Fishing level makes the green bar bigger, better rods let you use bait and tackle, and the right bait and tackle change the fish's behaviour. Willy sells the Fiberglass Rod (bait) from Fishing level 2 and the Iridium Rod (bait and tackle) from level 6. Until then, fish where the fish are easy: the Town river and the ocean in Spring give plenty of cheap catches that still give XP.</p>
+<?php if ( $rec ) : ?>
+<p>You can craft your own bait and tackle once you reach the levels below. One craft of bait makes five.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="<?php echo esc_attr( Stardew_Tools\Entities::TABLE_LABEL ); ?>">
+<table class="results-table">
+	<caption>Fishing items you can craft, with materials and how you learn the recipe</caption>
+	<thead><tr><th scope="col">Item</th><th scope="col">Materials</th><th scope="col">Recipe from</th></tr></thead>
+	<tbody>
+	<?php foreach ( array( 'bait', 'deluxe-bait', 'wild-bait', 'magic-bait', 'crab-pot', 'spinner', 'trap-bobber', 'cork-bobber', 'treasure-hunter', 'barbed-hook', 'magnet' ) as $id ) : ?>
+		<?php
+		if ( ! isset( $rec[ $id ] ) ) {
+			continue;
+		}
+		?>
+		<tr><th scope="row"><?php echo esc_html( $rec[ $id ]['name'] ); ?></th><td><?php echo esc_html( $mats( $id ) ); ?></td><td><?php echo esc_html( $rec[ $id ]['obtained'] ); ?></td></tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<p>The Trap Bobber makes the catch meter drop more slowly when the fish is outside the bar, which helps most while learning. The Cork Bobber makes the bar bigger. The Barbed Hook makes the bar follow the fish, and Treasure Hunter lets you collect treasure without the fish getting away. Most players move to the Cork Bobber or Trap Bobber for hard fish and to Deluxe Bait for everyday fishing.</p>
+<?php endif; ?>
+
+<?php if ( isset( $rec['crab-pot'] ) ) : ?>
+<h2>Crab pots: fishing without the minigame</h2>
+<p>A Crab Pot (<?php echo esc_html( $mats( 'crab-pot' ) ); ?>, recipe at Fishing level 3) sits in any water and catches something every day if it has bait in it. In the ocean it catches crabs, lobsters, clams, cockles, mussels, oysters and shrimp; in rivers and lakes, crayfish, snails and periwinkles. The Fish Tank bundles need several of these, so a few pots early in the game fill the Crab Pot Bundle without effort.</p>
+<p>At Fishing level 10 the Luremaster profession makes crab pots work without bait, and the Mariner profession stops them catching trash. Pots are slow money on their own, but a row of them along the beach adds steady Fishing XP every day you empty them.</p>
+<?php endif; ?>
+
+<?php if ( $legs ) : ?>
+<h2>Legendary fish</h2>
+<p>Five legendary fish can each be caught once per save. They are hard catches, so bring your best rod, Deluxe Bait and a Trap or Cork Bobber, and eat a food that raises Fishing before you try.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="<?php echo esc_attr( Stardew_Tools\Entities::TABLE_LABEL ); ?>">
+<table class="results-table">
+	<caption>Legendary fish: season, place and the Fishing level they need</caption>
+	<thead><tr><th scope="col">Fish</th><th scope="col">Season</th><th scope="col">Where</th><th scope="col">Fishing level</th><th scope="col" class="num">Sells for</th></tr></thead>
+	<tbody>
+	<?php foreach ( $where as $id => $w ) : ?>
+		<?php
+		if ( ! isset( $legs[ $id ] ) ) {
+			continue;
+		}
+		?>
+		<tr><th scope="row"><?php echo esc_html( $legs[ $id ]['name'] ); ?></th><td><?php echo esc_html( $w[0] ); ?></td><td><?php echo esc_html( $w[1] ); ?></td><td><?php echo $w[2] ? (int) $w[2] : 'Any'; ?></td><td class="num"><?php echo esc_html( $g( $legs[ $id ]['base_price'] ) ); ?></td></tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<p>Each one can go in a fish pond on its own, where it produces something about every other day. Selling the fish once is rarely the best use: a legendary pond keeps earning, and the Extended Family quest from Mr. Qi lets you catch their relatives (Son of Crimsonfish, Ms. Angler and others) for a second chance.</p>
+<?php endif; ?>
+
+<?php if ( isset( $rec['fish-smoker'] ) ) : ?>
+<h2>Fish Smoker</h2>
+<p>Version 1.6 added the Fish Smoker. Willy sells the recipe for <?php echo esc_html( $g( (int) preg_replace( '/\D/', '', $rec['fish-smoker']['obtained'] ) ) ); ?>, and it needs <?php echo esc_html( $mats( 'fish-smoker' ) ); ?>. It turns a fish and a piece of Coal into Smoked Fish, worth twice the fish and keeping its quality. It is the only machine for fish that are not good in a pond, and it is where gold-star catches from a day of fishing go best.</p>
+<?php endif; ?>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'What is the best fish for a fish pond?' => count( $fp['raw'] ) && count( $fp['processed'] ) ? esc_html( $fp['raw'][0]['name'] ) . ' if you sell everything raw (about ' . esc_html( $g( $fp['raw'][0]['gold_per_day'] ) ) . ' a day), and ' . esc_html( $fp['processed'][0]['name'] ) . ' if you turn the roe into Aged Roe or Caviar (about ' . esc_html( $g( $fp['processed'][0]['gold_per_day'] ) ) . ').' : '',
+		'How do I make fishing easier?'          => 'Level up on easy fish first, then use a Trap Bobber or Cork Bobber on the Iridium Rod. Food that raises Fishing, like a Trout Soup, helps on hard catches.',
+		'Do crab pots need bait?'                => 'Yes, every day, unless you take the Luremaster profession at Fishing level 10.',
+		'How much XP do I need for Fishing level 10?' => ! empty( $xp['level_10'] ) ? esc_html( number_format( (int) $xp['level_10'] ) ) . ' XP in total, the same as every other skill. The XP Calculator counts how many catches that is.' : '',
+		'Can I catch a legendary fish twice?'    => 'No, each one only once per save. The Extended Family quest gives you a second set of relatives to catch.',
+	)
+);

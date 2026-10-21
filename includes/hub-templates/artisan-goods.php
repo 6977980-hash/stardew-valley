@@ -48,3 +48,13 @@ $g  = function ( $n ) {
 <p>Casks age wine, cheese, ale and more to higher quality, and they take a long time. The cellar comes with the third Farmhouse upgrade, starts with <?php echo (int) $cs['cellar']['start']; ?> casks already placed and has room for <?php echo (int) $cs['cellar']['max']; ?> in total. Because casks need space and months of waiting, they pay off slowly, but they earn without any daily work. The <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'are-casks-worth-it' ) ); ?>">Are Casks Worth It?</a> guide has the gold per cask per day.</p>
 <?php endif; ?>
 <p>There is a fourth option for fruit: the Dehydrator turns fruit into dried fruit, which can earn more per machine per day than wine. <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'dehydrator-vs-keg' ) ); ?>">Dehydrator vs Keg</a> compares them.</p>
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Keg or Preserves Jar?' => 'If you have more fruit than machines, use jars: they finish faster and earn more per machine per day. If you have more machines than fruit, use kegs: wine is worth more per fruit. Hops and Wheat belong in kegs either way.',
+		'Does the Artisan profession matter?' => 'Yes. At Farming level 10 it makes every artisan good, from wine to cheese, sell for 40% more, which is why most money farms take it.',
+		'How many kegs do I need?' => 'It depends on the crop: a Hops vine fills more than one keg, while a Starfruit plant fills less than half of one. How Many Kegs Do I Need? has the number for every crop.',
+		'Are casks worth it?' => 'They earn slowly but need no daily work. They pay best on goods that are already valuable, like Starfruit wine and Goat Cheese. Are Casks Worth It? has the gold per cask per day.',
+		'Where do I get a Dehydrator?' => 'Pierre sells the recipe for 10,000g. It turns five fruit or mushrooms into one dried item, which can beat a keg on cheap fruit.',
+	)
+);

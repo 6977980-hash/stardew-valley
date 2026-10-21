@@ -8,7 +8,7 @@ import { expectedItems } from '../../assets/js/engine/harvest.js';
 import { productsFor } from '../../assets/js/engine/processing.js';
 import { allocate } from '../../assets/js/engine/machines.js';
 import { animalOutput } from '../../assets/js/engine/animals.js';
-import { villagersFor } from '../../assets/js/engine/gifts.js';
+import { villagersFor, itemsAt, TASTES, POINTS_PER_HEART } from '../../assets/js/engine/gifts.js';
 
 const r0 = (n) => Math.round(n);
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -232,7 +232,83 @@ export function buildEntities(data, crops) {
     machinesOut[m.id] = { id: m.id, name: m.name, crops: rows.map(({ raw, ...rest }) => rest), accepted: rows.length };
   }
 
-  return { game_version: data.crops.game_version, crops: cropOut, animals: animalsOut, machines: machinesOut };
+  const out = { game_version: data.crops.game_version, crops: cropOut, animals: animalsOut, machines: machinesOut };
+  if (data.gifts) out.villagers = buildVillagers(data.gifts, cropOut);
+  if (data.bundles) out.bundles = buildBundles(data.bundles, cropOut);
+  return out;
+}
+
+/* ---- Villagers: birthday and every gift taste, from gifts.json ---- */
+function buildVillagers(gifts, cropOut) {
+  const names = new Map(gifts.items.map((i) => [i.id, i.name]));
+  const fr = gifts.friendship;
+  const name = (id) => names.get(id) || id;
+  const out = {};
+  for (const v of gifts.villagers) {
+    const tastes = {};
+    const categories = {};
+    for (const t of TASTES) {
+      tastes[t] = itemsAt(t, v, gifts).sort((a, b) => name(a).localeCompare(name(b)));
+      categories[t] = v.tastes[t].categories.map((c) => c.text);
+    }
+    const sameSeason = gifts.villagers
+      .filter((o) => o.id !== v.id && o.birthday.season === v.birthday.season)
+      .sort((a, b) => a.birthday.day - b.birthday.day)
+      .map((o) => ({ id: o.id, name: o.name, day: o.birthday.day }));
+    const own = new Set(TASTES.flatMap((t) => v.tastes[t].items));
+    out[v.id] = {
+      id: v.id,
+      name: v.name,
+      birthday: v.birthday,
+      marriage_candidate: !!v.marriage_candidate,
+      // Item names per taste: the villager's own list first, then the universal items that apply.
+      tastes: Object.fromEntries(TASTES.map((t) => [t, { own: tastes[t].filter((id) => own.has(id)).map(name), universal: tastes[t].filter((id) => !own.has(id)).map(name) }])),
+      categories,
+      // Universal loves this villager does not love (their own list or a recorded exception wins).
+      not_universal: gifts.universal.love.items.filter((id) => !tastes.love.includes(id)).map((id) => ({ name: name(id), taste: TASTES.find((t) => tastes[t].includes(id)) || null })),
+      growable: ['love', 'like'].flatMap((t) => tastes[t].filter((id) => cropOut[id]).map((id) => ({ id, name: name(id), taste: t, seasons: cropOut[id].seasons }))),
+      points: { ...fr.points, birthday: fr.multipliers.birthday, winter_star: fr.multipliers.winter_star, quality: fr.quality_multipliers, per_heart: POINTS_PER_HEART, loves_for_10_hearts: Math.ceil((10 * POINTS_PER_HEART) / fr.points.love) },
+      birthday_neighbours: sameSeason,
+      sources: v.sources.map((x) => x.url),
+    };
+  }
+  return out;
+}
+
+/* ---- Community Center rooms: each standard bundle with where to find every item ---- */
+function buildBundles(bundles, cropOut) {
+  const items = new Map(bundles.items.map((i) => [i.id, i]));
+  const out = {};
+  for (const room of bundles.rooms) {
+    const list = (set) => bundles.bundles.filter((b) => b.set === set && b.room === room.id);
+    const standard = list('standard');
+    if (!standard.length) continue;
+    const one = (b) => ({
+      id: b.id,
+      name: b.name,
+      slots: b.slots || 0,
+      gold: b.gold || 0,
+      reward: b.reward ? { name: b.reward.name || b.reward.room_reward || b.reward.id, qty: b.reward.qty || 1 } : null,
+      items: (b.items || []).map((i) => {
+        const info = items.get(i.id) || {};
+        return { id: i.id, name: i.name, qty: i.qty, quality: i.quality, seasons: info.seasons || [], obtain: info.obtain || '', ...(cropOut[i.id] ? { crop: true } : {}) };
+      }),
+    });
+    out[room.id] = {
+      id: room.id,
+      name: room.name,
+      reward: room.reward,
+      unlock: room.unlock || '',
+      effect: room.effect || '',
+      // Rooms of gold-only or single bundles are covered on the index page, not a thin page of their own.
+      page: standard.filter((b) => (b.items || []).length).length > 1,
+      bundles: standard.map(one),
+      remixed: list('remixed')
+        .filter((b) => !standard.some((x) => x.name === b.name && JSON.stringify(one(x).items) === JSON.stringify(one(b).items)))
+        .map(one),
+    };
+  }
+  return out;
 }
 
 const csvCell = (v) => {
@@ -241,7 +317,67 @@ const csvCell = (v) => {
 };
 const toCsv = (header, rows) => [header, ...rows].map((r) => r.map(csvCell).join(',')).join('\n') + '\n';
 
-/** Plain CSV downloads of the entity tables (file name => text). */
+// Columns of each CSV download: [name, type, description]. The header row, datapackage.json and
+// the column dictionary on /data/ all come from this list.
+export const CSV_COLUMNS = {
+  'stardew-crops': {
+    title: 'Crops',
+    description: 'One row per crop: seasons, growth, sell prices by quality and profit per tile in its best season.',
+    columns: [
+      ['id', 'string', 'Our slug for the crop, also its page URL: /crops/{id}/'],
+      ['name', 'string', 'Crop name as in the game'],
+      ['type', 'string', 'vegetable, fruit, flower or other'],
+      ['seasons', 'string', 'Seasons it grows outdoors, separated by /'],
+      ['growth_days', 'integer', 'Days from planting to the first harvest, no fertilizer'],
+      ['regrow_days', 'integer', 'Days between harvests for regrowing crops; empty if it is replanted'],
+      ['sell_price', 'integer', 'Sell price of one normal-quality crop in gold, no professions'],
+      ['silver_price', 'integer', 'Sell price at silver quality'],
+      ['gold_price', 'integer', 'Sell price at gold quality'],
+      ['iridium_price', 'integer', 'Sell price at iridium quality'],
+      ['best_season', 'string', 'Season with the highest profit per tile at Farming level 6, planted on day 1'],
+      ['profit_per_tile_level0', 'integer', 'Gold per tile over that season at Farming level 0: harvests sold raw, minus seeds'],
+      ['profit_per_tile_level6', 'integer', 'The same at Farming level 6'],
+      ['profit_per_tile_level10', 'integer', 'The same at Farming level 10'],
+      ['seed_cost', 'integer', 'Seed gold spent on one tile over that season (cheapest shop); empty if seeds have no shop price'],
+    ],
+  },
+  'stardew-farm-animals': {
+    title: 'Farm animals',
+    description: 'One row per farm animal: building, price, product timing, gold per day at five hearts and payback.',
+    columns: [
+      ['id', 'string', 'Our slug for the animal, also its page URL: /farm-animals/{id}/'],
+      ['name', 'string', 'Animal name as in the game'],
+      ['building', 'string', 'coop or barn'],
+      ['price', 'integer', "Price at Marnie's Ranch; empty if it is not sold"],
+      ['days_to_mature', 'integer', 'Days before it starts producing'],
+      ['days_between_products_base', 'number', 'Days between products before friendship or professions'],
+      ['days_between_products_5_hearts', 'number', 'Days between products at five hearts and full mood'],
+      ['raw_gold_per_day_5_hearts', 'integer', 'Gold a day selling its products raw at five hearts, no professions, average luck'],
+      ['artisan_goods_gold_per_day_5_hearts', 'integer', 'Gold a day with products made into artisan goods, with the Artisan profession'],
+      ['payback_days_raw', 'integer', 'Animal price divided by raw gold per day'],
+      ['payback_days_best_case_artisan', 'integer', 'Animal price divided by artisan gold per day'],
+      ['building_gold_from_scratch', 'integer', 'Gold to build the smallest building it needs from an empty plot (wood and stone not priced)'],
+      ['payback_days_raw_incl_whole_building', 'integer', 'Days to pay back the animal and that whole building with raw sales'],
+      ['payback_days_raw_incl_building_share_full', 'integer', 'Days to pay back the animal and its share of a full building with raw sales'],
+    ],
+  },
+  'stardew-machine-rankings': {
+    title: 'Machine rankings',
+    description: 'One row per crop per machine (Keg, Preserves Jar): the product, its price, the time and extra gold per machine per day.',
+    columns: [
+      ['machine', 'string', 'keg or preserves-jar'],
+      ['rank', 'integer', 'Place in that machine\'s list, best extra gold per machine per day first'],
+      ['crop_id', 'string', 'Crop slug, as in the crops file'],
+      ['product', 'string', 'What the machine makes from it'],
+      ['crops_needed', 'integer', 'Crops needed for one run (5 for Coffee, 1 for the rest)'],
+      ['product_price', 'integer', 'Product price with the Artisan profession'],
+      ['days', 'number', 'Days one run takes, at 1,600 game minutes a day'],
+      ['extra_gold_per_machine_day', 'integer', 'Product price minus the crops\' raw value (with Tiller), per day of machine time'],
+    ],
+  },
+};
+
+/** Plain CSV downloads of the entity tables (file name => text), plus a copy named with the game version. */
 export function buildCsv(ent) {
   const crops = Object.values(ent.crops).map((c) => {
     const best = c.plantings.reduce((b, p) => (!b || p.profit.level6 > b.profit.level6 ? p : b), null);
@@ -249,9 +385,38 @@ export function buildCsv(ent) {
   });
   const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.frequency_full_days, a.full.raw, a.full.processed, a.payback_days_raw, a.payback_days_best_case, a.building_needed && a.building_needed.total.gold, a.payback_days_with_building, a.payback_days_full_building]);
   const machines = Object.values(ent.machines).flatMap((m) => m.crops.map((c, i) => [m.id, i + 1, c.id, c.product, c.input, c.price, c.days, c.gain_per_machine_day]));
+  const rows = { 'stardew-crops': crops, 'stardew-farm-animals': animals, 'stardew-machine-rankings': machines };
+  const out = {};
+  for (const [name, r] of Object.entries(rows)) {
+    const text = toCsv(CSV_COLUMNS[name].columns.map((c) => c[0]), r);
+    out[`${name}.csv`] = text;
+    out[`${name}-${ent.game_version}.csv`] = text;
+  }
+  out['datapackage.json'] = JSON.stringify(buildDatapackage(ent.game_version), null, 2) + '\n';
+  return out;
+}
+
+/** Frictionless Data package describing the CSVs: source, licence, version and every column. */
+export function buildDatapackage(version) {
   return {
-    'stardew-crops.csv': toCsv(['id', 'name', 'type', 'seasons', 'growth_days', 'regrow_days', 'sell_price', 'silver_price', 'gold_price', 'iridium_price', 'best_season', 'profit_per_tile_level0', 'profit_per_tile_level6', 'profit_per_tile_level10', 'seed_cost'], crops),
-    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products_base', 'days_between_products_5_hearts', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days_raw', 'payback_days_best_case_artisan', 'building_gold_from_scratch', 'payback_days_raw_incl_whole_building', 'payback_days_raw_incl_building_share_full'], animals),
-    'stardew-machine-rankings.csv': toCsv(['machine', 'rank', 'crop_id', 'product', 'crops_needed', 'product_price', 'days', 'extra_gold_per_machine_day'], machines),
+    name: 'stardew-tools-data',
+    title: `Stardew Tools data downloads (Stardew Valley ${version})`,
+    description: 'Crop, farm animal and artisan machine tables calculated by the Stardew Tools engine from game data on the Stardew Valley Wiki. Assumptions for each column are in its description.',
+    homepage: 'https://stardewtools.net/data/',
+    version,
+    licenses: [{ name: 'CC-BY-NC-SA-3.0', path: 'https://creativecommons.org/licenses/by-nc-sa/3.0/', title: 'Creative Commons Attribution-NonCommercial-ShareAlike 3.0 (the Stardew Valley Wiki licence)' }],
+    sources: [{ title: 'Stardew Valley Wiki', path: 'https://stardewvalleywiki.com/' }],
+    contributors: [{ title: 'Stardew Tools', path: 'https://stardewtools.net/', role: 'author' }],
+    keywords: ['Stardew Valley', 'crops', 'farm animals', 'artisan machines', 'profit'],
+    resources: Object.entries(CSV_COLUMNS).map(([name, def]) => ({
+      name,
+      path: `${name}-${version}.csv`,
+      title: def.title,
+      description: def.description,
+      format: 'csv',
+      mediatype: 'text/csv',
+      encoding: 'utf-8',
+      schema: { fields: def.columns.map(([n, type, description]) => ({ name: n, type, description })) },
+    })),
   };
 }

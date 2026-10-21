@@ -19,6 +19,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Guides {
 
 	const META           = '_stardew_tools_guide';
+
+	/** Day the hub templates' text last changed. */
+	const HUBS_UPDATED = '2026-10-21';
 	const VERSION_OPTION = 'stardew_tools_guides_version';
 
 	/** Hub id (also page slug) => definition. Order is the order on the homepage. */
@@ -164,6 +167,13 @@ class Guides {
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
 		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
+		add_filter( 'stardew_tools_og_image', array( __CLASS__, 'og_image' ) );
+	}
+
+	/** A guide's own share image (assets/og/guide-<id>.jpg). */
+	public static function og_image( $url ) {
+		$cur = self::current();
+		return $url || ! $cur || 'guide' !== $cur[0] ? $url : Entities::og_file( 'guide-' . $cur[1] );
 	}
 
 	/** Breadcrumb name for a hub or guide page: its short name, not the full SEO title. */
@@ -340,7 +350,8 @@ class Guides {
 	/** The /guides/ page: every guide under its topic, with a link to the topic page. */
 	public static function index_shortcode() {
 		ob_start();
-		echo '<div class="hub"><p>Each guide answers one question with numbers taken from the game data, and links to the calculator that lets you try your own farm. Guides are grouped by topic.</p>';
+		echo '<div class="hub"><p>Each guide answers one question with numbers taken from the game data, and links to the calculator that lets you try your own farm. Start with the path for where your farm is now, or browse the guides by topic below.</p>';
+		self::stages();
 		foreach ( self::hubs() as $hub_id => $hub ) {
 			$hub_url = self::hub_url( $hub_id );
 			if ( ! $hub_url ) {
@@ -359,6 +370,38 @@ class Guides {
 		}
 		echo '<p>Want to try the numbers yourself? See all <a href="' . esc_url( home_url( '/tools/' ) ) . '">tools and calculators</a>.</p></div>';
 		return ob_get_clean();
+	}
+
+	/** "Start here" path on /guides/: the pages that matter at each stage of a save, in order. */
+	private static function stages() {
+		$stages = array(
+			'Year 1, Spring: your first crops'          => array( 'tool:what-to-plant', 'tool:best-spring-crops', 'guide:speed-gro-vs-fertilizer', 'entity:bundles' ),
+			'Year 1, Summer and Fall: grow the farm'    => array( 'tool:best-summer-crops', 'guide:coop-or-barn-first', 'guide:how-many-kegs-do-i-need', 'entity:villagers' ),
+			'Greenhouse and Year 2: build the machines' => array( 'guide:best-greenhouse-setup-for-money', 'guide:dehydrator-vs-keg', 'guide:best-fish-for-fish-ponds', 'guide:are-pigs-worth-it' ),
+			'Late game: age and scale up'               => array( 'guide:are-casks-worth-it', 'tool:greenhouse-planner', 'tool:keg-vs-preserves-jar' ),
+		);
+		$all    = self::guides();
+		$tools  = Tools::definitions();
+		$types  = Entities::types();
+		echo '<section aria-labelledby="guides-stages"><h2 id="guides-stages">Start here: by game stage</h2>';
+		foreach ( $stages as $label => $refs ) {
+			$rows = array();
+			foreach ( $refs as $ref ) {
+				list( $kind, $id ) = explode( ':', $ref );
+				if ( 'guide' === $kind && isset( $all[ $id ] ) && self::guide_url( $id ) ) {
+					$rows[] = array( self::guide_url( $id ), $all[ $id ]['short'], $all[ $id ]['blurb'] );
+				} elseif ( 'tool' === $kind && isset( $tools[ $id ] ) && Tools::url( $id ) ) {
+					$rows[] = array( Tools::url( $id ), $tools[ $id ]['short'], $tools[ $id ]['blurb'] );
+				} elseif ( 'entity' === $kind && isset( $types[ $id ] ) && Entities::url( $id, '' ) ) {
+					$rows[] = array( Entities::url( $id, '' ), $types[ $id ]['short'], $types[ $id ]['blurb'] );
+				}
+			}
+			if ( $rows ) {
+				echo '<h3>' . esc_html( $label ) . '</h3>';
+				self::link_list( $rows );
+			}
+		}
+		echo '</section>';
 	}
 
 	public static function guide_shortcode( $atts ) {
@@ -451,6 +494,22 @@ class Guides {
 		return ob_get_clean();
 	}
 
+	/**
+	 * "Quick questions": the follow-up questions players search for, each as an H3 with a one or two
+	 * sentence answer. Visible Q&A only (no FAQPage schema). $items: question => answer HTML.
+	 */
+	public static function quick_questions( $items ) {
+		$items = array_filter( (array) $items );
+		if ( ! $items ) {
+			return;
+		}
+		echo '<section class="quick-questions" aria-labelledby="quick-questions"><h2 id="quick-questions">Quick questions</h2>';
+		foreach ( $items as $q => $a ) {
+			echo '<h3>' . esc_html( $q ) . '</h3><p>' . wp_kses_post( $a ) . '</p>';
+		}
+		echo '</section>';
+	}
+
 	private static function link_list( $links ) {
 		if ( ! $links ) {
 			return;
@@ -509,7 +568,7 @@ class Guides {
 				'description'      => $def['description'],
 				'url'              => $url,
 				'mainEntityOfPage' => $url,
-				'image'            => Config::asset( Config::get( 'og_image' ) ),
+				'image'            => self::og_image( '' ) ? self::og_image( '' ) : Config::asset( Config::get( 'og_image' ) ),
 				'datePublished'    => $def['published'],
 				'dateModified'     => Data::modified( $def['published'], isset( $def['data'] ) ? $def['data'] : array( 'crops' ), isset( $def['updated'] ) ? $def['updated'] : '' ),
 				'author'           => array(
@@ -550,9 +609,10 @@ class Guides {
 			'@type'       => 'CollectionPage',
 			'name'        => $def['title'],
 			'description' => $def['description'],
-			'url'         => $url,
-			'inLanguage'  => 'en',
-			'mainEntity'  => array(
+			'url'          => $url,
+			'inLanguage'   => 'en',
+			'dateModified' => Data::modified( '2026-10-09', array( 'crops' ), self::HUBS_UPDATED ),
+			'mainEntity'   => array(
 				'@type'           => 'ItemList',
 				'itemListElement' => $list,
 			),

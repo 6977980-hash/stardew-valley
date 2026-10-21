@@ -114,3 +114,20 @@ $find = function ( $list, $id ) {
 		<li>Animals are already grown, and their house and the animal's price are not counted in the daily gold.</li>
 	</ul>
 </section>
+<?php
+$ref  = array();
+$proc = array();
+foreach ( isset( $answers['animals']['processed'] ) ? $answers['animals']['processed'] : array() as $row ) {
+	$proc[ $row['id'] ] = $row['gold_per_day'];
+}
+foreach ( isset( $answers['animals']['raw'] ) ? $answers['animals']['raw'] : array() as $row ) {
+	$ref[] = array( $row['name'], number_format( $row['price'] ) . 'g', number_format( $row['gold_per_day'] ) . 'g', isset( $proc[ $row['id'] ] ) ? number_format( $proc[ $row['id'] ] ) . 'g' : '—' );
+}
+stardew_tools_reference_table(
+	'ref-animals',
+	'Every animal you can buy, ranked by gold a day',
+	'One grown animal at full friendship and mood, sold raw with no professions, and the same animal with its products made into artisan goods (Mayonnaise, Cheese, Cloth, Truffle Oil) with Artisan. Prices are Marnie\'s; the building is not included.',
+	'Gold per day for each farm animal, raw and processed',
+	array( 'Animal', '#Price', '#Gold a day, raw', '#Gold a day, artisan goods' ),
+	$ref
+);

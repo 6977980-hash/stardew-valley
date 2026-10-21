@@ -101,3 +101,32 @@ asort( $items );
 		<li>Points are rounded to whole numbers.</li>
 	</ul>
 </section>
+<?php
+$ref = array();
+foreach ( isset( $answers['tables']['gifts'] ) ? $answers['tables']['gifts'] : array() as $row ) {
+	$url   = Stardew_Tools\Entities::url( 'villagers', $row['id'] );
+	$name  = $url ? array( 'html' => '<a href="' . esc_url( $url ) . '">' . esc_html( $row['name'] ) . '</a>' ) : $row['name'];
+	$loves = array_merge( $row['loves'], $row['love_categories'] );
+	$ref[] = array( $name, ucfirst( $row['birthday']['season'] ) . ' ' . (int) $row['birthday']['day'], implode( ', ', $loves ) . ( $row['universal'] ? ' + ' . (int) $row['universal'] . ' universal loves' : '' ) );
+}
+$uni = Stardew_Tools\Data::get( 'gifts' );
+$names = array();
+if ( $uni ) {
+	foreach ( $uni['universal']['love']['items'] as $id ) {
+		foreach ( $uni['items'] as $it ) {
+			if ( $it['id'] === $id ) {
+				$names[] = $it['name'];
+				break;
+			}
+		}
+	}
+}
+stardew_tools_reference_table(
+	'ref-gifts',
+	'Every villager\'s birthday and loved gifts',
+	'Each villager\'s own loved gifts from the wiki. "Universal loves" are the gifts almost everyone loves' . ( $names ? ': ' . esc_html( implode( ', ', $names ) ) : '' ) . '. The number shows how many of them still count for that villager; a few villagers have exceptions.',
+	'Birthdays and loved gifts of all villagers',
+	array( 'Villager', 'Birthday', 'Loves' ),
+	$ref,
+	$uni ? sprintf( 'A loved gift gives %d friendship points, %d times that on the villager\'s birthday. Pick any item in the Gift Finder above to see everyone\'s opinion of it.', (int) $uni['friendship']['points']['love'], (int) $uni['friendship']['multipliers']['birthday'] ) : ''
+);

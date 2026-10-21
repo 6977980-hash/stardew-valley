@@ -8,6 +8,7 @@
   },
   "scripts": {
     "brand": "node tools/brand/render.mjs",
+    "og": "node tools/brand/og-cards.mjs",
     "data:import": "node tools/data/import-crops.mjs && node tools/data/import-rules.mjs && node tools/data/import-price-oracle.mjs",
     "data:check-version": "node tools/data/check-version.mjs",
     "data:validate": "node tools/data/validate.mjs",

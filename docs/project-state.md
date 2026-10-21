@@ -6,8 +6,14 @@ submitted. Work now follows the 2026-10-21 audit, in six phases:
 - Audit phase 1 — calculator and data corrections (v0.9.0, PR #21, live)
 - Audit phase 2 — search intent and click-through: animal price questions, Animal Prices page,
   crop "Price, Uses and Profit" pages (v0.10.0, PR #22, live)
-- Audit phase 3 — technical SEO, security, internal links, CI (v0.11.0)
-- Next, each after the owner's yes: tools UX, performance and accessibility, content.
+- Audit phase 3 — technical SEO, security, internal links, CI (v0.11.0, PR #23, live)
+- Audit phase 4 — tools UX (v0.12.0, PR #24, live)
+- Audit phase 5 — performance and accessibility (v0.13.0, PR #25, live)
+- Audit phase 6 — content: server-rendered tool tables, villager and bundle pages, share images,
+  all guides 1,500+ words, Quick questions, fishing hub, machines index, About/Methodology,
+  llms.txt, datapackage.json (v0.14.0)
+- Still open from the audit: owner bio facts for About (O-8: play history, platforms), fruit tree,
+  Year-1 money and Ginger Island pages (F-66, later).
 
 **Build phases (all live):**
 - 0 — Discovery & research (see docs/research/README.md)

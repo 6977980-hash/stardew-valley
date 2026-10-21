@@ -149,6 +149,20 @@ The Crafting Calculator keeps its list, and the Bundle Tracker its ticks, in `lo
   entry from `includes/entity-templates/`, plus `/data/`. Existing published pages are never
   overwritten; only the auto meta description is refreshed. Schema: Article per page, CollectionPage
   for indexes, Dataset with CSV distributions for `/data/`.
+- Since v0.14.0 there are also `/villagers/` (gifts.json: tastes, growable gifts, points) and
+  `/bundles/` (bundles.json: one page per room; rooms with `page: false`, the Vault and Missing
+  Bundle, are covered on the index only). `Entities::types()` holds each type's slug, template and
+  search label; `AUTOLINK_TYPES` (crops, animals, machines) are the only names auto-linked.
+- `assets/og/*.jpg` are 1200x630 share images per entity page and guide, rendered by
+  `npm run og` (`tools/brand/og-cards.mjs`) from entities.json and the guide list. Re-run it after
+  data changes. `stardew_tools_og_image` filter feeds them to og:image and Article.image.
+- Tool pages end with a server-rendered reference table of the default answer
+  (`stardew_tools_reference_table()` in `tool-templates/_controls.php`, data from
+  `answers.json` "tables" built by `tools/build/tool-tables.mjs`).
+- `entities.mjs` also writes versioned CSV copies (`stardew-crops-{game_version}.csv`) and
+  `assets/data/datapackage.json` (Frictionless, column descriptions shown on `/data/`).
+- `Guides::quick_questions()` prints visible "Quick questions" (H3 + answer) on guides and hubs.
+  There is deliberately no FAQPage schema.
 - `Entities::autolink()` links the first mention of each entity name in guide and entity pages
   (DOM-based, skips headings, tables, links; at most 14 links).
 - `Search` prints a header button and a `<dialog>` with a JSON index of tools, hubs, guides and

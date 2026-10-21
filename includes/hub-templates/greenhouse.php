@@ -65,3 +65,13 @@ $g  = function ( $n ) {
 	<li><strong>Judging by the second year.</strong> Year two numbers assume the plants are already grown. Check the first-year figure for money you need soon.</li>
 	<li><strong>Counting tiles you do not have.</strong> Every sprinkler placed on soil takes a tile you can no longer plant, so compare layouts in the planner instead of assuming all 120 tiles are free.</li>
 </ul>
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'What is the best crop for the greenhouse?' => ! empty( $gh['raw'][0] ) ? esc_html( $gh['raw'][0]['name'] ) . ' for most farms: it keeps fruiting all year without replanting, about ' . esc_html( $g( $gh['raw'][0]['total'] ) ) . ' a year sold raw once grown. With a very large keg shed, Hops can pass it.' : '',
+		'How do I unlock the greenhouse?' => 'Finish the Pantry bundles in the Community Center. On the Joja route, buy the greenhouse repair from the Joja Community Development Form.',
+		'How many tiles does the greenhouse have?' => 'The floor has 120 soil tiles. Sprinklers placed on the soil take some of them, which is why the layout matters.',
+		'Can I plant fruit trees in the greenhouse?' => 'Yes, on the soil or around the edge, and they fruit all year. Trees on the edge leave the soil free for crops.',
+		'Do I need to water the greenhouse?' => 'Yes, every tile every day, unless sprinklers reach it. Six Iridium Sprinklers cover the whole floor.',
+	)
+);

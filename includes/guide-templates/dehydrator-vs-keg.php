@@ -120,5 +120,40 @@ $ratio = $star['per_dehydrator_day'] / max( 1, $star['per_keg_day'] );
 </div>
 <p>Each fish uses one Coal, so smoke only fish that sell for clearly more than the Coal you spend. The Fish Smoker recipe is <?php echo esc_html( $mats( $rec['smoker'] ) ); ?>, and the Fish Shop sells the recipe for <?php echo esc_html( $gold( $rec['smoker_shop']['price'] ) ); ?>. Fish ponds make roe rather than fish, so for those see <a href="<?php echo esc_url( home_url( '/fishing/best-fish-for-fish-ponds/' ) ); ?>">Best fish for fish ponds</a>.</p>
 
+<?php
+$craft = array();
+foreach ( isset( $answers['tables']['crafting'] ) ? $answers['tables']['crafting'] : array() as $row ) {
+	$craft[ $row['id'] ] = $row;
+}
+$keg_from   = isset( $craft['keg'] ) ? $craft['keg']['obtained'] : '';
+$irid_raw5  = $star['base'] * 2 * 5;
+?>
+<h2>Year 1 or later: which machine to build first</h2>
+<p>The two machines unlock in different ways, and that often decides the order more than the gold per day does. The Keg recipe comes with <?php echo esc_html( $keg_from ); ?> and needs <?php echo esc_html( isset( $craft['keg'] ) ? implode( ', ', $craft['keg']['ingredients'] ) : '' ); ?>. The Dehydrator recipe is bought from Pierre for <?php echo esc_html( $gold( $rec['dehydrator_shop']['price'] ) ); ?> and needs <?php echo esc_html( $mats( $rec['dehydrator'] ) ); ?>; Fire Quartz comes from the lower floors of the Mines and from Magma Geodes.</p>
+<ul>
+	<li><strong>Year 1, few fruit:</strong> neither machine pays for itself quickly on a handful of Blueberries or Cranberries. Sell raw, save for Kegs, and buy the Dehydrator recipe only once you have more fruit than you can carry to the shipping bin.</li>
+	<li><strong>Your first fruit field (Year 1 Fall or Year 2):</strong> build Kegs for the expensive fruit as soon as Farming level 8 arrives, and add one or two Dehydrators for everything the Kegs cannot take. A Dehydrator needs only one batch of five fruit a day, so it is the cheapest way to stop fruit piling up in chests.</li>
+	<li><strong>Late game, a full greenhouse or Ginger Island farm:</strong> Kegs on Starfruit and Ancient Fruit, casks in the cellar for the wine, and a row of Dehydrators for berries and any overflow. At this stage you have more fruit than machines, which is exactly when the per-day table above matters most.</li>
+</ul>
+
+<h2>Iridium fruit: sell it, do not dry it</h2>
+<p>A Dehydrator ignores quality: five iridium Starfruit make the same Dried Fruit as five normal ones. Iridium fruit sells for twice the normal price, so five iridium Starfruit sold raw bring <?php echo esc_html( $gold( $irid_raw5 ) ); ?> before Tiller, more than the <?php echo esc_html( $gold( $star['dried'] ) ); ?> Dried Fruit they would make even with Artisan. Kegs also ignore quality, so the same logic applies there, but wine can be aged in a cask. Dry your normal and silver fruit, and sell or keg the best ones.</p>
+
+<h2>The mushroom cave and Dried Mushrooms</h2>
+<p>If you picked mushrooms for the Farm Cave, you get a Dehydrator early, long before most farms can buy one. The mushroom boxes give a few mushrooms at a time, and the Dehydrator needs five of the same kind and quality, so let them collect in a chest and dry them in batches. Red Mushrooms cannot be dried; keep them for the bundles and recipes that need them. With bats instead of mushrooms, the cave gives fruit, and those go through the same rules as the fruit on this page.</p>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'Can you put Grapes in a Dehydrator?'     => 'Yes. Five Grapes make Raisins, a fixed ' . esc_html( $gold( $rais['raisins_plain'] ) ) . ' (' . esc_html( $gold( $rais['raisins'] ) ) . ' with Artisan) instead of Dried Fruit. Wine from the same five Grapes is worth more.',
+		'Does fruit quality matter in a Dehydrator?' => 'No. The five fruit must be the same type and quality, but the Dried Fruit is always normal quality and its price only depends on the fruit type.',
+		'How long does a Dehydrator take?'         => 'It is ready the next morning, about one day. One wiki page lists ' . (int) $d['minutes'] . ' minutes instead, which is a little over a day; this guide uses one day.',
+		'Does Artisan increase Dried Fruit?'       => 'Yes. Dried Fruit, Raisins and Dried Mushrooms are artisan goods, so Artisan adds 40%. All prices on this page include it.',
+		'How many Dehydrators equal one Keg?'      => 'For Starfruit, one Dehydrator brings in about ' . esc_html( $num( $ratio ) ) . ' times the gold of one Keg per day, because it handles five fruit a day. Per fruit, the Keg is still worth about ' . esc_html( $num( $star['wine5'] / $star['dried'] ) ) . ' times as much.',
+		'Can you dry Truffles or Red Mushrooms?'   => 'No. The Dehydrator takes other mushrooms, but not Red Mushrooms or Truffles. Truffles go in the Oil Maker.',
+	)
+);
+?>
+
 <h2>Related</h2>
 <p>For the Keg's own numbers, see <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a>. For a greenhouse that makes this much fruit, see <a href="<?php echo esc_url( home_url( '/greenhouse/best-greenhouse-setup-for-money/' ) ); ?>">Best Greenhouse Setup for Money</a>.</p>

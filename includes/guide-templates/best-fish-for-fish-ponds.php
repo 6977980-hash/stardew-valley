@@ -127,6 +127,40 @@ $pond_url = $tool_url( 'fish-pond-calculator' );
 <h2>Legendary fish</h2>
 <p>A legendary fish pond holds only one fish, but it has a 50% chance to produce something every day, and what it makes is valuable. Selling raw, <?php echo esc_html( $leg[0]['name'] ); ?> earns about <?php echo esc_html( $gold( $leg[0]['gold_per_day'] ) ); ?> a day and <?php echo esc_html( $leg[2]['name'] ); ?> about <?php echo esc_html( $gold( $leg[2]['gold_per_day'] ) ); ?>, more than any regular fish sold raw. You can only catch each legendary fish once (the Legend II versions come from the Extended Family quest), so they are a bonus pond, not a plan.</p>
 
+<?php
+$fpd  = Stardew_Tools\Data::get( 'fishponds' );
+$bld  = $fpd ? $fpd['building'] : null;
+$goby = null;
+foreach ( $fpd ? $fpd['fish'] : array() as $fish ) {
+	if ( 'goby' === $fish['id'] ) {
+		$goby = $fish;
+	}
+}
+?>
+<?php if ( $bld ) : ?>
+<h2>What a pond costs</h2>
+<p><?php echo esc_html( $bld['builder'] ); ?> builds a Fish Pond for <?php echo esc_html( $gold( $bld['cost'] ) ); ?> plus <?php echo esc_html( implode( ', ', array_map( function ( $m ) { return number_format( $m['count'] ) . ' ' . $m['item']; }, $bld['materials'] ) ) ); ?>, and it takes <?php echo (int) $bld['build_days']; ?> days. It covers <?php echo (int) $bld['size']['width']; ?> by <?php echo (int) $bld['size']['height']; ?> tiles. The Seaweed and Green Algae come from fishing in the ocean and in rivers or ponds, so a few trips with a rod collect them while you catch the fish you want to put in.</p>
+<p>Against the top ponds in this guide, that price is small: a pond earning a few hundred gold a day pays back the gold in a few weeks once it is full. The real costs are the wait while it fills and the jars for its roe. Put ponds where you pass every day, because the produce waits in the pond until you collect it.</p>
+<?php endif; ?>
+
+<?php if ( $goby ) : ?>
+<h2>New in 1.6: the Goby</h2>
+<p>Version 1.6 added the Goby. It sells for <?php echo esc_html( $gold( $goby['base_price'] ) ); ?>, starts its pond at <?php echo (int) $goby['initial_capacity']; ?> fish, grows to <?php echo (int) $goby['max_population']; ?> and adds a fish every <?php echo (int) $goby['spawn_days']; ?> days. Its roe is <?php echo esc_html( $goby['roe']['name'] ); ?> at <?php echo esc_html( $gold( $goby['roe']['price'] ) ); ?>, or <?php echo esc_html( $gold( $goby['roe']['processed']['price_artisan'] ) ); ?> as Aged Roe with Artisan. That puts it in the middle of the table, not near the top. Its first quests ask for easy items (<?php echo esc_html( implode( ', ', array_map( function ( $o ) { return $o['min'] . ' ' . $o['item']; }, $goby['quests'][0]['options'] ) ) ); ?>, one of them), so it is a simple pond to fill if you have spare space.</p>
+<?php endif; ?>
+
+<?php
+Stardew_Tools\Guides::quick_questions(
+	array(
+		'What is the best fish for a fish pond?' => esc_html( $raw[0]['name'] ) . ' earns the most selling everything raw (about ' . esc_html( $gold( $raw[0]['gold_per_day'] ) ) . ' a day full). With Artisan and jars, ' . esc_html( $proc[0]['name'] ) . ' leads at about ' . esc_html( $gold( $proc[0]['gold_per_day'] ) ) . ' a day.',
+		'Can Tiger Trout reproduce in a pond?'   => 'No. Tiger Trout start at ten fish and never add more, so you have to catch all ten yourself, but the pond needs no quests.',
+		'How many fish does a pond start with?'  => $fpd ? 'Most ponds start with a limit of ' . (int) $fpd['rules']['population']['default_initial_capacity'] . ' fish. Quests raise it to ' . (int) $fpd['rules']['population']['max_capacity'] . '. Legendary fish ponds hold only ' . (int) $fpd['rules']['population']['legendary_max_capacity'] . '.' : '',
+		'Should I turn roe into Aged Roe?'       => 'Yes, if you have spare Preserves Jars: Aged Roe sells for twice the roe, and Sturgeon roe becomes Caviar, which is worth even more.',
+		'How much does a fish pond cost?'        => $bld ? esc_html( $gold( $bld['cost'] ) ) . ' at Robin\'s, plus ' . esc_html( implode( ', ', array_map( function ( $m ) { return number_format( $m['count'] ) . ' ' . $m['item']; }, $bld['materials'] ) ) ) . '.' : '',
+		'Can you put legendary fish in a pond?'  => 'Yes, one per pond. ' . esc_html( $leg[0]['name'] ) . ' earns about ' . esc_html( $gold( $leg[0]['gold_per_day'] ) ) . ' a day raw, more than any normal pond, but you need to catch it first.',
+	)
+);
+?>
+
 <h2>What to do next</h2>
 <ul>
 	<li>Check any fish at your current population in the <a href="<?php echo esc_url( $pond_url ); ?>">Fish Pond Calculator</a>.</li>

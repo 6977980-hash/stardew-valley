@@ -122,3 +122,29 @@ $g = function ( $n ) {
 		<li>Fruit trees around the edge are not counted yet.</li>
 	</ul>
 </section>
+<?php
+$ghr  = isset( $answers['tables']['greenhouse'] ) ? $answers['tables']['greenhouse'] : array( 'rows' => array(), 'tiles' => 0 );
+$ref  = array();
+$sell = array(
+	'raw'           => 'raw',
+	'wine'          => 'Wine',
+	'juice'         => 'Juice',
+	'jelly'         => 'Jelly',
+	'pickles'       => 'Pickles',
+	'pale-ale'      => 'Pale Ale',
+	'beer'          => 'Beer',
+	'coffee'        => 'Coffee',
+	'green-tea'     => 'Green Tea',
+);
+foreach ( $ghr['rows'] as $row ) {
+	$ref[] = array( $row['name'], $row['harvests'], number_format( $row['raw'] ) . 'g', number_format( $row['raw_total'] ) . 'g', number_format( $row['best'] ) . 'g', isset( $sell[ $row['best_as'] ] ) ? $sell[ $row['best_as'] ] : $row['best_as'] );
+}
+stardew_tools_reference_table(
+	'ref-greenhouse',
+	'Greenhouse crops ranked for one year',
+	'Every crop that fits a greenhouse year, already grown (year 2+), with 6 Iridium Sprinklers leaving ' . (int) $ghr['tiles'] . ' tiles. "Best way" lets each crop go to a Keg or Preserves Jar when that pays more, with Artisan and a free machine for every harvest; the planner above tells you how many machines that takes.',
+	'Greenhouse profit per tile for a year, sold raw and the best way',
+	array( 'Crop', '#Harvests', '#Raw per tile', '#Raw, full greenhouse', '#Best way per tile', 'Best way' ),
+	$ref,
+	'Seed costs are counted where seeds have a gold price; Ancient Fruit seeds do not, so its first planting is free here.'
+);
