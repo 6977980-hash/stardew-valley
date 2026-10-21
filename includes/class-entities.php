@@ -16,6 +16,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Entities {
 
+	/** Fallback name the templates give a scrolling table box; label_tables() swaps it for the caption. */
+	const TABLE_LABEL = 'Table: scrolls sideways on small screens';
+
 	/** Day the page templates' text last changed (shown as "Updated" with the data check date). */
 	const UPDATED = '2026-10-21';
 
@@ -164,6 +167,7 @@ class Entities {
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'the_content', array( __CLASS__, 'autolink' ), 20 );
+		add_filter( 'the_content', array( __CLASS__, 'label_tables' ), 21 );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
 		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
 	}
@@ -369,7 +373,7 @@ class Entities {
 		ob_start();
 		echo '<div class="entity" data-entity="' . esc_attr( $type . ( $id ? ':' . $id : '' ) ) . '">';
 		?>
-		<p class="guide-byline">By <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" rel="author"><?php echo esc_html( Config::get( 'author' ) ); ?></a> · Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time> · <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
+		<p class="guide-byline"><span>By <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>" rel="author"><?php echo esc_html( Config::get( 'author' ) ); ?></a></span> <span>Updated <time datetime="<?php echo esc_attr( $checked ); ?>"><?php echo esc_html( gmdate( 'F j, Y', strtotime( $checked ) ) ); ?></time></span> <span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span></p>
 		<?php
 		include $file;
 		if ( $id ) {
@@ -418,6 +422,28 @@ class Entities {
 	}
 
 	const AUTOLINK_MAX = 14;
+
+	/**
+	 * Names each sideways-scrolling table box after its table's caption. The templates give every box
+	 * the same fallback label, so a screen reader's list of regions showed several identical entries.
+	 */
+	public static function label_tables( $html ) {
+		static $n = 0;
+		if ( false === strpos( $html, self::TABLE_LABEL ) ) {
+			return $html;
+		}
+		return preg_replace_callback(
+			'#(<div class="table-wrap"[^>]*?) aria-label="' . preg_quote( self::TABLE_LABEL, '#' ) . '"([^>]*>\s*<table[^>]*>\s*<caption)([^>]*)>#',
+			function ( $m ) use ( &$n ) {
+				if ( preg_match( '/\sid="([^"]+)"/', $m[3], $id ) ) {
+					return $m[1] . ' aria-labelledby="' . $id[1] . '"' . $m[2] . $m[3] . '>';
+				}
+				$id = 'table-cap-' . ( ++$n );
+				return $m[1] . ' aria-labelledby="' . $id . '"' . $m[2] . ' id="' . $id . '"' . $m[3] . '>';
+			},
+			$html
+		);
+	}
 
 	/**
 	 * Links the first mention of each crop, animal and machine name in guide and entity page text

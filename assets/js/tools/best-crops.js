@@ -1,5 +1,5 @@
 // Best crops by season: re-ranks the server-rendered table for your level, fertilizer and Tiller.
-import { rankCrops } from '../engine/index.js';
+import { rankCrops } from '../engine/decision.js';
 import { loadData, bindTool, esc, gold, num } from './common.js';
 
 const data = loadData();

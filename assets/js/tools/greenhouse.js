@@ -1,5 +1,6 @@
 // Greenhouse Planner: sprinkler layout, crops per tile, a year of profit and machines needed.
-import { cropProfit, sprinklerCoverage, paintGrid } from '../engine/index.js';
+import { cropProfit } from '../engine/profit.js';
+import { sprinklerCoverage, paintGrid } from '../engine/greenhouse.js';
 import { loadData, bindTool, esc, gold, num, plural, stepsHtml, SELL_LABEL } from './common.js';
 
 const data = loadData();

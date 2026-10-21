@@ -36,6 +36,9 @@ while ( have_posts() ) :
 	the_content();
 	list( $html, $toc ) = st_theme_toc( ob_get_clean() );
 	$minutes            = st_theme_reading_minutes( $html );
+	$has_toc            = count( $toc ) > 2;
+	// With a TOC, the byline and short answer sit above it on phones (see .article-intro in main.css).
+	list( $intro, $html ) = $has_toc ? st_theme_split_intro( $html ) : array( '', $html );
 	?>
 	<article <?php post_class( 'article article--' . $kind ); ?>>
 		<header class="article-hero">
@@ -57,10 +60,15 @@ while ( have_posts() ) :
 				</div>
 			</div>
 		</header>
-		<div class="container article-layout<?php echo count( $toc ) > 2 ? ' has-toc' : ''; ?>">
-			<?php if ( count( $toc ) > 2 ) : ?>
-			<aside class="article-toc">
-				<details class="toc panel" open>
+		<div class="container article-layout<?php echo $has_toc ? ' has-toc' : ''; ?><?php echo '' !== $intro ? ' has-intro' : ''; ?>">
+			<?php if ( '' !== $intro ) : ?>
+			<div class="entry-content article-intro">
+				<?php echo $intro; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content() output. ?>
+			</div>
+			<?php endif; ?>
+			<?php if ( $has_toc ) : ?>
+			<nav class="article-toc" aria-label="On this page">
+				<details class="toc panel">
 					<summary class="toc__title">On this page</summary>
 					<ol class="toc__list">
 						<?php foreach ( $toc as $item ) : ?>
@@ -68,7 +76,9 @@ while ( have_posts() ) :
 						<?php endforeach; ?>
 					</ol>
 				</details>
-			</aside>
+				<?php // Sent closed, so phones never shift. Wide screens open it before first paint; there it has its own column. ?>
+				<script>if(window.matchMedia('(min-width: 1040px)').matches)document.currentScript.previousElementSibling.open=true;</script>
+			</nav>
 			<?php endif; ?>
 			<div class="entry-content">
 				<?php echo $html; // phpcs:ignore WordPress.Security.EscapeOutput -- the_content() output, only heading ids added. ?>

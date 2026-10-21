@@ -50,6 +50,7 @@ html:not(.tool-ready) .tool-results [data-results]:empty { min-height: 240px; }
 .result-summary { font-size: 1.1rem; margin: 0 0 12px; min-height: 1.6em; }
 .table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface); }
 .results-table { width: 100%; border-collapse: collapse; font-size: .97rem; }
+.results-table caption { text-align: left; padding: 8px 10px; font-weight: 700; }
 .results-table th, .results-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--c-border); vertical-align: middle; }
 .results-table thead th { background: var(--c-alt); font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
 .results-table .num { text-align: right; white-space: nowrap; }

@@ -1,5 +1,6 @@
 // Crop Profit Calculator: every crop that can still be harvested from the chosen day.
-import { cropProfit, productsFor } from '../engine/index.js';
+import { cropProfit } from '../engine/profit.js';
+import { productsFor } from '../engine/processing.js';
 import { loadData, bindTool, esc, gold, stepsHtml, SELL_LABEL } from './common.js';
 
 const data = loadData();

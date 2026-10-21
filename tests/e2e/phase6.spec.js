@@ -10,10 +10,11 @@ const words = async (page) => (await page.locator('.entry-content').innerText())
 // "More guides" blocks that every guide shares.
 const guideWords = (page) =>
   page.evaluate(() => {
-    const parts = [];
-    let node = document.querySelector('.guide .guide-byline');
-    while ((node = node && node.nextElementSibling) && !node.matches('.next-step, .guide-tools, .tool-meta')) parts.push(node.innerText);
-    return parts.join(' ').split(/\s+/).filter(Boolean).length;
+    // The intro (byline + short answer) and the body are two .guide boxes around the "On this page" list.
+    const kids = [...document.querySelectorAll('.guide > *')];
+    const start = kids.findIndex((n) => n.matches('.guide-byline'));
+    const end = kids.findIndex((n) => n.matches('.next-step, .guide-tools, .tool-meta'));
+    return kids.slice(start + 1, end).map((n) => n.innerText).join(' ').split(/\s+/).filter(Boolean).length;
   });
 
 test.describe('phase 6 pages @live', () => {

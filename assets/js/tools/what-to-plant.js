@@ -1,5 +1,5 @@
 // What to Plant Today: one recommendation, the reasons, a shopping list and the full ranking.
-import { rankCrops, reasons } from '../engine/index.js';
+import { rankCrops, reasons } from '../engine/decision.js';
 import { loadData, bindTool, esc, gold, num, plural, stepsHtml } from './common.js';
 
 const data = loadData();

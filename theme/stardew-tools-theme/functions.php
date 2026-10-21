@@ -216,6 +216,21 @@ function st_theme_toc( $html ) {
 	return array( $html, $toc );
 }
 
+/**
+ * Splits a guide or hub into its intro (byline plus short answer, or the hub's lead paragraph)
+ * and the rest, so the theme can print the "On this page" box between them. Returns
+ * ['', $html] when the content does not start that way.
+ */
+function st_theme_split_intro( $html ) {
+	$re = '#^(\s*<div class="(?:guide|hub)"[^>]*>)(\s*(?:<p class="guide-byline">.*?</p>\s*)?(?:<div class="answer">.*?</div>|<p class="hub-lead">.*?</p>))#s';
+	// The answer box holds paragraphs only; a nested <div> would end the match early, so give up then.
+	if ( ! preg_match( $re, $html, $m ) || substr_count( $m[2], '<div' ) !== substr_count( $m[2], '</div>' ) ) {
+		return array( '', $html );
+	}
+	// Both halves keep the guide/hub wrapper so their styles still apply.
+	return array( $m[1] . $m[2] . '</div>', $m[1] . substr( $html, strlen( $m[0] ) ) );
+}
+
 /** Minutes to read rendered HTML, at 220 words a minute. */
 function st_theme_reading_minutes( $html ) {
 	$words = str_word_count( wp_strip_all_tags( $html ) );

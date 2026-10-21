@@ -1,6 +1,6 @@
 // Bundle Tracker: tick off bundle items, see room progress and what is still missing.
 // Everything is kept in this browser (localStorage); nothing is sent anywhere.
-import { itemKeys, isChoice, isDone, filled, slotsOf, activeBundles, roomProgress, stillNeeded } from '../engine/index.js';
+import { itemKeys, isChoice, isDone, filled, slotsOf, activeBundles, roomProgress, stillNeeded } from '../engine/bundles.js';
 import { loadData, esc, num, gold } from './common.js';
 
 const data = loadData().bundles;

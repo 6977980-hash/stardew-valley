@@ -11,7 +11,7 @@ get_header();
 ?>
 <div class="container content not-found">
 	<h1 class="entry-title">This page wandered off</h1>
-	<p>We could not find that page. It may have moved, or the tool may not be ready yet.</p>
+	<p>We could not find that page. It may have moved or been renamed. Try a search, or start from one of these pages.</p>
 	<p><button class="btn btn--primary" type="button" data-search-open>Search tools, guides and data</button></p>
 	<ul>
 		<li><a href="<?php echo esc_url( home_url( '/tools/' ) ); ?>">Browse all tools</a></li>

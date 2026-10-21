@@ -1,5 +1,5 @@
 // Ancient Fruit vs Starfruit, side by side for one setup.
-import { cropProfit } from '../engine/index.js';
+import { cropProfit } from '../engine/profit.js';
 import { loadData, bindTool, esc, gold, num, plural, stepsHtml, SELL_LABEL } from './common.js';
 
 const data = loadData();

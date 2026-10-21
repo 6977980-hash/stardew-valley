@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.12.0
+Stable tag: 0.13.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,12 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.13.0 (2026-10-21) =
+* Speed: guide and hub pages no longer jump while loading (the "On this page" box is sent closed and opened on wide screens before first paint); short answer sits above it on phones.
+* Tools load only the engine files they use, with modulepreload links in the head (no import waterfall). Hero art is drawn with merged paths, 103 KB to 47 KB, same pixels.
+* Accessibility: each scrolling table is named after its caption, "On this page" is a nav landmark, the guide "Next step" box is no longer a nested aside.
+* All Crops table: profit is the second column, crop names stay in view while scrolling on phones, with a hint above. Byline separators replaced by spacing (no dangling "·"); 404 wording.
 
 = 0.12.0 (2026-10-21) =
 * Tools: result next to the form on laptops, short answer folds on phones, home planner and shared links open at the result.

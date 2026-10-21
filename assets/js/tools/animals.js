@@ -1,5 +1,5 @@
 // Animal Profit Calculator: one animal type's daily produce and value, and every animal ranked.
-import { animalOutput, rankAnimals } from '../engine/index.js';
+import { animalOutput, rankAnimals } from '../engine/animals.js';
 import { loadData, bindTool, esc, gold, num, plural } from './common.js';
 
 const data = loadData().animals;
