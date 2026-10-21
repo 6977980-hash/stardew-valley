@@ -8,7 +8,8 @@
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'STARDEW_THEME_VERSION', '0.8.1' );
+// One version for plugin and theme: the theme ships inside the plugin and is deployed with it.
+define( 'STARDEW_THEME_VERSION', defined( 'STARDEW_TOOLS_VERSION' ) ? STARDEW_TOOLS_VERSION : '0.11.0' );
 
 /**
  * Brand value with a fallback, so the theme never fatals if the plugin is missing.

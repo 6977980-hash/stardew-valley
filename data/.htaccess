@@ -1,0 +1,2 @@
+# Raw game data is read by PHP from disk; visitors get it inline on tool pages or as CSV in assets/data/.
+Require all denied

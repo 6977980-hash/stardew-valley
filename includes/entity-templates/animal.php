@@ -177,3 +177,16 @@ $five = $e['by_hearts'][5]['gold'];
 	<li><a href="<?php echo esc_url( $ent_url( 'animals', '' ) ); ?>">All farm animals</a><span>Every animal in one table, with a CSV download.</span></li>
 	<?php endif; ?>
 </ul>
+<?php
+// Every other animal, by building, so no animal page depends on the top-four table to be found.
+$animal_rows = array();
+foreach ( $all['animals'] as $aid => $ae ) {
+	$group = false !== strpos( $ae['building'], 'Coop' ) ? 'Coop animals' : 'Barn animals';
+	if ( $aid !== $e['id'] && $ent_url( 'animals', $aid ) ) {
+		$animal_rows[ $group ][] = '<a href="' . esc_url( $ent_url( 'animals', $aid ) ) . '">' . esc_html( $ae['name'] ) . '</a>';
+	}
+}
+foreach ( $animal_rows as $group => $links ) {
+	echo '<p class="entity-links">' . esc_html( $group ) . ': ' . implode( ' · ', $links ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
+}
+?>

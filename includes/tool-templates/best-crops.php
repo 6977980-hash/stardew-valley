@@ -76,7 +76,8 @@ $top    = array_slice( $rows, 0, 3 );
 <section class="tool-results" aria-labelledby="results-heading">
 	<h2 id="results-heading"><?php echo esc_html( 'greenhouse' === $season ? 'Greenhouse crops ranked' : $label . ' crops ranked' ); ?></h2>
 	<p class="result-summary" data-summary role="status" aria-live="polite">Ranked for farming level 0, no fertilizer, no professions.</p>
-	<div class="table-wrap" data-results>
+	<?php $crop_base = Stardew_Tools\Entities::url( 'crops', '' ); ?>
+	<div class="table-wrap" data-results<?php echo $crop_base ? ' data-crop-base="' . esc_url( $crop_base ) . '"' : ''; ?>>
 		<table class="results-table">
 			<caption class="visually-hidden">Profit per tile for each crop, best first</caption>
 			<thead><tr><th scope="col">#</th><th scope="col">Crop</th><th scope="col" class="num">Profit / tile</th><th scope="col" class="num">Per day</th><th scope="col" class="num col-hide-sm">Harvests</th><th scope="col" class="col-hide-sm">Seeds</th></tr></thead>
@@ -84,7 +85,7 @@ $top    = array_slice( $rows, 0, 3 );
 			<?php foreach ( $rows as $i => $r ) : ?>
 				<tr<?php echo 0 === $i ? ' class="is-best"' : ''; ?>>
 					<td><?php echo (int) $i + 1; ?></td>
-					<th scope="row"><?php echo esc_html( $r['name'] ); ?>
+					<th scope="row"><?php $crop_url = Stardew_Tools\Entities::url( 'crops', $r['id'] ); ?><?php echo $crop_url ? '<a href="' . esc_url( $crop_url ) . '">' . esc_html( $r['name'] ) . '</a>' : esc_html( $r['name'] ); ?>
 						<?php if ( $r['regrows'] ) : ?>
 						<span class="tag">regrows</span>
 						<?php endif; ?>

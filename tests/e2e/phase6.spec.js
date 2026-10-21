@@ -6,6 +6,15 @@ const INDEXES = ['/crops/', '/farm-animals/', '/machines/', '/data/'];
 const ENTITIES = ['/crops/strawberry/', '/crops/starfruit/', '/farm-animals/pig/', '/farm-animals/chicken/', '/machines/keg/', '/machines/preserves-jar/'];
 const GUIDES = ['/artisan-goods/are-casks-worth-it/', '/artisan-goods/dehydrator-vs-keg/', '/animals/coop-or-barn-first/', '/crops-and-farming/speed-gro-vs-fertilizer/', '/artisan-goods/how-many-kegs-do-i-need/', '/animals/are-pigs-worth-it/', '/fishing/best-fish-for-fish-ponds/', '/greenhouse/best-greenhouse-setup-for-money/'];
 const words = async (page) => (await page.locator('.entry-content').innerText()).split(/\s+/).filter(Boolean).length;
+// Guide text only: from the byline to the "Next step" box, without the tool, source and
+// "More guides" blocks that every guide shares.
+const guideWords = (page) =>
+  page.evaluate(() => {
+    const parts = [];
+    let node = document.querySelector('.guide .guide-byline');
+    while ((node = node && node.nextElementSibling) && !node.matches('.next-step, .guide-tools, .tool-meta')) parts.push(node.innerText);
+    return parts.join(' ').split(/\s+/).filter(Boolean).length;
+  });
 
 test.describe('phase 6 pages @live', () => {
   for (const path of [...INDEXES, ...ENTITIES, ...GUIDES]) {
@@ -27,7 +36,7 @@ test.describe('phase 6 pages @live', () => {
   test('guides all have 1,500+ words', async ({ page }) => {
     for (const path of GUIDES) {
       await page.goto(path);
-      expect(await words(page), path).toBeGreaterThanOrEqual(1500);
+      expect(await guideWords(page), path).toBeGreaterThanOrEqual(1500);
     }
   });
 

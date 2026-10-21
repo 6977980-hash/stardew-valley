@@ -9,6 +9,9 @@ const out = tool.querySelector('[data-results]');
 const summary = tool.querySelector('[data-summary]');
 const season = form.dataset.season;
 const SHOP = { pierre: "Pierre's", jojamart: 'JojaMart', oasis: 'Oasis' };
+// Each crop name links to its page, as in the server-rendered table.
+const cropBase = out.dataset.cropBase || '';
+const cropName = (c) => (cropBase ? `<a href="${esc(cropBase + c.id + '/')}">${esc(c.name)}</a>` : esc(c.name));
 
 function render(v) {
   const level = parseInt(v.level, 10) || 0;
@@ -21,7 +24,7 @@ function render(v) {
     <tbody>${ranked
       .map(
         (o, i) => `<tr${i === 0 ? ' class="is-best"' : ''}><td>${i + 1}</td>
-        <th scope="row">${esc(o.crop.name)}${o.crop.regrow_days ? '<span class="tag">regrows</span>' : ''}${o.nextSeasons.length ? `<span class="tag">into ${esc(o.nextSeasons.join(', '))}</span>` : ''}</th>
+        <th scope="row">${cropName(o.crop)}${o.crop.regrow_days ? '<span class="tag">regrows</span>' : ''}${o.nextSeasons.length ? `<span class="tag">into ${esc(o.nextSeasons.join(', '))}</span>` : ''}</th>
         <td class="num"><strong>${gold(o.total)}</strong></td>
         <td class="num">${num(o.total / (o.lastHarvest - 1), 1)}g</td>
         <td class="num col-hide-sm">${o.r.harvestDays.length}</td>

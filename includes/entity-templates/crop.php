@@ -384,15 +384,33 @@ if ( $regrows ) {
 	<?php endif; ?>
 </ul>
 <?php
+// Every other crop of the same season (and of the same kind: flowers, crops without shop seeds),
+// so each crop page is one click from its whole season and not only from its closest earners.
+$crop_rows = array();
+foreach ( $e['seasons'] as $season_key ) {
+	$crop_rows[ 'More ' . ucfirst( $season_key ) . ' crops' ] = function ( $pe ) use ( $season_key ) {
+		return in_array( $season_key, $pe['seasons'], true );
+	};
+}
+if ( empty( $e['shop_seeds'] ) ) {
+	$crop_rows['Other crops whose seeds no shop sells every day'] = function ( $pe ) {
+		return empty( $pe['shop_seeds'] );
+	};
+}
 if ( 'flower' === $e['category'] ) {
+	$crop_rows['Other flowers'] = function ( $pe ) {
+		return 'flower' === $pe['category'];
+	};
+}
+foreach ( $crop_rows as $row_label => $row_match ) {
 	$peers = array();
 	foreach ( $all['crops'] as $pid => $pe ) {
-		if ( $pid !== $id && 'flower' === $pe['category'] && $ent_url( 'crops', $pid ) ) {
+		if ( $pid !== $id && $row_match( $pe ) && $ent_url( 'crops', $pid ) ) {
 			$peers[] = '<a href="' . esc_url( $ent_url( 'crops', $pid ) ) . '">' . esc_html( $pe['name'] ) . '</a>';
 		}
 	}
 	if ( $peers ) {
-		echo '<p class="entity-links">Other flowers: ' . implode( ' · ', $peers ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
+		echo '<p class="entity-links">' . esc_html( $row_label ) . ': ' . implode( ' · ', $peers ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
 	}
 }
 ?>

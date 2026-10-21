@@ -135,7 +135,24 @@ st_assert( 2 === count( $trail ) && 'Home' === $trail[0]['name'], 'breadcrumb tr
 $schema = Seo::breadcrumb_schema( $about->ID );
 st_assert( 'BreadcrumbList' === $schema['@type'] && 2 === $schema['itemListElement'][1]['position'], 'breadcrumb schema positions' );
 $robots = apply_filters( 'robots_txt', "User-agent: *\nDisallow: /wp-admin/\n\nSitemap: https://example.com/wp-sitemap.xml\n", true );
-st_assert( preg_match( "/Disallow: \\/wp-admin\\/\nDisallow: \\/\\?s=\nDisallow: \\/search\\/\n\nSitemap:/", $robots ), 'robots.txt rules stay in the user-agent group' );
+st_assert( false === strpos( $robots, '/?s=' ) && false !== strpos( $robots, 'Sitemap:' ), 'robots.txt does not block noindexed search pages' );
+st_assert( 1 === has_action( 'template_redirect', array( 'Stardew_Tools\Seo', 'block_author_enumeration' ) ), 'author block runs before core canonical redirects' );
+wp_set_current_user( 0 );
+$routes = rest_get_server()->get_routes();
+st_assert( ! isset( $routes['/wp/v2/users'] ) && ! isset( $routes['/wp/v2/users/(?P<id>[\d]+)'] ), 'REST users endpoints hidden from visitors' );
+st_assert( isset( $routes['/wp/v2/pages'] ), 'other REST endpoints still work' );
+st_assert( '' === apply_filters( 'the_generator', '<generator>x</generator>', 'rss2' ), 'no WordPress version in feeds' );
+st_assert( false === apply_filters( 'xmlrpc_enabled', true ) && array() === apply_filters( 'xmlrpc_methods', array( 'pingback.ping' => 'x' ) ), 'XML-RPC and pingbacks off' );
+st_assert( false === has_action( 'wp_head', 'feed_links' ) && false === has_action( 'wp_head', 'feed_links_extra' ), 'no feed links in the head' );
+st_assert( ! isset( apply_filters( 'wp_headers', array( 'X-Pingback' => 'x' ) )['X-Pingback'] ), 'no X-Pingback header' );
+$org = Seo::organization();
+st_assert( 'Organization' === $org['@type'] && ! empty( $org['logo']['url'] ) && ! empty( $org['sameAs'] ), 'Organization node has name, logo and sameAs' );
+ob_start();
+add_filter( 'stardew_tools_schema_graph', $st_probe = function ( $g ) { $g[] = array( 'name' => '</script><b>&' ); return $g; } );
+Seo::json_ld();
+remove_filter( 'stardew_tools_schema_graph', $st_probe );
+$ld = ob_get_clean();
+st_assert( 1 === substr_count( $ld, '</script>' ) && false !== strpos( $ld, '\u003C/script\u003E' ), 'JSON-LD escapes </script>' );
 
 echo "Game data\n";
 Data::reset();
@@ -174,10 +191,21 @@ st_assert( isset( $answers['best_crops']['greenhouse'] ) && isset( $answers['dec
 st_assert( 'Rhubarb' === $answers['crop_profit']['spring'][0]['name'], 'answers: Spring 1 best is Rhubarb' );
 $purged = 0;
 add_action( 'litespeed_purge_all', function () use ( &$purged ) { $purged++; } );
-delete_option( Tools::VERSION_OPTION );
-Tools::maybe_install();
-Tools::maybe_install();
-st_assert( 1 === $purged, 'page cache purged once after a version change' );
+use Stardew_Tools\Release;
+delete_option( Release::OPTION );
+Release::maybe_run();
+Release::maybe_run();
+st_assert( 1 === $purged, 'page cache purged once after a deploy' );
+update_option( Release::OPTION, 'old' );
+add_option( Release::LOCK, time() );
+Release::maybe_run();
+st_assert( 1 === $purged && 'old' === get_option( Release::OPTION ), 'a second request waits while another installs' );
+update_option( Release::LOCK, time() - 3600 );
+Release::maybe_run();
+st_assert( 2 === $purged && Release::fingerprint() === get_option( Release::OPTION ) && false === get_option( Release::LOCK ), 'a stale lock is taken over and released' );
+st_assert( 0 === strpos( Release::fingerprint(), STARDEW_TOOLS_VERSION . ':' ), 'fingerprint starts with the version' );
+$lastmod = apply_filters( 'wp_sitemaps_posts_entry', array( 'loc' => 'x', 'lastmod' => '2026-01-01T00:00:00+00:00' ), get_post( $edited->ID ), 'page' );
+st_assert( strtotime( $lastmod['lastmod'] ) >= strtotime( get_option( Release::DATE_OPTION ) ), 'sitemap lastmod follows the release date' );
 $map = Tools::module_versions();
 $key = STARDEW_TOOLS_URL . 'assets/js/engine/index.js';
 st_assert( isset( $map[ $key ] ) && false !== strpos( $map[ $key ], '?ver=' . STARDEW_TOOLS_VERSION . '.' ), 'import map versions engine modules' );
@@ -206,6 +234,29 @@ st_assert( ! empty( $g_answers['kegs'] ) && ! empty( $g_answers['fertilizer']['r
 $kegs_html = do_shortcode( '[stardew_guide id="how-many-kegs-do-i-need"]' );
 st_assert( false !== strpos( $kegs_html, (string) $g_answers['kegs'][0]['name'] ), 'kegs guide prints the engine numbers' );
 st_assert( count( Guides::for_tool( 'keg-vs-preserves-jar' ) ) >= 1, 'tools list the guides that mention them' );
+foreach ( array_keys( Tools::definitions() ) as $tool_id ) {
+	if ( count( Tools::learn_more( $tool_id ) ) < 2 ) {
+		st_assert( false, "tool has at least two Learn more links: {$tool_id}" );
+	}
+}
+st_assert( true, 'every tool has a Learn more row' );
+$guide_page = get_page_by_path( 'artisan-goods/how-many-kegs-do-i-need', OBJECT, 'page' );
+$crumbs     = wp_list_pluck( Seo::breadcrumb_trail( $guide_page->ID ), 'name' );
+st_assert( array( 'Home', 'Artisan Goods', 'How Many Kegs Do I Need?' ) === $crumbs, 'breadcrumbs use short names' );
+$meth = get_page_by_path( 'methodology', OBJECT, 'page' );
+st_assert( false === strpos( Seo::breadcrumb_trail( $meth->ID )[1]['name'], '&amp;' ), 'breadcrumb names are plain text' );
+$long = array();
+foreach ( array_merge( Tools::definitions(), Guides::hubs(), Guides::guides() ) as $did => $d ) {
+	if ( mb_strlen( $d['description'] ) > 155 ) {
+		$long[] = $did;
+	}
+}
+foreach ( Pages::definitions() as $did => $d ) {
+	if ( mb_strlen( $d[2] ) > 155 ) {
+		$long[] = $did;
+	}
+}
+st_assert( ! $long, 'meta descriptions are 155 characters or less: ' . implode( ', ', $long ) );
 
 echo "Reference pages, data downloads and search\n";
 use Stardew_Tools\Entities;
@@ -230,6 +281,24 @@ foreach ( Entities::types() as $type => $t ) {
 	}
 }
 st_assert( true, 'every entity page published, not thin, no NaN or PHP warnings' );
+$parsnip_html = do_shortcode( '[stardew_entity type="crops" id="parsnip"]' );
+st_assert( false !== strpos( $parsnip_html, 'More Spring crops' ) && false !== strpos( $parsnip_html, '/crops/cauliflower/' ), 'crop pages link every crop of their season' );
+$duck_html = do_shortcode( '[stardew_entity type="animals" id="duck"]' );
+st_assert( false !== strpos( $duck_html, 'Barn animals' ) && false !== strpos( $duck_html, '/farm-animals/goat/' ), 'animal pages link every other animal' );
+st_assert( false !== strpos( do_shortcode( '[stardew_tool id="best-summer-crops"]' ), '/crops/blueberry/' ), 'best crops tables link each crop' );
+// An owner's title on an entity page survives the next deploy; an untouched one follows the data.
+$melon = get_page_by_path( 'crops/melon', OBJECT, 'page' );
+wp_update_post( array( 'ID' => $melon->ID, 'post_title' => 'Melon, my notes' ) );
+Entities::install();
+st_assert( 'Melon, my notes' === get_post( $melon->ID )->post_title, 'an entity title edited by the owner is kept' );
+$melon_def = Entities::def( 'crops', 'melon' );
+wp_update_post( array( 'ID' => $melon->ID, 'post_title' => $melon_def['title'] ) );
+// A page whose entry is gone goes back to draft; the others stay published.
+$ghost = wp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => 'Ghost crop', 'post_content' => '[stardew_entity type="crops" id="ghost"]' ) );
+update_post_meta( $ghost, Entities::META, 'entity:crops:ghost' );
+$retired = Release::retire_orphans();
+st_assert( array( $ghost ) === $retired && 'draft' === get_post_status( $ghost ), 'orphaned pages are moved to draft, nothing else' );
+wp_delete_post( $ghost, true );
 $data_page = get_page_by_path( 'data', OBJECT, 'page' );
 st_assert( $data_page && 'publish' === $data_page->post_status, 'data page is published' );
 foreach ( array_keys( Entities::csv_files() ) as $csv ) {

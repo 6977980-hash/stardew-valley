@@ -27,6 +27,10 @@ async function cached(key, fn) {
 
 const PRODUCTS = ['Dried Fruit', 'Pale Ale', 'Green Tea', 'Wine', 'Jelly', 'Juice', 'Pickles', 'Beer', 'Oil', 'Honey'];
 const esc = (t) => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// Crops the wiki's Fruits/Vegetables/Flowers tables do not price (they sit on their own pages).
+// Any other crop missing from the fixture means the wiki layout changed, so the import fails
+// instead of quietly testing fewer crops.
+export const NOT_IN_TABLES = ['coffee-bean', 'sweet-gem-berry'];
 
 async function main() {
   const crops = JSON.parse(readFileSync(join(ROOT, 'data', 'crops.json'), 'utf8')).crops;
@@ -39,7 +43,7 @@ async function main() {
     const rows = src.wikitext.split(/\n\|-\n/);
     for (const crop of crops) {
       const row = rows.find((r) => new RegExp(`^\\|\\[\\[${esc(crop.name)}\\]\\]\\s*$`, 'm').test(r));
-      if (!row) continue;
+      if (!row) continue; // Each crop is on one of the three pages; it is looked for on all of them.
       // Templates in row order. Each renders four prices (regular..iridium) unless it is marked
       // quality=0 or is an item without quality (Honey, Oil).
       const templates = [...row.matchAll(/\{\{Qualityprice\|([^|}]+)\|(\d+)([^}]*)\}\}/g)].map((m) => ({
@@ -50,7 +54,10 @@ async function main() {
       }));
       // Slice the rendered HTML from this crop's name link up to the next row.
       const at = html.html.search(new RegExp(`<td><a href="/${esc(crop.name.replace(/ /g, '_'))}" title="${esc(crop.name)}">`));
-      if (at < 0) continue;
+      if (at < 0) {
+        console.warn(`${title}/${crop.name}: row in the wikitext but not in the rendered page; skipped`);
+        continue;
+      }
       // A row ends where the next row's image cell starts (the last row: where its table ends).
       let end = html.html.indexOf('<td><div class="center"><div class="floatnone">', at);
       if (end < 0) end = html.html.indexOf('</td></tr></tbody></table>', html.html.lastIndexOf('<td>', html.html.indexOf('</td></tr></tbody></table>', at)));
@@ -76,6 +83,8 @@ async function main() {
       }
     }
   }
+  const missing = crops.map((c) => c.id).filter((id) => !out[id] && !NOT_IN_TABLES.includes(id));
+  if (missing.length) throw new Error(`No wiki prices for ${missing.join(', ')}; the fixture was not written.`);
   mkdirSync(join(ROOT, 'tests', 'fixtures'), { recursive: true });
   writeFileSync(join(ROOT, 'tests', 'fixtures', 'wiki-prices.json'), JSON.stringify({ sources, crops: out }, null, 1) + '\n');
   console.log(`${Object.keys(out).length} crops with wiki-computed prices`);

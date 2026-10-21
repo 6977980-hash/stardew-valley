@@ -158,20 +158,29 @@ class Entities {
 		add_shortcode( 'stardew_entity_index', array( __CLASS__, 'index_shortcode' ) );
 		add_shortcode( 'stardew_data_page', array( __CLASS__, 'data_shortcode' ) );
 		add_shortcode( 'stardew_animal_prices', array( __CLASS__, 'prices_shortcode' ) );
-		add_action( 'init', array( __CLASS__, 'maybe_install' ), 24 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'the_content', array( __CLASS__, 'autolink' ), 20 );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
+		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
+	}
+
+	/** Breadcrumb name for a reference page: "Parsnip" or "Crops", not the full SEO title. */
+	public static function breadcrumb_label( $label, $post_id ) {
+		$part = self::parse( (string) get_post_meta( $post_id, self::META, true ) );
+		if ( '' !== $label || ! $part ) {
+			return $label;
+		}
+		if ( 'entity' === $part[0] ) {
+			return self::data()[ $part[1] ][ $part[2] ]['name'];
+		}
+		if ( 'index' === $part[0] ) {
+			return preg_replace( '/^All /', '', self::types()[ $part[1] ]['short'] );
+		}
+		return 'data' === $part[0] ? self::data_def()['short'] : self::prices_def()['short'];
 	}
 
 	/* ---------- Pages ---------- */
-
-	public static function maybe_install() {
-		if ( get_option( self::VERSION_OPTION ) !== STARDEW_TOOLS_VERSION ) {
-			self::install();
-		}
-	}
 
 	public static function install() {
 		$d = self::data();
@@ -227,24 +236,16 @@ class Entities {
 		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
 	}
 
-	/** Creates a missing page, refreshes our meta on existing ones; published page text is never overwritten. */
+	/**
+	 * Creates a missing page. On an existing one our title and description follow the data unless
+	 * the owner edited them (Pages::sync_generated); published page text is never overwritten.
+	 */
 	private static function ensure_page( $path, $def, $content, $parent, $meta ) {
 		$existing = get_page_by_path( $path, OBJECT, 'page' );
 		if ( $existing && 'draft' !== $existing->post_status ) {
 			update_post_meta( $existing->ID, self::META, $meta );
-			if ( '' === (string) get_post_meta( $existing->ID, Seo::META_DESCRIPTION, true ) || get_post_meta( $existing->ID, self::META . '_auto', true ) ) {
-				update_post_meta( $existing->ID, Seo::META_DESCRIPTION, $def['description'] );
-				update_post_meta( $existing->ID, self::META . '_auto', 1 );
-				// Pages we generated follow our current title; a title the owner edited by hand is flagged by removing _auto.
-				if ( $existing->post_title !== $def['title'] ) {
-					wp_update_post(
-						array(
-							'ID'         => $existing->ID,
-							'post_title' => $def['title'],
-						)
-					);
-				}
-			}
+			Pages::sync_generated( $existing->ID, $def['title'], $def['description'] );
+			delete_post_meta( $existing->ID, self::META . '_auto' );
 			return $existing->ID;
 		}
 		$admins   = get_users(
@@ -273,7 +274,7 @@ class Entities {
 		}
 		update_post_meta( $page_id, self::META, $meta );
 		update_post_meta( $page_id, Seo::META_DESCRIPTION, $def['description'] );
-		update_post_meta( $page_id, self::META . '_auto', 1 );
+		Pages::sync_generated( $page_id, $def['title'], $def['description'] );
 		return $page_id;
 	}
 
@@ -282,7 +283,17 @@ class Entities {
 		if ( ! is_page() ) {
 			return null;
 		}
-		$part = explode( ':', (string) get_post_meta( get_queried_object_id(), self::META, true ) );
+		return self::parse( (string) get_post_meta( get_queried_object_id(), self::META, true ) );
+	}
+
+	/** Whether a page's entry still exists; with null, whether the entity data loaded at all. */
+	public static function knows( $meta ) {
+		return null === $meta ? ! empty( self::data()['crops'] ) : null !== self::parse( $meta );
+	}
+
+	/** ['data'], ['prices'], ['index', type] or ['entity', type, id] for a page's meta value, or null. */
+	public static function parse( $meta ) {
+		$part = explode( ':', $meta );
 		if ( 'data' === $part[0] || 'prices' === $part[0] ) {
 			return array( $part[0] );
 		}
