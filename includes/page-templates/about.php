@@ -28,8 +28,11 @@ foreach ( array( 'crops', 'animals', 'villagers', 'bundles' ) as $type ) {
 <li><strong>Free, with no account.</strong> Your saved plans stay in your own browser.</li>
 </ul>
 
-<h2>Who runs it</h2>
-<p><?php echo esc_html( $brand ); ?> was founded, and is built and maintained, by <?php echo esc_html( $author ); ?>. You can find <?php echo esc_html( $author ); ?> on <a href="<?php echo esc_url( $linkedin ); ?>" rel="me noopener">LinkedIn</a>. <?php echo esc_html( $author ); ?> decides what the site covers, which questions each page must answer and what goes live. It is an independent project with no connection to the game's developer or publisher.</p>
+<h2>About the creator</h2>
+<p>Hi, I'm <?php echo esc_html( $author ); ?>, the creator of <?php echo esc_html( $brand ); ?>. I've been playing Stardew Valley for about two years across PlayStation, mobile and Xbox, exploring the farming systems, resource management and everyday decisions that make each farm unique.</p>
+<p>I created <?php echo esc_html( $brand ); ?> to help players make more informed decisions without spending hours comparing numbers or searching through multiple guides. From choosing profitable crops and comparing Kegs versus Preserves Jars to planning a greenhouse or tracking Community Center bundles, the goal is to turn complicated in-game choices into clear, practical answers.</p>
+<p><?php echo esc_html( $brand ); ?> combines structured game data, transparent calculations and practical planning tools to help players understand their options and choose what works best for their farm. Whether you're starting your first season or optimizing an established farm, I want it to be a useful companion throughout your Stardew Valley journey.</p>
+<p>I decide what the site covers, which questions each page must answer and what goes live. You can find me on <a href="<?php echo esc_url( $linkedin ); ?>" rel="me noopener">LinkedIn</a>. <?php echo esc_html( $brand ); ?> is an independent project with no connection to the game's developer or publisher.</p>
 <p>The game data is taken from the Stardew Valley Wiki, and every calculation uses one shared, tested engine. The <a href="<?php echo esc_url( $home_url . 'methodology/' ); ?>">methodology</a> page explains how a value gets onto the site, how it is checked and how mistakes are corrected.</p>
 
 <h2>How the site is made</h2>

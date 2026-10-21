@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: about the creator</h2>
+<ul>
+<li>The <a href="<?php echo esc_url( home_url( '/about/' ) ); ?>">About</a> page now has a short note from the site's creator about why the site exists.</li>
+</ul>
+
 <h2>October 21, 2026: villager and bundle pages, fuller guides</h2>
 <ul>
 <li>New: a page for every villager with their birthday, loved and liked gifts, the gifts you can grow and the ones to avoid, starting at <a href="<?php echo esc_url( home_url( '/villagers/' ) ); ?>">all villagers</a>.</li>
