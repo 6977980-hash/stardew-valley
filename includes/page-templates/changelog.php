@@ -7,6 +7,7 @@ defined( 'ABSPATH' ) || exit;
 <h2>October 21, 2026: fruit trees and Year 1 money</h2>
 <ul>
 <li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/best-fruit-trees/' ) ); ?>">Best Fruit Trees</a>, with every sapling's price, when to plant it, what it earns each year as the fruit improves, and whether to make Wine or Jelly.</li>
+<li><a href="<?php echo esc_url( home_url( '/what-to-plant/' ) ); ?>">What to Plant Today</a> asks which year you are in, and in Year 1 no longer suggests Garlic, Rice, Red Cabbage or Artichoke, which Pierre only sells from Year 2.</li>
 <li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/how-to-make-money-year-1/' ) ); ?>">Making Money in Year 1</a>, a season-by-season plan from your first 500g, with only the seeds you can really buy in Year 1.</li>
 </ul>
 
