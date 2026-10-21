@@ -1,0 +1,4 @@
+# Development files that ship with the Git deploy but are not part of the live site.
+<FilesMatch "^(package(-lock)?\.json|playwright\.config\.js|README\.md|readme\.txt|\.gitignore|.*\.ya?ml)$">
+	Require all denied
+</FilesMatch>

@@ -15,9 +15,16 @@ Claude / local dev  →  GitHub (6977980-hash/stardew-valley, branch main)
   Appearance > Themes only while the plugin is active.
 - A GitHub push is not a deployment. Hostinger must pull (manual "Deploy" or its auto-deploy webhook),
   and every release is checked on the live site before it is called deployed.
-- Git deploys do not fire WordPress activation hooks, so one-time setup runs on `init` when the stored
-  version (`stardew_tools_installed_version`) differs from `STARDEW_TOOLS_VERSION`.
-- `tests/`, `docs/` and `tools/` are deployed with the repo but blocked by `.htaccess` (`Require all denied`).
+- Git deploys do not fire WordPress activation hooks, so `includes/class-release.php` runs the page
+  installers on `init` once per deploy: when `STARDEW_TOOLS_VERSION` plus the newest file time in
+  `includes/`, `data/`, `assets/js/`, `assets/css/` and `theme/` differs from the stored
+  `stardew_tools_release`. An `add_option` lock stops two requests from installing at once. A release
+  also moves pages whose tool, guide or entry was removed to draft, records the release date (used as
+  sitemap `lastmod`) and fires `litespeed_purge_all`.
+- `tests/`, `docs/`, `tools/`, `.github/` and `data/` are deployed with the repo but blocked by
+  `.htaccess` (`Require all denied`); the root `.htaccess` blocks `package.json`, `README.md` and the
+  other dev files. `assets/.htaccess` sets CSV and manifest types and long cache lifetimes.
+- One version for plugin and theme: `STARDEW_TOOLS_VERSION` (theme `style.css` is bumped with it).
 
 ## Plugin (business logic)
 
@@ -25,8 +32,9 @@ Claude / local dev  →  GitHub (6977980-hash/stardew-valley, branch main)
 | --- | --- |
 | `stardew-tools.php` | Bootstrap, constants, `stardew_tools_brand()` and `stardew_tools_ad()` helpers, theme directory |
 | `includes/class-config.php` | Single source of brand identity, colors, default SEO values (`stardew_tools_config` filter) |
-| `includes/class-head.php` | Favicons, manifest, theme-color, emoji/generator clean-up |
-| `includes/class-seo.php` | Titles, meta description, canonical, robots, Open Graph/Twitter, JSON-LD, sitemap and robots.txt tweaks; steps aside if Yoast/Rank Math/AIOSEO is active |
+| `includes/class-head.php` | Favicons, manifest, theme-color, emoji/generator/feed-link clean-up, XML-RPC and pingbacks off |
+| `includes/class-seo.php` | Titles, meta description, canonical, robots, Open Graph/Twitter, JSON-LD (Organization on every page, short breadcrumb names), sitemap and robots.txt tweaks, author/REST-user hiding, feeds 410 and URL clean-up; steps aside if Yoast/Rank Math/AIOSEO is active |
+| `includes/class-release.php` | Once-per-deploy installer run with a lock, orphan pages to draft, cache purge |
 | `includes/class-ads.php` | Ad slots (off by default), AdSense loader, `/ads.txt`, reserved slot heights |
 | `includes/class-pages.php` + `includes/page-templates/` | About, Contact, Privacy, Terms, Disclaimer, Methodology, Changelog |
 | `includes/class-data.php` | Read-only access to `data/*.json` (`Data::get()`, `Data::crops()`) |
@@ -39,8 +47,9 @@ reads the form and renders results with the engine. `common.js` keeps form state
 links) and in localStorage, and renders "Explain the Math". Form field names must not be WordPress
 query vars (`day`, `year`, `name`, `page`, `type`…): `?day=` turns the page into a 404.
 
-After a version change the plugin fires `litespeed_purge_all` once (LiteSpeed Cache is active on
-Hostinger), so cached pages never keep pointing at old scripts.
+After each deploy the plugin fires `litespeed_purge_all` once (LiteSpeed Cache is active on
+Hostinger), so cached pages never keep pointing at old scripts. The Hostinger CDN still needs a purge
+in hPanel (see README).
 
 `data/answers.json` is built by `node tools/build/answers.mjs` from the data and the engine, so the
 short answers in the HTML always match the calculators; `npm test` fails if it is stale.

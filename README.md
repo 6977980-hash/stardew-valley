@@ -21,6 +21,17 @@ After the first deploy of a new version:
 3. WP Admin > Settings > Permalinks: "Post name".
 4. WP Admin > Settings > Stardew Tools: check the status panel. Leave ads off until AdSense approval.
 
+## Release checklist
+
+1. Bump the version in `stardew-tools.php` (header and `STARDEW_TOOLS_VERSION`), `readme.txt`
+   (Stable tag and `== Changelog ==`) and `theme/stardew-tools-theme/style.css`, and add a dated entry
+   to `includes/page-templates/changelog.php`.
+2. `npm test` and the GitHub Actions checks are green.
+3. Merge to `main`. Hostinger deploys it; on the first request the plugin refreshes its pages and
+   purges LiteSpeed Cache by itself.
+4. Purge the Hostinger CDN: hPanel > Websites > stardewtools.net > Cache Manager > Purge all.
+5. Check the changed pages on https://stardewtools.net/.
+
 ## Development
 
 ```

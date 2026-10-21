@@ -1,0 +1,19 @@
+# Correct types for the data downloads and the web app manifest.
+<IfModule mod_mime.c>
+	AddType text/csv .csv
+	AddType application/manifest+json .webmanifest
+</IfModule>
+
+# Scripts and styles are requested with ?ver=<version>.<file time>, so a new deploy gets a new
+# URL and they can be cached for a year. Images and downloads keep shorter lifetimes.
+<IfModule mod_headers.c>
+	<FilesMatch "\.(js|css|woff2)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+	<FilesMatch "\.(png|svg|ico|webp)$">
+		Header set Cache-Control "public, max-age=2592000"
+	</FilesMatch>
+	<FilesMatch "\.(csv|webmanifest)$">
+		Header set Cache-Control "public, max-age=86400"
+	</FilesMatch>
+</IfModule>

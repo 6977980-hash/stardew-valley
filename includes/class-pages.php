@@ -1,8 +1,8 @@
 <?php
 /**
  * Creates the trust and legal pages (About, Contact, Privacy, Terms, Disclaimer, Methodology,
- * Changelog). Runs on activation and once after each plugin update, because Git deploys do
- * not trigger the activation hook. Pages that already exist are never overwritten, except a
+ * Changelog). Runs on activation and, through Release, once after each deploy, because Git
+ * deploys do not trigger the activation hook. Pages that already exist are never overwritten, except a
  * still-unpublished draft (WordPress ships an unpublished "Privacy Policy" draft).
  *
  * @package Stardew_Tools
@@ -18,21 +18,11 @@ class Pages {
 
 	const VERSION_OPTION = 'stardew_tools_installed_version';
 
-	public static function init() {
-		add_action( 'init', array( __CLASS__, 'maybe_install' ), 20 );
-	}
-
-	public static function maybe_install() {
-		if ( get_option( self::VERSION_OPTION ) !== STARDEW_TOOLS_VERSION ) {
-			self::install();
-		}
-	}
-
 	/** slug => [title, template file, meta description]. */
 	public static function definitions() {
 		return array(
 			'about'          => array( 'About Stardew Tools', 'about', 'Stardew Tools is an independent, fan-made Stardew Valley planning site with free calculators and decision tools built on verified game data.' ),
-			'tools'          => array( 'Stardew Valley Tools and Calculators', 'tools', 'All free Stardew Valley tools in one place: what to plant, crop profit, kegs vs jars, greenhouse, fish ponds, animals, gifts and bundles, with verified 1.6 data.' ),
+			'tools'          => array( 'Stardew Valley Tools and Calculators', 'tools', 'All free Stardew Valley tools in one place: what to plant, crop profit, kegs vs jars, greenhouse, fish ponds, animals, gifts and bundles, verified for 1.6.' ),
 			'guides'         => array( 'Stardew Valley Guides by Topic', 'guides', 'Stardew Valley guides built on verified 1.6 data: crops, artisan goods, animals, fishing and the greenhouse, each linked to a calculator.' ),
 			'contact'        => array( 'Contact', 'contact', 'Contact Stardew Tools to report a data error, suggest a tool or ask a question.' ),
 			'privacy-policy' => array( 'Privacy Policy', 'privacy', 'How Stardew Tools handles data: no accounts, tool settings stay in your browser, and how advertising cookies work.' ),

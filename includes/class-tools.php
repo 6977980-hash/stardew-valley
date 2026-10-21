@@ -34,6 +34,7 @@ class Tools {
 				'icon'        => 'sprout',
 				'script'      => 'what-to-plant',
 				'related'     => array( 'crop-profit-calculator', 'best-spring-crops', 'keg-vs-preserves-jar' ),
+				'learn'       => array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'best-greenhouse-setup-for-money' ),
 			),
 			'crop-profit-calculator'     => array(
 				'title'       => 'Stardew Valley Crop Profit Calculator',
@@ -44,6 +45,7 @@ class Tools {
 				'icon'        => 'sprout',
 				'script'      => 'crop-profit',
 				'related'     => array( 'keg-vs-preserves-jar', 'greenhouse-planner', 'ancient-fruit-vs-starfruit' ),
+				'learn'       => array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'best-greenhouse-setup-for-money' ),
 			),
 			'keg-vs-preserves-jar'       => array(
 				'title'       => 'Keg vs Preserves Jar: Which Is Better?',
@@ -64,6 +66,7 @@ class Tools {
 				'icon'        => 'coin',
 				'script'      => 'af-vs-starfruit',
 				'related'     => array( 'greenhouse-planner', 'keg-vs-preserves-jar', 'crop-profit-calculator' ),
+				'learn'       => array( 'best-greenhouse-setup-for-money', 'how-many-kegs-do-i-need', 'dehydrator-vs-keg' ),
 			),
 			'greenhouse-planner'         => array(
 				'title'       => 'Stardew Valley Greenhouse Planner',
@@ -85,6 +88,7 @@ class Tools {
 				'script'      => 'fish-pond',
 				'data'        => array( 'fishponds' ),
 				'related'     => array( 'keg-vs-preserves-jar', 'what-to-plant', 'crop-profit-calculator' ),
+				'learn'       => array( 'best-fish-for-fish-ponds', 'dehydrator-vs-keg' ),
 			),
 			'animal-profit-calculator'   => array(
 				'title'       => 'Stardew Valley Animal Profit Calculator',
@@ -107,6 +111,7 @@ class Tools {
 				'script'      => 'xp',
 				'data'        => array( 'skills', 'crops' ),
 				'related'     => array( 'what-to-plant', 'fish-pond-calculator', 'crop-profit-calculator' ),
+				'learn'       => array( 'speed-gro-vs-fertilizer', 'best-fish-for-fish-ponds' ),
 			),
 			'gift-finder'                => array(
 				'title'       => 'Stardew Valley Gift Finder: Loved and Liked Gifts',
@@ -118,6 +123,7 @@ class Tools {
 				'script'      => 'gifts',
 				'data'        => array( 'gifts' ),
 				'related'     => array( 'crafting-calculator', 'what-to-plant', 'xp-calculator' ),
+				'learn'       => array( 'crops', 'hub:crops-and-farming' ),
 			),
 			'bundle-tracker'             => array(
 				'title'       => 'Stardew Valley Bundle Tracker (Standard, Remixed)',
@@ -129,6 +135,7 @@ class Tools {
 				'script'      => 'bundles',
 				'data'        => array( 'bundles' ),
 				'related'     => array( 'gift-finder', 'what-to-plant', 'crafting-calculator' ),
+				'learn'       => array( 'crops', 'hub:crops-and-farming' ),
 			),
 			'crafting-calculator'        => array(
 				'title'       => 'Stardew Valley Crafting Calculator and Shopping List',
@@ -166,6 +173,7 @@ class Tools {
 				'template'    => 'best-crops',
 				'season'      => $key,
 				'related'     => array_merge( array( 'what-to-plant' ), array_slice( $others, 0, 3 ) ),
+				'learn'       => 'greenhouse' === $key ? array( 'best-greenhouse-setup-for-money', 'how-many-kegs-do-i-need', 'crops' ) : array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'crops' ),
 			);
 		}
 		return $tools;
@@ -212,22 +220,20 @@ class Tools {
 	public static function init() {
 		add_shortcode( 'stardew_tool', array( __CLASS__, 'shortcode' ) );
 		add_shortcode( 'stardew_tools_index', array( __CLASS__, 'index_shortcode' ) );
-		add_action( 'init', array( __CLASS__, 'maybe_install' ), 21 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_action( 'wp_footer', array( __CLASS__, 'footer' ), 20 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
+		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
+	}
+
+	/** Breadcrumb name for a tool page: its short name, not the full SEO title. */
+	public static function breadcrumb_label( $label, $post_id ) {
+		$id = (string) get_post_meta( $post_id, self::META, true );
+		return '' === $label && self::knows( $id ) ? self::definitions()[ $id ]['short'] : $label;
 	}
 
 	/* ---------- Pages ---------- */
-
-	public static function maybe_install() {
-		if ( get_option( self::VERSION_OPTION ) !== STARDEW_TOOLS_VERSION ) {
-			self::install();
-			// Cached pages still point at the old scripts; drop them so the new version shows at once.
-			do_action( 'litespeed_purge_all' );
-		}
-	}
 
 	public static function install() {
 		foreach ( self::definitions() as $id => $def ) {
@@ -254,6 +260,11 @@ class Tools {
 			}
 		}
 		update_option( self::VERSION_OPTION, STARDEW_TOOLS_VERSION );
+	}
+
+	/** Whether a page's tool id still exists; with null, whether any tool is defined. */
+	public static function knows( $meta ) {
+		return null === $meta ? (bool) self::definitions() : isset( self::definitions()[ $meta ] );
 	}
 
 	/** Tool id of the current page, or ''. */
@@ -302,7 +313,18 @@ class Tools {
 				echo '<section><h2>' . esc_html( $heading ) . '</h2><ul class="related-list">' . implode( '', $rows ) . '</ul></section>'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above.
 			}
 		}
-		echo '<p>Looking for something we do not have yet? <a href="' . esc_url( home_url( '/contact/' ) ) . '">Tell us</a>, or read the <a href="' . esc_url( home_url( '/guides/' ) ) . '">guides</a>.</p>';
+		// Not sure which tool fits? A guide explains the decision first, then points to its tool.
+		$starts = array();
+		foreach ( array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'best-greenhouse-setup-for-money', 'coop-or-barn-first' ) as $gid ) {
+			$gurl = Guides::guide_url( $gid );
+			if ( $gurl ) {
+				$starts[] = '<li><a href="' . esc_url( $gurl ) . '">' . esc_html( Guides::guides()[ $gid ]['short'] ) . '</a><span>' . esc_html( Guides::guides()[ $gid ]['blurb'] ) . '</span></li>';
+			}
+		}
+		if ( $starts ) {
+			echo '<section><h2>Not sure which tool? Start with a guide</h2><ul class="related-list">' . implode( '', $starts ) . '</ul></section>'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above.
+		}
+		echo '<p>Looking for something we do not have yet? <a href="' . esc_url( home_url( '/contact/' ) ) . '">Tell us</a>, or read all the <a href="' . esc_url( home_url( '/guides/' ) ) . '">guides</a>.</p>';
 		echo '</div>';
 		return ob_get_clean();
 	}
@@ -336,6 +358,39 @@ class Tools {
 		return ob_get_clean();
 	}
 
+	/**
+	 * Up to three pages to read after using a tool, as [url, name, blurb]: the guides that use it,
+	 * then the ones in its 'learn' list ('crops' is the crop reference, where each crop's page
+	 * lists its gifts and bundles; 'hub:<id>' a topic page).
+	 */
+	public static function learn_more( $tool_id ) {
+		$def   = self::definitions()[ $tool_id ];
+		$rows  = Guides::for_tool( $tool_id );
+		$names = array_column( $rows, 1 );
+		$all   = Guides::guides();
+		foreach ( isset( $def['learn'] ) ? $def['learn'] : array() as $ref ) {
+			if ( 'crops' === $ref ) {
+				$url  = Entities::url( 'crops', '' );
+				$name = 'All crops';
+				$text = "Every crop's page: price, profit, who loves it and which bundles need it.";
+			} elseif ( 0 === strpos( $ref, 'hub:' ) ) {
+				$hub  = substr( $ref, 4 );
+				$url  = Guides::hub_url( $hub );
+				$name = $url ? Guides::hubs()[ $hub ]['short'] : '';
+				$text = $url ? Guides::hubs()[ $hub ]['blurb'] : '';
+			} else {
+				$url  = isset( $all[ $ref ] ) ? Guides::guide_url( $ref ) : '';
+				$name = $url ? $all[ $ref ]['short'] : '';
+				$text = $url ? $all[ $ref ]['blurb'] : '';
+			}
+			if ( $url && ! in_array( $name, $names, true ) ) {
+				$rows[]  = array( $url, $name, $text );
+				$names[] = $name;
+			}
+		}
+		return array_slice( $rows, 0, 3 );
+	}
+
 	/** Verified badge, sources and related tools, shared by every tool. */
 	private static function render_footer_blocks( $tool_id, $version, $checked ) {
 		$defs = self::definitions();
@@ -353,11 +408,11 @@ class Tools {
 				$links[] = array( $url, $defs[ $rel ]['short'], $defs[ $rel ]['blurb'] );
 			}
 		}
-		$guides = Guides::for_tool( $tool_id );
+		$guides = self::learn_more( $tool_id );
 		if ( $guides ) :
 			?>
 		<section class="tool-related" aria-labelledby="guides-<?php echo esc_attr( $tool_id ); ?>">
-			<h2 id="guides-<?php echo esc_attr( $tool_id ); ?>">Guides</h2>
+			<h2 id="guides-<?php echo esc_attr( $tool_id ); ?>">Learn more</h2>
 			<ul class="related-list">
 				<?php foreach ( $guides as $l ) : ?>
 				<li><a href="<?php echo esc_url( $l[0] ); ?>"><?php echo esc_html( $l[1] ); ?></a><span><?php echo esc_html( $l[2] ); ?></span></li>
@@ -711,35 +766,37 @@ class Tools {
 		if ( ! $id ) {
 			return $graph;
 		}
-		$def = self::definitions()[ $id ];
+		$def      = self::definitions()[ $id ];
+		$url      = get_permalink( get_queried_object_id() );
+		$modified = Data::summary()['checked'];
 		if ( isset( $def['season'] ) ) {
 			// Ranked guide pages are articles; the table on them is the content.
 			$graph[] = array(
-				'@type'         => 'Article',
-				'headline'      => $def['title'],
-				'description'   => $def['description'],
-				'url'           => get_permalink( get_queried_object_id() ),
-				'dateModified'  => Data::summary()['checked'],
-				'author'        => array(
-					'@type' => 'Person',
-					'name'  => Config::get( 'author' ),
-				),
-				'publisher'     => array( '@id' => home_url( '/' ) . '#organization' ),
-				'about'         => array(
+				'@type'            => 'Article',
+				'headline'         => $def['title'],
+				'description'      => $def['description'],
+				'url'              => $url,
+				'mainEntityOfPage' => $url,
+				'image'            => Config::asset( Config::get( 'og_image' ) ),
+				'datePublished'    => get_the_date( 'Y-m-d', get_queried_object_id() ),
+				'dateModified'     => Data::modified( get_the_date( 'Y-m-d', get_queried_object_id() ) ),
+				'author'           => Seo::author(),
+				'publisher'        => array( '@id' => home_url( '/' ) . '#organization' ),
+				'about'            => array(
 					'@type' => 'VideoGame',
 					'name'  => 'Stardew Valley',
 				),
-				'inLanguage'    => 'en',
+				'inLanguage'       => 'en',
 			);
 			return $graph;
 		}
 		$graph[] = array(
 			'@type'               => 'WebApplication',
 			'name'                => $def['short'],
-			'url'                 => get_permalink( get_queried_object_id() ),
+			'url'                 => $url,
 			'description'         => $def['description'],
-			'applicationCategory' => 'GameApplication',
-			'dateModified'        => Data::summary()['checked'],
+			'applicationCategory' => 'UtilitiesApplication',
+			'dateModified'        => $modified,
 			'operatingSystem'     => 'Any (web browser)',
 			'isAccessibleForFree' => true,
 			'offers'              => array(
@@ -747,6 +804,8 @@ class Tools {
 				'price'         => '0',
 				'priceCurrency' => 'USD',
 			),
+			'author'              => Seo::author(),
+			'publisher'           => array( '@id' => home_url( '/' ) . '#organization' ),
 			'about'               => array(
 				'@type' => 'VideoGame',
 				'name'  => 'Stardew Valley',

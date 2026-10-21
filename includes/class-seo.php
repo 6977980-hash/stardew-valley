@@ -23,7 +23,11 @@ class Seo {
 		add_filter( 'wp_sitemaps_add_provider', array( __CLASS__, 'sitemap_providers' ), 10, 2 );
 		add_filter( 'wp_sitemaps_posts_query_args', array( __CLASS__, 'sitemap_exclude_noindex' ) );
 		add_filter( 'robots_txt', array( __CLASS__, 'robots_txt' ), 10, 2 );
-		add_action( 'template_redirect', array( __CLASS__, 'block_author_enumeration' ) );
+		// Priority 1: before core's redirect_canonical turns ?author=1 into /author/<username>/.
+		add_action( 'template_redirect', array( __CLASS__, 'block_author_enumeration' ), 1 );
+		add_filter( 'rest_endpoints', array( __CLASS__, 'hide_user_endpoints' ) );
+		add_action( 'template_redirect', array( __CLASS__, 'crawl_hygiene' ), 2 );
+		add_filter( 'wp_sitemaps_posts_entry', array( __CLASS__, 'sitemap_lastmod' ), 10, 2 );
 
 		if ( self::other_seo_plugin_active() ) {
 			return;
@@ -192,13 +196,12 @@ class Seo {
 		if ( ! $public ) {
 			return $output;
 		}
-		$rules = "Disallow: /?s=\nDisallow: /search/\n";
-		// Keep the rules inside the "User-agent: *" group, before any Sitemap line.
-		$pos = strpos( $output, "\nSitemap:" );
-		if ( false !== $pos ) {
-			return rtrim( substr( $output, 0, $pos ) ) . "\n" . $rules . "\n" . substr( $output, $pos + 1 );
+		// Search results are not blocked here: they carry noindex, and a robots.txt block would
+		// stop crawlers from ever seeing it.
+		if ( false !== strpos( $output, "\nSitemap:" ) ) {
+			return $output;
 		}
-		return $output . $rules . "\nSitemap: " . esc_url_raw( home_url( '/wp-sitemap.xml' ) ) . "\n";
+		return rtrim( $output ) . "\n\nSitemap: " . esc_url_raw( home_url( '/wp-sitemap.xml' ) ) . "\n";
 	}
 
 	/** Author archives add nothing for a one-author site and leak usernames. */
@@ -210,6 +213,66 @@ class Seo {
 			wp_safe_redirect( home_url( '/' ), 301 );
 			exit;
 		}
+	}
+
+	/** The REST users list and user lookups (with Gravatar hashes) are for logged-in editors only. */
+	public static function hide_user_endpoints( $endpoints ) {
+		if ( is_user_logged_in() ) {
+			return $endpoints;
+		}
+		foreach ( array_keys( $endpoints ) as $route ) {
+			if ( 0 === strpos( $route, '/wp/v2/users' ) ) {
+				unset( $endpoints[ $route ] );
+			}
+		}
+		return $endpoints;
+	}
+
+	/**
+	 * Send crawlers to one URL per page: feeds (there is no blog, so they are empty) are gone,
+	 * /page/N/ on a page goes back to the page, upper-case paths go to the lower-case one, and
+	 * empty category or tag archives are 404s.
+	 */
+	public static function crawl_hygiene() {
+		if ( is_admin() ) {
+			return;
+		}
+		if ( is_feed() ) {
+			status_header( 410 );
+			nocache_headers();
+			header( 'Content-Type: text/plain; charset=utf-8' );
+			header( 'X-Robots-Tag: noindex' );
+			echo 'This site has no feeds.';
+			exit;
+		}
+		if ( is_singular() && get_query_var( 'paged' ) > 1 ) {
+			wp_safe_redirect( get_permalink( get_queried_object_id() ), 301 );
+			exit;
+		}
+		$uri  = isset( $_SERVER['REQUEST_URI'] ) ? wp_unslash( $_SERVER['REQUEST_URI'] ) : ''; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput
+		$path = (string) wp_parse_url( $uri, PHP_URL_PATH );
+		if ( '' !== $path && strtolower( $path ) !== $path && is_singular() ) {
+			$query = (string) wp_parse_url( $uri, PHP_URL_QUERY );
+			wp_safe_redirect( get_permalink( get_queried_object_id() ) . ( '' !== $query ? '?' . $query : '' ), 301 );
+			exit;
+		}
+		if ( ( is_category() || is_tag() ) && ! have_posts() ) {
+			global $wp_query;
+			$wp_query->set_404();
+			status_header( 404 );
+		}
+	}
+
+	/**
+	 * Page text comes from plugin templates and data, so post_modified does not move when a
+	 * page changes. Use the newest of post_modified and the date of the release that shipped.
+	 */
+	public static function sitemap_lastmod( $entry, $post ) {
+		$release = get_option( 'stardew_tools_release_date' );
+		if ( $release && ( empty( $entry['lastmod'] ) || strtotime( $release ) > strtotime( $entry['lastmod'] ) ) ) {
+			$entry['lastmod'] = gmdate( 'Y-m-d\TH:i:s+00:00', strtotime( $release ) );
+		}
+		return $entry;
 	}
 
 	/* ---------- Sitemap ---------- */
@@ -242,6 +305,9 @@ class Seo {
 		$brand = Config::get( 'brand_name' );
 		$graph = array();
 
+		if ( is_404() ) {
+			return $graph;
+		}
 		if ( is_front_page() ) {
 			$graph[] = array(
 				'@type'       => 'WebSite',
@@ -252,24 +318,43 @@ class Seo {
 				'inLanguage'  => 'en',
 				'publisher'   => array( '@id' => $home . '#organization' ),
 			);
-			$graph[] = array(
-				'@type' => 'Organization',
-				'@id'   => $home . '#organization',
-				'name'  => $brand,
-				'url'   => $home,
-				'logo'  => Config::asset( 'assets/brand/icon-512.png' ),
-				'email' => Config::get( 'contact_email' ),
-				'founder' => array(
-					'@type'  => 'Person',
-					'name'   => Config::get( 'author' ),
-					'url'    => home_url( '/about/' ),
-					'sameAs' => array( Config::get( 'author_linkedin' ) ),
-				),
-			);
-		} elseif ( is_singular() && ! is_404() ) {
+		} elseif ( is_singular() ) {
 			$graph[] = self::breadcrumb_schema( get_queried_object_id() );
 		}
+		// Every page's Article or WebApplication names this node as publisher, and search engines
+		// do not follow an @id to another page, so it is printed on every page.
+		$graph[] = self::organization();
 		return apply_filters( 'stardew_tools_schema_graph', $graph );
+	}
+
+	/** The site's Organization node (the publisher of every page). */
+	public static function organization() {
+		$home = home_url( '/' );
+		return array(
+			'@type'   => 'Organization',
+			'@id'     => $home . '#organization',
+			'name'    => Config::get( 'brand_name' ),
+			'url'     => $home,
+			'logo'    => array(
+				'@type'  => 'ImageObject',
+				'url'    => Config::asset( 'assets/brand/icon-512.png' ),
+				'width'  => 512,
+				'height' => 512,
+			),
+			'email'   => Config::get( 'contact_email' ),
+			'sameAs'  => array( Config::get( 'author_linkedin' ) ),
+			'founder' => self::author(),
+		);
+	}
+
+	/** The author of every page, as a schema.org Person. */
+	public static function author() {
+		return array(
+			'@type'  => 'Person',
+			'name'   => Config::get( 'author' ),
+			'url'    => home_url( '/about/' ),
+			'sameAs' => array( Config::get( 'author_linkedin' ) ),
+		);
 	}
 
 	/** BreadcrumbList for a page, following its parent pages. */
@@ -300,11 +385,23 @@ class Seo {
 		$ancestors = array_reverse( get_post_ancestors( $post_id ) );
 		foreach ( array_merge( $ancestors, array( $post_id ) ) as $id ) {
 			$trail[] = array(
-				'name' => wp_strip_all_tags( get_the_title( $id ) ),
+				'name' => self::breadcrumb_label( $id ),
 				'url'  => get_permalink( $id ),
 			);
 		}
 		return $trail;
+	}
+
+	/**
+	 * Short crumb name: the plugin's short label for its pages ("Parsnip", "Crops and Farming"),
+	 * otherwise the page title, as plain text (no &amp;).
+	 */
+	public static function breadcrumb_label( $post_id ) {
+		$label = apply_filters( 'stardew_tools_breadcrumb_label', '', $post_id );
+		if ( '' === $label ) {
+			$label = get_the_title( $post_id );
+		}
+		return html_entity_decode( wp_strip_all_tags( $label ), ENT_QUOTES | ENT_HTML5, 'UTF-8' );
 	}
 
 	public static function json_ld() {
@@ -316,6 +413,6 @@ class Seo {
 			'@context' => 'https://schema.org',
 			'@graph'   => $graph,
 		);
-		echo '<script type="application/ld+json">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE ) . "</script>\n";
+		echo '<script type="application/ld+json">' . wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP ) . "</script>\n";
 	}
 }

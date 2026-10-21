@@ -17,6 +17,18 @@ class Head {
 		add_action( 'wp_head', array( __CLASS__, 'icons' ), 2 );
 		add_action( 'admin_head', array( __CLASS__, 'icons' ) );
 		add_action( 'init', array( __CLASS__, 'cleanup' ) );
+		// Hardening: no WordPress version in feeds or elsewhere, no XML-RPC and no pingbacks.
+		add_filter( 'the_generator', '__return_empty_string' );
+		add_filter( 'xmlrpc_enabled', '__return_false' );
+		add_filter( 'xmlrpc_methods', '__return_empty_array' ); // xmlrpc_enabled leaves pingback.ping on.
+		add_filter( 'pings_open', '__return_false' );
+		add_filter( 'wp_headers', array( __CLASS__, 'headers' ) );
+	}
+
+	/** Drops the X-Pingback header, which only advertises the XML-RPC endpoint. */
+	public static function headers( $headers ) {
+		unset( $headers['X-Pingback'] );
+		return $headers;
 	}
 
 	/**
@@ -42,7 +54,7 @@ class Head {
 		printf( "<link rel=\"manifest\" href=\"%s\">\n", esc_url( Config::asset( $b . 'site.webmanifest' ) ) );
 	}
 
-	/** Drop emoji scripts and generator noise that every page would otherwise load. */
+	/** Drop emoji scripts, generator noise and links to feeds (the site has no blog, so they are empty). */
 	public static function cleanup() {
 		remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 		remove_action( 'wp_print_styles', 'print_emoji_styles' );
@@ -51,5 +63,7 @@ class Head {
 		remove_action( 'wp_head', 'wp_generator' );
 		remove_action( 'wp_head', 'wlwmanifest_link' );
 		remove_action( 'wp_head', 'rsd_link' );
+		remove_action( 'wp_head', 'feed_links', 2 );
+		remove_action( 'wp_head', 'feed_links_extra', 3 );
 	}
 }

@@ -4,6 +4,7 @@ import { qualityChances, QUALITY_MULTIPLIER } from '../../assets/js/engine/quali
 import { applyPrice, cropSellPrice } from '../../assets/js/engine/price.js';
 import { productsFor } from '../../assets/js/engine/processing.js';
 import { data, crop, json } from './helpers.js';
+import { NOT_IN_TABLES } from '../../tools/data/import-price-oracle.mjs';
 
 const quality = json('tests/fixtures/quality-tables.json');
 const prices = json('tests/fixtures/wiki-prices.json');
@@ -32,6 +33,11 @@ test('chances always add up to 1', () => {
       assert.ok(Math.abs(sum - 1) < 1e-12);
     }
   }
+});
+
+test('the wiki price fixture covers every crop except the two the wiki tables leave out', () => {
+  const missing = data.crops.crops.map((c) => c.id).filter((id) => !prices.crops[id]);
+  assert.deepEqual(missing.sort(), [...NOT_IN_TABLES].sort());
 });
 
 test('crop sell prices match the wiki for every crop, quality and Tiller', () => {

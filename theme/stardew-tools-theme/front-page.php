@@ -23,8 +23,8 @@ $tool_icons = array(
 	'xp-calculator'              => 'scroll',
 );
 $questions  = array();
-// The six questions most visitors ask, in this order; every other tool is in the toolbox below.
-$home_order = array( 'what-to-plant', 'crop-profit-calculator', 'keg-vs-preserves-jar', 'greenhouse-planner', 'fish-pond-calculator', 'animal-profit-calculator' );
+// The questions most visitors ask, in this order; every other tool is in the toolbox below.
+$home_order = array( 'what-to-plant', 'crop-profit-calculator', 'keg-vs-preserves-jar', 'greenhouse-planner', 'fish-pond-calculator', 'animal-profit-calculator', 'gift-finder', 'bundle-tracker' );
 $by_id      = array();
 foreach ( $live as $t ) {
 	$by_id[ $t['id'] ] = $t;

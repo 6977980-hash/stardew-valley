@@ -29,7 +29,7 @@ class Guides {
 				'short'       => 'Crops and Farming',
 				'blurb'       => 'What to plant, which crops pay, and when fertilizer is worth buying.',
 				'description' => 'Everything for Stardew Valley crops in 1.6: what to plant today, crop profit by season, the best crops, fertilizer and Speed-Gro, with verified numbers.',
-				'tools'       => array( 'what-to-plant', 'crop-profit-calculator', 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'xp-calculator' ),
+				'tools'       => array( 'what-to-plant', 'crop-profit-calculator', 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'xp-calculator', 'gift-finder', 'bundle-tracker' ),
 			),
 			'artisan-goods'     => array(
 				'title'       => 'Stardew Valley Artisan Goods: Kegs, Jars and Machines',
@@ -56,7 +56,7 @@ class Guides {
 				'title'       => 'Stardew Valley Greenhouse: Layouts, Crops and Profit',
 				'short'       => 'Greenhouse',
 				'blurb'       => 'Sprinkler layouts, the best greenhouse crops, and how kegs change the answer.',
-				'description' => 'Stardew Valley greenhouse planning for 1.6: sprinkler layouts, the best greenhouse crops, Ancient Fruit vs Starfruit, and how many kegs a full greenhouse needs.',
+				'description' => 'Stardew Valley greenhouse planning for 1.6: sprinkler layouts, the best greenhouse crops, Ancient Fruit vs Starfruit, and the kegs a full greenhouse needs.',
 				'tools'       => array( 'greenhouse-planner', 'ancient-fruit-vs-starfruit', 'best-greenhouse-crops' ),
 			),
 		);
@@ -92,7 +92,7 @@ class Guides {
 				'title'       => 'Are Pigs Worth It? Truffles vs Truffle Oil',
 				'short'       => 'Are Pigs Worth It?',
 				'blurb'       => 'How fast a 16,000g pig pays for itself, and when Truffle Oil beats selling truffles.',
-				'description' => 'Are pigs worth 16,000g in Stardew Valley 1.6? Truffles per day, Truffle Oil vs raw truffles with and without Artisan, and how many days a pig takes to pay back.',
+				'description' => 'Are pigs worth 16,000g in Stardew Valley 1.6? Truffles per day, Truffle Oil vs raw truffles with and without Artisan, and how long a pig takes to pay back.',
 				'published'   => '2026-10-09',
 				'updated'     => '2026-10-21',
 				'data'        => array( 'animals', 'buildings' ),
@@ -103,7 +103,7 @@ class Guides {
 				'title'       => 'Best Fish for Fish Ponds in Stardew Valley (1.6)',
 				'short'       => 'Best Fish for Fish Ponds',
 				'blurb'       => 'The ponds that earn the most gold a day, raw or as Aged Roe and Caviar.',
-				'description' => 'The best fish for fish ponds in Stardew Valley 1.6, ranked by gold per day: roe sold raw or as Aged Roe and Caviar, how many jars each pond needs, and legendary fish.',
+				'description' => 'The best fish for fish ponds in Stardew Valley 1.6, ranked by gold per day: roe raw or as Aged Roe and Caviar, jars per pond, and legendary fish.',
 				'published'   => '2026-10-09',
 				'updated'     => '2026-10-21',
 				'data'        => array( 'fishponds' ),
@@ -114,7 +114,7 @@ class Guides {
 				'title'       => 'Are Casks Worth It? Aged Wine, Cheese and Ale',
 				'short'       => 'Are Casks Worth It?',
 				'blurb'       => 'Gold per cask per day for wine, cheese and ale, and what a full cellar costs.',
-				'description' => 'Are casks worth it in Stardew Valley 1.6? Aged prices for wine, cheese, goat cheese, beer, mead and pale ale, gold per cask per day, and the wood to fill a 189-cask cellar.',
+				'description' => 'Are casks worth it in Stardew Valley 1.6? Aged prices for wine, cheese, beer, mead and pale ale, gold per cask per day, and the wood for a 189-cask cellar.',
 				'published'   => '2026-10-10',
 				'updated'     => '2026-10-21',
 				'data'        => array( 'casks' ),
@@ -125,7 +125,7 @@ class Guides {
 				'title'       => 'Dehydrator vs Keg: Which Uses Your Fruit Better?',
 				'short'       => 'Dehydrator vs Keg',
 				'blurb'       => 'Dried fruit earns far more per machine per day, wine earns more per fruit. Which limit are you at?',
-				'description' => 'Dehydrator vs Keg in Stardew Valley 1.6: dried fruit, raisins and wine compared per fruit and per machine per day, with prices for nine fruits, plus the Fish Smoker.',
+				'description' => 'Dehydrator vs Keg in Stardew Valley 1.6: dried fruit, raisins and wine compared per fruit and per machine-day for nine fruits, plus the Fish Smoker.',
 				'published'   => '2026-10-10',
 				'updated'     => '2026-10-21',
 				'data'        => array( 'dehydrator', 'machines' ),
@@ -160,19 +160,23 @@ class Guides {
 		add_shortcode( 'stardew_hub', array( __CLASS__, 'hub_shortcode' ) );
 		add_shortcode( 'stardew_guide', array( __CLASS__, 'guide_shortcode' ) );
 		add_shortcode( 'stardew_guides_index', array( __CLASS__, 'index_shortcode' ) );
-		add_action( 'init', array( __CLASS__, 'maybe_install' ), 22 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
+		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
+	}
+
+	/** Breadcrumb name for a hub or guide page: its short name, not the full SEO title. */
+	public static function breadcrumb_label( $label, $post_id ) {
+		$part = self::parse( (string) get_post_meta( $post_id, self::META, true ) );
+		if ( '' !== $label || ! $part ) {
+			return $label;
+		}
+		$defs = 'hub' === $part[0] ? self::hubs() : self::guides();
+		return $defs[ $part[1] ]['short'];
 	}
 
 	/* ---------- Pages ---------- */
-
-	public static function maybe_install() {
-		if ( get_option( self::VERSION_OPTION ) !== STARDEW_TOOLS_VERSION ) {
-			self::install();
-		}
-	}
 
 	/** Creates missing hub and guide pages. Existing published pages are never overwritten. */
 	public static function install() {
@@ -235,13 +239,22 @@ class Guides {
 		if ( ! is_page() ) {
 			return null;
 		}
-		$meta = (string) get_post_meta( get_queried_object_id(), self::META, true );
+		return self::parse( (string) get_post_meta( get_queried_object_id(), self::META, true ) );
+	}
+
+	/** ['hub'|'guide', id] for a page's meta value ("guide:are-pigs-worth-it"), or null when unknown. */
+	public static function parse( $meta ) {
 		$part = explode( ':', $meta, 2 );
 		if ( 2 !== count( $part ) ) {
 			return null;
 		}
 		$defs = 'hub' === $part[0] ? self::hubs() : ( 'guide' === $part[0] ? self::guides() : array() );
 		return isset( $defs[ $part[1] ] ) ? $part : null;
+	}
+
+	/** Whether a page's hub or guide still exists; with null, whether any are defined. */
+	public static function knows( $meta ) {
+		return null === $meta ? (bool) self::hubs() : null !== self::parse( $meta );
 	}
 
 	public static function hub_url( $id ) {

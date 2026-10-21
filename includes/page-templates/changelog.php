@@ -4,6 +4,15 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: easier to find your way, safer behind the scenes</h2>
+<ul>
+<li>Crop names in the Best Spring, Summer, Fall and Greenhouse Crops tables now link to each crop's page.</li>
+<li>Every crop page links to all the other crops of its season, and every animal page links to all the other Coop and Barn animals.</li>
+<li>Each tool ends with a "Learn more" list of the guides that go with it. The Gift Finder and Bundle Tracker are on the home page and the Crops and Farming page, and the Tools page suggests a guide to start with.</li>
+<li>Breadcrumbs use short names ("Home › Crops › Parsnip"), and search engines get fuller page details (publisher, dates and author) on every page.</li>
+<li>Behind the scenes: account names are no longer visible to the public, unused feeds and old WordPress features are switched off, and every change is now tested automatically before it goes live.</li>
+</ul>
+
 <h2>October 21, 2026: clearer answers on animal and crop pages</h2>
 <ul>
 <li>Animal pages now answer "how much does it cost?" at the top: the price at Marnie's Ranch, the Coop or Barn it needs and what that building costs from Robin, and how many days it takes to pay back with and without the building.</li>

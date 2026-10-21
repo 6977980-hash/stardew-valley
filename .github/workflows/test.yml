@@ -1,0 +1,54 @@
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  node:
+    name: Data and engine tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm test
+
+  php:
+    name: PHP lint and WordPress integration tests
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: stardew-tools
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: dom, mbstring, pdo_sqlite, sqlite3
+          tools: wp-cli
+      - name: PHP syntax check
+        run: find stardew-tools -name '*.php' -not -path '*/node_modules/*' -print0 | xargs -0 -n1 php -l > /dev/null
+      - name: WordPress with SQLite
+        run: |
+          curl -sSL https://wordpress.org/latest.tar.gz | tar xz
+          curl -sSLo sqlite.zip https://downloads.wordpress.org/plugin/sqlite-database-integration.zip
+          unzip -q sqlite.zip -d wordpress/wp-content/plugins
+          sed "s#{SQLITE_IMPLEMENTATION_FOLDER_PATH}#$PWD/wordpress/wp-content/plugins/sqlite-database-integration#; s#{SQLITE_PLUGIN}#sqlite-database-integration/load.php#" \
+            wordpress/wp-content/plugins/sqlite-database-integration/db.copy > wordpress/wp-content/db.php
+          cp -r stardew-tools wordpress/wp-content/plugins/stardew-tools
+          cd wordpress
+          cp wp-config-sample.php wp-config.php
+          wp core install --url=http://localhost:8089 --title="Stardew Tools" --admin_user=ci --admin_password=ci --admin_email=ci@example.com --skip-email
+          wp rewrite structure '/%postname%/'
+          wp plugin activate stardew-tools
+          wp theme activate stardew-tools-theme
+      - name: Integration tests
+        working-directory: wordpress
+        run: wp eval-file wp-content/plugins/stardew-tools/tests/integration/run.php

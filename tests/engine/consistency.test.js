@@ -48,3 +48,17 @@ test('keg: the headline crop (single-input recipes) matches the guide and Keg vs
   const sf = entities.crops.starfruit.machine_gain.find((m) => m.machine === 'Keg');
   assert.equal(sf.gain_per_machine_day, lead.gain_per_machine_day);
 });
+
+test('animals: the best earner and its gold per day match on the animal pages and the calculator answer', () => {
+  const animals = Object.values(entities.animals);
+  const top = animals.find((x) => x.rank_raw === 1);
+  assert.equal(top.id, answers.animals.raw[0].id);
+  assert.equal(Math.round(top.full.raw), Math.round(answers.animals.raw[0].gold_per_day));
+  for (const x of animals) assert.equal(x.of, animals.length, x.id);
+});
+
+test('greenhouse: the best crop you can buy seeds for leads Best Greenhouse Crops and outearns every ranked crop page', () => {
+  const lead = answers.best_crops.greenhouse[0];
+  for (const r of answers.best_crops.greenhouse) assert.ok(r.profit <= lead.profit, r.id);
+  assert.ok(entities.crops[lead.id].shop_seeds, lead.id);
+});
