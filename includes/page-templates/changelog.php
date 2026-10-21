@@ -4,6 +4,15 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 21, 2026: clearer answers on animal and crop pages</h2>
+<ul>
+<li>Animal pages now answer "how much does it cost?" at the top: the price at Marnie's Ranch, the Coop or Barn it needs and what that building costs from Robin, and how many days it takes to pay back with and without the building.</li>
+<li>New: a <a href="<?php echo esc_url( home_url( '/animal-prices/' ) ); ?>">Stardew Valley Animal Prices</a> page with every animal, every Coop and Barn level and the payback for each, linked from the animal pages and the Animals hub.</li>
+<li>Coop and Barn prices, wood, stone and capacity now come from the wiki like the rest of our data. Coop or Barn First? and Are Pigs Worth It? count the building in their payback figures.</li>
+<li>Crop pages show the sell price for every quality and where to buy the seeds at the top, plus a new "What to do with it" section: the bundles that ask for it, crafting recipes, who loves it as a gift and the best machine.</li>
+<li>Sweet Gem Berry explains where Rare Seeds come from and how to trade one berry for a Stardrop.</li>
+</ul>
+
 <h2>October 21, 2026: corrections after the second audit</h2>
 <ul>
 <li>Crop pages now rank a crop only against crops whose seeds you can buy every day and that grow outdoors, the same list as the Best Crops pages. Cactus Fruit is shown as an indoor crop, crops without shop seeds say so, and multi-season crops say when their total includes the next season.</li>

@@ -65,6 +65,26 @@ export const CROP_FACTS = {
   // "Growth Time: 8 days (6 when irrigated)" (Unmilled Rice page); "10 days (7 when irrigated)" (Taro Root page).
   'Unmilled Rice': { irrigated_growth_days: 6 },
   'Taro Root': { irrigated_growth_days: 7 },
+  // "One to five Rare Seeds can be purchased at the Traveling Cart for 1,000g each during Spring and
+  // Summer. During any season, there is also a 1.26% chance that the merchant will be selling 1-5
+  // Rare Seeds for 600-1,000g each ... The Seed Maker creates an average of two seeds from one Sweet
+  // Gem Berry 97.5% of the time" (Rare Seed page). "When given to Old Master Cannoli in the Secret
+  // Woods, the player receives a Stardrop in return. In multiplayer, all players receive a Stardrop"
+  // (Sweet Gem Berry page); "This happens once" (Old Master Cannoli page). "It is not considered a
+  // Fruit or Vegetable and cannot be used in a Keg, Preserves Jar, or Dehydrator, nor does it benefit
+  // from the Tiller profession" (Sweet Gem Berry page).
+  'Sweet Gem Berry': {
+    seed_note: 'Rare Seeds: the Traveling Cart sells 1 to 5 for 1,000g each in Spring and Summer, and now and then for 600-1,000g in any season. A Seed Maker turns one berry into about two Rare Seeds.',
+    special_use: {
+      title: 'Trade one for a Stardrop',
+      text: 'Give one Sweet Gem Berry to the Old Master Cannoli statue in the northwest corner of the Secret Woods and it gives you a Stardrop, which raises your maximum energy for good. It works once per save; in multiplayer every player gets a Stardrop from that one berry. After that, sell the rest: it is not a fruit or vegetable, so it cannot go in a Keg, Preserves Jar or Dehydrator, and Tiller does not raise its price.',
+      sources: [
+        { title: 'Sweet Gem Berry', url: 'https://stardewvalleywiki.com/Sweet_Gem_Berry', revid: 192754 },
+        { title: 'Old Master Cannoli', url: 'https://stardewvalleywiki.com/Old_Master_Cannoli', revid: 193319 },
+        { title: 'Rare Seed', url: 'https://stardewvalleywiki.com/Rare_Seed', revid: 193321 },
+      ],
+    },
+  },
 };
 
 export function applyCropFacts(record) {

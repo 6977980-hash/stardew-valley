@@ -11,7 +11,7 @@ npm test                # validate data + engine tests
 
 `--cached` on any importer reuses `tools/data/.cache/` (git-ignored) for offline re-runs.
 
-Facts the Crops table cannot express (Sunflower seeds dropped at harvest, Coffee Bean and Ancient Fruit having no shop seed, irrigated growth for Rice and Taro) live in `CROP_FACTS` in `tools/data/import-crops.mjs`, each with its wiki quote. They are applied on every import; `node tools/data/import-crops.mjs --facts` re-applies them to the current `data/crops.json` without fetching the wiki.
+Facts the Crops table cannot express (Sunflower seeds dropped at harvest, Coffee Bean and Ancient Fruit having no shop seed, irrigated growth for Rice and Taro, Sweet Gem Berry's Rare Seed sources and Stardrop trade) live in `CROP_FACTS` in `tools/data/import-crops.mjs`, each with its wiki quote. They are applied on every import; `node tools/data/import-crops.mjs --facts` re-applies them to the current `data/crops.json` without fetching the wiki.
 
 ## How a crop is verified
 
@@ -71,6 +71,13 @@ Two calls the tools make where the wiki is unclear: Rancher is applied to raw an
 not to Mayonnaise, Cheese or Cloth (the profession says "animal products"; some infoboxes list a
 Rancher price for those goods); and Truffle quality is counted as regular because it comes from the
 player's Foraging skill.
+
+`tools/data/import-buildings.mjs` writes `buildings.json`: the Coop and Barn at each level, with
+Robin's gold, wood and stone, capacity and the animals each level adds. Every value must agree between
+the Coop/Barn page infobox and the Carpenter's Shop table, the Deluxe totals the Coop and Barn pages
+state (in gold, and with wood and stone bought in year 1 and year 2+) must equal the computed sums,
+and every animal's building in `animals.json` must be the level that first houses it. It reads the
+rendered pages and falls back to the normal article URL when the wiki API is down.
 
 ## Skills, crafting, gifts and bundles
 

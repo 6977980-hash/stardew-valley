@@ -21,6 +21,9 @@ $animal_url = $tool_url( 'animal-profit-calculator' );
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> yes. A happy pig at full hearts finds about <?php echo esc_html( $num( $p['truffles_per_day_max'] ) ); ?> truffles on every day it can go outside, worth <?php echo esc_html( $gold( $p['raw_per_day'] ) ); ?> sold raw. That pays back its <?php echo esc_html( $gold( $p['price'] ) ); ?> price in about <?php echo esc_html( $num( $p['payback_raw'] ) ); ?> good days. Turn the truffles into Truffle Oil with the Artisan profession and it makes <?php echo esc_html( $gold( $p['oil_artisan_per_day'] ) ); ?> a day. The catch is that pigs find nothing in winter or on rainy days.</p>
+	<?php if ( ! empty( $p['building_total'] ) ) : ?>
+	<p>The bigger cost is the <?php echo esc_html( $p['building'] ); ?>: <?php echo esc_html( $gold( $p['building_total'] ) ); ?> plus <?php echo esc_html( number_format( $p['building_wood'] ) ); ?> Wood and <?php echo esc_html( number_format( $p['building_stone'] ) ); ?> Stone from an empty plot (<?php echo esc_html( implode( ', ', array_map( function ( $l ) use ( $gold ) { return $l['name'] . ' ' . $gold( $l['gold'] ); }, $p['building_path'] ) ) ); ?>). Counting it, one pig pays back the pig and the whole barn in about <?php echo esc_html( $num( $p['payback_with_building'] ) ); ?> good days, and a full barn of <?php echo (int) $p['building_capacity']; ?> pigs pays back in about <?php echo esc_html( $num( $p['payback_building_share'] ) ); ?>, selling raw.</p>
+	<?php endif; ?>
 </div>
 
 <h2>What a pig makes</h2>
@@ -50,7 +53,7 @@ $animal_url = $tool_url( 'animal-profit-calculator' );
 
 <h2>Before you buy</h2>
 <ul>
-	<li>Pigs need a <?php echo esc_html( $p['building'] ); ?>, the last Barn upgrade, so budget for the building as well as the <?php echo esc_html( $gold( $p['price'] ) ); ?> pig.</li>
+	<li>Pigs need a <?php echo esc_html( $p['building'] ); ?>, the last Barn upgrade, so budget for the building<?php echo ! empty( $p['building_total'] ) ? ' (' . esc_html( $gold( $p['building_total'] ) ) . ' in gold from an empty plot)' : ''; ?> as well as the <?php echo esc_html( $gold( $p['price'] ) ); ?> pig.</li>
 	<li>A pig only earns on dry days in spring, summer and fall. Buy early in spring rather than late in fall.</li>
 	<li>Leave the barn door open and keep grass nearby so they go out and stay happy.</li>
 	<li>Compare pigs with every other animal, at your hearts and professions, in the <a href="<?php echo esc_url( $animal_url ); ?>">Animal Profit Calculator</a>.</li>

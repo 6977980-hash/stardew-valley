@@ -53,10 +53,16 @@ $shops     = array(
 $shop_name = function ( $s ) use ( $shops ) {
 	return isset( $shops[ $s ] ) ? $shops[ $s ] : ucwords( str_replace( array( '-', '_' ), ' ', $s ) );
 };
+// When each seller has the seeds: Pierre's and JojaMart stock them only while the crop is in season.
+$shop_when  = array(
+	'pierre'   => 'in season',
+	'jojamart' => 'in season',
+	'oasis'    => 'in the Calico Desert, once the bus is repaired',
+);
 $seed_parts = array();
 foreach ( $e['seed_prices'] as $shop => $price ) {
 	if ( $price > 0 ) {
-		$seed_parts[] = $gold( $price ) . ' at ' . $shop_name( $shop );
+		$seed_parts[] = $gold( $price ) . ' at ' . $shop_name( $shop ) . ( isset( $shop_when[ $shop ] ) ? ' (' . $shop_when[ $shop ] . ')' : '' );
 	}
 }
 $n2        = function ( $v ) {
@@ -111,13 +117,15 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 		<tr><th scope="row">Seasons</th><td><?php echo $e['indoor_only'] ? 'Any season, indoors only (greenhouse or Garden Pots)' : esc_html( $seasons ); ?></td></tr>
 		<tr><th scope="row">Days to first harvest</th><td><?php echo (int) $e['growth_days']; ?></td></tr>
 		<tr><th scope="row">After the first harvest</th><td><?php echo esc_html( $regrows ? 'Regrows ' . $every( $e['regrow_days'] ) . ', no replanting' : 'Replant after each harvest' ); ?></td></tr>
-		<tr><th scope="row">Sell price</th><td><?php echo esc_html( $gold( $e['base_price'] ) ); ?></td></tr>
+		<tr><th scope="row">Sell price</th><td><?php echo esc_html( $gold( $e['prices']['regular'] ) . ' regular, ' . $gold( $e['prices']['silver'] ) . ' silver, ' . $gold( $e['prices']['gold'] ) . ' gold, ' . $gold( $e['prices']['iridium'] ) . ' iridium' ); ?></td></tr>
 		<?php if ( ! empty( $e['irrigated_growth_days'] ) ) : ?>
 		<tr><th scope="row">Next to water</th><td><?php echo (int) $e['irrigated_growth_days']; ?> days instead of <?php echo (int) $e['growth_days']; ?> when planted beside water (irrigated); the numbers on this page use the slower, unirrigated time</td></tr>
 		<?php endif; ?>
 		<tr><th scope="row">Seeds</th><td>
 			<?php
-			if ( $seed_parts ) {
+			if ( $seed_parts && ! empty( $e['seed_note'] ) ) {
+				echo esc_html( $e['seed_note'] );
+			} elseif ( $seed_parts ) {
 				echo esc_html( implode( '; ', $seed_parts ) );
 				if ( ! empty( $e['returns_seeds'] ) && ! $regrows ) {
 					echo ' (each harvest drops about one seed, so you only buy them once)';
@@ -139,6 +147,88 @@ $calc_url = $tool_url( 'crop-profit-calculator' );
 	</tbody>
 </table>
 </div>
+
+<?php
+$uses     = isset( $e['uses'] ) ? $e['uses'] : array();
+$q_names  = array(
+	'normal'  => '',
+	'silver'  => ', silver quality or better',
+	'gold'    => ', gold quality or better',
+	'iridium' => ', iridium quality',
+);
+$people   = function ( $list ) {
+	return count( $list ) > 1 ? implode( ', ', array_slice( $list, 0, -1 ) ) . ' and ' . end( $list ) : implode( '', $list );
+};
+$bundle_t = function ( $b ) use ( $q_names ) {
+	return $b['name'] . ' (' . $b['room'] . ', ' . (int) $b['qty'] . ' needed' . ( isset( $q_names[ $b['quality'] ] ) ? $q_names[ $b['quality'] ] : '' ) . ')';
+};
+$gifts    = isset( $uses['gifts'] ) ? $uses['gifts'] : null;
+?>
+<h2>What to do with <?php echo esc_html( $e['name'] ); ?></h2>
+<?php if ( ! empty( $e['special_use'] ) ) : ?>
+<p><strong><?php echo esc_html( $e['special_use']['title'] ); ?>.</strong> <?php echo esc_html( $e['special_use']['text'] ); ?></p>
+<?php endif; ?>
+<ul>
+	<li><strong>Bundles:</strong>
+	<?php
+	if ( ! empty( $uses['bundles'] ) ) {
+		echo esc_html( 'the Community Center asks for it in the ' . $people( array_map( $bundle_t, $uses['bundles'] ) ) . '.' );
+		echo ! empty( $uses['remixed_bundles'] ) ? esc_html( ' With Remixed Bundles it can also come up in the ' . $people( array_map( $bundle_t, $uses['remixed_bundles'] ) ) . '.' ) : '';
+	} elseif ( ! empty( $uses['remixed_bundles'] ) ) {
+		echo esc_html( 'no standard Community Center bundle needs it, but with Remixed Bundles it can come up in the ' . $people( array_map( $bundle_t, $uses['remixed_bundles'] ) ) . '.' );
+	} else {
+		echo 'no Community Center bundle asks for it.';
+	}
+	?>
+	<?php if ( ! empty( $uses['bundles'] ) || ! empty( $uses['remixed_bundles'] ) ) : ?>Keep some back until those bundles are done; the <a href="<?php echo esc_url( $tool_url( 'bundle-tracker' ) ); ?>">Bundle Tracker</a> shows what is still missing.<?php endif; ?></li>
+	<li><strong>Crafting:</strong>
+	<?php
+	if ( ! empty( $uses['crafting'] ) ) {
+		echo esc_html(
+			'an ingredient in ' . $people(
+				array_map(
+					function ( $r ) {
+						return $r['name'] . ' (' . (int) $r['qty'] . ' needed)';
+					},
+					$uses['crafting']
+				)
+			) . '.'
+		);
+	} else {
+		echo 'not used in any crafting recipe.';
+	}
+	?>
+	<?php if ( ! empty( $e['wiki_url'] ) ) : ?>For cooking recipes, see the <a href="<?php echo esc_url( $e['wiki_url'] ); ?>" rel="noopener">wiki's <?php echo esc_html( $e['name'] ); ?> page</a>.<?php endif; ?></li>
+	<?php if ( $gifts ) : ?>
+	<li><strong>Gifts:</strong>
+		<?php
+		if ( $gifts['neutral'] >= $gifts['of'] ) {
+			echo 'every villager treats it as a neutral gift, so it is not worth giving;';
+		} else {
+			$parts = array();
+			if ( $gifts['love'] ) {
+				$parts[] = $people( $gifts['love'] ) . ( count( $gifts['love'] ) > 1 ? ' love' : ' loves' ) . ' it';
+			}
+			if ( $gifts['like'] ) {
+				$parts[] = $people( $gifts['like'] ) . ( count( $gifts['like'] ) > 1 ? ' like' : ' likes' ) . ' it';
+			}
+			$bad = array_merge( $gifts['dislike'], $gifts['hate'] );
+			if ( $bad ) {
+				$parts[] = 'avoid giving it to ' . $people( $bad );
+			}
+			echo esc_html( $parts ? implode( '; ', $parts ) . '. For everyone else' : 'no villager names it as a loved or liked gift. For most' );
+			echo ' it depends on a group rule such as "all fruit" or "all vegetables", and';
+		}
+		?>
+		the <a href="<?php echo esc_url( $tool_url( 'gift-finder' ) ); ?>">Gift Finder</a> shows every villager.</li>
+	<?php endif; ?>
+	<li><strong>Machines:</strong>
+	<?php if ( $best_machine ) : ?>
+		the best is the <?php echo esc_html( $best_machine['machine'] ); ?>, which makes <?php echo esc_html( $best_machine['product'] ); ?> and adds about <?php echo esc_html( $gold( $best_machine['gain_per_machine_day'] ) ); ?> per machine per day over selling it raw, with the Artisan profession (details below).
+	<?php else : ?>
+		it can't go in a Keg or Preserves Jar, so sell it raw.
+	<?php endif; ?></li>
+</ul>
 
 <h2>What <?php echo esc_html( $e['name'] ); ?> sells for</h2>
 <p>Quality changes the price: silver is worth about a quarter more than regular, gold about a half more, and iridium double. Your farming level decides how often you get each.</p>

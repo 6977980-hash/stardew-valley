@@ -21,7 +21,7 @@ class Entities {
 
 	/** Data files an entity type's pages are built from. */
 	public static function data_sets( $type ) {
-		return 'animals' === $type ? array( 'animals' ) : ( 'machines' === $type ? array( 'machines', 'crops' ) : array( 'crops', 'fertilizers', 'machines' ) );
+		return 'animals' === $type ? array( 'animals', 'buildings' ) : ( 'machines' === $type ? array( 'machines', 'crops' ) : array( 'crops', 'fertilizers', 'machines' ) );
 	}
 
 	const META           = '_stardew_tools_entity';
@@ -80,31 +80,56 @@ class Entities {
 		}
 		$e = $d[ $type ][ $id ];
 		if ( 'crops' === $type ) {
-			$seasons = implode( ' and ', array_map( 'ucfirst', $e['seasons'] ) );
-			$title   = $e['name'] . ' in Stardew Valley: Profit and Best Use';
-			$desc    = sprintf(
-				'%1$s grows in %2$d days and sells for %3$dg. Profit per tile by level and fertilizer, best machine and when to plant (Stardew Valley 1.6, %4$s).',
+			$title = $e['name'] . ' in Stardew Valley: Price, Uses and Profit';
+			$seed  = '';
+			$shops = array(
+				'pierre'   => "Pierre's",
+				'jojamart' => 'JojaMart',
+				'oasis'    => 'the Oasis',
+			);
+			foreach ( $shops as $k => $label ) {
+				if ( ! empty( $e['seed_prices'][ $k ] ) ) {
+					$seed = sprintf( '; seeds %s at %s', number_format( $e['seed_prices'][ $k ] ) . 'g', $label );
+					break;
+				}
+			}
+			$desc = sprintf(
+				'%1$s %5$s for %2$s (%3$s iridium)%4$s. Prices by quality, bundles, gifts, best machine and profit per tile.',
 				$e['name'],
-				$e['growth_days'],
-				$e['base_price'],
-				$seasons
+				number_format( $e['prices']['regular'] ) . 'g',
+				number_format( $e['prices']['iridium'] ) . 'g',
+				$seed,
+				preg_match( '/(ies|ps)$/', $e['name'] ) ? 'sell' : 'sells'
 			);
 		} elseif ( 'animals' === $type ) {
-			$title = $e['name'] . ' in Stardew Valley: Income and Price';
-			$desc  = sprintf(
-				'%1$s in Stardew Valley 1.6: %2$s, earns about %3$dg a day at full friendship (%4$dg with artisan goods). Income by hearts, compared.',
-				$e['name'],
-				$e['price'] ? 'costs ' . number_format( $e['price'] ) . 'g in the ' . $e['building'] : 'lives in the ' . $e['building'],
-				$e['full']['raw'],
-				$e['full']['processed']
-			);
+			$b = isset( $e['building_needed'] ) ? $e['building_needed'] : null;
+			if ( $e['price'] ) {
+				$title = 'How Much Does ' . self::article( $e['name'] ) . ' ' . $e['name'] . ' Cost in Stardew Valley? (' . number_format( $e['price'] ) . 'g)';
+				$desc  = sprintf(
+					'%1$s %2$s costs %3$s at %4$s%5$s. Earns %6$s a day; payback incl. building and income by hearts.',
+					ucfirst( self::article( $e['name'] ) ),
+					$e['name'],
+					number_format( $e['price'] ) . 'g',
+					$e['shop'] ? $e['shop'] : 'Marnie\'s Ranch',
+					$b ? ' and needs a ' . $b['name'] . ' (' . number_format( $b['total']['gold'] ) . 'g from scratch)' : '',
+					number_format( $e['full']['raw'] ) . 'g'
+				);
+			} else {
+				$title = $e['name'] . ' in Stardew Valley: How to Get One and Income';
+				$desc  = sprintf(
+					"The %1\$s isn't sold: you hatch it from an egg. It lives in a %2\$s, earns about %3\$s a day at five hearts. How to get one and its income.",
+					$e['name'],
+					$b ? $b['name'] : $e['building'],
+					number_format( $e['full']['raw'] ) . 'g'
+				);
+			}
 		} else {
 			$title = $e['name'] . ': Best Crops per Day in Stardew Valley';
 			$desc  = sprintf( 'Which crops earn the most in a %1$s in Stardew Valley 1.6: all %2$d crops it accepts ranked by gold per machine per day, with times and prices.', $e['name'], $e['accepted'] );
 		}
 		// Keep meta descriptions where search results will not cut them off.
-		if ( strlen( $desc ) > 158 ) {
-			$desc = rtrim( substr( $desc, 0, strrpos( substr( $desc, 0, 157 ), ' ' ) ), ' ,.;:' ) . '…';
+		if ( strlen( $desc ) > 155 ) {
+			$desc = rtrim( substr( $desc, 0, strrpos( substr( $desc, 0, 154 ), ' ' ) ), ' ,.;:' ) . '…';
 		}
 		return array(
 			'title'       => $title,
@@ -113,10 +138,26 @@ class Entities {
 		);
 	}
 
+	/** "a" or "an" for a name. */
+	public static function article( $name ) {
+		return preg_match( '/^[AEIOU]/i', $name ) ? 'an' : 'a';
+	}
+
+	/** The Animal Prices page: every animal's price, building and payback in one table. */
+	public static function prices_def() {
+		$n = count( self::data()['animals'] );
+		return array(
+			'title'       => 'Stardew Valley Animal Prices: All ' . $n . ' Animals and Buildings',
+			'short'       => 'Animal Prices',
+			'description' => "Every Stardew Valley animal's price in one table: Marnie's price, the building and upgrade cost, gold per day and payback with the building (1.6).",
+		);
+	}
+
 	public static function init() {
 		add_shortcode( 'stardew_entity', array( __CLASS__, 'entity_shortcode' ) );
 		add_shortcode( 'stardew_entity_index', array( __CLASS__, 'index_shortcode' ) );
 		add_shortcode( 'stardew_data_page', array( __CLASS__, 'data_shortcode' ) );
+		add_shortcode( 'stardew_animal_prices', array( __CLASS__, 'prices_shortcode' ) );
 		add_action( 'init', array( __CLASS__, 'maybe_install' ), 24 );
 		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'enqueue' ), 30 );
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
@@ -145,6 +186,7 @@ class Entities {
 			}
 		}
 		self::ensure_page( 'data', self::data_def(), '[stardew_data_page]', 0, 'data' );
+		self::ensure_page( 'animal-prices', self::prices_def(), '[stardew_animal_prices]', 0, 'prices' );
 		update_option( self::VERSION_OPTION, STARDEW_TOOLS_VERSION );
 	}
 
@@ -152,7 +194,7 @@ class Entities {
 	public static function csv_files() {
 		return array(
 			'stardew-crops.csv'             => array( 'Crops', 'crops', 'one row per crop: seasons, growth and regrow days, sell prices by quality, and profit per tile at Farming levels 0, 6 and 10' ),
-			'stardew-farm-animals.csv'      => array( 'Farm animals', 'animals', 'one row per animal: building, price, days to mature, gold per day raw and as artisan goods at five hearts, and payback days' ),
+			'stardew-farm-animals.csv'      => array( 'Farm animals', 'animals', 'one row per animal: building, price, days to mature, gold per day raw and as artisan goods at five hearts, building cost, and payback days with and without the building' ),
 			'stardew-machine-rankings.csv'  => array( 'Machine rankings', 'machines', 'one row per crop per machine: the product, its price, the days it takes and extra gold per machine per day' ),
 		);
 	}
@@ -172,6 +214,17 @@ class Entities {
 	public static function data_shortcode() {
 		$file = STARDEW_TOOLS_DIR . 'includes/entity-templates/data.php';
 		return file_exists( $file ) ? self::render( $file, 'data', '', self::data() ) : '';
+	}
+
+	public static function prices_shortcode() {
+		$file = STARDEW_TOOLS_DIR . 'includes/entity-templates/animal-prices.php';
+		return file_exists( $file ) ? self::render( $file, 'animals', '', self::data() ) : '';
+	}
+
+	/** Permalink of the Animal Prices page, or '' when it isn't published. */
+	public static function prices_url() {
+		$page = get_page_by_path( 'animal-prices', OBJECT, 'page' );
+		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
 	}
 
 	/** Creates a missing page, refreshes our meta on existing ones; published page text is never overwritten. */
@@ -230,8 +283,8 @@ class Entities {
 			return null;
 		}
 		$part = explode( ':', (string) get_post_meta( get_queried_object_id(), self::META, true ) );
-		if ( 'data' === $part[0] ) {
-			return array( 'data' );
+		if ( 'data' === $part[0] || 'prices' === $part[0] ) {
+			return array( $part[0] );
 		}
 		if ( 'index' === $part[0] && isset( $part[1], self::types()[ $part[1] ] ) ) {
 			return array( 'index', $part[1] );
@@ -370,6 +423,9 @@ class Entities {
 		}
 		$names = array();
 		foreach ( self::data() as $type => $items ) {
+			if ( ! is_array( $items ) ) {
+				continue; // game_version.
+			}
 			foreach ( $items as $id => $e ) {
 				if ( $cur && $cur[1] === $type && $cur[2] === $id ) {
 					continue;
@@ -512,6 +568,33 @@ class Entities {
 						);
 					},
 					array_keys( self::csv_files() )
+				),
+			);
+			return $graph;
+		}
+		if ( 'prices' === $cur[0] ) {
+			$def   = self::prices_def();
+			$items = array();
+			foreach ( array_keys( self::data()['animals'] ) as $id ) {
+				$u = self::url( 'animals', $id );
+				if ( $u ) {
+					$items[] = array(
+						'@type'    => 'ListItem',
+						'position' => count( $items ) + 1,
+						'url'      => $u,
+					);
+				}
+			}
+			$graph[] = array(
+				'@type'        => 'CollectionPage',
+				'name'         => $def['title'],
+				'description'  => $def['description'],
+				'url'          => $url,
+				'inLanguage'   => 'en',
+				'dateModified' => Data::modified( '2026-10-21', array( 'animals', 'buildings' ), self::UPDATED ),
+				'mainEntity'   => array(
+					'@type'           => 'ItemList',
+					'itemListElement' => $items,
 				),
 			);
 			return $graph;

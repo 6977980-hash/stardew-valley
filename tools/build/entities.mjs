@@ -8,6 +8,7 @@ import { expectedItems } from '../../assets/js/engine/harvest.js';
 import { productsFor } from '../../assets/js/engine/processing.js';
 import { allocate } from '../../assets/js/engine/machines.js';
 import { animalOutput } from '../../assets/js/engine/animals.js';
+import { villagersFor } from '../../assets/js/engine/gifts.js';
 
 const r0 = (n) => Math.round(n);
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -39,6 +40,31 @@ export function buildEntities(data, crops) {
     if (!n) return { last_planting_day: null, last_planting_season: null };
     const d = dayToSeasonDay(n, s, opts);
     return { last_planting_day: d.day, last_planting_season: d.season };
+  };
+
+  // What else a crop is for: Community Center bundles, crafting recipes and gifts. Each part is
+  // empty when its data file isn't loaded.
+  const roomName = new Map(((data.bundles || {}).rooms || []).map((r) => [r.id, r.name]));
+  const usesOf = (c) => {
+    const inBundles = (set) =>
+      ((data.bundles || {}).bundles || [])
+        .filter((b) => b.set === set && (b.items || []).some((i) => i.id === c.id))
+        .map((b) => {
+          const i = b.items.find((x) => x.id === c.id);
+          return { name: b.name, room: roomName.get(b.room) || b.room, qty: i.qty, quality: i.quality };
+        });
+    const standard = inBundles('standard');
+    const remixed = inBundles('remixed').filter((b) => !standard.some((x) => x.name === b.name && x.qty === b.qty && x.quality === b.quality));
+    const crafting = ((data.crafting || {}).recipes || [])
+      .filter((r) => r.ingredients.some((i) => i.id === c.id))
+      .map((r) => ({ name: r.name, qty: r.ingredients.find((i) => i.id === c.id).qty, category: r.category }));
+    let gifts = null;
+    if (data.gifts) {
+      const v = villagersFor(c.id, data.gifts);
+      const names = (t) => v[t].map((x) => x.name);
+      gifts = { love: names('love'), like: names('like'), neutral: v.neutral.length, dislike: names('dislike'), hate: names('hate'), of: data.gifts.villagers.length };
+    }
+    return { bundles: standard, remixed_bundles: remixed, crafting, gifts };
   };
 
   const cropOut = {};
@@ -116,6 +142,9 @@ export function buildEntities(data, crops) {
       products,
       machine_gain: gain,
       greenhouse: { established: r0(ghEst.profit), first_year: r0(ghFirst.profit), harvests: ghEst.harvestDays.length },
+      uses: usesOf(c),
+      wiki_url: (c.sources.find((x) => x.title === c.name) || {}).url || null,
+      special_use: c.special_use || null,
       verification: c.verification_status,
     };
   }
@@ -132,6 +161,15 @@ export function buildEntities(data, crops) {
     }
     return Math.max(1, d);
   };
+  // The Coop or Barn level an animal needs, and everything it costs to get there from an empty plot.
+  const levels = ((data.buildings || {}).buildings || []);
+  const buildingFor = (x) => {
+    const b = levels.find((y) => y.family === x.building && y.level === x.building_level);
+    if (!b) return null;
+    const path = levels.filter((y) => y.family === b.family && y.level <= b.level).sort((p, q) => p.level - q.level);
+    return { id: b.id, name: b.name, level: b.level, capacity: b.capacity, gold: b.gold, path: path.map((y) => ({ id: y.id, name: y.name, gold: y.gold, wood: y.materials.wood, stone: y.materials.stone })), total: b.total };
+  };
+  const SHOP_NAMES = { marnie: "Marnie's Ranch" };
   for (const x of a.animals) {
     const at = (hearts, o = {}) => {
       const out = animalOutput(x, a, { friendship: hearts * 200, mood: 255, ...o });
@@ -159,6 +197,20 @@ export function buildEntities(data, crops) {
       // Price divided by gold a day at five hearts: selling raw, and the best case (artisan goods made from the products).
       payback_days_raw: x.purchase_price && full.goldPerDay > 0 ? r2(x.purchase_price / full.goldPerDay) : null,
       payback_days_best_case: x.purchase_price ? r2(x.purchase_price / Math.max(full.goldPerDay, proc.goldPerDay)) : null,
+      shop: x.purchase_shop ? SHOP_NAMES[x.purchase_shop] || x.purchase_shop : null,
+      // Animals no shop sells: how the wiki says to hatch one, and the egg's price where a shop sells it.
+      acquisition: x.acquisition ? { how: x.acquisition.wiki_wording, egg: x.acquisition.egg || null } : null,
+      building_needed: buildingFor(x),
+      ...(() => {
+        // Payback counting the building's gold (wood and stone left out, they can be gathered): the
+        // first animal carrying the whole building, and one of a full building carrying its share.
+        const b = buildingFor(x);
+        if (!b || !x.purchase_price || !(full.goldPerDay > 0)) return { payback_days_with_building: null, payback_days_full_building: null };
+        return {
+          payback_days_with_building: r2((x.purchase_price + b.total.gold) / full.goldPerDay),
+          payback_days_full_building: r2((x.purchase_price + b.total.gold / b.capacity) / full.goldPerDay),
+        };
+      })(),
       rank_raw: animalRank.findIndex((r) => r.id === x.id) + 1,
       of: animalRank.length,
       notes: x.produce.notes || [],
@@ -195,11 +247,11 @@ export function buildCsv(ent) {
     const best = c.plantings.reduce((b, p) => (!b || p.profit.level6 > b.profit.level6 ? p : b), null);
     return [c.id, c.name, c.category, c.seasons.join('/'), c.growth_days, c.regrow_days, c.base_price, c.prices.silver, c.prices.gold, c.prices.iridium, best && best.season, best && best.profit.level0, best && best.profit.level6, best && best.profit.level10, best && best.seed_cost];
   });
-  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.frequency_full_days, a.full.raw, a.full.processed, a.payback_days_raw, a.payback_days_best_case]);
+  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.frequency_full_days, a.full.raw, a.full.processed, a.payback_days_raw, a.payback_days_best_case, a.building_needed && a.building_needed.total.gold, a.payback_days_with_building, a.payback_days_full_building]);
   const machines = Object.values(ent.machines).flatMap((m) => m.crops.map((c, i) => [m.id, i + 1, c.id, c.product, c.input, c.price, c.days, c.gain_per_machine_day]));
   return {
     'stardew-crops.csv': toCsv(['id', 'name', 'type', 'seasons', 'growth_days', 'regrow_days', 'sell_price', 'silver_price', 'gold_price', 'iridium_price', 'best_season', 'profit_per_tile_level0', 'profit_per_tile_level6', 'profit_per_tile_level10', 'seed_cost'], crops),
-    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products_base', 'days_between_products_5_hearts', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days_raw', 'payback_days_best_case_artisan'], animals),
+    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products_base', 'days_between_products_5_hearts', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days_raw', 'payback_days_best_case_artisan', 'building_gold_from_scratch', 'payback_days_raw_incl_whole_building', 'payback_days_raw_incl_building_share_full'], animals),
     'stardew-machine-rankings.csv': toCsv(['machine', 'rank', 'crop_id', 'product', 'crops_needed', 'product_price', 'days', 'extra_gold_per_machine_day'], machines),
   };
 }

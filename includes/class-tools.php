@@ -30,7 +30,7 @@ class Tools {
 				'short'       => 'What to Plant Today',
 				'question'    => 'What should I plant today?',
 				'blurb'       => 'Tell it the day, your gold, tiles and machines; get one crop, why it wins, and a shopping list.',
-				'description' => 'What should I plant in Stardew Valley today? Enter the day, your gold, tiles, kegs and skills; get the best crop, the reasons and a seed shopping list (1.6).',
+				'description' => 'What should you plant today in Stardew Valley? Enter the day, gold and tiles; get the best crop, why it wins and a seed shopping list (1.6).',
 				'icon'        => 'sprout',
 				'script'      => 'what-to-plant',
 				'related'     => array( 'crop-profit-calculator', 'best-spring-crops', 'keg-vs-preserves-jar' ),
@@ -40,7 +40,7 @@ class Tools {
 				'short'       => 'Crop Profit Calculator',
 				'question'    => 'Which crop earns the most?',
 				'blurb'       => 'Profit for every crop from today until the season ends, with your fertilizer, professions and sell method.',
-				'description' => 'Free Stardew Valley crop profit calculator for 1.6: pick your season and day, fertilizer and professions, and see profit per tile with the math shown.',
+				'description' => self::answer_desc( 'crop-profit-calculator', 'Free Stardew Valley crop profit calculator for 1.6: pick your season and day, fertilizer and professions, and see profit per tile with the math shown.' ),
 				'icon'        => 'sprout',
 				'script'      => 'crop-profit',
 				'related'     => array( 'keg-vs-preserves-jar', 'greenhouse-planner', 'ancient-fruit-vs-starfruit' ),
@@ -50,7 +50,7 @@ class Tools {
 				'short'       => 'Keg vs Preserves Jar',
 				'question'    => 'Keg or Preserves Jar?',
 				'blurb'       => 'Which machine earns more for your crop, and how to split your harvest between the kegs and jars you own.',
-				'description' => 'Keg or Preserves Jar in Stardew Valley 1.6? Compare wine, juice, jelly and pickles for any crop, and split your harvest across the machines you own.',
+				'description' => self::answer_desc( 'keg-vs-preserves-jar', 'Keg or Preserves Jar in Stardew Valley 1.6? Compare wine, juice, jelly and pickles for any crop, and split your harvest across the machines you own.' ),
 				'icon'        => 'jar',
 				'script'      => 'keg-vs-jar',
 				'related'     => array( 'crop-profit-calculator', 'ancient-fruit-vs-starfruit', 'greenhouse-planner' ),
@@ -60,7 +60,7 @@ class Tools {
 				'short'       => 'Ancient Fruit vs Starfruit',
 				'question'    => 'Ancient Fruit or Starfruit?',
 				'blurb'       => 'Side by side in the greenhouse and outdoors, raw or as wine, with your professions.',
-				'description' => 'Ancient Fruit vs Starfruit in Stardew Valley 1.6: profit per tile in the greenhouse and in summer, raw or as wine, with and without Artisan.',
+				'description' => self::answer_desc( 'ancient-fruit-vs-starfruit', 'Ancient Fruit vs Starfruit in Stardew Valley 1.6: profit per tile in the greenhouse and in summer, raw or as wine, with and without Artisan.' ),
 				'icon'        => 'coin',
 				'script'      => 'af-vs-starfruit',
 				'related'     => array( 'greenhouse-planner', 'keg-vs-preserves-jar', 'crop-profit-calculator' ),
@@ -70,7 +70,7 @@ class Tools {
 				'short'       => 'Greenhouse Planner',
 				'question'    => 'Plan my greenhouse',
 				'blurb'       => 'Choose sprinklers and crops, see the layout and a year of profit, and how many kegs you need.',
-				'description' => 'Plan your Stardew Valley greenhouse: sprinkler layouts for the 120 soil tiles (116 left for crops with Iridium Sprinklers), yearly profit per crop and how many kegs or jars you need.',
+				'description' => self::answer_desc( 'greenhouse-planner', 'Plan your Stardew Valley greenhouse: sprinkler layouts for the 120 soil tiles, yearly profit per crop and how many kegs or jars you need.' ),
 				'icon'        => 'house',
 				'script'      => 'greenhouse',
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),
@@ -80,7 +80,7 @@ class Tools {
 				'short'       => 'Fish Pond Calculator',
 				'question'    => 'Which fish for my pond?',
 				'blurb'       => 'Daily roe and items for any fish, gold per day, and which fish earns the most in a pond.',
-				'description' => 'Stardew Valley fish pond calculator (1.6): roe and item chances by population, gold per day raw or as Aged Roe and Caviar, and the best fish for ponds.',
+				'description' => self::answer_desc( 'fish-pond-calculator', 'Stardew Valley fish pond calculator (1.6): roe and item chances by population, gold per day raw or as Aged Roe and Caviar, and the best fish.' ),
 				'icon'        => 'fish',
 				'script'      => 'fish-pond',
 				'data'        => array( 'fishponds' ),
@@ -91,7 +91,7 @@ class Tools {
 				'short'       => 'Animal Profit Calculator',
 				'question'    => 'Which animal earns the most?',
 				'blurb'       => 'Gold per day for every farm animal, raw or through machines, with hearts, mood and professions.',
-				'description' => 'Stardew Valley animal profit calculator (1.6): gold per day for cows, goats, sheep, pigs, chickens and more, with quality, Large products, machines and payback time.',
+				'description' => self::answer_desc( 'animal-profit-calculator', 'Stardew Valley animal profit calculator (1.6): gold per day for every animal by hearts, raw or as artisan goods, with payback time.' ),
 				'icon'        => 'coin',
 				'script'      => 'animals',
 				'data'        => array( 'animals' ),
@@ -102,7 +102,7 @@ class Tools {
 				'short'       => 'XP Calculator',
 				'question'    => 'How long to level 10?',
 				'blurb'       => 'XP to your next Farming or Fishing level, and how many harvests or catches that takes.',
-				'description' => 'Stardew Valley XP calculator for 1.6: XP needed for each Farming and Fishing level, how many harvests or fish to reach level 10, and the fastest crops and fish for XP.',
+				'description' => self::answer_desc( 'xp-calculator', 'Stardew Valley XP calculator for 1.6: XP for each Farming and Fishing level, harvests or fish to level 10, and the fastest crops and fish.' ),
 				'icon'        => 'sprout',
 				'script'      => 'xp',
 				'data'        => array( 'skills', 'crops' ),
@@ -113,7 +113,7 @@ class Tools {
 				'short'       => 'Gift Finder',
 				'question'    => 'What should I give them?',
 				'blurb'       => 'Loved and liked gifts for every villager, and who loves any item. Includes how many hearts a gift is worth.',
-				'description' => 'Stardew Valley gift finder for 1.6: loved, liked, disliked and hated gifts for every villager, who loves a given item, and how many friendship points a gift is worth.',
+				'description' => 'Who loves what in Stardew Valley 1.6: loved and liked gifts for every villager, who loves a given item, and the friendship points each gift is worth.',
 				'icon'        => 'gift',
 				'script'      => 'gifts',
 				'data'        => array( 'gifts' ),
@@ -124,7 +124,7 @@ class Tools {
 				'short'       => 'Bundle Tracker',
 				'question'    => 'Which bundle items are left?',
 				'blurb'       => 'Tick off Community Center bundle items and see what is left to find, by season. Saved in your browser.',
-				'description' => 'Stardew Valley Community Center bundle tracker for 1.6: every standard and Remixed bundle, tick off items as you collect them and see what is missing. Saves in your browser.',
+				'description' => 'Every Community Center bundle, standard and Remixed (1.6): tick off items as you collect them and see what is still missing. Saves in your browser.',
 				'icon'        => 'check',
 				'script'      => 'bundles',
 				'data'        => array( 'bundles' ),
@@ -135,7 +135,7 @@ class Tools {
 				'short'       => 'Crafting Calculator',
 				'question'    => 'What do I need to craft it?',
 				'blurb'       => 'Pick recipes and get one shopping list of ore, wood and stone, with shop prices.',
-				'description' => 'Stardew Valley crafting calculator for 1.6: choose recipes and quantities and get the raw materials, bars and coal you need, with shop prices for the parts you can buy.',
+				'description' => 'Stardew Valley crafting calculator (1.6): pick recipes and get every raw material, bar and coal you need, with shop prices for the parts you can buy.',
 				'icon'        => 'hammer',
 				'script'      => 'crafting',
 				'data'        => array( 'crafting' ),
@@ -155,9 +155,12 @@ class Tools {
 				'title'       => 'Best ' . $name . ' Crops in Stardew Valley (1.6)',
 				'short'       => 'Best ' . $name . ' Crops',
 				'blurb'       => 'greenhouse' === $key ? 'Every crop ranked by profit per tile over a full greenhouse year.' : 'Every ' . strtolower( $name ) . ' crop ranked by profit per tile, with the math.',
-				'description' => 'greenhouse' === $key
-					? 'The best crops for the Stardew Valley greenhouse in 1.6, ranked by profit per tile over a year, with seed prices, harvests and gold per day.'
-					: 'The best ' . strtolower( $name ) . ' crops in Stardew Valley 1.6, ranked by profit per tile, with seed prices, harvests, gold per day and the math.',
+				'description' => self::answer_desc(
+					'best-' . $key . '-crops',
+					'greenhouse' === $key
+						? 'The best crops for the Stardew Valley greenhouse in 1.6, ranked by profit per tile over a year, with seed prices, harvests and gold per day.'
+						: 'The best ' . strtolower( $name ) . ' crops in Stardew Valley 1.6, ranked by profit per tile, with seed prices, harvests, gold per day and the math.'
+				),
 				'icon'        => 'sprout',
 				'script'      => 'best-crops',
 				'template'    => 'best-crops',
@@ -166,6 +169,44 @@ class Tools {
 			);
 		}
 		return $tools;
+	}
+
+	/**
+	 * Meta description that opens with the tool's answer, from data/answers.json, then says what the
+	 * page adds; $fallback is used when the numbers are missing. Kept under 156 characters.
+	 */
+	private static function answer_desc( $id, $fallback ) {
+		$a = Data::get( 'answers' );
+		$g = function ( $n ) {
+			return number_format( (float) $n ) . 'g';
+		};
+		$d = '';
+		if ( $a ) {
+			if ( 'crop-profit-calculator' === $id && ! empty( $a['crop_profit']['spring'] ) ) {
+				$d = sprintf( 'Best crop per tile in 1.6: %1$s in spring, %2$s in summer, %3$s in fall. Check any crop for your day, fertilizer and professions.', $a['crop_profit']['spring'][0]['name'], $a['crop_profit']['summer'][0]['name'], $a['crop_profit']['fall'][0]['name'] );
+			} elseif ( 'keg-vs-preserves-jar' === $id && isset( $a['keg_vs_jar']['starfruit_artisan']['wine'], $a['keg_vs_jar']['starfruit_artisan']['jelly'] ) ) {
+				$sf = $a['keg_vs_jar']['starfruit_artisan'];
+				// The sentence only holds while Wine sells for more but Jelly earns more per machine-day.
+				$d  = $sf['wine']['price'] <= $sf['jelly']['price'] || $sf['jelly']['gain_per_machine_day'] <= $sf['wine']['gain_per_machine_day'] ? '' : sprintf( 'Starfruit Wine sells for %1$s, Jelly %2$s, yet a Jar earns more per day (%3$s vs %4$s). Compare any crop and split your harvest.', $g( $sf['wine']['price'] ), $g( $sf['jelly']['price'] ), $g( $sf['jelly']['gain_per_machine_day'] ), $g( $sf['wine']['gain_per_machine_day'] ) );
+			} elseif ( 'ancient-fruit-vs-starfruit' === $id && isset( $a['af_vs_starfruit']['greenhouse_established'] ) ) {
+				$x = $a['af_vs_starfruit']['greenhouse_established'];
+				$d = sprintf( '%1$s wins in the greenhouse: %2$s vs %3$s per tile a year as wine with Artisan. Compare raw, summer and first-year numbers too.', $x['ancient'] >= $x['starfruit'] ? 'Ancient Fruit' : 'Starfruit', $g( max( $x['ancient'], $x['starfruit'] ) ), $g( min( $x['ancient'], $x['starfruit'] ) ) );
+			} elseif ( 'greenhouse-planner' === $id && ! empty( $a['greenhouse']['raw'] ) ) {
+				$d = sprintf( 'Best greenhouse crop sold raw: %1$s, about %2$s a tile a year. Plan sprinkler layouts, yearly profit and the kegs or jars you need.', $a['greenhouse']['raw'][0]['name'], $g( $a['greenhouse']['raw'][0]['per_tile'] ) );
+			} elseif ( 'fish-pond-calculator' === $id && ! empty( $a['fishpond']['raw'] ) ) {
+				$d = sprintf( 'Best fish pond: %1$s, %2$s a day when full (sold raw). Roe and item chances by population for every fish, raw or as Aged Roe (1.6).', $a['fishpond']['raw'][0]['name'], $g( $a['fishpond']['raw'][0]['gold_per_day'] ) );
+			} elseif ( 'animal-profit-calculator' === $id && ! empty( $a['animals']['raw'] ) ) {
+				$d = sprintf( 'Best farm animal: the %1$s, about %2$s a day at five hearts. Gold per day for every animal by hearts, raw or as artisan goods, with payback.', $a['animals']['raw'][0]['name'], $g( $a['animals']['raw'][0]['gold_per_day'] ) );
+			} elseif ( 'xp-calculator' === $id && ! empty( $a['xp']['level_10'] ) ) {
+				$d = sprintf( 'Level 10 takes %1$s XP. See the XP for every Farming and Fishing level, how many harvests or fish you need, and the fastest crops (1.6).', number_format( $a['xp']['level_10'] ) );
+			} elseif ( preg_match( '/^best-(spring|summer|fall|greenhouse)-crops$/', $id, $m ) && ! empty( $a['best_crops'][ $m[1] ] ) ) {
+				$top = $a['best_crops'][ $m[1] ][0];
+				$d   = 'greenhouse' === $m[1]
+					? sprintf( 'Best greenhouse crop you can buy seeds for: %1$s, %2$s a tile a year. Every crop ranked, with seed prices, harvests and gold per day (1.6).', $top['name'], $g( $top['profit'] ) )
+					: sprintf( 'Best %1$s crop in Stardew Valley 1.6: %2$s, %3$s a tile from day 1. Every %1$s crop ranked, with seed prices, harvests and gold per day.', $m[1], $top['name'], $g( $top['profit'] ) );
+			}
+		}
+		return '' !== $d && strlen( $d ) <= 155 ? $d : $fallback;
 	}
 
 	public static function init() {

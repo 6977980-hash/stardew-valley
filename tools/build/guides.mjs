@@ -169,6 +169,16 @@ export function buildGuides(data, crops, crafting, ghRank) {
     })
     .sort((x, y) => y.processed - x.processed);
   pigs.payback_raw = r2(pigs.price / pigs.raw_per_day);
+  const pigBuilding = ((data.buildings || {}).buildings || []).find((l) => l.family === pig.building && l.level === pig.building_level);
+  if (pigBuilding) {
+    pigs.building_total = pigBuilding.total.gold;
+    pigs.building_wood = pigBuilding.total.wood;
+    pigs.building_stone = pigBuilding.total.stone;
+    pigs.building_capacity = pigBuilding.capacity;
+    pigs.building_path = ((data.buildings || {}).buildings || []).filter((l) => l.family === pig.building && l.level <= pig.building_level).map((l) => ({ name: l.name, gold: l.gold }));
+    pigs.payback_with_building = r2((pigs.price + pigBuilding.total.gold) / pigs.raw_per_day);
+    pigs.payback_building_share = r2((pigs.price + pigBuilding.total.gold / pigBuilding.capacity) / pigs.raw_per_day);
+  }
   pigs.payback_oil_artisan = r2(pigs.price / pigs.oil_artisan_per_day);
 
   /* Harvest days for a day-1 planting, and what a later planting day does to the choice. */
@@ -248,8 +258,24 @@ export function buildGuides(data, crops, crafting, ghRank) {
 
   /* Coop or barn first? Animals you can buy, grouped by building. */
   const at = (x, fr, o = {}) => animalOutput(x, a, { friendship: fr, mood: 255, ...o });
+  // Robin's Coop and Barn levels (data/buildings.json); empty when the file isn't loaded.
+  const levels = (data.buildings || {}).buildings || [];
+  const levelOf = (x) => levels.find((l) => l.family === x.building && l.level === x.building_level);
+  const withBuilding = (x) => {
+    const l = levelOf(x);
+    const raw = at(x, 1000).goldPerDay;
+    if (!l || !(raw > 0)) return {};
+    return {
+      building_total: l.total.gold,
+      capacity: l.capacity,
+      // Raw payback with the whole building on the first animal, and with a full building's share.
+      payback_with_building: r2((x.purchase_price + l.total.gold) / raw),
+      payback_building_share: r2((x.purchase_price + l.total.gold / l.capacity) / raw),
+    };
+  };
   const buildings = ['coop', 'barn'].map((b) => ({
     building: b,
+    levels: levels.filter((l) => l.family === b).map((l) => ({ id: l.id, name: l.name, gold: l.gold, wood: l.materials.wood, stone: l.materials.stone, capacity: l.capacity, total: l.total.gold, total_wood: l.total.wood, total_stone: l.total.stone })),
     animals: a.animals
       .filter((x) => x.building === b && x.purchase_price)
       .map((x) => ({
@@ -264,6 +290,7 @@ export function buildGuides(data, crops, crafting, ghRank) {
         processed5: r0(at(x, 1000, { process: true, artisan: true }).goldPerDay),
         payback: r2(x.purchase_price / Math.max(at(x, 1000).goldPerDay, at(x, 1000, { process: true, artisan: true }).goldPerDay)),
         machines: at(x, 1000, { process: true, artisan: true }).machines.map((m) => ({ name: m.name, per_animal: r2(m.perAnimal) })),
+        ...withBuilding(x),
       })),
   }));
 

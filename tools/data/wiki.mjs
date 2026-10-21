@@ -32,3 +32,20 @@ export async function fetchRendered(title) {
   if (data.error) throw new Error(`${title}: ${data.error.info}`);
   return { title: data.parse.title, revid: data.parse.revid, url: `https://stardewvalleywiki.com/${data.parse.title.replace(/ /g, '_')}`, html: data.parse.text['*'] };
 }
+
+/**
+ * The same rendered page read from the normal article URL, for when the API is down. The revision
+ * id comes from the page's own "Retrieved from ...&oldid=N" line.
+ */
+export async function fetchArticle(title) {
+  const url = `https://stardewvalleywiki.com/${encodeURIComponent(title.replace(/ /g, '_')).replace(/'/g, '%27')}`;
+  const res = await fetch(url, { headers: { 'User-Agent': UA } });
+  if (!res.ok) throw new Error(`${title}: HTTP ${res.status}`);
+  const html = await res.text();
+  const rev = html.match(/[?&]title=([^&"]+)&amp;oldid=(\d+)/) || html.match(/[?&]title=([^&"]+)&oldid=(\d+)/);
+  if (!rev) throw new Error(`${title}: revision id not found`);
+  const name = decodeURIComponent(rev[1]).replace(/_/g, ' ');
+  const start = html.indexOf('<div id="mw-content-text"');
+  const end = html.indexOf('<div class="printfooter"');
+  return { title: name, revid: Number(rev[2]), url: `https://stardewvalleywiki.com/${name.replace(/ /g, '_')}`, html: html.slice(start < 0 ? 0 : start, end < 0 ? html.length : end) };
+}

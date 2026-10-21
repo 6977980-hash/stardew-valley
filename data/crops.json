@@ -2259,7 +2259,29 @@
       "last_verified": "2026-10-09",
       "verification_status": "cross-checked",
       "problems": [],
-      "notes": []
+      "notes": [],
+      "seed_note": "Rare Seeds: the Traveling Cart sells 1 to 5 for 1,000g each in Spring and Summer, and now and then for 600-1,000g in any season. A Seed Maker turns one berry into about two Rare Seeds.",
+      "special_use": {
+        "title": "Trade one for a Stardrop",
+        "text": "Give one Sweet Gem Berry to the Old Master Cannoli statue in the northwest corner of the Secret Woods and it gives you a Stardrop, which raises your maximum energy for good. It works once per save; in multiplayer every player gets a Stardrop from that one berry. After that, sell the rest: it is not a fruit or vegetable, so it cannot go in a Keg, Preserves Jar or Dehydrator, and Tiller does not raise its price.",
+        "sources": [
+          {
+            "title": "Sweet Gem Berry",
+            "url": "https://stardewvalleywiki.com/Sweet_Gem_Berry",
+            "revid": 192754
+          },
+          {
+            "title": "Old Master Cannoli",
+            "url": "https://stardewvalleywiki.com/Old_Master_Cannoli",
+            "revid": 193319
+          },
+          {
+            "title": "Rare Seed",
+            "url": "https://stardewvalleywiki.com/Rare_Seed",
+            "revid": 193321
+          }
+        ]
+      }
     },
     {
       "id": "taro-root",

@@ -95,7 +95,7 @@ class Guides {
 				'description' => 'Are pigs worth 16,000g in Stardew Valley 1.6? Truffles per day, Truffle Oil vs raw truffles with and without Artisan, and how many days a pig takes to pay back.',
 				'published'   => '2026-10-09',
 				'updated'     => '2026-10-21',
-				'data'        => array( 'animals' ),
+				'data'        => array( 'animals', 'buildings' ),
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
 			'best-fish-for-fish-ponds'   => array(
@@ -136,9 +136,10 @@ class Guides {
 				'title'       => 'Coop or Barn First? Every Animal You Can Buy, Compared',
 				'short'       => 'Coop or Barn First?',
 				'blurb'       => 'Which building starts earning sooner, and which animals pay themselves back fastest.',
-				'description' => 'Coop or barn first in Stardew Valley 1.6? Price, gold per day at 0, 3 and 5 hearts and payback days for chickens, ducks, rabbits, cows, goats, sheep and pigs.',
+				'description' => 'Coop or barn first in Stardew Valley 1.6? Building costs, gold per day at 0, 3 and 5 hearts, and payback with the building for every animal you can buy.',
 				'published'   => '2026-10-10',
-				'data'        => array( 'animals' ),
+				'updated'     => '2026-10-21',
+				'data'        => array( 'animals', 'buildings' ),
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
 			'best-greenhouse-setup-for-money' => array(

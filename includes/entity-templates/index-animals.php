@@ -49,12 +49,15 @@ $top = $rows[ $ids[0] ];
 <p class="table-note">Raw means selling what the animal produces as it is. Best case means the artisan goods made from it with the Artisan profession, so it is the faster of the two paybacks.</p>
 
 <h2>Reading the table</h2>
-<p>Figures assume five hearts of friendship and maximum happiness, an average day of luck, and no hay costs. Payback is the animal's price divided by its daily income, so it ignores the building and the weeks it takes to reach full friendship. Animals with no price are not sold in a shop. If you are choosing between a coop and a barn first, compare the top row of each building here, then check your own numbers in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>. For pigs in particular, <a href="<?php echo esc_url( $guide_url( 'are-pigs-worth-it' ) ); ?>">Are pigs worth it?</a> goes through the conditions.</p>
+<p>Figures assume five hearts of friendship and maximum happiness, an average day of luck, and no hay costs. Payback is the animal's price divided by its daily income, so it ignores the building and the weeks it takes to reach full friendship.<?php $prices_u = Stardew_Tools\Entities::prices_url(); ?><?php echo $prices_u ? ' For payback that includes the Coop or Barn, and what each building level costs, see <a href="' . esc_url( $prices_u ) . '">Stardew Valley Animal Prices</a>.' : ''; ?> Animals with no price are not sold in a shop. If you are choosing between a coop and a barn first, compare the top row of each building here, then check your own numbers in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>. For pigs in particular, <a href="<?php echo esc_url( $guide_url( 'are-pigs-worth-it' ) ); ?>">Are pigs worth it?</a> goes through the conditions.</p>
 
 <p><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'stardew-farm-animals.csv' ) ); ?>" download>Download this table as CSV</a>, or see all <a href="<?php echo esc_url( home_url( '/data/' ) ); ?>">data downloads</a>.</p>
 
 <h2>Related</h2>
 <ul class="related-list">
 	<li><a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a><span>Hearts, mood and professions.</span></li>
+	<?php if ( $prices_u ) : ?>
+	<li><a href="<?php echo esc_url( $prices_u ); ?>">Animal Prices</a><span>Prices, Coop and Barn costs, payback with the building.</span></li>
+	<?php endif; ?>
 	<li><a href="<?php echo esc_url( $tool_url( 'fish-pond-calculator' ) ); ?>">Fish Pond Calculator</a><span>Another way to earn from a building.</span></li>
 </ul>
