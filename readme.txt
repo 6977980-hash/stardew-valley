@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.14.0
+Stable tag: 0.14.1
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.14.1 (2026-10-21) =
+* About: "About the creator" section in the founder's own words (two years playing on PlayStation, mobile and Xbox); Person description in the ProfilePage schema.
 
 = 0.14.0 (2026-10-21) =
 * Every tool sends a reference table in the first HTML (default answer readable without JavaScript and by crawlers): 11 tools, data from answers.json "tables".

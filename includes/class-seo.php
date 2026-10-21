@@ -340,6 +340,7 @@ class Seo {
 						'jobTitle' => 'Founder',
 						'worksFor' => array( '@id' => $home . '#organization' ),
 						'knowsAbout' => array( 'Stardew Valley', 'Stardew Valley farming', 'Game data' ),
+						'description' => 'Creator of Stardew Tools. Has played Stardew Valley for about two years on PlayStation, mobile and Xbox.',
 					)
 				),
 			);
