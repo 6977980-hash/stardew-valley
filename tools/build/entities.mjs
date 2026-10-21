@@ -12,6 +12,11 @@ import { animalOutput } from '../../assets/js/engine/animals.js';
 const r0 = (n) => Math.round(n);
 const r2 = (n) => Math.round(n * 100) / 100;
 const SEASON_ORDER = ['spring', 'summer', 'fall', 'winter'];
+// Shops that sell seeds every day the crop is in season; the same rule as the Best Crops pages.
+const SHOPS = ['pierre', 'jojamart', 'oasis'];
+// A crop is ranked in a season only when it grows outdoors and a shop sells its seed, so seed
+// cost is always counted and the ranks match /best-<season>-crops/.
+export const rankable = (c) => !c.indoor_only && SHOPS.some((k) => c.seed_prices[k] > 0);
 
 export function buildEntities(data, crops) {
   const byId = new Map(crops.map((c) => [c.id, c]));
@@ -22,9 +27,8 @@ export function buildEntities(data, crops) {
   const rankBySeason = {};
   for (const s of SEASON_ORDER) {
     rankBySeason[s] = crops
-      .filter((c) => c.seasons.map((x) => x.toLowerCase()).includes(s))
+      .filter((c) => rankable(c) && c.seasons.map((x) => x.toLowerCase()).includes(s))
       .map((c) => ({ id: c.id, name: c.name, profit: r0(profit(c, { plantSeason: s, farmingLevel: 6 }).profit) }))
-      .filter((x) => x.profit !== 0 || true)
       .sort((a, b) => b.profit - a.profit);
   }
 
@@ -40,14 +44,21 @@ export function buildEntities(data, crops) {
   const cropOut = {};
   for (const c of crops) {
     const outdoor = c.seasons.map((x) => x.toLowerCase());
-    const plantings = outdoor.map((s) => {
+    // Indoor-only crops (Cactus Fruit) have no outdoor planting, so no season rank.
+    const plantings = (c.indoor_only ? [] : outdoor).map((s) => {
       const base = (level, extra = {}) => profit(c, { plantSeason: s, farmingLevel: level, ...extra });
       const l0 = base(0);
       const l6 = base(6);
       const l10 = base(10);
       const ranks = rankBySeason[s];
-      const rank = ranks.findIndex((x) => x.id === c.id) + 1;
-      const peers = ranks.filter((x) => x.id !== c.id).slice(0, 3);
+      const ranked = rankable(c);
+      // Crops without shop seeds get the place they would take if you already had the seeds.
+      const at = ranked ? ranks.findIndex((x) => x.id === c.id) : ranks.findIndex((x) => x.profit < r0(l6.profit));
+      const pos = at < 0 ? ranks.length : at;
+      const others = ranks.filter((x) => x.id !== c.id);
+      const peers = others.slice(Math.max(0, pos - 2), pos + 2);
+      const last = l0.harvestDays[l0.harvestDays.length - 1] || 0;
+      const later = SEASON_ORDER.slice(SEASON_ORDER.indexOf(s) + 1).filter((x, i) => outdoor.includes(x) && last > (i + 1) * data.seasons.days_per_season);
       const fert = Object.fromEntries(['basic-fertilizer', 'quality-fertilizer', 'speed-gro', 'deluxe-speed-gro'].map((f) => [f, r0(base(6, { fertilizer: f }).profit)]));
       return {
         season: s,
@@ -57,21 +68,26 @@ export function buildEntities(data, crops) {
         profit: { level0: r0(l0.profit), level6: r0(l6.profit), level10: r0(l10.profit) },
         per_harvest_level6: r0(l6.perHarvest),
         seed_cost: l0.seedCost,
-        rank,
+        rank: ranked ? pos + 1 : null,
+        would_rank: ranked ? null : pos + 1,
         of: ranks.length,
+        carries_into: later,
+        leader: ranks[0] && ranks[0].id !== c.id ? ranks[0] : null,
         peers,
         fertilizer_level6: fert,
         best_fertilizer: Object.entries(fert).sort((a, b) => b[1] - a[1])[0],
+        // Every fertilizer that beats planting with none, best first.
+        paying_fertilizers: Object.entries(fert).filter(([, v]) => v > r0(l6.profit)).sort((a, b) => b[1] - a[1]).map(([k]) => k),
       };
     });
 
     const prices = Object.fromEntries(['regular', 'silver', 'gold', 'iridium'].map((q) => [q, cropSellPrice(c, q)]));
     const tiller = cropSellPrice(c, 'regular', { tiller: true });
-    const machinesOpt = allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: false });
-    const machinesArt = allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: true });
+    // Artisan is a level-10 branch of Tiller, so Artisan prices are always compared with the
+    // Tiller raw price.
+    const machinesArt = allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: true, tiller: true });
     const products = productsFor(c, data.machines, { artisan: true }).map((p) => ({ machine: p.machineName, product: p.productName, price: p.price, input: p.inputCount, days: r2(p.days) }));
     const gain = machinesArt.options.map((o) => ({ machine: o.machineName, product: o.productName, gain_per_machine_day: r0(o.gainPerMachineDay) }));
-    void machinesOpt;
 
     const ghEst = profit(c, { greenhouse: true, horizonDays: 112, established: true, farmingLevel: 6 });
     const ghFirst = profit(c, { greenhouse: true, horizonDays: 112, established: false, farmingLevel: 6 });
@@ -90,6 +106,10 @@ export function buildEntities(data, crops) {
       trellis: !!c.trellis,
       giant: !!c.giant,
       indoor_only: !!c.indoor_only,
+      shop_seeds: rankable(c) || (!!c.indoor_only && SHOPS.some((k) => c.seed_prices[k] > 0)),
+      returns_seeds: c.returns_seeds || 0,
+      seed_note: c.seed_note || null,
+      irrigated_growth_days: c.irrigated_growth_days || null,
       items_per_harvest: { level0: r2(expectedItems(c, 0)), level10: r2(expectedItems(c, 10)) },
       quality: [0, 5, 10].map((lv) => ({ level: lv, chances: Object.fromEntries(Object.entries(qualityChances(lv, 0)).map(([k, v]) => [k, r2(v * 100)])) })),
       plantings,
@@ -104,6 +124,14 @@ export function buildEntities(data, crops) {
   const a = data.animals;
   const animalRank = a.animals.map((x) => ({ id: x.id, raw: animalOutput(x, a, { friendship: 1000, mood: 255 }).goldPerDay })).sort((p, q) => q.raw - p.raw);
   const animalsOut = {};
+  const freq = (x, withProfession) => {
+    if (x.produce.frequency_days == null) return null;
+    let d = x.produce.frequency_days;
+    for (const r of x.produce.frequency_reductions || []) {
+      if ((r.min_friendship != null && r.min_friendship <= 1000) || (withProfession && r.profession)) d -= r.days;
+    }
+    return Math.max(1, d);
+  };
   for (const x of a.animals) {
     const at = (hearts, o = {}) => {
       const out = animalOutput(x, a, { friendship: hearts * 200, mood: 255, ...o });
@@ -119,6 +147,9 @@ export function buildEntities(data, crops) {
       days_to_mature: x.days_to_mature,
       mode: x.produce.mode,
       frequency_days: x.produce.frequency_days,
+      // Days between products at full friendship, and with the profession that also shortens it.
+      frequency_full_days: freq(x, false),
+      frequency_profession: (x.produce.frequency_reductions || []).filter((r) => r.profession).map((r) => ({ profession: r.profession, days: freq(x, true) })),
       products: [x.products.regular, x.products.large].filter(Boolean).map((id) => {
         const p = a.products.find((y) => y.id === id);
         return { id, name: p.name, prices: p.price_by_quality || { normal: p.base_price } };
@@ -141,7 +172,7 @@ export function buildEntities(data, crops) {
   for (const m of data.machines.machines) {
     const rows = crops
       .map((c) => {
-        const o = allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: true }).options.find((x) => x.machine === m.id);
+        const o = allocate(c, data.machines, { items: 0, counts: {}, days: 28, artisan: true, tiller: true }).options.find((x) => x.machine === m.id);
         return o ? { id: c.id, name: c.name, product: o.productName, price: o.price, input: o.inputCount, minutes: o.minutes, days: r2(o.minutes / data.machines.minutes_per_day), gain_per_machine_day: r0(o.gainPerMachineDay), raw: o.price / o.inputCount - o.gainPerItem } : null;
       })
       .filter(Boolean)
@@ -164,11 +195,11 @@ export function buildCsv(ent) {
     const best = c.plantings.reduce((b, p) => (!b || p.profit.level6 > b.profit.level6 ? p : b), null);
     return [c.id, c.name, c.category, c.seasons.join('/'), c.growth_days, c.regrow_days, c.base_price, c.prices.silver, c.prices.gold, c.prices.iridium, best && best.season, best && best.profit.level0, best && best.profit.level6, best && best.profit.level10, best && best.seed_cost];
   });
-  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.full.raw, a.full.processed, a.payback_days_raw, a.payback_days_best_case]);
+  const animals = Object.values(ent.animals).map((a) => [a.id, a.name, a.building, a.price, a.days_to_mature, a.frequency_days, a.frequency_full_days, a.full.raw, a.full.processed, a.payback_days_raw, a.payback_days_best_case]);
   const machines = Object.values(ent.machines).flatMap((m) => m.crops.map((c, i) => [m.id, i + 1, c.id, c.product, c.input, c.price, c.days, c.gain_per_machine_day]));
   return {
     'stardew-crops.csv': toCsv(['id', 'name', 'type', 'seasons', 'growth_days', 'regrow_days', 'sell_price', 'silver_price', 'gold_price', 'iridium_price', 'best_season', 'profit_per_tile_level0', 'profit_per_tile_level6', 'profit_per_tile_level10', 'seed_cost'], crops),
-    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days_raw', 'payback_days_best_case_artisan'], animals),
+    'stardew-farm-animals.csv': toCsv(['id', 'name', 'building', 'price', 'days_to_mature', 'days_between_products_base', 'days_between_products_5_hearts', 'raw_gold_per_day_5_hearts', 'artisan_goods_gold_per_day_5_hearts', 'payback_days_raw', 'payback_days_best_case_artisan'], animals),
     'stardew-machine-rankings.csv': toCsv(['machine', 'rank', 'crop_id', 'product', 'crops_needed', 'product_price', 'days', 'extra_gold_per_machine_day'], machines),
   };
 }

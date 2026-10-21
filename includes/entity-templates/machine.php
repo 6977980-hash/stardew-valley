@@ -15,7 +15,24 @@
 defined( 'ABSPATH' ) || exit;
 
 $rows  = $e['crops'];
-$top   = array_slice( $rows, 0, 5 );
+// The headline skips batch recipes (Coffee: 5 beans per run), which no field can keep supplied.
+$single = array_values(
+	array_filter(
+		$rows,
+		function ( $r ) {
+			return 1 === (int) $r['input'];
+		}
+	)
+);
+$batch = array_values(
+	array_filter(
+		$rows,
+		function ( $r ) {
+			return (int) $r['input'] > 1;
+		}
+	)
+);
+$top   = array_slice( $single, 0, 5 );
 $fruit = array_values(
 	array_filter(
 		$rows,
@@ -30,11 +47,11 @@ $n     = function ( $v ) {
 $other = 'keg' === $e['id'] ? 'preserves-jar' : 'keg';
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> the <?php echo esc_html( $e['name'] ); ?> accepts <?php echo (int) $e['accepted']; ?> crops. Measured by extra gold per machine per day, the best are <?php echo esc_html( $top[0]['name'] ); ?> (<?php echo esc_html( $gold( $top[0]['gain_per_machine_day'] ) ); ?>), <?php echo esc_html( $top[1]['name'] ); ?> (<?php echo esc_html( $gold( $top[1]['gain_per_machine_day'] ) ); ?>) and <?php echo esc_html( $top[2]['name'] ); ?> (<?php echo esc_html( $gold( $top[2]['gain_per_machine_day'] ) ); ?>). The list changes a lot if you have only a few machines, because a machine that is always busy earns more from a fast, valuable crop than a slow, cheap one.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> the <?php echo esc_html( $e['name'] ); ?> accepts <?php echo (int) $e['accepted']; ?> crops. Measured by extra gold per machine per day (Artisan prices, compared with the Tiller raw price), the best crops you can grow in volume are <?php echo esc_html( $top[0]['name'] ); ?> (<?php echo esc_html( $gold( $top[0]['gain_per_machine_day'] ) ); ?>), <?php echo esc_html( $top[1]['name'] ); ?> (<?php echo esc_html( $gold( $top[1]['gain_per_machine_day'] ) ); ?>) and <?php echo esc_html( $top[2]['name'] ); ?> (<?php echo esc_html( $gold( $top[2]['gain_per_machine_day'] ) ); ?>). The list changes a lot if you have only a few machines, because a machine that is always busy earns more from a fast, valuable crop than a slow, cheap one.<?php if ( $batch ) : ?> <?php echo esc_html( $batch[0]['name'] ); ?> shows a higher figure (<?php echo esc_html( $gold( $batch[0]['gain_per_machine_day'] ) ); ?>) because <?php echo esc_html( $batch[0]['product'] ); ?> takes only a couple of hours, but each run needs <?php echo (int) $batch[0]['input']; ?> of them, so that figure only holds while you have a stockpile to feed it.<?php endif; ?></p>
 </div>
 
 <h2>How to read the table</h2>
-<p>"Extra gold per machine per day" is the price of the product minus what the crop would have sold for raw, spread over the days the machine takes, assuming it is never idle and the Artisan profession is on. It is the number to use when you own fewer machines than you have crops. If you have more machines than crops, rank by total gold instead, which is what the <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a> tool does with your real harvest. Times use 1,600 game minutes per day, as the wiki states.</p>
+<p>"Extra gold per machine per day" is the price of the product minus what the crop would have sold for raw, spread over the days the machine takes, assuming it is never idle, with the Artisan profession on (and Tiller, which Artisan requires, raising the raw price it is compared with). It is the number to use when you own fewer machines than you have crops. If you have more machines than crops, rank by total gold instead, which is what the <a href="<?php echo esc_url( $tool_url( 'keg-vs-preserves-jar' ) ); ?>">Keg vs Preserves Jar</a> tool does with your real harvest. Times use 1,600 game minutes per day, as the wiki states.</p>
 
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
@@ -57,7 +74,7 @@ $other = 'keg' === $e['id'] ? 'preserves-jar' : 'keg';
 
 <h2>Reading the top of the list</h2>
 <?php if ( 'keg' === $e['id'] ) : ?>
-<p>Coffee Beans come out first because Coffee takes only two hours per run and a Keg turns five beans into one. That is a real gain, but it isn't something you can scale: a single Coffee Bean plant doesn't give five beans a day, so a Keg usually waits for beans. Treat the top row as "good when you have the beans" and look further down for crops you grow in volume. Among fruit, <?php echo isset( $fruit[0] ) ? esc_html( $fruit[0]['name'] ) : 'the leaders'; ?> earns <?php echo isset( $fruit[0] ) ? esc_html( $gold( $fruit[0]['gain_per_machine_day'] ) ) : ''; ?> a machine-day.</p>
+<p>Coffee Beans top the table because Coffee takes only two hours per run and a Keg turns five beans into one (Artisan does not apply to Coffee). That is a real gain, but it isn't something you can scale: a single Coffee Bean plant doesn't give five beans a day, so a Keg usually waits for beans. Treat the top row as "good when you have the beans" and look further down for crops you grow in volume. Among fruit, <?php echo isset( $fruit[0] ) ? esc_html( $fruit[0]['name'] ) : 'the leaders'; ?> earns <?php echo isset( $fruit[0] ) ? esc_html( $gold( $fruit[0]['gain_per_machine_day'] ) ) : ''; ?> a machine-day.</p>
 <?php else : ?>
 <p>A Preserves Jar finishes every fruit and vegetable in 2.5 game days, much faster than the Keg's wine, so it earns well on cheap crops: it needs fewer machines to keep up. Its best crops are those with a high price after processing, and the list rewards value more than volume. Among the five best, <?php echo esc_html( $top[0]['name'] ); ?> makes <?php echo esc_html( $top[0]['product'] ); ?> worth <?php echo esc_html( $gold( $top[0]['price'] ) ); ?>.</p>
 <?php endif; ?>

@@ -80,8 +80,8 @@ function render() {
   out.innerHTML = left.length
     ? `<table class="results-table">
       <caption class="visually-hidden">Items still needed for unfinished bundles</caption>
-      <thead><tr><th scope="col">Item</th><th scope="col" class="num">Bundles</th><th scope="col" class="col-hide-sm">Season</th><th scope="col">Used in</th></tr></thead>
-      <tbody>${left.map((r) => `<tr><th scope="row">${esc(r.name)}</th><td class="num">${num(r.bundles.length)}</td><td class="col-hide-sm">${r.seasons && r.seasons.length < 4 ? esc(r.seasons.join(', ')) : 'Any'}</td><td>${esc(r.bundles.join(', '))}</td></tr>`).join('')}</tbody></table>`
+      <thead><tr><th scope="col">Item</th><th scope="col" class="num">Qty</th><th scope="col" class="num">Bundles</th><th scope="col" class="col-hide-sm">Season</th><th scope="col">Used in</th></tr></thead>
+      <tbody>${left.map((r) => `<tr><th scope="row">${esc(r.name)}</th><td class="num">${num(r.qty)}${r.qtyNote ? `<span class="cell-sub">${esc(r.qtyNote)}</span>` : ''}</td><td class="num">${num(r.bundles.length)}</td><td class="col-hide-sm">${r.seasons && r.seasons.length < 4 ? esc(r.seasons.join(', ')) : 'Any'}</td><td>${esc(r.bundles.join(', '))}</td></tr>`).join('')}</tbody></table>`
     : '<p class="table-note">Nothing left on your active bundles.</p>';
 }
 

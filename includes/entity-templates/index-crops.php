@@ -29,9 +29,17 @@ usort(
 	}
 );
 $top = $rows[0];
+// Leader among crops a shop sells seeds for, the same pool as the Best Crops pages.
+$shop_top = null;
+foreach ( $rows as $r ) {
+	if ( ! empty( $r[1]['shop_seeds'] ) && $r[2] ) {
+		$shop_top = $r;
+		break;
+	}
+}
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> this page lists all <?php echo (int) count( $rows ); ?> crops we have verified for Stardew Valley 1.6, sorted by profit per tile for a farmer at Farming level 6 planting on the best day of a season. The top of the list is <?php echo esc_html( $top[1]['name'] ); ?> at <?php echo esc_html( $gold( $top[2]['profit']['level6'] ) ); ?> per tile. Click any crop for its full page: quality chances, fertilizer, machines and the greenhouse.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> this page lists all <?php echo (int) count( $rows ); ?> crops we have verified for Stardew Valley 1.6, sorted by profit per tile for a farmer at Farming level 6 planting on day 1 of the crop's best season. Crops whose seeds no shop sells are counted without a seed cost, and Cactus Fruit, which only grows indoors, is listed with its greenhouse year. The top of the list is <?php echo esc_html( $top[1]['name'] ); ?> at <?php echo esc_html( $gold( $top[2]['profit']['level6'] ) ); ?> per tile<?php echo $shop_top && $shop_top[0] !== $top[0] ? ', but no shop sells its seeds; the best crop you can buy seeds for is ' . esc_html( $shop_top[1]['name'] ) . ' at ' . esc_html( $gold( $shop_top[2]['profit']['level6'] ) ) . ' (' . esc_html( ucfirst( $shop_top[2]['season'] ) ) . ')' : ''; ?>. Click any crop for its full page: quality chances, fertilizer, machines and the greenhouse.</p>
 </div>
 
 <h2>Every crop, ranked by profit per tile</h2>
@@ -53,7 +61,7 @@ $top = $rows[0];
 			<td><?php echo (int) $c['growth_days']; ?></td>
 			<td><?php echo $c['regrow_days'] ? (int) $c['regrow_days'] . ' days' : '—'; ?></td>
 			<td><?php echo esc_html( $gold( $c['base_price'] ) ); ?></td>
-			<td><?php echo $p ? esc_html( $gold( $p['profit']['level6'] ) ) . ' <small>(' . esc_html( ucfirst( $p['season'] ) ) . ')</small>' : '—'; ?></td>
+			<td><?php echo $p ? esc_html( $gold( $p['profit']['level6'] ) ) . ' <small>(' . esc_html( ucfirst( $p['season'] ) ) . ')</small>' : esc_html( $gold( $c['greenhouse']['established'] ) ) . ' <small>(greenhouse year)</small>'; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>

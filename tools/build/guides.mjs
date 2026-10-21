@@ -48,16 +48,20 @@ export function buildGuides(data, crops, crafting, ghRank) {
   const withKegs = (count) =>
     ghCrops
       .map((c) => {
-        const r = cropProfit(c, data, { greenhouse: true, horizonDays: 112, established: true, sellAs: 'raw' });
+        // Artisan comes after Tiller, so raw sales use the Tiller price. Processed items are taken
+        // out at the same average raw price they were counted at (quality mix included).
+        const r = cropProfit(c, data, { greenhouse: true, horizonDays: 112, established: true, sellAs: 'raw', tiller: true });
         const items = r.harvestDays.length * r.itemsPerHarvest * tiles;
-        const a = allocate(c, data.machines, { items, counts: { keg: count }, days: 112, artisan: true });
-        return { id: c.id, name: c.name, total: r0(r.profit * tiles + a.extra) };
+        const a = allocate(c, data.machines, { items, counts: { keg: count }, days: 112, artisan: true, tiller: true });
+        const rawPerItem = r.perHarvest / r.itemsPerHarvest;
+        const extra = a.plan.filter((p) => p.machine).reduce((sum, p) => sum + p.value - p.items * rawPerItem, 0);
+        return { id: c.id, name: c.name, total: r0(r.profit * tiles + extra) };
       })
       .sort((a, b) => b.total - a.total)
       .slice(0, 3);
   const greenhouse = { tiles, by_kegs: [0, 20, 50, 100, 170].map((k) => ({ kegs: k, top: withKegs(k) })) };
   const perKegDay = (id, product) => {
-    const o = allocate(byId(id), data.machines, { items: 0, counts: {}, days: 28, artisan: true }).options.find((x) => x.product === product);
+    const o = allocate(byId(id), data.machines, { items: 0, counts: {}, days: 28, artisan: true, tiller: true }).options.find((x) => x.product === product);
     return { name: byId(id).name, product: o.productName, gain: r0(o.gainPerMachineDay) };
   };
   greenhouse.unlimited = ghRank.processed.slice(0, 4);
@@ -103,6 +107,12 @@ export function buildGuides(data, crops, crafting, ghRank) {
     legendary: raw.filter((x) => x.kind === 'legendary').slice(0, 3),
     sturgeon_caviar: processed.find((x) => x.id === 'sturgeon'),
     count: data.fishponds.fish.length,
+    // Raw gold per day for every fish, so a table never has to print a placeholder.
+    raw_by_id: Object.fromEntries(raw.map((x) => [x.id, x.gold_per_day])),
+    // How many non-legendary pond fish start with room for 1 fish, and how many for 3.
+    start_capacity: data.fishponds.fish
+      .filter((f) => f.kind !== 'legendary')
+      .reduce((n, f) => ({ ...n, [f.initial_capacity]: (n[f.initial_capacity] || 0) + 1 }), {}),
   };
 
   const ramp = processed
@@ -111,13 +121,18 @@ export function buildGuides(data, crops, crafting, ghRank) {
     .map((x) => {
       const f = data.fishponds.fish.find((y) => y.id === x.id);
       const at = (pop) => r0(pondOutput(f, data.fishponds, { population: pop, roeAs: 'processed', artisan: true }).goldPerDay);
+      // From one fish to ten: nine spawns, plus one more spawn cycle per quest, because finishing a
+      // quest resets the spawn clock, plus about a day per quest before it appears. This matches the
+      // wiki's Fish Pond example (Ice Pip, 5-day spawns: 69 days, not 45).
+      const quests = f.quests.filter((q) => q.population < data.fishponds.rules.population.max_capacity).length;
       return {
         id: f.id,
         name: f.name,
         initial_capacity: f.initial_capacity,
         spawn_days: f.spawn_days,
         reproduces: f.reproduces,
-        days_to_fill: f.reproduces ? 9 * f.spawn_days : null,
+        quests_to_fill: quests,
+        days_to_fill: f.reproduces ? (9 + quests) * f.spawn_days + quests : null,
         gold: { 1: at(1), 3: at(3), 5: at(5), 10: at(10) },
         quests: f.quests.map((q) => ({ population: q.population, to: q.capacity_after, options: q.options.map((o) => (o.min > 1 ? `${o.min} ${o.item}` : o.item)) })),
       };

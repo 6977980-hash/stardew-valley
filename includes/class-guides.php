@@ -72,6 +72,8 @@ class Guides {
 				'blurb'       => 'Crop by crop: when Speed-Gro adds a harvest, and when fertilizer just costs you gold.',
 				'description' => 'Is Speed-Gro or fertilizer worth it in Stardew Valley 1.6? Profit per tile for 11 crops with Basic and Quality Fertilizer, Speed-Gro and Deluxe Speed-Gro.',
 				'published'   => '2026-10-09',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'crops', 'fertilizers' ),
 				'tools'       => array( 'crop-profit-calculator', 'what-to-plant' ),
 			),
 			'how-many-kegs-do-i-need'    => array(
@@ -81,6 +83,8 @@ class Guides {
 				'blurb'       => 'Kegs per plant for Hops, Ancient Fruit, Starfruit and more, so no fruit waits in a chest.',
 				'description' => 'How many kegs do you need in Stardew Valley? Kegs per plant for Hops, Ancient Fruit, Starfruit, Melon and berries, worked out from keg times in 1.6.',
 				'published'   => '2026-10-09',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'crops', 'machines' ),
 				'tools'       => array( 'keg-vs-preserves-jar', 'greenhouse-planner' ),
 			),
 			'are-pigs-worth-it'          => array(
@@ -90,6 +94,8 @@ class Guides {
 				'blurb'       => 'How fast a 16,000g pig pays for itself, and when Truffle Oil beats selling truffles.',
 				'description' => 'Are pigs worth 16,000g in Stardew Valley 1.6? Truffles per day, Truffle Oil vs raw truffles with and without Artisan, and how many days a pig takes to pay back.',
 				'published'   => '2026-10-09',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'animals' ),
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
 			'best-fish-for-fish-ponds'   => array(
@@ -99,6 +105,8 @@ class Guides {
 				'blurb'       => 'The ponds that earn the most gold a day, raw or as Aged Roe and Caviar.',
 				'description' => 'The best fish for fish ponds in Stardew Valley 1.6, ranked by gold per day: roe sold raw or as Aged Roe and Caviar, how many jars each pond needs, and legendary fish.',
 				'published'   => '2026-10-09',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'fishponds' ),
 				'tools'       => array( 'fish-pond-calculator' ),
 			),
 			'are-casks-worth-it'         => array(
@@ -108,6 +116,8 @@ class Guides {
 				'blurb'       => 'Gold per cask per day for wine, cheese and ale, and what a full cellar costs.',
 				'description' => 'Are casks worth it in Stardew Valley 1.6? Aged prices for wine, cheese, goat cheese, beer, mead and pale ale, gold per cask per day, and the wood to fill a 189-cask cellar.',
 				'published'   => '2026-10-10',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'casks' ),
 				'tools'       => array( 'keg-vs-preserves-jar', 'crafting-calculator' ),
 			),
 			'dehydrator-vs-keg'          => array(
@@ -117,6 +127,8 @@ class Guides {
 				'blurb'       => 'Dried fruit earns far more per machine per day, wine earns more per fruit. Which limit are you at?',
 				'description' => 'Dehydrator vs Keg in Stardew Valley 1.6: dried fruit, raisins and wine compared per fruit and per machine per day, with prices for nine fruits, plus the Fish Smoker.',
 				'published'   => '2026-10-10',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'dehydrator', 'machines' ),
 				'tools'       => array( 'keg-vs-preserves-jar', 'crafting-calculator' ),
 			),
 			'coop-or-barn-first'         => array(
@@ -126,6 +138,7 @@ class Guides {
 				'blurb'       => 'Which building starts earning sooner, and which animals pay themselves back fastest.',
 				'description' => 'Coop or barn first in Stardew Valley 1.6? Price, gold per day at 0, 3 and 5 hearts and payback days for chickens, ducks, rabbits, cows, goats, sheep and pigs.',
 				'published'   => '2026-10-10',
+				'data'        => array( 'animals' ),
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
 			'best-greenhouse-setup-for-money' => array(
@@ -135,6 +148,8 @@ class Guides {
 				'blurb'       => 'Ancient Fruit, Starfruit or Hops: the answer changes with how many kegs you own.',
 				'description' => 'The most profitable Stardew Valley greenhouse in 1.6 depends on your kegs: yearly profit for Ancient Fruit, Starfruit and Hops with 0 to 170 kegs.',
 				'published'   => '2026-10-09',
+				'updated'     => '2026-10-21',
+				'data'        => array( 'crops', 'greenhouse', 'machines' ),
 				'tools'       => array( 'greenhouse-planner', 'ancient-fruit-vs-starfruit', 'keg-vs-preserves-jar' ),
 			),
 		);
@@ -347,8 +362,9 @@ class Guides {
 		$answers  = Data::get( 'answers' );
 		$g        = isset( $answers['guides'] ) ? $answers['guides'] : array();
 		$version  = Config::get( 'game_version' );
-		$checked  = Data::modified( $guide['published'] );
-		$data_checked = Data::summary()['checked'];
+		$sets     = isset( $guide['data'] ) ? $guide['data'] : array( 'crops' );
+		$checked  = Data::modified( $guide['published'], $sets, isset( $guide['updated'] ) ? $guide['updated'] : '' );
+		$data_checked = Data::checked( $sets );
 		$tool_url = function ( $id ) {
 			return Tools::url( $id );
 		};
@@ -481,7 +497,7 @@ class Guides {
 				'mainEntityOfPage' => $url,
 				'image'            => Config::asset( Config::get( 'og_image' ) ),
 				'datePublished'    => $def['published'],
-				'dateModified'     => Data::modified( $def['published'] ),
+				'dateModified'     => Data::modified( $def['published'], isset( $def['data'] ) ? $def['data'] : array( 'crops' ), isset( $def['updated'] ) ? $def['updated'] : '' ),
 				'author'           => array(
 					'@type' => 'Person',
 					'name'   => Config::get( 'author' ),

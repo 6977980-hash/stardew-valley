@@ -90,12 +90,14 @@ export function cropProfit(crop, data, o = {}) {
 
   const revenue = perHarvest * sched.harvests.length;
   const seed = seedPrice(crop, o.seedSource);
-  const plantings = crop.regrow_days ? (sched.harvests.length && !o.established ? 1 : 0) : sched.harvests.length;
+  // Regrowing crops, and crops whose harvest drops enough seeds to replant (Sunflower), are bought once.
+  const buyOnce = crop.regrow_days || crop.returns_seeds >= 1;
+  const plantings = buyOnce ? (sched.harvests.length && !o.established ? 1 : 0) : sched.harvests.length;
   const seedCost = plantings === 0 ? 0 : seed.price != null ? seed.price * plantings : null;
   const fertCost = fert && sched.harvests.length ? cheapest(fert.prices) : 0;
   const cost = (seedCost ?? 0) + (fertCost ?? 0);
   steps.push({ key: 'revenue', label: 'Revenue', value: round(revenue) });
-  steps.push({ key: 'seeds', label: 'Seed cost', value: seedCost, detail: plantings === 0 ? 'no new seeds needed' : seed.price != null ? `${plantings} × ${seed.price}g (${seed.source})` : 'seed has no gold price; cost not counted' });
+  steps.push({ key: 'seeds', label: 'Seed cost', value: seedCost, detail: plantings === 0 ? 'no new seeds needed' : seed.price != null ? `${plantings} × ${seed.price}g (${seed.source})${!crop.regrow_days && crop.returns_seeds >= 1 && sched.harvests.length > 1 ? '; later plantings use the seeds each harvest drops' : ''}` : 'seed has no gold price; cost not counted' });
   if (fert) steps.push({ key: 'fertilizer', label: `${fert.name} cost`, value: fertCost, detail: fertCost == null ? 'not sold for gold; cost not counted' : 'one application per tile' });
 
   const profit = revenue - cost;

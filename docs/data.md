@@ -11,6 +11,8 @@ npm test                # validate data + engine tests
 
 `--cached` on any importer reuses `tools/data/.cache/` (git-ignored) for offline re-runs.
 
+Facts the Crops table cannot express (Sunflower seeds dropped at harvest, Coffee Bean and Ancient Fruit having no shop seed, irrigated growth for Rice and Taro) live in `CROP_FACTS` in `tools/data/import-crops.mjs`, each with its wiki quote. They are applied on every import; `node tools/data/import-crops.mjs --facts` re-applies them to the current `data/crops.json` without fetching the wiki.
+
 ## How a crop is verified
 
 Each crop is read from three wiki pages and only marked `cross-checked` when they agree:

@@ -89,6 +89,22 @@ test.describe('state', () => {
     await expect(page.locator('#st-season')).toHaveValue('spring');
   });
 
+  test('opening a tool saves nothing; only a real change does', async ({ page }) => {
+    await page.goto('/crop-profit-calculator/');
+    await page.evaluate(() => localStorage.clear());
+    await page.goto('/crop-profit-calculator/');
+    await page.goto('/greenhouse-planner/');
+    expect(await page.evaluate(() => localStorage.getItem('st:farm'))).toBeNull();
+  });
+
+  test('tracking parameters do not untick saved professions', async ({ page }) => {
+    await page.goto('/crop-profit-calculator/');
+    await page.evaluate(() => localStorage.setItem('st:farm', JSON.stringify({ tiller: true })));
+    await page.goto('/crop-profit-calculator/?utm_source=x');
+    await expect(page.locator('#crop-profit-form [name="tiller"]')).toBeChecked();
+    await expect(page).toHaveURL(/utm_source=x/);
+  });
+
   test('a shared link wins over saved settings', async ({ page }) => {
     await page.goto('/keg-vs-preserves-jar/?crop=ancient-fruit&items=10');
     await expect(page.locator('#st-crop')).toHaveValue('ancient-fruit');

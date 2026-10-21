@@ -19,7 +19,7 @@ defined( 'ABSPATH' ) || exit;
 <li><strong>Needs verification:</strong> collected but not yet confirmed. These values are never used as calculation inputs.</li>
 <li><strong>Deprecated:</strong> no longer true in the current game version.</li>
 </ul>
-<p>When two sources disagree, we do not pick one quietly. The value stays out of calculations until it is resolved.</p>
+<p>When two sources disagree, we do not pick one quietly. The value is either left out of the calculations until it is resolved, or used with a note on every page that shows it (for example the Dehydrator's processing time and three fish pond spawn rates).</p>
 
 <h2>Game version</h2>
 <p>Data is checked for Stardew Valley <?php echo esc_html( $version ); ?>. When a new version is released, affected tools are re-checked and the changes are listed in the <a href="<?php echo esc_url( $home_url . 'changelog/' ); ?>">changelog</a>.</p>
@@ -28,7 +28,7 @@ defined( 'ABSPATH' ) || exit;
 <p>All tools use one shared calculation engine, so the same crop gives the same result everywhere on the site. Each tool shows an "Explain the Math" section with the actual numbers from your inputs, and lists its assumptions, such as professions, fertilizer, crop quality and days left in the season.</p>
 
 <h2>Who maintains the data</h2>
-<p>The data, the calculation engine and these pages are maintained by <?php echo esc_html( $author ); ?>, founder of <?php echo esc_html( $brand ); ?> (<a href="<?php echo esc_url( $linkedin ); ?>" rel="me noopener">LinkedIn</a>). Every record keeps its source and the date it was last checked, and a value that two sources disagree on stays out of the calculations until it is resolved.</p>
+<p>The data, the calculation engine and these pages are maintained by <?php echo esc_html( $author ); ?>, founder of <?php echo esc_html( $brand ); ?> (<a href="<?php echo esc_url( $linkedin ); ?>" rel="me noopener">LinkedIn</a>). Every record keeps its source and the date it was last checked, and a value that two sources disagree on is left out of the calculations or used with a visible note.</p>
 
 <h2>Report a mistake</h2>
 <p>If a value looks wrong, email <a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_html( $email ); ?></a> with the page and your game version.</p>

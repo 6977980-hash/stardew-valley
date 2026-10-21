@@ -151,7 +151,29 @@
         "price": 1550,
         "gain_per_machine_day": 320
       }
-    }
+    },
+    "starfruit_artisan": {
+      "wine": {
+        "price": 3150,
+        "gain_per_machine_day": 372
+      },
+      "jelly": {
+        "price": 2170,
+        "gain_per_machine_day": 538
+      }
+    },
+    "keg_cheap": [
+      {
+        "name": "Hops",
+        "product": "Pale Ale",
+        "price": 300
+      },
+      {
+        "name": "Wheat",
+        "product": "Beer",
+        "price": 200
+      }
+    ]
   },
   "af_vs_starfruit": {
     "greenhouse_year1": {
@@ -409,6 +431,20 @@
         "profit_pro": 485
       },
       {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "profit": 360,
+        "per_day": 7.5,
+        "harvests": 6,
+        "regrows": false,
+        "seed_price": 125,
+        "seed_source": "jojamart",
+        "continues": [
+          "Fall"
+        ],
+        "profit_pro": 502
+      },
+      {
         "id": "melon",
         "name": "Melon",
         "profit": 345,
@@ -493,20 +529,6 @@
         "seed_source": "pierre",
         "continues": [],
         "profit_pro": 202
-      },
-      {
-        "id": "sunflower",
-        "name": "Sunflower",
-        "profit": -265,
-        "per_day": -5.5,
-        "harvests": 6,
-        "regrows": false,
-        "seed_price": 125,
-        "seed_source": "jojamart",
-        "continues": [
-          "Fall"
-        ],
-        "profit_pro": -123
       }
     ],
     "fall": [
@@ -631,6 +653,18 @@
         "profit_pro": 327
       },
       {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "profit": 117,
+        "per_day": 4.9,
+        "harvests": 3,
+        "regrows": false,
+        "seed_price": 125,
+        "seed_source": "jojamart",
+        "continues": [],
+        "profit_pro": 189
+      },
+      {
         "id": "wheat",
         "name": "Wheat",
         "profit": 91,
@@ -653,18 +687,6 @@
         "seed_source": "pierre",
         "continues": [],
         "profit_pro": 110
-      },
-      {
-        "id": "sunflower",
-        "name": "Sunflower",
-        "profit": -133,
-        "per_day": -5.5,
-        "harvests": 3,
-        "regrows": false,
-        "seed_price": 125,
-        "seed_source": "jojamart",
-        "continues": [],
-        "profit_pro": -61
       }
     ],
     "greenhouse": [
@@ -897,6 +919,18 @@
         "profit_pro": 1499
       },
       {
+        "id": "sunflower",
+        "name": "Sunflower",
+        "profit": 925,
+        "per_day": 8.9,
+        "harvests": 13,
+        "regrows": false,
+        "seed_price": 125,
+        "seed_source": "jojamart",
+        "continues": [],
+        "profit_pro": 1234
+      },
+      {
         "id": "radish",
         "name": "Radish",
         "profit": 916,
@@ -1063,20 +1097,13 @@
         "seed_source": "pierre",
         "continues": [],
         "profit_pro": 460
-      },
-      {
-        "id": "sunflower",
-        "name": "Sunflower",
-        "profit": -575,
-        "per_day": -5.5,
-        "harvests": 13,
-        "regrows": false,
-        "seed_price": 125,
-        "seed_source": "jojamart",
-        "continues": [],
-        "profit_pro": -266
       }
     ]
+  },
+  "best_crops_festival": {
+    "strawberry": {
+      "profit": 147
+    }
   },
   "decision": {
     "new_farm": {
@@ -1116,12 +1143,12 @@
         "total": 6825
       },
       "runner_up": {
-        "name": "Melon",
-        "total": 4785
+        "name": "Sunflower",
+        "total": 4950
       },
       "reasons": [
-        "Wheat also grows in Fall, so you can keep harvesting it after this season ends: 10 harvests against 1 for Melon.",
-        "Your gold buys seeds for 40 tiles of Wheat but only 25 of Melon."
+        "Wheat grows faster, so you get 10 harvests against 5 for Sunflower.",
+        "Your gold buys seeds for 40 tiles of Wheat but only 16 of Sunflower."
       ]
     }
   },
@@ -1392,7 +1419,7 @@
             {
               "id": "ancient-fruit",
               "name": "Ancient Fruit",
-              "total": 1030939
+              "total": 1133997
             },
             {
               "id": "sweet-gem-berry",
@@ -1402,7 +1429,7 @@
             {
               "id": "pineapple",
               "name": "Pineapple",
-              "total": 562340
+              "total": 618556
             }
           ]
         },
@@ -1412,17 +1439,17 @@
             {
               "id": "ancient-fruit",
               "name": "Ancient Fruit",
-              "total": 1629339
+              "total": 1711661
             },
             {
               "id": "starfruit",
               "name": "Starfruit",
-              "total": 1147716
+              "total": 1189709
             },
             {
               "id": "hops",
               "name": "Hops",
-              "total": 952002
+              "total": 974789
             }
           ]
         },
@@ -1432,17 +1459,17 @@
             {
               "id": "ancient-fruit",
               "name": "Ancient Fruit",
-              "total": 2526939
+              "total": 2578156
             },
             {
               "id": "starfruit",
               "name": "Starfruit",
-              "total": 2371716
+              "total": 2371288
             },
             {
               "id": "hops",
               "name": "Hops",
-              "total": 1888152
+              "total": 1905563
             }
           ]
         },
@@ -1452,17 +1479,17 @@
             {
               "id": "ancient-fruit",
               "name": "Ancient Fruit",
-              "total": 4022939
+              "total": 4022314
             },
             {
               "id": "hops",
               "name": "Hops",
-              "total": 3448402
+              "total": 3456852
             },
             {
               "id": "starfruit",
               "name": "Starfruit",
-              "total": 2558916
+              "total": 2552000
             }
           ]
         },
@@ -1472,17 +1499,17 @@
             {
               "id": "hops",
               "name": "Hops",
-              "total": 5459742
+              "total": 5456640
             },
             {
               "id": "ancient-fruit",
               "name": "Ancient Fruit",
-              "total": 4297499
+              "total": 4287360
             },
             {
               "id": "starfruit",
               "name": "Starfruit",
-              "total": 2558916
+              "total": 2552000
             }
           ]
         }
@@ -1607,22 +1634,22 @@
         {
           "name": "Starfruit",
           "product": "Wine",
-          "gain": 384
-        },
-        {
-          "name": "Ancient Fruit",
-          "product": "Wine",
-          "gain": 282
+          "gain": 372
         },
         {
           "name": "Hops",
           "product": "Pale Ale",
-          "gain": 281
+          "gain": 279
+        },
+        {
+          "name": "Ancient Fruit",
+          "product": "Wine",
+          "gain": 273
         },
         {
           "name": "Pineapple",
           "product": "Wine",
-          "gain": 154
+          "gain": 149
         }
       ]
     },
@@ -2600,6 +2627,86 @@
         "max_population": 10
       },
       "count": 73,
+      "raw_by_id": {
+        "legend": 1311,
+        "legend-ii": 1311,
+        "crimsonfish": 628,
+        "son-of-crimsonfish": 628,
+        "glacierfish": 624,
+        "glacierfish-jr": 624,
+        "mutant-carp": 590,
+        "radioactive-carp": 590,
+        "angler": 548,
+        "ms-angler": 548,
+        "lava-eel": 543,
+        "blobfish": 496,
+        "lionfish": 237,
+        "tiger-trout": 212,
+        "void-salmon": 212,
+        "ice-pip": 212,
+        "stingray": 202,
+        "scorpion-carp": 192,
+        "sturgeon": 185,
+        "super-cucumber": 185,
+        "spook-fish": 180,
+        "catfish": 154,
+        "pufferfish": 154,
+        "midnight-squid": 127,
+        "midnight-carp": 124,
+        "sandfish": 123,
+        "stonefish": 121,
+        "goby": 112,
+        "lingcod": 109,
+        "blue-discus": 107,
+        "squid": 105,
+        "octopus": 103,
+        "slimejack": 103,
+        "flounder": 102,
+        "dorado": 98,
+        "pike": 98,
+        "tuna": 95,
+        "walleye": 88,
+        "eel": 86,
+        "largemouth-bass": 86,
+        "halibut": 83,
+        "rainbow-trout": 80,
+        "albacore": 80,
+        "red-mullet": 80,
+        "sea-cucumber": 80,
+        "tilapia": 80,
+        "sea-urchin": 78,
+        "bullhead": 72,
+        "salmon": 72,
+        "ghostfish": 70,
+        "red-snapper": 65,
+        "shad": 64,
+        "perch": 61,
+        "sardine": 59,
+        "chub": 59,
+        "smallmouth-bass": 59,
+        "bream": 56,
+        "anchovy": 53,
+        "carp": 53,
+        "herring": 53,
+        "woodskip": 49,
+        "sunfish": 47,
+        "lobster": 29,
+        "crab": 28,
+        "shrimp": 25,
+        "clam": 24,
+        "cockle": 24,
+        "oyster": 24,
+        "mussel": 23,
+        "coral": 18,
+        "crayfish": 12,
+        "snail": 12,
+        "periwinkle": 9
+      },
+      "start_capacity": {
+        "1": 9,
+        "3": 51,
+        "10": 3
+      },
       "ramp": [
         {
           "id": "blobfish",
@@ -2607,7 +2714,8 @@
           "initial_capacity": 1,
           "spawn_days": 4,
           "reproduces": true,
-          "days_to_fill": 36,
+          "quests_to_fill": 4,
+          "days_to_fill": 56,
           "gold": {
             "1": 203,
             "3": 344,
@@ -2658,7 +2766,8 @@
           "initial_capacity": 1,
           "spawn_days": 5,
           "reproduces": true,
-          "days_to_fill": 45,
+          "quests_to_fill": 4,
+          "days_to_fill": 69,
           "gold": {
             "1": 245,
             "3": 378,
@@ -2704,7 +2813,8 @@
           "initial_capacity": 1,
           "spawn_days": 4,
           "reproduces": true,
-          "days_to_fill": 36,
+          "quests_to_fill": 4,
+          "days_to_fill": 56,
           "gold": {
             "1": 40,
             "3": 177,
@@ -2750,6 +2860,7 @@
           "initial_capacity": 10,
           "spawn_days": null,
           "reproduces": false,
+          "quests_to_fill": 0,
           "days_to_fill": null,
           "gold": {
             "1": 85,
@@ -2765,7 +2876,8 @@
           "initial_capacity": 3,
           "spawn_days": 4,
           "reproduces": true,
-          "days_to_fill": 36,
+          "quests_to_fill": 2,
+          "days_to_fill": 46,
           "gold": {
             "1": 63,
             "3": 107,
@@ -2796,7 +2908,8 @@
           "initial_capacity": 1,
           "spawn_days": 4,
           "reproduces": true,
-          "days_to_fill": 36,
+          "quests_to_fill": 4,
+          "days_to_fill": 56,
           "gold": {
             "1": 85,
             "3": 143,

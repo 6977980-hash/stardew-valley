@@ -51,6 +51,16 @@ export function buildAnswers(data) {
   }
   const sf = allocate(byId('starfruit'), data.machines, { items: 0, counts: {}, days: 28 }).options;
   kegVsJar.starfruit = Object.fromEntries(sf.map((o) => [o.product, { price: o.price, gain_per_machine_day: r0(o.gainPerMachineDay) }]));
+  // The same with Artisan (and Tiller, which Artisan requires), as on the machine and crop pages.
+  const sfArt = allocate(byId('starfruit'), data.machines, { items: 0, counts: {}, days: 28, artisan: true, tiller: true }).options;
+  kegVsJar.starfruit_artisan = Object.fromEntries(sfArt.map((o) => [o.product, { price: o.price, gain_per_machine_day: r0(o.gainPerMachineDay) }]));
+  // Cheap crops the Keg still wins per item (Beer, Pale Ale), named in the short answer.
+  kegVsJar.keg_cheap = crops
+    .filter((c) => c.base_price < 50 && kegVsJar.keg_per_item.includes(c.name))
+    .map((c) => {
+      const k = allocate(c, data.machines, { items: 0, counts: {}, days: 28 }).options.find((o) => o.machine === 'keg');
+      return { name: c.name, product: k.productName, price: k.price };
+    });
 
   // Ancient Fruit vs Starfruit (per tile, wine with Artisan).
   const scen = (id, o) => r0(cropProfit(byId(id), data, { sellAs: 'wine', artisan: true, ...o }).profit);
@@ -97,6 +107,10 @@ export function buildAnswers(data) {
       profit_pro: r0(pro.get(x.crop.id).total),
     }));
   }
+
+  // Strawberry for the Best Spring Crops note: seeds bought at the Egg Festival, planted Spring 13.
+  const sb = byId('strawberry');
+  const bestCropsFestival = sb ? { strawberry: { profit: r0(cropProfit(sb, data, { plantSeason: 'spring', plantDay: 13, seedSource: 'egg_festival' }).profit) } } : {};
 
   // Decision engine examples for the Crop Decision page.
   const example = (s) => {
@@ -149,7 +163,7 @@ export function buildAnswers(data) {
     };
   }
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp };
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

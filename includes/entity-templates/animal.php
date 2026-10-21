@@ -20,7 +20,20 @@ $n       = function ( $v ) {
 };
 $tier    = $e['rank_raw'] <= 2 ? 'one of the best earners' : ( $e['rank_raw'] > $e['of'] - 3 ? 'one of the lower earners' : 'a middle earner' );
 $forage  = 'outdoor-forage' === $e['mode'];
-$pace    = $forage ? 'goes outside and digs up truffles' : ( 1 === (int) $e['frequency_days'] ? 'produces every day' : 'produces every ' . (int) $e['frequency_days'] . ' days' );
+$every   = function ( $d ) {
+	return 1 === (int) $d ? 'every day' : 'every ' . (int) $d . ' days';
+};
+$full_d  = isset( $e['frequency_full_days'] ) ? $e['frequency_full_days'] : $e['frequency_days'];
+$prof_d  = ! empty( $e['frequency_profession'] ) ? $e['frequency_profession'][0] : null;
+$pace    = $forage ? 'goes outside and digs up truffles' : 'produces ' . $every( $full_d ) . ( $prof_d && (int) $prof_d['days'] !== (int) $full_d ? ' (' . $every( $prof_d['days'] ) . ' with ' . ucfirst( $prof_d['profession'] ) . ')' : '' );
+// Base interval, then what friendship and a profession shorten it to (Sheep: 3, 2 at 900+ friendship, 1 with Shepherd).
+$cadence = $forage ? '' : ucfirst( $every( $e['frequency_days'] ) );
+if ( ! $forage && (int) $full_d !== (int) $e['frequency_days'] ) {
+	$cadence .= '; ' . $every( $full_d ) . ' once friendship reaches 900 points (4.5 hearts) and you pet it';
+}
+if ( $prof_d && (int) $prof_d['days'] !== (int) $full_d ) {
+	$cadence .= '; ' . $every( $prof_d['days'] ) . ' with the ' . ucfirst( $prof_d['profession'] ) . ' profession as well';
+}
 $first   = $e['products'][0];
 $large   = isset( $e['products'][1] ) ? $e['products'][1] : null;
 $peers   = array();
@@ -37,7 +50,7 @@ uasort(
 );
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> a <?php echo esc_html( $e['name'] ); ?> <?php echo $e['price'] ? 'costs ' . esc_html( $gold( $e['price'] ) ) . ' and lives in a ' . esc_html( $e['building'] ) : 'lives in a ' . esc_html( $e['building'] ) . ' and is not sold in a shop'; ?>. At full friendship it <?php echo esc_html( $pace ); ?> and earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products as they are, or <?php echo esc_html( $gold( $full['processed'] ) ); ?> a day made into artisan goods by an Artisan player. That makes it <?php echo esc_html( $tier ); ?> (number <?php echo (int) $e['rank_raw']; ?> of <?php echo (int) $e['of']; ?> by raw income).<?php echo $e['payback_days'] ? ' It pays back its price in about ' . esc_html( $n( $e['payback_days'] ) ) . ' days of production.' : ''; ?></p>
+	<p class="answer__lead"><strong>Short answer:</strong> a <?php echo esc_html( $e['name'] ); ?> <?php echo $e['price'] ? 'costs ' . esc_html( $gold( $e['price'] ) ) . ' and lives in a ' . esc_html( $e['building'] ) : 'lives in a ' . esc_html( $e['building'] ) . ' and is not sold in a shop'; ?>. At full friendship it <?php echo esc_html( $pace ); ?> and earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products as they are, or <?php echo esc_html( $gold( $full['processed'] ) ); ?> a day made into artisan goods by an Artisan player. That makes it <?php echo esc_html( $tier ); ?> (number <?php echo (int) $e['rank_raw']; ?> of <?php echo (int) $e['of']; ?> by raw income).<?php echo ! empty( $e['payback_days_raw'] ) ? ' Selling its products raw, it pays back its price in about ' . esc_html( $n( $e['payback_days_raw'] ) ) . ' days of production.' : ''; ?></p>
 </div>
 
 <h2>Quick facts</h2>
@@ -50,7 +63,7 @@ uasort(
 		<?php if ( $e['days_to_mature'] ) : ?>
 		<tr><th scope="row">Days to mature</th><td><?php echo (int) $e['days_to_mature']; ?></td></tr>
 		<?php endif; ?>
-		<tr><th scope="row">Produces</th><td><?php echo esc_html( $forage ? 'Truffles, found outside on dry days in spring, summer and fall' : ( 1 === (int) $e['frequency_days'] ? 'Every day' : 'Every ' . (int) $e['frequency_days'] . ' days' ) ); ?></td></tr>
+		<tr><th scope="row">Produces</th><td><?php echo esc_html( $forage ? 'Truffles, found outside on dry days in spring, summer and fall' : $cadence ); ?></td></tr>
 		<tr><th scope="row">Regular product</th><td><?php echo esc_html( $first['name'] ); ?> (<?php echo esc_html( $gold( $first['prices']['normal'] ) ); ?>)</td></tr>
 		<?php if ( $large ) : ?>
 		<tr><th scope="row">Large product</th><td><?php echo esc_html( $large['name'] ); ?> (<?php echo esc_html( $gold( $large['prices']['normal'] ) ); ?>), chance at full friendship about <?php echo esc_html( $n( $full['large_chance'] ) ); ?>%</td></tr>

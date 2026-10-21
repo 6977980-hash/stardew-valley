@@ -102,7 +102,7 @@ $find = function ( $list, $id ) {
 <section class="tool-explain">
 	<h2>How the numbers are worked out</h2>
 	<ul>
-		<li><strong>Quality:</strong> score = hearts ÷ 1000 − (1 − mood ÷ 225), plus 0.333 with Coopmaster (coop animals) or Shepherd (barn animals). Iridium needs a score of 0.95 or more; then gold and silver are rolled, as the wiki describes.</li>
+		<li><strong>Quality:</strong> score = friendship points (0 to 1,000) ÷ 1000 − (1 − mood ÷ 225), plus 0.333 with Coopmaster (coop animals) or Shepherd (barn animals). Iridium needs a score of 0.95 or more; then gold and silver are rolled, as the wiki describes.</li>
 		<li><strong>Large and Deluxe products:</strong> Large Eggs and Milk need 200+ friendship; the chance is (friendship + mood × mood modifier) ÷ 1200. Duck Feathers use ÷ 4750 and Rabbit's Feet ÷ 5000, plus daily luck (taken as 0).</li>
 		<li><strong>Pigs:</strong> one Truffle a day outside, plus extra Truffles with a chance of friendship ÷ 1500 each time (about 3 a day at full hearts). Truffle quality comes from your Foraging skill, so it is counted as regular.</li>
 		<li><strong>Machines:</strong> a product goes into its machine only when that is worth more. Large Eggs and Milk make gold-quality Mayonnaise and Cheese; good Wool can make a second Cloth.</li>

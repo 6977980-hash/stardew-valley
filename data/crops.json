@@ -108,9 +108,7 @@
         "extra_chance": 0,
         "stated": false
       },
-      "seed_prices": {
-        "crafting": 0
-      },
+      "seed_prices": {},
       "trellis": false,
       "giant": false,
       "indoor_only": false,
@@ -140,7 +138,8 @@
       "last_verified": "2026-10-09",
       "verification_status": "cross-checked",
       "problems": [],
-      "notes": []
+      "notes": [],
+      "seed_note": "Not sold in shops: craft Ancient Seeds from the Ancient Seed artifact, or make more in a Seed Maker."
     },
     {
       "id": "artichoke",
@@ -695,9 +694,7 @@
         "extra_chance": 0.02,
         "stated": true
       },
-      "seed_prices": {
-        "traveling_cart": 2500
-      },
+      "seed_prices": {},
       "trellis": false,
       "giant": false,
       "indoor_only": false,
@@ -722,7 +719,8 @@
       "last_verified": "2026-10-09",
       "verification_status": "cross-checked",
       "problems": [],
-      "notes": []
+      "notes": [],
+      "seed_note": "Not sold in shops: Dust Sprites in the Mines drop them, the Traveling Cart sometimes sells them (100-1,000g, or 2,500g), and after that you replant your own beans."
     },
     {
       "id": "corn",
@@ -2206,7 +2204,8 @@
       "last_verified": "2026-10-09",
       "verification_status": "cross-checked",
       "problems": [],
-      "notes": []
+      "notes": [],
+      "returns_seeds": 1
     },
     {
       "id": "sweet-gem-berry",
@@ -2318,7 +2317,8 @@
       "problems": [],
       "notes": [
         "Grows faster when irrigated (next to water); unirrigated time used."
-      ]
+      ],
+      "irrigated_growth_days": 7
     },
     {
       "id": "tomato",
@@ -2497,7 +2497,8 @@
       "problems": [],
       "notes": [
         "Grows faster when irrigated (next to water); unirrigated time used."
-      ]
+      ],
+      "irrigated_growth_days": 6
     },
     {
       "id": "wheat",

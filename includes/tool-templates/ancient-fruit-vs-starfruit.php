@@ -16,7 +16,15 @@ $g  = function ( $n ) {
 ?>
 <div class="answer">
 	<?php if ( $af ) : ?>
-	<p class="answer__lead"><strong>Short answer:</strong> Ancient Fruit earns more per tile in almost every setup. As Artisan Wine in the greenhouse, one tile makes <?php echo esc_html( $g( $af['greenhouse_year1']['ancient'] ) ); ?> in the first year against <?php echo esc_html( $g( $af['greenhouse_year1']['starfruit'] ) ); ?> for Starfruit, and <?php echo esc_html( $g( $af['greenhouse_established']['ancient'] ) ); ?> a year once the plant is grown. Starfruit only wins when you count each harvest fresh and have kegs to spare, or need the money within one season outdoors.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> Ancient Fruit earns more per tile in almost every setup. As Artisan Wine in the greenhouse, one tile makes <?php echo esc_html( $g( $af['greenhouse_year1']['ancient'] ) ); ?> in the first year against <?php echo esc_html( $g( $af['greenhouse_year1']['starfruit'] ) ); ?> for Starfruit, and <?php echo esc_html( $g( $af['greenhouse_established']['ancient'] ) ); ?> a year once the plant is grown. <?php
+	$pk = array();
+	foreach ( isset( $answers['guides']['greenhouse']['per_keg_day'] ) ? $answers['guides']['greenhouse']['per_keg_day'] : array() as $r ) {
+		$pk[ $r['name'] ] = $r['gain'];
+	}
+	if ( isset( $pk['Starfruit'], $pk['Ancient Fruit'] ) ) :
+		?>
+	Starfruit wins in one place: per keg. Starfruit Wine adds <?php echo esc_html( $g( $pk['Starfruit'] ) ); ?> per keg per day over selling the fruit raw, against <?php echo esc_html( $g( $pk['Ancient Fruit'] ) ); ?> for Ancient Fruit Wine (Artisan and Tiller prices), so if you grow both and your kegs are full, give the kegs to Starfruit first.
+	<?php endif; ?></p>
 	<?php endif; ?>
 	<p>Ancient Fruit regrows every 7 days and needs one seed for life; Starfruit sells for more per fruit but must be replanted (400g a seed) every 13 days. Change the setup below.</p>
 </div>

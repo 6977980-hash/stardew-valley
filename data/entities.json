@@ -25,6 +25,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -76,23 +80,35 @@
           },
           "per_harvest_level6": 168,
           "seed_cost": 210,
-          "rank": 10,
-          "of": 17,
+          "rank": 7,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "beet",
+              "name": "Beet",
+              "profit": 369
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "eggplant",
+              "name": "Eggplant",
+              "profit": 317
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "fairy-rose",
+              "name": "Fairy Rose",
+              "profit": 250
+            },
+            {
+              "id": "yam",
+              "name": "Yam",
+              "profit": 239
             }
           ],
           "fertilizer_level6": {
@@ -104,6 +120,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             411
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -127,12 +146,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 136
+          "gain_per_machine_day": 130
         }
       ],
       "greenhouse": {
@@ -161,12 +180,14 @@
         "iridium": 1100
       },
       "tiller_price": 605,
-      "seed_prices": {
-        "crafting": 0
-      },
+      "seed_prices": {},
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": "Not sold in shops: craft Ancient Seeds from the Ancient Seed artifact, or make more in a Seed Maker.",
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -223,23 +244,28 @@
           },
           "per_harvest_level6": 617,
           "seed_cost": null,
-          "rank": 1,
-          "of": 15,
+          "rank": null,
+          "would_rank": 1,
+          "of": 10,
+          "carries_into": [
+            "summer",
+            "fall"
+          ],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "rhubarb",
+              "name": "Rhubarb",
+              "profit": 293
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
-            },
-            {
-              "id": "carrot",
-              "name": "Carrot",
-              "profit": 351
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             }
           ],
           "fertilizer_level6": {
@@ -251,6 +277,12 @@
           "best_fertilizer": [
             "quality-fertilizer",
             5619
+          ],
+          "paying_fertilizers": [
+            "quality-fertilizer",
+            "deluxe-speed-gro",
+            "speed-gro",
+            "basic-fertilizer"
           ]
         },
         {
@@ -271,23 +303,27 @@
           },
           "per_harvest_level6": 617,
           "seed_cost": null,
-          "rank": 1,
-          "of": 19,
+          "rank": null,
+          "would_rank": 1,
+          "of": 13,
+          "carries_into": [
+            "fall"
+          ],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
             {
               "id": "starfruit",
               "name": "Starfruit",
               "profit": 882
             },
             {
-              "id": "pineapple",
-              "name": "Pineapple",
-              "profit": 673
+              "id": "red-cabbage",
+              "name": "Red Cabbage",
+              "profit": 575
             }
           ],
           "fertilizer_level6": {
@@ -299,6 +335,12 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             3004
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro",
+            "quality-fertilizer",
+            "basic-fertilizer"
           ]
         },
         {
@@ -314,23 +356,25 @@
           },
           "per_harvest_level6": 617,
           "seed_cost": 0,
-          "rank": 16,
-          "of": 17,
+          "rank": null,
+          "would_rank": 14,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 108
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
-            },
-            {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "corn",
+              "name": "Corn",
+              "profit": 74
             }
           ],
           "fertilizer_level6": {
@@ -342,6 +386,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             537
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -365,12 +413,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 282
+          "gain_per_machine_day": 273
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 424
+          "gain_per_machine_day": 402
         }
       ],
       "greenhouse": {
@@ -403,6 +451,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -454,23 +506,35 @@
           },
           "per_harvest_level6": 179,
           "seed_cost": 90,
-          "rank": 6,
-          "of": 17,
+          "rank": 4,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "pumpkin",
+              "name": "Pumpkin",
+              "profit": 518
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "grape",
+              "name": "Grape",
+              "profit": 478
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "beet",
+              "name": "Beet",
+              "profit": 369
+            },
+            {
+              "id": "eggplant",
+              "name": "Eggplant",
+              "profit": 317
             }
           ],
           "fertilizer_level6": {
@@ -482,6 +546,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             518
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -505,12 +572,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 92
+          "gain_per_machine_day": 87
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 143
+          "gain_per_machine_day": 137
         }
       ],
       "greenhouse": {
@@ -543,6 +610,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -595,23 +666,35 @@
           },
           "per_harvest_level6": 112,
           "seed_cost": 80,
-          "rank": 8,
-          "of": 17,
+          "rank": 5,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "grape",
+              "name": "Grape",
+              "profit": 478
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "artichoke",
+              "name": "Artichoke",
+              "profit": 448
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "eggplant",
+              "name": "Eggplant",
+              "profit": 317
+            },
+            {
+              "id": "amaranth",
+              "name": "Amaranth",
+              "profit": 294
             }
           ],
           "fertilizer_level6": {
@@ -623,6 +706,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             473
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -646,12 +732,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 100
+          "gain_per_machine_day": 96
         }
       ],
       "greenhouse": {
@@ -685,6 +771,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -736,23 +826,35 @@
           },
           "per_harvest_level6": 56,
           "seed_cost": 90,
-          "rank": 12,
-          "of": 15,
+          "rank": 8,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "garlic",
+              "name": "Garlic",
+              "profit": 164
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "parsnip",
+              "name": "Parsnip",
+              "profit": 114
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "tulip",
+              "name": "Tulip",
+              "profit": 54
+            },
+            {
+              "id": "unmilled-rice",
+              "name": "Unmilled Rice",
+              "profit": 36
             }
           ],
           "fertilizer_level6": {
@@ -764,7 +866,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             50
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [],
@@ -799,6 +902,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 3.02,
         "level10": 3.02
@@ -851,23 +958,35 @@
           },
           "per_harvest_level6": 157,
           "seed_cost": 80,
-          "rank": 6,
-          "of": 19,
+          "rank": 3,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
-            {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
             {
               "id": "starfruit",
               "name": "Starfruit",
               "profit": 882
+            },
+            {
+              "id": "red-cabbage",
+              "name": "Red Cabbage",
+              "profit": 575
+            },
+            {
+              "id": "corn",
+              "name": "Corn",
+              "profit": 466
+            },
+            {
+              "id": "hops",
+              "name": "Hops",
+              "profit": 415
             }
           ],
           "fertilizer_level6": {
@@ -879,6 +998,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             625
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -902,12 +1025,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 26
+          "gain_per_machine_day": 25
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 64
+          "gain_per_machine_day": 62
         }
       ],
       "greenhouse": {
@@ -941,6 +1064,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -995,23 +1122,35 @@
           },
           "per_harvest_level6": 90,
           "seed_cost": 300,
-          "rank": 13,
-          "of": 17,
+          "rank": 10,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "fairy-rose",
+              "name": "Fairy Rose",
+              "profit": 250
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "yam",
+              "name": "Yam",
+              "profit": 239
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 144
+            },
+            {
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 108
             }
           ],
           "fertilizer_level6": {
@@ -1023,6 +1162,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             278
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -1046,12 +1189,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 44
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         }
       ],
       "greenhouse": {
@@ -1082,6 +1225,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -1135,23 +1282,35 @@
           },
           "per_harvest_level6": 78,
           "seed_cost": null,
-          "rank": 7,
-          "of": 17,
+          "rank": null,
+          "would_rank": 5,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "grape",
+              "name": "Grape",
+              "profit": 478
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "artichoke",
+              "name": "Artichoke",
+              "profit": 448
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "beet",
+              "name": "Beet",
+              "profit": 369
+            },
+            {
+              "id": "eggplant",
+              "name": "Eggplant",
+              "profit": 317
             }
           ],
           "fertilizer_level6": {
@@ -1163,7 +1322,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             390
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -1186,12 +1346,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 40
+          "gain_per_machine_day": 38
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 78
+          "gain_per_machine_day": 76
         }
       ],
       "greenhouse": {
@@ -1227,6 +1387,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": true,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -1260,253 +1424,7 @@
           }
         }
       ],
-      "plantings": [
-        {
-          "season": "spring",
-          "growth": 12,
-          "harvests": [
-            13,
-            16,
-            19,
-            22,
-            25,
-            28,
-            31,
-            34,
-            37,
-            40,
-            43,
-            46,
-            49,
-            52,
-            55,
-            58,
-            61,
-            64,
-            67,
-            70,
-            73,
-            76,
-            79,
-            82,
-            85,
-            88,
-            91,
-            94,
-            97,
-            100,
-            103,
-            106,
-            109,
-            112
-          ],
-          "last_planting_day": 16,
-          "last_planting_season": "winter",
-          "profit": {
-            "level0": 2425,
-            "level6": 2702,
-            "level10": 2867
-          },
-          "per_harvest_level6": 84,
-          "seed_cost": 150,
-          "rank": 2,
-          "of": 15,
-          "peers": [
-            {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
-            },
-            {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
-            },
-            {
-              "id": "carrot",
-              "name": "Carrot",
-              "profit": 351
-            }
-          ],
-          "fertilizer_level6": {
-            "basic-fertilizer": 2869,
-            "quality-fertilizer": 3026,
-            "speed-gro": 2602,
-            "deluxe-speed-gro": 2706
-          },
-          "best_fertilizer": [
-            "quality-fertilizer",
-            3026
-          ]
-        },
-        {
-          "season": "summer",
-          "growth": 12,
-          "harvests": [
-            13,
-            16,
-            19,
-            22,
-            25,
-            28,
-            31,
-            34,
-            37,
-            40,
-            43,
-            46,
-            49,
-            52,
-            55,
-            58,
-            61,
-            64,
-            67,
-            70,
-            73,
-            76,
-            79,
-            82
-          ],
-          "last_planting_day": 16,
-          "last_planting_season": "winter",
-          "profit": {
-            "level0": 1667,
-            "level6": 1863,
-            "level10": 1980
-          },
-          "per_harvest_level6": 84,
-          "seed_cost": 150,
-          "rank": 2,
-          "of": 19,
-          "peers": [
-            {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
-            },
-            {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
-            },
-            {
-              "id": "pineapple",
-              "name": "Pineapple",
-              "profit": 673
-            }
-          ],
-          "fertilizer_level6": {
-            "basic-fertilizer": 1951,
-            "quality-fertilizer": 2048,
-            "speed-gro": 1847,
-            "deluxe-speed-gro": 1867
-          },
-          "best_fertilizer": [
-            "quality-fertilizer",
-            2048
-          ]
-        },
-        {
-          "season": "fall",
-          "growth": 12,
-          "harvests": [
-            13,
-            16,
-            19,
-            22,
-            25,
-            28,
-            31,
-            34,
-            37,
-            40,
-            43,
-            46,
-            49,
-            52,
-            55
-          ],
-          "last_planting_day": 16,
-          "last_planting_season": "winter",
-          "profit": {
-            "level0": 986,
-            "level6": 1108,
-            "level10": 1181
-          },
-          "per_harvest_level6": 84,
-          "seed_cost": 150,
-          "rank": 2,
-          "of": 17,
-          "peers": [
-            {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
-            },
-            {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
-            },
-            {
-              "id": "pumpkin",
-              "name": "Pumpkin",
-              "profit": 518
-            }
-          ],
-          "fertilizer_level6": {
-            "basic-fertilizer": 1126,
-            "quality-fertilizer": 1167,
-            "speed-gro": 1092,
-            "deluxe-speed-gro": 1112
-          },
-          "best_fertilizer": [
-            "quality-fertilizer",
-            1167
-          ]
-        },
-        {
-          "season": "winter",
-          "growth": 12,
-          "harvests": [
-            13,
-            16,
-            19,
-            22,
-            25,
-            28
-          ],
-          "last_planting_day": 16,
-          "last_planting_season": "winter",
-          "profit": {
-            "level0": 304,
-            "level6": 353,
-            "level10": 382
-          },
-          "per_harvest_level6": 84,
-          "seed_cost": 150,
-          "rank": 1,
-          "of": 2,
-          "peers": [
-            {
-              "id": "powdermelon",
-              "name": "Powdermelon",
-              "profit": 202
-            }
-          ],
-          "fertilizer_level6": {
-            "basic-fertilizer": 300,
-            "quality-fertilizer": 287,
-            "speed-gro": 253,
-            "deluxe-speed-gro": 357
-          },
-          "best_fertilizer": [
-            "deluxe-speed-gro",
-            357
-          ]
-        }
-      ],
+      "plantings": [],
       "products": [
         {
           "machine": "Keg",
@@ -1527,12 +1445,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 38
+          "gain_per_machine_day": 37
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 82
+          "gain_per_machine_day": 79
         }
       ],
       "greenhouse": {
@@ -1563,6 +1481,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -1620,23 +1542,25 @@
           },
           "per_harvest_level6": 39,
           "seed_cost": null,
-          "rank": 4,
-          "of": 15,
+          "rank": null,
+          "would_rank": 1,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "rhubarb",
+              "name": "Rhubarb",
+              "profit": 293
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
-            },
-            {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             }
           ],
           "fertilizer_level6": {
@@ -1648,6 +1572,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             427
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -1671,12 +1599,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 20
+          "gain_per_machine_day": 19
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 53
+          "gain_per_machine_day": 52
         }
       ],
       "greenhouse": {
@@ -1710,6 +1638,10 @@
       "trellis": false,
       "giant": true,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -1760,23 +1692,35 @@
           },
           "per_harvest_level6": 196,
           "seed_cost": 160,
-          "rank": 7,
-          "of": 15,
+          "rank": 3,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "rhubarb",
+              "name": "Rhubarb",
+              "profit": 293
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "kale",
+              "name": "Kale",
+              "profit": 213
+            },
+            {
+              "id": "green-bean",
+              "name": "Green Bean",
+              "profit": 209
             }
           ],
           "fertilizer_level6": {
@@ -1788,6 +1732,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             268
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -1811,12 +1758,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 100
+          "gain_per_machine_day": 95
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 154
+          "gain_per_machine_day": 147
         }
       ],
       "greenhouse": {
@@ -1844,12 +1791,14 @@
         "iridium": 30
       },
       "tiller_price": 15,
-      "seed_prices": {
-        "traveling_cart": 2500
-      },
+      "seed_prices": {},
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": "Not sold in shops: Dust Sprites in the Mines drop them, the Traveling Cart sometimes sells them (100-1,000g, or 2,500g), and after that you replant your own beans.",
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 4.02,
         "level10": 4.02
@@ -1915,40 +1864,47 @@
           "last_planting_day": 18,
           "last_planting_season": "summer",
           "profit": {
-            "level0": -1110,
-            "level6": -1076,
-            "level10": -1056
+            "level0": 1390,
+            "level6": 1424,
+            "level10": 1444
           },
           "per_harvest_level6": 62,
-          "seed_cost": 2500,
-          "rank": 15,
-          "of": 15,
+          "seed_cost": null,
+          "rank": null,
+          "would_rank": 1,
+          "of": 10,
+          "carries_into": [
+            "summer"
+          ],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "rhubarb",
+              "name": "Rhubarb",
+              "profit": 293
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
-            },
-            {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             }
           ],
           "fertilizer_level6": {
-            "basic-fertilizer": -1144,
-            "quality-fertilizer": -1168,
-            "speed-gro": -1115,
-            "deluxe-speed-gro": -1033
+            "basic-fertilizer": 1356,
+            "quality-fertilizer": 1332,
+            "speed-gro": 1385,
+            "deluxe-speed-gro": 1467
           },
           "best_fertilizer": [
             "deluxe-speed-gro",
-            -1033
+            1467
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         },
         {
@@ -1968,40 +1924,55 @@
           "last_planting_day": 18,
           "last_planting_season": "summer",
           "profit": {
-            "level0": -1956,
-            "level6": -1943,
-            "level10": -1935
+            "level0": 544,
+            "level6": 557,
+            "level10": 565
           },
           "per_harvest_level6": 62,
-          "seed_cost": 2500,
-          "rank": 19,
-          "of": 19,
+          "seed_cost": null,
+          "rank": null,
+          "would_rank": 3,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
-            {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
             {
               "id": "starfruit",
               "name": "Starfruit",
               "profit": 882
+            },
+            {
+              "id": "red-cabbage",
+              "name": "Red Cabbage",
+              "profit": 575
+            },
+            {
+              "id": "blueberry",
+              "name": "Blueberry",
+              "profit": 548
+            },
+            {
+              "id": "corn",
+              "name": "Corn",
+              "profit": 466
             }
           ],
           "fertilizer_level6": {
-            "basic-fertilizer": -2030,
-            "quality-fertilizer": -2070,
-            "speed-gro": -1981,
-            "deluxe-speed-gro": -1899
+            "basic-fertilizer": 470,
+            "quality-fertilizer": 430,
+            "speed-gro": 519,
+            "deluxe-speed-gro": 601
           },
           "best_fertilizer": [
             "deluxe-speed-gro",
-            -1899
+            601
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -2023,7 +1994,7 @@
       ],
       "greenhouse": {
         "established": 3466,
-        "first_year": 657,
+        "first_year": 3157,
         "harvests": 56
       },
       "verification": "cross-checked"
@@ -2053,6 +2024,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -2112,23 +2087,37 @@
           },
           "per_harvest_level6": 56,
           "seed_cost": 150,
-          "rank": 7,
-          "of": 19,
+          "rank": 4,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [
+            "fall"
+          ],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "red-cabbage",
+              "name": "Red Cabbage",
+              "profit": 575
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "blueberry",
+              "name": "Blueberry",
+              "profit": 548
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "hops",
+              "name": "Hops",
+              "profit": 415
+            },
+            {
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 413
             }
           ],
           "fertilizer_level6": {
@@ -2140,7 +2129,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             442
-          ]
+          ],
+          "paying_fertilizers": []
         },
         {
           "season": "fall",
@@ -2160,23 +2150,25 @@
           },
           "per_harvest_level6": 56,
           "seed_cost": 150,
-          "rank": 15,
-          "of": 17,
+          "rank": 13,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 144
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
-            },
-            {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 108
             }
           ],
           "fertilizer_level6": {
@@ -2188,7 +2180,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             50
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -2211,12 +2204,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 28
+          "gain_per_machine_day": 27
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 64
+          "gain_per_machine_day": 62
         }
       ],
       "greenhouse": {
@@ -2250,6 +2243,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 2.11,
         "level10": 2.11
@@ -2303,23 +2300,21 @@
           },
           "per_harvest_level6": 167,
           "seed_cost": 240,
-          "rank": 3,
-          "of": 17,
+          "rank": 1,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": null,
           "peers": [
-            {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
-            },
             {
               "id": "pumpkin",
               "name": "Pumpkin",
               "profit": 518
+            },
+            {
+              "id": "grape",
+              "name": "Grape",
+              "profit": 478
             }
           ],
           "fertilizer_level6": {
@@ -2331,7 +2326,8 @@
           "best_fertilizer": [
             "basic-fertilizer",
             535
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -2354,12 +2350,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 38
+          "gain_per_machine_day": 37
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 82
+          "gain_per_machine_day": 79
         }
       ],
       "greenhouse": {
@@ -2393,6 +2389,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -2446,23 +2446,35 @@
           },
           "per_harvest_level6": 67,
           "seed_cost": 20,
-          "rank": 9,
-          "of": 17,
+          "rank": 6,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "artichoke",
+              "name": "Artichoke",
+              "profit": 448
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "beet",
+              "name": "Beet",
+              "profit": 369
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "amaranth",
+              "name": "Amaranth",
+              "profit": 294
+            },
+            {
+              "id": "fairy-rose",
+              "name": "Fairy Rose",
+              "profit": 250
             }
           ],
           "fertilizer_level6": {
@@ -2474,7 +2486,8 @@
           "best_fertilizer": [
             "basic-fertilizer",
             249
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -2497,12 +2510,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 34
+          "gain_per_machine_day": 33
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         }
       ],
       "greenhouse": {
@@ -2536,6 +2549,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -2586,23 +2603,35 @@
           },
           "per_harvest_level6": 325,
           "seed_cost": 400,
-          "rank": 11,
-          "of": 17,
+          "rank": 8,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "eggplant",
+              "name": "Eggplant",
+              "profit": 317
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "amaranth",
+              "name": "Amaranth",
+              "profit": 294
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "yam",
+              "name": "Yam",
+              "profit": 239
+            },
+            {
+              "id": "bok-choy",
+              "name": "Bok Choy",
+              "profit": 238
             }
           ],
           "fertilizer_level6": {
@@ -2614,6 +2643,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             295
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -2649,6 +2681,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -2703,23 +2739,35 @@
           },
           "per_harvest_level6": 67,
           "seed_cost": 240,
-          "rank": 10,
-          "of": 15,
+          "rank": 6,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "kale",
+              "name": "Kale",
+              "profit": 213
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "green-bean",
+              "name": "Green Bean",
+              "profit": 209
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "parsnip",
+              "name": "Parsnip",
+              "profit": 114
+            },
+            {
+              "id": "blue-jazz",
+              "name": "Blue Jazz",
+              "profit": 78
             }
           ],
           "fertilizer_level6": {
@@ -2731,6 +2779,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             166
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -2754,12 +2805,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 34
+          "gain_per_machine_day": 33
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         }
       ],
       "greenhouse": {
@@ -2793,6 +2844,10 @@
       "trellis": true,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -2847,23 +2902,35 @@
           },
           "per_harvest_level6": 90,
           "seed_cost": 60,
-          "rank": 5,
-          "of": 17,
+          "rank": 3,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
-            {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
-            },
             {
               "id": "cranberries",
               "name": "Cranberries",
               "profit": 596
+            },
+            {
+              "id": "pumpkin",
+              "name": "Pumpkin",
+              "profit": 518
+            },
+            {
+              "id": "artichoke",
+              "name": "Artichoke",
+              "profit": 448
+            },
+            {
+              "id": "beet",
+              "name": "Beet",
+              "profit": 369
             }
           ],
           "fertilizer_level6": {
@@ -2875,6 +2942,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             488
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -2898,12 +2968,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 41
+          "gain_per_machine_day": 40
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         }
       ],
       "greenhouse": {
@@ -2937,6 +3007,10 @@
       "trellis": true,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -2991,23 +3065,35 @@
           },
           "per_harvest_level6": 45,
           "seed_cost": 60,
-          "rank": 9,
-          "of": 15,
+          "rank": 5,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "cauliflower",
+              "name": "Cauliflower",
+              "profit": 232
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "kale",
+              "name": "Kale",
+              "profit": 213
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "garlic",
+              "name": "Garlic",
+              "profit": 164
+            },
+            {
+              "id": "parsnip",
+              "name": "Parsnip",
+              "profit": 114
             }
           ],
           "fertilizer_level6": {
@@ -3019,7 +3105,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             174
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -3042,12 +3129,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 23
+          "gain_per_machine_day": 22
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         }
       ],
       "greenhouse": {
@@ -3081,6 +3168,10 @@
       "trellis": true,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -3146,23 +3237,35 @@
           },
           "per_harvest_level6": 28,
           "seed_cost": 60,
-          "rank": 8,
-          "of": 19,
+          "rank": 5,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "blueberry",
+              "name": "Blueberry",
+              "profit": 548
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "corn",
+              "name": "Corn",
+              "profit": 466
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 413
+            },
+            {
+              "id": "melon",
+              "name": "Melon",
+              "profit": 401
             }
           ],
           "fertilizer_level6": {
@@ -3174,6 +3277,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             418
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -3197,12 +3303,12 @@
         {
           "machine": "Keg",
           "product": "Pale Ale",
-          "gain_per_machine_day": 281
+          "gain_per_machine_day": 279
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 45
         }
       ],
       "greenhouse": {
@@ -3236,6 +3342,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1.03,
         "level10": 1.03
@@ -3292,23 +3402,35 @@
           },
           "per_harvest_level6": 46,
           "seed_cost": 40,
-          "rank": 11,
-          "of": 19,
+          "rank": 8,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 413
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "melon",
+              "name": "Melon",
+              "profit": 401
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "tomato",
+              "name": "Tomato",
+              "profit": 302
+            },
+            {
+              "id": "radish",
+              "name": "Radish",
+              "profit": 243
             }
           ],
           "fertilizer_level6": {
@@ -3320,7 +3442,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             295
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -3348,7 +3471,7 @@
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         }
       ],
       "greenhouse": {
@@ -3382,6 +3505,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -3434,23 +3561,35 @@
           },
           "per_harvest_level6": 123,
           "seed_cost": 280,
-          "rank": 8,
-          "of": 15,
+          "rank": 4,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "cauliflower",
+              "name": "Cauliflower",
+              "profit": 232
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "green-bean",
+              "name": "Green Bean",
+              "profit": 209
+            },
+            {
+              "id": "garlic",
+              "name": "Garlic",
+              "profit": 164
             }
           ],
           "fertilizer_level6": {
@@ -3462,6 +3601,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             240
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -3485,12 +3627,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 63
+          "gain_per_machine_day": 60
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 107
+          "gain_per_machine_day": 103
         }
       ],
       "greenhouse": {
@@ -3524,6 +3666,10 @@
       "trellis": false,
       "giant": true,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -3574,23 +3720,35 @@
           },
           "per_harvest_level6": 280,
           "seed_cost": 160,
-          "rank": 10,
-          "of": 19,
+          "rank": 7,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "hops",
+              "name": "Hops",
+              "profit": 415
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 413
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "hot-pepper",
+              "name": "Hot Pepper",
+              "profit": 329
+            },
+            {
+              "id": "tomato",
+              "name": "Tomato",
+              "profit": 302
             }
           ],
           "fertilizer_level6": {
@@ -3602,6 +3760,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             521
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -3625,12 +3786,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 128
+          "gain_per_machine_day": 124
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 208
+          "gain_per_machine_day": 198
         }
       ],
       "greenhouse": {
@@ -3664,6 +3825,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -3718,23 +3883,35 @@
           },
           "per_harvest_level6": 39,
           "seed_cost": 120,
-          "rank": 11,
-          "of": 15,
+          "rank": 7,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "green-bean",
+              "name": "Green Bean",
+              "profit": 209
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "garlic",
+              "name": "Garlic",
+              "profit": 164
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "blue-jazz",
+              "name": "Blue Jazz",
+              "profit": 78
+            },
+            {
+              "id": "tulip",
+              "name": "Tulip",
+              "profit": 54
             }
           ],
           "fertilizer_level6": {
@@ -3746,7 +3923,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             91
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -3769,12 +3947,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 20
+          "gain_per_machine_day": 19
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 53
+          "gain_per_machine_day": 52
         }
       ],
       "greenhouse": {
@@ -3805,6 +3983,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -3855,23 +4037,30 @@
           },
           "per_harvest_level6": 336,
           "seed_cost": null,
-          "rank": 4,
-          "of": 19,
+          "rank": null,
+          "would_rank": 2,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
-            {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
             {
               "id": "starfruit",
               "name": "Starfruit",
               "profit": 882
+            },
+            {
+              "id": "red-cabbage",
+              "name": "Red Cabbage",
+              "profit": 575
+            },
+            {
+              "id": "blueberry",
+              "name": "Blueberry",
+              "profit": 548
             }
           ],
           "fertilizer_level6": {
@@ -3883,6 +4072,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             929
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -3906,12 +4099,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 154
+          "gain_per_machine_day": 149
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 244
+          "gain_per_machine_day": 232
         }
       ],
       "greenhouse": {
@@ -3945,6 +4138,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -3996,23 +4193,30 @@
           },
           "per_harvest_level6": 157,
           "seed_cost": 300,
-          "rank": 16,
-          "of": 19,
+          "rank": 12,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "radish",
+              "name": "Radish",
+              "profit": 243
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 233
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "summer-spangle",
+              "name": "Summer Spangle",
+              "profit": 152
             }
           ],
           "fertilizer_level6": {
@@ -4024,6 +4228,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             205
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4060,6 +4267,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1.25,
         "level10": 1.25
@@ -4112,23 +4323,30 @@
           },
           "per_harvest_level6": 110,
           "seed_cost": 200,
-          "rank": 6,
-          "of": 15,
+          "rank": 2,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "rhubarb",
+              "name": "Rhubarb",
+              "profit": 293
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "cauliflower",
+              "name": "Cauliflower",
+              "profit": 232
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "kale",
+              "name": "Kale",
+              "profit": 213
             }
           ],
           "fertilizer_level6": {
@@ -4140,6 +4358,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             278
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4163,12 +4384,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 44
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         }
       ],
       "greenhouse": {
@@ -4199,6 +4420,10 @@
       "trellis": false,
       "giant": true,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -4250,15 +4475,12 @@
           },
           "per_harvest_level6": 67,
           "seed_cost": null,
-          "rank": 2,
-          "of": 2,
-          "peers": [
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 353
-            }
-          ],
+          "rank": null,
+          "would_rank": 1,
+          "of": 0,
+          "carries_into": [],
+          "leader": null,
+          "peers": [],
           "fertilizer_level6": {
             "basic-fertilizer": 121,
             "quality-fertilizer": 86,
@@ -4268,6 +4490,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             256
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4291,12 +4516,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 31
+          "gain_per_machine_day": 30
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         }
       ],
       "greenhouse": {
@@ -4330,6 +4555,10 @@
       "trellis": false,
       "giant": true,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -4380,23 +4609,30 @@
           },
           "per_harvest_level6": 359,
           "seed_cost": 200,
-          "rank": 4,
-          "of": 17,
+          "rank": 2,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
-            {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
-            },
             {
               "id": "cranberries",
               "name": "Cranberries",
               "profit": 596
+            },
+            {
+              "id": "grape",
+              "name": "Grape",
+              "profit": 478
+            },
+            {
+              "id": "artichoke",
+              "name": "Artichoke",
+              "profit": 448
             }
           ],
           "fertilizer_level6": {
@@ -4408,6 +4644,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             697
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4431,12 +4670,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 183
+          "gain_per_machine_day": 175
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 258
+          "gain_per_machine_day": 246
         }
       ],
       "greenhouse": {
@@ -4470,6 +4709,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -4522,23 +4765,35 @@
           },
           "per_harvest_level6": 101,
           "seed_cost": 160,
-          "rank": 13,
-          "of": 19,
+          "rank": 10,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "hot-pepper",
+              "name": "Hot Pepper",
+              "profit": 329
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "tomato",
+              "name": "Tomato",
+              "profit": 302
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 233
+            },
+            {
+              "id": "poppy",
+              "name": "Poppy",
+              "profit": 171
             }
           ],
           "fertilizer_level6": {
@@ -4550,6 +4805,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             285
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4573,12 +4831,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 51
+          "gain_per_machine_day": 49
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 93
+          "gain_per_machine_day": 89
         }
       ],
       "greenhouse": {
@@ -4611,6 +4869,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -4662,23 +4924,30 @@
           },
           "per_harvest_level6": 292,
           "seed_cost": 300,
-          "rank": 5,
-          "of": 19,
+          "rank": 2,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
-            {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
-            },
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
             {
               "id": "starfruit",
               "name": "Starfruit",
               "profit": 882
+            },
+            {
+              "id": "blueberry",
+              "name": "Blueberry",
+              "profit": 548
+            },
+            {
+              "id": "corn",
+              "name": "Corn",
+              "profit": 466
             }
           ],
           "fertilizer_level6": {
@@ -4690,6 +4959,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             686
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4713,12 +4985,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 149
+          "gain_per_machine_day": 142
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 215
+          "gain_per_machine_day": 205
         }
       ],
       "greenhouse": {
@@ -4751,6 +5023,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -4801,23 +5077,21 @@
           },
           "per_harvest_level6": 247,
           "seed_cost": 200,
-          "rank": 5,
-          "of": 15,
+          "rank": 1,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": null,
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
-            },
-            {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "cauliflower",
+              "name": "Cauliflower",
+              "profit": 232
             }
           ],
           "fertilizer_level6": {
@@ -4829,6 +5103,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             360
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
@@ -4852,12 +5129,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 113
+          "gain_per_machine_day": 109
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 186
+          "gain_per_machine_day": 178
         }
       ],
       "greenhouse": {
@@ -4890,6 +5167,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -4940,23 +5221,21 @@
           },
           "per_harvest_level6": 841,
           "seed_cost": 800,
-          "rank": 3,
-          "of": 19,
+          "rank": 1,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": null,
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "red-cabbage",
+              "name": "Red Cabbage",
+              "profit": 575
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
-            {
-              "id": "pineapple",
-              "name": "Pineapple",
-              "profit": 673
+              "id": "blueberry",
+              "name": "Blueberry",
+              "profit": 548
             }
           ],
           "fertilizer_level6": {
@@ -4968,6 +5247,11 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             1243
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "quality-fertilizer",
+            "basic-fertilizer"
           ]
         }
       ],
@@ -4991,12 +5275,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 384
+          "gain_per_machine_day": 372
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 568
+          "gain_per_machine_day": 538
         }
       ],
       "greenhouse": {
@@ -5029,6 +5313,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1.02,
         "level10": 1.02
@@ -5082,23 +5370,25 @@
           },
           "per_harvest_level6": 137,
           "seed_cost": 100,
-          "rank": 3,
-          "of": 15,
+          "rank": null,
+          "would_rank": 1,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "rhubarb",
+              "name": "Rhubarb",
+              "profit": 293
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
-            },
-            {
-              "id": "carrot",
-              "name": "Carrot",
-              "profit": 351
+              "id": "potato",
+              "name": "Potato",
+              "profit": 239
             }
           ],
           "fertilizer_level6": {
@@ -5110,6 +5400,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             642
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -5133,12 +5427,12 @@
         {
           "machine": "Keg",
           "product": "Wine",
-          "gain_per_machine_day": 61
+          "gain_per_machine_day": 60
         },
         {
           "machine": "Preserves Jar",
           "product": "Jelly",
-          "gain_per_machine_day": 114
+          "gain_per_machine_day": 110
         }
       ],
       "greenhouse": {
@@ -5172,6 +5466,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -5223,23 +5521,25 @@
           },
           "per_harvest_level6": 101,
           "seed_cost": 150,
-          "rank": 17,
-          "of": 19,
+          "rank": 13,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 233
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
-            },
-            {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "poppy",
+              "name": "Poppy",
+              "profit": 171
             }
           ],
           "fertilizer_level6": {
@@ -5251,7 +5551,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             123
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [],
@@ -5284,6 +5585,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -5340,23 +5645,35 @@
           },
           "per_harvest_level6": 50,
           "seed_cost": null,
-          "rank": 9,
-          "of": 19,
+          "rank": null,
+          "would_rank": 7,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "hops",
+              "name": "Hops",
+              "profit": 415
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 413
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "melon",
+              "name": "Melon",
+              "profit": 401
+            },
+            {
+              "id": "hot-pepper",
+              "name": "Hot Pepper",
+              "profit": 329
             }
           ],
           "fertilizer_level6": {
@@ -5368,7 +5685,8 @@
           "best_fertilizer": [
             "basic-fertilizer",
             340
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -5391,12 +5709,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 26
+          "gain_per_machine_day": 25
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 60
+          "gain_per_machine_day": 59
         }
       ],
       "greenhouse": {
@@ -5431,6 +5749,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 1,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -5479,40 +5801,57 @@
           "last_planting_day": 20,
           "last_planting_season": "fall",
           "profit": {
-            "level0": -265,
-            "level6": -212,
-            "level10": -180
+            "level0": 360,
+            "level6": 413,
+            "level10": 445
           },
           "per_harvest_level6": 90,
-          "seed_cost": 750,
-          "rank": 18,
-          "of": 19,
+          "seed_cost": 125,
+          "rank": 6,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [
+            "fall"
+          ],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "corn",
+              "name": "Corn",
+              "profit": 466
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "hops",
+              "name": "Hops",
+              "profit": 415
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "melon",
+              "name": "Melon",
+              "profit": 401
+            },
+            {
+              "id": "hot-pepper",
+              "name": "Hot Pepper",
+              "profit": 329
             }
           ],
           "fertilizer_level6": {
-            "basic-fertilizer": -260,
-            "quality-fertilizer": -270,
-            "speed-gro": -347,
-            "deluxe-speed-gro": -397
+            "basic-fertilizer": 365,
+            "quality-fertilizer": 355,
+            "speed-gro": 403,
+            "deluxe-speed-gro": 603
           },
           "best_fertilizer": [
-            "basic-fertilizer",
-            -260
+            "deluxe-speed-gro",
+            603
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         },
         {
@@ -5526,48 +5865,63 @@
           "last_planting_day": 20,
           "last_planting_season": "fall",
           "profit": {
-            "level0": -133,
-            "level6": -106,
-            "level10": -90
+            "level0": 117,
+            "level6": 144,
+            "level10": 160
           },
           "per_harvest_level6": 90,
-          "seed_cost": 375,
-          "rank": 17,
-          "of": 17,
+          "seed_cost": 125,
+          "rank": 11,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "yam",
+              "name": "Yam",
+              "profit": 239
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "bok-choy",
+              "name": "Bok Choy",
+              "profit": 238
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 108
+            },
+            {
+              "id": "corn",
+              "name": "Corn",
+              "profit": 74
             }
           ],
           "fertilizer_level6": {
-            "basic-fertilizer": -180,
-            "quality-fertilizer": -210,
-            "speed-gro": -206,
-            "deluxe-speed-gro": -221
+            "basic-fertilizer": 70,
+            "quality-fertilizer": 40,
+            "speed-gro": 44,
+            "deluxe-speed-gro": 154
           },
           "best_fertilizer": [
-            "basic-fertilizer",
-            -180
+            "deluxe-speed-gro",
+            154
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         }
       ],
       "products": [],
       "machine_gain": [],
       "greenhouse": {
-        "established": -459,
-        "first_year": -459,
+        "established": 1166,
+        "first_year": 1041,
         "harvests": 13
       },
       "verification": "cross-checked"
@@ -5595,6 +5949,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -5644,14 +6002,16 @@
           },
           "per_harvest_level6": 3365,
           "seed_cost": 1000,
-          "rank": 1,
-          "of": 17,
+          "rank": null,
+          "would_rank": 1,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
-            {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
-            },
             {
               "id": "cranberries",
               "name": "Cranberries",
@@ -5672,6 +6032,10 @@
           "best_fertilizer": [
             "quality-fertilizer",
             2784
+          ],
+          "paying_fertilizers": [
+            "quality-fertilizer",
+            "basic-fertilizer"
           ]
         }
       ],
@@ -5705,6 +6069,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": false,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": 7,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -5755,23 +6123,35 @@
           },
           "per_harvest_level6": 112,
           "seed_cost": null,
-          "rank": 15,
-          "of": 19,
+          "rank": null,
+          "would_rank": 12,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "radish",
+              "name": "Radish",
+              "profit": 243
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 233
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "poppy",
+              "name": "Poppy",
+              "profit": 171
+            },
+            {
+              "id": "summer-spangle",
+              "name": "Summer Spangle",
+              "profit": 152
             }
           ],
           "fertilizer_level6": {
@@ -5783,6 +6163,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             256
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -5806,12 +6190,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 100
+          "gain_per_machine_day": 96
         }
       ],
       "greenhouse": {
@@ -5845,6 +6229,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1.05,
         "level10": 1.05
@@ -5898,23 +6286,35 @@
           },
           "per_harvest_level6": 70,
           "seed_cost": 50,
-          "rank": 12,
-          "of": 19,
+          "rank": 9,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "melon",
+              "name": "Melon",
+              "profit": 401
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "hot-pepper",
+              "name": "Hot Pepper",
+              "profit": 329
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "radish",
+              "name": "Radish",
+              "profit": 243
+            },
+            {
+              "id": "wheat",
+              "name": "Wheat",
+              "profit": 233
             }
           ],
           "fertilizer_level6": {
@@ -5926,7 +6326,8 @@
           "best_fertilizer": [
             "basic-fertilizer",
             234
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -5949,12 +6350,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 34
+          "gain_per_machine_day": 33
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         }
       ],
       "greenhouse": {
@@ -5988,6 +6389,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -6040,23 +6445,30 @@
           },
           "per_harvest_level6": 34,
           "seed_cost": 80,
-          "rank": 13,
-          "of": 15,
+          "rank": 9,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "parsnip",
+              "name": "Parsnip",
+              "profit": 114
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
+              "id": "blue-jazz",
+              "name": "Blue Jazz",
+              "profit": 78
             },
             {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "unmilled-rice",
+              "name": "Unmilled Rice",
+              "profit": 36
             }
           ],
           "fertilizer_level6": {
@@ -6068,7 +6480,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             1
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [],
@@ -6103,6 +6516,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": 6,
       "items_per_harvest": {
         "level0": 1.61,
         "level10": 2.11
@@ -6154,23 +6571,25 @@
           },
           "per_harvest_level6": 52,
           "seed_cost": 120,
-          "rank": 14,
-          "of": 15,
+          "rank": 10,
+          "would_rank": null,
+          "of": 10,
+          "carries_into": [],
+          "leader": {
+            "id": "rhubarb",
+            "name": "Rhubarb",
+            "profit": 293
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 4934
+              "id": "blue-jazz",
+              "name": "Blue Jazz",
+              "profit": 78
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 2702
-            },
-            {
-              "id": "strawberry",
-              "name": "Strawberry",
-              "profit": 585
+              "id": "tulip",
+              "name": "Tulip",
+              "profit": 54
             }
           ],
           "fertilizer_level6": {
@@ -6182,7 +6601,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             -33
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -6205,12 +6625,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 17
+          "gain_per_machine_day": 16
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 50
+          "gain_per_machine_day": 48
         }
       ],
       "greenhouse": {
@@ -6245,6 +6665,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -6306,23 +6730,37 @@
           },
           "per_harvest_level6": 28,
           "seed_cost": 130,
-          "rank": 14,
-          "of": 19,
+          "rank": 11,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [
+            "fall"
+          ],
+          "leader": {
+            "id": "starfruit",
+            "name": "Starfruit",
+            "profit": 882
+          },
           "peers": [
             {
-              "id": "ancient-fruit",
-              "name": "Ancient Fruit",
-              "profit": 2467
+              "id": "tomato",
+              "name": "Tomato",
+              "profit": 302
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1863
+              "id": "radish",
+              "name": "Radish",
+              "profit": 243
             },
             {
-              "id": "starfruit",
-              "name": "Starfruit",
-              "profit": 882
+              "id": "poppy",
+              "name": "Poppy",
+              "profit": 171
+            },
+            {
+              "id": "summer-spangle",
+              "name": "Summer Spangle",
+              "profit": 152
             }
           ],
           "fertilizer_level6": {
@@ -6334,6 +6772,9 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             243
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro"
           ]
         },
         {
@@ -6356,23 +6797,30 @@
           },
           "per_harvest_level6": 28,
           "seed_cost": 60,
-          "rank": 14,
-          "of": 17,
+          "rank": 12,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "bok-choy",
+              "name": "Bok Choy",
+              "profit": 238
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 144
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "corn",
+              "name": "Corn",
+              "profit": 74
             }
           ],
           "fertilizer_level6": {
@@ -6384,7 +6832,8 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             81
-          ]
+          ],
+          "paying_fertilizers": []
         }
       ],
       "products": [
@@ -6407,12 +6856,12 @@
         {
           "machine": "Keg",
           "product": "Beer",
-          "gain_per_machine_day": 233
+          "gain_per_machine_day": 231
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 45
         }
       ],
       "greenhouse": {
@@ -6446,6 +6895,10 @@
       "trellis": false,
       "giant": false,
       "indoor_only": false,
+      "shop_seeds": true,
+      "returns_seeds": 0,
+      "seed_note": null,
+      "irrigated_growth_days": null,
       "items_per_harvest": {
         "level0": 1,
         "level10": 1
@@ -6496,23 +6949,35 @@
           },
           "per_harvest_level6": 179,
           "seed_cost": 120,
-          "rank": 12,
-          "of": 17,
+          "rank": 9,
+          "would_rank": null,
+          "of": 13,
+          "carries_into": [],
+          "leader": {
+            "id": "cranberries",
+            "name": "Cranberries",
+            "profit": 596
+          },
           "peers": [
             {
-              "id": "sweet-gem-berry",
-              "name": "Sweet Gem Berry",
-              "profit": 2365
+              "id": "amaranth",
+              "name": "Amaranth",
+              "profit": 294
             },
             {
-              "id": "cactus-fruit",
-              "name": "Cactus Fruit",
-              "profit": 1108
+              "id": "fairy-rose",
+              "name": "Fairy Rose",
+              "profit": 250
             },
             {
-              "id": "cranberries",
-              "name": "Cranberries",
-              "profit": 596
+              "id": "bok-choy",
+              "name": "Bok Choy",
+              "profit": 238
+            },
+            {
+              "id": "sunflower",
+              "name": "Sunflower",
+              "profit": 144
             }
           ],
           "fertilizer_level6": {
@@ -6524,6 +6989,10 @@
           "best_fertilizer": [
             "deluxe-speed-gro",
             278
+          ],
+          "paying_fertilizers": [
+            "deluxe-speed-gro",
+            "speed-gro"
           ]
         }
       ],
@@ -6547,12 +7016,12 @@
         {
           "machine": "Keg",
           "product": "Juice",
-          "gain_per_machine_day": 92
+          "gain_per_machine_day": 87
         },
         {
           "machine": "Preserves Jar",
           "product": "Pickles",
-          "gain_per_machine_day": 143
+          "gain_per_machine_day": 137
         }
       ],
       "greenhouse": {
@@ -6572,6 +7041,8 @@
       "days_to_mature": 3,
       "mode": "building",
       "frequency_days": 1,
+      "frequency_full_days": 1,
+      "frequency_profession": [],
       "products": [
         {
           "id": "egg",
@@ -6739,6 +7210,8 @@
       "days_to_mature": 5,
       "mode": "building",
       "frequency_days": 2,
+      "frequency_full_days": 2,
+      "frequency_profession": [],
       "products": [
         {
           "id": "duck-egg",
@@ -6918,6 +7391,8 @@
       "days_to_mature": 6,
       "mode": "building",
       "frequency_days": 4,
+      "frequency_full_days": 4,
+      "frequency_profession": [],
       "products": [
         {
           "id": "wool",
@@ -7097,6 +7572,8 @@
       "days_to_mature": 3,
       "mode": "building",
       "frequency_days": 1,
+      "frequency_full_days": 1,
+      "frequency_profession": [],
       "products": [
         {
           "id": "void-egg",
@@ -7230,6 +7707,8 @@
       "days_to_mature": 3,
       "mode": "building",
       "frequency_days": 1,
+      "frequency_full_days": 1,
+      "frequency_profession": [],
       "products": [
         {
           "id": "golden-egg",
@@ -7363,6 +7842,8 @@
       "days_to_mature": 0,
       "mode": "building",
       "frequency_days": 7,
+      "frequency_full_days": 7,
+      "frequency_profession": [],
       "products": [
         {
           "id": "dinosaur-egg",
@@ -7494,6 +7975,8 @@
       "days_to_mature": 7,
       "mode": "building",
       "frequency_days": 7,
+      "frequency_full_days": 7,
+      "frequency_profession": [],
       "products": [
         {
           "id": "ostrich-egg",
@@ -7625,6 +8108,8 @@
       "days_to_mature": 5,
       "mode": "building",
       "frequency_days": 1,
+      "frequency_full_days": 1,
+      "frequency_profession": [],
       "products": [
         {
           "id": "milk",
@@ -7792,6 +8277,8 @@
       "days_to_mature": 5,
       "mode": "building",
       "frequency_days": 2,
+      "frequency_full_days": 2,
+      "frequency_profession": [],
       "products": [
         {
           "id": "goat-milk",
@@ -7959,6 +8446,13 @@
       "days_to_mature": 4,
       "mode": "building",
       "frequency_days": 3,
+      "frequency_full_days": 2,
+      "frequency_profession": [
+        {
+          "profession": "shepherd",
+          "days": 1
+        }
+      ],
       "products": [
         {
           "id": "wool",
@@ -8093,6 +8587,8 @@
       "days_to_mature": 10,
       "mode": "outdoor-forage",
       "frequency_days": null,
+      "frequency_full_days": null,
+      "frequency_profession": [],
       "products": [
         {
           "id": "truffle",
@@ -8251,17 +8747,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 384
-        },
-        {
-          "id": "ancient-fruit",
-          "name": "Ancient Fruit",
-          "product": "Wine",
-          "price": 2310,
-          "input": 1,
-          "minutes": 10000,
-          "days": 6.25,
-          "gain_per_machine_day": 282
+          "gain_per_machine_day": 372
         },
         {
           "id": "hops",
@@ -8271,7 +8757,17 @@
           "input": 1,
           "minutes": 2250,
           "days": 1.41,
-          "gain_per_machine_day": 281
+          "gain_per_machine_day": 279
+        },
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "product": "Wine",
+          "price": 2310,
+          "input": 1,
+          "minutes": 10000,
+          "days": 6.25,
+          "gain_per_machine_day": 273
         },
         {
           "id": "wheat",
@@ -8281,7 +8777,7 @@
           "input": 1,
           "minutes": 1750,
           "days": 1.09,
-          "gain_per_machine_day": 233
+          "gain_per_machine_day": 231
         },
         {
           "id": "pumpkin",
@@ -8291,7 +8787,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 183
+          "gain_per_machine_day": 175
         },
         {
           "id": "pineapple",
@@ -8301,7 +8797,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 154
+          "gain_per_machine_day": 149
         },
         {
           "id": "red-cabbage",
@@ -8311,7 +8807,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 149
+          "gain_per_machine_day": 142
         },
         {
           "id": "melon",
@@ -8321,7 +8817,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 128
+          "gain_per_machine_day": 124
         },
         {
           "id": "rhubarb",
@@ -8331,7 +8827,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 113
+          "gain_per_machine_day": 109
         },
         {
           "id": "cauliflower",
@@ -8341,7 +8837,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 100
+          "gain_per_machine_day": 95
         },
         {
           "id": "artichoke",
@@ -8351,7 +8847,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 92
+          "gain_per_machine_day": 87
         },
         {
           "id": "yam",
@@ -8361,7 +8857,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 92
+          "gain_per_machine_day": 87
         },
         {
           "id": "amaranth",
@@ -8371,7 +8867,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         },
         {
           "id": "kale",
@@ -8381,7 +8877,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 63
+          "gain_per_machine_day": 60
         },
         {
           "id": "strawberry",
@@ -8391,7 +8887,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 61
+          "gain_per_machine_day": 60
         },
         {
           "id": "beet",
@@ -8401,7 +8897,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         },
         {
           "id": "taro-root",
@@ -8411,7 +8907,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         },
         {
           "id": "radish",
@@ -8421,7 +8917,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 51
+          "gain_per_machine_day": 49
         },
         {
           "id": "bok-choy",
@@ -8431,7 +8927,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 44
         },
         {
           "id": "potato",
@@ -8441,7 +8937,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 44
         },
         {
           "id": "grape",
@@ -8451,7 +8947,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 41
+          "gain_per_machine_day": 40
         },
         {
           "id": "broccoli",
@@ -8461,7 +8957,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 40
+          "gain_per_machine_day": 38
         },
         {
           "id": "cactus-fruit",
@@ -8471,7 +8967,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 38
+          "gain_per_machine_day": 37
         },
         {
           "id": "cranberries",
@@ -8481,7 +8977,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 38
+          "gain_per_machine_day": 37
         },
         {
           "id": "eggplant",
@@ -8491,7 +8987,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 34
+          "gain_per_machine_day": 33
         },
         {
           "id": "garlic",
@@ -8501,7 +8997,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 34
+          "gain_per_machine_day": 33
         },
         {
           "id": "tomato",
@@ -8511,7 +9007,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 34
+          "gain_per_machine_day": 33
         },
         {
           "id": "powdermelon",
@@ -8521,7 +9017,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 31
+          "gain_per_machine_day": 30
         },
         {
           "id": "corn",
@@ -8531,7 +9027,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 28
+          "gain_per_machine_day": 27
         },
         {
           "id": "blueberry",
@@ -8541,7 +9037,7 @@
           "input": 1,
           "minutes": 10000,
           "days": 6.25,
-          "gain_per_machine_day": 26
+          "gain_per_machine_day": 25
         },
         {
           "id": "summer-squash",
@@ -8551,7 +9047,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 26
+          "gain_per_machine_day": 25
         },
         {
           "id": "green-bean",
@@ -8561,17 +9057,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 23
-        },
-        {
-          "id": "carrot",
-          "name": "Carrot",
-          "product": "Juice",
-          "price": 109,
-          "input": 1,
-          "minutes": 6000,
-          "days": 3.75,
-          "gain_per_machine_day": 20
+          "gain_per_machine_day": 22
         },
         {
           "id": "hot-pepper",
@@ -8584,6 +9070,16 @@
           "gain_per_machine_day": 20
         },
         {
+          "id": "carrot",
+          "name": "Carrot",
+          "product": "Juice",
+          "price": 109,
+          "input": 1,
+          "minutes": 6000,
+          "days": 3.75,
+          "gain_per_machine_day": 19
+        },
+        {
           "id": "parsnip",
           "name": "Parsnip",
           "product": "Juice",
@@ -8591,7 +9087,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 20
+          "gain_per_machine_day": 19
         },
         {
           "id": "unmilled-rice",
@@ -8601,7 +9097,7 @@
           "input": 1,
           "minutes": 6000,
           "days": 3.75,
-          "gain_per_machine_day": 17
+          "gain_per_machine_day": 16
         }
       ],
       "accepted": 37
@@ -8618,7 +9114,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 568
+          "gain_per_machine_day": 538
         },
         {
           "id": "ancient-fruit",
@@ -8628,7 +9124,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 424
+          "gain_per_machine_day": 402
         },
         {
           "id": "pumpkin",
@@ -8638,7 +9134,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 258
+          "gain_per_machine_day": 246
         },
         {
           "id": "pineapple",
@@ -8648,7 +9144,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 244
+          "gain_per_machine_day": 232
         },
         {
           "id": "red-cabbage",
@@ -8658,7 +9154,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 215
+          "gain_per_machine_day": 205
         },
         {
           "id": "melon",
@@ -8668,7 +9164,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 208
+          "gain_per_machine_day": 198
         },
         {
           "id": "rhubarb",
@@ -8678,7 +9174,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 186
+          "gain_per_machine_day": 178
         },
         {
           "id": "cauliflower",
@@ -8688,7 +9184,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 154
+          "gain_per_machine_day": 147
         },
         {
           "id": "artichoke",
@@ -8698,7 +9194,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 143
+          "gain_per_machine_day": 137
         },
         {
           "id": "yam",
@@ -8708,7 +9204,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 143
+          "gain_per_machine_day": 137
         },
         {
           "id": "amaranth",
@@ -8718,7 +9214,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 136
+          "gain_per_machine_day": 130
         },
         {
           "id": "strawberry",
@@ -8728,7 +9224,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 114
+          "gain_per_machine_day": 110
         },
         {
           "id": "kale",
@@ -8738,7 +9234,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 107
+          "gain_per_machine_day": 103
         },
         {
           "id": "beet",
@@ -8748,7 +9244,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 100
+          "gain_per_machine_day": 96
         },
         {
           "id": "taro-root",
@@ -8758,7 +9254,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 100
+          "gain_per_machine_day": 96
         },
         {
           "id": "radish",
@@ -8768,7 +9264,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 93
+          "gain_per_machine_day": 89
         },
         {
           "id": "bok-choy",
@@ -8778,7 +9274,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         },
         {
           "id": "grape",
@@ -8788,7 +9284,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         },
         {
           "id": "potato",
@@ -8798,7 +9294,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 86
+          "gain_per_machine_day": 82
         },
         {
           "id": "cactus-fruit",
@@ -8808,7 +9304,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 82
+          "gain_per_machine_day": 79
         },
         {
           "id": "cranberries",
@@ -8818,7 +9314,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 82
+          "gain_per_machine_day": 79
         },
         {
           "id": "broccoli",
@@ -8828,7 +9324,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 78
+          "gain_per_machine_day": 76
         },
         {
           "id": "eggplant",
@@ -8838,7 +9334,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         },
         {
           "id": "garlic",
@@ -8848,7 +9344,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         },
         {
           "id": "powdermelon",
@@ -8858,7 +9354,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         },
         {
           "id": "tomato",
@@ -8868,7 +9364,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 71
+          "gain_per_machine_day": 69
         },
         {
           "id": "blueberry",
@@ -8878,7 +9374,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 64
+          "gain_per_machine_day": 62
         },
         {
           "id": "corn",
@@ -8888,7 +9384,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 64
+          "gain_per_machine_day": 62
         },
         {
           "id": "summer-squash",
@@ -8898,7 +9394,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 60
+          "gain_per_machine_day": 59
         },
         {
           "id": "green-bean",
@@ -8908,7 +9404,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         },
         {
           "id": "hot-pepper",
@@ -8918,7 +9414,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 57
+          "gain_per_machine_day": 55
         },
         {
           "id": "carrot",
@@ -8928,7 +9424,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 53
+          "gain_per_machine_day": 52
         },
         {
           "id": "parsnip",
@@ -8938,7 +9434,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 53
+          "gain_per_machine_day": 52
         },
         {
           "id": "unmilled-rice",
@@ -8948,7 +9444,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 50
+          "gain_per_machine_day": 48
         },
         {
           "id": "hops",
@@ -8958,7 +9454,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 45
         },
         {
           "id": "wheat",
@@ -8968,7 +9464,7 @@
           "input": 1,
           "minutes": 4000,
           "days": 2.5,
-          "gain_per_machine_day": 46
+          "gain_per_machine_day": 45
         }
       ],
       "accepted": 36

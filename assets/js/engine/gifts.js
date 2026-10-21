@@ -41,7 +41,9 @@ export function giftPoints(level, fr, { quality = 'normal', event = 'none', frie
   if (event === 'birthday') p *= fr.multipliers.birthday;
   else if (event === 'winter_star') p *= fr.multipliers.winter_star;
   if (friendship101 && base > 0) p *= fr.multipliers.friendship_101;
-  return Math.round(p);
+  // The game truncates (wiki Friendship table: liked + Friendship 101 = 49, not 50). The rounding
+  // to 6 places first drops float noise such as 88.00000000000001.
+  return Math.trunc(Math.round(p * 1e6) / 1e6);
 }
 
 export const heartsFor = (points) => points / POINTS_PER_HEART;

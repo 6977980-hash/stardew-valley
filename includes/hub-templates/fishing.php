@@ -31,7 +31,7 @@ $g  = function ( $n ) {
 <p>Put another way, processing the roe more than doubles what the best fish earns, but only if you own enough Preserves Jars to keep up. The best processed pond needs <?php echo (int) $fp['processed'][0]['jars']; ?> jars working on it, and the third needs <?php echo (int) $fp['processed'][2]['jars']; ?>, so count your jars before you count your fish.</p>
 <?php endif; ?>
 <?php
-$raw_by_id = array();
+$raw_by_id = isset( $fp['raw_by_id'] ) ? $fp['raw_by_id'] : array();
 foreach ( $fp['raw'] as $r ) {
 	$raw_by_id[ $r['id'] ] = $r['gold_per_day'];
 }
@@ -42,14 +42,19 @@ foreach ( $fp['raw'] as $r ) {
 	<thead><tr><th scope="col">Fish</th><th scope="col">Processed</th><th scope="col">Jars to keep up</th><th scope="col">Sold raw</th></tr></thead>
 	<tbody>
 	<?php foreach ( array_slice( $fp['processed'], 0, 5 ) as $r ) : ?>
-		<tr><th scope="row"><?php echo esc_html( $r['name'] ); ?></th><td><?php echo esc_html( $g( $r['gold_per_day'] ) ); ?></td><td><?php echo (int) $r['jars']; ?></td><td><?php echo isset( $raw_by_id[ $r['id'] ] ) ? esc_html( $g( $raw_by_id[ $r['id'] ] ) ) : 'lower'; ?></td></tr>
+		<tr><th scope="row"><?php echo esc_html( $r['name'] ); ?></th><td><?php echo esc_html( $g( $r['gold_per_day'] ) ); ?></td><td><?php echo (int) $r['jars']; ?></td><td><?php echo isset( $raw_by_id[ $r['id'] ] ) ? esc_html( $g( $raw_by_id[ $r['id'] ] ) ) : '—'; ?></td></tr>
 	<?php endforeach; ?>
 	</tbody>
 </table>
 </div>
 <?php if ( ! empty( $fp['ramp'][0] ) ) : ?>
 <h2>A pond takes weeks to fill</h2>
-<p>Most pond fish start with room for only one and need quest items from you at each step to grow. <?php echo esc_html( $fp['ramp'][0]['name'] ); ?> adds a new fish every <?php echo (int) $fp['ramp'][0]['spawn_days']; ?> days, and filling the pond to 10 takes at least <?php echo (int) $fp['ramp'][0]['days_to_fill']; ?> days if you hand over each quest item the day it is asked for. <?php echo esc_html( $fp['ramp'][1]['name'] ); ?> takes about <?php echo (int) $fp['ramp'][1]['days_to_fill']; ?>. That is why a pond should be built early in a season, not the week before you need the money.</p>
+<?php
+$sc   = isset( $fp['start_capacity'] ) ? $fp['start_capacity'] : array();
+$cap3 = isset( $sc['3'] ) ? (int) $sc['3'] : 0;
+$cap1 = isset( $sc['1'] ) ? (int) $sc['1'] : 0;
+?>
+<p><?php if ( $cap3 && $cap1 ) : ?>Most pond fish (<?php echo (int) $cap3; ?> of <?php echo (int) array_sum( $sc ); ?>, not counting legendaries) start with room for three, but <?php echo (int) $cap1; ?>, including the best money fish, start with room for only one.<?php endif; ?> Every pond needs quest items from you at each step to grow, and finishing a quest restarts the spawn timer. <?php echo esc_html( $fp['ramp'][0]['name'] ); ?> adds a new fish every <?php echo (int) $fp['ramp'][0]['spawn_days']; ?> days, and filling the pond from one fish to 10 takes at least <?php echo (int) $fp['ramp'][0]['days_to_fill']; ?> days if you hand over each quest item the day it is asked for. <?php echo esc_html( $fp['ramp'][1]['name'] ); ?> takes about <?php echo (int) $fp['ramp'][1]['days_to_fill']; ?>. That is why a pond should be built early in a season, not the week before you need the money.</p>
 <p>The first quest for <?php echo esc_html( $fp['ramp'][0]['name'] ); ?> asks for one of <?php echo esc_html( implode( ', ', $fp['ramp'][0]['quests'][0]['options'] ) ); ?>, and the last asks for one of <?php echo esc_html( implode( ', ', $fp['ramp'][0]['quests'][3]['options'] ) ); ?>. The Fish Pond Calculator lists the quest items for every fish.</p>
 <?php endif; ?>
 <h2>Three questions before you build</h2>
