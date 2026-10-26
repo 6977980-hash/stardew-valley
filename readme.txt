@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.18.0
+Stable tag: 0.18.1
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.18.1 (2026-10-26) =
+* Google Analytics 4 (G-ZYXVVT76GG) on every public page via includes/class-analytics.php: async gtag.js first in <head>, marked data-no-optimize/data-no-defer for LiteSpeed. Not printed for logged-in editors/admins, previews or feeds. Filter stardew_tools_ga_id ('' turns it off).
 
 = 0.18.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 2 (crawl, index and technical SEO), 5 fixes:
