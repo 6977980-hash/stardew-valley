@@ -156,6 +156,17 @@ class Guides {
 				'data'        => array( 'crops', 'year-one', 'crafting', 'skills', 'bundles', 'buildings' ),
 				'tools'       => array( 'what-to-plant', 'crop-profit-calculator', 'best-spring-crops', 'best-summer-crops', 'best-fall-crops' ),
 			),
+			'ginger-island-farm'         => array(
+				'hub'         => 'crops-and-farming',
+				'title'       => 'Ginger Island Farm: Best Crops, Unlocks and Walnuts',
+				'short'       => 'Ginger Island Farm',
+				'blurb'       => 'How to reach the island farm, which walnuts to spend first, and the best crops for a year with no seasons.',
+				'description' => 'Ginger Island farm in Stardew Valley 1.6: boat repair, which Golden Walnuts to spend first, the best year-round crops, Pineapple, Taro and fruit trees.',
+				'published'   => '2026-10-26',
+				'updated'     => '2026-10-26',
+				'data'        => array( 'ginger-island', 'crops', 'fruittrees', 'machines' ),
+				'tools'       => array( 'crop-profit-calculator', 'keg-vs-preserves-jar', 'greenhouse-planner' ),
+			),
 			'best-fruit-trees'           => array(
 				'hub'         => 'crops-and-farming',
 				'title'       => 'Best Fruit Trees in Stardew Valley: Which Sapling Pays Back?',
@@ -402,7 +413,7 @@ class Guides {
 			'Year 1, Spring: your first crops'          => array( 'guide:how-to-make-money-year-1', 'tool:what-to-plant', 'tool:best-spring-crops', 'guide:speed-gro-vs-fertilizer', 'entity:bundles' ),
 			'Year 1, Summer and Fall: grow the farm'    => array( 'tool:best-summer-crops', 'guide:coop-or-barn-first', 'guide:how-many-kegs-do-i-need', 'entity:villagers' ),
 			'Greenhouse and Year 2: build the machines' => array( 'guide:best-greenhouse-setup-for-money', 'guide:best-fruit-trees', 'guide:dehydrator-vs-keg', 'guide:best-fish-for-fish-ponds', 'guide:are-pigs-worth-it' ),
-			'Late game: age and scale up'               => array( 'guide:are-casks-worth-it', 'tool:greenhouse-planner', 'tool:keg-vs-preserves-jar' ),
+			'Late game: age and scale up'               => array( 'guide:ginger-island-farm', 'guide:are-casks-worth-it', 'tool:greenhouse-planner', 'tool:keg-vs-preserves-jar' ),
 		);
 		$all    = self::guides();
 		$tools  = Tools::definitions();

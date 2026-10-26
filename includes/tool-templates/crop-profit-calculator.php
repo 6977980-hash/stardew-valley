@@ -41,6 +41,7 @@ $best = isset( $answers['crop_profit'] ) ? $answers['crop_profit'] : array();
 					'fall'       => 'Fall',
 					'winter'     => 'Winter',
 					'greenhouse' => 'Greenhouse (one year)',
+					'island'     => 'Ginger Island farm (one year)',
 				),
 				'spring'
 			);

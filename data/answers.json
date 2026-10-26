@@ -5852,6 +5852,1222 @@
           "name": "Parsnip"
         }
       }
+    },
+    "ginger_island": {
+      "days": 112,
+      "boat": [
+        {
+          "item": "Hardwood",
+          "qty": 200,
+          "part": "hull"
+        },
+        {
+          "item": "Iridium Bar",
+          "qty": 5,
+          "part": "anchor"
+        },
+        {
+          "item": "Battery Pack",
+          "qty": 5,
+          "part": "ticket stand"
+        }
+      ],
+      "ticket": 1000,
+      "walnuts_total": 130,
+      "walnuts_all_unlocks": 116,
+      "qi_room": 100,
+      "unlocks": [
+        {
+          "id": "north",
+          "name": "Ginger Island North",
+          "walnuts": 1
+        },
+        {
+          "id": "west",
+          "name": "Ginger Island West",
+          "walnuts": 10
+        },
+        {
+          "id": "farmhouse",
+          "name": "Island Farmhouse",
+          "walnuts": 20
+        },
+        {
+          "id": "mailbox",
+          "name": "Farmhouse Mailbox",
+          "walnuts": 5
+        },
+        {
+          "id": "farm-obelisk",
+          "name": "Farm Obelisk",
+          "walnuts": 20
+        },
+        {
+          "id": "dig-site",
+          "name": "Island Dig Site",
+          "walnuts": 10
+        },
+        {
+          "id": "trader",
+          "name": "Island Trader",
+          "walnuts": 10
+        },
+        {
+          "id": "volcano-bridge",
+          "name": "Volcano Bridge",
+          "walnuts": 5
+        },
+        {
+          "id": "volcano-shortcut",
+          "name": "Volcano Exit Shortcut",
+          "walnuts": 5
+        },
+        {
+          "id": "resort",
+          "name": "Island Resort",
+          "walnuts": 20
+        },
+        {
+          "id": "parrot-express",
+          "name": "Parrot Express",
+          "walnuts": 10
+        }
+      ],
+      "to_farmhouse": 31,
+      "to_trader": 41,
+      "to_obelisk": 25,
+      "tiles": 879,
+      "main_tiles": 777,
+      "rain_chance": 0.24,
+      "outdoor_ok": [
+        "Cactus Fruit"
+      ],
+      "trades": [
+        {
+          "id": "taro-tuber",
+          "name": "Taro Tuber",
+          "item": "Bone Fragment",
+          "qty": 2,
+          "crop": "taro-root",
+          "tree": null
+        },
+        {
+          "id": "pineapple-seeds",
+          "name": "Pineapple Seeds",
+          "item": "Magma Cap",
+          "qty": 1,
+          "crop": "pineapple",
+          "tree": null
+        },
+        {
+          "id": "banana-sapling",
+          "name": "Banana Sapling",
+          "item": "Dragon Tooth",
+          "qty": 5,
+          "crop": null,
+          "tree": "banana"
+        },
+        {
+          "id": "mango-sapling",
+          "name": "Mango Sapling",
+          "item": "Mussel",
+          "qty": 75,
+          "crop": null,
+          "tree": "mango"
+        }
+      ],
+      "crops": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "regrows": true,
+          "growth": 28,
+          "regrow": 7,
+          "harvests": 16,
+          "raw": 8887,
+          "per_day": 79.35,
+          "first_year": 6666,
+          "best": 36960,
+          "best_as": "Wine",
+          "seed": null,
+          "seed_not_counted": true
+        },
+        {
+          "id": "sweet-gem-berry",
+          "name": "Sweet Gem Berry",
+          "regrows": false,
+          "growth": 24,
+          "regrow": null,
+          "harvests": 4,
+          "raw": 8119,
+          "per_day": 72.49,
+          "first_year": 8119,
+          "best": 8119,
+          "best_as": "Sweet Gem Berry",
+          "seed": {
+            "gold": 1000,
+            "source": "traveling_cart"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "regrows": true,
+          "growth": 14,
+          "regrow": 7,
+          "harvests": 16,
+          "raw": 4848,
+          "per_day": 43.28,
+          "first_year": 4242,
+          "best": 20160,
+          "best_as": "Wine",
+          "seed": {
+            "trade": {
+              "item": "Magma Cap",
+              "qty": 1
+            }
+          },
+          "seed_not_counted": true
+        },
+        {
+          "id": "blueberry",
+          "name": "Blueberry",
+          "regrows": true,
+          "growth": 13,
+          "regrow": 4,
+          "harvests": 28,
+          "raw": 4242,
+          "per_day": 37.88,
+          "first_year": 3708,
+          "best": 17760,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 80,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "cranberries",
+          "name": "Cranberries",
+          "regrows": true,
+          "growth": 7,
+          "regrow": 5,
+          "harvests": 22,
+          "raw": 3499,
+          "per_day": 31.24,
+          "first_year": 3100,
+          "best": 14630,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 240,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "strawberry",
+          "name": "Strawberry",
+          "regrows": true,
+          "growth": 8,
+          "regrow": 4,
+          "harvests": 28,
+          "raw": 3462,
+          "per_day": 30.91,
+          "first_year": 3115,
+          "best": 14400,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 100,
+            "source": "egg_festival"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "coffee-bean",
+          "name": "Coffee Bean",
+          "regrows": true,
+          "growth": 10,
+          "regrow": 2,
+          "harvests": 56,
+          "raw": 3384,
+          "per_day": 30.22,
+          "first_year": 3082,
+          "best": 6754,
+          "best_as": "Coffee",
+          "seed": null,
+          "seed_not_counted": true
+        },
+        {
+          "id": "grape",
+          "name": "Grape",
+          "regrows": true,
+          "growth": 10,
+          "regrow": 3,
+          "harvests": 37,
+          "raw": 2989,
+          "per_day": 26.69,
+          "first_year": 2687,
+          "best": 12432,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 60,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "starfruit",
+          "name": "Starfruit",
+          "regrows": false,
+          "growth": 13,
+          "regrow": null,
+          "harvests": 8,
+          "raw": 2860,
+          "per_day": 25.53,
+          "first_year": 2860,
+          "best": 22000,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 400,
+            "source": "oasis"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "hops",
+          "name": "Hops",
+          "regrows": true,
+          "growth": 11,
+          "regrow": 1,
+          "harvests": 112,
+          "raw": 2827,
+          "per_day": 25.24,
+          "first_year": 2489,
+          "best": 47040,
+          "best_as": "Pale Ale",
+          "seed": {
+            "gold": 60,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "cactus-fruit",
+          "name": "Cactus Fruit",
+          "regrows": true,
+          "growth": 12,
+          "regrow": 3,
+          "harvests": 37,
+          "raw": 2802,
+          "per_day": 25.02,
+          "first_year": 2425,
+          "best": 11655,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 150,
+            "source": "oasis"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "broccoli",
+          "name": "Broccoli",
+          "regrows": true,
+          "growth": 8,
+          "regrow": 4,
+          "harvests": 28,
+          "raw": 1979,
+          "per_day": 17.67,
+          "first_year": 1838,
+          "best": 7448,
+          "best_as": "Pickles",
+          "seed": null,
+          "seed_not_counted": true
+        },
+        {
+          "id": "red-cabbage",
+          "name": "Red Cabbage",
+          "regrows": false,
+          "growth": 9,
+          "regrow": null,
+          "harvests": 12,
+          "raw": 1951,
+          "per_day": 17.42,
+          "first_year": 1951,
+          "best": 8628,
+          "best_as": "Juice",
+          "seed": {
+            "gold": 100,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "pumpkin",
+          "name": "Pumpkin",
+          "regrows": false,
+          "growth": 13,
+          "regrow": null,
+          "harvests": 8,
+          "raw": 1785,
+          "per_day": 15.94,
+          "first_year": 1785,
+          "best": 7264,
+          "best_as": "Juice",
+          "seed": {
+            "gold": 100,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "tomato",
+          "name": "Tomato",
+          "regrows": true,
+          "growth": 11,
+          "regrow": 4,
+          "harvests": 28,
+          "raw": 1785,
+          "per_day": 15.94,
+          "first_year": 1608,
+          "best": 7015,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 50,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "artichoke",
+          "name": "Artichoke",
+          "regrows": false,
+          "growth": 8,
+          "regrow": null,
+          "harvests": 13,
+          "raw": 1711,
+          "per_day": 15.27,
+          "first_year": 1711,
+          "best": 6344,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 30,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "summer-squash",
+          "name": "Summer Squash",
+          "regrows": true,
+          "growth": 6,
+          "regrow": 3,
+          "harvests": 37,
+          "raw": 1681,
+          "per_day": 15.01,
+          "first_year": 1636,
+          "best": 7252,
+          "best_as": "Pickles",
+          "seed": null,
+          "seed_not_counted": true
+        },
+        {
+          "id": "melon",
+          "name": "Melon",
+          "regrows": false,
+          "growth": 12,
+          "regrow": null,
+          "harvests": 9,
+          "raw": 1552,
+          "per_day": 13.86,
+          "first_year": 1552,
+          "best": 8730,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 80,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "hot-pepper",
+          "name": "Hot Pepper",
+          "regrows": true,
+          "growth": 5,
+          "regrow": 3,
+          "harvests": 37,
+          "raw": 1540,
+          "per_day": 13.75,
+          "first_year": 1459,
+          "best": 6942,
+          "best_as": "Jelly",
+          "seed": {
+            "gold": 40,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "green-bean",
+          "name": "Green Bean",
+          "regrows": true,
+          "growth": 10,
+          "regrow": 3,
+          "harvests": 37,
+          "raw": 1495,
+          "per_day": 13.35,
+          "first_year": 1314,
+          "best": 6734,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 60,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "beet",
+          "name": "Beet",
+          "regrows": false,
+          "growth": 6,
+          "regrow": null,
+          "harvests": 18,
+          "raw": 1458,
+          "per_day": 13.02,
+          "first_year": 1458,
+          "best": 5940,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 20,
+            "source": "oasis"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "corn",
+          "name": "Corn",
+          "regrows": true,
+          "growth": 14,
+          "regrow": 4,
+          "harvests": 28,
+          "raw": 1414,
+          "per_day": 12.62,
+          "first_year": 1112,
+          "best": 5880,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 150,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "regrows": true,
+          "growth": 5,
+          "regrow": 5,
+          "harvests": 22,
+          "raw": 1336,
+          "per_day": 11.93,
+          "first_year": 1316,
+          "best": 5246,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 20,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "carrot",
+          "name": "Carrot",
+          "regrows": false,
+          "growth": 3,
+          "regrow": null,
+          "harvests": 37,
+          "raw": 1307,
+          "per_day": 11.67,
+          "first_year": 1307,
+          "best": 6216,
+          "best_as": "Pickles",
+          "seed": null,
+          "seed_not_counted": true
+        },
+        {
+          "id": "amaranth",
+          "name": "Amaranth",
+          "regrows": false,
+          "growth": 7,
+          "regrow": null,
+          "harvests": 15,
+          "raw": 1222,
+          "per_day": 10.91,
+          "first_year": 1222,
+          "best": 6300,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 70,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "yam",
+          "name": "Yam",
+          "regrows": false,
+          "growth": 10,
+          "regrow": null,
+          "harvests": 11,
+          "raw": 1118,
+          "per_day": 9.98,
+          "first_year": 1118,
+          "best": 5038,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 60,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "taro-root",
+          "name": "Taro Root",
+          "regrows": false,
+          "growth": 10,
+          "regrow": null,
+          "harvests": 11,
+          "raw": 1111,
+          "per_day": 9.92,
+          "first_year": 1111,
+          "best": 3850,
+          "best_as": "Pickles",
+          "seed": {
+            "trade": {
+              "item": "Bone Fragment",
+              "qty": 2
+            }
+          },
+          "seed_not_counted": true
+        },
+        {
+          "id": "sunflower",
+          "name": "Sunflower",
+          "regrows": false,
+          "growth": 8,
+          "regrow": null,
+          "harvests": 13,
+          "raw": 1050,
+          "per_day": 9.38,
+          "first_year": 925,
+          "best": 1050,
+          "best_as": "Sunflower",
+          "seed": {
+            "gold": 125,
+            "source": "jojamart"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "rhubarb",
+          "name": "Rhubarb",
+          "regrows": false,
+          "growth": 13,
+          "regrow": null,
+          "harvests": 8,
+          "raw": 978,
+          "per_day": 8.73,
+          "first_year": 978,
+          "best": 6592,
+          "best_as": "Wine",
+          "seed": {
+            "gold": 100,
+            "source": "oasis"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "radish",
+          "name": "Radish",
+          "regrows": false,
+          "growth": 6,
+          "regrow": null,
+          "harvests": 18,
+          "raw": 916,
+          "per_day": 8.18,
+          "first_year": 916,
+          "best": 5076,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 40,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "potato",
+          "name": "Potato",
+          "regrows": false,
+          "growth": 6,
+          "regrow": null,
+          "harvests": 18,
+          "raw": 914,
+          "per_day": 8.16,
+          "first_year": 914,
+          "best": 5715,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 50,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "powdermelon",
+          "name": "Powdermelon",
+          "regrows": false,
+          "growth": 7,
+          "regrow": null,
+          "harvests": 15,
+          "raw": 909,
+          "per_day": 8.12,
+          "first_year": 909,
+          "best": 3780,
+          "best_as": "Wine",
+          "seed": null,
+          "seed_not_counted": true
+        },
+        {
+          "id": "cauliflower",
+          "name": "Cauliflower",
+          "regrows": false,
+          "growth": 12,
+          "regrow": null,
+          "harvests": 9,
+          "raw": 870,
+          "per_day": 7.77,
+          "first_year": 870,
+          "best": 4320,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 80,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "fairy-rose",
+          "name": "Fairy Rose",
+          "regrows": false,
+          "growth": 12,
+          "regrow": null,
+          "harvests": 9,
+          "raw": 836,
+          "per_day": 7.46,
+          "first_year": 836,
+          "best": 836,
+          "best_as": "Fairy Rose",
+          "seed": {
+            "gold": 200,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "bok-choy",
+          "name": "Bok Choy",
+          "regrows": false,
+          "growth": 4,
+          "regrow": null,
+          "harvests": 27,
+          "raw": 831,
+          "per_day": 7.42,
+          "first_year": 831,
+          "best": 6588,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 50,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "kale",
+          "name": "Kale",
+          "regrows": false,
+          "growth": 6,
+          "regrow": null,
+          "harvests": 18,
+          "raw": 740,
+          "per_day": 6.6,
+          "first_year": 740,
+          "best": 5544,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 70,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "poppy",
+          "name": "Poppy",
+          "regrows": false,
+          "growth": 7,
+          "regrow": null,
+          "harvests": 15,
+          "raw": 621,
+          "per_day": 5.54,
+          "first_year": 621,
+          "best": 621,
+          "best_as": "Poppy",
+          "seed": {
+            "gold": 100,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "garlic",
+          "name": "Garlic",
+          "regrows": false,
+          "growth": 4,
+          "regrow": null,
+          "harvests": 27,
+          "raw": 556,
+          "per_day": 4.97,
+          "first_year": 556,
+          "best": 5346,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 40,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "summer-spangle",
+          "name": "Summer Spangle",
+          "regrows": false,
+          "growth": 8,
+          "regrow": null,
+          "harvests": 13,
+          "raw": 532,
+          "per_day": 4.75,
+          "first_year": 532,
+          "best": 532,
+          "best_as": "Summer Spangle",
+          "seed": {
+            "gold": 50,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "regrows": false,
+          "growth": 4,
+          "regrow": null,
+          "harvests": 27,
+          "raw": 414,
+          "per_day": 3.7,
+          "first_year": 414,
+          "best": 3996,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 20,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "wheat",
+          "name": "Wheat",
+          "regrows": false,
+          "growth": 4,
+          "regrow": null,
+          "harvests": 27,
+          "raw": 411,
+          "per_day": 3.67,
+          "first_year": 411,
+          "best": 7290,
+          "best_as": "Beer",
+          "seed": {
+            "gold": 10,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "blue-jazz",
+          "name": "Blue Jazz",
+          "regrows": false,
+          "growth": 7,
+          "regrow": null,
+          "harvests": 15,
+          "raw": 307,
+          "per_day": 2.74,
+          "first_year": 307,
+          "best": 307,
+          "best_as": "Blue Jazz",
+          "seed": {
+            "gold": 30,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "tulip",
+          "name": "Tulip",
+          "regrows": false,
+          "growth": 6,
+          "regrow": null,
+          "harvests": 18,
+          "raw": 185,
+          "per_day": 1.65,
+          "first_year": 185,
+          "best": 185,
+          "best_as": "Tulip",
+          "seed": {
+            "gold": 20,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        },
+        {
+          "id": "unmilled-rice",
+          "name": "Unmilled Rice",
+          "regrows": false,
+          "growth": 8,
+          "regrow": null,
+          "harvests": 13,
+          "raw": 112,
+          "per_day": 1,
+          "first_year": 112,
+          "best": 2705,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 40,
+            "source": "pierre"
+          },
+          "seed_not_counted": false
+        }
+      ],
+      "count": 44,
+      "by_best": [
+        "hops",
+        "ancient-fruit",
+        "starfruit",
+        "pineapple",
+        "blueberry",
+        "cranberries",
+        "strawberry",
+        "grape"
+      ],
+      "by_first": [
+        "sweet-gem-berry",
+        "ancient-fruit",
+        "pineapple",
+        "blueberry",
+        "strawberry",
+        "cranberries",
+        "coffee-bean",
+        "starfruit"
+      ],
+      "irrigated": [
+        {
+          "id": "taro-root",
+          "name": "Taro Root",
+          "regrows": false,
+          "growth": 7,
+          "regrow": null,
+          "harvests": 15,
+          "raw": 1515,
+          "per_day": 13.53,
+          "first_year": 1515,
+          "best": 5250,
+          "best_as": "Pickles",
+          "seed": {
+            "trade": {
+              "item": "Bone Fragment",
+              "qty": 2
+            }
+          },
+          "seed_not_counted": true,
+          "dry_raw": 1111,
+          "dry_growth": 10,
+          "no_watering": true
+        },
+        {
+          "id": "unmilled-rice",
+          "name": "Unmilled Rice",
+          "regrows": false,
+          "growth": 6,
+          "regrow": null,
+          "harvests": 18,
+          "raw": 155,
+          "per_day": 1.39,
+          "first_year": 155,
+          "best": 3746,
+          "best_as": "Pickles",
+          "seed": {
+            "gold": 40,
+            "source": "pierre"
+          },
+          "seed_not_counted": false,
+          "dry_raw": 112,
+          "dry_growth": 8,
+          "no_watering": true
+        }
+      ],
+      "hundred": [
+        {
+          "id": "ancient-fruit",
+          "name": "Ancient Fruit",
+          "raw": 888700,
+          "best": 3696000,
+          "best_as": "Wine",
+          "kegs": 90,
+          "keg_product": "Wine",
+          "jars": 36
+        },
+        {
+          "id": "hops",
+          "name": "Hops",
+          "raw": 282700,
+          "best": 4704000,
+          "best_as": "Pale Ale",
+          "kegs": 141,
+          "keg_product": "Pale Ale",
+          "jars": 250
+        },
+        {
+          "id": "sweet-gem-berry",
+          "name": "Sweet Gem Berry",
+          "raw": 811900,
+          "best": 811900,
+          "best_as": "Sweet Gem Berry",
+          "kegs": null,
+          "keg_product": null,
+          "jars": null
+        },
+        {
+          "id": "pineapple",
+          "name": "Pineapple",
+          "raw": 484800,
+          "best": 2016000,
+          "best_as": "Wine",
+          "kegs": 90,
+          "keg_product": "Wine",
+          "jars": 36
+        }
+      ],
+      "harvest_walnuts": {
+        "max": 5,
+        "chance": 0.05,
+        "expected_harvests": 100
+      },
+      "frog": {
+        "total": 15,
+        "each": 5,
+        "crops": [
+          {
+            "id": "melon",
+            "name": "Melon",
+            "growth": 12,
+            "seasons": [
+              "Summer"
+            ],
+            "seed": 80,
+            "seed_source": "pierre",
+            "year_two": false
+          },
+          {
+            "id": "wheat",
+            "name": "Wheat",
+            "growth": 4,
+            "seasons": [
+              "Summer",
+              "Fall"
+            ],
+            "seed": 10,
+            "seed_source": "pierre",
+            "year_two": false
+          },
+          {
+            "id": "garlic",
+            "name": "Garlic",
+            "growth": 4,
+            "seasons": [
+              "Spring"
+            ],
+            "seed": 40,
+            "seed_source": "pierre",
+            "year_two": true
+          }
+        ],
+        "all_ready_by": 12
+      },
+      "farming_walnuts": 20,
+      "trees": [
+        {
+          "id": "apricot",
+          "name": "Apricot",
+          "season": "spring",
+          "pierre": 2000,
+          "trade": null,
+          "island_y1": 5600,
+          "island_y4": 11200,
+          "wine_artisan": 23520
+        },
+        {
+          "id": "cherry",
+          "name": "Cherry",
+          "season": "spring",
+          "pierre": 3400,
+          "trade": null,
+          "island_y1": 8960,
+          "island_y4": 17920,
+          "wine_artisan": 37632
+        },
+        {
+          "id": "banana",
+          "name": "Banana",
+          "season": "summer",
+          "pierre": null,
+          "trade": {
+            "item": "Dragon Tooth",
+            "qty": 5
+          },
+          "island_y1": 16800,
+          "island_y4": 33600,
+          "wine_artisan": 70560
+        },
+        {
+          "id": "mango",
+          "name": "Mango",
+          "season": "summer",
+          "pierre": null,
+          "trade": {
+            "item": "Mussel",
+            "qty": 75
+          },
+          "island_y1": 14560,
+          "island_y4": 29120,
+          "wine_artisan": 61152
+        },
+        {
+          "id": "orange",
+          "name": "Orange",
+          "season": "summer",
+          "pierre": 4000,
+          "trade": null,
+          "island_y1": 11200,
+          "island_y4": 22400,
+          "wine_artisan": 47040
+        },
+        {
+          "id": "peach",
+          "name": "Peach",
+          "season": "summer",
+          "pierre": 6000,
+          "trade": null,
+          "island_y1": 15680,
+          "island_y4": 31360,
+          "wine_artisan": 65856
+        },
+        {
+          "id": "apple",
+          "name": "Apple",
+          "season": "fall",
+          "pierre": 4000,
+          "trade": null,
+          "island_y1": 11200,
+          "island_y4": 22400,
+          "wine_artisan": 47040
+        },
+        {
+          "id": "pomegranate",
+          "name": "Pomegranate",
+          "season": "fall",
+          "pierre": 6000,
+          "trade": null,
+          "island_y1": 15680,
+          "island_y4": 31360,
+          "wine_artisan": 65856
+        }
+      ],
+      "obelisk": {
+        "gold": 1000000,
+        "items": [
+          {
+            "item": "Iridium Bar",
+            "qty": 10
+          },
+          {
+            "item": "Dragon Tooth",
+            "qty": 10
+          },
+          {
+            "item": "Banana",
+            "qty": 10
+          }
+        ],
+        "evidence": [
+          "Build cost 1,000,000g Build materials Iridium Bar (10) Dragon Tooth (10) Banana (10)",
+          "Ten bananas are required to purchase the Island Obelisk from the Wizard's Tower ."
+        ],
+        "sources": [
+          {
+            "title": "Island Obelisk",
+            "url": "https://stardewvalleywiki.com/Island_Obelisk",
+            "revid": 190286
+          },
+          {
+            "title": "Banana",
+            "url": "https://stardewvalleywiki.com/Banana",
+            "revid": 188827
+          }
+        ]
+      },
+      "totem": {
+        "recipe_gold": 10000,
+        "seller": "Volcano Dwarf",
+        "items": [
+          {
+            "item": "Hardwood",
+            "qty": 5
+          },
+          {
+            "item": "Dragon Tooth",
+            "qty": 1
+          },
+          {
+            "item": "Ginger",
+            "qty": 1
+          }
+        ],
+        "free_with_farm_obelisk": true,
+        "evidence": [
+          "Recipe Source(s) Volcano Dwarf for 10,000g Ingredients Hardwood (5) Dragon Tooth (1) Ginger (1)",
+          "Warp Totem: Island Warp directly to Ginger Island. Consumed on use. Hardwood (5) Dragon Tooth (1) Ginger (1) Volcano Dwarf for 10,000g"
+        ],
+        "sources": [
+          {
+            "title": "Warp Totem: Island",
+            "url": "https://stardewvalleywiki.com/Warp_Totem:_Island",
+            "revid": 192601
+          },
+          {
+            "title": "Ginger",
+            "url": "https://stardewvalleywiki.com/Ginger",
+            "revid": 190717
+          }
+        ]
+      }
     }
   },
   "xp": {

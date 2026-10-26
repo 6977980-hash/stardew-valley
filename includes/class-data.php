@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Data {
 
-	const SETS = array( 'crops', 'fertilizers', 'machines', 'professions', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting', 'gifts', 'bundles', 'casks', 'dehydrator', 'buildings', 'fruittrees', 'year-one', 'answers', 'entities' );
+	const SETS = array( 'crops', 'fertilizers', 'machines', 'professions', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting', 'gifts', 'bundles', 'casks', 'dehydrator', 'buildings', 'fruittrees', 'year-one', 'ginger-island', 'answers', 'entities' );
 
 	private static $cache = array();
 
