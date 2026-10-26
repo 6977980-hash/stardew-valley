@@ -211,7 +211,9 @@ class Release {
 	private static function unlock() {
 		global $wpdb;
 		$wpdb->delete( $wpdb->options, array( 'option_name' => self::LOCK ) ); // phpcs:ignore WordPress.DB.DirectDatabaseQuery
+		// A lock row made by add_option (older versions) may sit in the autoloaded options cache too.
 		wp_cache_delete( self::LOCK, 'options' );
+		wp_cache_delete( 'alloptions', 'options' );
 	}
 
 	/**
