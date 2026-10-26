@@ -82,3 +82,42 @@ export function shoppingList(wanted, crafting, { trapper = false, year2 = true }
     unpriced: materials.filter((m) => m.unit == null).map((m) => m.name),
   };
 }
+
+/** Most of one item a list line can hold. */
+export const LIST_MAX = 999;
+
+/** Keeps list lines for known recipes with a whole quantity from 1 to LIST_MAX. */
+export function cleanList(rows, crafting) {
+  const known = (id) => crafting.recipes.some((r) => r.id === id);
+  return (rows || []).filter((w) => w && known(w.id) && w.qty > 0).map((w) => ({ id: w.id, qty: Math.min(LIST_MAX, Math.floor(w.qty)) }));
+}
+
+/** The list as it goes in a share link: ?list=keg:999,crab-pot:5 */
+export const listParam = (rows) => rows.map((w) => `${w.id}:${w.qty}`).join(',');
+
+export function parseListParam(s, crafting) {
+  return cleanList(
+    String(s || '')
+      .split(',')
+      .map((part) => {
+        const [id, qty] = part.split(':');
+        return { id, qty: parseInt(qty, 10) || 1 };
+      }),
+    crafting,
+  );
+}
+
+/**
+ * The list the Crafting Calculator opens with. A shared ?list= wins. A ?recipe= link (search
+ * results, guides) came for that one recipe, so the saved list is held back, not shown or lost,
+ * until the visitor asks for it or adds to it. Otherwise the saved list.
+ * @returns { list, held }
+ */
+export function startingList({ search = '', saved = [], crafting }) {
+  const params = new URLSearchParams(search);
+  if (params.get('list')) return { list: parseListParam(params.get('list'), crafting), held: [] };
+  const mine = cleanList(saved, crafting);
+  const recipe = params.get('recipe');
+  if (recipe && crafting.recipes.some((r) => r.id === recipe)) return { list: [], held: mine };
+  return { list: mine, held: [] };
+}

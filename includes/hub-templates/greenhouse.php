@@ -29,7 +29,7 @@ $g  = function ( $n ) {
 <p>The greenhouse floor has 120 soil tiles. A sprinkler placed on soil takes a tile; one placed on the wooden border around the soil does not, so the layout is a trade between tiles lost and watering saved. For a full greenhouse of Ancient Fruit, sold raw, a year looks like this:</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
-	<caption>Ancient Fruit, sold raw, one year (established plants)</caption>
+	<caption>Ancient Fruit, sold raw, one year (established plants, Farming level 0, no professions)</caption>
 	<thead><tr><th scope="col">Layout</th><th scope="col">Sprinklers</th><th scope="col">Tiles</th><th scope="col">Gold per year</th></tr></thead>
 	<tbody>
 	<?php foreach ( $gg['layouts'] as $l ) : ?>

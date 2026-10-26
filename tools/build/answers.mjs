@@ -118,8 +118,16 @@ export function buildAnswers(data) {
     const ranked = rankCrops(crops, data, s).filter((x) => !x.unaffordable);
     return { situation: s, best: { id: ranked[0].crop.id, name: ranked[0].crop.name, tiles: ranked[0].tiles, total: r0(ranked[0].total) }, runner_up: { name: ranked[1].crop.name, total: r0(ranked[1].total) }, reasons: reasons(ranked[0], ranked[1]) };
   };
+  // The tool's opening settings: Year 1, Spring 1, 500g, 15 tiles, and the free seeds every new farm has.
+  const start = data.yearOne && data.yearOne.start_seeds ? { crop: data.yearOne.start_seeds.crop, qty: data.yearOne.start_seeds.qty } : null;
+  const newFarm = { season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0, farmYear: 1, freeSeeds: start };
+  // Fewest tiles at which the pick changes from the 15-tile answer (more soil than gold).
+  const pickAt = (tiles) => rankCrops(crops, data, { ...newFarm, tiles }).filter((x) => !x.unaffordable)[0].crop;
+  const first = pickAt(newFarm.tiles);
+  let crossover = null;
+  for (let t = newFarm.tiles + 1; t <= 200 && !crossover; t++) if (pickAt(t).id !== first.id) crossover = { tiles: t, id: pickAt(t).id, name: pickAt(t).name };
   const decision = {
-    new_farm: example({ season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0, farmYear: 1 }),
+    new_farm: { ...example(newFarm), crossover },
     summer_15: example({ season: 'summer', today: 15, tiles: 40, budget: 2000, farmingLevel: 4, farmYear: 1 }),
   };
 
@@ -164,7 +172,10 @@ export function buildAnswers(data) {
     };
   }
 
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides: buildGuides(data, crops, data.crafting, gh), xp, tables: buildToolTables(data, crops) };
+  const guides = buildGuides(data, crops, data.crafting, gh);
+  // The Year 1 guide explains why What to Plant Today (15 tiles) can pick another crop.
+  if (guides.year_one) guides.year_one.tool_pick = { tiles: newFarm.tiles, best: decision.new_farm.best.name, crossover };
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides, xp, tables: buildToolTables(data, crops) };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {

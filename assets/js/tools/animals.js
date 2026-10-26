@@ -55,4 +55,4 @@ function render(v) {
       .join('')}</tbody></table>`;
 }
 
-bindTool({ form, storageKey: 'st:animals', render });
+bindTool({ form, storageKey: 'st:animals', render, assumes: (v) => ({ first: [`${v.hearts} heart${v.hearts === '1' ? '' : 's'}`, `mood ${v.mood} of 255`, v.process ? 'products go through machines' : 'products sold raw'] }) });

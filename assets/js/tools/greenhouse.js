@@ -68,16 +68,17 @@ function render(v) {
   for (let y = -1; y <= gh.height; y++) {
     for (let x = -1; x <= gh.width; x++) {
       const t = at.get(`${x},${y}`);
-      if (sprinklers.has(`${x},${y}`)) cells.push('<span class="gh-cell gh-cell--sprinkler"></span>');
-      else if (!t) cells.push('<span class="gh-cell gh-cell--border"></span>');
-      else if (t.crop) cells.push(`<span class="gh-cell gh-c${colour[t.crop]}">${colour[t.crop] + 1}</span>`);
-      else cells.push('<span class="gh-cell gh-cell--soil"></span>');
+      if (sprinklers.has(`${x},${y}`)) cells.push('<span class="gh-cell gh-cell--sprinkler" aria-hidden="true"></span>');
+      else if (!t) cells.push('<span class="gh-cell gh-cell--border" aria-hidden="true"></span>');
+      else if (t.crop) cells.push(`<span class="gh-cell gh-c${colour[t.crop]}" aria-hidden="true">${colour[t.crop] + 1}</span>`);
+      else cells.push('<span class="gh-cell gh-cell--soil" aria-hidden="true"></span>');
     }
   }
-  const label = `Greenhouse layout: ${layout.positions.length} sprinklers${cov.border ? ` (${cov.border} on the border)` : ''}${plan.map((p) => `, ${p.tiles} ${p.crop.name}`).join('')}${left ? `, ${left} empty` : ''}.`;
+  // The cells are hidden from screen readers (otherwise 116 bare "1"s); the grid's label says it all.
+  const label = `Greenhouse layout: ${layout.positions.length} sprinklers${cov.border ? ` (${cov.border} on the border)` : ''}${plan.map((p) => `, ${p.tiles} tile${p.tiles === 1 ? '' : 's'} of ${p.crop.name}`).join('')}${left ? `, ${left} empty` : ''}.`;
   gridEl.innerHTML = `<div class="gh-grid" role="img" aria-label="${esc(label)}">${cells.join('')}</div>
-    <ul class="gh-legend">${plan.map((p) => `<li><span class="gh-swatch gh-c${p.index}">${p.index + 1}</span>${esc(p.crop.name)} (${num(p.tiles)})</li>`).join('')}
-      ${layout.positions.length ? '<li><span class="gh-swatch gh-cell--sprinkler"></span>Sprinkler</li>' : ''}${left ? '<li><span class="gh-swatch gh-cell--soil"></span>Empty soil</li>' : ''}</ul>`;
+    <ul class="gh-legend">${plan.map((p) => `<li><span class="gh-swatch gh-c${p.index}" aria-hidden="true">${p.index + 1}</span>${esc(p.crop.name)} (${num(p.tiles)})</li>`).join('')}
+      ${layout.positions.length ? '<li><span class="gh-swatch gh-cell--sprinkler" aria-hidden="true"></span>Sprinkler</li>' : ''}${left ? '<li><span class="gh-swatch gh-cell--soil" aria-hidden="true"></span>Empty soil</li>' : ''}</ul>`;
 
   if (!plan.length) {
     summary.textContent = 'Choose a crop and a number of tiles.';
@@ -95,7 +96,7 @@ function render(v) {
     <thead><tr><th scope="col">Crop</th><th scope="col" class="num">Tiles</th><th scope="col" class="col-hide-sm">Sold as</th><th scope="col" class="num">Per tile</th><th scope="col" class="num">Total</th></tr></thead>
     <tbody>${plan
       .map(
-        (p) => `<tr><th scope="row"><span class="gh-swatch gh-c${p.index}">${p.index + 1}</span> ${esc(p.crop.name)}${p.machine ? `<span class="cell-sub">${num(Math.ceil(p.perTileMachines * p.tiles))} ${esc(p.machine)}${Math.ceil(p.perTileMachines * p.tiles) > 1 ? 's' : ''}</span>` : ''}</th>
+        (p) => `<tr><th scope="row"><span class="gh-swatch gh-c${p.index}" aria-hidden="true">${p.index + 1}</span> ${esc(p.crop.name)}${p.machine ? `<span class="cell-sub">${num(Math.ceil(p.perTileMachines * p.tiles))} ${esc(p.machine)}${Math.ceil(p.perTileMachines * p.tiles) > 1 ? 's' : ''}</span>` : ''}</th>
           <td class="num">${num(p.tiles)}</td><td class="col-hide-sm">${esc(SELL_LABEL[p.r.sellAs] || p.r.sellAs)}</td>
           <td class="num">${gold(p.r.profit)}</td><td class="num"><strong>${gold(p.r.profit * p.tiles)}</strong></td></tr>`
       )
@@ -105,4 +106,4 @@ function render(v) {
   ${plan.map((p) => `<details class="math-details"><summary>Explain the math: ${esc(p.crop.name)}</summary>${stepsHtml(p.r.steps)}</details>`).join('')}`;
 }
 
-bindTool({ form, storageKey: 'st:greenhouse', render });
+bindTool({ form, storageKey: 'st:greenhouse', render, assumes: (v) => ({ first: [v.stage === 'established' ? 'Year 2+ (plants already grown)' : 'first year from seed'], then: [v.sell === 'best' ? 'a free Keg or Jar for every harvest' : 'sold raw'] }) });

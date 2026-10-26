@@ -35,4 +35,5 @@ function render(v) {
       .join('')}</tbody></table>`;
 }
 
-bindTool({ form, storageKey: `st:best-crops`, render });
+// The summary already names the settings, so no separate "Assumes:" line.
+bindTool({ form, storageKey: `st:best-crops`, render, assumes: false });

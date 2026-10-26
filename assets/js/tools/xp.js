@@ -65,4 +65,5 @@ function prepare() {
   form.elements.xp.max = totalForLevel(level + 1, t) - totalForLevel(level, t) - 1;
 }
 
-bindTool({ form, storageKey: 'st:xp', render, prepare, farmFields: [] });
+// "level" here is the skill's current level, not a farm setting: the summary names it.
+bindTool({ form, storageKey: 'st:xp', render, prepare, farmFields: [], assumes: false });

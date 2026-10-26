@@ -495,8 +495,9 @@ class Tools {
 			} elseif ( 'bundles' === $set ) {
 				$data[ $set ] = self::slim_bundles();
 			} elseif ( 'year-one' === $set ) {
-				// Only what the decision engine reads: which Pierre seeds wait for Year 2.
-				$y1                = Data::get( 'year-one' );
+				// Only what the decision engine reads: which Pierre seeds wait for Year 2, and the
+				// free seeds every new farm starts with.
+				$y1              = Data::get( 'year-one' );
 				$data['yearOne'] = array(
 					'pierre_year2_seeds' => array_map(
 						function ( $s ) {
@@ -505,6 +506,13 @@ class Tools {
 						$y1 ? $y1['pierre_year2_seeds'] : array()
 					),
 				);
+				if ( $y1 && ! empty( $y1['start_seeds'] ) ) {
+					$data['yearOne']['start_seeds'] = array(
+						'crop' => $y1['start_seeds']['crop'],
+						'seed' => $y1['start_seeds']['seed'],
+						'qty'  => (int) $y1['start_seeds']['qty'],
+					);
+				}
 			} else {
 				$data[ $set ] = Data::get( $set );
 			}

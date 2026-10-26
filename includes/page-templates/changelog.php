@@ -4,6 +4,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 26, 2026: clearer tool settings and better search</h2>
+<ul>
+<li>Every calculator now says what it assumes right above the result, such as "Assumes: first year from seed, Farming level 10, no fertilizer, Tiller, Artisan". The <a href="<?php echo esc_url( home_url( '/crafting-calculator/' ) ); ?>">Crafting Calculator</a> now starts on Year 1 shop prices.</li>
+<li><a href="<?php echo esc_url( home_url( '/what-to-plant/' ) ); ?>">What to Plant Today</a> counts the 15 free Parsnip Seeds every new farm gets, and explains why it can pick Potatoes when the Year 1 guide says Parsnips: it depends on whether you have more soil or more gold.</li>
+<li>Site search finds words by their start, forgives one wrong letter ("strawbery") and knows a few short names such as "AF" and "CC".</li>
+<li>A recipe link from search opens the Crafting Calculator on that recipe without losing your saved list, and screen readers read the Greenhouse Planner layout as one sentence.</li>
+</ul>
+
 <h2>October 26, 2026: corrected answers</h2>
 <ul>
 <li><a href="<?php echo esc_url( home_url( '/gift-finder/' ) ); ?>">Gift Finder</a> now counts group tastes such as "All Vegetables" and "All Cooking". A Parsnip, for example, shows as liked by most villagers (with the few who dislike vegetables named) instead of "not listed". Tree fruit, Starfruit and Ancient Fruit are in the item list.</li>

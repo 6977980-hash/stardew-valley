@@ -148,7 +148,7 @@ class Search {
 		<h2 id="site-search-title" class="search-dialog__title">Search tools, guides and data</h2>
 		<div class="search-dialog__field">
 			<label for="site-search-input" class="search-sr">Search</label>
-			<input id="site-search-input" type="search" role="combobox" aria-expanded="true" aria-controls="site-search-results" aria-autocomplete="list" autocomplete="off" placeholder="Try Pig, Keg or Speed-Gro" data-search-input>
+			<input id="site-search-input" type="search" role="combobox" aria-expanded="false" aria-controls="site-search-results" aria-autocomplete="list" autocomplete="off" placeholder="Try Pig, Keg or Speed-Gro" data-search-input>
 			<button type="submit" class="search-dialog__close" aria-label="Close search">Esc</button>
 		</div>
 		<ul id="site-search-results" class="search-dialog__results" role="listbox" aria-label="Results" data-search-results></ul>

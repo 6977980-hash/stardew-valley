@@ -94,6 +94,9 @@ $d1 = $s['day_one'];
 </table>
 </div>
 <p class="table-note">The free Parsnip Seeds come on top. Worked out by the <a href="<?php echo esc_url( $what ); ?>">What to Plant Today</a> engine with a <?php echo esc_html( $gold( $s['gold'] ) ); ?> budget.</p>
+<?php if ( ! empty( $y['tool_pick']['crossover'] ) && $y['tool_pick']['best'] !== $d1[0]['name'] ) : ?>
+<p>Why does What to Plant Today say <?php echo esc_html( $y['tool_pick']['best'] ); ?>? It opens with only <?php echo (int) $y['tool_pick']['tiles']; ?> tiles and counts your <?php echo (int) $s['seeds']; ?> free seeds, so land, not gold, is the limit there and each <?php echo esc_html( $y['tool_pick']['best'] ); ?> earns more per tile. From <?php echo (int) $y['tool_pick']['crossover']['tiles']; ?> tiles up it picks <?php echo esc_html( $y['tool_pick']['crossover']['name'] ); ?> too.</p>
+<?php endif; ?>
 <p><?php echo esc_html( $d1[0]['name'] ); ?> comes out ahead because the gold buys more of them and each one repays its seed in <?php echo (int) $row( $y['spring'], $d1[0]['id'] )['payback_days']; ?> days. Potatoes earn more per tile, so once you have more gold than empty soil, switch to Potatoes, and to Cauliflower if you have even more gold than time to water. The point of spring is to grow the pile of gold, not to fill the farm.</p>
 
 <h2>Every spring crop you can buy in Year 1</h2>

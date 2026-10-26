@@ -27,6 +27,8 @@
 	color: var(--c-ink); background: var(--c-bg); border: 1px solid var(--c-muted); border-radius: 8px;
 }
 .check-row { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 12px; }
+.check-row[hidden] { display: none; }
+.check-row .field__hint { flex-basis: 100%; }
 .check { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; cursor: pointer; }
 .check input { width: 20px; height: 20px; accent-color: var(--c-primary); }
 
@@ -47,6 +49,7 @@
 /* Results */
 .tool-results { min-height: 320px; }
 html:not(.tool-ready) .tool-results [data-results]:empty { min-height: 240px; }
+.result-assumes { margin: 0 0 6px; min-height: 1.5em; font-size: .92rem; color: var(--c-muted); }
 .result-summary { font-size: 1.1rem; margin: 0 0 12px; min-height: 1.6em; }
 .table-wrap { position: relative; overflow-x: auto; border: 1px solid var(--c-border); border-radius: var(--radius); background: var(--c-surface); }
 .results-table { width: 100%; border-collapse: collapse; font-size: .97rem; }

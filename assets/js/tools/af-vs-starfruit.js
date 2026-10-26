@@ -72,4 +72,4 @@ function render(v) {
   out.innerHTML = card(a, tiles, aBest) + card(s, tiles, !aBest);
 }
 
-bindTool({ form, storageKey: 'st:af-sf', render });
+bindTool({ form, storageKey: 'st:af-sf', render, assumes: (v) => ({ first: [(SETUPS[v.where] || SETUPS.gh1).label] }) });

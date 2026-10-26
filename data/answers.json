@@ -1113,7 +1113,11 @@
         "tiles": 15,
         "budget": 500,
         "farmingLevel": 0,
-        "farmYear": 1
+        "farmYear": 1,
+        "freeSeeds": {
+          "crop": "parsnip",
+          "qty": 15
+        }
       },
       "best": {
         "id": "potato",
@@ -1122,13 +1126,17 @@
         "total": 2032
       },
       "runner_up": {
-        "name": "Green Bean",
-        "total": 1459
+        "name": "Parsnip",
+        "total": 1680
       },
       "reasons": [
-        "Your gold buys seeds for 10 tiles of Potato but only 8 of Green Bean.",
-        "Each Potato harvest is worth 101g per tile against 40g for Green Bean."
-      ]
+        "Each Potato harvest is worth 101g per tile against 35g for Parsnip."
+      ],
+      "crossover": {
+        "tiles": 19,
+        "id": "parsnip",
+        "name": "Parsnip"
+      }
     },
     "summer_15": {
       "situation": {
@@ -5834,6 +5842,15 @@
         "payback_fruit": 38,
         "payback_year": 2,
         "first_year_raw": 1400
+      },
+      "tool_pick": {
+        "tiles": 15,
+        "best": "Potato",
+        "crossover": {
+          "tiles": 19,
+          "id": "parsnip",
+          "name": "Parsnip"
+        }
       }
     }
   },
@@ -5931,8 +5948,19 @@
         "tiles": 10,
         "seed_price": 50,
         "spend_now": 500,
+        "free_seeds": 0,
         "harvests": 4,
         "total": 2032
+      },
+      {
+        "id": "parsnip",
+        "name": "Parsnip",
+        "tiles": 15,
+        "seed_price": 20,
+        "spend_now": 0,
+        "free_seeds": 15,
+        "harvests": 6,
+        "total": 1680
       },
       {
         "id": "green-bean",
@@ -5940,17 +5968,9 @@
         "tiles": 8,
         "seed_price": 60,
         "spend_now": 480,
+        "free_seeds": 0,
         "harvests": 6,
         "total": 1459
-      },
-      {
-        "id": "parsnip",
-        "name": "Parsnip",
-        "tiles": 15,
-        "seed_price": 20,
-        "spend_now": 300,
-        "harvests": 6,
-        "total": 1380
       },
       {
         "id": "cauliflower",
@@ -5958,6 +5978,7 @@
         "tiles": 6,
         "seed_price": 80,
         "spend_now": 480,
+        "free_seeds": 0,
         "harvests": 2,
         "total": 1161
       },
@@ -5967,6 +5988,7 @@
         "tiles": 7,
         "seed_price": 70,
         "spend_now": 490,
+        "free_seeds": 0,
         "harvests": 4,
         "total": 1150
       },
@@ -5976,6 +5998,7 @@
         "tiles": 15,
         "seed_price": 30,
         "spend_now": 450,
+        "free_seeds": 0,
         "harvests": 3,
         "total": 922
       },
@@ -5985,6 +6008,7 @@
         "tiles": 15,
         "seed_price": 20,
         "spend_now": 300,
+        "free_seeds": 0,
         "harvests": 4,
         "total": 617
       }

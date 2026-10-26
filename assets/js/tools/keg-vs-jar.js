@@ -65,4 +65,4 @@ function render(v) {
     </details>`;
 }
 
-bindTool({ form, storageKey: 'st:keg-jar', render });
+bindTool({ form, storageKey: 'st:keg-jar', render, assumes: (v) => ({ first: [`${v.quality === 'regular' ? 'normal' : v.quality} quality crops`] }) });

@@ -1,5 +1,5 @@
 // Crafting Calculator: a shopping list of raw materials for everything you want to craft.
-import { shoppingList } from '../engine/crafting.js';
+import { shoppingList, cleanList, listParam, startingList, LIST_MAX as MAX } from '../engine/crafting.js';
 import { loadData, bindTool, esc, num, gold, plural } from './common.js';
 
 const crafting = loadData().crafting;
@@ -11,33 +11,22 @@ const out = tool.querySelector('[data-results]');
 const madeEl = tool.querySelector('[data-made]');
 const KEY = 'st:craft-list';
 
-const known = (id) => crafting.recipes.some((r) => r.id === id);
-const MAX = 999;
-const clean = (rows) => rows.filter((w) => w && known(w.id) && w.qty > 0).map((w) => ({ id: w.id, qty: Math.min(MAX, Math.floor(w.qty)) }));
+const clean = (rows) => cleanList(rows, crafting);
 
-/** The list as it goes in a share link: ?list=keg:999,crab-pot:5 */
-const listParam = (rows) => rows.map((w) => `${w.id}:${w.qty}`).join(',');
-const fromParam = (s) =>
-  clean(
-    String(s || '')
-      .split(',')
-      .map((part) => {
-        const [id, qty] = part.split(':');
-        return { id, qty: parseInt(qty, 10) || 1 };
-      }),
-  );
-
-// A shared link's list wins, but is only saved here once the visitor changes it.
-const linked = new URLSearchParams(location.search).get('list');
-let list = [];
-if (linked) list = fromParam(linked);
-else {
-  try {
-    list = clean(JSON.parse(localStorage.getItem(KEY) || '[]') || []);
-  } catch {
-    list = [];
-  }
+let saved = [];
+try {
+  saved = JSON.parse(localStorage.getItem(KEY) || '[]') || [];
+} catch {
+  saved = [];
 }
+// A shared link's list wins, but is only saved here once the visitor changes it. A ?recipe= link
+// shows that recipe; the saved list waits in `held` until "Show my list" or "Add to list".
+let { list, held } = startingList({ search: location.search, saved, crafting });
+const unhold = () => {
+  if (!held.length) return;
+  list = clean([...held, ...list]);
+  held = [];
+};
 const save = () => {
   try {
     localStorage.setItem(KEY, JSON.stringify(list));
@@ -56,7 +45,9 @@ function render(v) {
 
   listEl.innerHTML = list.length
     ? `<ul class="craft-list">${list.map((w, i) => `<li><span>${num(w.qty)} × ${esc(nameOf(w.id))}</span> <button type="button" class="link-button" id="craft-remove-${i}" data-remove="${i}" aria-label="Remove ${esc(nameOf(w.id))} from the list">Remove</button></li>`).join('')}</ul>`
-    : '<p class="table-note">Nothing on the list yet, so this shows the recipe selected above. Press “Add to list” to build a list.</p>';
+    : held.length
+      ? `<p class="table-note">This shows the recipe from your link. Your saved list (${plural(held.length, 'item')}) is kept. <button type="button" class="link-button" data-show-list>Show my list</button></p>`
+      : '<p class="table-note">Nothing on the list yet, so this shows the recipe selected above. Press “Add to list” to build a list.</p>';
 
   const unpriced = res.unpriced.length ? ` Not for sale, so not counted: ${esc(res.unpriced.join(', '))}.` : '';
   summary.innerHTML = res.materials.length
@@ -80,15 +71,18 @@ const tool$ = bindTool({
   form,
   storageKey: 'st:craft',
   render,
+  assumes: (v) => ({ first: [v.year2 ? 'Year 2+ shop prices' : 'Year 1 shop prices'] }),
   own: { keys: ['list'], query: () => ({ list: listParam(list) }) },
   // Reset empties the list too, so the page is back to how it first opened.
   onReset: () => {
     list = [];
+    held = [];
     save();
   },
 });
 
 form.querySelector('[data-add]').addEventListener('click', () => {
+  unhold();
   const qty = Math.min(MAX, Math.max(1, parseInt(last.qty, 10) || 1));
   const same = list.find((w) => w.id === last.recipe);
   if (same) same.qty = Math.min(MAX, same.qty + qty);
@@ -97,6 +91,13 @@ form.querySelector('[data-add]').addEventListener('click', () => {
   tool$.refresh();
 });
 listEl.addEventListener('click', (e) => {
+  if (e.target.closest('[data-show-list]')) {
+    unhold();
+    tool$.refresh();
+    listEl.setAttribute('tabindex', '-1');
+    listEl.focus();
+    return;
+  }
   const b = e.target.closest('[data-remove]');
   if (!b) return;
   const i = Number(b.dataset.remove);

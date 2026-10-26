@@ -82,6 +82,7 @@ asort( $items );
 
 <section class="tool-results" aria-labelledby="results-heading">
 	<h2 id="results-heading">Results</h2>
+	<p class="result-assumes" data-assumes></p>
 	<p class="result-summary" data-summary role="status" aria-live="polite"></p>
 	<div data-results></div>
 </section>

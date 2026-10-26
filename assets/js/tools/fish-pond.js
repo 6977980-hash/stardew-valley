@@ -45,4 +45,4 @@ function prepare() {
   form.elements.pop.max = fish.max_population;
 }
 
-bindTool({ form, storageKey: 'st:fish-pond', render, prepare });
+bindTool({ form, storageKey: 'st:fish-pond', render, prepare, assumes: (v) => ({ first: [v.roe === 'processed' ? 'roe aged in Preserves Jars' : 'roe sold as it is'] }) });

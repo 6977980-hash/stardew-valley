@@ -15,7 +15,9 @@ const SHOPS = ['pierre', 'jojamart', 'oasis'];
  *                  fertilizer, tiller, artisan, agriculturist, kegs, jars, shopOnly (default true),
  *                  farmYear (1 = Pierre's Year 2 seeds, data.yearOne.pierre_year2_seeds, are not for sale,
  *                  and the Oasis is closed because the desert bus is not repaired yet),
- *                  desert (true = the bus is repaired, so the Oasis sells seeds even in Year 1)
+ *                  desert (true = the bus is repaired, so the Oasis sells seeds even in Year 1),
+ *                  freeSeeds ({ crop, qty }: seeds already in the bag, such as the 15 Parsnip Seeds
+ *                  every new farm gets; they fill the first tiles of that crop for free, once)
  * @returns ranked options, best first
  */
 export function rankCrops(crops, data, s) {
@@ -68,8 +70,14 @@ export function rankCrops(crops, data, s) {
   for (const { crop, seed, r } of candidates) {
     // Gold needed today: one seed (and fertilizer) per tile; replanting is paid from sales.
     const startCost = (seed.price ?? 0) + (fertPrice ?? 0);
-    const affordable = s.budget == null || startCost === 0 ? tilesWanted : Math.floor(s.budget / startCost);
+    // Free seeds only need their fertilizer; the gold left buys seeds for more tiles.
+    const freeHere = s.freeSeeds && s.freeSeeds.crop === crop.id ? Math.min(tilesWanted, Math.max(0, Math.floor(s.freeSeeds.qty || 0))) : 0;
+    const freeTiles = s.budget == null || !fertPrice ? freeHere : Math.min(freeHere, Math.floor(s.budget / fertPrice));
+    const goldLeft = s.budget == null ? null : s.budget - freeTiles * (fertPrice ?? 0);
+    const affordable = goldLeft == null || startCost === 0 ? tilesWanted : freeTiles + Math.floor(goldLeft / startCost);
     const tiles = Math.min(tilesWanted, affordable);
+    const freeUsed = Math.min(freeTiles, tiles);
+    const freeValue = freeUsed * (seed.price ?? 0);
     if (tiles < 1) {
       out.push({ crop, r, tiles: 0, seed, startCost, total: 0, unaffordable: true });
       continue;
@@ -94,7 +102,7 @@ export function rankCrops(crops, data, s) {
         }
       }
     }
-    const costs = ((r.seedCost ?? 0) + (r.fertilizerCost ?? 0)) * tiles;
+    const costs = ((r.seedCost ?? 0) + (r.fertilizerCost ?? 0)) * tiles - freeValue;
     const total = revenue - costs;
     const plantings = crop.regrow_days || crop.returns_seeds >= 1 ? 1 : r.harvestDays.length;
     out.push({
@@ -104,7 +112,8 @@ export function rankCrops(crops, data, s) {
       limitedByBudget: tiles < tilesWanted,
       seed,
       startCost,
-      spendNow: startCost * tiles,
+      spendNow: startCost * tiles - freeValue,
+      freeSeeds: freeUsed,
       seedsLater: (plantings - 1) * tiles,
       fertilizer: fert ? { name: fert.name, count: tiles, price: fertPrice } : null,
       items,
@@ -131,6 +140,7 @@ export function reasons(best, next, gold = (n) => `${Math.round(n).toLocaleStrin
     return why;
   }
   const n = next.r;
+  if (best.freeSeeds) why.push(`You already have ${best.freeSeeds} free ${best.crop.seed || `${best.crop.name} seeds`}, so ${best.freeSeeds === best.tiles ? 'the first planting costs' : `${best.freeSeeds} of the tiles cost`} nothing.`);
   if (best.nextSeasons.length && !next.nextSeasons.length) {
     why.push(`${best.crop.name} also grows in ${best.nextSeasons.join(' and ')}, so you can keep harvesting it after this season ends: ${b.harvestDays.length} harvests against ${n.harvestDays.length} for ${next.crop.name}.`);
   } else if (b.harvestDays.length > n.harvestDays.length) {
