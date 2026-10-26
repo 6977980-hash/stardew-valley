@@ -3,7 +3,7 @@
  * Plugin Name:       Stardew Tools
  * Plugin URI:        https://stardewtools.net/
  * Description:       Core of StardewTools.net: brand identity, SEO foundation, ad slots, site pages, verified game data, calculators and the Stardew Tools theme.
- * Version:           0.18.0
+ * Version:           0.18.1
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            Ali Ahmad
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'STARDEW_TOOLS_VERSION', '0.18.0' );
+define( 'STARDEW_TOOLS_VERSION', '0.18.1' );
 define( 'STARDEW_TOOLS_FILE', __FILE__ );
 define( 'STARDEW_TOOLS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'STARDEW_TOOLS_URL', plugin_dir_url( __FILE__ ) );
@@ -25,6 +25,7 @@ require_once STARDEW_TOOLS_DIR . 'includes/class-config.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-head.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-seo.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-ads.php';
+require_once STARDEW_TOOLS_DIR . 'includes/class-analytics.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-pages.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-data.php';
 require_once STARDEW_TOOLS_DIR . 'includes/class-tools.php';
@@ -80,6 +81,7 @@ function stardew_tools_live_tools() {
 Stardew_Tools\Head::init();
 Stardew_Tools\Seo::init();
 Stardew_Tools\Ads::init();
+Stardew_Tools\Analytics::init();
 Stardew_Tools\Tools::init();
 Stardew_Tools\Guides::init();
 Stardew_Tools\Entities::init();
