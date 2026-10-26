@@ -181,6 +181,7 @@ export function buildAnswers(data) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const data = Object.fromEntries(['crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'fishponds', 'animals', 'skills', 'crafting', 'casks', 'dehydrator', 'buildings', 'bundles', 'gifts', 'fruittrees'].map((s) => [s, load(`${s}.json`)]));
   data.yearone = load('year-one.json');
+  data.gingerisland = load('ginger-island.json');
   data.yearOne = data.yearone;
   const entities = buildEntities(data, data.crops.crops.filter((c) => c.verification_status === 'cross-checked'));
   const outputs = {

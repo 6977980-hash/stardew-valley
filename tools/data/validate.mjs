@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone, gingerisland }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone }).filter(([, d]) => d)) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone, gingerisland }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -263,6 +263,27 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     if (!isInt(yearone.egg_festival.day, 1) || yearone.egg_festival.day > 28) err('year-one', 'egg festival day');
     for (const k of ['start_gold', 'start_seeds', 'egg_festival']) checkSources(`year-one ${k}`, yearone[k].sources);
   }
+  if (gingerisland) {
+    const gi = gingerisland;
+    const facts = [gi.getting_there.boat_repair, gi.getting_there.ticket, gi.walnuts.total, gi.walnuts.all_unlocks, ...Object.values(gi.farm), ...gi.walnuts.unlocks];
+    for (const f of facts) {
+      if (!f.evidence || !f.evidence.length) err('ginger-island', `fact without evidence: ${JSON.stringify(f).slice(0, 60)}`);
+      checkSources('ginger-island', f.sources);
+    }
+    if (gi.walnuts.unlocks.reduce((s, u) => s + u.walnuts, 0) !== gi.walnuts.all_unlocks.value) err('ginger-island', 'walnut unlocks do not add up');
+    for (const u of gi.walnuts.unlocks) if (!isInt(u.walnuts, 1)) err('ginger-island', `walnuts for ${u.id}`);
+    if (!isInt(gi.getting_there.ticket.value, 1)) err('ginger-island', 'ticket');
+    for (const t of gi.trader.trades) {
+      if (!isInt(t.qty, 1) || t.sources.length < 2) err('ginger-island', `trade ${t.id} needs a quantity and two sources`);
+      if (t.crop && !crops.crops.some((c) => c.id === t.crop)) err('ginger-island', `trade ${t.id}: unknown crop ${t.crop}`);
+    }
+    for (const r of gi.irrigated.crops) {
+      if (r.phase_days.reduce((s, d) => s + d, 0) !== r.growth_days) err('ginger-island', `irrigated ${r.crop} stages`);
+      const c = crops.crops.find((x) => x.id === r.crop);
+      if (!c || r.growth_days >= c.growth_days) err('ginger-island', `irrigated ${r.crop} must be faster than dry growth`);
+    }
+    for (const id of gi.farm.outdoor_ok.value) if (!crops.crops.some((c) => c.id === id)) err('ginger-island', `outdoor_ok: unknown crop ${id}`);
+  }
   return errors;
 }
 
@@ -285,10 +306,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     buildings: load('buildings.json'),
     fruittrees: load('fruittrees.json'),
     yearone: load('year-one.json'),
+    gingerisland: load('ginger-island.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, year-one');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, year-one, ginger-island');
 }

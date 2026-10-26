@@ -1,7 +1,7 @@
 // Numbers printed in the guides, computed from the same engine and data as the tools so a
 // guide can never disagree with the calculator it links to. Called by tools/build/answers.mjs
 // and stored in data/answers.json under `guides`.
-import { cropProfit } from '../../assets/js/engine/profit.js';
+import { cropProfit, seedPrice } from '../../assets/js/engine/profit.js';
 import { allocate } from '../../assets/js/engine/machines.js';
 import { productsFor } from '../../assets/js/engine/processing.js';
 import { expectedItems } from '../../assets/js/engine/harvest.js';
@@ -323,8 +323,9 @@ export function buildGuides(data, crops, crafting, ghRank) {
 
   const fruitTrees = data.fruittrees ? buildFruitTrees(data, ck) : null;
   const yearOne = data.yearone ? buildYearOne(data, crops, costs, buildings, fruitTrees) : null;
+  const gingerIsland = data.gingerisland ? buildGingerIsland(data, crops, fruitTrees, machinesPerPlant) : null;
 
-  return { kegs, greenhouse, fertilizer, fishponds, pigs, costs, casks: casksData, dehydrator, buildings, egg_animals: eggAnimals, fruit_trees: fruitTrees, year_one: yearOne };
+  return { kegs, greenhouse, fertilizer, fishponds, pigs, costs, casks: casksData, dehydrator, buildings, egg_animals: eggAnimals, fruit_trees: fruitTrees, year_one: yearOne, ginger_island: gingerIsland };
 }
 
 /* Fruit trees: every tree's sapling, season, fruit prices, and what it earns over four years. */
@@ -392,6 +393,100 @@ function buildFruitTrees(data, ck) {
     by_payback: [...bought].sort((a, b) => a.payback.raw_fruit - b.payback.raw_fruit || a.pierre - b.pierre).map((t) => t.id),
     bundles: bundles.map((b) => ({ name: b.name, room: b.room, slots: b.slots, items: b.items.length, fruit: b.items.filter((i) => ft.trees.some((t) => t.id === i.id)).map((i) => i.name) })),
     rules_evidence: Object.fromEntries(Object.entries(ft.rules).map(([k, v]) => [k, v.evidence])),
+  };
+}
+
+/* Ginger Island farm: how to get there, what the walnut unlocks cost, and the best crop for a
+   year with no seasons (the same growth rules as the Greenhouse, with Taro Root and Rice faster on
+   irrigated tiles). */
+function buildGingerIsland(data, crops, fruitTrees, machinesPerPlant) {
+  const gi = data.gingerisland;
+  const days = data.seasons.days_per_season * data.seasons.seasons.length;
+  const irrigated = Object.fromEntries(gi.irrigated.crops.map((x) => [x.crop, x]));
+  const watered = (c) => ({ ...c, phase_days: irrigated[c.id].phase_days, growth_days: irrigated[c.id].growth_days });
+  const year = (c, o) => cropProfit(c, data, { greenhouse: true, horizonDays: days, ...o });
+  const outdoorOk = new Set(gi.farm.outdoor_ok.value);
+  const trade = (id) => gi.trader.trades.find((t) => t.crop === id) || null;
+  const row = (c, extra = {}) => {
+    const est = year(c, { established: true, sellAs: 'raw' });
+    const first = year(c, { sellAs: 'raw' });
+    const best = year(c, { established: true, sellAs: 'best', artisan: true });
+    const seed = seedPrice(c);
+    const t = trade(c.id);
+    return {
+      id: c.id,
+      name: c.name,
+      regrows: !!c.regrow_days,
+      growth: growthDays(c),
+      regrow: c.regrow_days || null,
+      harvests: est.harvestDays.length,
+      raw: r0(est.profit),
+      per_day: r2(est.profit / days),
+      first_year: r0(first.profit),
+      best: r0(best.profit),
+      best_as: best.unit,
+      seed: seed.price != null ? { gold: seed.price, source: seed.source } : t ? { trade: { item: t.item, qty: t.qty } } : null,
+      // Single-harvest crops with no gold seed price: replanting cost is not in the profit.
+      seed_not_counted: est.seedCost === null || first.seedCost === null,
+      ...extra,
+    };
+  };
+  const list = crops.filter((c) => !c.indoor_only || outdoorOk.has(c.id)).map((c) => row(c));
+  const byRaw = [...list].sort((a, b) => b.raw - a.raw);
+  const byBest = [...list].sort((a, b) => b.best - a.best);
+  const byFirst = [...list].sort((a, b) => b.first_year - a.first_year);
+  const byId = (id) => list.find((x) => x.id === id);
+  const irrigatedRows = Object.keys(irrigated).map((id) => {
+    const c = crops.find((x) => x.id === id);
+    return row(watered(c), { dry_raw: byId(id).raw, dry_growth: byId(id).growth, no_watering: irrigated[id].no_watering });
+  });
+
+  // 100 tiles of the leaders, and the Kegs or Jars that keep up with them.
+  const hundred = (x) => {
+    const c = crops.find((y) => y.id === x.id);
+    const keg = machinesPerPlant(c, 'keg');
+    const jar = machinesPerPlant(c, 'preserves-jar');
+    return { id: x.id, name: x.name, raw: x.raw * 100, best: x.best * 100, best_as: x.best_as, kegs: keg ? Math.ceil(keg.per_plant * 100) : null, keg_product: keg ? keg.product : null, jars: jar ? Math.ceil(jar.per_plant * 100) : null };
+  };
+
+  const unlocks = Object.fromEntries(gi.walnuts.unlocks.map((u) => [u.id, u.walnuts]));
+  const fw = gi.farming_walnuts;
+  const yearTwo = new Set((data.yearone ? data.yearone.pierre_year2_seeds : []).map((y) => y.crop));
+  const frog = fw.gourmand_frog.crops.map((id) => {
+    const c = crops.find((x) => x.id === id);
+    const s = seedPrice(c);
+    return { id, name: c.name, growth: growthDays(c), seasons: c.seasons, seed: s.price, seed_source: s.source, year_two: yearTwo.has(id) };
+  });
+
+  const trees = fruitTrees ? fruitTrees.trees.map((t) => ({ id: t.id, name: t.name, season: t.season, pierre: t.pierre, trade: t.trade, island_y1: t.greenhouse.raw_y1, island_y4: t.greenhouse.raw_y4, wine_artisan: t.greenhouse.wine_artisan })) : [];
+  return {
+    days,
+    boat: gi.getting_there.boat_repair.value,
+    ticket: gi.getting_there.ticket.value,
+    walnuts_total: gi.walnuts.total.value,
+    walnuts_all_unlocks: gi.walnuts.all_unlocks.value,
+    qi_room: gi.walnuts.qi_room.value,
+    unlocks: gi.walnuts.unlocks.map((u) => ({ id: u.id, name: u.name, walnuts: u.walnuts })),
+    to_farmhouse: unlocks.north + unlocks.west + unlocks.farmhouse,
+    to_trader: unlocks.north + unlocks.west + unlocks.farmhouse + unlocks.trader,
+    to_obelisk: unlocks.mailbox + unlocks['farm-obelisk'],
+    tiles: gi.farm.plantable_tiles.value,
+    main_tiles: gi.farm.main_farmland_tiles.value,
+    rain_chance: gi.farm.rain_chance.value,
+    outdoor_ok: [...outdoorOk].map((id) => crops.find((c) => c.id === id).name),
+    trades: gi.trader.trades.map((t) => ({ id: t.id, name: t.name, item: t.item, qty: t.qty, crop: t.crop || null, tree: t.tree || null })),
+    crops: byRaw,
+    count: list.length,
+    by_best: byBest.slice(0, 8).map((x) => x.id),
+    by_first: byFirst.slice(0, 8).map((x) => x.id),
+    irrigated: irrigatedRows,
+    hundred: [byRaw[0], byBest[0], ...byRaw.slice(1, 3)].filter((x, i, a) => a.findIndex((y) => y.id === x.id) === i).map(hundred),
+    harvest_walnuts: { max: fw.harvest.max, chance: fw.harvest.chance, expected_harvests: Math.round(fw.harvest.max / fw.harvest.chance) },
+    frog: { total: fw.gourmand_frog.total, each: fw.gourmand_frog.each, crops: frog, all_ready_by: Math.max(...frog.map((f) => f.growth)) },
+    farming_walnuts: fw.harvest.max + fw.gourmand_frog.total,
+    trees,
+    obelisk: gi.travel.island_obelisk,
+    totem: gi.travel.warp_totem,
   };
 }
 

@@ -139,3 +139,19 @@ Both importers read the rendered pages and fall back to the article URL when the
 2026-10-21 the API returned 503 and some uncached article pages did too, so the importers retry and
 `--cached` reruns them offline.
 
+
+## Ginger Island (`ginger-island.json`)
+
+`tools/data/import-ginger-island.mjs` writes the facts the Ginger Island farm guide needs: Willy's
+invitation, the boat repair (checked on the Fish Shop page and on the Hardwood, Iridium Bar and Battery
+Pack pages), the ticket price (Fish Shop and Ginger Island), every Golden Walnut unlock (the Golden Walnut
+table and the area's own page; the costs must add up to the stated total), the island farm rules (any
+crop in any season, no crows, plantable tiles, its own weather and rain chance, Cactus allowed outdoors),
+the Island Trader trades (trader page and the seed or sapling page; saplings also against
+`fruittrees.json`), the irrigated stage lengths of Taro Root and Unmilled Rice, the walnuts farming gives
+(harvest drops and the Gourmand Frog), and the Farm Obelisk, Warp Totem: Island and Island Obelisk.
+Values only one page states carry `single_source: true`.
+
+The island farm uses the same growth rules as the Greenhouse, so the guide and the Crop Profit
+Calculator's "Ginger Island farm" season compute a 112-day all-season year with the same engine. Taro
+Root and Rice on irrigated tiles use the irrigated stages from this file.

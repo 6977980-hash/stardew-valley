@@ -4,7 +4,7 @@ import AxeBuilder from '@axe-core/playwright';
 
 const INDEXES = ['/crops/', '/farm-animals/', '/machines/', '/data/'];
 const ENTITIES = ['/crops/strawberry/', '/crops/starfruit/', '/farm-animals/pig/', '/farm-animals/chicken/', '/machines/keg/', '/machines/preserves-jar/'];
-const GUIDES = ['/artisan-goods/are-casks-worth-it/', '/artisan-goods/dehydrator-vs-keg/', '/animals/coop-or-barn-first/', '/crops-and-farming/speed-gro-vs-fertilizer/', '/artisan-goods/how-many-kegs-do-i-need/', '/animals/are-pigs-worth-it/', '/fishing/best-fish-for-fish-ponds/', '/greenhouse/best-greenhouse-setup-for-money/', '/crops-and-farming/best-fruit-trees/', '/crops-and-farming/how-to-make-money-year-1/'];
+const GUIDES = ['/artisan-goods/are-casks-worth-it/', '/artisan-goods/dehydrator-vs-keg/', '/animals/coop-or-barn-first/', '/crops-and-farming/speed-gro-vs-fertilizer/', '/artisan-goods/how-many-kegs-do-i-need/', '/animals/are-pigs-worth-it/', '/fishing/best-fish-for-fish-ponds/', '/greenhouse/best-greenhouse-setup-for-money/', '/crops-and-farming/best-fruit-trees/', '/crops-and-farming/how-to-make-money-year-1/', '/crops-and-farming/ginger-island-farm/'];
 const words = async (page) => (await page.locator('.entry-content').innerText()).split(/\s+/).filter(Boolean).length;
 // Guide text only: from the byline to the "Next step" box, without the tool, source and
 // "More guides" blocks that every guide shares.

@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.20.0
+Stable tag: 0.21.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,11 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.21.0 (2026-10-26) =
+* Audit 2026-10-26 suggestion S-1 (closes F-66): new guide /crops-and-farming/ginger-island-farm/ (about 2,800 words): boat repair and ticket, every Golden Walnut unlock in the order that matters for farming, how the island farm differs, all 44 crops ranked for a 112-day year (established, first year, and Keg/Jar with Artisan), 100 tiles with the Kegs and Jars to keep up, irrigated Taro Root and Rice, fruit trees on the island, the 20 walnuts farming gives (Gourmand Frog, harvest drops), Farm Obelisk, Warp Totem: Island and Island Obelisk.
+* data/ginger-island.json from tools/data/import-ginger-island.mjs (every fact with its wiki sentence; values two pages state must agree; saplings checked against fruittrees.json). Validated in tools/data/validate.mjs; tests/engine/ginger-island.test.js.
+* Crop Profit Calculator: new "Ginger Island farm (one year)" season (all crops, Cactus Fruit included, 112 days). Linked from the Crops and Farming hub and the /guides/ late-game stage.
 
 = 0.20.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 3 (content), 2 fixes:

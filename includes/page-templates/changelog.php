@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 26, 2026: Ginger Island farm</h2>
+<ul>
+<li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/ginger-island-farm/' ) ); ?>">Ginger Island Farm</a>, with the boat repair, every Golden Walnut unlock, the best crops for a year with no seasons, Pineapple and Taro from the Island Trader, island fruit trees and the walnuts farming gives.</li>
+<li>The <a href="<?php echo esc_url( home_url( '/crop-profit-calculator/' ) ); ?>">Crop Profit Calculator</a> has a "Ginger Island farm" season that counts a full year and includes Cactus Fruit, which only grows indoors in the valley.</li>
+</ul>
+
 <h2>October 26, 2026: crop, animal and villager pages</h2>
 <ul>
 <li>Each <a href="<?php echo esc_url( home_url( '/villagers/' ) ); ?>">villager page</a> now has a birthday gift plan: the loved or liked crops that are ready by the birthday, the last day to plant them, and what they cost. It also shows who else loves each gift and where the villager breaks the universal rules, such as Haley hating Prismatic Shards.</li>

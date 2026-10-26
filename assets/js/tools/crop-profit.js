@@ -12,7 +12,8 @@ const SHOPS = ['pierre', 'jojamart', 'oasis'];
 const SOURCE_LABEL = { pierre: "Pierre's", jojamart: 'JojaMart', oasis: 'Oasis', traveling_cart: 'Traveling Cart', egg_festival: 'Egg Festival', crafting: 'crafted' };
 
 function rows(v) {
-  const greenhouse = v.season === 'greenhouse';
+  // The Ginger Island farm grows every crop all year, like the Greenhouse (Cactus included).
+  const greenhouse = v.season === 'greenhouse' || v.season === 'island';
   const day = Math.min(28, Math.max(1, parseInt(v.today, 10) || 1));
   const list = [];
   for (const crop of data.crops) {
@@ -50,7 +51,7 @@ function rows(v) {
 function render(v) {
   const list = rows(v);
   const day = Math.min(28, Math.max(1, parseInt(v.today, 10) || 1));
-  const where = v.season === 'greenhouse' ? 'in the greenhouse over one year' : `planted on ${cap(v.season)} ${day}`;
+  const where = v.season === 'greenhouse' ? 'in the greenhouse over one year' : v.season === 'island' ? 'on the Ginger Island farm over one year' : `planted on ${cap(v.season)} ${day}`;
   if (!list.length) {
     summary.textContent =
       v.season === 'winter'

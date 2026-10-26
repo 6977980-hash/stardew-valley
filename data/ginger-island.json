@@ -1,0 +1,853 @@
+{
+  "schema": "stardew-tools/gingerisland@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-26",
+  "last_verified": "2026-10-26",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0)",
+  "sources": [
+    {
+      "title": "Ginger Island",
+      "url": "https://stardewvalleywiki.com/Ginger_Island",
+      "revid": 195344
+    },
+    {
+      "title": "Golden Walnut",
+      "url": "https://stardewvalleywiki.com/Golden_Walnut",
+      "revid": 195364
+    }
+  ],
+  "getting_there": {
+    "invitation": {
+      "value": "community-center-or-joja",
+      "evidence": [
+        "When the player completes the Community Center Bundles or views the Joja Warehouse completion cutscene, Willy will mail the player an invitation"
+      ],
+      "sources": [
+        {
+          "title": "Fish Shop",
+          "url": "https://stardewvalleywiki.com/Fish_Shop",
+          "revid": 195412
+        }
+      ],
+      "single_source": true
+    },
+    "boat_repair": {
+      "value": [
+        {
+          "item": "Hardwood",
+          "qty": 200,
+          "part": "hull"
+        },
+        {
+          "item": "Iridium Bar",
+          "qty": 5,
+          "part": "anchor"
+        },
+        {
+          "item": "Battery Pack",
+          "qty": 5,
+          "part": "ticket stand"
+        }
+      ],
+      "evidence": [
+        "To repair the boat, the player must provide: Hardwood (200) for the hull Iridium Bar (5) for the anchor Battery Pack (5) for the ticket stand",
+        "Willy's Boat needs 200 Hardwood to repair the boat's outer hull.",
+        "Willy's Boat needs 5 Iridium Bars to repair the anchor.",
+        "Willy's Boat needs 5 Battery Packs to repair the ticket stand."
+      ],
+      "sources": [
+        {
+          "title": "Fish Shop",
+          "url": "https://stardewvalleywiki.com/Fish_Shop",
+          "revid": 195412
+        },
+        {
+          "title": "Hardwood",
+          "url": "https://stardewvalleywiki.com/Hardwood",
+          "revid": 192340
+        },
+        {
+          "title": "Iridium Bar",
+          "url": "https://stardewvalleywiki.com/Iridium_Bar",
+          "revid": 193348
+        },
+        {
+          "title": "Battery Pack",
+          "url": "https://stardewvalleywiki.com/Battery_Pack",
+          "revid": 193375
+        }
+      ]
+    },
+    "ticket": {
+      "value": 1000,
+      "evidence": [
+        "transportation to and from Ginger Island at a ticket price of 1,000g",
+        "Purchasing a ticket to ride the boat costs 1,000g , including the return trip"
+      ],
+      "sources": [
+        {
+          "title": "Fish Shop",
+          "url": "https://stardewvalleywiki.com/Fish_Shop",
+          "revid": 195412
+        },
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ]
+    },
+    "ticket_from_next_day": {
+      "value": true,
+      "evidence": [
+        "Starting the day after viewing the boat repair cutscene with Willy & Robin, the player can buy a boat ticket in the back room."
+      ],
+      "sources": [
+        {
+          "title": "Fish Shop",
+          "url": "https://stardewvalleywiki.com/Fish_Shop",
+          "revid": 195412
+        }
+      ],
+      "single_source": true
+    },
+    "return_free": {
+      "value": true,
+      "evidence": [
+        "The player can return to Stardew Valley at any time for free by entering the boat on the southern beach."
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    }
+  },
+  "walnuts": {
+    "total": {
+      "value": 130,
+      "evidence": [
+        "The player can find a total of 130 Golden Walnuts scattered on the island"
+      ],
+      "sources": [
+        {
+          "title": "Golden Walnut",
+          "url": "https://stardewvalleywiki.com/Golden_Walnut",
+          "revid": 195364
+        }
+      ],
+      "single_source": true
+    },
+    "all_unlocks": {
+      "value": 116,
+      "evidence": [
+        "116 walnuts are needed to unlock all of the rewards"
+      ],
+      "sources": [
+        {
+          "title": "Golden Walnut",
+          "url": "https://stardewvalleywiki.com/Golden_Walnut",
+          "revid": 195364
+        }
+      ],
+      "single_source": true
+    },
+    "qi_room": {
+      "value": 100,
+      "evidence": [
+        "After finding 100 Golden Walnuts: Qi's Walnut Room is unlocked."
+      ],
+      "sources": [
+        {
+          "title": "Golden Walnut",
+          "url": "https://stardewvalleywiki.com/Golden_Walnut",
+          "revid": 195364
+        }
+      ],
+      "single_source": true
+    },
+    "west_needs_leo": {
+      "value": true,
+      "evidence": [
+        "This parrot will only appear after the first parrot in Leo 's house has received its own Golden Walnut ."
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    },
+    "unlocks": [
+      {
+        "id": "north",
+        "name": "Ginger Island North",
+        "walnuts": 1,
+        "evidence": [
+          "Ginger Island North Unlock access to the north side of the island. Leo's house 1"
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          }
+        ],
+        "single_source": true
+      },
+      {
+        "id": "west",
+        "name": "Ginger Island West",
+        "walnuts": 10,
+        "evidence": [
+          "Ginger Island West Unlock access to the west side of the island. Ginger Island South 10",
+          "The turtle blocking the path to Island West can be removed by paying the nearby parrot 10 Golden Walnuts ."
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Ginger Island",
+            "url": "https://stardewvalleywiki.com/Ginger_Island",
+            "revid": 195344
+          }
+        ]
+      },
+      {
+        "id": "farmhouse",
+        "name": "Island Farmhouse",
+        "walnuts": 20,
+        "evidence": [
+          "Ginger Island Farmhouse Unlock the Farmhouse on the west side of the island, which can be used to sleep in to pass the day without leaving the island. Ginger Island West 20",
+          "It can be repaired for 20 Golden Walnuts ."
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Island Farmhouse",
+            "url": "https://stardewvalleywiki.com/Island_Farmhouse",
+            "revid": 181781
+          }
+        ]
+      },
+      {
+        "id": "mailbox",
+        "name": "Farmhouse Mailbox",
+        "walnuts": 5,
+        "evidence": [
+          "Farmhouse Mailbox Allow players to access their mail without leaving the island. Ginger Island Farmhouse 5",
+          "The player has the option to pay another 5 Golden Walnuts to add a mailbox"
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Island Farmhouse",
+            "url": "https://stardewvalleywiki.com/Island_Farmhouse",
+            "revid": 181781
+          }
+        ]
+      },
+      {
+        "id": "farm-obelisk",
+        "name": "Farm Obelisk",
+        "walnuts": 20,
+        "evidence": [
+          "Farm Obelisk Allow players to teleport back to the farm , similar to a warp totem . Ginger Island Farmhouse 20",
+          "the player can then pay 20 Golden Walnuts for the parrots to build a Farm Obelisk"
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Island Farmhouse",
+            "url": "https://stardewvalleywiki.com/Island_Farmhouse",
+            "revid": 181781
+          }
+        ]
+      },
+      {
+        "id": "dig-site",
+        "name": "Island Dig Site",
+        "walnuts": 10,
+        "evidence": [
+          "Island Dig Site Repair the bridge to access the island dig site . Ginger Island North 10",
+          "broken bridge which can be repaired by parrots in exchange for 10 Golden Walnuts ."
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Ginger Island",
+            "url": "https://stardewvalleywiki.com/Ginger_Island",
+            "revid": 195344
+          }
+        ]
+      },
+      {
+        "id": "trader",
+        "name": "Island Trader",
+        "walnuts": 10,
+        "evidence": [
+          "Island Trader Unlock the Island Trader shop. Ginger Island North 10",
+          "The Island Trader is unlocked for 10 Golden Walnuts after purchasing the Island Farmhouse ."
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Island Trader",
+            "url": "https://stardewvalleywiki.com/Island_Trader",
+            "revid": 190410
+          }
+        ]
+      },
+      {
+        "id": "volcano-bridge",
+        "name": "Volcano Bridge",
+        "walnuts": 5,
+        "evidence": [
+          "Volcano Bridge Unlock a permanent bridge into the volcano so that players no longer have to have their watering can to get in. Volcano Dungeon entrance 5",
+          "a parrot will perch near the lava river offering to unlock a permanent bridge in exchange for 5 Golden Walnuts ."
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Ginger Island",
+            "url": "https://stardewvalleywiki.com/Ginger_Island",
+            "revid": 195344
+          }
+        ]
+      },
+      {
+        "id": "volcano-shortcut",
+        "name": "Volcano Exit Shortcut",
+        "walnuts": 5,
+        "evidence": [
+          "Volcano Exit Shortcut Unlock an escape shortcut from level 5 of the Volcano Dungeon , allowing quick access to Island North . Volcano Dungeon level 5 5"
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          }
+        ],
+        "single_source": true
+      },
+      {
+        "id": "resort",
+        "name": "Island Resort",
+        "walnuts": 20,
+        "evidence": [
+          "Island Resort Unlock a beach resort. NPCs from the town will occasionally come to visit the resort. This also unlocks Island Southeast and the Pirate Cove . Ginger Island South 20",
+          "the ruins can be rebuilt into a beach resort for 20 Golden Walnuts ."
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Ginger Island",
+            "url": "https://stardewvalleywiki.com/Ginger_Island",
+            "revid": 195344
+          }
+        ]
+      },
+      {
+        "id": "parrot-express",
+        "name": "Parrot Express",
+        "walnuts": 10,
+        "evidence": [
+          "Parrot Express Unlock a fast travel system to quickly get around the island. Ginger Island 10",
+          "To unlock the express, the player must pay 10 Golden Walnuts to the parrots"
+        ],
+        "sources": [
+          {
+            "title": "Golden Walnut",
+            "url": "https://stardewvalleywiki.com/Golden_Walnut",
+            "revid": 195364
+          },
+          {
+            "title": "Ginger Island",
+            "url": "https://stardewvalleywiki.com/Ginger_Island",
+            "revid": 195344
+          }
+        ]
+      }
+    ]
+  },
+  "farm": {
+    "any_crop_any_season": {
+      "value": true,
+      "evidence": [
+        "Just like with the Greenhouse , any crop can be grown on the Ginger Island farm regardless of the season.",
+        "the current season does not affect which crops can be planted and grown on the island"
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        },
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ]
+    },
+    "no_crows": {
+      "value": true,
+      "evidence": [
+        "Crows won't spawn on this farm either, so Scarecrows aren't necessary."
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    },
+    "sprinklers_and_trees": {
+      "value": true,
+      "evidence": [
+        "Sprinklers can be placed here and fruit trees can be planted."
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    },
+    "plantable_tiles": {
+      "value": 879,
+      "evidence": [
+        "Island West contains 879 plantable tiles which are accessible in normal gameplay: 777 on the main farmland"
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    },
+    "main_farmland_tiles": {
+      "value": 777,
+      "evidence": [
+        "Island West contains 879 plantable tiles which are accessible in normal gameplay: 777 on the main farmland"
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    },
+    "shipping_bin_with_farmhouse": {
+      "value": true,
+      "evidence": [
+        "The repair includes the addition of a Shipping Bin outside.",
+        "Repairing the farmhouse allows players to ship goods and spend the night on Ginger Island without passing out."
+      ],
+      "sources": [
+        {
+          "title": "Island Farmhouse",
+          "url": "https://stardewvalleywiki.com/Island_Farmhouse",
+          "revid": 181781
+        },
+        {
+          "title": "Island Farmhouse",
+          "url": "https://stardewvalleywiki.com/Island_Farmhouse",
+          "revid": 181781
+        }
+      ]
+    },
+    "no_animals": {
+      "value": true,
+      "evidence": [
+        "spouses , children , and farm animals cannot be moved to the island."
+      ],
+      "sources": [
+        {
+          "title": "Island Farmhouse",
+          "url": "https://stardewvalleywiki.com/Island_Farmhouse",
+          "revid": 181781
+        }
+      ],
+      "single_source": true
+    },
+    "own_weather": {
+      "value": true,
+      "evidence": [
+        "The weather on Ginger Island is different from in Stardew Valley",
+        "Ginger Island only has two types of weather: sun and rain. The chance for rain is 24% (0% on first visit)."
+      ],
+      "sources": [
+        {
+          "title": "Weather",
+          "url": "https://stardewvalleywiki.com/Weather",
+          "revid": 194170
+        },
+        {
+          "title": "Weather",
+          "url": "https://stardewvalleywiki.com/Weather",
+          "revid": 194170
+        }
+      ]
+    },
+    "rain_chance": {
+      "value": 0.24,
+      "evidence": [
+        "Ginger Island only has two types of weather: sun and rain. The chance for rain is 24% (0% on first visit)."
+      ],
+      "sources": [
+        {
+          "title": "Weather",
+          "url": "https://stardewvalleywiki.com/Weather",
+          "revid": 194170
+        }
+      ],
+      "single_source": true
+    },
+    "outdoor_ok": {
+      "value": [
+        "cactus-fruit"
+      ],
+      "evidence": [
+        "Cactus seeds may only be planted in the Greenhouse , inside another building using a Garden Pot , or on Ginger Island ."
+      ],
+      "sources": [
+        {
+          "title": "Cactus Seeds",
+          "url": "https://stardewvalleywiki.com/Cactus_Seeds",
+          "revid": 182668
+        }
+      ],
+      "single_source": true
+    }
+  },
+  "trader": {
+    "gold_not_accepted": {
+      "value": true,
+      "evidence": [
+        "the Island Trader does not accept gold but only barters in exchange for other items."
+      ],
+      "sources": [
+        {
+          "title": "Island Trader",
+          "url": "https://stardewvalleywiki.com/Island_Trader",
+          "revid": 190410
+        }
+      ],
+      "single_source": true
+    },
+    "trades": [
+      {
+        "id": "taro-tuber",
+        "name": "Taro Tuber",
+        "crop": "taro-root",
+        "item": "Bone Fragment",
+        "qty": 2,
+        "evidence": [
+          "Taro Tuber Plant these in warm weather. Takes 10 days to mature. Grows faster if planted near a body of water. Bone Fragment (2)",
+          "Island Trader : Bone Fragment (2)"
+        ],
+        "sources": [
+          {
+            "title": "Island Trader",
+            "url": "https://stardewvalleywiki.com/Island_Trader",
+            "revid": 190410
+          },
+          {
+            "title": "Taro Tuber",
+            "url": "https://stardewvalleywiki.com/Taro_Tuber",
+            "revid": 192707
+          }
+        ]
+      },
+      {
+        "id": "pineapple-seeds",
+        "name": "Pineapple Seeds",
+        "crop": "pineapple",
+        "item": "Magma Cap",
+        "qty": 1,
+        "evidence": [
+          "Pineapple Seeds Plant these in warm weather. Takes 14 days to mature, and keeps producing fruit after that. Magma Cap (1)",
+          "Island Trader : Magma Cap (1)"
+        ],
+        "sources": [
+          {
+            "title": "Island Trader",
+            "url": "https://stardewvalleywiki.com/Island_Trader",
+            "revid": 190410
+          },
+          {
+            "title": "Pineapple Seeds",
+            "url": "https://stardewvalleywiki.com/Pineapple_Seeds",
+            "revid": 190525
+          }
+        ]
+      },
+      {
+        "id": "banana-sapling",
+        "name": "Banana Sapling",
+        "tree": "banana",
+        "item": "Dragon Tooth",
+        "qty": 5,
+        "evidence": [
+          "Banana Sapling Takes 28 days to produce a mature Banana tree. Bears fruit in the summer, or all year round when planted on Ginger Island. Dragon Tooth (5)",
+          "Island Trader : Dragon Tooth (5)"
+        ],
+        "sources": [
+          {
+            "title": "Island Trader",
+            "url": "https://stardewvalleywiki.com/Island_Trader",
+            "revid": 190410
+          },
+          {
+            "title": "Banana Sapling",
+            "url": "https://stardewvalleywiki.com/Banana_Sapling",
+            "revid": 178005
+          }
+        ]
+      },
+      {
+        "id": "mango-sapling",
+        "name": "Mango Sapling",
+        "tree": "mango",
+        "item": "Mussel",
+        "qty": 75,
+        "evidence": [
+          "Mango Sapling Takes 28 days to produce a mature Mango tree. Bears fruit in the summer, or all year round when planted on Ginger Island. Mussel (75)",
+          "Island Trader : Mussel (75)"
+        ],
+        "sources": [
+          {
+            "title": "Island Trader",
+            "url": "https://stardewvalleywiki.com/Island_Trader",
+            "revid": 190410
+          },
+          {
+            "title": "Mango Sapling",
+            "url": "https://stardewvalleywiki.com/Mango_Sapling",
+            "revid": 190272
+          }
+        ]
+      }
+    ]
+  },
+  "irrigated": {
+    "tiles_map": {
+      "value": true,
+      "evidence": [
+        "Island West irrigated tiles map (taro and rice)"
+      ],
+      "sources": [
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ],
+      "single_source": true
+    },
+    "crops": [
+      {
+        "crop": "taro-root",
+        "phase_days": [
+          1,
+          1,
+          2,
+          3
+        ],
+        "growth_days": 7,
+        "no_watering": true,
+        "evidence": [
+          "Irrigated 1 Day 1 Day 2 Day 3 Days Total: 7 Days",
+          "Taro Root plants do not need to be watered if they are planted near water."
+        ],
+        "sources": [
+          {
+            "title": "Taro Root",
+            "url": "https://stardewvalleywiki.com/Taro_Root",
+            "revid": 192657
+          }
+        ]
+      },
+      {
+        "crop": "unmilled-rice",
+        "phase_days": [
+          1,
+          1,
+          1,
+          3
+        ],
+        "growth_days": 6,
+        "no_watering": true,
+        "evidence": [
+          "Irrigated 1 Day 1 Day 1 Day 3 Days Total: 6 Days",
+          "Irrigated Rice Shoots mature in 6 days and do not need to be watered."
+        ],
+        "sources": [
+          {
+            "title": "Unmilled Rice",
+            "url": "https://stardewvalleywiki.com/Unmilled_Rice",
+            "revid": 194130
+          }
+        ]
+      }
+    ]
+  },
+  "farming_walnuts": {
+    "harvest": {
+      "max": 5,
+      "chance": 0.05,
+      "rule": "single-harvest crops not cut with a scythe",
+      "evidence": [
+        "5 Harvesting Each crop harvested on the Ginger Island farm, either by hand or with an Iridium Scythe , have a 5% chance of yielding a Golden Walnut, up to a total of 5. Only crops that do not regrow and do not require a Scythe to harvest will give Golden Walnuts."
+      ],
+      "sources": [
+        {
+          "title": "Golden Walnut",
+          "url": "https://stardewvalleywiki.com/Golden_Walnut",
+          "revid": 195364
+        }
+      ]
+    },
+    "gourmand_frog": {
+      "total": 15,
+      "each": 5,
+      "crops": [
+        "melon",
+        "wheat",
+        "garlic"
+      ],
+      "evidence": [
+        "15 Puzzle After the farmhouse is repaired, the player may talk to the Gourmand Frog . The frog then asks the player to grow a Melon , a Wheat , and a Garlic , in that order.",
+        "The Gourmand Frog asks the player to grow three crops, one crop at a time: first Melon , then Wheat , then Garlic ."
+      ],
+      "sources": [
+        {
+          "title": "Golden Walnut",
+          "url": "https://stardewvalleywiki.com/Golden_Walnut",
+          "revid": 195364
+        },
+        {
+          "title": "Ginger Island",
+          "url": "https://stardewvalleywiki.com/Ginger_Island",
+          "revid": 195344
+        }
+      ]
+    }
+  },
+  "travel": {
+    "island_obelisk": {
+      "gold": 1000000,
+      "items": [
+        {
+          "item": "Iridium Bar",
+          "qty": 10
+        },
+        {
+          "item": "Dragon Tooth",
+          "qty": 10
+        },
+        {
+          "item": "Banana",
+          "qty": 10
+        }
+      ],
+      "evidence": [
+        "Build cost 1,000,000g Build materials Iridium Bar (10) Dragon Tooth (10) Banana (10)",
+        "Ten bananas are required to purchase the Island Obelisk from the Wizard's Tower ."
+      ],
+      "sources": [
+        {
+          "title": "Island Obelisk",
+          "url": "https://stardewvalleywiki.com/Island_Obelisk",
+          "revid": 190286
+        },
+        {
+          "title": "Banana",
+          "url": "https://stardewvalleywiki.com/Banana",
+          "revid": 188827
+        }
+      ]
+    },
+    "warp_totem": {
+      "recipe_gold": 10000,
+      "seller": "Volcano Dwarf",
+      "items": [
+        {
+          "item": "Hardwood",
+          "qty": 5
+        },
+        {
+          "item": "Dragon Tooth",
+          "qty": 1
+        },
+        {
+          "item": "Ginger",
+          "qty": 1
+        }
+      ],
+      "free_with_farm_obelisk": true,
+      "evidence": [
+        "Recipe Source(s) Volcano Dwarf for 10,000g Ingredients Hardwood (5) Dragon Tooth (1) Ginger (1)",
+        "Warp Totem: Island Warp directly to Ginger Island. Consumed on use. Hardwood (5) Dragon Tooth (1) Ginger (1) Volcano Dwarf for 10,000g"
+      ],
+      "sources": [
+        {
+          "title": "Warp Totem: Island",
+          "url": "https://stardewvalleywiki.com/Warp_Totem:_Island",
+          "revid": 192601
+        },
+        {
+          "title": "Ginger",
+          "url": "https://stardewvalleywiki.com/Ginger",
+          "revid": 190717
+        }
+      ]
+    }
+  }
+}
