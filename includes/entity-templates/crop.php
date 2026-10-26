@@ -159,8 +159,13 @@ $q_names  = array(
 $people   = function ( $list ) {
 	return count( $list ) > 1 ? implode( ', ', array_slice( $list, 0, -1 ) ) . ' and ' . end( $list ) : implode( '', $list );
 };
-$bundle_t = function ( $b ) use ( $q_names ) {
-	return $b['name'] . ' (' . $b['room'] . ', ' . (int) $b['qty'] . ' needed' . ( isset( $q_names[ $b['quality'] ] ) ? $q_names[ $b['quality'] ] : '' ) . ')';
+// Escaped HTML; the first mention of each room links to its page.
+$rooms_linked = array();
+$bundle_t     = function ( $b ) use ( $q_names, $link, &$rooms_linked ) {
+	$room = sanitize_title( $b['room'] );
+	$name = isset( $rooms_linked[ $room ] ) ? esc_html( $b['room'] ) : $link( 'bundles', $room, $b['room'] );
+	$rooms_linked[ $room ] = true;
+	return esc_html( $b['name'] ) . ' (' . $name . ', ' . (int) $b['qty'] . ' needed' . esc_html( isset( $q_names[ $b['quality'] ] ) ? $q_names[ $b['quality'] ] : '' ) . ')';
 };
 $gifts    = isset( $uses['gifts'] ) ? $uses['gifts'] : null;
 ?>
@@ -172,10 +177,12 @@ $gifts    = isset( $uses['gifts'] ) ? $uses['gifts'] : null;
 	<li><strong>Bundles:</strong>
 	<?php
 	if ( ! empty( $uses['bundles'] ) ) {
-		echo esc_html( 'the Community Center asks for it in the ' . $people( array_map( $bundle_t, $uses['bundles'] ) ) . '.' );
-		echo ! empty( $uses['remixed_bundles'] ) ? esc_html( ' With Remixed Bundles it can also come up in the ' . $people( array_map( $bundle_t, $uses['remixed_bundles'] ) ) . '.' ) : '';
+		// phpcs:disable WordPress.Security.EscapeOutput -- $bundle_t escapes.
+		echo 'the Community Center asks for it in the ' . $people( array_map( $bundle_t, $uses['bundles'] ) ) . '.';
+		echo ! empty( $uses['remixed_bundles'] ) ? ' With Remixed Bundles it can also come up in the ' . $people( array_map( $bundle_t, $uses['remixed_bundles'] ) ) . '.' : '';
 	} elseif ( ! empty( $uses['remixed_bundles'] ) ) {
-		echo esc_html( 'no standard Community Center bundle needs it, but with Remixed Bundles it can come up in the ' . $people( array_map( $bundle_t, $uses['remixed_bundles'] ) ) . '.' );
+		echo 'no standard Community Center bundle needs it, but with Remixed Bundles it can come up in the ' . $people( array_map( $bundle_t, $uses['remixed_bundles'] ) ) . '.';
+		// phpcs:enable
 	} else {
 		echo 'no Community Center bundle asks for it.';
 	}

@@ -228,6 +228,13 @@ class Tools {
 		add_filter( 'body_class', array( __CLASS__, 'body_class' ) );
 		add_filter( 'stardew_tools_schema_graph', array( __CLASS__, 'schema' ) );
 		add_filter( 'stardew_tools_breadcrumb_label', array( __CLASS__, 'breadcrumb_label' ), 10, 2 );
+		add_filter( 'stardew_tools_og_image', array( __CLASS__, 'og_image' ) );
+	}
+
+	/** A tool page's own share image (assets/og/tool-<id>.jpg), built for the ranked crop pages. */
+	public static function og_image( $url ) {
+		$id = self::current();
+		return $url || ! $id ? $url : Entities::og_file( 'tool-' . $id );
 	}
 
 	/** Breadcrumb name for a tool page: its short name, not the full SEO title. */
@@ -332,6 +339,12 @@ class Tools {
 		return ob_get_clean();
 	}
 
+	/** Date the data a tool uses was last checked; falls back to the crops date. */
+	public static function checked( $def ) {
+		$checked = isset( $def['data'] ) ? Data::checked( $def['data'] ) : '';
+		return $checked ? $checked : Data::summary()['checked'];
+	}
+
 	public static function shortcode( $atts ) {
 		$atts = shortcode_atts( array( 'id' => '' ), $atts, 'stardew_tool' );
 		$defs = self::definitions();
@@ -347,7 +360,7 @@ class Tools {
 		$tool_id = $atts['id'];
 		$answers = Data::get( 'answers' );
 		$version = Config::get( 'game_version' );
-		$checked = Data::summary()['checked'];
+		$checked = self::checked( $tool );
 		ob_start();
 		echo '<div class="tool" data-tool="' . esc_attr( $tool_id ) . '">';
 		if ( $checked ) {
@@ -885,7 +898,7 @@ class Tools {
 		}
 		$def      = self::definitions()[ $id ];
 		$url      = get_permalink( get_queried_object_id() );
-		$modified = Data::summary()['checked'];
+		$modified = self::checked( $def );
 		if ( isset( $def['season'] ) ) {
 			// Ranked guide pages are articles; the table on them is the content.
 			$graph[] = array(
@@ -894,7 +907,7 @@ class Tools {
 				'description'      => $def['description'],
 				'url'              => $url,
 				'mainEntityOfPage' => $url,
-				'image'            => Config::asset( Config::get( 'og_image' ) ),
+				'image'            => Entities::og_file( 'tool-' . $id ) ? Entities::og_file( 'tool-' . $id ) : Config::asset( Config::get( 'og_image' ) ),
 				'datePublished'    => get_the_date( 'Y-m-d', get_queried_object_id() ),
 				'dateModified'     => Data::modified( get_the_date( 'Y-m-d', get_queried_object_id() ) ),
 				'author'           => Seo::author(),

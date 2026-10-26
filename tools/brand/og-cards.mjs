@@ -107,6 +107,24 @@ for (const r of Object.values(ent.bundles || {})) {
     right: list('Bundles', r.bundles.map((b) => b.name.replace(/ Bundle$/, '')).slice(0, 6)),
   });
 }
+// Ranked crop pages (tools with a season): the top crops by profit per tile from answers.json.
+const answers = JSON.parse(readFileSync(path.join(root, 'data/answers.json'), 'utf8'));
+for (const [season, rows] of Object.entries(answers.best_crops || {})) {
+  const top = rows.slice(0, 4);
+  if (!top.length) continue;
+  cards.push({
+    file: `tool-best-${season}-crops`,
+    eyebrow: 'Ranked by profit',
+    title: `Best ${cap(season)} Crops`,
+    // The greenhouse page names Ancient Fruit best overall; its table ranks seeds you can buy.
+    sub: season === 'greenhouse'
+      ? `Best seed you can buy: ${top[0].name}, ${g(top[0].profit)} a tile a year.`
+      : `${top[0].name} earns the most per tile: ${g(top[0].profit)}.`,
+    stats: [[String(rows.length), 'crops ranked'], [g(top[0].profit), `${top[0].name} per tile`]],
+    // Lowest first, so the winner is the highlighted last bar and its label clears the heading.
+    right: bars('Profit per tile', [...top].reverse().map((r) => ({ value: r.profit, text: g(r.profit), label: r.name }))),
+  });
+}
 // Guides: the title and blurb from the PHP definitions.
 const guidesSrc = readFileSync(path.join(root, 'includes/class-guides.php'), 'utf8');
 const gpart = guidesSrc.slice(guidesSrc.indexOf('function guides()'));
@@ -117,7 +135,7 @@ for (const m of gpart.matchAll(/'([a-z0-9-]+)'\s*=>\s*array\(\s*'hub'\s*=>\s*'([
 
 mkdirSync(out, { recursive: true });
 for (const f of readdirSync(out)) if (f.endsWith('.jpg')) unlinkSync(path.join(out, f));
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.PW_CHROMIUM ? { executablePath: process.env.PW_CHROMIUM } : {});
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 } });
 for (const c of cards) {
   await page.setContent(card(c));
