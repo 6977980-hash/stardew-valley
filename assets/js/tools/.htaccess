@@ -1,0 +1,8 @@
+# Modules here import each other by plain relative paths. Browsers that use the import map fetch
+# versioned URLs, but one that does not (or a CDN that drops the map) would keep a stale module for
+# a year under the parent folder's immutable rule. A day, then a cheap revalidation, instead.
+<IfModule mod_headers.c>
+	<FilesMatch "\.js$">
+		Header set Cache-Control "public, max-age=86400, must-revalidate"
+	</FilesMatch>
+</IfModule>

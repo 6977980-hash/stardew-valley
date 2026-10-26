@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.18.0
+Stable tag: 0.19.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,14 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.19.0 (2026-10-26) =
+* Audit 2026-10-26 Phase 5 (speed, security and ops), 5 fixes:
+* F-97 The deploy check no longer stats every plugin file on each request: the file-time fingerprint is kept 5 minutes in a transient (a new version number is still seen at once), and a visitor's request only schedules the install as a wp-cron event; admin pages, cron and WP-CLI run it, and a visitor runs it only if the cron event is 10 minutes overdue.
+* F-98 Links to plugin pages come from one path => address map (Pages::url): one query builds it, a transient keeps it, and it is cleared when a page is saved, deleted or trashed, when permalinks change and on each deploy. Replaces 100+ get_page_by_path queries per uncached render in Entities/Tools/Guides/Search/llms.txt and the theme's fallback menu.
+* F-99 Installer: the lock is an atomic INSERT IGNORE (stale lock taken over by one UPDATE); kses is off while the installers save the plugin's own text, and generated-text hashes are of the saved text, so About/Methodology/Changelog cannot get stuck; pages the owner drafts stay drafts (only pages retire_orphans drafted, marked _stardew_tools_retired, are republished); the search index cache is cleared on each deploy.
+* F-104 Security headers on every page: X-Content-Type-Options, X-Frame-Options SAMEORIGIN, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy, and HSTS (1 year) on https. The deploy copies the brand favicon.ico to the site root if none is there, and /favicon.ico requests that reach WordPress redirect to it.
+* F-105 Engine and tool modules (assets/js/engine, assets/js/tools) are cached for a day with revalidation instead of a year immutable, so a browser that ignores the import map cannot keep a stale module.
 
 = 0.18.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 2 (crawl, index and technical SEO), 5 fixes:

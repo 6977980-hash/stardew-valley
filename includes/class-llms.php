@@ -53,9 +53,9 @@ class Llms {
 		}
 		$lines[] = '## Calculators and tools';
 		$lines[] = '';
-		$tools = get_page_by_path( 'tools', OBJECT, 'page' );
-		if ( $tools && 'publish' === $tools->post_status ) {
-			$lines[] = '- [All tools](' . get_permalink( $tools ) . '): every calculator on one page.';
+		$tools = Pages::url( 'tools' );
+		if ( $tools ) {
+			$lines[] = '- [All tools](' . $tools . '): every calculator on one page.';
 		}
 		foreach ( Tools::definitions() as $id => $def ) {
 			$url = Tools::url( $id );
@@ -75,9 +75,9 @@ class Llms {
 		$lines[] = '';
 		$lines[] = '## Guides';
 		$lines[] = '';
-		$guides = get_page_by_path( 'guides', OBJECT, 'page' );
-		if ( $guides && 'publish' === $guides->post_status ) {
-			$lines[] = '- [All guides](' . get_permalink( $guides ) . '): every guide, by topic and by game stage.';
+		$guides = Pages::url( 'guides' );
+		if ( $guides ) {
+			$lines[] = '- [All guides](' . $guides . '): every guide, by topic and by game stage.';
 		}
 		foreach ( Guides::guides() as $id => $def ) {
 			$url = Guides::guide_url( $id );
@@ -100,9 +100,9 @@ class Llms {
 		$lines[] = '';
 		$lines[] = '## Data downloads';
 		$lines[] = '';
-		$data = get_page_by_path( 'data', OBJECT, 'page' );
-		if ( $data && 'publish' === $data->post_status ) {
-			$lines[] = '- [Data downloads](' . get_permalink( $data ) . '): what each file and column means, and how to cite them.';
+		$data = Pages::url( 'data' );
+		if ( $data ) {
+			$lines[] = '- [Data downloads](' . $data . '): what each file and column means, and how to cite them.';
 		}
 		foreach ( Entities::csv_files() as $file => $f ) {
 			$lines[] = '- [' . $file . '](' . Entities::csv_url( $file ) . '): ' . $f[2] . '. Fixed copy for this game version: ' . Entities::csv_url( str_replace( '.csv', '-' . Config::get( 'game_version' ) . '.csv', $file ) );
@@ -113,9 +113,9 @@ class Llms {
 		$lines[] = '## About';
 		$lines[] = '';
 		foreach ( array( 'methodology' => 'Methodology: where the data comes from, how it is checked and corrected', 'about' => 'About', 'contact' => 'Contact and corrections', 'changelog' => 'Changelog' ) as $slug => $label ) {
-			$page = get_page_by_path( $slug, OBJECT, 'page' );
-			if ( $page && 'publish' === $page->post_status ) {
-				$lines[] = '- [' . $label . '](' . get_permalink( $page ) . ')';
+			$page = Pages::url( $slug );
+			if ( $page ) {
+				$lines[] = '- [' . $label . '](' . $page . ')';
 			}
 		}
 		return implode( "\n", $lines ) . "\n";

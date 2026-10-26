@@ -125,8 +125,7 @@ class Search {
 	}
 
 	private static function page_url( $path ) {
-		$page = get_page_by_path( $path, OBJECT, 'page' );
-		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
+		return Pages::url( $path );
 	}
 
 	public static function enqueue() {

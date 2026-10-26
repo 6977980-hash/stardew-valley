@@ -23,12 +23,32 @@ class Head {
 		add_filter( 'xmlrpc_methods', '__return_empty_array' ); // xmlrpc_enabled leaves pingback.ping on.
 		add_filter( 'pings_open', '__return_false' );
 		add_filter( 'wp_headers', array( __CLASS__, 'headers' ) );
+		add_action( 'do_faviconico', array( __CLASS__, 'favicon' ), 5 );
 	}
 
-	/** Drops the X-Pingback header, which only advertises the XML-RPC endpoint. */
+	/**
+	 * Drops the X-Pingback header, which only advertises the XML-RPC endpoint, and adds the usual
+	 * security headers. LiteSpeed stores them with each cached page. HSTS only on an https site.
+	 */
 	public static function headers( $headers ) {
 		unset( $headers['X-Pingback'] );
+		$headers['X-Content-Type-Options'] = 'nosniff';
+		$headers['Referrer-Policy']        = 'strict-origin-when-cross-origin';
+		$headers['X-Frame-Options']        = 'SAMEORIGIN';
+		$headers['Permissions-Policy']     = 'camera=(), microphone=(), geolocation=(), payment=(), usb=()';
+		if ( 0 === strpos( home_url( '/' ), 'https://' ) ) {
+			$headers['Strict-Transport-Security'] = 'max-age=31536000';
+		}
 		return $headers;
+	}
+
+	/** /favicon.ico when it reaches WordPress (no file in the site root): send the brand icon. */
+	public static function favicon() {
+		if ( function_exists( 'has_site_icon' ) && has_site_icon() ) {
+			return; // WordPress redirects to the Site Icon itself.
+		}
+		wp_safe_redirect( Config::asset( 'assets/brand/favicon.ico' ), 301 );
+		exit;
 	}
 
 	/**

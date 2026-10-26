@@ -341,8 +341,7 @@ class Entities {
 
 	/** Permalink of the Animal Prices page, or '' when it isn't published. */
 	public static function prices_url() {
-		$page = get_page_by_path( 'animal-prices', OBJECT, 'page' );
-		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
+		return Pages::url( 'animal-prices' );
 	}
 
 	/**
@@ -356,6 +355,9 @@ class Entities {
 			Pages::sync_generated( $existing->ID, $def['title'], $def['description'] );
 			delete_post_meta( $existing->ID, self::META . '_auto' );
 			return $existing->ID;
+		}
+		if ( $existing && ! Pages::may_republish( $existing ) ) {
+			return 0;
 		}
 		$admins   = get_users(
 			array(
@@ -383,6 +385,7 @@ class Entities {
 		}
 		update_post_meta( $page_id, self::META, $meta );
 		update_post_meta( $page_id, Seo::META_DESCRIPTION, $def['description'] );
+		delete_post_meta( $page_id, Pages::RETIRED_META );
 		Pages::sync_generated( $page_id, $def['title'], $def['description'] );
 		return $page_id;
 	}
@@ -421,8 +424,7 @@ class Entities {
 		if ( ! isset( $types[ $type ] ) ) {
 			return '';
 		}
-		$page = get_page_by_path( $types[ $type ]['slug'] . ( $id ? '/' . $id : '' ), OBJECT, 'page' );
-		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
+		return Pages::url( $types[ $type ]['slug'] . ( $id ? '/' . $id : '' ) );
 	}
 
 	/* ---------- Rendering ---------- */
