@@ -1,6 +1,119 @@
 // Site search dialog (Ctrl+K, Cmd+K or "/"). The index is a small JSON file fetched the first
 // time search is opened (or the button is pointed at), then filtered in the browser.
+// Matching (pure, also loaded by the tests): every query word must start a word of the page's
+// title or description, or be one letter off a whole word ("strawbery"), so "tea" no longer finds
+// "Bug Steak". A few synonyms ("af", "jelly", "cc") are tried as well.
+(function (root) {
+	var SYNONYMS = {
+		af: 'ancient fruit',
+		sf: 'starfruit',
+		jelly: 'preserves jar',
+		pickles: 'preserves jar',
+		jam: 'preserves jar',
+		wine: 'keg',
+		juice: 'keg',
+		exp: 'xp',
+		experience: 'xp',
+		money: 'profit',
+		cc: 'bundle',
+		'community center': 'bundle',
+		junimo: 'bundle',
+		friendship: 'gift',
+		hearts: 'gift',
+		present: 'gift',
+		roe: 'fish pond',
+		caviar: 'fish pond',
+		speedgro: 'speed gro',
+		'speed grow': 'speed gro',
+		sapling: 'fruit tree',
+		saplings: 'fruit tree'
+	};
+	var norm = function (s) { return String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim(); };
+
+	// True when a and b are at most one insert, delete or change apart.
+	function near(a, b) {
+		var la = a.length, lb = b.length;
+		if (Math.abs(la - lb) > 1) return false;
+		var i = 0, j = 0, edits = 0;
+		while (i < la && j < lb) {
+			if (a.charAt(i) === b.charAt(j)) { i++; j++; continue; }
+			if (++edits > 1) return false;
+			if (la > lb) i++;
+			else if (lb > la) j++;
+			else { i++; j++; }
+		}
+		return edits + (la - i) + (lb - j) <= 1;
+	}
+
+	// How well one query word fits a list of words: 3 whole word, 2 word start, 1 one letter off.
+	function fit(w, words) {
+		var best = 0;
+		var bare = w.length > 3 && w.charAt(w.length - 1) === 's' ? w.slice(0, -1) : '';
+		for (var i = 0; i < words.length && best < 3; i++) {
+			var x = words[i];
+			if (x === w || x === bare) best = 3;
+			else if (x.indexOf(w) === 0 || (bare && x.indexOf(bare) === 0)) best = Math.max(best, 2);
+			else if (w.length >= 4 && x.length >= 4 && near(w, x)) best = Math.max(best, 1);
+		}
+		return best;
+	}
+
+	function prep(it) {
+		it.n = norm(it.t);
+		it.tw = it.n.split(' ');
+		it.aw = norm([it.t, it.k, it.d, it.x].join(' ')).split(' ');
+		return it;
+	}
+
+	function scoreOne(it, q) {
+		var words = q.split(' ');
+		var s = 0;
+		if (it.n === q) s += 100;
+		else if (it.n.indexOf(q) === 0) s += 60;
+		else if ((' ' + it.n).indexOf(' ' + q) > -1) s += 40;
+		for (var i = 0; i < words.length; i++) {
+			var t = fit(words[i], it.tw);
+			var a = t ? 0 : fit(words[i], it.aw);
+			if (!t && !a) return 0;
+			s += t ? [0, 5, 10, 12][t] : [0, 1, 3, 4][a];
+		}
+		return s;
+	}
+
+	// The query, plus the query with each synonym swapped in (scored a little lower).
+	function variants(q) {
+		var out = [q];
+		var padded = ' ' + q + ' ';
+		for (var k in SYNONYMS) {
+			if (padded.indexOf(' ' + k + ' ') > -1) out.push(norm(padded.replace(' ' + k + ' ', ' ' + SYNONYMS[k] + ' ')));
+		}
+		return out;
+	}
+
+	function score(it, q) {
+		var v = variants(norm(q));
+		var best = scoreOne(it, v[0]);
+		for (var i = 1; i < v.length; i++) best = Math.max(best, scoreOne(it, v[i]) - 2);
+		return best;
+	}
+
+	/** Best matches first; items must have been through prep(). */
+	function rank(items, query, limit) {
+		var q = norm(query);
+		if (!q) return [];
+		return items.map(function (it, i) { return { it: it, s: score(it, q), i: i }; })
+			.filter(function (r) { return r.s > 0; })
+			.sort(function (a, b) { return b.s - a.s || a.i - b.i; })
+			.slice(0, limit || 10)
+			.map(function (r) { return r.it; });
+	}
+
+	root.StardewSearch = { norm: norm, near: near, prep: prep, score: score, rank: rank, SYNONYMS: SYNONYMS };
+})(typeof window !== 'undefined' ? window : globalThis);
+
 (function () {
+	if (typeof document === 'undefined') return;
+	var match = window.StardewSearch;
 	var dialog = document.getElementById('site-search');
 	var url = dialog && dialog.getAttribute('data-index-url');
 	if (!dialog || !url || typeof dialog.showModal !== 'function' || !window.fetch) {
@@ -14,10 +127,7 @@
 			loading = fetch(url, { credentials: 'omit' })
 				.then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
 				.then(function (items) {
-					items.forEach(function (it) {
-						it.n = norm(it.t);
-						it.all = norm([it.t, it.k, it.d, it.x].join(' '));
-					});
+					items.forEach(match.prep);
 					index = items;
 				})
 				.catch(function () { loading = null; });
@@ -29,40 +139,17 @@
 	var status = dialog.querySelector('[data-search-status]');
 	var active = -1;
 	var opener = null;
-	var norm = function (s) { return String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim(); };
-
-	function score(it, words, q) {
-		var s = 0;
-		if (it.n === q) s += 100;
-		else if (it.n.indexOf(q) === 0) s += 60;
-		else if (it.n.indexOf(q) > -1) s += 40;
-		for (var i = 0; i < words.length; i++) {
-			if (it.all.indexOf(words[i]) < 0) return 0;
-			s += it.n.indexOf(words[i]) > -1 ? 10 : 3;
-		}
-		return s;
-	}
-
 	function render() {
 		if (!index) {
 			list.textContent = '';
 			active = -1;
+			input.setAttribute('aria-expanded', 'false');
 			mark();
 			status.textContent = loading ? 'Loading…' : 'Search could not load. Check your connection and try again.';
 			return;
 		}
-		var q = norm(input.value);
-		var words = q ? q.split(' ') : [];
-		var rows;
-		if (!q) {
-			rows = index.filter(function (it) { return it.k === 'Tool' || it.k === 'Guide'; }).slice(0, 8);
-		} else {
-			rows = index.map(function (it) { return { it: it, s: score(it, words, q) }; })
-				.filter(function (r) { return r.s > 0; })
-				.sort(function (a, b) { return b.s - a.s; })
-				.slice(0, 10)
-				.map(function (r) { return r.it; });
-		}
+		var q = match.norm(input.value);
+		var rows = q ? match.rank(index, q, 10) : index.filter(function (it) { return it.k === 'Tool' || it.k === 'Guide'; }).slice(0, 8);
 		list.textContent = '';
 		rows.forEach(function (it, i) {
 			var li = document.createElement('li');
@@ -83,6 +170,8 @@
 			list.appendChild(li);
 		});
 		active = rows.length ? 0 : -1;
+		// The listbox only counts as expanded while it shows options.
+		input.setAttribute('aria-expanded', rows.length ? 'true' : 'false');
 		mark();
 		status.textContent = q ? (rows.length ? rows.length + ' result' + (rows.length === 1 ? '' : 's') : 'No results. Try a crop, animal or tool name.') : 'Popular pages';
 	}

@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.16.0
+Stable tag: 0.17.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,14 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.17.0 (2026-10-26) =
+* Audit 2026-10-26 Phase 4 (tools UX, mobile and accessibility), 5 fixes:
+* F-91 Every calculator prints an "Assumes: ..." line above its result, built from the form (year, farming level, fertilizer, professions, machines). Greenhouse Planner and Ancient Fruit vs Starfruit short answers name their settings and the planner's different opening settings; the /greenhouse/ table says level 0, no professions. Crafting Calculator opens on Year 1 shop prices.
+* F-92 Crafting Calculator: a ?recipe= link (search results) shows that recipe; a saved list is kept and comes back with "Show my list" or "Add to list" (engine startingList()).
+* F-93 What to Plant Today counts the 15 free Parsnip Seeds on a Year 1 spring (box "I still have my 15 free Parsnip Seeds", engine option freeSeeds), suggests planting them next to the pick, and says why the Year 1 guide picks Parsnip (more soil than gold; crossover tile count in answers.json).
+* F-94 Site search: word-start matching, one-letter typos ("strawbery"), plurals and a synonyms list ("af", "jelly", "cc"); "tea" no longer finds Bug Steak.
+* F-95 Search box aria-expanded follows the result list; Greenhouse Planner grid cells and swatches are hidden from screen readers behind one summary label.
 
 = 0.16.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 1 (wrong numbers and contradictions), 19 fixes:

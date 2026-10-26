@@ -14,10 +14,17 @@ foreach ( $crafting ? $crafting['recipes'] : array() as $r ) {
 	$recipes[ $r['id'] ] = $r['name'];
 }
 asort( $recipes );
+// Year 1 and Year 2+ prices of the raw materials whose shop price rises, for the short answer.
+$rises = array();
+foreach ( $crafting && ! empty( $crafting['shop_prices'] ) ? $crafting['shop_prices'] : array() as $p ) {
+	if ( isset( $p['price_year2'] ) && in_array( $p['id'], array( 'wood', 'coal' ), true ) ) {
+		$rises[] = $p['name'] . ' ' . (int) $p['price'] . 'g, ' . (int) $p['price_year2'] . 'g from Year 2';
+	}
+}
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> pick what you want to craft and how many. The calculator breaks bars and other made ingredients down to the ore, wood and stone you need to gather, and prices the parts the shops sell. There are <?php echo (int) count( $recipes ); ?> recipes.</p>
-	<p>Add several things to build one shopping list. Your list is saved in this browser.</p>
+	<p>Prices start at Year 1 shop prices<?php echo $rises ? ' (' . esc_html( implode( '; ', $rises ) ) . ')' : ''; ?>; tick "Year 2 or later" for the higher prices Robin and Clint charge from Year 2. Add several things to build one shopping list. Your list is saved in this browser.</p>
 </div>
 
 <form class="tool-form" id="craft-form" novalidate>
@@ -38,7 +45,7 @@ asort( $recipes );
 		<div class="check-row">
 			<?php
 			stardew_tools_checkbox( 'trapper', 'Trapper profession (cheaper Crab Pots)' );
-			stardew_tools_checkbox( 'year2', 'Year 2 or later (shop prices)', true );
+			stardew_tools_checkbox( 'year2', 'Year 2 or later (shop prices)' );
 			?>
 		</div>
 	</fieldset>
@@ -49,6 +56,7 @@ asort( $recipes );
 <section class="tool-results" aria-labelledby="results-heading">
 	<h2 id="results-heading">Shopping list</h2>
 	<div data-list></div>
+	<p class="result-assumes" data-assumes></p>
 	<p class="result-summary" data-summary role="status" aria-live="polite"></p>
 	<div class="table-wrap" tabindex="0" role="region" aria-label="Results table" data-results></div>
 	<div class="table-wrap" tabindex="0" role="region" aria-label="Made ingredients" data-made></div>

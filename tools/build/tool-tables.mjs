@@ -15,11 +15,13 @@ const r0 = (n) => Math.round(n);
 export const CRAFTING_TABLE = ['keg', 'preserves-jar', 'cask', 'dehydrator', 'bee-house', 'cheese-press', 'mayonnaise-machine', 'loom', 'oil-maker', 'fish-smoker', 'crab-pot', 'sprinkler', 'quality-sprinkler', 'iridium-sprinkler', 'seed-maker', 'crystalarium'];
 
 export function buildToolTables(data, crops) {
-  // What to Plant Today with the tool's defaults: Year 1, Spring 1, 500g, 15 tiles, level 0, no machines.
-  const plant = rankCrops(crops, data, { season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0, farmYear: 1 })
+  // What to Plant Today with the tool's defaults: Year 1, Spring 1, 500g, 15 tiles, level 0, no
+  // machines, and the free seeds every new farm has.
+  const start = data.yearOne && data.yearOne.start_seeds ? { crop: data.yearOne.start_seeds.crop, qty: data.yearOne.start_seeds.qty } : null;
+  const plant = rankCrops(crops, data, { season: 'spring', today: 1, tiles: 15, budget: 500, farmingLevel: 0, farmYear: 1, freeSeeds: start })
     .filter((x) => !x.unaffordable)
     .slice(0, 10)
-    .map((x) => ({ id: x.crop.id, name: x.crop.name, tiles: x.tiles, seed_price: x.seed.price, spend_now: r0(x.spendNow), harvests: x.r.harvestDays.length, total: r0(x.total) }));
+    .map((x) => ({ id: x.crop.id, name: x.crop.name, tiles: x.tiles, seed_price: x.seed.price, spend_now: r0(x.spendNow), free_seeds: x.freeSeeds || 0, harvests: x.r.harvestDays.length, total: r0(x.total) }));
 
   // Keg vs Preserves Jar for every crop both machines accept, at normal quality, no professions.
   const kegJar = crops

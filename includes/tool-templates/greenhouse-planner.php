@@ -21,9 +21,9 @@ $g = function ( $n ) {
 ?>
 <div class="answer">
 	<?php if ( $gh ) : ?>
-	<p class="answer__lead"><strong>Short answer:</strong> with 6 Iridium Sprinklers (two of them on the wooden border) you keep <?php echo esc_html( $gh['tiles'] ); ?> of the 120 soil tiles for crops. Sold raw, <?php echo esc_html( $gh['raw'][0]['name'] ); ?> is the best greenhouse crop at about <?php echo esc_html( $g( $gh['raw'][0]['per_tile'] ) ); ?> per tile a year once the plants are grown, before professions. If you can process everything, <?php echo esc_html( $gh['processed'][0]['name'] ); ?> as <?php echo 'pale-ale' === $gh['processed'][0]['sell_as'] ? 'Pale Ale' : 'Wine'; ?> earns more (<?php echo esc_html( $g( $gh['processed'][0]['per_tile'] ) ); ?> per tile) but a full greenhouse of it needs about <?php echo esc_html( $gh['processed'][0]['machines'] ); ?> kegs; Ancient Fruit Wine needs about <?php echo esc_html( $gh['processed'][1]['machines'] ); ?>.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> with 6 Iridium Sprinklers (two of them on the wooden border) you keep <?php echo esc_html( $gh['tiles'] ); ?> of the 120 soil tiles for crops. Sold raw, <?php echo esc_html( $gh['raw'][0]['name'] ); ?> is the best greenhouse crop at about <?php echo esc_html( $g( $gh['raw'][0]['per_tile'] ) ); ?> per tile a year once the plants are grown (Year 2+), at Farming level 0 with no professions. If you can process everything (Artisan), <?php echo esc_html( $gh['processed'][0]['name'] ); ?> as <?php echo 'pale-ale' === $gh['processed'][0]['sell_as'] ? 'Pale Ale' : 'Wine'; ?> earns more (<?php echo esc_html( $g( $gh['processed'][0]['per_tile'] ) ); ?> per tile) but a full greenhouse of it needs about <?php echo esc_html( $gh['processed'][0]['machines'] ); ?> kegs; Ancient Fruit Wine needs about <?php echo esc_html( $gh['processed'][1]['machines'] ); ?>.</p>
 	<?php endif; ?>
-	<p>Pick your sprinklers and up to three crops to see the layout, a year of profit and the machines you need.</p>
+	<p>The planner below opens on a first year from seed at Farming level 10 with Tiller and Artisan, so its total is not the same number; the line above the result says what it assumes. Pick your sprinklers and up to three crops to see the layout, a year of profit and the machines you need.</p>
 </div>
 
 <form class="tool-form" id="greenhouse-form" novalidate>
@@ -99,6 +99,7 @@ $g = function ( $n ) {
 
 <section class="tool-results" aria-labelledby="results-heading">
 	<h2 id="results-heading">Results</h2>
+	<p class="result-assumes" data-assumes></p>
 	<p class="result-summary" data-summary role="status" aria-live="polite"></p>
 	<div data-warnings></div>
 	<div class="gh-wrap" data-grid></div>

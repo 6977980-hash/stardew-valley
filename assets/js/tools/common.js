@@ -140,6 +140,27 @@ function writeForm(form, values) {
 // treats ?s= as a search.
 const SHARE_KEY = 'share';
 
+const PROFESSIONS = { tiller: 'Tiller', artisan: 'Artisan', agri: 'Agriculturist', rancher: 'Rancher', coopmaster: 'Coopmaster', shepherd: 'Shepherd', trapper: 'Trapper' };
+
+/**
+ * The settings a result depends on, as short phrases for the "Assumes:" line above it: farming
+ * level, fertilizer and professions when the form has them, with the tool's own phrases before
+ * (`first`) and after (`then`). Pure, so it can be tested without a browser.
+ * @param values  readForm() values (checkboxes are true/false)
+ * @param o { first, then, fertilizer (the chosen fertilizer's name) }
+ */
+export function assumptionParts(values, { first = [], then = [], fertilizer = null } = {}) {
+  const parts = [...first];
+  if ('level' in values) parts.push(`Farming level ${values.level}`);
+  if ('fertilizer' in values) parts.push(values.fertilizer ? fertilizer || values.fertilizer : 'no fertilizer');
+  const here = Object.keys(PROFESSIONS).filter((k) => k in values);
+  if (here.length) {
+    const on = here.filter((k) => values[k] === true).map((k) => PROFESSIONS[k]);
+    parts.push(on.length ? on.join(', ') : 'no professions');
+  }
+  return [...parts, ...then].filter(Boolean);
+}
+
 /**
  * The values a tool form opens with. Pure, so it can be tested without a browser.
  * @param o { defaults, search (location.search), saved (this tool's saved copy), farm (shared
@@ -192,10 +213,13 @@ export function stateQuery(values, defaults, extra = [], own = {}) {
  * @param o.prepare  called before each read, e.g. to set a max that depends on another field
  * @param o.own      { keys, query() } state kept outside the form that belongs in share links
  * @param o.onReset  called when Reset is pressed, before the form is recalculated
+ * @param o.assumes  (values) => extra { first, then } for assumptionParts, or false for no
+ *                   "Assumes:" line (the summary already names the settings)
  * @returns { refresh() } recalculate and update the address after a change outside the form
  */
-export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS, prepare = null, own = null, onReset = null }) {
+export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS, prepare = null, own = null, onReset = null, assumes = () => ({}) }) {
   const tool = form.closest('.tool');
+  const assumesEl = assumes ? assumesLine(tool) : null;
   const defaults = readForm(form);
   const checkboxes = [...form.elements].filter((el) => el.type === 'checkbox' && el.name).map((el) => el.name);
   const numbers = [...form.elements].filter((el) => el.type === 'number' && el.name);
@@ -217,6 +241,13 @@ export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS, p
       if (commit && el.value !== String(r.value)) el.value = r.value;
     }
     render(values);
+    if (assumesEl) {
+      const fert = form.elements.fertilizer;
+      const fertName = fert && fert.selectedIndex > -1 ? fert.options[fert.selectedIndex].text : null;
+      const parts = assumptionParts(values, { fertilizer: fertName, ...assumes(values) });
+      assumesEl.textContent = parts.length ? `Assumes: ${parts.join(', ')}.` : '';
+      assumesEl.hidden = !parts.length;
+    }
     const qs = stateQuery(values, defaults, start.extra, own ? own.query() : {});
     history.replaceState(null, '', (qs ? `?${qs}` : location.pathname) + location.hash);
     return values;
@@ -278,6 +309,19 @@ export function bindTool({ form, storageKey, render, farmFields = FARM_FIELDS, p
     else addEventListener('load', () => setTimeout(() => showResult(tool)), { once: true });
   }
   return { refresh: () => update(), fromLink: start.fromLink };
+}
+
+/** The "Assumes: …" line: the template's placeholder (it keeps the space), else one made above the summary. */
+function assumesLine(tool) {
+  const ready = tool.querySelector('[data-assumes]');
+  if (ready) return ready;
+  const summary = tool.querySelector('[data-summary]');
+  if (!summary) return null;
+  const p = document.createElement('p');
+  p.className = 'result-assumes';
+  p.setAttribute('data-assumes', '');
+  summary.before(p);
+  return p;
 }
 
 /** Copy text and show a short confirmation in the button's live region. */

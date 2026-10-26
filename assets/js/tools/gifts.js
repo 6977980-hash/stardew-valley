@@ -88,4 +88,4 @@ function render(v) {
   else renderVillager(v);
 }
 
-bindTool({ form, storageKey: 'st:gifts', render });
+bindTool({ form, storageKey: 'st:gifts', render, assumes: (v) => ({ first: [v.friendship101 ? 'Friendship 101 read' : 'Friendship 101 not read'] }) });
