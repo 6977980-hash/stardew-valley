@@ -58,6 +58,10 @@ $p       = $first['points'];
 </div>
 
 <h2>How to use this list</h2>
+<?php $chart_u = Stardew_Tools\Entities::chart_url(); ?>
+<?php if ( $chart_u ) : ?>
+<p>To keep the whole list next to the game, the <a href="<?php echo esc_url( $chart_u ); ?>">Gift Chart</a> puts every villager's loves, hates and a cheap Year 1 birthday crop on one printable page.</p>
+<?php endif; ?>
 <p>Check the calendar at the start of each season and note the birthdays. A loved gift on a birthday is worth <?php echo (int) ( $p['love'] * $p['birthday'] ); ?> points, which is more than two hearts at once, so a birthday is the best day to catch up with someone. On other days you can give each villager two gifts a week.</p>
 <p>The own-list items are often cooked dishes or gems, which are hard early on. When you have nothing they love, a liked gift (+<?php echo (int) $p['like']; ?>) is worth more than half as much and is usually easy: each villager's page lists them, plus the crops they love or like that you can grow on the farm. Gifts that are hated cost <?php echo (int) abs( $p['hate'] ); ?> points, so check the page before giving anything unusual.</p>
 <p>Universal loves are not quite universal. A few villagers have exceptions (for example, someone who hates a Prismatic Shard), and the villager pages call these out.<?php if ( $finder ) : ?> To look up one item instead of one person, use the <a href="<?php echo esc_url( $finder ); ?>">Gift Finder</a>.<?php endif; ?></p>

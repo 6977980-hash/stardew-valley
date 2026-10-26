@@ -10233,5 +10233,1885 @@
         "obtained": "Mining Level 9"
       }
     ]
+  },
+  "gift_chart": {
+    "villagers": [
+      {
+        "id": "kent",
+        "name": "Kent",
+        "birthday": {
+          "season": "spring",
+          "day": 4
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Fiddlehead Risotto",
+          "Roasted Hazelnuts"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Algae Soup",
+          "Holly",
+          "Sashimi",
+          "Tortilla",
+          "All Milk"
+        ],
+        "birthday_crop": null
+      },
+      {
+        "id": "lewis",
+        "name": "Lewis",
+        "birthday": {
+          "season": "spring",
+          "day": 7
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Autumn's Bounty",
+          "Glazed Yams",
+          "Green Tea",
+          "Hot Pepper",
+          "Vegetable Medley"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly",
+          "Quartz"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": 3,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "vincent",
+        "name": "Vincent",
+        "birthday": {
+          "season": "spring",
+          "day": 10
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Cranberry Candy",
+          "Frog Egg",
+          "Ginger Ale",
+          "Grape",
+          "Pink Cake",
+          "Snail"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Piña Colada",
+          "Triple Shot Espresso",
+          "Wild Horseradish",
+          "All Artisan Goods (except Honey, Jelly & Oil)"
+        ],
+        "birthday_crop": {
+          "id": "tulip",
+          "name": "Tulip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 4,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "haley",
+        "name": "Haley",
+        "birthday": {
+          "season": "spring",
+          "day": 14
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Coconut",
+          "Fruit Salad",
+          "Pink Cake",
+          "Sunflower"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Prismatic Shard",
+          "Wild Horseradish",
+          "All Fish"
+        ],
+        "birthday_crop": {
+          "id": "tulip",
+          "name": "Tulip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 8,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "pam",
+        "name": "Pam",
+        "birthday": {
+          "season": "spring",
+          "day": 18
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Beer",
+          "Cactus Fruit",
+          "Glazed Yams",
+          "Mead",
+          "Pale Ale",
+          "Parsnip",
+          "Parsnip Soup",
+          "Piña Colada"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly",
+          "Octopus",
+          "Squid"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "love",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": 14,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "shane",
+        "name": "Shane",
+        "birthday": {
+          "season": "spring",
+          "day": 20
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Beer",
+          "Hot Pepper",
+          "Pepper Poppers",
+          "Pizza"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Pickles",
+          "Quartz"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": 16,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "pierre",
+        "name": "Pierre",
+        "birthday": {
+          "season": "spring",
+          "day": 26
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Fried Calamari",
+          "Price Catalogue"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Corn",
+          "Garlic",
+          "Parsnip Soup",
+          "Tortilla",
+          "All Fish"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": 22,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "emily",
+        "name": "Emily",
+        "birthday": {
+          "season": "spring",
+          "day": 27
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Amethyst",
+          "Aquamarine",
+          "Cloth",
+          "Emerald",
+          "Jade",
+          "Parrot Egg",
+          "Ruby",
+          "Survival Burger",
+          "Topaz",
+          "Wool"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Fish Taco",
+          "Holly",
+          "Maki Roll",
+          "Salmon Dinner",
+          "Sashimi"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": 23,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "jas",
+        "name": "Jas",
+        "birthday": {
+          "season": "summer",
+          "day": 4
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Ancient Doll",
+          "Fairy Box",
+          "Fairy Rose",
+          "Pink Cake",
+          "Plum Pudding",
+          "Strange Doll (green)",
+          "Strange Doll (yellow)"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Piña Colada",
+          "Triple Shot Espresso",
+          "Wild Horseradish",
+          "All Artisan Goods (except Honey, Jelly & Oil)"
+        ],
+        "birthday_crop": {
+          "id": "tulip",
+          "name": "Tulip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "gus",
+        "name": "Gus",
+        "birthday": {
+          "season": "summer",
+          "day": 8
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Diamond",
+          "Escargot",
+          "Fish Taco",
+          "Orange",
+          "Tropical Curry"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Coleslaw",
+          "Holly",
+          "Quartz"
+        ],
+        "birthday_crop": {
+          "id": "radish",
+          "name": "Radish",
+          "taste": "like",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 2,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "maru",
+        "name": "Maru",
+        "birthday": {
+          "season": "summer",
+          "day": 10
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Battery Pack",
+          "Cauliflower",
+          "Cheese Cauliflower",
+          "Diamond",
+          "Dwarf Gadget",
+          "Gold Bar",
+          "Iridium Bar",
+          "Miner's Treat",
+          "Pepper Poppers",
+          "Radioactive Bar",
+          "Rhubarb Pie",
+          "Strawberry"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly",
+          "Honey",
+          "Pickles",
+          "Snow Yam",
+          "Truffle"
+        ],
+        "birthday_crop": {
+          "id": "cauliflower",
+          "name": "Cauliflower",
+          "taste": "love",
+          "seed_price": 80,
+          "shop": "pierre",
+          "growth_days": 12,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "alex",
+        "name": "Alex",
+        "birthday": {
+          "season": "summer",
+          "day": 13
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Complete Breakfast",
+          "Jack Be Nimble, Jack Be Thick",
+          "Salmon Dinner"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly",
+          "Quartz"
+        ],
+        "birthday_crop": {
+          "id": "radish",
+          "name": "Radish",
+          "taste": "like",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 7,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "sam",
+        "name": "Sam",
+        "birthday": {
+          "season": "summer",
+          "day": 17
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Cactus Fruit",
+          "Maple Bar",
+          "Pizza",
+          "Tigerseye"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Bone Fragment",
+          "Cinder Shard",
+          "Coal",
+          "Copper Bar",
+          "Duck Mayonnaise",
+          "Gold Bar",
+          "Gold Ore",
+          "Iridium Bar",
+          "Iridium Ore",
+          "Iron Bar",
+          "Mayonnaise",
+          "Pickles",
+          "Refined Quartz"
+        ],
+        "birthday_crop": {
+          "id": "summer-spangle",
+          "name": "Summer Spangle",
+          "taste": "like",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 8,
+          "plant_by": 9,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "demetrius",
+        "name": "Demetrius",
+        "birthday": {
+          "season": "summer",
+          "day": 19
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Bean Hotpot",
+          "Ice Cream",
+          "Rice Pudding",
+          "Strawberry"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly"
+        ],
+        "birthday_crop": {
+          "id": "hot-pepper",
+          "name": "Hot Pepper",
+          "taste": "like",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 5,
+          "plant_by": 14,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "dwarf",
+        "name": "Dwarf",
+        "birthday": {
+          "season": "summer",
+          "day": 22
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Amethyst",
+          "Aquamarine",
+          "Emerald",
+          "Jade",
+          "Lava Eel",
+          "Lemon Stone",
+          "Omni Geode",
+          "Ruby",
+          "Topaz"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [],
+        "birthday_crop": {
+          "id": "radish",
+          "name": "Radish",
+          "taste": "like",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 16,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "willy",
+        "name": "Willy",
+        "birthday": {
+          "season": "summer",
+          "day": 24
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Catfish",
+          "Diamond",
+          "Gold Bar",
+          "Iridium Bar",
+          "Jewels Of The Sea",
+          "Mead",
+          "Octopus",
+          "Pumpkin",
+          "Sea Cucumber",
+          "Sturgeon",
+          "The Art O' Crabbing"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [],
+        "birthday_crop": {
+          "id": "radish",
+          "name": "Radish",
+          "taste": "like",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 18,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "leo",
+        "name": "Leo",
+        "birthday": {
+          "season": "summer",
+          "day": 26
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Duck Feather",
+          "Mango",
+          "Ostrich Egg",
+          "Parrot Egg",
+          "Poi"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Beer",
+          "Holly",
+          "Hops",
+          "Mead",
+          "Morel",
+          "Oil",
+          "Pale Ale",
+          "Piña Colada",
+          "Triple Shot Espresso",
+          "Unmilled Rice",
+          "Wine"
+        ],
+        "birthday_crop": {
+          "id": "radish",
+          "name": "Radish",
+          "taste": "like",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": 20,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "penny",
+        "name": "Penny",
+        "birthday": {
+          "season": "fall",
+          "day": 2
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Diamond",
+          "Emerald",
+          "Melon",
+          "Poppy",
+          "Poppyseed Muffin",
+          "Red Plate",
+          "Roots Platter",
+          "Sandfish",
+          "Tom Kha Soup",
+          "All Books"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Beer",
+          "Grape",
+          "Holly",
+          "Hops",
+          "Mead",
+          "Pale Ale",
+          "Piña Colada",
+          "Rabbit's Foot",
+          "Wine"
+        ],
+        "birthday_crop": {
+          "id": "melon",
+          "name": "Melon",
+          "taste": "love",
+          "seed_price": 80,
+          "shop": "pierre",
+          "growth_days": 12,
+          "plant_by": null,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "elliott",
+        "name": "Elliott",
+        "birthday": {
+          "season": "fall",
+          "day": 5
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Crab Cakes",
+          "Duck Feather",
+          "Lobster",
+          "Pomegranate",
+          "Squid Ink",
+          "Tom Kha Soup"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Amaranth",
+          "Quartz",
+          "Salmonberry",
+          "Sea Cucumber",
+          "Super Cucumber"
+        ],
+        "birthday_crop": {
+          "id": "bok-choy",
+          "name": "Bok Choy",
+          "taste": "like",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": 1,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "jodi",
+        "name": "Jodi",
+        "birthday": {
+          "season": "fall",
+          "day": 11
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Chocolate Cake",
+          "Crispy Bass",
+          "Diamond",
+          "Eggplant Parmesan",
+          "Fried Eel",
+          "Pancakes",
+          "Rhubarb Pie",
+          "Vegetable Medley"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Daffodil",
+          "Dandelion",
+          "Spice Berry"
+        ],
+        "birthday_crop": {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 5,
+          "plant_by": 6,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "abigail",
+        "name": "Abigail",
+        "birthday": {
+          "season": "fall",
+          "day": 13
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Amethyst",
+          "Banana Pudding",
+          "Blackberry Cobbler",
+          "Chocolate Cake",
+          "Monster Compendium",
+          "Pufferfish",
+          "Pumpkin",
+          "Spicy Eel"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Holly"
+        ],
+        "birthday_crop": {
+          "id": "sunflower",
+          "name": "Sunflower",
+          "taste": "like",
+          "seed_price": 125,
+          "shop": "jojamart",
+          "growth_days": 8,
+          "plant_by": 5,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "sandy",
+        "name": "Sandy",
+        "birthday": {
+          "season": "fall",
+          "day": 15
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Crocus",
+          "Daffodil",
+          "Mango Sticky Rice",
+          "Sweet Pea"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly"
+        ],
+        "birthday_crop": {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 5,
+          "plant_by": 10,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "marnie",
+        "name": "Marnie",
+        "birthday": {
+          "season": "fall",
+          "day": 18
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Diamond",
+          "Farmer's Lunch",
+          "Pink Cake",
+          "Pumpkin Pie"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Holly"
+        ],
+        "birthday_crop": {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 5,
+          "plant_by": 13,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "robin",
+        "name": "Robin",
+        "birthday": {
+          "season": "fall",
+          "day": 21
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Goat Cheese",
+          "Peach",
+          "Spaghetti",
+          "Woody's Secret"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly"
+        ],
+        "birthday_crop": {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 5,
+          "plant_by": 16,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "george",
+        "name": "George",
+        "birthday": {
+          "season": "fall",
+          "day": 24
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Fried Mushroom",
+          "Leek"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Dandelion",
+          "Holly",
+          "Quartz"
+        ],
+        "birthday_crop": {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 5,
+          "plant_by": 19,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "krobus",
+        "name": "Krobus",
+        "birthday": {
+          "season": "winter",
+          "day": 1
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Diamond",
+          "Iridium Bar",
+          "Monster Compendium",
+          "Monster Musk",
+          "Pumpkin",
+          "Void Egg",
+          "Void Mayonnaise",
+          "Wild Horseradish"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [],
+        "birthday_crop": {
+          "id": "pumpkin",
+          "name": "Pumpkin",
+          "taste": "love",
+          "seed_price": 100,
+          "shop": "pierre",
+          "growth_days": 13,
+          "plant_by": null,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "linus",
+        "name": "Linus",
+        "birthday": {
+          "season": "winter",
+          "day": 3
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Blueberry Tart",
+          "Cactus Fruit",
+          "Coconut",
+          "Dish O' The Sea",
+          "The Alleyway Buffet",
+          "Yam"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [],
+        "birthday_crop": {
+          "id": "yam",
+          "name": "Yam",
+          "taste": "love",
+          "seed_price": 60,
+          "shop": "pierre",
+          "growth_days": 10,
+          "plant_by": null,
+          "grown_in": "fall"
+        }
+      },
+      {
+        "id": "caroline",
+        "name": "Caroline",
+        "birthday": {
+          "season": "winter",
+          "day": 7
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Fish Taco",
+          "Green Tea",
+          "Summer Spangle",
+          "Tropical Curry"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Quartz",
+          "Salmonberry"
+        ],
+        "birthday_crop": {
+          "id": "summer-spangle",
+          "name": "Summer Spangle",
+          "taste": "love",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 8,
+          "plant_by": null,
+          "grown_in": "summer"
+        }
+      },
+      {
+        "id": "sebastian",
+        "name": "Sebastian",
+        "birthday": {
+          "season": "winter",
+          "day": 10
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Frog Egg",
+          "Frozen Tear",
+          "Obsidian",
+          "Pumpkin Soup",
+          "Sashimi",
+          "Void Egg"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Complete Breakfast",
+          "Farmer's Lunch",
+          "Omelet",
+          "Piña Colada",
+          "All Artisan Goods (except Coffee, Green Tea, & Oil)",
+          "All Eggs (except Void Egg)"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "harvey",
+        "name": "Harvey",
+        "birthday": {
+          "season": "winter",
+          "day": 14
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Coffee",
+          "Pickles",
+          "Super Meal",
+          "Truffle Oil",
+          "Wine"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Coral",
+          "Nautilus Shell",
+          "Rainbow Shell",
+          "Salmonberry",
+          "Spice Berry"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "wizard",
+        "name": "Wizard",
+        "birthday": {
+          "season": "winter",
+          "day": 17
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Book of Mysteries",
+          "Purple Mushroom",
+          "Solar Essence",
+          "Super Cucumber",
+          "Void Essence"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "evelyn",
+        "name": "Evelyn",
+        "birthday": {
+          "season": "winter",
+          "day": 20
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Beet",
+          "Chocolate Cake",
+          "Diamond",
+          "Fairy Rose",
+          "Raisins",
+          "Stuffing",
+          "Tulip"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Clay",
+          "Fried Eel",
+          "Garlic",
+          "Holly",
+          "Maki Roll",
+          "Salmonberry",
+          "Sashimi",
+          "Spice Berry",
+          "Spicy Eel",
+          "Trout Soup",
+          "All Fish (except Clam, Cockle, Mussel, & Oyster)"
+        ],
+        "birthday_crop": {
+          "id": "tulip",
+          "name": "Tulip",
+          "taste": "love",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 6,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "leah",
+        "name": "Leah",
+        "birthday": {
+          "season": "winter",
+          "day": 23
+        },
+        "marriage_candidate": true,
+        "loves": [
+          "Goat Cheese",
+          "Poppyseed Muffin",
+          "Salad",
+          "Stir Fry",
+          "Truffle",
+          "Vegetable Medley",
+          "Wine"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Bread",
+          "Hashbrowns",
+          "Pancakes",
+          "Pizza",
+          "Void Egg"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      },
+      {
+        "id": "clint",
+        "name": "Clint",
+        "birthday": {
+          "season": "winter",
+          "day": 26
+        },
+        "marriage_candidate": false,
+        "loves": [
+          "Amethyst",
+          "Aquamarine",
+          "Artichoke Dip",
+          "Emerald",
+          "Fiddlehead Risotto",
+          "Gold Bar",
+          "Iridium Bar",
+          "Jade",
+          "Omni Geode",
+          "Ruby",
+          "Topaz"
+        ],
+        "universal_loves": [
+          "Golden Pumpkin",
+          "Magic Rock Candy",
+          "Pearl",
+          "Prismatic Shard",
+          "Rabbit's Foot",
+          "Stardrop Tea"
+        ],
+        "hates": [
+          "Holly"
+        ],
+        "birthday_crop": {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "taste": "like",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "plant_by": null,
+          "grown_in": "spring"
+        }
+      }
+    ],
+    "seasons": {
+      "spring": [
+        {
+          "id": "tulip",
+          "name": "Tulip",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 6,
+          "regrow_days": null,
+          "love": [
+            "Evelyn"
+          ],
+          "like_count": 30,
+          "pleased": 31,
+          "avoid": [
+            "George",
+            "Sebastian",
+            "Clint"
+          ]
+        },
+        {
+          "id": "blue-jazz",
+          "name": "Blue Jazz",
+          "seed_price": 30,
+          "shop": "pierre",
+          "growth_days": 7,
+          "regrow_days": null,
+          "love": [],
+          "like_count": 31,
+          "pleased": 31,
+          "avoid": [
+            "George",
+            "Sebastian",
+            "Clint"
+          ]
+        },
+        {
+          "id": "parsnip",
+          "name": "Parsnip",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 4,
+          "regrow_days": null,
+          "love": [
+            "Pam"
+          ],
+          "like_count": 28,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        },
+        {
+          "id": "potato",
+          "name": "Potato",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 6,
+          "regrow_days": null,
+          "love": [],
+          "like_count": 29,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        },
+        {
+          "id": "green-bean",
+          "name": "Green Bean",
+          "seed_price": 60,
+          "shop": "pierre",
+          "growth_days": 10,
+          "regrow_days": 3,
+          "love": [],
+          "like_count": 29,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        }
+      ],
+      "summer": [
+        {
+          "id": "summer-spangle",
+          "name": "Summer Spangle",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 8,
+          "regrow_days": null,
+          "love": [
+            "Caroline"
+          ],
+          "like_count": 30,
+          "pleased": 31,
+          "avoid": [
+            "George",
+            "Sebastian",
+            "Clint"
+          ]
+        },
+        {
+          "id": "sunflower",
+          "name": "Sunflower",
+          "seed_price": 125,
+          "shop": "jojamart",
+          "growth_days": 8,
+          "regrow_days": null,
+          "love": [
+            "Haley"
+          ],
+          "like_count": 30,
+          "pleased": 31,
+          "avoid": [
+            "George",
+            "Sebastian",
+            "Clint"
+          ]
+        },
+        {
+          "id": "radish",
+          "name": "Radish",
+          "seed_price": 40,
+          "shop": "pierre",
+          "growth_days": 6,
+          "regrow_days": null,
+          "love": [],
+          "like_count": 29,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        },
+        {
+          "id": "tomato",
+          "name": "Tomato",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 11,
+          "regrow_days": 4,
+          "love": [],
+          "like_count": 29,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        },
+        {
+          "id": "corn",
+          "name": "Corn",
+          "seed_price": 150,
+          "shop": "pierre",
+          "growth_days": 14,
+          "regrow_days": 4,
+          "love": [],
+          "like_count": 28,
+          "pleased": 28,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail",
+            "Pierre"
+          ]
+        }
+      ],
+      "fall": [
+        {
+          "id": "sunflower",
+          "name": "Sunflower",
+          "seed_price": 125,
+          "shop": "jojamart",
+          "growth_days": 8,
+          "regrow_days": null,
+          "love": [
+            "Haley"
+          ],
+          "like_count": 30,
+          "pleased": 31,
+          "avoid": [
+            "George",
+            "Sebastian",
+            "Clint"
+          ]
+        },
+        {
+          "id": "fairy-rose",
+          "name": "Fairy Rose",
+          "seed_price": 200,
+          "shop": "pierre",
+          "growth_days": 12,
+          "regrow_days": null,
+          "love": [
+            "Jas",
+            "Evelyn"
+          ],
+          "like_count": 29,
+          "pleased": 31,
+          "avoid": [
+            "George",
+            "Sebastian",
+            "Clint"
+          ]
+        },
+        {
+          "id": "pumpkin",
+          "name": "Pumpkin",
+          "seed_price": 100,
+          "shop": "pierre",
+          "growth_days": 13,
+          "regrow_days": null,
+          "love": [
+            "Willy",
+            "Abigail",
+            "Krobus"
+          ],
+          "like_count": 27,
+          "pleased": 30,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam"
+          ]
+        },
+        {
+          "id": "eggplant",
+          "name": "Eggplant",
+          "seed_price": 20,
+          "shop": "pierre",
+          "growth_days": 5,
+          "regrow_days": 5,
+          "love": [],
+          "like_count": 29,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        },
+        {
+          "id": "bok-choy",
+          "name": "Bok Choy",
+          "seed_price": 50,
+          "shop": "pierre",
+          "growth_days": 4,
+          "regrow_days": null,
+          "love": [],
+          "like_count": 29,
+          "pleased": 29,
+          "avoid": [
+            "Vincent",
+            "Haley",
+            "Jas",
+            "Sam",
+            "Abigail"
+          ]
+        }
+      ],
+      "winter": []
+    },
+    "fish": [
+      {
+        "id": "octopus",
+        "name": "Octopus",
+        "kind": "pole",
+        "where": "Ocean, Ginger Island Oceans",
+        "season": "Summer (all year on Ginger Island)",
+        "love": [
+          "Willy"
+        ],
+        "like": [
+          "Elliott"
+        ]
+      },
+      {
+        "id": "catfish",
+        "name": "Catfish",
+        "kind": "pole",
+        "where": "Town River, Forest River, Secret Woods, Witch's Swamp",
+        "season": "Spring, Fall (Winter with a Rain Totem)",
+        "love": [
+          "Willy"
+        ],
+        "like": []
+      },
+      {
+        "id": "lava-eel",
+        "name": "Lava Eel",
+        "kind": "pole",
+        "where": "Mines (Floor 100), Volcano Caldera",
+        "season": "All seasons",
+        "love": [
+          "Dwarf"
+        ],
+        "like": []
+      },
+      {
+        "id": "lobster",
+        "name": "Lobster",
+        "kind": "crab-pot",
+        "where": "Crab Pot in the ocean",
+        "season": "All seasons",
+        "love": [
+          "Elliott"
+        ],
+        "like": []
+      },
+      {
+        "id": "pufferfish",
+        "name": "Pufferfish",
+        "kind": "pole",
+        "where": "Ocean, Ginger Island Oceans",
+        "season": "Summer (all year on Ginger Island)",
+        "love": [
+          "Abigail"
+        ],
+        "like": []
+      },
+      {
+        "id": "sandfish",
+        "name": "Sandfish",
+        "kind": "pole",
+        "where": "Desert",
+        "season": "All seasons",
+        "love": [
+          "Penny"
+        ],
+        "like": []
+      },
+      {
+        "id": "sea-cucumber",
+        "name": "Sea Cucumber",
+        "kind": "pole",
+        "where": "Ocean",
+        "season": "Fall, Winter",
+        "love": [
+          "Willy"
+        ],
+        "like": []
+      },
+      {
+        "id": "snail",
+        "name": "Snail",
+        "kind": "crab-pot",
+        "where": "Crab Pot in fresh water",
+        "season": "All seasons",
+        "love": [
+          "Vincent"
+        ],
+        "like": []
+      },
+      {
+        "id": "sturgeon",
+        "name": "Sturgeon",
+        "kind": "pole",
+        "where": "Mountain Lake",
+        "season": "Summer, Winter",
+        "love": [
+          "Willy"
+        ],
+        "like": []
+      },
+      {
+        "id": "super-cucumber",
+        "name": "Super Cucumber",
+        "kind": "pole",
+        "where": "Ocean, Ginger Island Oceans",
+        "season": "Summer, Fall (all year on Ginger Island)",
+        "love": [
+          "Wizard"
+        ],
+        "like": []
+      },
+      {
+        "id": "clam",
+        "name": "Clam",
+        "kind": "crab-pot",
+        "where": "Crab Pot in the ocean",
+        "season": "All seasons",
+        "love": [],
+        "like": [
+          "Evelyn"
+        ]
+      },
+      {
+        "id": "cockle",
+        "name": "Cockle",
+        "kind": "crab-pot",
+        "where": "Crab Pot in the ocean",
+        "season": "All seasons",
+        "love": [],
+        "like": [
+          "Evelyn"
+        ]
+      },
+      {
+        "id": "flounder",
+        "name": "Flounder",
+        "kind": "pole",
+        "where": "Ocean, Ginger Island Oceans",
+        "season": "Spring, Summer (all year on Ginger Island)",
+        "love": [],
+        "like": [
+          "Sebastian"
+        ]
+      },
+      {
+        "id": "lingcod",
+        "name": "Lingcod",
+        "kind": "pole",
+        "where": "Town River, Forest River, Mountain Lake",
+        "season": "Winter",
+        "love": [],
+        "like": [
+          "Willy"
+        ]
+      },
+      {
+        "id": "mussel",
+        "name": "Mussel",
+        "kind": "crab-pot",
+        "where": "Crab Pot in the ocean",
+        "season": "All seasons",
+        "love": [],
+        "like": [
+          "Evelyn"
+        ]
+      },
+      {
+        "id": "oyster",
+        "name": "Oyster",
+        "kind": "crab-pot",
+        "where": "Crab Pot in the ocean",
+        "season": "All seasons",
+        "love": [],
+        "like": [
+          "Evelyn"
+        ]
+      },
+      {
+        "id": "squid",
+        "name": "Squid",
+        "kind": "pole",
+        "where": "Ocean",
+        "season": "Winter",
+        "love": [],
+        "like": [
+          "Elliott"
+        ]
+      },
+      {
+        "id": "tiger-trout",
+        "name": "Tiger Trout",
+        "kind": "pole",
+        "where": "Town River, Forest River",
+        "season": "Fall, Winter",
+        "love": [],
+        "like": [
+          "Willy"
+        ]
+      }
+    ],
+    "universal_like": [
+      "All Artisan Goods",
+      "All Cooking",
+      "All Flowers",
+      "All Foraged Minerals",
+      "All Fruit Tree Fruits",
+      "All Gems",
+      "All Vegetables"
+    ],
+    "universal_love": [
+      "Golden Pumpkin",
+      "Magic Rock Candy",
+      "Pearl",
+      "Prismatic Shard",
+      "Rabbit's Foot",
+      "Stardrop Tea"
+    ]
   }
 }

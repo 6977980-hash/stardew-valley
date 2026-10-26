@@ -22,7 +22,7 @@ asort( $items );
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> choose a villager to see what they love and like, or choose an item to see who loves it. A loved gift is worth 80 friendship points and a liked one 45; a heart is 250 points. On a birthday the points are multiplied by 8.</p>
-	<p>Covers all <?php echo (int) count( $villagers ); ?> villagers. Category tastes such as "All Vegetables" (a universal like) count for every item in that category; a villager's own list always comes first.</p>
+	<p>Covers all <?php echo (int) count( $villagers ); ?> villagers. Category tastes such as "All Vegetables" (a universal like) count for every item in that category; a villager's own list always comes first.<?php $chart_u = Stardew_Tools\Entities::chart_url(); ?><?php echo $chart_u ? ' For every villager on one printable page, see the <a href="' . esc_url( $chart_u ) . '">Gift Chart</a>.' : ''; ?></p>
 </div>
 
 <form class="tool-form" id="gift-form" novalidate>

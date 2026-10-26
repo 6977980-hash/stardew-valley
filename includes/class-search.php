@@ -102,6 +102,7 @@ class Search {
 				$add( $e['name'], Entities::url( $type, $id ), $t['label'], Entities::search_text( $type, $e ) );
 			}
 		}
+		$add( 'Gift Chart', Entities::chart_url(), 'List', 'Every villager on one printable page: loves, hates and a Year 1 birthday crop.' );
 		$add( 'Animal Prices', Entities::prices_url(), 'List', 'Every farm animal: price, building, upgrade cost and payback.' );
 		$add( 'Data Downloads', Entities::url( 'data', '' ) ?: self::page_url( 'data' ), 'Data', 'CSV files for crops, animals and machines.' );
 
