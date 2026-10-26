@@ -48,8 +48,9 @@ $top = $rows[ $ids[0] ];
 </div>
 <p class="table-note">Raw means selling what the animal produces as it is. Best case means the artisan goods made from it with the Artisan profession, so it is the faster of the two paybacks.</p>
 
-<h2>Reading the table</h2>
+<h2 id="how-we-count">Reading the table</h2>
 <p>Figures assume five hearts of friendship and maximum happiness, an average day of luck, and no hay costs. Payback is the animal's price divided by its daily income, so it ignores the building and the weeks it takes to reach full friendship.<?php $prices_u = Stardew_Tools\Entities::prices_url(); ?><?php echo $prices_u ? ' For payback that includes the Coop or Barn, and what each building level costs, see <a href="' . esc_url( $prices_u ) . '">Stardew Valley Animal Prices</a>.' : ''; ?> Animals with no price are not sold in a shop. If you are choosing between a coop and a barn first, compare the top row of each building here, then check your own numbers in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>. For pigs in particular, <a href="<?php echo esc_url( $guide_url( 'are-pigs-worth-it' ) ); ?>">Are pigs worth it?</a> goes through the conditions.</p>
+<p>The animal pages use the same rules. Friendship is counted in hearts of 200 points, up to five, and raises product quality (and the chance of a large product), so income climbs as you pet and feed an animal. Payback with the building counts the building's gold only: its wood and stone can be gathered, and hay and the days before five hearts are left out. Artisan goods include the Artisan profession's +40%, which raw products don't get, and a machine runs all day, so a figure below one machine per animal means one machine serves several animals.</p>
 
 <p><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'stardew-farm-animals.csv' ) ); ?>" download>Download this table as CSV</a>, or see all <a href="<?php echo esc_url( home_url( '/data/' ) ); ?>">data downloads</a>.</p>
 

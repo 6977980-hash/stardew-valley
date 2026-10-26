@@ -13,17 +13,16 @@ defined( 'ABSPATH' ) || exit;
 <p>We have not yet published our own in-game test records (screenshots or save files). Until we do, no page claims a value was tested in the game; the source of each value is the wiki.</p>
 
 <h2>Verification status</h2>
-<p>Each record in our data has a status:</p>
+<p>One rule applies to every number on the site: a value is used only when two separate wiki sources agree, for example the item's own page and a list page, or the rendered page and the wiki's copy of the game's raw data. Each record in our data has a status:</p>
 <ul>
-<li><strong>Verified:</strong> stated on its wiki page for the current game version.</li>
-<li><strong>Cross-checked:</strong> the same value is stated on two separate wiki pages.</li>
-<li><strong>Needs verification:</strong> collected but not yet confirmed, for example a value only one page states. These values are never used as calculation inputs.</li>
+<li><strong>Cross-checked:</strong> two wiki sources agree. The gift and bundle files call this status "verified"; it means the same thing.</li>
+<li><strong>Needs verification:</strong> collected, but only one source states it or two sources disagree. These values are not used in calculations, except where a page shows a note saying so (see below).</li>
 <li><strong>Deprecated:</strong> no longer true in the current game version.</li>
 </ul>
 <p>When two sources disagree, we do not pick one quietly. The value is either left out of the calculations until it is resolved, or used with a note on every page that shows it (for example the Dehydrator's processing time and three fish pond spawn rates).</p>
 
 <h2>Game version</h2>
-<p>Data is checked for Stardew Valley <?php echo esc_html( $version ); ?>. A script compares this with the wiki's version history, and when a new version is released, affected tools are re-checked and the changes are listed in the <a href="<?php echo esc_url( $home_url . 'changelog/' ); ?>">changelog</a>.</p>
+<p>Data is checked for Stardew Valley <?php echo esc_html( $version ); ?>. The "Verified for <?php echo esc_html( $version ); ?>" label on each page means its data was cross-checked against the wiki for that version, not that it was tested in a save file. A script compares this with the wiki's version history, and when a new version is released, affected tools are re-checked and the changes are listed in the <a href="<?php echo esc_url( $home_url . 'changelog/' ); ?>">changelog</a>.</p>
 
 <h2>How calculations work</h2>
 <p>All tools, guides and reference pages use one shared calculation engine, so the same crop gives the same result everywhere on the site. The short answers on tool pages, the numbers in guides and the CSV downloads are generated from that engine, and a test fails if any of them goes stale. Each tool shows an "Explain the Math" section with the actual numbers from your inputs, and lists its assumptions, such as professions, fertilizer, crop quality and days left in the season.</p>

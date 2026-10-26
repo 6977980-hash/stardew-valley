@@ -20,7 +20,7 @@ class Entities {
 	const TABLE_LABEL = 'Table: scrolls sideways on small screens';
 
 	/** Day the page templates' text last changed (shown as "Updated" with the data check date). */
-	const UPDATED = '2026-10-21';
+	const UPDATED = '2026-10-26';
 
 	/** Data files an entity type's pages are built from. */
 	public static function data_sets( $type ) {
@@ -489,7 +489,25 @@ class Entities {
 			?>
 		<section class="tool-meta" aria-labelledby="entity-sources">
 			<h2 id="entity-sources">Where these numbers come from</h2>
-			<p>Game data comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a>, cross-checked between at least two of its pages (last checked <?php echo esc_html( $data_checked ); ?>).<?php echo in_array( $type, self::AUTOLINK_TYPES, true ) ? ' Profit figures are calculated by the same engine as our calculators.' : ''; ?> See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.<?php echo $index ? ' All entries: <a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['short'] ) . '</a>.' : ''; ?></p>
+			<?php
+			// Name the wiki pages behind this entry, so the note says something about this page.
+			$wiki    = 'https://stardewvalleywiki.com/';
+			$sources = array();
+			if ( ! empty( $e['sources'] ) ) {
+				$sources = $e['sources'];
+			} elseif ( ! empty( $e['wiki_url'] ) ) {
+				$sources = array( $e['wiki_url'], $wiki . 'Crops' );
+			} elseif ( 'animals' === $type && ! empty( $e['name'] ) ) {
+				$sources = array( $wiki . str_replace( ' ', '_', $e['name'] ), $wiki . 'Animals', $wiki . 'Marnie%27s_Ranch' );
+			}
+			$src_links = array();
+			foreach ( $sources as $src ) {
+				$title       = str_replace( '_', ' ', rawurldecode( preg_replace( '/#.*$/', '', substr( $src, strlen( $wiki ) ) ) ) );
+				$src_links[] = '<a href="' . esc_url( $src ) . '" rel="noopener">' . esc_html( $title ) . '</a>';
+			}
+			$src_links = array_values( array_unique( $src_links ) );
+			?>
+			<p><?php if ( $src_links ) : ?>Source: the Stardew Valley Wiki pages <?php echo implode( ', ', $src_links ); // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts. ?>; each value is cross-checked on two wiki sources.<?php else : ?>Source: the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a>; each value is cross-checked on two wiki sources.<?php endif; ?> Checked <?php echo esc_html( $data_checked ); ?>.<?php echo in_array( $type, self::AUTOLINK_TYPES, true ) ? ' Profit comes from our calculator engine.' : ''; ?> <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">Methodology</a> · <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Report a wrong number</a><?php echo $index ? ' · <a href="' . esc_url( $index ) . '">' . esc_html( self::types()[ $type ]['short'] ) . '</a>' : ''; ?></p>
 		</section>
 			<?php
 		}

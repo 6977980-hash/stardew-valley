@@ -37,8 +37,11 @@ if ( $prof_d && (int) $prof_d['days'] !== (int) $full_d ) {
 $first   = $e['products'][0];
 $large   = isset( $e['products'][1] ) ? $e['products'][1] : null;
 $peers   = array();
+$group   = function ( $a ) {
+	return false !== strpos( $a['building'], 'Coop' ) ? 'Coop' : 'Barn';
+};
 foreach ( $all['animals'] as $id => $other ) {
-	if ( $id !== $e['id'] ) {
+	if ( $id !== $e['id'] && $group( $other ) === $group( $e ) ) {
 		$peers[ $id ] = $other;
 	}
 }
@@ -55,6 +58,7 @@ $days     = function ( $v ) use ( $n ) {
 	return $v < 10 ? $n( round( $v, 1 ) ) : number_format( round( $v ) );
 };
 $prices_u = Stardew_Tools\Entities::prices_url();
+$how_url  = $ent_url( 'animals', '' ) ? $ent_url( 'animals', '' ) . '#how-we-count' : '';
 ?>
 <div class="answer">
 	<?php if ( $e['price'] ) : ?>
@@ -67,7 +71,7 @@ $prices_u = Stardew_Tools\Entities::prices_url();
 	<?php endif; ?>
 </div>
 
-<p>At full friendship a <?php echo esc_html( $e['name'] ); ?> <?php echo esc_html( $pace ); ?> and earns about <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day selling its products as they are, or <?php echo esc_html( $gold( $full['processed'] ) ); ?> a day made into artisan goods by an Artisan player. That makes it <?php echo esc_html( $tier ); ?> (number <?php echo (int) $e['rank_raw']; ?> of <?php echo (int) $e['of']; ?> by raw income).<?php echo $prices_u ? ' Compare every animal and building on <a href="' . esc_url( $prices_u ) . '">Stardew Valley Animal Prices</a>.' : ''; ?></p>
+<p>At full friendship a <?php echo esc_html( $e['name'] ); ?> <?php echo esc_html( $pace ); ?>: <?php echo esc_html( $gold( $full['raw'] ) ); ?> a day raw, or <?php echo esc_html( $gold( $full['processed'] ) ); ?> as artisan goods with the Artisan profession. That makes it <?php echo esc_html( $tier ); ?>, number <?php echo (int) $e['rank_raw']; ?> of <?php echo (int) $e['of']; ?> by raw income.<?php if ( $bld && $bld['capacity'] > 1 ) : ?> A full <?php echo esc_html( $bld['name'] ); ?> of <?php echo (int) $bld['capacity']; ?> brings in <?php echo esc_html( $gold( $bld['capacity'] * $full['raw'] ) ); ?> a day raw.<?php endif; ?></p>
 
 <h2>Quick facts</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
@@ -94,11 +98,11 @@ $prices_u = Stardew_Tools\Entities::prices_url();
 </table>
 </div>
 <?php if ( ! empty( $e['payback_days_with_building'] ) ) : ?>
-<p class="table-note">Payback divides the gold you spend by raw income at five hearts. The building counts its gold only: its wood and stone can be gathered for free, and hay and the days before five hearts are not counted.</p>
+<?php if ( $how_url ) : ?><p class="table-note"><a href="<?php echo esc_url( $how_url ); ?>">How payback is counted</a>.</p><?php endif; ?>
 <?php endif; ?>
 
 <h2>Income by hearts</h2>
-<p>Animal friendship is counted in hearts, 200 points each, up to five. Friendship raises the chance of silver, gold and iridium products<?php echo $large ? ' and of the Large product' : ''; ?>, so income climbs as you pet and feed it. Gold per day for one animal, with happiness at the maximum:</p>
+<p>Petting and feeding raise friendship, which <?php echo $forage ? 'brings more truffles' : 'raises product quality' . ( $large ? ' and the chance of a ' . esc_html( $large['name'] ) : '' ); ?>. One <?php echo esc_html( $e['name'] ); ?>, happiness at the maximum:</p>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
 	<caption>One <?php echo esc_html( $e['name'] ); ?>, by friendship hearts</caption>
@@ -114,17 +118,18 @@ $prices_u = Stardew_Tools\Entities::prices_url();
 $zero = $e['by_hearts'][0]['gold'];
 $five = $e['by_hearts'][5]['gold'];
 ?>
-<p>Going from no hearts to five takes a <?php echo esc_html( $e['name'] ); ?> from <?php echo esc_html( $gold( $zero ) ); ?> to <?php echo esc_html( $gold( $five ) ); ?> a day<?php echo $zero > 0 && $five > $zero ? ', an increase of ' . (int) round( ( $five / $zero - 1 ) * 100 ) . '%' : ''; ?>. <?php echo $forage ? 'For a pig the difference comes from extra truffles rather than quality, so friendship matters more here than for any other animal.' : 'Most of that comes from better quality, so petting daily in the first weeks is worth the time.'; ?></p>
+<?php if ( $zero > 0 && $five > $zero ) : ?>
+<p>Five hearts earn <?php echo (int) round( ( $five / $zero - 1 ) * 100 ); ?>% more than none<?php echo $forage ? ', from extra truffles rather than quality' : ''; ?>.</p>
+<?php endif; ?>
 
 <h2>Artisan goods</h2>
 <?php if ( $full['machines'] ) : ?>
-<p>The products of a <?php echo esc_html( $e['name'] ); ?> can be turned into artisan goods, which is where the processed column above comes from. One animal at full friendship keeps this much machine time busy:</p>
+<p>How many machines one <?php echo esc_html( $e['name'] ); ?> at full friendship keeps busy:</p>
 <ul>
 	<?php foreach ( $full['machines'] as $m ) : ?>
-	<li><?php echo esc_html( $m['name'] ); ?>: <?php echo esc_html( $n( $m['per_animal'] ) ); ?> machine(s) per animal</li>
+	<li><?php echo esc_html( $m['name'] ); ?>: <?php echo esc_html( $n( $m['per_animal'] ) ); ?> per animal<?php echo $m['per_animal'] > 0 && $m['per_animal'] < 1 ? ', so one machine keeps up with about ' . (int) floor( 1 / $m['per_animal'] ) . ' of them' : ''; ?><?php echo $bld && $bld['capacity'] > 1 && $m['per_animal'] > 0 ? '; a full ' . esc_html( $bld['name'] ) . ' needs ' . (int) ceil( $bld['capacity'] * $m['per_animal'] - 0.001 ) . ( ceil( $bld['capacity'] * $m['per_animal'] - 0.001 ) > 1 ? ' machines' : ' machine' ) : ''; ?></li>
 	<?php endforeach; ?>
 </ul>
-<p>Machines run the whole day, so a figure below one means a single machine can look after several animals. The Artisan profession adds 40% to the price of goods like these, but not to raw products.</p>
 <?php else : ?>
 <p>The <?php echo esc_html( $first['name'] ); ?> is not turned into an artisan good in our data, so the raw and processed income are the same.</p>
 <?php endif; ?>
@@ -140,7 +145,7 @@ $five = $e['by_hearts'][5]['gold'];
 	<tbody><tr><td><?php echo esc_html( $n( $full['quality']['normal'] ) ); ?>%</td><td><?php echo esc_html( $n( $full['quality']['silver'] ) ); ?>%</td><td><?php echo esc_html( $n( $full['quality']['gold'] ) ); ?>%</td><td><?php echo esc_html( $n( $full['quality']['iridium'] ) ); ?>%</td></tr></tbody>
 </table>
 </div>
-<p class="table-note">Daily luck is counted as zero, an average day.</p>
+
 <?php endif; ?>
 
 <?php if ( $e['conditions'] ) : ?>
@@ -155,17 +160,17 @@ $five = $e['by_hearts'][5]['gold'];
 <h2>How it compares</h2>
 <div class="table-wrap" tabindex="0" role="region" aria-label="Table: scrolls sideways on small screens">
 <table class="results-table">
-	<caption>Raw gold per day at full friendship</caption>
-	<thead><tr><th scope="col">Animal</th><th scope="col">Price</th><th scope="col">Gold a day</th></tr></thead>
+	<caption><?php echo esc_html( $e['name'] ); ?> and the other <?php echo esc_html( $group( $e ) ); ?> animals, raw gold per day at full friendship</caption>
+	<thead><tr><th scope="col">Animal</th><th scope="col">Price</th><th scope="col">Gold a day</th><th scope="col">Pays back in</th></tr></thead>
 	<tbody>
-		<tr class="is-best"><th scope="row"><?php echo esc_html( $e['name'] ); ?></th><td><?php echo $e['price'] ? esc_html( $gold( $e['price'] ) ) : '—'; ?></td><td><?php echo esc_html( $gold( $full['raw'] ) ); ?></td></tr>
-		<?php foreach ( array_slice( $peers, 0, 4, true ) as $id => $o ) : ?>
-		<tr><th scope="row"><?php echo $link( 'animals', $id, $o['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link. ?></th><td><?php echo $o['price'] ? esc_html( $gold( $o['price'] ) ) : '—'; ?></td><td><?php echo esc_html( $gold( $o['full']['raw'] ) ); ?></td></tr>
+		<tr class="is-best"><th scope="row"><?php echo esc_html( $e['name'] ); ?></th><td><?php echo $e['price'] ? esc_html( $gold( $e['price'] ) ) : '—'; ?></td><td><?php echo esc_html( $gold( $full['raw'] ) ); ?></td><td><?php echo ! empty( $e['payback_days_raw'] ) ? esc_html( $days( $e['payback_days_raw'] ) . ' days' ) : '—'; ?></td></tr>
+		<?php foreach ( $peers as $id => $o ) : ?>
+		<tr><th scope="row"><?php echo $link( 'animals', $id, $o['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link. ?></th><td><?php echo $o['price'] ? esc_html( $gold( $o['price'] ) ) : '—'; ?></td><td><?php echo esc_html( $gold( $o['full']['raw'] ) ); ?></td><td><?php echo ! empty( $o['payback_days_raw'] ) ? esc_html( $days( $o['payback_days_raw'] ) . ' days' ) : '—'; ?></td></tr>
 		<?php endforeach; ?>
 	</tbody>
 </table>
 </div>
-<p>The animals above are the four best earners other than the <?php echo esc_html( $e['name'] ); ?>. Rank by your own hearts and professions in the <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>.<?php echo 'pig' === $e['id'] ? ' For whether a pig is worth the price, read <a href="' . esc_url( $guide_url( 'are-pigs-worth-it' ) ) . '">Are pigs worth it?</a>' : ''; ?></p>
+<p>Your own hearts and professions: <a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a>.<?php echo $prices_u ? ' Every animal and building: <a href="' . esc_url( $prices_u ) . '">Animal Prices</a>.' : ''; ?><?php echo 'pig' === $e['id'] ? ' For whether a pig is worth the price, read <a href="' . esc_url( $guide_url( 'are-pigs-worth-it' ) ) . '">Are pigs worth it?</a>' : ''; ?></p>
 
 <?php $st_tips = include __DIR__ . '/tips.php'; ?>
 <?php if ( ! empty( $st_tips['animals'][ $e['id'] ] ) ) : ?>
@@ -175,24 +180,24 @@ $five = $e['by_hearts'][5]['gold'];
 
 <h2>Related</h2>
 <ul class="related-list">
-	<li><a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a><span>Gold per day for any animal, hearts and professions.</span></li>
+	<li><a href="<?php echo esc_url( $tool_url( 'animal-profit-calculator' ) ); ?>">Animal Profit Calculator</a></li>
 	<?php if ( $prices_u ) : ?>
-	<li><a href="<?php echo esc_url( $prices_u ); ?>">Animal prices</a><span>Every animal's price, building cost and payback in one table.</span></li>
+	<li><a href="<?php echo esc_url( $prices_u ); ?>">Animal prices</a></li>
 	<?php endif; ?>
 	<?php if ( $ent_url( 'animals', '' ) ) : ?>
-	<li><a href="<?php echo esc_url( $ent_url( 'animals', '' ) ); ?>">All farm animals</a><span>Every animal in one table, with a CSV download.</span></li>
+	<li><a href="<?php echo esc_url( $ent_url( 'animals', '' ) ); ?>">All farm animals</a></li>
 	<?php endif; ?>
 </ul>
 <?php
 // Every other animal, by building, so no animal page depends on the top-four table to be found.
 $animal_rows = array();
 foreach ( $all['animals'] as $aid => $ae ) {
-	$group = false !== strpos( $ae['building'], 'Coop' ) ? 'Coop animals' : 'Barn animals';
-	if ( $aid !== $e['id'] && $ent_url( 'animals', $aid ) ) {
-		$animal_rows[ $group ][] = '<a href="' . esc_url( $ent_url( 'animals', $aid ) ) . '">' . esc_html( $ae['name'] ) . '</a>';
+	// Animals of the same building are already linked in the comparison table.
+	if ( $group( $ae ) !== $group( $e ) && $ent_url( 'animals', $aid ) ) {
+		$animal_rows[ $group( $ae ) . ' animals' ][] = '<a href="' . esc_url( $ent_url( 'animals', $aid ) ) . '">' . esc_html( $ae['name'] ) . '</a>';
 	}
 }
-foreach ( $animal_rows as $group => $links ) {
-	echo '<p class="entity-links">' . esc_html( $group ) . ': ' . implode( ' · ', $links ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
+foreach ( $animal_rows as $row_label => $links ) {
+	echo '<p class="entity-links">' . esc_html( $row_label ) . ': ' . implode( ' · ', $links ) . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
 }
 ?>
