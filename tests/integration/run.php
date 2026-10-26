@@ -510,6 +510,58 @@ foreach ( array( 'engine', 'tools' ) as $dir ) {
 	st_assert( false !== strpos( (string) file_get_contents( STARDEW_TOOLS_DIR . "assets/js/{$dir}/.htaccess" ), 'must-revalidate' ), "{$dir} modules are not cached as immutable" ); // phpcs:ignore
 }
 
+echo "Content (audit 2026-10-26 Phase 3)\n";
+// F-106: entity pages of one type must not be mostly the same text. Share of each page's 5-word
+// shingles that appear on more than half the pages of its type, median per type.
+foreach ( array( 'crops', 'animals', 'villagers' ) as $type ) {
+	$sets = array();
+	foreach ( array_keys( $ent[ $type ] ) as $id ) {
+		$words = preg_split( '/[^a-z0-9]+/', strtolower( html_entity_decode( wp_strip_all_tags( do_shortcode( '[stardew_entity type="' . $type . '" id="' . $id . '"]' ) ) ) ), -1, PREG_SPLIT_NO_EMPTY );
+		$set   = array();
+		for ( $i = 0; $i + 4 < count( $words ); $i++ ) {
+			$set[ implode( ' ', array_slice( $words, $i, 5 ) ) ] = true;
+		}
+		$sets[ $id ] = $set;
+	}
+	$count = array();
+	foreach ( $sets as $set ) {
+		foreach ( $set as $k => $unused ) {
+			$count[ $k ] = isset( $count[ $k ] ) ? $count[ $k ] + 1 : 1;
+		}
+	}
+	$shares = array();
+	foreach ( $sets as $set ) {
+		$common = 0;
+		foreach ( $set as $k => $unused ) {
+			$common += $count[ $k ] * 2 > count( $sets ) ? 1 : 0;
+		}
+		$shares[] = $common / max( 1, count( $set ) );
+	}
+	sort( $shares );
+	$median = $shares[ (int) floor( count( $shares ) / 2 ) ];
+	st_assert( $median < 0.45, sprintf( '%s pages share under 45%% of their text (median %d%%)', $type, round( $median * 100 ) ) );
+}
+$abigail = do_shortcode( '[stardew_entity type="villagers" id="abigail"]' );
+st_assert( false !== strpos( $abigail, 'Birthday gift plan' ) && false !== strpos( $abigail, 'Fall 5' ) && false !== strpos( $abigail, 'Also loved by' ), 'villager page has a birthday plan and who shares each loved gift' );
+st_assert( false === strpos( $abigail, 'Warp Totem' ), 'villager page leaves the universal hate list to All Villagers' );
+st_assert( false !== strpos( do_shortcode( '[stardew_entity type="villagers" id="haley"]' ), 'Haley hates it, though most villagers love it' ), 'villager page names exceptions to the universal lists' );
+st_assert( false !== strpos( do_shortcode( '[stardew_entity_index type="villagers"]' ), 'id="universal-gifts"' ), 'All Villagers holds the universal gift rules' );
+$crops_index = do_shortcode( '[stardew_entity_index type="crops"]' );
+st_assert( false !== strpos( $crops_index, 'id="how-we-count"' ) && false !== strpos( $crops_index, 'Chance of each crop quality' ), 'All Crops holds the shared counting rules and quality chances' );
+st_assert( false === strpos( $parsnip_html, 'Chance of each quality' ) && false === strpos( do_shortcode( '[stardew_entity type="crops" id="green-bean"]' ), 'walk through the rows' ), 'crop pages drop the shared quality table and the wrong trellis claim' );
+st_assert( false !== strpos( do_shortcode( '[stardew_entity_index type="animals"]' ), 'id="how-we-count"' ), 'All Farm Animals holds the shared counting rules' );
+// F-107: one definition of checked data.
+ob_start();
+$brand    = 'Stardew Tools';
+$version  = '1.6.15';
+$home_url = home_url( '/' );
+$author   = 'Ali Ahmad';
+$linkedin = 'https://example.com/';
+$email    = 'test@example.com';
+include STARDEW_TOOLS_DIR . 'includes/page-templates/methodology.php';
+$method = ob_get_clean();
+st_assert( false === strpos( $method, 'stated on its wiki page' ) && false !== strpos( $method, 'two separate wiki sources agree' ), 'Methodology has one definition of checked data' );
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

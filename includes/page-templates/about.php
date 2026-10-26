@@ -24,7 +24,7 @@ foreach ( array( 'crops', 'animals', 'villagers', 'bundles' ) as $type ) {
 <ul>
 <li><strong>Decisions, not just numbers.</strong> Each tool tells you which option is better for your situation and why.</li>
 <li><strong>Assumptions you can see.</strong> Professions, fertilizer, crop quality and days left in the season are shown next to every result, so you know exactly what a number means.</li>
-<li><strong>Checked data.</strong> Game values are read from the Stardew Valley Wiki and kept only when two of its pages agree, and the engine is tested against the wiki's own worked examples. Every page says which game version it was checked for. See our <a href="<?php echo esc_url( $home_url . 'methodology/' ); ?>">methodology</a>.</li>
+<li><strong>Checked data.</strong> Game values are read from the Stardew Valley Wiki and used only when two separate wiki sources agree, and the engine is tested against the wiki's own worked examples. Every page says which game version it was checked for. See our <a href="<?php echo esc_url( $home_url . 'methodology/' ); ?>">methodology</a>.</li>
 <li><strong>Free, with no account.</strong> Your saved plans stay in your own browser.</li>
 </ul>
 

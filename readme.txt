@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.19.0
+Stable tag: 0.20.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,11 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.20.0 (2026-10-26) =
+* Audit 2026-10-26 Phase 3 (content), 2 fixes:
+* F-106 Entity pages say what is true for that entry and leave shared rules to one place. Median share of 5-word text shared with more than half the pages of the same type: crops 55% -> 36%, farm animals 59% -> 39%, villagers 63% -> 39% (new integration test keeps it under 45%). Villager pages: own gift lists only, "Also loved by" per loved gift, a birthday gift plan from the crop data (crops ready by the birthday with plant-by day, seed and sell price, or one to keep from the season before), weekday of the birthday, exceptions to the universal lists; the universal lists, points table and 10-heart maths moved to All Villagers (#universal-gifts). Crop pages: a facts sentence (regrow, trellis, giant crop, items per harvest, best machine), average sale price per item at levels 0/5/10 instead of the shared quality table, Keg vs Jar in numbers; the counting rules and quality chances moved to All Crops (#how-we-count). Trellis text corrected (trellis crops block your path). Animal pages compare the animals of the same building with payback, give full-building income and machines needed; counting rules moved to All Farm Animals (#how-we-count). The sources note names each entry's own wiki pages. "The The Missing Bundle" fixed.
+* F-107 One definition of checked data on Methodology, About, /data/, tools and guides: a value is used only when two separate wiki sources agree ("verified" in the gift and bundle files means the same as cross-checked). Methodology explains that "Verified for 1.6.15" means checked against the wiki for that version, not tested in a save file.
 
 = 0.19.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 5 (speed, security and ops), 5 fixes:

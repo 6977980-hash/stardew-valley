@@ -72,6 +72,28 @@ foreach ( $rows as $r ) {
 <h2>How to use this list</h2>
 <p>A high profit per tile is not the whole story. Crops that regrow, such as Strawberry or Blueberry, pay back after several harvests and need no replanting. Crops that give one harvest, like Pumpkin (13 days), must be replanted each time. For the best choice on a given day with a given budget, ask <a href="<?php echo esc_url( $tool_url( 'what-to-plant' ) ); ?>">What to Plant Today</a>. For a season overview read <a href="<?php echo esc_url( home_url( '/' ) ); ?>">our season pages</a> from the home page, or the guide <a href="<?php echo esc_url( $guide_url( 'speed-gro-vs-fertilizer' ) ); ?>">Speed-Gro vs Fertilizer</a> to see what fertilizer adds.</p>
 
+<?php $q_rows = $top[1]['quality']; ?>
+<h2 id="how-we-count">How the crop pages count</h2>
+<p>Every crop page uses the same rules, so they are written here once:</p>
+<ul>
+	<li><strong>Profit per tile</strong> is one tile planted on day 1 of the season and replanted after each harvest (or left to regrow), sold raw, after paying for seeds. Every harvest that fits before the season ends counts, and a crop that also grows in the next season carries on into it.</li>
+	<li><strong>The rank</strong> compares only crops whose seeds a shop sells every day, the same pool as the Best Crops pages. Those pages rank at farming level 0 and crop pages at level 6, so neighbours can swap places.</li>
+	<li><strong>Machines:</strong> "extra gold per machine per day" is what one never-idle Keg or Preserves Jar adds over selling the crop raw, with the Artisan profession (+40%). Artisan comes after Tiller, so the raw price it is compared with includes Tiller's +10%.</li>
+	<li><strong>Quality</strong> depends on your farming level. Silver sells for 1.25×, gold 1.5× and iridium 2× the regular price. Without fertilizer the chances are:</li>
+</ul>
+<div class="table-wrap" tabindex="0" role="region" aria-label="<?php echo esc_attr( Stardew_Tools\Entities::TABLE_LABEL ); ?>">
+<table class="results-table">
+	<caption>Chance of each crop quality, no fertilizer</caption>
+	<thead><tr><th scope="col">Farming level</th><th scope="col">Regular</th><th scope="col">Silver</th><th scope="col">Gold</th><th scope="col">Iridium</th></tr></thead>
+	<tbody>
+	<?php foreach ( $q_rows as $q ) : ?>
+		<tr><th scope="row"><?php echo (int) $q['level']; ?></th><td><?php echo esc_html( $q['chances']['regular'] ); ?>%</td><td><?php echo esc_html( $q['chances']['silver'] ); ?>%</td><td><?php echo esc_html( $q['chances']['gold'] ); ?>%</td><td><?php echo esc_html( $q['chances']['iridium'] ); ?>%</td></tr>
+	<?php endforeach; ?>
+	</tbody>
+</table>
+</div>
+<p class="table-note">Iridium quality needs Deluxe Fertilizer, which is why it is 0% here.</p>
+
 <p><a href="<?php echo esc_url( Stardew_Tools\Entities::csv_url( 'stardew-crops.csv' ) ); ?>" download>Download this table as CSV</a>, or see all <a href="<?php echo esc_url( home_url( '/data/' ) ); ?>">data downloads</a>.</p>
 
 <h2>Related</h2>

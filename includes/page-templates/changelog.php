@@ -4,6 +4,14 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 26, 2026: crop, animal and villager pages</h2>
+<ul>
+<li>Each <a href="<?php echo esc_url( home_url( '/villagers/' ) ); ?>">villager page</a> now has a birthday gift plan: the loved or liked crops that are ready by the birthday, the last day to plant them, and what they cost. It also shows who else loves each gift and where the villager breaks the universal rules, such as Haley hating Prismatic Shards.</li>
+<li>Crop pages show what one crop sells for on average at your farming level, and compare Kegs and Preserves Jars in gold per day. Animal pages compare the animals that share a building and say how many machines a full Coop or Barn needs.</li>
+<li>Rules that are the same on every page, such as the universal gift lists and how profit is counted, are now on the All Villagers, All Crops and All Farm Animals pages. Trellis crops are now correctly described as blocking your path.</li>
+<li>The <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a> uses one definition of checked data: a value is used only when two wiki sources agree.</li>
+</ul>
+
 <h2>October 26, 2026: clearer tool settings and better search</h2>
 <ul>
 <li>Every calculator now says what it assumes right above the result, such as "Assumes: first year from seed, Farming level 10, no fertilizer, Tiller, Artisan". The <a href="<?php echo esc_url( home_url( '/crafting-calculator/' ) ); ?>">Crafting Calculator</a> now starts on Year 1 shop prices.</li>

@@ -481,7 +481,7 @@ class Guides {
 		?>
 		<section class="tool-meta" aria-labelledby="guide-sources">
 			<h2 id="guide-sources">Where these numbers come from</h2>
-			<p>Every number on this page is calculated by the same engine as our calculators, from game data taken from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and cross-checked between at least two of its pages (last checked <?php echo esc_html( $data_checked ); ?>). See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.</p>
+			<p>Every number on this page is calculated by the same engine as our calculators, from game data taken from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and cross-checked between two wiki sources (last checked <?php echo esc_html( $data_checked ); ?>). See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.</p>
 		</section>
 		<?php
 		$more = array();

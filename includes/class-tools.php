@@ -439,7 +439,7 @@ class Tools {
 		<section class="tool-meta" aria-labelledby="sources-<?php echo esc_attr( $tool_id ); ?>">
 			<h2 id="sources-<?php echo esc_attr( $tool_id ); ?>">Sources and accuracy</h2>
 			<p><span class="badge badge--ok">Verified for Stardew Valley <?php echo esc_html( $version ); ?></span> Data last checked <?php echo esc_html( $checked ); ?>.</p>
-			<p>Every value comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and is cross-checked between at least two of its pages; the formulas are tested against the wiki's own tables. See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>. Found a wrong number? <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Tell us</a>.</p>
+			<p>Every value comes from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and is cross-checked between two wiki sources; the formulas are tested against the wiki's own tables. See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>. Found a wrong number? <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">Tell us</a>.</p>
 		</section>
 		<?php
 		$links = array();
