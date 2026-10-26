@@ -24,6 +24,9 @@ itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Mana
 * F-104 Security headers on every page: X-Content-Type-Options, X-Frame-Options SAMEORIGIN, Referrer-Policy strict-origin-when-cross-origin, Permissions-Policy, and HSTS (1 year) on https. The deploy copies the brand favicon.ico to the site root if none is there, and /favicon.ico requests that reach WordPress redirect to it.
 * F-105 Engine and tool modules (assets/js/engine, assets/js/tools) are cached for a day with revalidation instead of a year immutable, so a browser that ignores the import map cannot keep a stale module.
 
+= 0.18.1 (2026-10-26) =
+* Google Analytics 4 (G-ZYXVVT76GG) on every public page via includes/class-analytics.php: async gtag.js first in <head>, marked data-no-optimize/data-no-defer for LiteSpeed. Not printed for logged-in editors/admins, previews or feeds. Filter stardew_tools_ga_id ('' turns it off).
+
 = 0.18.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 2 (crawl, index and technical SEO), 5 fixes:
 * F-96 Sitemap lastmod is per page: each deploy renders every published page and moves its lastmod only when its title, description or text changed (Release::stamp_pages, post meta _stardew_tools_content_hash / _stardew_tools_lastmod). A release that changes one tool no longer marks all 142 pages as modified.

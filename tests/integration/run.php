@@ -145,6 +145,16 @@ st_assert( '' === apply_filters( 'the_generator', '<generator>x</generator>', 'r
 st_assert( false === apply_filters( 'xmlrpc_enabled', true ) && array() === apply_filters( 'xmlrpc_methods', array( 'pingback.ping' => 'x' ) ), 'XML-RPC and pingbacks off' );
 st_assert( false === has_action( 'wp_head', 'feed_links' ) && false === has_action( 'wp_head', 'feed_links_extra' ), 'no feed links in the head' );
 st_assert( ! isset( apply_filters( 'wp_headers', array( 'X-Pingback' => 'x' ) )['X-Pingback'] ), 'no X-Pingback header' );
+ob_start();
+Stardew_Tools\Analytics::head();
+$ga = ob_get_clean();
+st_assert( 1 === has_action( 'wp_head', array( 'Stardew_Tools\Analytics', 'head' ) ) && false !== strpos( $ga, 'googletagmanager.com/gtag/js?id=G-ZYXVVT76GG' ) && false !== strpos( $ga, "gtag('config','G-ZYXVVT76GG')" ), 'GA4 tag printed first in the head for visitors' );
+$admins = get_users( array( 'role' => 'administrator', 'number' => 1, 'fields' => 'ID' ) );
+wp_set_current_user( (int) $admins[0] );
+ob_start();
+Stardew_Tools\Analytics::head();
+st_assert( '' === ob_get_clean(), 'GA4 tag not printed for logged-in admins' );
+wp_set_current_user( 0 );
 $org = Seo::organization();
 st_assert( 'Organization' === $org['@type'] && ! empty( $org['logo']['url'] ) && ! empty( $org['sameAs'] ), 'Organization node has name, logo and sameAs' );
 ob_start();
