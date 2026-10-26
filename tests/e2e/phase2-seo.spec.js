@@ -5,11 +5,13 @@ import { test, expect } from '@playwright/test';
 
 test.describe('phase 2 technical SEO @live', () => {
   // Which pages move on a deploy is covered by the integration tests (Release::stamp_pages).
+  // WordPress lists the home page (latest-posts front page) without a lastmod.
   test('sitemap has a lastmod for every page', async ({ request }) => {
     const xml = await (await request.get('/wp-sitemap-posts-page-1.xml')).text();
-    const urls = (xml.match(/<url>/g) || []).length;
-    expect(urls).toBeGreaterThan(100);
-    expect((xml.match(/<lastmod>/g) || []).length).toBe(urls);
+    const urls = [...xml.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((m) => m[1]);
+    expect(urls.length).toBeGreaterThan(100);
+    const missing = urls.filter((u) => !u.includes('<lastmod>')).map((u) => u.match(/<loc>([^<]+)/)[1]);
+    expect(missing.filter((loc) => new URL(loc).pathname !== '/')).toEqual([]);
   });
 
   for (const path of ['/crops/sweet-gem-berry/', '/bundles/bulletin-board/', '/crops-and-farming/best-fruit-trees/', '/what-to-plant/']) {
