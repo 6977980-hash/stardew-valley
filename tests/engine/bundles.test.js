@@ -59,3 +59,16 @@ test('an item that fills two slots of one bundle is listed once, with both amoun
   assert.equal(wood.bundles.filter((n) => n === twice.name).length, 1);
   assert.equal(wood.qty, 198);
 });
+
+test('a "pick N of M" bundle adds no required amounts and says how many are still open', () => {
+  const art = b('artisan');
+  assert.ok(art.slots < art.items.length);
+  const rows = stillNeeded(data, 'standard', { mine: [], ticked: { artisan: [art.items[0].id, art.items[1].id] } });
+  const label = `${art.name} (any ${art.slots - 2} of ${art.items.length - 2})`;
+  const truffle = rows.find((r) => r.id === 'cheese');
+  assert.ok(truffle.bundles.includes(label), truffle.bundles.join(' | '));
+  assert.equal(truffle.qty, 0);
+  assert.equal(truffle.optional, 1);
+  // A required slot elsewhere still counts in full.
+  assert.ok(rows.find((r) => r.id === 'wood').qty > 0);
+});

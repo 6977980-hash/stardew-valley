@@ -13,7 +13,9 @@ const SHOPS = ['pierre', 'jojamart', 'oasis'];
  * @param s         situation: season ('spring'…'winter' | 'greenhouse'), today (1-28), tiles,
  *                  budget (gold for seeds and fertilizer now; null = no limit), farmingLevel,
  *                  fertilizer, tiller, artisan, agriculturist, kegs, jars, shopOnly (default true),
- *                  farmYear (1 = Pierre's Year 2 seeds, data.yearOne.pierre_year2_seeds, are not for sale)
+ *                  farmYear (1 = Pierre's Year 2 seeds, data.yearOne.pierre_year2_seeds, are not for sale,
+ *                  and the Oasis is closed because the desert bus is not repaired yet),
+ *                  desert (true = the bus is repaired, so the Oasis sells seeds even in Year 1)
  * @returns ranked options, best first
  */
 export function rankCrops(crops, data, s) {
@@ -28,14 +30,17 @@ export function rankCrops(crops, data, s) {
   const counts = { keg: Math.max(0, s.kegs || 0), 'preserves-jar': Math.max(0, s.jars || 0) };
   const hasMachines = counts.keg + counts['preserves-jar'] > 0;
   const notYet = new Set(s.farmYear === 1 && data.yearOne ? data.yearOne.pierre_year2_seeds.map((x) => x.crop) : []);
+  const oasisClosed = s.farmYear === 1 && !s.desert;
+  const open = (k, crop) => !(k === 'pierre' && notYet.has(crop.id)) && !(k === 'oasis' && oasisClosed);
 
   const candidates = [];
   for (const crop of crops) {
     const seasons = crop.seasons.map((x) => x.toLowerCase());
     if (!greenhouse && (!seasons.includes(s.season) || crop.indoor_only)) continue;
-    const shop = SHOPS.filter((k) => crop.seed_prices[k] > 0 && !(k === 'pierre' && notYet.has(crop.id))).sort((a, b) => crop.seed_prices[a] - crop.seed_prices[b])[0] || null;
+    const shop = SHOPS.filter((k) => crop.seed_prices[k] > 0 && open(k, crop)).sort((a, b) => crop.seed_prices[a] - crop.seed_prices[b])[0] || null;
     if (shopOnly && !shop) continue;
     const seed = shop ? { source: shop, price: crop.seed_prices[shop] } : seedPrice(crop);
+    if (!shop && seed.source && SHOPS.includes(seed.source) && !open(seed.source, crop)) continue;
 
     const r = cropProfit(crop, data, {
       plantSeason: greenhouse ? 'spring' : s.season,

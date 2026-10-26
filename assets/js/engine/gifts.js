@@ -1,21 +1,66 @@
 // Gift tastes: what a villager thinks of an item, and how much friendship a gift is worth.
-// A villager's own list wins; otherwise the universal list applies, minus the wiki's recorded
-// exceptions. Whole categories ("All Fruit") are not expanded because the wiki doesn't list their
-// members, so an item that only fits a category is reported as unknown, never guessed.
+// Order, most specific first (wiki "Friendship"): the villager's own named items, the wiki's
+// recorded universal exceptions, the villager's own categories ("All Fruit"), the universal named
+// items, then the universal categories ("All Vegetables"). A category only counts when
+// gifts.categories lists its members; one without members is never guessed, so an item that
+// only fits such a category is reported as unknown.
 
 export const TASTES = ['love', 'like', 'neutral', 'dislike', 'hate'];
 export const POINTS_PER_HEART = 250;
 
-/** love | like | neutral | dislike | hate, or null when the item isn't listed for this villager. */
-export function tasteOf(itemId, villager, gifts) {
-  for (const t of TASTES) if (villager.tastes[t].items.includes(itemId)) return t;
+const membersOf = (gifts, id) => (gifts.categories || []).find((c) => c.id === id)?.members || null;
+
+/** Is the item in this category entry ({ id, except }), counting category ids in `except`? */
+function inCategory(itemId, cat, gifts) {
+  const members = membersOf(gifts, cat.id);
+  if (!members || !members.includes(itemId)) return false;
+  for (const ex of cat.except || []) {
+    if (ex === itemId) return false;
+    if (ex.startsWith('all-') && (membersOf(gifts, ex) || []).includes(itemId)) return false;
+  }
+  return true;
+}
+
+/**
+ * Why a villager feels this way: { taste, via, category } or null when nothing applies.
+ * via: 'own' | 'exception' | 'own-category' | 'universal' | 'universal-category'.
+ */
+export function tasteWhy(itemId, villager, gifts) {
+  for (const t of TASTES) if (villager.tastes[t].items.includes(itemId)) return { taste: t, via: 'own' };
   const ex = gifts.universal.exceptions.find((e) => e.villager === villager.id && e.item === itemId);
-  if (ex) return ex.taste;
+  if (ex) return { taste: ex.taste, via: 'exception' };
+  for (const t of TASTES) {
+    const c = villager.tastes[t].categories.find((x) => inCategory(itemId, x, gifts));
+    if (c) return { taste: t, via: 'own-category', category: c.id };
+  }
   for (const t of TASTES) {
     const mine = villager.tastes[t];
-    if (gifts.universal[t].items.includes(itemId) && mine.universal !== false && !(mine.universal_except || []).includes(itemId)) return t;
+    if (gifts.universal[t].items.includes(itemId) && mine.universal !== false && !(mine.universal_except || []).includes(itemId)) return { taste: t, via: 'universal' };
+  }
+  for (const t of TASTES) {
+    const mine = villager.tastes[t];
+    if (mine.universal === false) continue;
+    for (const c of gifts.universal[t].categories) {
+      if (!inCategory(itemId, c, gifts)) continue;
+      // The villager's own entry for the same category lists this item as an exception when the
+      // wiki says it stays universal ("All Artisan Goods (except Honey, Jelly, universally liked)"),
+      // which beats the villager's "All Universal Likes (except All Artisan Goods)".
+      const keeps = TASTES.some((u) => villager.tastes[u].categories.some((x) => x.id === c.id && (x.except || []).includes(itemId)));
+      const blocked = (mine.universal_except || []).includes(c.id) || (mine.universal_except || []).includes(itemId);
+      if (!blocked || keeps) return { taste: t, via: 'universal-category', category: c.id };
+    }
   }
   return null;
+}
+
+/** love | like | neutral | dislike | hate, or null when the item isn't listed for this villager. */
+export function tasteOf(itemId, villager, gifts) {
+  return tasteWhy(itemId, villager, gifts)?.taste ?? null;
+}
+
+/** Display name of a category id ("all-vegetables" -> "All Vegetables"). */
+export function categoryName(gifts, id) {
+  return (gifts.categories || []).find((c) => c.id === id)?.name || id.replace(/^all-/, 'All ').replace(/-/g, ' ');
 }
 
 /** Item ids at one taste level for a villager: their own list plus the universal items that still apply. */
@@ -25,10 +70,19 @@ export function itemsAt(level, villager, gifts) {
   return [...ids];
 }
 
-/** Every villager grouped by how they feel about one item. `unknown` are those with no listed taste. */
+/**
+ * Every villager grouped by how they feel about one item. `unknown` are those with no listed
+ * taste. `why` maps villager id -> tasteWhy() result.
+ */
 export function villagersFor(itemId, gifts) {
   const out = Object.fromEntries([...TASTES, 'unknown'].map((t) => [t, []]));
-  for (const v of gifts.villagers) out[tasteOf(itemId, v, gifts) || 'unknown'].push(v);
+  const why = {};
+  Object.defineProperty(out, 'why', { value: why, enumerable: false });
+  for (const v of gifts.villagers) {
+    const w = tasteWhy(itemId, v, gifts);
+    why[v.id] = w;
+    out[w?.taste || 'unknown'].push(v);
+  }
   return out;
 }
 

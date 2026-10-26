@@ -172,14 +172,49 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
           "dislike": [
-            "Caroline"
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Caroline",
+            "Jas",
+            "Vincent"
           ],
           "hate": [
             "Elliott"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -472,10 +507,29 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 19,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -646,10 +700,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -830,10 +922,47 @@
           "love": [
             "Evelyn"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -984,10 +1113,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Haley",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "Gus",
+            "Jas",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Flowers",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sebastian",
+            "Clint",
+            "George"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -1181,11 +1348,29 @@
         "gifts": {
           "love": [],
           "like": [
-            "Lewis"
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Lewis",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
           ],
-          "neutral": 0,
-          "dislike": [],
+          "like_rule": null,
+          "neutral": 18,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -1361,10 +1546,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -1540,10 +1763,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -1673,11 +1934,27 @@
             "Pam"
           ],
           "like": [
-            "Lewis"
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Lewis",
+            "Robin",
+            "Sandy"
           ],
-          "neutral": 0,
-          "dislike": [],
+          "like_rule": null,
+          "neutral": 17,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -1850,10 +2127,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -2040,10 +2355,47 @@
           "love": [
             "Maru"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -2282,9 +2634,11 @@
         "gifts": {
           "love": [],
           "like": [],
+          "like_rule": null,
           "neutral": 0,
           "dislike": [],
           "hate": [],
+          "unknown": 34,
           "of": 34
         }
       },
@@ -2536,12 +2890,49 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [
             "Pierre"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -2699,10 +3090,29 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 19,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -2888,10 +3298,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -3052,10 +3500,46 @@
             "Evelyn",
             "Jas"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Haley",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Demetrius",
+            "Dwarf",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Flowers",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sebastian",
+            "Clint",
+            "George"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -3235,15 +3719,49 @@
         ],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "George",
+            "Gus",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
           "dislike": [
-            "Jodi"
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Jodi",
+            "Vincent"
           ],
           "hate": [
             "Evelyn",
             "Pierre"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -3433,12 +3951,30 @@
           "love": [
             "Vincent"
           ],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 18,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas"
+          ],
           "hate": [
             "Penny"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -3625,10 +4161,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -3822,12 +4396,14 @@
         "gifts": {
           "love": [],
           "like": [],
+          "like_rule": null,
           "neutral": 32,
           "dislike": [],
           "hate": [
             "Penny",
             "Leo"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -4019,10 +4595,28 @@
             "Shane",
             "Lewis"
           ],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 18,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -4202,10 +4796,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -4391,10 +5023,29 @@
           "love": [
             "Penny"
           ],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 18,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -4582,10 +5233,47 @@
           "love": [
             "Pam"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -4749,10 +5437,29 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 19,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -4903,6 +5610,7 @@
             "Penny"
           ],
           "like": [],
+          "like_rule": null,
           "neutral": 0,
           "dislike": [],
           "hate": [
@@ -4940,6 +5648,7 @@
             "Willy",
             "Wizard"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -5121,10 +5830,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -5275,10 +6022,29 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 19,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -5467,10 +6233,45 @@
             "Krobus",
             "Willy"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -5643,10 +6444,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -5819,10 +6658,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -5978,10 +6855,29 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 19,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -6146,10 +7042,29 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Demetrius",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 19,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -6316,10 +7231,28 @@
             "Maru",
             "Demetrius"
           ],
-          "like": [],
-          "neutral": 0,
-          "dislike": [],
+          "like": [
+            "Elliott",
+            "Harvey",
+            "Shane",
+            "Leah",
+            "Jodi",
+            "Kent",
+            "Linus",
+            "Pam",
+            "Robin",
+            "Sandy"
+          ],
+          "like_rule": null,
+          "neutral": 18,
+          "dislike": [
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -6462,10 +7395,47 @@
           "love": [
             "Caroline"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Haley",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "Gus",
+            "Jas",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Flowers",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sebastian",
+            "Clint",
+            "George"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -6644,10 +7614,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -6877,10 +7885,47 @@
           "love": [
             "Haley"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "Gus",
+            "Jas",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Flowers",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sebastian",
+            "Clint",
+            "George"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -7022,9 +8067,11 @@
         "gifts": {
           "love": [],
           "like": [],
+          "like_rule": null,
           "neutral": 34,
           "dislike": [],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -7213,10 +8260,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -7395,10 +8480,48 @@
         "crafting": [],
         "gifts": {
           "love": [],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -7547,10 +8670,47 @@
           "love": [
             "Evelyn"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sam",
+            "Shane",
+            "Abigail",
+            "Emily",
+            "Haley",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Demetrius",
+            "Dwarf",
+            "Gus",
+            "Jas",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Linus",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Vincent",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Flowers",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sebastian",
+            "Clint",
+            "George"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -7710,6 +8870,7 @@
         "gifts": {
           "love": [],
           "like": [],
+          "like_rule": null,
           "neutral": 0,
           "dislike": [
             "Alex",
@@ -7749,6 +8910,7 @@
           "hate": [
             "Leo"
           ],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -7999,9 +9161,11 @@
         "gifts": {
           "love": [],
           "like": [],
+          "like_rule": null,
           "neutral": 34,
           "dislike": [],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -8189,10 +9353,47 @@
           "love": [
             "Linus"
           ],
-          "like": [],
+          "like": [
+            "Alex",
+            "Elliott",
+            "Harvey",
+            "Sebastian",
+            "Shane",
+            "Emily",
+            "Leah",
+            "Maru",
+            "Penny",
+            "Caroline",
+            "Clint",
+            "Demetrius",
+            "Dwarf",
+            "Evelyn",
+            "George",
+            "Gus",
+            "Jodi",
+            "Kent",
+            "Krobus",
+            "Leo",
+            "Lewis",
+            "Marnie",
+            "Pam",
+            "Pierre",
+            "Robin",
+            "Sandy",
+            "Willy",
+            "Wizard"
+          ],
+          "like_rule": "All Vegetables",
           "neutral": 0,
-          "dislike": [],
+          "dislike": [
+            "Sam",
+            "Abigail",
+            "Haley",
+            "Jas",
+            "Vincent"
+          ],
           "hate": [],
+          "unknown": 0,
           "of": 34
         }
       },
@@ -11114,7 +12315,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -11190,7 +12390,14 @@
       "categories": {
         "love": [],
         "like": [
-          "All Eggs (except Void Egg)"
+          "All Eggs (except Void Egg)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
@@ -11198,9 +12405,29 @@
           "All Mushrooms (except Red)"
         ],
         "dislike": [
-          "All Books (except Jack Be Nimble, Jack Be Thick)"
+          "All Books (except Jack Be Nimble, Jack Be Thick)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -11351,7 +12578,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -11430,7 +12656,14 @@
         "love": [],
         "like": [
           "All Books",
-          "All Fruit (except Pomegranate & Salmonberry)"
+          "All Fruit (except Pomegranate & Salmonberry)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Eggs (except Void Egg)",
@@ -11438,9 +12671,28 @@
         ],
         "dislike": [
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -11602,7 +12854,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Tea Set",
@@ -11681,13 +12932,41 @@
         "love": [],
         "like": [
           "All Fruit (except Salmonberry & Spice Berry)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Artisan Goods (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
-          "All Eggs (except Duck Egg & Void Egg)"
+          "All Eggs (except Duck Egg & Void Egg)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -11837,7 +13116,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -11923,17 +13201,44 @@
       "categories": {
         "love": [],
         "like": [
-          "All Eggs (except Void Egg)"
+          "All Eggs (except Void Egg)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)"
         ],
         "neutral": [
           "All Fruit (except Cactus Fruit, Fruit Tree Fruit, & Salmonberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Vegetables (except Hops, Tea Leaves, & Wheat)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -12051,7 +13356,6 @@
           ],
           "universal": [
             "Life Elixir",
-            "Maple Syrup",
             "Rainbow Shell",
             "Treasure Chest"
           ]
@@ -12064,7 +13368,6 @@
             "Duck Feather",
             "Fried Egg",
             "Hops",
-            "Mystic Syrup",
             "Nautilus Shell",
             "Roe",
             "Squid Ink",
@@ -12093,11 +13396,8 @@
             "Driftwood",
             "Field Snack",
             "Jack-O-Lantern",
-            "Oak Resin",
             "Oil",
-            "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -12174,19 +13474,44 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Cooking (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Fish (except Carp, Flounder, & Snail)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Flowers (except Poppy)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
         "hate": [
           "All Artisan Goods (except Coffee, Green Tea, & Oil)",
-          "All Eggs (except Void Egg)"
+          "All Eggs (except Void Egg)",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [],
@@ -12335,7 +13660,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -12410,15 +13734,43 @@
         "love": [],
         "like": [
           "All Eggs (except Void Egg)",
-          "All Fruit (except Hot Pepper)"
+          "All Fruit (except Hot Pepper)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -12652,17 +14004,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)"
+        ],
         "neutral": [
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Eggs",
           "All Fruit (except Fruit Tree Fruit)",
-          "All Vegetables (except Hops, Pumpkin, Tea Leaves, & Wheat)"
+          "All Vegetables (except Hops, Pumpkin, Tea Leaves, & Wheat)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -12823,7 +14203,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -12901,15 +14280,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -13125,17 +14534,44 @@
       },
       "categories": {
         "love": [],
-        "like": [],
-        "neutral": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)"
+        ],
+        "neutral": [
+          "All Books (universal)"
+        ],
         "dislike": [
           "All Eggs",
           "All Fruit (except Coconut & Fruit Tree fruit)",
           "All Milk",
           "All Vegetables (except Hops, Tea Leaves, & Wheat)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
         "hate": [
-          "All Fish"
+          "All Fish",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [
@@ -13302,7 +14738,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Tea Set",
@@ -13381,14 +14816,41 @@
           "All Eggs (except Void Egg)",
           "All Fruit",
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Vegetables (universal)"
         ],
-        "neutral": [],
+        "neutral": [
+          "All Books (universal)"
+        ],
         "dislike": [
           "All Foraged Minerals (except Earth Crystal)",
-          "All Gems (except Diamond & Prismatic Shard)"
+          "All Gems (except Diamond & Prismatic Shard)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -13548,7 +15010,6 @@
             "Jack-O-Lantern",
             "Oil",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -13625,15 +15086,44 @@
       "categories": {
         "love": [],
         "like": [
-          "All Mushrooms (except Common & Red)"
+          "All Mushrooms (except Common & Red)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Blackberry, Crystal Fruit, Fruit Tree Fruit, Salmonberry, & Strawberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -13803,7 +15293,6 @@
             "Oak Resin",
             "Oil",
             "Pine Tar",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -13887,15 +15376,42 @@
         ],
         "like": [
           "All Artifacts",
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit, Grape, Melon, & Salmonberry)",
           "All Mushrooms (except Purple & Red)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [
         {
@@ -14061,7 +15577,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -14136,16 +15651,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except pre-1.5 Fruit Tree Fruit & Salmonberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -14316,7 +15860,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -14390,17 +15933,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
         "dislike": [
-          "All Flowers (except Poppy)"
+          "All Flowers (except Poppy)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -14549,7 +16120,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -14625,15 +16195,43 @@
         "love": [],
         "like": [
           "All Eggs (except Void Egg)",
-          "All Fruit (except Strawberry)"
+          "All Fruit (except Strawberry)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Fish (except Carp & Snail)",
           "All Milk",
-          "All Mushrooms (except Red & Purple)"
+          "All Mushrooms (except Red & Purple)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -14798,7 +16396,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Spring Onion",
             "Tea Set",
@@ -14869,17 +16466,44 @@
       "categories": {
         "love": [],
         "like": [
-          "All Artifacts"
+          "All Artifacts",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Fruit (except Fruit Tree fruit & Salmonberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Eggs",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -15035,7 +16659,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -15118,16 +16741,43 @@
       "categories": {
         "love": [],
         "like": [
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit, Salmonberry, & Spice Berry)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
         "hate": [
-          "All Fish (except Clam, Cockle, Mussel, & Oyster)"
+          "All Fish (except Clam, Cockle, Mussel, & Oyster)",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [],
@@ -15296,7 +16946,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -15373,17 +17022,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
         "dislike": [
-          "All Flowers (except Poppy)"
+          "All Flowers (except Poppy)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -15526,7 +17203,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -15602,15 +17278,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -15715,7 +17421,6 @@
           ],
           "universal": [
             "Life Elixir",
-            "Maple Syrup",
             "Rainbow Shell",
             "Treasure Chest"
           ]
@@ -15728,12 +17433,10 @@
             "Duck Feather",
             "Fried Egg",
             "Hops",
-            "Mystic Syrup",
             "Nautilus Shell",
             "Roe",
             "Squid Ink",
             "Sweet Gem Berry",
-            "Tea Leaves",
             "Truffle",
             "Wheat",
             "Wool"
@@ -15755,9 +17458,7 @@
             "Driftwood",
             "Field Snack",
             "Jack-O-Lantern",
-            "Oak Resin",
             "Oil",
-            "Pine Tar",
             "Price Catalogue",
             "Qi Fruit",
             "Rice",
@@ -15837,17 +17538,43 @@
       "categories": {
         "love": [],
         "like": [
-          "All Milk"
+          "All Milk",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)"
         ],
-        "neutral": [],
+        "neutral": [
+          "All Books (universal)"
+        ],
         "dislike": [
           "All Eggs",
           "All Fruit (except Coconut & Fruit Tree Fruit)",
           "All Vegetables (except Hops & Wheat)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
         "hate": [
-          "All Artisan Goods (except Honey, Jelly & Oil)"
+          "All Artisan Goods (except Honey, Jelly & Oil)",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [],
@@ -16006,7 +17733,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -16085,13 +17811,42 @@
         "like": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Spice Berry)",
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
-        "neutral": [],
+        "neutral": [
+          "All Books (universal)"
+        ],
         "dislike": [
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -16232,7 +17987,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -16311,14 +18065,42 @@
         "love": [],
         "like": [
           "All Eggs (except Void Egg)",
-          "All Fruit"
+          "All Fruit",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
         "hate": [
-          "All Milk"
+          "All Milk",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [],
@@ -16468,7 +18250,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -16535,17 +18316,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Cooking (except Bread, Fried Egg, Seafoam Pudding, & Strange Bun)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -16705,7 +18514,6 @@
             "Oak Resin",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -16766,11 +18574,9 @@
             "Rain Totem",
             "Red Mushroom",
             "Sap",
-            "Seafoam Pudding",
             "Seaweed",
             "Secret Note",
             "Snail",
-            "Strange Bun",
             "Sugar",
             "Tent Kit",
             "Torch",
@@ -16786,18 +18592,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Ostrich Egg and Void Egg)",
           "All Fish (except Carp & Snail)",
           "All Fruit (except Fruit Tree fruit, Mango, Salmonberry, & Spice Berry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Cooked Dishes (other than Bread, Fried Egg, Mango Sticky Rice, Poi, & Triple Shot Espresso)",
-          "All Mushrooms (except Morel & Red)"
+          "All Mushrooms (except Morel & Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -16948,7 +18781,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -17023,16 +18855,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fruit (except Blueberry, Cactus Fruit, Coconut, Fruit Tree Fruit, Hot Pepper, & Salmonberry)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
         "dislike": [
-          "All Milk"
+          "All Milk",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -17206,7 +19067,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Tea Set",
@@ -17280,16 +19140,41 @@
           "All Eggs (except Void Egg)",
           "All Fruit (except Cactus Fruit & Coconut)",
           "All Milk",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
-          "All Fish (except Snail)"
+          "All Fish (except Snail)",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Foraged Minerals",
-          "All Gems (except Diamond & Prismatic Shard)"
+          "All Gems (except Diamond & Prismatic Shard)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -17459,7 +19344,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -17535,14 +19419,43 @@
         "love": [],
         "like": [
           "All Eggs (except Void Egg)",
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -17688,7 +19601,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -17766,16 +19678,43 @@
         "love": [],
         "like": [
           "All Fruit (except Cactus Fruit)",
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Fish (except Carp, Octopus, Snail, & Squid)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
         "dislike": [
-          "All Eggs"
+          "All Eggs",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -17934,7 +19873,6 @@
             "Oak Resin",
             "Oil",
             "Pine Tar",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -18013,18 +19951,42 @@
         "love": [],
         "like": [
           "All Eggs (except Void Egg)",
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
-          "All Fruit (except Fruit Tree Fruit & Salmonberry)"
+          "All Fruit (except Fruit Tree Fruit & Salmonberry)",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Foraged Minerals",
           "All Gems (other than Diamond & Prismatic Shard)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
         "hate": [
-          "All Fish"
+          "All Fish",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [],
@@ -18169,7 +20131,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -18245,14 +20206,43 @@
         "love": [],
         "like": [
           "All Fruit (except Peach)",
-          "All Milk"
+          "All Milk",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Eggs (except Void Egg)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -18396,7 +20386,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -18471,14 +20460,43 @@
       "categories": {
         "love": [],
         "like": [
-          "All Fruit"
+          "All Fruit",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
           "All Eggs (except Void Egg)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Books (universal)"
         ],
-        "dislike": [],
-        "hate": []
+        "dislike": [
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
+        ],
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],
@@ -18577,7 +20595,6 @@
           ],
           "universal": [
             "Life Elixir",
-            "Maple Syrup",
             "Rainbow Shell",
             "Treasure Chest"
           ]
@@ -18590,7 +20607,6 @@
             "Duck Feather",
             "Fried Egg",
             "Hops",
-            "Mystic Syrup",
             "Nautilus Shell",
             "Roe",
             "Squid Ink",
@@ -18617,9 +20633,7 @@
             "Driftwood",
             "Field Snack",
             "Jack-O-Lantern",
-            "Oak Resin",
             "Oil",
-            "Pine Tar",
             "Price Catalogue",
             "Qi Fruit",
             "Rice",
@@ -18698,17 +20712,43 @@
       "categories": {
         "love": [],
         "like": [
-          "All Milk"
+          "All Milk",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)"
         ],
-        "neutral": [],
+        "neutral": [
+          "All Books (universal)"
+        ],
         "dislike": [
           "All Eggs",
           "All Fruit (except Coconut, Grape, & Fruit Tree Fruit)",
           "All Vegetables (except Hops, Tea Leaves, & Wheat)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
         "hate": [
-          "All Artisan Goods (except Honey, Jelly & Oil)"
+          "All Artisan Goods (except Honey, Jelly & Oil)",
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
         ]
       },
       "not_universal": [],
@@ -18889,7 +20929,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Solar Essence",
             "Spring Onion",
@@ -18960,18 +20999,45 @@
       },
       "categories": {
         "love": [],
-        "like": [],
+        "like": [
+          "All Artisan Goods (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
+        ],
         "neutral": [
           "All Eggs (except Void Egg)",
           "All Fish (except Carp, Catfish, Lingcod, Octopus, Sea Cucumber, Snail, Sturgeon, & Tiger Trout)",
           "All Fruit (except Fruit Tree Fruit & Salmonberry)",
-          "All Milk"
+          "All Milk",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Cooking (except Baked Fish, Bread, Carp Surprise, Chowder, Crab Cakes, Crispy Bass, Dish O' The Sea, Escargot, Fish Stew, Fish Taco, Fried Calamari, Fried Eel, Fried Egg, Lobster Bisque, Maki Roll, Salmon Dinner, Sashimi, Seafoam Pudding, Strange Bun, & Trout Soup)",
-          "All Mushrooms (except Red)"
+          "All Mushrooms (except Red)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Geode Minerals (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "All Trinkets (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [
@@ -19131,7 +21197,6 @@
             "Oil",
             "Pine Tar",
             "Price Catalogue",
-            "Qi Fruit",
             "Rice",
             "Spring Onion",
             "Tea Set",
@@ -19203,17 +21268,43 @@
         "love": [],
         "like": [
           "All Geode Minerals",
-          "All Trinkets"
+          "All Trinkets",
+          "All Artisan Goods (universal)",
+          "All Cooking (universal)",
+          "All Flowers (universal)",
+          "All Foraged Minerals (universal)",
+          "All Fruit Tree Fruits (universal)",
+          "All Gems (universal)",
+          "All Vegetables (universal)"
         ],
         "neutral": [
-          "All Fruit (except Fruit Tree Fruit & Salmonberry)"
+          "All Fruit (except Fruit Tree Fruit & Salmonberry)",
+          "All Books (universal)"
         ],
         "dislike": [
           "All Eggs",
           "All Milk",
-          "All Mushrooms (except Red & Purple)"
+          "All Mushrooms (except Red & Purple)",
+          "All Building Materials (universal)",
+          "All Artifacts (universal)",
+          "All Bombs (universal)",
+          "All Crafted Floors & Paths (universal)",
+          "All Fences (universal)",
+          "All Fertilizer (universal)",
+          "All Fish (universal)",
+          "All Geodes (universal)",
+          "All Seeds (universal)",
+          "All Sprinklers (universal)",
+          "All Tackle (universal)",
+          "Fireworks (universal)",
+          "Misc. Mined/Metal Goods (universal)"
         ],
-        "hate": []
+        "hate": [
+          "All Bait (universal)",
+          "All Fossils (universal)",
+          "All Monster Loot (universal)",
+          "All Trash (universal)"
+        ]
       },
       "not_universal": [],
       "growable": [],

@@ -20,13 +20,16 @@
 // import. Files are written only once every check has passed.
 //
 // Category entries ("All Fruit (except ...)", "All Eggs") are kept as category markers with the
-// wiki's own text and their exceptions; they are not expanded into items.
+// wiki's own text and their exceptions. fillCategories() then lists the members of the categories
+// it has a source for: a wiki category (Vegetables, Cooking, Gems, ...) or the repo's own crop and
+// fruit tree data. A category with no source keeps `members: null` and stays a marker.
 //
 //   node tools/data/import-gifts.mjs [--cached]
+//   node tools/data/import-gifts.mjs --categories   (only refill category members in data/gifts.json)
 import { mkdirSync, readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { fetchPage, fetchRendered, sleep } from './wiki.mjs';
+import { fetchCategory, fetchPage, fetchRendered, sleep } from './wiki.mjs';
 import { slug as baseSlug } from './parse-crops.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -989,6 +992,7 @@ async function main() {
     villagers,
     items,
   };
+  await fillCategories(out);
   if (failures.length) {
     console.error('Gift import failed:\n  ' + [...new Set(failures)].join('\n  '));
     process.exit(1);
@@ -1001,7 +1005,111 @@ async function main() {
   if (scoring.problems.length) console.log(`  friendship: ${scoring.problems.join(' | ')}`);
 }
 
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
+/* ---------- Category members ---------- */
+
+// Where each category's members come from. `wiki` names wiki categories (article titles; topic
+// pages such as "Cooking" itself are dropped), `crops` takes data/crops.json crops of that
+// category, `trees` every tree fruit in data/fruittrees.json, `keep` filters the wiki titles.
+const CATEGORY_SOURCES = {
+  'all-vegetables': { wiki: ['Vegetables'] },
+  'all-fruits': { crops: 'fruit', trees: true, wiki: ['Fruit', 'Spring fruit', 'Summer fruit', 'Fall fruit', 'Winter fruit'] },
+  'all-fruit-trees': { trees: true },
+  'all-flowers': { crops: 'flower' },
+  'all-artisan-goods': { wiki: ['Artisan Goods'] },
+  'all-cooking': { wiki: ['Cooking'] },
+  'all-gems': { wiki: ['Gems'] },
+  'all-foraged-minerals': { wiki: ['Foraged Minerals'] },
+  'all-geode-minerals': { wiki: ['Geode Minerals'] },
+  'all-milk': { wiki: ['Animal Products'], keep: /\bMilk$/ },
+};
+// Wiki pages in those categories that are not one item.
+const NOT_ITEMS = /Productivity|Profitability|^(Artisan Goods|Cooking|Fruit Trees|Animal Products|Minerals)$/;
+const MULTI_ITEM_PAGES = { 'Jellies and Pickles': ['Jelly', 'Pickles'] };
+
+/** A readable category name from the wiki's own text: "All Vegetables (including …)" -> "All Vegetables". */
+export function categoryName(text) {
+  return text.replace(/\s*(\(|--|:|\bincluding\b).*$/, '').trim();
+}
+
+/**
+ * Lists `members` for every category in CATEGORY_SOURCES, adds a `name` to every category, and
+ * adds member items that no taste list named yet to `items`. Members already set from the wiki's
+ * gift pages (All Eggs, Building Materials, ...) are kept.
+ */
+export async function fillCategories(out, fetchCat = (name) => cached(`category-${baseSlug(name)}`, () => fetchCategory(name))) {
+  const crops = JSON.parse(readFileSync(join(ROOT, 'data', 'crops.json'), 'utf8')).crops;
+  const trees = JSON.parse(readFileSync(join(ROOT, 'data', 'fruittrees.json'), 'utf8')).trees;
+  const repoRef = (file) => ({ title: `data/${file}`, url: null, revid: null });
+  const texts = new Map();
+  for (const t of TASTES) for (const c of out.universal[t].categories) if (!texts.has(c.id)) texts.set(c.id, c.text);
+  for (const v of out.villagers) for (const t of TASTES) for (const c of v.tastes[t].categories) if (!texts.has(c.id)) texts.set(c.id, c.text);
+  const names = new Map(out.items.map((i) => [i.id, i.name]));
+  // An item named in "All Fruit (except Salmonberry)" is a member of that category.
+  const excepted = new Map();
+  const noteExcept = (c) => {
+    if (!excepted.has(c.id)) excepted.set(c.id, new Set());
+    for (const id of c.except || []) if (!id.startsWith('all-')) excepted.get(c.id).add(id);
+  };
+  for (const t of TASTES) out.universal[t].categories.forEach(noteExcept);
+  for (const v of out.villagers) for (const t of TASTES) v.tastes[t].categories.forEach(noteExcept);
+
+  for (const cat of out.categories) {
+    cat.name = categoryName(texts.get(cat.id) || cat.id);
+    const src = CATEGORY_SOURCES[cat.id];
+    if (!src || (cat.members && !src.refill)) continue;
+    const members = new Map();
+    const sources = [];
+    if (src.crops) {
+      for (const c of crops.filter((x) => x.category === src.crops)) members.set(c.id, c.name);
+      sources.push(repoRef('crops.json'));
+    }
+    if (src.trees) {
+      for (const t of trees) members.set(t.id, t.name);
+      sources.push(repoRef('fruittrees.json'));
+    }
+    for (const w of src.wiki || []) {
+      const page = await fetchCat(w);
+      if (!page.members.length) failures.push(`${cat.id}: wiki ${page.title} has no members`);
+      for (const title of page.members) {
+        if (NOT_ITEMS.test(title) || (src.keep && !src.keep.test(title))) continue;
+        for (const name of MULTI_ITEM_PAGES[title] || [title]) members.set(slug(name), name);
+      }
+      sources.push({ title: page.title, url: page.url, revid: null });
+    }
+    for (const id of excepted.get(cat.id) || []) if (!members.has(id)) members.set(id, names.get(id) ?? null);
+    if (!members.size) {
+      failures.push(`${cat.id}: no members found`);
+      continue;
+    }
+    cat.members = [...members.keys()].sort();
+    cat.source = sources.length === 1 ? sources[0] : sources;
+    for (const [id, name] of members) {
+      if (!names.has(id)) names.set(id, name);
+      if (!names.get(id)) failures.push(`${cat.id}: member ${id} has no display name`);
+    }
+  }
+  out.items = [...names].sort(([a], [b]) => (a < b ? -1 : 1)).map(([id, name]) => ({ ...(out.items.find((i) => i.id === id) || { id, name }) }));
+}
+
+async function refillCategories() {
+  const file = join(ROOT, 'data', 'gifts.json');
+  const out = JSON.parse(readFileSync(file, 'utf8'));
+  await fillCategories(out);
+  if (failures.length) {
+    console.error('Gift category fill failed:\n  ' + [...new Set(failures)].join('\n  '));
+    process.exit(1);
+  }
+  writeFileSync(file, JSON.stringify(out, null, 2) + '\n');
+  const filled = out.categories.filter((c) => c.members);
+  console.log(`${filled.length} of ${out.categories.length} categories have members; ${out.items.length} items`);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url) && process.argv.includes('--categories')) {
+  refillCategories().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+} else if (process.argv[1] === fileURLToPath(import.meta.url)) {
   main().catch((e) => {
     console.error(e);
     process.exit(1);

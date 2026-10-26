@@ -68,3 +68,10 @@ test('payback is null (shown as "never") when the animal earns nothing after hay
   assert.notEqual(r.paybackDays, Infinity);
   assert.ok(!(r.paybackDays < 0));
 });
+
+test('pig payback uses the year average (no truffles in Winter), not the outdoor-day figure', () => {
+  const pig = animal('pig');
+  const r = animalOutput(pig, data, {});
+  assert.ok(Math.abs(r.yearGoldPerDay - r.goldPerDay * 0.75) < 1e-9);
+  assert.ok(Math.abs(r.paybackDays - pig.purchase_price / r.yearGoldPerDay) < 1e-9);
+});

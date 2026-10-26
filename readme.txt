@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.15.1
+Stable tag: 0.16.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,16 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.16.0 (2026-10-26) =
+* Audit 2026-10-26 Phase 1 (wrong numbers and contradictions), 19 fixes:
+* F-72 What to Plant Today: in Year 1 the Oasis is closed (desert bus not repaired), so Beet, Rhubarb, Starfruit and Cactus Fruit seeds are not suggested. Engine option `desert` reopens it.
+* F-73 Gift Finder: universal and villager category tastes now count ("All Vegetables", "All Cooking", "All Artisan Goods", "All Flowers", "All Fruit Tree Fruits", "All Gems", "All Fruit", "All Milk", ...). Parsnip is liked by 28 villagers instead of 0; each row names the category. Category members come from wiki categories and the repo's crop and fruit tree data (tools/data/import-gifts.mjs --categories); categories without a member list stay markers.
+* F-89 Gift Finder: Apple, Peach and the other tree fruit, Starfruit, Ancient Fruit and every category member are in the item list; an unknown ?item= says "Item not found" instead of quietly showing Pearl.
+* F-74 What to Plant reference table uses Year 1 (no Garlic or Rice) and names its caption example from the rows.
+* F-75 Kegs to keep up: one steady-state formula (machinesToKeepUp) for Ancient Fruit vs Starfruit, the Greenhouse Planner and the keg guide: 90 Kegs per 100 Ancient Fruit.
+* F-76 Pantry by the end of Fall; F-77 Pumpkin is 13 days; F-78 unranked crop pages compare with the ranked leader correctly; F-79 seed-cost rule spelled out on /crops/ and /data/; F-80 iridium smelts in 8 hours.
+* F-81 Year 1 guide wording (replant the same tiles; Melon XP among Year 1 seeds; Cactus Fruit not listed as an outdoor crop); F-82 fruit tree guide derives tied leaders and the per-gold deal from data; F-83 villager pages note the 8-heart cap before the Bouquet; F-84 /bundles/ says 30 bundles in 6 rooms plus the Missing Bundle, and the tracker no longer adds every option of "pick N of M" bundles; F-85 Egg Festival Strawberries planted the same day everywhere; F-86 Best Summer/Fall Crops tag Pierre's Year 2 seeds "Year 2+"; F-87 pig payback uses the year average; F-88 not-sold animals show "n/a (not sold)"; F-90 /villagers/ shows category loves (Penny: All Books).
 
 = 0.15.1 (2026-10-21) =
 * What to Plant Today: new Year field (default Year 1). In Year 1 it no longer suggests Garlic, Unmilled Rice, Red Cabbage or Artichoke, whose seeds Pierre sells from Year 2 (data/year-one.json). The short answer on the page uses Year 1.

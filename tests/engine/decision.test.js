@@ -59,3 +59,16 @@ test('farmYear 1 leaves out seeds Pierre only sells from Year 2', () => {
   assert.ok(!ids({ ...s, season: 'summer', farmYear: 1 }).includes('red-cabbage'), 'Year 1: no Red Cabbage');
   assert.ok(ids({ ...s, season: 'summer', farmYear: 2 }).includes('red-cabbage'), 'Year 2: Red Cabbage is back');
 });
+
+test('farmYear 1 leaves out Oasis seeds: the desert bus is not repaired yet', () => {
+  const withYear = { ...data, yearOne: json('data/year-one.json') };
+  const ids = (o) => rankCrops(crops, withYear, o).map((x) => x.crop.id);
+  const fall = { ...base, season: 'fall', today: 1, tiles: 50, budget: 500, farmYear: 1 };
+  const top = rankCrops(crops, withYear, fall)[0];
+  assert.notEqual(top.seed.source, 'oasis', 'Year 1 Fall 1: the pick is not an Oasis seed');
+  assert.ok(!ids(fall).includes('beet'), 'Year 1 Fall: no Beet');
+  assert.ok(!ids({ ...fall, season: 'spring' }).includes('rhubarb'), 'Year 1 Spring: no Rhubarb');
+  assert.ok(!ids({ ...fall, season: 'summer' }).includes('starfruit'), 'Year 1 Summer: no Starfruit');
+  assert.ok(ids({ ...fall, farmYear: 2 }).includes('beet'), 'Year 2: Beet is back');
+  assert.ok(ids({ ...fall, desert: true }).includes('beet'), 'Year 1 with the bus repaired: Beet is back');
+});

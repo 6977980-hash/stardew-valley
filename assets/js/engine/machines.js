@@ -58,3 +58,18 @@ export function allocate(crop, machinesData, o) {
   const allRaw = items * rawPrice;
   return { rawPrice, options, plan, total, allRaw, extra: total - allRaw };
 }
+
+/**
+ * Machines one tile keeps busy once it is producing steadily: items per harvest x machine time
+ * per item, spread over the days between harvests (Ancient Fruit: 7, its regrow time; a replanted
+ * crop: its growth time). The same definition is used on every page that says "to keep up".
+ * @param crop    crop record
+ * @param r       cropProfit() result for that crop (harvestDays, itemsPerHarvest)
+ * @param product machine product ({ minutes, input: { count } })
+ */
+export function machinesToKeepUp(crop, r, product, minutesPerDay = 1600) {
+  if (!product || !r.harvestDays.length) return 0;
+  const d = r.harvestDays;
+  const gap = d.length > 1 ? (d[d.length - 1] - d[0]) / (d.length - 1) : crop.regrow_days || crop.growth_days;
+  return (r.itemsPerHarvest * product.minutes) / (product.input?.count || 1) / minutesPerDay / gap;
+}

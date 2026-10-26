@@ -435,18 +435,18 @@ function buildYearOne(data, crops, costs, buildings, fruitTrees) {
   const fall = seasonRows('fall');
   const left = (season) =>
     crops
-      .filter((c) => c.seasons.map((s) => s.toLowerCase()).includes(season) && (year2.includes(c.id) || (c.seed_prices.oasis > 0 && !shops.some((k) => c.seed_prices[k] > 0))))
+      .filter((c) => !c.indoor_only && c.seasons.map((s) => s.toLowerCase()).includes(season) && (year2.includes(c.id) || (c.seed_prices.oasis > 0 && !shops.some((k) => c.seed_prices[k] > 0))))
       .map((c) => ({ id: c.id, name: c.name, why: year2.includes(c.id) ? 'year2' : 'desert' }));
 
-  // Strawberries: seeds bought at the Egg Festival, planted the next morning, against a potato
-  // planted the same day.
+  // Strawberries: seeds bought at the Egg Festival and planted the same day after the festival
+  // (as on Best Spring Crops), against a potato planted that day.
   const sb = byId('strawberry');
   const eggDay = y.egg_festival.day;
-  const sbr = cropProfit(sb, data, { plantSeason: 'spring', plantDay: eggDay + 1, seedSource: 'egg_festival' });
-  const late = (id) => cropProfit(byId(id), data, { plantSeason: 'spring', plantDay: eggDay + 1 });
+  const sbr = cropProfit(sb, data, { plantSeason: 'spring', plantDay: eggDay, seedSource: 'egg_festival' });
+  const late = (id) => cropProfit(byId(id), data, { plantSeason: 'spring', plantDay: eggDay });
   const strawberry = {
     day: eggDay,
-    plant_day: eggDay + 1,
+    plant_day: eggDay,
     seed_price: y.egg_festival.seed_price,
     harvests: sbr.harvestDays.length,
     harvest_days: sbr.harvestDays,

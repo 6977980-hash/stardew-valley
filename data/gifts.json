@@ -3449,27 +3449,66 @@
     {
       "id": "all-artifacts",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Artifacts"
     },
     {
       "id": "all-artisan-goods",
-      "members": null,
-      "source": null
+      "members": [
+        "aged-roe",
+        "beer",
+        "caviar",
+        "cheese",
+        "cloth",
+        "coffee",
+        "dinosaur-mayonnaise",
+        "dried-fruit",
+        "dried-mushrooms",
+        "duck-mayonnaise",
+        "goat-cheese",
+        "green-tea",
+        "honey",
+        "jelly",
+        "juice",
+        "maple-syrup",
+        "mayonnaise",
+        "mead",
+        "mystic-syrup",
+        "oak-resin",
+        "oil",
+        "pale-ale",
+        "pickles",
+        "pine-tar",
+        "raisins",
+        "smoked-fish",
+        "truffle-oil",
+        "void-mayonnaise",
+        "wine"
+      ],
+      "source": {
+        "title": "Category:Artisan Goods",
+        "url": "https://stardewvalleywiki.com/Category:Artisan_Goods",
+        "revid": null
+      },
+      "name": "All Artisan Goods"
     },
     {
       "id": "all-bait",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Bait"
     },
     {
       "id": "all-bombs",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Bombs"
     },
     {
       "id": "all-books",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Books"
     },
     {
       "id": "all-building-materials",
@@ -3486,17 +3525,106 @@
         "title": "Friendship",
         "url": "https://stardewvalleywiki.com/Friendship#Universal_Gifts",
         "revid": 195350
-      }
+      },
+      "name": "All Building Materials"
     },
     {
       "id": "all-cooking",
-      "members": null,
-      "source": null
+      "members": [
+        "algae-soup",
+        "artichoke-dip",
+        "autumns-bounty",
+        "baked-fish",
+        "banana-pudding",
+        "bean-hotpot",
+        "blackberry-cobbler",
+        "blueberry-tart",
+        "bread",
+        "bruschetta",
+        "carp-surprise",
+        "cheese-cauliflower",
+        "chocolate-cake",
+        "chowder",
+        "coleslaw",
+        "complete-breakfast",
+        "cookie",
+        "crab-cakes",
+        "cranberry-candy",
+        "cranberry-sauce",
+        "crispy-bass",
+        "dish-o-the-sea",
+        "eggplant-parmesan",
+        "escargot",
+        "farmers-lunch",
+        "fiddlehead-risotto",
+        "fish-stew",
+        "fish-taco",
+        "fried-calamari",
+        "fried-eel",
+        "fried-egg",
+        "fried-mushroom",
+        "fruit-salad",
+        "ginger-ale",
+        "glazed-yams",
+        "hashbrowns",
+        "ice-cream",
+        "lobster-bisque",
+        "lucky-lunch",
+        "maki-roll",
+        "mango-sticky-rice",
+        "maple-bar",
+        "miners-treat",
+        "moss-soup",
+        "omelet",
+        "pale-broth",
+        "pancakes",
+        "parsnip-soup",
+        "pepper-poppers",
+        "pink-cake",
+        "pizza",
+        "plum-pudding",
+        "poi",
+        "poppyseed-muffin",
+        "pumpkin-pie",
+        "pumpkin-soup",
+        "radish-salad",
+        "red-plate",
+        "rhubarb-pie",
+        "rice-pudding",
+        "roasted-hazelnuts",
+        "roots-platter",
+        "salad",
+        "salmon-dinner",
+        "sashimi",
+        "seafoam-pudding",
+        "shrimp-cocktail",
+        "spaghetti",
+        "spicy-eel",
+        "squid-ink-ravioli",
+        "stir-fry",
+        "strange-bun",
+        "stuffing",
+        "super-meal",
+        "survival-burger",
+        "tom-kha-soup",
+        "tortilla",
+        "triple-shot-espresso",
+        "tropical-curry",
+        "trout-soup",
+        "vegetable-medley"
+      ],
+      "source": {
+        "title": "Category:Cooking",
+        "url": "https://stardewvalleywiki.com/Category:Cooking",
+        "revid": null
+      },
+      "name": "All Cooking"
     },
     {
       "id": "all-crafted-floors-paths",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Crafted Floors & Paths"
     },
     {
       "id": "all-eggs",
@@ -3514,17 +3642,20 @@
         "title": "List of All Gifts",
         "url": "https://stardewvalleywiki.com/List_of_All_Gifts",
         "revid": 194258
-      }
+      },
+      "name": "All Eggs"
     },
     {
       "id": "all-fences",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Fences"
     },
     {
       "id": "all-fertilizer",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Fertilizer"
     },
     {
       "id": "all-fireworks",
@@ -3537,57 +3668,233 @@
         "title": "Friendship",
         "url": "https://stardewvalleywiki.com/Friendship#Universal_Gifts",
         "revid": 195350
-      }
+      },
+      "name": "Fireworks"
     },
     {
       "id": "all-fish",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Fish"
     },
     {
       "id": "all-flowers",
-      "members": null,
-      "source": null
+      "members": [
+        "blue-jazz",
+        "fairy-rose",
+        "poppy",
+        "summer-spangle",
+        "sunflower",
+        "tulip"
+      ],
+      "source": {
+        "title": "data/crops.json",
+        "url": null,
+        "revid": null
+      },
+      "name": "All Flowers"
     },
     {
       "id": "all-foraged-minerals",
-      "members": null,
-      "source": null
+      "members": [
+        "earth-crystal",
+        "fire-quartz",
+        "frozen-tear",
+        "quartz"
+      ],
+      "source": {
+        "title": "Category:Foraged Minerals",
+        "url": "https://stardewvalleywiki.com/Category:Foraged_Minerals",
+        "revid": null
+      },
+      "name": "All Foraged Minerals"
     },
     {
       "id": "all-fossils",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Fossils"
     },
     {
       "id": "all-fruit-trees",
-      "members": null,
-      "source": null
+      "members": [
+        "apple",
+        "apricot",
+        "banana",
+        "cherry",
+        "mango",
+        "orange",
+        "peach",
+        "pomegranate"
+      ],
+      "source": {
+        "title": "data/fruittrees.json",
+        "url": null,
+        "revid": null
+      },
+      "name": "All Fruit Tree Fruits"
     },
     {
       "id": "all-fruits",
-      "members": null,
-      "source": null
+      "members": [
+        "ancient-fruit",
+        "apple",
+        "apricot",
+        "banana",
+        "blackberry",
+        "blueberry",
+        "cactus-fruit",
+        "cherry",
+        "coconut",
+        "cranberries",
+        "crystal-fruit",
+        "grape",
+        "hot-pepper",
+        "mango",
+        "melon",
+        "orange",
+        "peach",
+        "pineapple",
+        "pomegranate",
+        "powdermelon",
+        "qi-fruit",
+        "rhubarb",
+        "salmonberry",
+        "spice-berry",
+        "starfruit",
+        "strawberry",
+        "wild-plum"
+      ],
+      "source": [
+        {
+          "title": "data/crops.json",
+          "url": null,
+          "revid": null
+        },
+        {
+          "title": "data/fruittrees.json",
+          "url": null,
+          "revid": null
+        },
+        {
+          "title": "Category:Fruit",
+          "url": "https://stardewvalleywiki.com/Category:Fruit",
+          "revid": null
+        },
+        {
+          "title": "Category:Spring fruit",
+          "url": "https://stardewvalleywiki.com/Category:Spring_fruit",
+          "revid": null
+        },
+        {
+          "title": "Category:Summer fruit",
+          "url": "https://stardewvalleywiki.com/Category:Summer_fruit",
+          "revid": null
+        },
+        {
+          "title": "Category:Fall fruit",
+          "url": "https://stardewvalleywiki.com/Category:Fall_fruit",
+          "revid": null
+        },
+        {
+          "title": "Category:Winter fruit",
+          "url": "https://stardewvalleywiki.com/Category:Winter_fruit",
+          "revid": null
+        }
+      ],
+      "name": "All Fruit"
     },
     {
       "id": "all-gems",
-      "members": null,
-      "source": null
+      "members": [
+        "amethyst",
+        "aquamarine",
+        "diamond",
+        "emerald",
+        "jade",
+        "prismatic-shard",
+        "ruby",
+        "topaz"
+      ],
+      "source": {
+        "title": "Category:Gems",
+        "url": "https://stardewvalleywiki.com/Category:Gems",
+        "revid": null
+      },
+      "name": "All Gems"
     },
     {
       "id": "all-geode-minerals",
-      "members": null,
-      "source": null
+      "members": [
+        "aerinite",
+        "alamite",
+        "baryte",
+        "basalt",
+        "bixite",
+        "calcite",
+        "celestine",
+        "dolomite",
+        "esperite",
+        "fairy-stone",
+        "fire-opal",
+        "fluorapatite",
+        "geminite",
+        "ghost-crystal",
+        "granite",
+        "helvite",
+        "hematite",
+        "jagoite",
+        "jamborite",
+        "jasper",
+        "kyanite",
+        "lemon-stone",
+        "limestone",
+        "lunarite",
+        "malachite",
+        "marble",
+        "mudstone",
+        "nekoite",
+        "neptunite",
+        "obsidian",
+        "ocean-stone",
+        "opal",
+        "orpiment",
+        "petrified-slime",
+        "pyrite",
+        "sandstone",
+        "slate",
+        "soapstone",
+        "star-shards",
+        "thunder-egg",
+        "tigerseye"
+      ],
+      "source": {
+        "title": "Category:Geode Minerals",
+        "url": "https://stardewvalleywiki.com/Category:Geode_Minerals",
+        "revid": null
+      },
+      "name": "All Geode Minerals"
     },
     {
       "id": "all-geodes",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Geodes"
     },
     {
       "id": "all-milk",
-      "members": null,
-      "source": null
+      "members": [
+        "goat-milk",
+        "large-goat-milk",
+        "large-milk",
+        "milk"
+      ],
+      "source": {
+        "title": "Category:Animal Products",
+        "url": "https://stardewvalleywiki.com/Category:Animal_Products",
+        "revid": null
+      },
+      "name": "All Milk"
     },
     {
       "id": "all-misc-mined-metal-goods",
@@ -3607,12 +3914,14 @@
         "title": "Friendship",
         "url": "https://stardewvalleywiki.com/Friendship#Universal_Gifts",
         "revid": 195350
-      }
+      },
+      "name": "Misc. Mined/Metal Goods"
     },
     {
       "id": "all-monster-loot",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Monster Loot"
     },
     {
       "id": "all-mushrooms",
@@ -3628,37 +3937,75 @@
         "title": "List of All Gifts",
         "url": "https://stardewvalleywiki.com/List_of_All_Gifts",
         "revid": 194258
-      }
+      },
+      "name": "All Mushrooms"
     },
     {
       "id": "all-seeds",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Seeds"
     },
     {
       "id": "all-sprinklers",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Sprinklers"
     },
     {
       "id": "all-tackle",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Tackle"
     },
     {
       "id": "all-trash",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Trash"
     },
     {
       "id": "all-trinkets",
       "members": null,
-      "source": null
+      "source": null,
+      "name": "All Trinkets"
     },
     {
       "id": "all-vegetables",
-      "members": null,
-      "source": null
+      "members": [
+        "amaranth",
+        "artichoke",
+        "beet",
+        "bok-choy",
+        "broccoli",
+        "carrot",
+        "cauliflower",
+        "corn",
+        "eggplant",
+        "fiddlehead-fern",
+        "garlic",
+        "green-bean",
+        "hops",
+        "kale",
+        "parsnip",
+        "potato",
+        "pumpkin",
+        "radish",
+        "red-cabbage",
+        "summer-squash",
+        "taro-root",
+        "tea-leaves",
+        "tomato",
+        "unmilled-rice",
+        "wheat",
+        "yam"
+      ],
+      "source": {
+        "title": "Category:Vegetables",
+        "url": "https://stardewvalleywiki.com/Category:Vegetables",
+        "revid": null
+      },
+      "name": "All Vegetables"
     }
   ],
   "villagers": [
@@ -9126,6 +9473,18 @@
   ],
   "items": [
     {
+      "id": "aerinite",
+      "name": "Aerinite"
+    },
+    {
+      "id": "aged-roe",
+      "name": "Aged Roe"
+    },
+    {
+      "id": "alamite",
+      "name": "Alamite"
+    },
+    {
       "id": "algae-soup",
       "name": "Algae Soup"
     },
@@ -9142,12 +9501,28 @@
       "name": "Ancient Doll"
     },
     {
+      "id": "ancient-fruit",
+      "name": "Ancient Fruit"
+    },
+    {
       "id": "ancient-sword",
       "name": "Ancient Sword"
     },
     {
+      "id": "apple",
+      "name": "Apple"
+    },
+    {
+      "id": "apricot",
+      "name": "Apricot"
+    },
+    {
       "id": "aquamarine",
       "name": "Aquamarine"
+    },
+    {
+      "id": "artichoke",
+      "name": "Artichoke"
     },
     {
       "id": "artichoke-dip",
@@ -9170,8 +9545,20 @@
       "name": "Baked Fish"
     },
     {
+      "id": "banana",
+      "name": "Banana"
+    },
+    {
       "id": "banana-pudding",
       "name": "Banana Pudding"
+    },
+    {
+      "id": "baryte",
+      "name": "Baryte"
+    },
+    {
+      "id": "basalt",
+      "name": "Basalt"
     },
     {
       "id": "basilisk-paw",
@@ -9194,6 +9581,10 @@
       "name": "Beet"
     },
     {
+      "id": "bixite",
+      "name": "Bixite"
+    },
+    {
       "id": "blackberry",
       "name": "Blackberry"
     },
@@ -9206,12 +9597,20 @@
       "name": "Blue Grass Starter"
     },
     {
+      "id": "blue-jazz",
+      "name": "Blue Jazz"
+    },
+    {
       "id": "blueberry",
       "name": "Blueberry"
     },
     {
       "id": "blueberry-tart",
       "name": "Blueberry Tart"
+    },
+    {
+      "id": "bok-choy",
+      "name": "Bok Choy"
     },
     {
       "id": "bone-flute",
@@ -9230,12 +9629,20 @@
       "name": "Bread"
     },
     {
+      "id": "broccoli",
+      "name": "Broccoli"
+    },
+    {
       "id": "broken-glasses",
       "name": "Broken Glasses"
     },
     {
       "id": "brown-egg",
       "name": "Brown Egg"
+    },
+    {
+      "id": "bruschetta",
+      "name": "Bruschetta"
     },
     {
       "id": "bug-steak",
@@ -9250,12 +9657,20 @@
       "name": "Cactus Fruit"
     },
     {
+      "id": "calcite",
+      "name": "Calcite"
+    },
+    {
       "id": "carp",
       "name": "Carp"
     },
     {
       "id": "carp-surprise",
       "name": "Carp Surprise"
+    },
+    {
+      "id": "carrot",
+      "name": "Carrot"
     },
     {
       "id": "catfish",
@@ -9270,6 +9685,14 @@
       "name": "Cave Carrot"
     },
     {
+      "id": "caviar",
+      "name": "Caviar"
+    },
+    {
+      "id": "celestine",
+      "name": "Celestine"
+    },
+    {
       "id": "chanterelle",
       "name": "Chanterelle"
     },
@@ -9280,6 +9703,10 @@
     {
       "id": "cheese-cauliflower",
       "name": "Cheese Cauliflower"
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry"
     },
     {
       "id": "chocolate-cake",
@@ -9370,6 +9797,10 @@
       "name": "Crab Pot"
     },
     {
+      "id": "cranberries",
+      "name": "Cranberries"
+    },
+    {
       "id": "cranberry-candy",
       "name": "Cranberry Candy"
     },
@@ -9406,12 +9837,28 @@
       "name": "Dinosaur Egg"
     },
     {
+      "id": "dinosaur-mayonnaise",
+      "name": "Dinosaur Mayonnaise"
+    },
+    {
       "id": "dish-o-the-sea",
       "name": "Dish O' The Sea"
     },
     {
+      "id": "dolomite",
+      "name": "Dolomite"
+    },
+    {
       "id": "dragon-tooth",
       "name": "Dragon Tooth"
+    },
+    {
+      "id": "dried-fruit",
+      "name": "Dried Fruit"
+    },
+    {
+      "id": "dried-mushrooms",
+      "name": "Dried Mushrooms"
     },
     {
       "id": "driftwood",
@@ -9442,8 +9889,16 @@
       "name": "Dwarvish Safety Manual"
     },
     {
+      "id": "earth-crystal",
+      "name": "Earth Crystal"
+    },
+    {
       "id": "egg",
       "name": "Egg"
+    },
+    {
+      "id": "eggplant",
+      "name": "Eggplant"
     },
     {
       "id": "eggplant-parmesan",
@@ -9466,6 +9921,10 @@
       "name": "Escargot"
     },
     {
+      "id": "esperite",
+      "name": "Esperite"
+    },
+    {
       "id": "explosive-ammo",
       "name": "Explosive Ammo"
     },
@@ -9482,6 +9941,10 @@
       "name": "Fairy Rose"
     },
     {
+      "id": "fairy-stone",
+      "name": "Fairy Stone"
+    },
+    {
       "id": "farmers-lunch",
       "name": "Farmer's Lunch"
     },
@@ -9490,12 +9953,24 @@
       "name": "Fiber"
     },
     {
+      "id": "fiddlehead-fern",
+      "name": "Fiddlehead Fern"
+    },
+    {
       "id": "fiddlehead-risotto",
       "name": "Fiddlehead Risotto"
     },
     {
       "id": "field-snack",
       "name": "Field Snack"
+    },
+    {
+      "id": "fire-opal",
+      "name": "Fire Opal"
+    },
+    {
+      "id": "fire-quartz",
+      "name": "Fire Quartz"
     },
     {
       "id": "fireworks-green",
@@ -9520,6 +9995,10 @@
     {
       "id": "flounder",
       "name": "Flounder"
+    },
+    {
+      "id": "fluorapatite",
+      "name": "Fluorapatite"
     },
     {
       "id": "flute-block",
@@ -9559,6 +10038,14 @@
     {
       "id": "garlic",
       "name": "Garlic"
+    },
+    {
+      "id": "geminite",
+      "name": "Geminite"
+    },
+    {
+      "id": "ghost-crystal",
+      "name": "Ghost Crystal"
     },
     {
       "id": "ginger",
@@ -9613,6 +10100,10 @@
       "name": "Golden Tag"
     },
     {
+      "id": "granite",
+      "name": "Granite"
+    },
+    {
       "id": "grape",
       "name": "Grape"
     },
@@ -9623,6 +10114,10 @@
     {
       "id": "green-algae",
       "name": "Green Algae"
+    },
+    {
+      "id": "green-bean",
+      "name": "Green Bean"
     },
     {
       "id": "green-slime-egg",
@@ -9647,6 +10142,14 @@
     {
       "id": "hazelnut",
       "name": "Hazelnut"
+    },
+    {
+      "id": "helvite",
+      "name": "Helvite"
+    },
+    {
+      "id": "hematite",
+      "name": "Hematite"
     },
     {
       "id": "holly",
@@ -9697,6 +10200,22 @@
       "name": "Jade"
     },
     {
+      "id": "jagoite",
+      "name": "Jagoite"
+    },
+    {
+      "id": "jamborite",
+      "name": "Jamborite"
+    },
+    {
+      "id": "jasper",
+      "name": "Jasper"
+    },
+    {
+      "id": "jelly",
+      "name": "Jelly"
+    },
+    {
       "id": "jewels-of-the-sea",
       "name": "Jewels Of The Sea"
     },
@@ -9707,6 +10226,18 @@
     {
       "id": "journal-scrap",
       "name": "Journal Scrap"
+    },
+    {
+      "id": "juice",
+      "name": "Juice"
+    },
+    {
+      "id": "kale",
+      "name": "Kale"
+    },
+    {
+      "id": "kyanite",
+      "name": "Kyanite"
     },
     {
       "id": "large-brown-egg",
@@ -9741,6 +10272,10 @@
       "name": "Life Elixir"
     },
     {
+      "id": "limestone",
+      "name": "Limestone"
+    },
+    {
       "id": "lingcod",
       "name": "Lingcod"
     },
@@ -9753,6 +10288,14 @@
       "name": "Lobster Bisque"
     },
     {
+      "id": "lucky-lunch",
+      "name": "Lucky Lunch"
+    },
+    {
+      "id": "lunarite",
+      "name": "Lunarite"
+    },
+    {
       "id": "magic-rock-candy",
       "name": "Magic Rock Candy"
     },
@@ -9763,6 +10306,10 @@
     {
       "id": "maki-roll",
       "name": "Maki Roll"
+    },
+    {
+      "id": "malachite",
+      "name": "Malachite"
     },
     {
       "id": "mango",
@@ -9779,6 +10326,10 @@
     {
       "id": "maple-syrup",
       "name": "Maple Syrup"
+    },
+    {
+      "id": "marble",
+      "name": "Marble"
     },
     {
       "id": "mayonnaise",
@@ -9821,6 +10372,14 @@
       "name": "Moss"
     },
     {
+      "id": "moss-soup",
+      "name": "Moss Soup"
+    },
+    {
+      "id": "mudstone",
+      "name": "Mudstone"
+    },
+    {
       "id": "muscle-remedy",
       "name": "Muscle Remedy"
     },
@@ -9841,12 +10400,24 @@
       "name": "Nautilus Shell"
     },
     {
+      "id": "nekoite",
+      "name": "Nekoite"
+    },
+    {
+      "id": "neptunite",
+      "name": "Neptunite"
+    },
+    {
       "id": "oak-resin",
       "name": "Oak Resin"
     },
     {
       "id": "obsidian",
       "name": "Obsidian"
+    },
+    {
+      "id": "ocean-stone",
+      "name": "Ocean Stone"
     },
     {
       "id": "octopus",
@@ -9869,8 +10440,16 @@
       "name": "Omni Geode"
     },
     {
+      "id": "opal",
+      "name": "Opal"
+    },
+    {
       "id": "orange",
       "name": "Orange"
+    },
+    {
+      "id": "orpiment",
+      "name": "Orpiment"
     },
     {
       "id": "ostrich-egg",
@@ -9917,6 +10496,10 @@
       "name": "Pepper Poppers"
     },
     {
+      "id": "petrified-slime",
+      "name": "Petrified Slime"
+    },
+    {
       "id": "pickles",
       "name": "Pickles"
     },
@@ -9927,6 +10510,10 @@
     {
       "id": "pine-tar",
       "name": "Pine Tar"
+    },
+    {
+      "id": "pineapple",
+      "name": "Pineapple"
     },
     {
       "id": "pink-cake",
@@ -9957,6 +10544,14 @@
       "name": "Poppyseed Muffin"
     },
     {
+      "id": "potato",
+      "name": "Potato"
+    },
+    {
+      "id": "powdermelon",
+      "name": "Powdermelon"
+    },
+    {
       "id": "price-catalogue",
       "name": "Price Catalogue"
     },
@@ -9985,6 +10580,10 @@
       "name": "Purple Mushroom"
     },
     {
+      "id": "pyrite",
+      "name": "Pyrite"
+    },
+    {
       "id": "qi-fruit",
       "name": "Qi Fruit"
     },
@@ -10009,6 +10608,14 @@
       "name": "Radioactive Ore"
     },
     {
+      "id": "radish",
+      "name": "Radish"
+    },
+    {
+      "id": "radish-salad",
+      "name": "Radish Salad"
+    },
+    {
       "id": "rain-totem",
       "name": "Rain Totem"
     },
@@ -10021,6 +10628,10 @@
       "name": "Raisins"
     },
     {
+      "id": "red-cabbage",
+      "name": "Red Cabbage"
+    },
+    {
       "id": "red-mushroom",
       "name": "Red Mushroom"
     },
@@ -10031,6 +10642,10 @@
     {
       "id": "refined-quartz",
       "name": "Refined Quartz"
+    },
+    {
+      "id": "rhubarb",
+      "name": "Rhubarb"
     },
     {
       "id": "rhubarb-pie",
@@ -10077,6 +10692,10 @@
       "name": "Sandfish"
     },
     {
+      "id": "sandstone",
+      "name": "Sandstone"
+    },
+    {
       "id": "sap",
       "name": "Sap"
     },
@@ -10105,8 +10724,20 @@
       "name": "Secret Note"
     },
     {
+      "id": "shrimp-cocktail",
+      "name": "Shrimp Cocktail"
+    },
+    {
+      "id": "slate",
+      "name": "Slate"
+    },
+    {
       "id": "slime",
       "name": "Slime"
+    },
+    {
+      "id": "smoked-fish",
+      "name": "Smoked Fish"
     },
     {
       "id": "snail",
@@ -10115,6 +10746,10 @@
     {
       "id": "snow-yam",
       "name": "Snow Yam"
+    },
+    {
+      "id": "soapstone",
+      "name": "Soapstone"
     },
     {
       "id": "solar-essence",
@@ -10145,12 +10780,24 @@
       "name": "Squid Ink"
     },
     {
+      "id": "squid-ink-ravioli",
+      "name": "Squid Ink Ravioli"
+    },
+    {
+      "id": "star-shards",
+      "name": "Star Shards"
+    },
+    {
       "id": "stardew-valley-almanac",
       "name": "Stardew Valley Almanac"
     },
     {
       "id": "stardrop-tea",
       "name": "Stardrop Tea"
+    },
+    {
+      "id": "starfruit",
+      "name": "Starfruit"
     },
     {
       "id": "stir-fry",
@@ -10193,6 +10840,10 @@
       "name": "Summer Spangle"
     },
     {
+      "id": "summer-squash",
+      "name": "Summer Squash"
+    },
+    {
       "id": "sunflower",
       "name": "Sunflower"
     },
@@ -10217,6 +10868,10 @@
       "name": "Sweet Pea"
     },
     {
+      "id": "taro-root",
+      "name": "Taro Root"
+    },
+    {
       "id": "tea-leaves",
       "name": "Tea Leaves"
     },
@@ -10237,6 +10892,10 @@
       "name": "The Art O' Crabbing"
     },
     {
+      "id": "thunder-egg",
+      "name": "Thunder Egg"
+    },
+    {
       "id": "tiger-trout",
       "name": "Tiger Trout"
     },
@@ -10247,6 +10906,10 @@
     {
       "id": "tom-kha-soup",
       "name": "Tom Kha Soup"
+    },
+    {
+      "id": "tomato",
+      "name": "Tomato"
     },
     {
       "id": "topaz",
@@ -10351,6 +11014,10 @@
     {
       "id": "wild-horseradish",
       "name": "Wild Horseradish"
+    },
+    {
+      "id": "wild-plum",
+      "name": "Wild Plum"
     },
     {
       "id": "wine",

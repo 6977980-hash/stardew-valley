@@ -28,11 +28,51 @@ $sapling = function ( $t ) use ( $gold ) {
 	return $t['trade'] ? $t['trade']['item'] . ' × ' . $t['trade']['qty'] : '';
 };
 $best    = $trees[ $f['by_four_year_raw'][0] ];
-$second  = $trees[ $f['by_four_year_raw'][2] ];
+// Trees tied with the leader (same fruit price), and the next pair down, named from the data.
+$order   = array_map(
+	function ( $id ) use ( $trees ) {
+		return $trees[ $id ];
+	},
+	$f['by_four_year_raw']
+);
+$tied    = array_values(
+	array_filter(
+		$order,
+		function ( $t ) use ( $best ) {
+			return $t['four_year']['raw'] === $best['four_year']['raw'];
+		}
+	)
+);
+$rest    = array_slice( $order, count( $tied ) );
+$next    = $rest ? array_values(
+	array_filter(
+		$rest,
+		function ( $t ) use ( $rest ) {
+			return $t['four_year']['raw'] === $rest[0]['four_year']['raw'];
+		}
+	)
+) : array();
+$names   = function ( $list ) {
+	return implode( ' and ', wp_list_pluck( $list, 'name' ) );
+};
+$top_or  = implode( ' or a ', wp_list_pluck( $tied, 'name' ) );
 $cheap   = $trees[ $f['by_payback'][0] ];
 $bought  = array_filter( $f['trees'], function ( $t ) {
 	return $t['pierre'];
 } );
+// The weakest and best deal per gold of sapling: regular fruit price for each gold spent.
+$per_gold = function ( $t ) {
+	return $t['prices']['regular'] / $t['pierre'];
+};
+$by_gold  = array_values( $bought );
+usort(
+	$by_gold,
+	function ( $a, $b ) use ( $per_gold ) {
+		return $per_gold( $a ) <=> $per_gold( $b );
+	}
+);
+$weakest = $by_gold[0];
+$strong  = end( $by_gold );
 $pay_min = min( array_map( function ( $t ) {
 	return $t['payback']['raw_fruit'];
 }, $bought ) );
@@ -56,7 +96,7 @@ $deh      = Stardew_Tools\Guides::guide_url( 'dehydrator-vs-keg' );
 $kegs     = Stardew_Tools\Guides::guide_url( 'how-many-kegs-do-i-need' );
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> for the most gold per tree, plant a <?php echo esc_html( $best['name'] ); ?> or a Pomegranate. Each costs <?php echo esc_html( $gold( $best['pierre'] ) ); ?> at Pierre's and earns <?php echo esc_html( $gold( $best['raw'][0] ) ); ?> in its first fruiting season sold raw, rising to <?php echo esc_html( $gold( $best['raw'][3] ) ); ?> a season once the fruit reaches iridium quality. Every sapling Pierre sells pays for itself in its second season sold raw (after <?php echo (int) $pay_min; ?> to <?php echo (int) $pay_max; ?> fruit), or inside the first season if you make the fruit into Wine (<?php echo (int) $keg_min; ?> to <?php echo (int) $keg_max; ?> fruit).</p>
+	<p class="answer__lead"><strong>Short answer:</strong> for the most gold per tree, plant a <?php echo esc_html( $top_or ); ?>. <?php echo count( $tied ) > 1 ? 'Each costs' : 'It costs'; ?> <?php echo esc_html( $gold( $best['pierre'] ) ); ?> at Pierre's and earns <?php echo esc_html( $gold( $best['raw'][0] ) ); ?> in its first fruiting season sold raw, rising to <?php echo esc_html( $gold( $best['raw'][3] ) ); ?> a season once the fruit reaches iridium quality. Every sapling Pierre sells pays for itself in its second season sold raw (after <?php echo (int) $pay_min; ?> to <?php echo (int) $pay_max; ?> fruit), or inside the first season if you make the fruit into Wine (<?php echo (int) $keg_min; ?> to <?php echo (int) $keg_max; ?> fruit).</p>
 	<p>Plant each sapling 28 days before its season starts so the first season is not wasted, and if gold is tight, start with the <?php echo esc_html( $cheap['name'] ); ?> (<?php echo esc_html( $gold( $cheap['pierre'] ) ); ?>): it pays back as fast as the expensive trees, it just earns less once it has.</p>
 </div>
 
@@ -142,7 +182,7 @@ $kegs     = Stardew_Tools\Guides::guide_url( 'how-many-kegs-do-i-need' );
 	<li><strong>Wine earns the most per fruit</strong> for every tree (Apricot Jelly ties it), even after the fruit turns iridium. An iridium <?php echo esc_html( $best['name'] ); ?> sells for <?php echo esc_html( $gold( $best['prices']['iridium'] ) ); ?>; the same fruit as Wine is <?php echo esc_html( $gold( $best['each']['wine'] ) ); ?>, and <?php echo esc_html( $gold( $best['each']['wine_artisan'] ) ); ?> with Artisan.</li>
 	<li><strong>For the Apricot, Jelly ties Wine</strong> (<?php echo esc_html( $gold( $trees['apricot']['each']['jelly'] ) ); ?> each) and a Preserves Jar finishes much sooner than a Keg, so Apricots belong in jars.</li>
 	<li><strong>Raw iridium never beats Jelly.</strong> Jelly is worth more than twice the base price, iridium fruit exactly twice, so even old trees earn more in a jar.</li>
-	<li><strong>Dried Fruit earns the least per fruit</strong> but turns five fruit into one item a day per machine. It is the answer when you have more fruit than kegs, as <?php echo $deh ? '<a href="' . esc_url( $deh ) . '">Dehydrator vs Keg</a>' : 'Dehydrator vs Keg'; ?> explains.</li>
+	<li><strong>Dried Fruit earns less per fruit than Wine or Jelly</strong> but turns five fruit into one item a day per machine. It is the answer when you have more fruit than kegs, as <?php echo $deh ? '<a href="' . esc_url( $deh ) . '">Dehydrator vs Keg</a>' : 'Dehydrator vs Keg'; ?> explains.</li>
 </ul>
 <p>Plan the machines before the fruit piles up. A tree gives one fruit a day, a Preserves Jar takes <?php echo esc_html( $f['machines_per_tree']['jar'] ); ?> days per Jelly and a Keg <?php echo esc_html( $f['machines_per_tree']['keg'] ); ?> days per Wine, so turning all of one tree's fruit into Jelly as it comes in needs about <?php echo esc_html( $f['machines_per_tree']['jar'] ); ?> jars, and into Wine about <?php echo esc_html( $f['machines_per_tree']['keg'] ); ?> kegs. Fruit keeps, so you can also store it and process it through the season. Check how your machines compare for each fruit in the <a href="<?php echo esc_url( $kegjar ); ?>">Keg vs Preserves Jar calculator</a><?php echo $kegs ? ', and how many machines a whole orchard needs in <a href="' . esc_url( $kegs ) . '">How Many Kegs Do I Need?</a>' : ''; ?>.</p>
 <p>Fruit Wine also ages in a Cask. An iridium-quality <?php echo esc_html( $best['name'] ); ?> Wine is worth <?php echo esc_html( $gold( $best['aged_wine_iridium'] ) ); ?> with no professions, twice the fresh Wine<?php echo $casks ? ', and <a href="' . esc_url( $casks ) . '">Are Casks Worth It?</a> works out whether the wait pays' : ''; ?>.</p>
@@ -163,7 +203,7 @@ $kegs     = Stardew_Tools\Guides::guide_url( 'how-many-kegs-do-i-need' );
 	</tbody>
 </table>
 </div>
-<p><?php echo esc_html( $best['name'] ); ?> and Pomegranate trees earn the same (their fruit has the same price) and come out on top. Orange and Apple are next, also tied. Cherry is the weakest deal per gold of sapling: it costs <?php echo esc_html( $gold( $trees['cherry']['pierre'] ) ); ?> for an <?php echo esc_html( $gold( $trees['cherry']['prices']['regular'] ) ); ?> fruit, while the Orange costs <?php echo esc_html( $gold( $trees['orange']['pierre'] ) ); ?> for a <?php echo esc_html( $gold( $trees['orange']['prices']['regular'] ) ); ?> fruit. If you want a spring tree, buy it, but if you are choosing where your next few thousand gold goes, the summer and fall trees give more back.</p>
+<p><?php echo esc_html( $names( $tied ) ); ?> <?php echo count( $tied ) > 1 ? 'trees earn the same (their fruit has the same price) and come out on top' : 'comes out on top'; ?>.<?php if ( $next ) : ?> <?php echo esc_html( $names( $next ) ); ?> <?php echo count( $next ) > 1 ? 'are next, also tied' : 'is next'; ?>.<?php endif; ?> Per gold of sapling the trees are close: the <?php echo esc_html( $weakest['name'] ); ?> is the weakest deal (<?php echo esc_html( $gold( $weakest['pierre'] ) ); ?> for a <?php echo esc_html( $gold( $weakest['prices']['regular'] ) ); ?> fruit) and the <?php echo esc_html( $strong['name'] ); ?> the best (<?php echo esc_html( $gold( $strong['pierre'] ) ); ?> for a <?php echo esc_html( $gold( $strong['prices']['regular'] ) ); ?> fruit). Every tree gives one fruit a day on one tile, so the pricier fruit still earns more in total once the sapling is paid off. If you are choosing where your next few thousand gold goes, buy the tree that earns most in total and that fits the season you can plant for.</p>
 <p>A tree also uses its season's fruit slot in your bundles, quests and cooking, so it is common to plant one of each for the collection and more of the best ones for money.</p>
 
 <h2>Fruit trees in the Greenhouse</h2>
@@ -204,7 +244,7 @@ $kegs     = Stardew_Tools\Guides::guide_url( 'how-many-kegs-do-i-need' );
 <?php
 Stardew_Tools\Guides::quick_questions(
 	array(
-		'What is the best fruit tree in Stardew Valley?'  => 'For gold, Peach and Pomegranate: ' . esc_html( $gold( $best['raw'][0] ) ) . ' in their first season sold raw and ' . esc_html( $gold( $best['raw'][3] ) ) . ' once the fruit is iridium. Banana is better still but its sapling is traded on Ginger Island.',
+		'What is the best fruit tree in Stardew Valley?'  => 'For gold, ' . esc_html( $names( $tied ) ) . ': ' . esc_html( $gold( $best['raw'][0] ) ) . ' in their first season sold raw and ' . esc_html( $gold( $best['raw'][3] ) ) . ' once the fruit is iridium. Banana is better still but its sapling is traded on Ginger Island.',
 		'How long do fruit trees take to grow?'           => esc_html( $f['days_to_mature'] ) . ' days, in any season. Plant a sapling 28 days before its season so it fruits from day 1.',
 		'Do fruit trees need watering?'                   => 'No. Fruit trees never need water and do not die in winter.',
 		'Can you plant fruit trees in the Greenhouse?'    => 'Yes, on the soil or on the border tiles. In the Greenhouse they fruit every day of the year.',

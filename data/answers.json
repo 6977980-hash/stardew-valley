@@ -5376,11 +5376,6 @@
       "not_year_one": {
         "spring": [
           {
-            "id": "cactus-fruit",
-            "name": "Cactus Fruit",
-            "why": "desert"
-          },
-          {
             "id": "garlic",
             "name": "Garlic",
             "why": "year2"
@@ -5397,11 +5392,6 @@
           }
         ],
         "summer": [
-          {
-            "id": "cactus-fruit",
-            "name": "Cactus Fruit",
-            "why": "desert"
-          },
           {
             "id": "red-cabbage",
             "name": "Red Cabbage",
@@ -5422,11 +5412,6 @@
           {
             "id": "beet",
             "name": "Beet",
-            "why": "desert"
-          },
-          {
-            "id": "cactus-fruit",
-            "name": "Cactus Fruit",
             "why": "desert"
           }
         ]
@@ -5462,12 +5447,12 @@
       "winter_shop_crops": 0,
       "strawberry": {
         "day": 13,
-        "plant_day": 14,
+        "plant_day": 13,
         "seed_price": 100,
         "harvests": 2,
         "harvest_days": [
-          22,
-          26
+          21,
+          25
         ],
         "profit": 147,
         "potato": 102,
@@ -5950,15 +5935,6 @@
         "total": 2032
       },
       {
-        "id": "garlic",
-        "name": "Garlic",
-        "tiles": 12,
-        "seed_price": 40,
-        "spend_now": 480,
-        "harvests": 6,
-        "total": 1483
-      },
-      {
         "id": "green-bean",
         "name": "Green Bean",
         "tiles": 8,
@@ -5975,15 +5951,6 @@
         "spend_now": 300,
         "harvests": 6,
         "total": 1380
-      },
-      {
-        "id": "rhubarb",
-        "name": "Rhubarb",
-        "tiles": 5,
-        "seed_price": 100,
-        "spend_now": 500,
-        "harvests": 2,
-        "total": 1222
       },
       {
         "id": "cauliflower",
@@ -6020,15 +5987,6 @@
         "spend_now": 300,
         "harvests": 4,
         "total": 617
-      },
-      {
-        "id": "unmilled-rice",
-        "name": "Unmilled Rice",
-        "tiles": 12,
-        "seed_price": 40,
-        "spend_now": 480,
-        "harvests": 3,
-        "total": 310
       }
     ],
     "keg_vs_jar": [

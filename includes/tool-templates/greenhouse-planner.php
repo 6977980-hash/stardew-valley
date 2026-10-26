@@ -113,7 +113,7 @@ $g = function ( $n ) {
 		<li><strong>Soil:</strong> the greenhouse has 120 tillable tiles (12 wide, 10 high). Sprinklers placed on soil take a tile; sprinklers on the wooden border around the soil do not.</li>
 		<li><strong>Sprinklers:</strong> 6 Iridium Sprinklers water every tile, with 2 standing on the border, so 4 tiles are used. 16 Quality Sprinklers also water everything, with 4 on the border, so 12 tiles are used.</li>
 		<li><strong>Profit:</strong> each crop is grown for one 112-day greenhouse year with the same rules as the <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'crop-profit-calculator' ) ); ?>">Crop Profit Calculator</a>. Seeds are bought at the cheapest shop; seeds without a gold price are not counted.</li>
-		<li><strong>Machines:</strong> the number of kegs or jars that can keep up with the harvests, rounded up.</li>
+		<li><strong>Machines:</strong> the number of kegs or jars that keep up with the harvests once the crop is producing steadily (one harvest's items spread over the days between harvests), rounded up. The Ancient Fruit vs Starfruit tool and the keg guide count the same way.</li>
 	</ul>
 	<h3>Assumptions</h3>
 	<ul>

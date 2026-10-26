@@ -1,5 +1,6 @@
 // Ancient Fruit vs Starfruit, side by side for one setup.
 import { cropProfit } from '../engine/profit.js';
+import { machinesToKeepUp } from '../engine/machines.js';
 import { loadData, bindTool, esc, gold, num, plural, stepsHtml, SELL_LABEL } from './common.js';
 
 const data = loadData();
@@ -33,9 +34,8 @@ function result(id, v) {
   // Starfruit does not grow outdoors in Spring.
   if (id === 'starfruit' && v.where === 'spring') return { c, r: null, why: 'Starfruit only grows in Summer outdoors.' };
   const r = cropProfit(c, data, opts);
-  const days = setup.horizonDays || (r.harvestDays.length ? Math.max(...r.harvestDays) : 28);
   const p = data.machines.machines.flatMap((m) => m.products.map((x) => ({ ...x, machineId: m.id }))).find((x) => x.id === r.sellAs);
-  const machines = p ? (r.harvestDays.length * r.itemsPerHarvest * p.minutes) / (p.input?.count || 1) / data.machines.minutes_per_day / days : 0;
+  const machines = machinesToKeepUp(c, r, p, data.machines.minutes_per_day);
   return { c, r, machines, machineName: p ? (p.machineId === 'keg' ? 'Kegs' : 'Preserves Jars') : '' };
 }
 

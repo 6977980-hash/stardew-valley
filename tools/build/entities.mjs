@@ -8,7 +8,7 @@ import { expectedItems } from '../../assets/js/engine/harvest.js';
 import { productsFor } from '../../assets/js/engine/processing.js';
 import { allocate } from '../../assets/js/engine/machines.js';
 import { animalOutput } from '../../assets/js/engine/animals.js';
-import { villagersFor, itemsAt, TASTES, POINTS_PER_HEART } from '../../assets/js/engine/gifts.js';
+import { villagersFor, itemsAt, TASTES, POINTS_PER_HEART, categoryName } from '../../assets/js/engine/gifts.js';
 
 const r0 = (n) => Math.round(n);
 const r2 = (n) => Math.round(n * 100) / 100;
@@ -62,7 +62,10 @@ export function buildEntities(data, crops) {
     if (data.gifts) {
       const v = villagersFor(c.id, data.gifts);
       const names = (t) => v[t].map((x) => x.name);
-      gifts = { love: names('love'), like: names('like'), neutral: v.neutral.length, dislike: names('dislike'), hate: names('hate'), of: data.gifts.villagers.length };
+      // The universal category most likers come through ("All Vegetables"), when there is one.
+      const via = v.like.map((x) => v.why[x.id]).filter((w) => w.via === 'universal-category');
+      const rule = via.length ? categoryName(data.gifts, via[0].category) : null;
+      gifts = { love: names('love'), like: names('like'), like_rule: rule, neutral: v.neutral.length, dislike: names('dislike'), hate: names('hate'), unknown: v.unknown.length, of: data.gifts.villagers.length };
     }
     return { bundles: standard, remixed_bundles: remixed, crafting, gifts };
   };
@@ -249,7 +252,9 @@ function buildVillagers(gifts, cropOut) {
     const categories = {};
     for (const t of TASTES) {
       tastes[t] = itemsAt(t, v, gifts).sort((a, b) => name(a).localeCompare(name(b)));
-      categories[t] = v.tastes[t].categories.map((c) => c.text);
+      const mine = v.tastes[t];
+      const universal = mine.universal === false ? [] : gifts.universal[t].categories.filter((c) => !(mine.universal_except || []).includes(c.id)).map((c) => `${categoryName(gifts, c.id)} (universal)`);
+      categories[t] = [...mine.categories.map((c) => c.text), ...universal];
     }
     const sameSeason = gifts.villagers
       .filter((o) => o.id !== v.id && o.birthday.season === v.birthday.season)
