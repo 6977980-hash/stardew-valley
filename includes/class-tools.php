@@ -91,6 +91,18 @@ class Tools {
 				'related'     => array( 'keg-vs-preserves-jar', 'what-to-plant', 'crop-profit-calculator' ),
 				'learn'       => array( 'best-fish-for-fish-ponds', 'dehydrator-vs-keg' ),
 			),
+			'fish-finder'                => array(
+				'title'       => 'Stardew Valley Fish Finder: Where and When Fish Bite',
+				'short'       => 'Fish Finder',
+				'question'    => 'Where do I catch this fish?',
+				'blurb'       => 'Every fish by season, weather, time and place: pick your day and see what bites, or look up one fish.',
+				'description' => 'Stardew Valley fish finder (1.6): where, when and in what weather all 66 fish bite. Filter by season, rain, hour and place, with prices and bundles.',
+				'icon'        => 'fish',
+				'script'      => 'fish-finder',
+				'data'        => array( 'fish' ),
+				'related'     => array( 'fish-pond-calculator', 'xp-calculator', 'bundle-tracker' ),
+				'learn'       => array( 'best-fish-for-fish-ponds', 'bundles', 'hub:fishing' ),
+			),
 			'animal-profit-calculator'   => array(
 				'title'       => 'Stardew Valley Animal Profit Calculator',
 				'short'       => 'Animal Profit Calculator',
@@ -301,7 +313,7 @@ class Tools {
 			'Decision tools' => array( 'what-to-plant', 'keg-vs-preserves-jar', 'ancient-fruit-vs-starfruit', 'greenhouse-planner' ),
 			'Calculators'    => array( 'crop-profit-calculator', 'fish-pond-calculator', 'animal-profit-calculator', 'crafting-calculator', 'xp-calculator' ),
 			'Best crops'     => array( 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'best-greenhouse-crops' ),
-			'Finders'        => array( 'gift-finder' ),
+			'Finders'        => array( 'gift-finder', 'fish-finder' ),
 			'Trackers'       => array( 'bundle-tracker' ),
 		);
 	}

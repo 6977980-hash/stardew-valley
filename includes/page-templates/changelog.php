@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 26, 2026: Fish Finder</h2>
+<ul>
+<li>New tool: <a href="<?php echo esc_url( home_url( '/fish-finder/' ) ); ?>">Fish Finder</a>. Pick the season, weather, time and place and see every fish that bites there, most valuable first, with the bundles each one fills.</li>
+</ul>
+
 <h2>October 26, 2026: Ginger Island farm</h2>
 <ul>
 <li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/ginger-island-farm/' ) ); ?>">Ginger Island Farm</a>, with the boat repair, every Golden Walnut unlock, the best crops for a year with no seasons, Pineapple and Taro from the Island Trader, island fruit trees and the walnuts farming gives.</li>

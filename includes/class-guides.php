@@ -52,8 +52,8 @@ class Guides {
 				'title'       => 'Stardew Valley Fishing and Fish Ponds Guides',
 				'short'       => 'Fishing and Fish Ponds',
 				'blurb'       => 'Which fish to put in a pond, roe and caviar, and fishing XP.',
-				'description' => 'Stardew Valley fishing and fish ponds in 1.6: the best fish for ponds, roe, Aged Roe and Caviar, and how much fishing XP you need.',
-				'tools'       => array( 'fish-pond-calculator', 'xp-calculator' ),
+				'description' => 'Stardew Valley fishing and fish ponds in 1.6: where and when each fish bites, the best fish for ponds, roe and Caviar, and fishing XP.',
+				'tools'       => array( 'fish-finder', 'fish-pond-calculator', 'xp-calculator' ),
 			),
 			'greenhouse'        => array(
 				'title'       => 'Stardew Valley Greenhouse: Layouts, Crops and Profit',
