@@ -16,3 +16,4 @@ export * from './gifts.js';
 export * from './bundles.js';
 export * from './casks.js';
 export * from './dehydrator.js';
+export * from './fish.js';

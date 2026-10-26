@@ -1,0 +1,3125 @@
+{
+  "schema": "stardew-tools/fish@1",
+  "game_version": "1.6.15",
+  "generated": "2026-10-26",
+  "last_verified": "2026-10-26",
+  "source": "Stardew Valley Wiki (CC BY-NC-SA 3.0), the Fish page tables cross-checked with each fish page infobox",
+  "sources": [
+    {
+      "title": "Fish",
+      "url": "https://stardewvalleywiki.com/Fish",
+      "revid": 195431
+    }
+  ],
+  "rules": {
+    "magic_bait": {
+      "value": true,
+      "evidence": "All fish can be caught regardless of weather, time, or season using Magic Bait."
+    },
+    "night_market": {
+      "days": {
+        "from": 15,
+        "to": 17
+      },
+      "evidence": "during Winter 15-17, while the market is open (5pm – 2am)"
+    },
+    "hours": "Game hours: 6 = 6am, 24 = midnight, 26 = 2am (the day ends at 2am)."
+  },
+  "fish": [
+    {
+      "id": "pufferfish",
+      "name": "Pufferfish",
+      "kind": "pole",
+      "base_price": 200,
+      "difficulty": 80,
+      "behavior": "floater",
+      "base_xp": 29,
+      "locations": [
+        "Ocean",
+        "Ginger Island Oceans"
+      ],
+      "time": [
+        [
+          12,
+          16
+        ]
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "sun",
+      "bundles": [
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Pufferfish",
+          "url": "https://stardewvalleywiki.com/Pufferfish",
+          "revid": 193312
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "anchovy",
+      "name": "Anchovy",
+      "kind": "pole",
+      "base_price": 30,
+      "difficulty": 30,
+      "behavior": "dart",
+      "base_xp": 13,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "fall"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Anchovy",
+          "url": "https://stardewvalleywiki.com/Anchovy",
+          "revid": 193184
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "tuna",
+      "name": "Tuna",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 70,
+      "behavior": "smooth",
+      "base_xp": 26,
+      "locations": [
+        "Ocean",
+        "Ginger Island Oceans"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "winter"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Quality Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Tuna",
+          "url": "https://stardewvalleywiki.com/Tuna",
+          "revid": 195394
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "sardine",
+      "name": "Sardine",
+      "kind": "pole",
+      "base_price": 40,
+      "difficulty": 30,
+      "behavior": "dart",
+      "base_xp": 13,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Sardine",
+          "url": "https://stardewvalleywiki.com/Sardine",
+          "revid": 193174
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "bream",
+      "name": "Bream",
+      "kind": "pole",
+      "base_price": 45,
+      "difficulty": 35,
+      "behavior": "smooth",
+      "base_xp": 14,
+      "locations": [
+        "Town River",
+        "Forest River"
+      ],
+      "time": [
+        [
+          18,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Night Fishing Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Night Fishing Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Bream",
+          "url": "https://stardewvalleywiki.com/Bream",
+          "revid": 193187
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "largemouth-bass",
+      "name": "Largemouth Bass",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 50,
+      "behavior": "mixed",
+      "base_xp": 19,
+      "locations": [
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Lake Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Lake Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Quality Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Largemouth Bass",
+          "url": "https://stardewvalleywiki.com/Largemouth_Bass",
+          "revid": 193666
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "smallmouth-bass",
+      "name": "Smallmouth Bass",
+      "kind": "pole",
+      "base_price": 50,
+      "difficulty": 28,
+      "behavior": "mixed",
+      "base_xp": 12,
+      "locations": [
+        "Town River",
+        "Forest Pond"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "fall"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Smallmouth Bass",
+          "url": "https://stardewvalleywiki.com/Smallmouth_Bass",
+          "revid": 193249
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "rainbow-trout",
+      "name": "Rainbow Trout",
+      "kind": "pole",
+      "base_price": 65,
+      "difficulty": 45,
+      "behavior": "mixed",
+      "base_xp": 18,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "weather": "sun",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Rainbow Trout",
+          "url": "https://stardewvalleywiki.com/Rainbow_Trout",
+          "revid": 193322
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "salmon",
+      "name": "Salmon",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 50,
+      "behavior": "mixed",
+      "base_xp": 19,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Forest Waterfalls"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "fall"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Salmon",
+          "url": "https://stardewvalleywiki.com/Salmon",
+          "revid": 193177
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "walleye",
+      "name": "Walleye",
+      "kind": "pole",
+      "base_price": 105,
+      "difficulty": 45,
+      "behavior": "smooth",
+      "base_xp": 18,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Forest Pond",
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          12,
+          26
+        ]
+      ],
+      "seasons": [
+        "fall"
+      ],
+      "rain_totem": [
+        "winter"
+      ],
+      "weather": "rain",
+      "bundles": [
+        {
+          "name": "Night Fishing Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Night Fishing Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Quality Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Walleye",
+          "url": "https://stardewvalleywiki.com/Walleye",
+          "revid": 193033
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "perch",
+      "name": "Perch",
+      "kind": "pole",
+      "base_price": 55,
+      "difficulty": 35,
+      "behavior": "dart",
+      "base_xp": 14,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Forest Pond",
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Perch",
+          "url": "https://stardewvalleywiki.com/Perch",
+          "revid": 193194
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "carp",
+      "name": "Carp",
+      "kind": "pole",
+      "base_price": 30,
+      "difficulty": 15,
+      "behavior": "mixed",
+      "base_xp": 8,
+      "locations": [
+        "Mountain Lake",
+        "Secret Woods",
+        "Sewers",
+        "Mutant Bug Lair"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Lake Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Lake Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Carp",
+          "url": "https://stardewvalleywiki.com/Carp",
+          "revid": 193295
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "catfish",
+      "name": "Catfish",
+      "kind": "pole",
+      "base_price": 200,
+      "difficulty": 75,
+      "behavior": "mixed",
+      "base_xp": 28,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Secret Woods",
+        "Witch's Swamp"
+      ],
+      "time": [
+        [
+          6,
+          24
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "fall"
+      ],
+      "rain_totem": [
+        "winter"
+      ],
+      "season_notes": [
+        "Spring & Summer in Secret Woods Pond"
+      ],
+      "weather": "rain",
+      "bundles": [
+        {
+          "name": "River Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "River Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Catfish",
+          "url": "https://stardewvalleywiki.com/Catfish",
+          "revid": 194361
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "pike",
+      "name": "Pike",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 60,
+      "behavior": "dart",
+      "base_xp": 23,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Forest Pond"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Pike",
+          "url": "https://stardewvalleywiki.com/Pike",
+          "revid": 193602
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "sunfish",
+      "name": "Sunfish",
+      "kind": "pole",
+      "base_price": 30,
+      "difficulty": 30,
+      "behavior": "mixed",
+      "base_xp": 13,
+      "locations": [
+        "Town River",
+        "Forest River"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "weather": "sun",
+      "bundles": [
+        {
+          "name": "River Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "River Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Sunfish",
+          "url": "https://stardewvalleywiki.com/Sunfish",
+          "revid": 194289
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "red-mullet",
+      "name": "Red Mullet",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 55,
+      "behavior": "smooth",
+      "base_xp": 21,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Red Mullet",
+          "url": "https://stardewvalleywiki.com/Red_Mullet",
+          "revid": 193330
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "herring",
+      "name": "Herring",
+      "kind": "pole",
+      "base_price": 30,
+      "difficulty": 25,
+      "behavior": "dart",
+      "base_xp": 11,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Herring",
+          "url": "https://stardewvalleywiki.com/Herring",
+          "revid": 193311
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "eel",
+      "name": "Eel",
+      "kind": "pole",
+      "base_price": 85,
+      "difficulty": 70,
+      "behavior": "smooth",
+      "base_xp": 26,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          16,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "fall"
+      ],
+      "weather": "rain",
+      "bundles": [
+        {
+          "name": "Night Fishing Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Night Fishing Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Eel",
+          "url": "https://stardewvalleywiki.com/Eel",
+          "revid": 193346
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "octopus",
+      "name": "Octopus",
+      "kind": "pole",
+      "base_price": 150,
+      "difficulty": 95,
+      "behavior": "sinker",
+      "base_xp": 34,
+      "locations": [
+        "Ocean",
+        "Ginger Island Oceans"
+      ],
+      "time": [
+        [
+          6,
+          13
+        ]
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Master Fisher's Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Octopus",
+          "url": "https://stardewvalleywiki.com/Octopus",
+          "revid": 193235
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "red-snapper",
+      "name": "Red Snapper",
+      "kind": "pole",
+      "base_price": 50,
+      "difficulty": 40,
+      "behavior": "mixed",
+      "base_xp": 16,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "fall"
+      ],
+      "rain_totem": [
+        "winter"
+      ],
+      "weather": "rain",
+      "bundles": [
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Red Snapper",
+          "url": "https://stardewvalleywiki.com/Red_Snapper",
+          "revid": 194138
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "squid",
+      "name": "Squid",
+      "kind": "pole",
+      "base_price": 80,
+      "difficulty": 75,
+      "behavior": "sinker",
+      "base_xp": 28,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          18,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Squid",
+          "url": "https://stardewvalleywiki.com/Squid",
+          "revid": 193247
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "sea-cucumber",
+      "name": "Sea Cucumber",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 40,
+      "behavior": "sinker",
+      "base_xp": 16,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Sea Cucumber",
+          "url": "https://stardewvalleywiki.com/Sea_Cucumber",
+          "revid": 193267
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "super-cucumber",
+      "name": "Super Cucumber",
+      "kind": "pole",
+      "base_price": 250,
+      "difficulty": 80,
+      "behavior": "sinker",
+      "base_xp": 29,
+      "locations": [
+        "Ocean",
+        "Ginger Island Oceans"
+      ],
+      "time": [
+        [
+          18,
+          26
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "fall"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Super Cucumber",
+          "url": "https://stardewvalleywiki.com/Super_Cucumber",
+          "revid": 193352
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "ghostfish",
+      "name": "Ghostfish",
+      "kind": "pole",
+      "base_price": 45,
+      "difficulty": 50,
+      "behavior": "mixed",
+      "base_xp": 19,
+      "locations": [
+        "Mines (Floors 20 & 60)",
+        "Ghost Drops"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Ghostfish",
+          "url": "https://stardewvalleywiki.com/Ghostfish",
+          "revid": 193259
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "stonefish",
+      "name": "Stonefish",
+      "kind": "pole",
+      "base_price": 300,
+      "difficulty": 65,
+      "behavior": "sinker",
+      "base_xp": 24,
+      "locations": [
+        "Mines (Floor 20)"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Stonefish",
+          "url": "https://stardewvalleywiki.com/Stonefish",
+          "revid": 192670
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "ice-pip",
+      "name": "Ice Pip",
+      "kind": "pole",
+      "base_price": 500,
+      "difficulty": 85,
+      "behavior": "dart",
+      "base_xp": 31,
+      "locations": [
+        "Mines (Floor 60)"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Ice Pip",
+          "url": "https://stardewvalleywiki.com/Ice_Pip",
+          "revid": 190243
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "lava-eel",
+      "name": "Lava Eel",
+      "kind": "pole",
+      "base_price": 700,
+      "difficulty": 90,
+      "behavior": "mixed",
+      "base_xp": 33,
+      "locations": [
+        "Mines (Floor 100)",
+        "Volcano Caldera"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Master Fisher's Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Lava Eel",
+          "url": "https://stardewvalleywiki.com/Lava_Eel",
+          "revid": 190296
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "sandfish",
+      "name": "Sandfish",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 65,
+      "behavior": "mixed",
+      "base_xp": 24,
+      "locations": [
+        "Desert"
+      ],
+      "time": [
+        [
+          6,
+          20
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Sandfish",
+          "url": "https://stardewvalleywiki.com/Sandfish",
+          "revid": 193274
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "scorpion-carp",
+      "name": "Scorpion Carp",
+      "kind": "pole",
+      "base_price": 150,
+      "difficulty": 90,
+      "behavior": "dart",
+      "base_xp": 33,
+      "min_fishing_level": 4,
+      "locations": [
+        "Desert"
+      ],
+      "time": [
+        [
+          6,
+          20
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Master Fisher's Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Scorpion Carp",
+          "url": "https://stardewvalleywiki.com/Scorpion_Carp",
+          "revid": 193157
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "flounder",
+      "name": "Flounder",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 50,
+      "behavior": "sinker",
+      "base_xp": 19,
+      "locations": [
+        "Ocean",
+        "Ginger Island Oceans"
+      ],
+      "time": [
+        [
+          6,
+          20
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Flounder",
+          "url": "https://stardewvalleywiki.com/Flounder",
+          "revid": 193306
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "midnight-carp",
+      "name": "Midnight Carp",
+      "kind": "pole",
+      "base_price": 150,
+      "difficulty": 55,
+      "behavior": "mixed",
+      "base_xp": 21,
+      "locations": [
+        "Forest Pond",
+        "Mountain Lake",
+        "Ginger Island Rivers"
+      ],
+      "time": [
+        [
+          22,
+          26
+        ]
+      ],
+      "seasons": [
+        "fall",
+        "winter"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Midnight Carp",
+          "url": "https://stardewvalleywiki.com/Midnight_Carp",
+          "revid": 193135
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "sturgeon",
+      "name": "Sturgeon",
+      "kind": "pole",
+      "base_price": 200,
+      "difficulty": 78,
+      "behavior": "mixed",
+      "base_xp": 29,
+      "locations": [
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Lake Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Lake Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Sturgeon",
+          "url": "https://stardewvalleywiki.com/Sturgeon",
+          "revid": 193262
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "tiger-trout",
+      "name": "Tiger Trout",
+      "kind": "pole",
+      "base_price": 150,
+      "difficulty": 60,
+      "behavior": "dart",
+      "base_xp": 23,
+      "locations": [
+        "Town River",
+        "Forest River"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "River Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "River Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Tiger Trout",
+          "url": "https://stardewvalleywiki.com/Tiger_Trout",
+          "revid": 193608
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "bullhead",
+      "name": "Bullhead",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 46,
+      "behavior": "smooth",
+      "base_xp": 18,
+      "locations": [
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Lake Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Lake Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Bullhead",
+          "url": "https://stardewvalleywiki.com/Bullhead",
+          "revid": 193131
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "tilapia",
+      "name": "Tilapia",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 50,
+      "behavior": "mixed",
+      "base_xp": 19,
+      "locations": [
+        "Ocean",
+        "Ginger Island Rivers"
+      ],
+      "time": [
+        [
+          6,
+          14
+        ]
+      ],
+      "seasons": [
+        "summer",
+        "fall"
+      ],
+      "season_notes": [
+        "All Seasons on Ginger Island"
+      ],
+      "island_all_year": true,
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Ocean Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Tilapia",
+          "url": "https://stardewvalleywiki.com/Tilapia",
+          "revid": 191725
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "chub",
+      "name": "Chub",
+      "kind": "pole",
+      "base_price": 50,
+      "difficulty": 35,
+      "behavior": "dart",
+      "base_xp": 14,
+      "locations": [
+        "Forest River",
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Field Research Bundle",
+          "set": "standard",
+          "room": "bulletin-board"
+        },
+        {
+          "name": "Field Research Bundle",
+          "set": "remixed",
+          "room": "bulletin-board"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Chub",
+          "url": "https://stardewvalleywiki.com/Chub",
+          "revid": 193240
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "dorado",
+      "name": "Dorado",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 78,
+      "behavior": "mixed",
+      "base_xp": 29,
+      "locations": [
+        "Forest River"
+      ],
+      "time": [
+        [
+          6,
+          19
+        ]
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Dorado",
+          "url": "https://stardewvalleywiki.com/Dorado",
+          "revid": 193288
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "albacore",
+      "name": "Albacore",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 60,
+      "behavior": "mixed",
+      "base_xp": 23,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          11
+        ],
+        [
+          18,
+          26
+        ]
+      ],
+      "seasons": [
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Albacore",
+          "url": "https://stardewvalleywiki.com/Albacore",
+          "revid": 193224
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "shad",
+      "name": "Shad",
+      "kind": "pole",
+      "base_price": 60,
+      "difficulty": 45,
+      "behavior": "smooth",
+      "base_xp": 18,
+      "locations": [
+        "Town River",
+        "Forest River"
+      ],
+      "time": [
+        [
+          9,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall"
+      ],
+      "weather": "rain",
+      "bundles": [
+        {
+          "name": "River Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "River Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Quality Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Shad",
+          "url": "https://stardewvalleywiki.com/Shad",
+          "revid": 193307
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "lingcod",
+      "name": "Lingcod",
+      "kind": "pole",
+      "base_price": 120,
+      "difficulty": 85,
+      "behavior": "mixed",
+      "base_xp": 31,
+      "locations": [
+        "Town River",
+        "Forest River",
+        "Mountain Lake"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Lingcod",
+          "url": "https://stardewvalleywiki.com/Lingcod",
+          "revid": 193345
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "halibut",
+      "name": "Halibut",
+      "kind": "pole",
+      "base_price": 80,
+      "difficulty": 50,
+      "behavior": "sinker",
+      "base_xp": 19,
+      "locations": [
+        "Ocean"
+      ],
+      "time": [
+        [
+          6,
+          11
+        ],
+        [
+          19,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Halibut",
+          "url": "https://stardewvalleywiki.com/Halibut",
+          "revid": 193213
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "woodskip",
+      "name": "Woodskip",
+      "kind": "pole",
+      "base_price": 75,
+      "difficulty": 50,
+      "behavior": "mixed",
+      "base_xp": 19,
+      "locations": [
+        "Secret Woods",
+        "Forest Farm"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Specialty Fish Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Woodskip",
+          "url": "https://stardewvalleywiki.com/Woodskip",
+          "revid": 186977
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "void-salmon",
+      "name": "Void Salmon",
+      "kind": "pole",
+      "base_price": 150,
+      "difficulty": 80,
+      "behavior": "mixed",
+      "base_xp": 29,
+      "locations": [
+        "Witch's Swamp"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "The Missing Bundle",
+          "set": "standard",
+          "room": "abandoned-jojamart"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Void Salmon",
+          "url": "https://stardewvalleywiki.com/Void_Salmon",
+          "revid": 192705
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "slimejack",
+      "name": "Slimejack",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 55,
+      "behavior": "dart",
+      "base_xp": 21,
+      "locations": [
+        "Mutant Bug Lair"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Slimejack",
+          "url": "https://stardewvalleywiki.com/Slimejack",
+          "revid": 192058
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "stingray",
+      "name": "Stingray",
+      "kind": "pole",
+      "base_price": 180,
+      "difficulty": 80,
+      "behavior": "sinker",
+      "base_xp": 29,
+      "locations": [
+        "Pirate Cove (Ginger Island)"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Stingray",
+          "url": "https://stardewvalleywiki.com/Stingray",
+          "revid": 180872
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "lionfish",
+      "name": "Lionfish",
+      "kind": "pole",
+      "base_price": 100,
+      "difficulty": 50,
+      "behavior": "smooth",
+      "base_xp": 19,
+      "locations": [
+        "Ginger Island Oceans"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Lionfish",
+          "url": "https://stardewvalleywiki.com/Lionfish",
+          "revid": 192111
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "blue-discus",
+      "name": "Blue Discus",
+      "kind": "pole",
+      "base_price": 120,
+      "difficulty": 60,
+      "behavior": "dart",
+      "base_xp": 23,
+      "locations": [
+        "Ginger Island Rivers"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Blue Discus",
+          "url": "https://stardewvalleywiki.com/Blue_Discus",
+          "revid": 192974
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "goby",
+      "name": "Goby",
+      "kind": "pole",
+      "base_price": 150,
+      "difficulty": 55,
+      "behavior": "dart",
+      "base_xp": 21,
+      "locations": [
+        "Forest Waterfalls"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Fishing_Pole_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Goby",
+          "url": "https://stardewvalleywiki.com/Goby",
+          "revid": 192199
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "midnight-squid",
+      "name": "Midnight Squid",
+      "kind": "night-market",
+      "base_price": 100,
+      "difficulty": 55,
+      "behavior": "sinker",
+      "base_xp": 21,
+      "locations": [
+        "Night Market submarine"
+      ],
+      "time": [
+        [
+          17,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "days": {
+        "from": 15,
+        "to": 17
+      },
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Night_Market_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Midnight Squid",
+          "url": "https://stardewvalleywiki.com/Midnight_Squid",
+          "revid": 192188
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "spook-fish",
+      "name": "Spook Fish",
+      "kind": "night-market",
+      "base_price": 220,
+      "difficulty": 60,
+      "behavior": "dart",
+      "base_xp": 23,
+      "locations": [
+        "Night Market submarine"
+      ],
+      "time": [
+        [
+          17,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "days": {
+        "from": 15,
+        "to": 17
+      },
+      "weather": "any",
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Night_Market_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Spook Fish",
+          "url": "https://stardewvalleywiki.com/Spook_Fish",
+          "revid": 192189
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "blobfish",
+      "name": "Blobfish",
+      "kind": "night-market",
+      "base_price": 500,
+      "difficulty": 75,
+      "behavior": "floater",
+      "base_xp": 28,
+      "locations": [
+        "Night Market submarine"
+      ],
+      "time": [
+        [
+          17,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "days": {
+        "from": 15,
+        "to": 17
+      },
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Master Fisher's Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Night_Market_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Blobfish",
+          "url": "https://stardewvalleywiki.com/Blobfish",
+          "revid": 192190
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "crimsonfish",
+      "name": "Crimsonfish",
+      "kind": "legendary",
+      "base_price": 1500,
+      "difficulty": 95,
+      "behavior": "mixed",
+      "base_xp": 170,
+      "min_fishing_level": 5,
+      "locations": [
+        "East Pier on The Beach"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "summer"
+      ],
+      "weather": "any",
+      "once_per_save": true,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Legendary_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Crimsonfish",
+          "url": "https://stardewvalleywiki.com/Crimsonfish",
+          "revid": 193655
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "angler",
+      "name": "Angler",
+      "kind": "legendary",
+      "base_price": 900,
+      "difficulty": 85,
+      "behavior": "smooth",
+      "base_xp": 155,
+      "min_fishing_level": 3,
+      "locations": [
+        "Near the waterfall north of JojaMart"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "fall"
+      ],
+      "weather": "any",
+      "once_per_save": true,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Legendary_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Angler",
+          "url": "https://stardewvalleywiki.com/Angler",
+          "revid": 193659
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "legend",
+      "name": "Legend",
+      "kind": "legendary",
+      "base_price": 5000,
+      "difficulty": 110,
+      "behavior": "mixed",
+      "base_xp": 195,
+      "min_fishing_level": 10,
+      "locations": [
+        "The Mountain Lake near the log"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring"
+      ],
+      "weather": "rain",
+      "once_per_save": true,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Legendary_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Legend",
+          "url": "https://stardewvalleywiki.com/Legend",
+          "revid": 193653
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "glacierfish",
+      "name": "Glacierfish",
+      "kind": "legendary",
+      "base_price": 1000,
+      "difficulty": 100,
+      "behavior": "mixed",
+      "base_xp": 180,
+      "min_fishing_level": 6,
+      "locations": [
+        "South end of Arrowhead Island in Cindersap Forest"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "winter"
+      ],
+      "weather": "any",
+      "once_per_save": true,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Legendary_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Glacierfish",
+          "url": "https://stardewvalleywiki.com/Glacierfish",
+          "revid": 193652
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "mutant-carp",
+      "name": "Mutant Carp",
+      "kind": "legendary",
+      "base_price": 1000,
+      "difficulty": 80,
+      "behavior": "dart",
+      "base_xp": 145,
+      "locations": [
+        "The Sewers"
+      ],
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "once_per_save": true,
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Legendary_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Mutant Carp",
+          "url": "https://stardewvalleywiki.com/Mutant_Carp",
+          "revid": 193657
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "clam",
+      "name": "Clam",
+      "kind": "crab-pot",
+      "base_price": 50,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.09,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Clam",
+          "url": "https://stardewvalleywiki.com/Clam",
+          "revid": 193355
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "lobster",
+      "name": "Lobster",
+      "kind": "crab-pot",
+      "base_price": 120,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.04,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Lobster",
+          "url": "https://stardewvalleywiki.com/Lobster",
+          "revid": 193281
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "crayfish",
+      "name": "Crayfish",
+      "kind": "crab-pot",
+      "base_price": 75,
+      "locations": [
+        "Crab Pot in fresh water"
+      ],
+      "water": "freshwater",
+      "trap_chance": {
+        "normal": 0.21,
+        "mariner": 0.33
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Crayfish",
+          "url": "https://stardewvalleywiki.com/Crayfish",
+          "revid": 193305
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "crab",
+      "name": "Crab",
+      "kind": "crab-pot",
+      "base_price": 100,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.08,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Crab",
+          "url": "https://stardewvalleywiki.com/Crab",
+          "revid": 194156
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "cockle",
+      "name": "Cockle",
+      "kind": "crab-pot",
+      "base_price": 50,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.12,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Cockle",
+          "url": "https://stardewvalleywiki.com/Cockle",
+          "revid": 193344
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "mussel",
+      "name": "Mussel",
+      "kind": "crab-pot",
+      "base_price": 30,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.1,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Mussel",
+          "url": "https://stardewvalleywiki.com/Mussel",
+          "revid": 193294
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "shrimp",
+      "name": "Shrimp",
+      "kind": "crab-pot",
+      "base_price": 60,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.1,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Shrimp",
+          "url": "https://stardewvalleywiki.com/Shrimp",
+          "revid": 193269
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "snail",
+      "name": "Snail",
+      "kind": "crab-pot",
+      "base_price": 65,
+      "locations": [
+        "Crab Pot in fresh water"
+      ],
+      "water": "freshwater",
+      "trap_chance": {
+        "normal": 0.2,
+        "mariner": 0.33
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Snail",
+          "url": "https://stardewvalleywiki.com/Snail",
+          "revid": 193341
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "periwinkle",
+      "name": "Periwinkle",
+      "kind": "crab-pot",
+      "base_price": 20,
+      "locations": [
+        "Crab Pot in fresh water"
+      ],
+      "water": "freshwater",
+      "trap_chance": {
+        "normal": 0.21,
+        "mariner": 0.33
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Periwinkle",
+          "url": "https://stardewvalleywiki.com/Periwinkle",
+          "revid": 193166
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    },
+    {
+      "id": "oyster",
+      "name": "Oyster",
+      "kind": "crab-pot",
+      "base_price": 40,
+      "locations": [
+        "Crab Pot in the ocean"
+      ],
+      "water": "ocean",
+      "trap_chance": {
+        "normal": 0.1,
+        "mariner": 0.14
+      },
+      "time": [
+        [
+          6,
+          26
+        ]
+      ],
+      "seasons": [
+        "spring",
+        "summer",
+        "fall",
+        "winter"
+      ],
+      "weather": "any",
+      "bundles": [
+        {
+          "name": "Crab Pot Bundle",
+          "set": "standard",
+          "room": "fish-tank"
+        },
+        {
+          "name": "Crab Pot Bundle",
+          "set": "remixed",
+          "room": "fish-tank"
+        }
+      ],
+      "game_version": "1.6.15",
+      "sources": [
+        {
+          "title": "Fish",
+          "url": "https://stardewvalleywiki.com/Fish#Crab_Pot_Fish",
+          "revid": 195431
+        },
+        {
+          "title": "Oyster",
+          "url": "https://stardewvalleywiki.com/Oyster",
+          "revid": 193140
+        }
+      ],
+      "last_verified": "2026-10-26",
+      "verification_status": "cross-checked"
+    }
+  ]
+}

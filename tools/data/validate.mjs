@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 const load = (f) => JSON.parse(readFileSync(join(ROOT, 'data', f), 'utf8'));
 
-export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone, gingerisland }) {
+export function validate({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone, gingerisland, fish }) {
   const errors = [];
   const err = (where, msg) => errors.push(`${where}: ${msg}`);
   const isInt = (n, min = 0) => Number.isInteger(n) && n >= min;
@@ -22,7 +22,7 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
   };
 
-  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone, gingerisland }).filter(([, d]) => d)) {
+  for (const [file, d] of Object.entries({ crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, yearone, gingerisland, fish }).filter(([, d]) => d)) {
     if (!/^stardew-tools\/\w+@\d+$/.test(d.schema || '')) err(file, 'missing schema tag');
     if (!/^\d+\.\d+(\.\d+)?$/.test(d.game_version || '')) err(file, 'missing game_version');
   }
@@ -284,6 +284,22 @@ export function validate({ crops, fertilizers, machines, professions, seasons, g
     }
     for (const id of gi.farm.outdoor_ok.value) if (!crops.crops.some((c) => c.id === id)) err('ginger-island', `outdoor_ok: unknown crop ${id}`);
   }
+  if (fish) {
+    const ids = new Set();
+    for (const f of fish.fish) {
+      const where = `fish ${f.id}`;
+      if (ids.has(f.id)) err(where, 'duplicate id');
+      ids.add(f.id);
+      checkSources(where, f.sources);
+      if (f.verification_status !== 'cross-checked' || f.sources.length < 2) err(where, 'needs two agreeing sources');
+      if (!isInt(f.base_price, 1)) err(where, 'price');
+      if (!f.seasons.length || f.seasons.some((s) => !seasonNames.has(s))) err(where, `seasons ${f.seasons}`);
+      if (!['sun', 'rain', 'any'].includes(f.weather)) err(where, `weather ${f.weather}`);
+      if (!f.time.length || f.time.some(([a, b]) => !(a >= 6 && b <= 26 && a < b))) err(where, `time ${JSON.stringify(f.time)}`);
+      if (!f.locations.length) err(where, 'no location');
+    }
+    if (!fish.rules.magic_bait.evidence) err('fish', 'magic bait rule has no evidence');
+  }
   return errors;
 }
 
@@ -307,10 +323,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     fruittrees: load('fruittrees.json'),
     yearone: load('year-one.json'),
     gingerisland: load('ginger-island.json'),
+    fish: load('fish.json'),
   });
   if (errors.length) {
     console.error(`Data validation failed (${errors.length}):\n  ` + errors.join('\n  '));
     process.exit(1);
   }
-  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, year-one, ginger-island');
+  console.log('Data valid: crops, fertilizers, machines, professions, seasons, greenhouse, fishponds, animals, skills, crafting, gifts, bundles, casks, dehydrator, buildings, fruittrees, year-one, ginger-island, fish');
 }

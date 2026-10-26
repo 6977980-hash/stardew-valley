@@ -3,7 +3,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const TOOLS = ['/crop-profit-calculator/', '/what-to-plant/', '/keg-vs-preserves-jar/', '/ancient-fruit-vs-starfruit/', '/greenhouse-planner/', '/fish-pond-calculator/', '/animal-profit-calculator/', '/xp-calculator/', '/gift-finder/', '/bundle-tracker/', '/crafting-calculator/'];
+const TOOLS = ['/crop-profit-calculator/', '/what-to-plant/', '/keg-vs-preserves-jar/', '/ancient-fruit-vs-starfruit/', '/greenhouse-planner/', '/fish-pond-calculator/', '/animal-profit-calculator/', '/xp-calculator/', '/gift-finder/', '/bundle-tracker/', '/crafting-calculator/', '/fish-finder/'];
 const NEW_PAGES = ['/villagers/', '/villagers/haley/', '/bundles/', '/bundles/pantry/', '/machines/', '/fishing/'];
 const HUBS = ['/crops-and-farming/', '/artisan-goods/', '/animals/', '/fishing/', '/greenhouse/'];
 

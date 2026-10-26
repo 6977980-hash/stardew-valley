@@ -19,6 +19,7 @@ $g  = function ( $n ) {
 <ol>
 	<li>Which fish to put in a pond? Read <a href="<?php echo esc_url( Stardew_Tools\Guides::guide_url( 'best-fish-for-fish-ponds' ) ); ?>">Best Fish for Fish Ponds</a>.</li>
 	<li>Check any fish at your pond's population with the <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'fish-pond-calculator' ) ); ?>">Fish Pond Calculator</a>.</li>
+	<li>Where and when does a fish bite? The <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'fish-finder' ) ); ?>">Fish Finder</a> lists every fish by season, weather, time and place.</li>
 	<li>Wondering how long until level 10? The <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'xp-calculator' ) ); ?>">XP Calculator</a> counts the catches.</li>
 </ol>
 <?php if ( count( $fp['raw'] ) >= 3 && count( $fp['processed'] ) >= 3 ) : ?>

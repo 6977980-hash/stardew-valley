@@ -105,6 +105,16 @@ sets (wiki sentence stored as evidence, two agreeing pages or `needs-verificatio
 products with days per quality step, the 1.25 / 1.5 / 2 quality multipliers, cellar size and recipe.
 Dehydrator: Dried Fruit, Dried Mushrooms, Raisins and Smoked Fish formulas.
 
+## Fish (`fish.json`)
+
+`tools/data/import-fish.mjs` reads the four tables of the wiki's Fish page (fishing rod fish, Night
+Market fish, legendary fish, Crab Pot fish) and checks every fish against its own page's infobox: base
+price, difficulty, hours, weather and seasons must agree, and rod fish locations are compared loosely.
+A fish is written as `cross-checked` only when both pages agree. Rain Totem seasons, Ginger Island
+all-year fish and minimum Fishing levels for legendary fish are kept as separate fields. Bundle names
+come from `bundles.json`; prices are also compared with `fishponds.json`. Hours are game hours (6 = 6am,
+26 = 2am). The Fish Finder and its reference table use `assets/js/engine/fish.js`.
+
 ## Not yet covered
 
 Fruit trees and other artisan machines (Mayonnaise Machine, Cheese Press, Oil Maker…) are added with the tools that need them. Taro Root and Unmilled Rice

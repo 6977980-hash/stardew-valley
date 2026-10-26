@@ -7,6 +7,7 @@ import { rankPonds } from '../../assets/js/engine/fishpond.js';
 import { cropProfit } from '../../assets/js/engine/profit.js';
 import { itemsAt } from '../../assets/js/engine/gifts.js';
 import { fishXp, farmingXpPerDay } from '../../assets/js/engine/skills.js';
+import { findFish, timeLabel, seasonLabel, WEATHER_LABEL } from '../../assets/js/engine/fish.js';
 
 const SHOPS = ['pierre', 'jojamart', 'oasis'];
 const r0 = (n) => Math.round(n);
@@ -122,5 +123,9 @@ export function buildToolTables(data, crops) {
       .map((r) => ({ id: r.id, name: r.name, ingredients: r.ingredients.map((i) => `${i.qty} ${i.name}`), obtained: (r.obtained || '').replace(/(\d{4,})g/, (m, n) => `${Number(n).toLocaleString('en-US')}g`) }));
   }
 
-  return { what_to_plant: plant, keg_vs_jar: kegJar, greenhouse: { tiles, rows: greenhouse }, fishpond: ponds, xp, gifts, bundles, crafting };
+  // Fish Finder with nothing chosen: every fish, most valuable first, in the tool's own words.
+  const fish = data.fish
+    ? findFish(data.fish, {}, { sort: 'price' }).map((f) => ({ id: f.id, name: f.name, kind: f.kind, where: f.locations.join(', '), level: f.min_fishing_level || null, time: timeLabel(f.time), season: seasonLabel(f), weather: WEATHER_LABEL[f.weather], price: f.base_price }))
+    : [];
+  return { what_to_plant: plant, fish, keg_vs_jar: kegJar, greenhouse: { tiles, rows: greenhouse }, fishpond: ponds, xp, gifts, bundles, crafting };
 }
