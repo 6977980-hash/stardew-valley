@@ -3,7 +3,8 @@
  * Creates the trust and legal pages (About, Contact, Privacy, Terms, Disclaimer, Methodology,
  * Changelog). Runs on activation and, through Release, once after each deploy, because Git
  * deploys do not trigger the activation hook. Pages that already exist are never overwritten, except a
- * still-unpublished draft (WordPress ships an unpublished "Privacy Policy" draft).
+ * still-unpublished draft (WordPress ships an unpublished "Privacy Policy" draft). Also holds the
+ * path => address map that every link to a plugin page is looked up in.
  *
  * @package Stardew_Tools
  */
@@ -17,6 +18,82 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Pages {
 
 	const VERSION_OPTION = 'stardew_tools_installed_version';
+
+	/** Set on a page Release::retire_orphans drafted, so it may be published again when its entry returns. */
+	const RETIRED_META = '_stardew_tools_retired';
+
+	/** Transient with the path => address map of published pages. */
+	const URLS_CACHE = 'stardew_tools_page_urls';
+
+	/** @var string[]|null The map for this request. */
+	private static $urls = null;
+
+	public static function init() {
+		foreach ( array( 'save_post_page', 'deleted_post', 'trashed_post', 'update_option_permalink_structure', 'update_option_home', 'update_option_page_on_front', 'update_option_show_on_front' ) as $hook ) {
+			add_action( $hook, array( __CLASS__, 'flush_urls' ) );
+		}
+	}
+
+	/**
+	 * Address of a published page by its path ('crops/parsnip'), or ''. Pages link to dozens of
+	 * other pages, and one get_page_by_path query per link added up to 100+ queries on a cache
+	 * miss, so one query builds the map for every page and a transient keeps it between requests.
+	 */
+	public static function url( $path ) {
+		if ( null === self::$urls ) {
+			$hit        = get_transient( self::URLS_CACHE );
+			self::$urls = is_array( $hit ) ? $hit : self::build_urls();
+		}
+		$path = trim( (string) $path, '/' );
+		return isset( self::$urls[ $path ] ) ? self::$urls[ $path ] : '';
+	}
+
+	private static function build_urls() {
+		$map   = array();
+		$pages = get_posts(
+			array(
+				'post_type'              => 'page',
+				'post_status'            => 'publish',
+				'posts_per_page'         => -1,
+				'orderby'                => 'ID',
+				'order'                  => 'ASC',
+				'no_found_rows'          => true,
+				'update_post_meta_cache' => false,
+				'update_post_term_cache' => false,
+			)
+		);
+		foreach ( $pages as $page ) {
+			$path = get_page_uri( $page );
+			if ( $path && ! isset( $map[ $path ] ) ) {
+				$map[ $path ] = get_permalink( $page );
+			}
+		}
+		set_transient( self::URLS_CACHE, $map, DAY_IN_SECONDS );
+		return $map;
+	}
+
+	/** Pages were added, moved or removed, or the address scheme changed. */
+	public static function flush_urls() {
+		self::$urls = null;
+		delete_transient( self::URLS_CACHE );
+	}
+
+	/**
+	 * Whether the installers may publish a page that is a draft. Yes for a page this plugin never
+	 * made (WordPress's own Privacy Policy draft) and for one retire_orphans drafted; no for a page
+	 * the owner unpublished by hand, which would otherwise come back on every deploy.
+	 */
+	public static function may_republish( $page ) {
+		if ( get_post_meta( $page->ID, self::RETIRED_META, true ) ) {
+			return true;
+		}
+		foreach ( array( Seo::META_DESCRIPTION, self::GENERATED_META, Tools::META, Guides::META, Entities::META ) as $key ) {
+			if ( '' !== get_post_meta( $page->ID, $key, true ) ) {
+				return false;
+			}
+		}
+		return true;
+	}
 
 	/** slug => [title, template file, meta description]. */
 	public static function definitions() {
@@ -73,21 +150,27 @@ class Pages {
 		if ( $fresh( 'content', $post->post_content, $content, ! $edited ) ) {
 			$update['post_content'] = $content;
 		}
-		$old_description = get_post_meta( $post_id, Seo::META_DESCRIPTION, true );
+		$old_description   = get_post_meta( $post_id, Seo::META_DESCRIPTION, true );
+		$wrote_description = false;
 		if ( $fresh( 'description', $old_description, $description, true ) ) {
 			update_post_meta( $post_id, Seo::META_DESCRIPTION, $description );
+			$wrote_description = true;
 		}
 		if ( count( $update ) > 1 ) {
 			wp_update_post( $update );
+			$post = get_post( $post_id );
 		}
-		// Remember what the plugin generated, so the next refresh can tell whether the owner changed it.
+		// Remember what the plugin saved, so the next refresh can tell whether the owner changed it.
+		// The hash is of the saved text: a save filter may change it, and a hash of the text we
+		// sent would then never match again and the page would stop refreshing.
 		foreach ( array(
-			'title'       => array( $title, isset( $update['post_title'] ) ? $title : $post->post_title ),
-			'content'     => array( $content, isset( $update['post_content'] ) ? $content : $post->post_content ),
-			'description' => array( $description, get_post_meta( $post_id, Seo::META_DESCRIPTION, true ) ),
-		) as $key => $pair ) {
-			if ( null !== $pair[0] && (string) $pair[1] === (string) $pair[0] ) {
-				$hashes[ $key ] = md5( (string) $pair[0] );
+			'title'       => array( $title, $post->post_title, isset( $update['post_title'] ) ),
+			'content'     => array( $content, $post->post_content, isset( $update['post_content'] ) ),
+			'description' => array( $description, get_post_meta( $post_id, Seo::META_DESCRIPTION, true ), $wrote_description ),
+		) as $key => $row ) {
+			list( $new, $saved, $wrote ) = $row;
+			if ( null !== $new && ( $wrote || (string) $saved === (string) $new ) ) {
+				$hashes[ $key ] = md5( (string) $saved );
 			}
 		}
 		update_post_meta( $post_id, self::GENERATED_META, $hashes );
@@ -102,6 +185,9 @@ class Pages {
 			if ( $existing && 'draft' !== $existing->post_status ) {
 				// Page text is refreshed only where the plugin keeps it current (not the legal pages, which show a date).
 				self::sync_generated( $existing->ID, $def[0], $def[2], in_array( $slug, array( 'about', 'methodology', 'changelog', 'contact' ), true ) ? $content : null );
+				continue;
+			}
+			if ( $existing && ! self::may_republish( $existing ) ) {
 				continue;
 			}
 			$postarr = array(
@@ -120,6 +206,7 @@ class Pages {
 			}
 			if ( $id && ! is_wp_error( $id ) ) {
 				update_post_meta( $id, Seo::META_DESCRIPTION, $def[2] );
+				delete_post_meta( $id, self::RETIRED_META );
 				if ( 'privacy-policy' === $slug ) {
 					update_option( 'wp_page_for_privacy_policy', $id );
 				}

@@ -231,6 +231,9 @@ class Guides {
 			Pages::sync_generated( $existing->ID, $def['title'], $def['description'] );
 			return;
 		}
+		if ( $existing && ! Pages::may_republish( $existing ) ) {
+			return;
+		}
 		$postarr = array(
 			'post_type'    => 'page',
 			'post_status'  => 'publish',
@@ -251,6 +254,7 @@ class Guides {
 		if ( $page_id && ! is_wp_error( $page_id ) ) {
 			update_post_meta( $page_id, self::META, $meta );
 			update_post_meta( $page_id, Seo::META_DESCRIPTION, $def['description'] );
+			delete_post_meta( $page_id, Pages::RETIRED_META );
 		}
 	}
 
@@ -290,8 +294,7 @@ class Guides {
 	}
 
 	public static function hub_url( $id ) {
-		$page = get_page_by_path( $id, OBJECT, 'page' );
-		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
+		return Pages::url( $id );
 	}
 
 	public static function guide_url( $id ) {
@@ -299,8 +302,7 @@ class Guides {
 		if ( ! isset( $guides[ $id ] ) ) {
 			return '';
 		}
-		$page = get_page_by_path( $guides[ $id ]['hub'] . '/' . $id, OBJECT, 'page' );
-		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
+		return Pages::url( $guides[ $id ]['hub'] . '/' . $id );
 	}
 
 	/** Published guides that use a tool, for the "Guides" block on tool pages. */

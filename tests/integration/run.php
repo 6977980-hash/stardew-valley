@@ -439,6 +439,77 @@ st_assert( false !== strpos( do_shortcode( '[stardew_guide id="how-to-make-money
 st_assert( '' !== Stardew_Tools\Entities::og_file( 'tool-best-spring-crops' ), 'best crops pages have a share image' );
 st_assert( ! current_theme_supports( 'automatic-feed-links' ), 'theme prints no feed links' );
 
+echo "Speed, security and ops (audit 2026-10-26 Phase 5)\n";
+global $wpdb;
+$headers = apply_filters( 'wp_headers', array() );
+st_assert( 'nosniff' === $headers['X-Content-Type-Options'] && 'SAMEORIGIN' === $headers['X-Frame-Options'] && 'strict-origin-when-cross-origin' === $headers['Referrer-Policy'] && isset( $headers['Permissions-Policy'] ), 'security headers are sent' );
+st_assert( ! isset( $headers['Strict-Transport-Security'] ), 'no HSTS on an http site' );
+$parsnip_page = get_page_by_path( 'crops/parsnip', OBJECT, 'page' );
+Pages::flush_urls();
+st_assert( get_permalink( $parsnip_page ) === Entities::url( 'crops', 'parsnip' ), 'page map gives the same address as get_permalink' );
+Pages::flush_urls();
+$queries = $wpdb->num_queries;
+Entities::url( 'crops', 'melon' );
+st_assert( $wpdb->num_queries - $queries <= 10, 'building the page map costs a handful of queries (' . ( $wpdb->num_queries - $queries ) . ')' );
+$queries = $wpdb->num_queries;
+foreach ( array_keys( Entities::data()['crops'] ) as $crop_id ) {
+	Entities::url( 'crops', $crop_id );
+}
+Tools::url( 'crop-profit-calculator' );
+Guides::hub_url( 'crops-and-farming' );
+st_assert( $wpdb->num_queries === $queries, 'every later crop, tool and hub link costs no query' );
+wp_update_post( array( 'ID' => $parsnip_page->ID, 'post_status' => 'draft' ) );
+st_assert( '' === Entities::url( 'crops', 'parsnip' ), 'a drafted page drops out of the map' );
+st_assert( ! Pages::may_republish( get_post( $parsnip_page->ID ) ), 'a page the owner drafted is not republished' );
+Entities::install();
+st_assert( 'draft' === get_post_status( $parsnip_page->ID ), 'the next deploy keeps the owner draft' );
+update_post_meta( $parsnip_page->ID, Pages::RETIRED_META, gmdate( 'c' ) );
+Entities::install();
+st_assert( 'publish' === get_post_status( $parsnip_page->ID ) && '' === get_post_meta( $parsnip_page->ID, Pages::RETIRED_META, true ), 'a retired page whose entry is back is republished' );
+st_assert( get_permalink( $parsnip_page->ID ) === Entities::url( 'crops', 'parsnip' ), 'a republished page is back in the map' );
+$ghost = wp_insert_post( array( 'post_type' => 'page', 'post_status' => 'publish', 'post_title' => 'Ghost tool', 'post_content' => '[stardew_tool id="ghost"]' ) );
+update_post_meta( $ghost, Tools::META, 'ghost' );
+Release::retire_orphans();
+st_assert( '' !== get_post_meta( $ghost, Pages::RETIRED_META, true ), 'retire_orphans marks the pages it drafts' );
+wp_delete_post( $ghost, true );
+// A save filter that changes the text must not stop the page from refreshing later.
+$about = get_page_by_path( 'about', OBJECT, 'page' );
+$mark  = function ( $c ) {
+	return $c . ' ';
+};
+add_filter( 'content_save_pre', $mark );
+Pages::sync_generated( $about->ID, null, null, 'Generated about text' );
+remove_filter( 'content_save_pre', $mark );
+$hashes = get_post_meta( $about->ID, Pages::GENERATED_META, true );
+st_assert( md5( get_post_field( 'post_content', $about->ID, 'raw' ) ) === $hashes['content'], 'generated text hash is of the saved text' );
+Pages::sync_generated( $about->ID, null, null, 'Generated about text' );
+st_assert( 'Generated about text' === get_post_field( 'post_content', $about->ID, 'raw' ), 'a filtered page still refreshes on the next deploy' );
+Pages::install();
+// Release: visitors only schedule the install; cron runs it, or a visitor after the grace time.
+st_assert( Release::fingerprint( false ) === Release::fingerprint(), 'cached fingerprint matches a fresh one' );
+$before = $purged;
+set_transient( Search::CACHE, array( 'v' => 'stale' ) );
+update_option( Release::OPTION, 'old' );
+wp_clear_scheduled_hook( Release::HOOK );
+Release::defer();
+st_assert( false !== wp_next_scheduled( Release::HOOK ) && $before === $purged && 'old' === get_option( Release::OPTION ), 'a visitor request schedules the install instead of running it' );
+Release::defer();
+st_assert( $before === $purged, 'a second visitor does not run it while it is scheduled' );
+wp_clear_scheduled_hook( Release::HOOK );
+wp_schedule_single_event( time() - 3600, Release::HOOK );
+Release::defer();
+st_assert( $before + 1 === $purged && Release::fingerprint() === get_option( Release::OPTION ) && false === wp_next_scheduled( Release::HOOK ), 'an install cron never ran runs in the visitor request' );
+do_action( Release::HOOK );
+st_assert( $before + 1 === $purged, 'the cron event does nothing once installed' );
+$search_cache = get_transient( Search::CACHE );
+st_assert( ! is_array( $search_cache ) || 'stale' !== $search_cache['v'], 'a deploy clears the search index cache' );
+@unlink( ABSPATH . 'favicon.ico' ); // phpcs:ignore
+Release::root_favicon();
+st_assert( ! wp_is_writable( ABSPATH ) || file_get_contents( ABSPATH . 'favicon.ico' ) === file_get_contents( STARDEW_TOOLS_DIR . 'assets/brand/favicon.ico' ), 'site root gets favicon.ico' ); // phpcs:ignore
+foreach ( array( 'engine', 'tools' ) as $dir ) {
+	st_assert( false !== strpos( (string) file_get_contents( STARDEW_TOOLS_DIR . "assets/js/{$dir}/.htaccess" ), 'must-revalidate' ), "{$dir} modules are not cached as immutable" ); // phpcs:ignore
+}
+
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );
 st_assert( $theme->exists() && ! $theme->errors(), 'bundled theme is registered and valid' );

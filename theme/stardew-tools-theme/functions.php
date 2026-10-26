@@ -78,13 +78,21 @@ add_action(
 	}
 );
 
+/** Whether a page is published; uses the plugin's cached page map when the plugin is active. */
+function st_theme_page_published( $slug ) {
+	if ( class_exists( 'Stardew_Tools\Pages' ) ) {
+		return '' !== Stardew_Tools\Pages::url( $slug );
+	}
+	$page = get_page_by_path( $slug );
+	return $page && 'publish' === $page->post_status;
+}
+
 /** Fallback menus until the owner builds them in Appearance > Menus. */
 function st_theme_fallback_menu( $slugs ) {
 	echo '<ul class="menu">';
 	foreach ( $slugs as $slug => $label ) {
 		$url = '' === $slug ? home_url( '/' ) : home_url( '/' . $slug . '/' );
-		$page = '' === $slug ? null : get_page_by_path( $slug );
-		if ( '' !== $slug && ( ! $page || 'publish' !== $page->post_status ) ) {
+		if ( '' !== $slug && ! st_theme_page_published( $slug ) ) {
 			continue;
 		}
 		printf( '<li><a href="%s">%s</a></li>', esc_url( $url ), esc_html( $label ) );

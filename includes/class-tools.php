@@ -253,6 +253,9 @@ class Tools {
 				Pages::sync_generated( $existing->ID, $def['title'], $def['description'] );
 				continue;
 			}
+			if ( $existing && ! Pages::may_republish( $existing ) ) {
+				continue;
+			}
 			$postarr = array(
 				'post_type'    => 'page',
 				'post_status'  => 'publish',
@@ -267,6 +270,7 @@ class Tools {
 			if ( $page_id && ! is_wp_error( $page_id ) ) {
 				update_post_meta( $page_id, self::META, $id );
 				update_post_meta( $page_id, Seo::META_DESCRIPTION, $def['description'] );
+				delete_post_meta( $page_id, Pages::RETIRED_META );
 			}
 		}
 		update_option( self::VERSION_OPTION, STARDEW_TOOLS_VERSION );
@@ -288,8 +292,7 @@ class Tools {
 
 	/** Permalink of a tool page, or '' if the page does not exist. */
 	public static function url( $id ) {
-		$page = get_page_by_path( $id, OBJECT, 'page' );
-		return $page && 'publish' === $page->post_status ? get_permalink( $page ) : '';
+		return Pages::url( $id );
 	}
 
 	/** Group heading => tool ids, for the homepage toolbox and the /tools/ page. */
