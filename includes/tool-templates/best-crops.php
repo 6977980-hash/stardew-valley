@@ -23,6 +23,20 @@ $shops  = array(
 	'oasis'    => 'Oasis',
 );
 $top    = array_slice( $rows, 0, 3 );
+// Crops whose seeds Pierre sells only from Year 2 (data/year-one.json), tagged "Year 2+".
+$year_one = Stardew_Tools\Data::get( 'year-one' );
+$year2    = array();
+foreach ( $year_one ? $year_one['pierre_year2_seeds'] : array() as $y2 ) {
+	$year2[ $y2['crop'] ] = true;
+}
+$year2_rows = array_values(
+	array_filter(
+		$rows,
+		function ( $r ) use ( $year2 ) {
+			return isset( $year2[ $r['id'] ] ) && 'pierre' === $r['seed_source'];
+		}
+	)
+);
 ?>
 <div class="answer">
 	<?php
@@ -45,13 +59,16 @@ $top    = array_slice( $rows, 0, 3 );
 			}
 		}
 		if ( $no_bus ) {
-			echo '<p><strong>Year 1 note:</strong> ' . esc_html( $top[0]['name'] ) . ' seeds are sold only at the Oasis, which you can reach once the bus is repaired. Without it, the best is ' . esc_html( $no_bus['name'] ) . ' (' . esc_html( $g( $no_bus['profit'] ) ) . ').</p>';
+			echo '<p><strong>Year 1 note:</strong> ' . esc_html( $top[0]['name'] ) . ' seeds are sold only at the Oasis, which you can reach once the bus is repaired. Without it, the best is ' . esc_html( $no_bus['name'] ) . ' (' . esc_html( $g( $no_bus['profit'] ) ) . ')' . ( $year2_rows ? '. ' . esc_html( implode( ' and ', wp_list_pluck( $year2_rows, 'name' ) ) ) . ' seeds are sold by Pierre only from Year 2, marked "Year 2+" in the table' : '' ) . '.</p>';
 		}
+	}
+	if ( $year2_rows && ! ( $top && 'oasis' === $top[0]['seed_source'] ) && 'greenhouse' !== $season ) {
+		echo '<p><strong>Year 1 note:</strong> Pierre sells ' . esc_html( implode( ' and ', wp_list_pluck( $year2_rows, 'name' ) ) ) . ' seeds only from Year 2, so ' . ( count( $year2_rows ) > 1 ? 'they are' : 'it is' ) . ' marked "Year 2+" in the table. In Year 1 skip ' . ( count( $year2_rows ) > 1 ? 'those rows' : 'that row' ) . '.</p>';
 	}
 	if ( 'spring' === $season ) {
 		$sb     = isset( $answers['best_crops_festival']['strawberry'] ) ? $answers['best_crops_festival']['strawberry'] : null;
 		$sb_url = Stardew_Tools\Entities::url( 'crops', 'strawberry' );
-		echo '<p>Strawberry is not in this list because its seeds are sold only at the Egg Festival (Spring 13)' . ( $sb ? ': bought there and planted on Spring 13, a tile makes about ' . esc_html( $g( $sb['profit'] ) ) . ' by the end of Spring' : '' ) . '.' . ( $sb_url ? ' See <a href="' . esc_url( $sb_url ) . '">Strawberry</a> for a full-season planting in Year 2.' : '' ) . '</p>';
+		echo '<p>Strawberry is not in this list because its seeds are sold only at the Egg Festival (Spring 13)' . ( $sb ? ': bought there and planted the same day after the festival, a tile makes about ' . esc_html( $g( $sb['profit'] ) ) . ' by the end of Spring' : '' ) . '.' . ( $sb_url ? ' See <a href="' . esc_url( $sb_url ) . '">Strawberry</a> for a full-season planting in Year 2.' : '' ) . '</p>';
 	}
 	?>
 	<p>Profit is sale value minus seeds over the <?php echo 'greenhouse' === $season ? 'greenhouse year (112 days)' : 'season'; ?>, with seeds bought on day 1 at the cheapest shop that sells them every day. Change your farming level, fertilizer or Tiller below and the ranking updates.<?php if ( 'greenhouse' !== $season ) : ?> Planting later in the season? Use <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'what-to-plant' ) ); ?>">What to Plant Today</a>.<?php endif; ?></p>
@@ -88,6 +105,9 @@ $top    = array_slice( $rows, 0, 3 );
 					<th scope="row"><?php $crop_url = Stardew_Tools\Entities::url( 'crops', $r['id'] ); ?><?php echo $crop_url ? '<a href="' . esc_url( $crop_url ) . '">' . esc_html( $r['name'] ) . '</a>' : esc_html( $r['name'] ); ?>
 						<?php if ( $r['regrows'] ) : ?>
 						<span class="tag">regrows</span>
+						<?php endif; ?>
+						<?php if ( isset( $year2[ $r['id'] ] ) && 'pierre' === $r['seed_source'] ) : ?>
+						<span class="tag">Year 2+</span>
 						<?php endif; ?>
 						<?php if ( $r['continues'] ) : ?>
 						<span class="tag">into <?php echo esc_html( implode( ', ', $r['continues'] ) ); ?></span>

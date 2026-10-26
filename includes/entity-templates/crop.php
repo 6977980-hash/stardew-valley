@@ -209,15 +209,24 @@ $gifts    = isset( $uses['gifts'] ) ? $uses['gifts'] : null;
 			if ( $gifts['love'] ) {
 				$parts[] = $people( $gifts['love'] ) . ( count( $gifts['love'] ) > 1 ? ' love' : ' loves' ) . ' it';
 			}
-			if ( $gifts['like'] ) {
+			if ( $gifts['like'] && count( $gifts['like'] ) * 2 > $gifts['of'] ) {
+				// Most villagers like it through a category ("All Vegetables"): a count reads better than 28 names.
+				$parts[] = count( $gifts['like'] ) . ' of ' . (int) $gifts['of'] . ' villagers like it' . ( ! empty( $gifts['like_rule'] ) ? ' (universal like: ' . $gifts['like_rule'] . ')' : '' );
+			} elseif ( $gifts['like'] ) {
 				$parts[] = $people( $gifts['like'] ) . ( count( $gifts['like'] ) > 1 ? ' like' : ' likes' ) . ' it';
 			}
 			$bad = array_merge( $gifts['dislike'], $gifts['hate'] );
 			if ( $bad ) {
 				$parts[] = 'avoid giving it to ' . $people( $bad );
 			}
-			echo esc_html( $parts ? implode( '; ', $parts ) . '. For everyone else' : 'no villager names it as a loved or liked gift. For most' );
-			echo ' it depends on a group rule such as "all fruit" or "all vegetables", and';
+			echo esc_html( $parts ? implode( '; ', $parts ) . '.' : 'no villager names it as a loved or liked gift.' );
+			if ( ! isset( $gifts['unknown'] ) || $gifts['unknown'] > 0 ) {
+				echo ' For the rest it is neutral or not recorded, and';
+			} elseif ( $gifts['neutral'] > 0 ) {
+				echo ' Everyone else treats it as neutral, and';
+			} else {
+				echo ' For the points per gift,';
+			}
 		}
 		?>
 		the <a href="<?php echo esc_url( $tool_url( 'gift-finder' ) ); ?>">Gift Finder</a> shows every villager.</li>
@@ -367,6 +376,15 @@ if ( $regrows ) {
 	<?php
 	if ( 1 === (int) $rank ) {
 		echo 'It is the most profitable ' . esc_html( ucfirst( $best['season'] ) ) . ' crop you can buy seeds for.';
+	} elseif ( ! $rank && $best['leader'] ) {
+		// Unranked (no everyday shop seed): compare with the ranked leader without calling it "more".
+		$lead_gap = $best['profit']['level6'] - $best['leader']['profit'];
+		echo 'It is not ranked because its seeds are not sold in shops every day. ';
+		if ( $lead_gap > 0 ) {
+			echo 'If you have the seeds, it beats the ranked leader, ' . $link( 'crops', $best['leader']['id'], $best['leader']['name'] ) . ' (' . esc_html( $gold( $best['leader']['profit'] ) ) . ' a tile), by ' . esc_html( $gold( $lead_gap ) ) . '.'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link.
+		} else {
+			echo 'The ranked leader, ' . $link( 'crops', $best['leader']['id'], $best['leader']['name'] ) . ', makes ' . esc_html( $gold( $best['leader']['profit'] ) ) . ' a tile' . ( $lead_gap < 0 ? ', ' . esc_html( $gold( -$lead_gap ) ) . ' more' : '' ) . '.'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link.
+		}
 	} elseif ( $best['leader'] ) {
 		echo 'The leader, ' . $link( 'crops', $best['leader']['id'], $best['leader']['name'] ) . ', makes ' . esc_html( $gold( $best['leader']['profit'] ) ) . ' a tile' . ( $best['leader']['profit'] > $best['profit']['level6'] ? ', ' . esc_html( $gold( $best['leader']['profit'] - $best['profit']['level6'] ) ) . ' more' : '' ) . '.'; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link.
 		echo $rank && $rank <= 3 ? ' It is near the top of its season, so it is a safe choice.' : '';

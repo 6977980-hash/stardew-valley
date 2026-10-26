@@ -172,6 +172,7 @@ class Tools {
 				'icon'        => 'sprout',
 				'script'      => 'best-crops',
 				'template'    => 'best-crops',
+				'data'        => array( 'crops', 'fertilizers', 'machines', 'seasons', 'greenhouse', 'year-one' ),
 				'season'      => $key,
 				'related'     => array_merge( array( 'what-to-plant' ), array_slice( $others, 0, 3 ) ),
 				'learn'       => 'greenhouse' === $key ? array( 'best-greenhouse-setup-for-money', 'how-many-kegs-do-i-need', 'crops' ) : array( 'speed-gro-vs-fertilizer', 'how-many-kegs-do-i-need', 'crops' ),
@@ -655,8 +656,30 @@ class Tools {
 		}
 		$levels = array( 'love', 'like', 'neutral', 'dislike', 'hate' );
 		$cats   = function ( $rows ) {
-			return array_values( array_map( function ( $c ) { return $c['text']; }, $rows ) );
+			return array_values(
+				array_map(
+					function ( $c ) {
+						return array(
+							'id'     => $c['id'],
+							'text'   => $c['text'],
+							'except' => $c['except'],
+						);
+					},
+					$rows
+				)
+			);
 		};
+		// Members of the categories the engine can expand ("All Vegetables"); the rest stay markers.
+		$categories = array();
+		foreach ( $d['categories'] as $c ) {
+			if ( ! empty( $c['members'] ) ) {
+				$categories[] = array(
+					'id'      => $c['id'],
+					'name'    => isset( $c['name'] ) ? $c['name'] : $c['id'],
+					'members' => $c['members'],
+				);
+			}
+		}
 		$names = array();
 		foreach ( $d['items'] as $i ) {
 			$names[ $i['id'] ] = $i['name'];
@@ -705,6 +728,7 @@ class Tools {
 		return array(
 			'villagers'  => $villagers,
 			'universal'  => $universal,
+			'categories' => $categories,
 			'names'      => $names,
 			'friendship' => array(
 				'points'              => $fr['points'],

@@ -49,7 +49,7 @@ $p       = $first['points'];
 		<tr>
 			<th scope="row"><?php echo $link( 'villagers', $id, $v['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in $link. ?></th>
 			<td><?php echo esc_html( ucfirst( $v['birthday']['season'] ) . ' ' . (int) $v['birthday']['day'] ); ?></td>
-			<td><?php echo esc_html( $v['tastes']['love']['own'] ? implode( ', ', $v['tastes']['love']['own'] ) : 'Universal loves only' ); ?></td>
+			<td><?php $own_loves = array_merge( $v['tastes']['love']['own'], $v['categories']['love'] ); echo esc_html( $own_loves ? implode( ', ', $own_loves ) : 'Universal loves only' ); ?></td>
 			<td><?php echo $v['marriage_candidate'] ? 'Yes' : 'No'; ?></td>
 		</tr>
 	<?php endforeach; ?>

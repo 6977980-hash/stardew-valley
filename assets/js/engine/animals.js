@@ -126,6 +126,11 @@ export function animalOutput(animal, data, o = {}) {
   if (animal.products.large) add(animal.products.large, large);
 
   const goldPerDay = lines.reduce((s, l) => s + l.goldPerDay, 0);
+  // A pig only finds truffles outside: never in Winter (one season of four), and not on rainy
+  // days, which the data has no count for. The year average leaves out Winter only, so it is
+  // still an upper bound; payback uses it rather than the outdoor-day figure.
+  const yearShare = forage ? 3 / 4 : 1;
+  const yearGoldPerDay = goldPerDay * yearShare;
   const hayDays = Math.min(days, Math.max(0, Math.floor(o.hayDays ?? 0)));
   const hayCost = o.buyHay ? hayDays * data.feeding.hay.price * data.feeding.hay.per_animal_per_day : 0;
   const perAnimal = goldPerDay * days - hayCost;
@@ -143,7 +148,8 @@ export function animalOutput(animal, data, o = {}) {
     hayCost,
     total: perAnimal * count,
     perAnimal,
-    paybackDays: payback(animal.purchase_price, goldPerDay - (o.buyHay && hayDays ? data.feeding.hay.price * (hayDays / days) : 0)),
+    yearGoldPerDay,
+    paybackDays: payback(animal.purchase_price, yearGoldPerDay - (o.buyHay && hayDays ? data.feeding.hay.price * (hayDays / days) : 0)),
     machines,
     steps,
   };

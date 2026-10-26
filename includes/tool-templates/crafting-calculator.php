@@ -65,7 +65,7 @@ asort( $recipes );
 	</ul>
 	<h3>Assumptions</h3>
 	<ul>
-		<li>Furnace time and fuel aren't counted. Smelting takes 30 minutes for copper up to 4 hours for iridium.</li>
+		<li>Furnace time and fuel aren't counted. Smelting takes 30 minutes for copper up to 8 hours for iridium.</li>
 		<li>Refined Quartz is smelted from Quartz. Recycling a Broken CD or Broken Glasses also works but isn't used here.</li>
 	</ul>
 </section>

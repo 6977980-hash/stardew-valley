@@ -22,7 +22,7 @@ asort( $items );
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> choose a villager to see what they love and like, or choose an item to see who loves it. A loved gift is worth 80 friendship points and a liked one 45; a heart is 250 points. On a birthday the points are multiplied by 8.</p>
-	<p>Covers all <?php echo (int) count( $villagers ); ?> villagers. Items that only fit a whole category, such as "All Fruit", are listed as categories because the wiki doesn't name every member.</p>
+	<p>Covers all <?php echo (int) count( $villagers ); ?> villagers. Category tastes such as "All Vegetables" (a universal like) count for every item in that category; a villager's own list always comes first.</p>
 </div>
 
 <form class="tool-form" id="gift-form" novalidate>

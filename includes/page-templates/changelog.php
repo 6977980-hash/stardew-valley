@@ -4,6 +4,15 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 26, 2026: corrected answers</h2>
+<ul>
+<li><a href="<?php echo esc_url( home_url( '/gift-finder/' ) ); ?>">Gift Finder</a> now counts group tastes such as "All Vegetables" and "All Cooking". A Parsnip, for example, shows as liked by most villagers (with the few who dislike vegetables named) instead of "not listed". Tree fruit, Starfruit and Ancient Fruit are in the item list.</li>
+<li><a href="<?php echo esc_url( home_url( '/what-to-plant/' ) ); ?>">What to Plant Today</a> no longer suggests Oasis seeds in Year 1, because the desert opens only once the bus is repaired.</li>
+<li>"Kegs to keep up" is counted the same way on every page: about 90 Kegs per 100 Ancient Fruit plants.</li>
+<li>Best Summer and Best Fall Crops mark the seeds Pierre only sells from Year 2, and the Bundle Tracker no longer counts every option of bundles where you pick only some of the items.</li>
+<li>Smaller fixes: the Pantry needs Fall crops, Pumpkin takes 13 days, iridium bars smelt in 8 hours, the Community Center has 30 bundles in 6 rooms plus the Missing Bundle, pig payback uses a whole year, and marriage candidates stop at 8 hearts until you give a Bouquet.</li>
+</ul>
+
 <h2>October 21, 2026: fruit trees and Year 1 money</h2>
 <ul>
 <li>New guide: <a href="<?php echo esc_url( home_url( '/crops-and-farming/best-fruit-trees/' ) ); ?>">Best Fruit Trees</a>, with every sapling's price, when to plant it, what it earns each year as the fruit improves, and whether to make Wine or Jelly.</li>

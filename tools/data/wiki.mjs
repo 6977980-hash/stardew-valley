@@ -49,3 +49,22 @@ export async function fetchArticle(title) {
   const end = html.indexOf('<div class="printfooter"');
   return { title: name, revid: Number(rev[2]), url: `https://stardewvalleywiki.com/${name.replace(/ /g, '_')}`, html: html.slice(start < 0 ? 0 : start, end < 0 ? html.length : end) };
 }
+
+/** Article titles in a wiki category (namespace 0 only), sorted. */
+export async function fetchCategory(name) {
+  const url = `${API}?action=query&format=json&list=categorymembers&cmnamespace=0&cmlimit=500&cmtitle=${encodeURIComponent(`Category:${name}`)}`;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    const res = await fetch(url, { headers: { 'User-Agent': UA } });
+    if (res.ok) {
+      const data = await res.json();
+      if (data.error) throw new Error(`Category:${name}: ${data.error.info}`);
+      return {
+        title: `Category:${name}`,
+        url: `https://stardewvalleywiki.com/Category:${name.replace(/ /g, '_')}`,
+        members: data.query.categorymembers.map((m) => m.title).sort(),
+      };
+    }
+    await new Promise((r) => setTimeout(r, 1000 * attempt));
+  }
+  throw new Error(`Category:${name}: fetch failed`);
+}

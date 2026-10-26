@@ -49,8 +49,10 @@ test('gift points truncate like the game', () => {
 test('bundle "still needed" adds amounts across bundles (items are used up)', () => {
   const rows = stillNeeded(json('data/bundles.json'), 'standard', { mine: [], ticked: {} });
   const parsnip = rows.find((r) => r.id === 'parsnip');
-  assert.equal(parsnip.qty, 6);
-  assert.match(parsnip.qtyNote, /5 gold/);
+  // 1 for Spring Crops; the Quality Crops Bundle takes any 3 of 4, so its 5 gold are optional.
+  assert.equal(parsnip.qty, 1);
+  assert.equal(parsnip.optional, 5);
+  assert.match(parsnip.qtyNote, /5 gold more if you pick it/);
 });
 
 const form = { level: '0', tiller: false, artisan: false, season: 'spring', today: '1', budget: '' };

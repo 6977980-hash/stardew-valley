@@ -14,12 +14,19 @@ defined( 'ABSPATH' ) || exit;
 $rooms   = $all['bundles'];
 $total   = 0;
 $tracker = $tool_url( 'bundle-tracker' );
-foreach ( $rooms as $r ) {
+$missing = 0;
+foreach ( $rooms as $id => $r ) {
+	// The Missing Bundle sits in the abandoned JojaMart, not in the Community Center.
+	if ( 'abandoned-jojamart' === $id ) {
+		$missing += count( $r['bundles'] );
+		continue;
+	}
 	$total += count( $r['bundles'] );
 }
+$cc_rooms = count( $rooms ) - ( isset( $rooms['abandoned-jojamart'] ) ? 1 : 0 );
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> the standard Community Center has <?php echo (int) $total; ?> bundles in <?php echo (int) count( $rooms ); ?> rooms. Each room you finish repairs something in the valley, and finishing them all restores the Community Center. The Pantry is the one most farms rush, because it unlocks the Greenhouse.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> the standard Community Center has <?php echo (int) $total; ?> bundles in <?php echo (int) $cc_rooms; ?> rooms<?php echo $missing ? ', plus the Missing Bundle in the abandoned JojaMart after the Community Center is restored' : ''; ?>. Each room you finish repairs something in the valley, and finishing them all restores the Community Center. The Pantry is the one most farms rush, because it unlocks the Greenhouse.</p>
 </div>
 
 <h2>Rooms and rewards</h2>
@@ -59,7 +66,7 @@ foreach ( $rooms as $r ) {
 <p>A simple order that works on most farms:</p>
 <ol>
 	<li><strong>Crafts Room first.</strong> It is open from the start and the foraging bundles fill as you walk around.</li>
-	<li><strong>Pantry in Spring and Summer of Year 1.</strong> Keep one of each crop and a few gold-quality ones for the Quality Crops Bundle. Finishing it gives you the Greenhouse.</li>
+	<li><strong>Pantry by the end of Fall, Year 1.</strong> Keep one of each crop from Spring, Summer and Fall and a few gold-quality ones for the Quality Crops Bundle; the Fall Crops and Artisan bundles need Fall harvests. Finishing it gives you the Greenhouse.</li>
 	<li><strong>Fish Tank and Boiler Room alongside.</strong> Fish come from the right place and season; minerals and Boiler Room items come from the Mines.</li>
 	<li><strong>Bulletin Board</strong> needs cooked dishes, dyes and animal products. It rewards friendship with the whole town.</li>
 	<li><strong>Vault last.</strong> The four gold bundles are easy once your farm earns well.</li>

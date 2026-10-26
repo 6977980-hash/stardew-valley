@@ -1,5 +1,6 @@
 // Greenhouse Planner: sprinkler layout, crops per tile, a year of profit and machines needed.
 import { cropProfit } from '../engine/profit.js';
+import { machinesToKeepUp } from '../engine/machines.js';
 import { sprinklerCoverage, paintGrid } from '../engine/greenhouse.js';
 import { loadData, bindTool, esc, gold, num, plural, stepsHtml, SELL_LABEL } from './common.js';
 
@@ -31,7 +32,7 @@ function cropResult(crop, v) {
     seedSource,
   });
   const p = products.find((x) => x.id === r.sellAs);
-  const perTileMachines = p ? (r.harvestDays.length * r.itemsPerHarvest * p.minutes) / (p.input?.count || 1) / data.machines.minutes_per_day / DAYS : 0;
+  const perTileMachines = machinesToKeepUp(crop, r, p, data.machines.minutes_per_day);
   return { r, machine: p ? p.machine : null, perTileMachines };
 }
 
