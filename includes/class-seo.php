@@ -17,6 +17,7 @@ class Seo {
 
 	const META_DESCRIPTION = '_stardew_tools_description';
 	const META_NOINDEX     = '_stardew_tools_noindex';
+	const TITLE_MAX        = 60;
 
 	public static function init() {
 		add_action( 'init', array( __CLASS__, 'register_meta' ) );
@@ -28,6 +29,7 @@ class Seo {
 		add_filter( 'rest_endpoints', array( __CLASS__, 'hide_user_endpoints' ) );
 		add_action( 'template_redirect', array( __CLASS__, 'crawl_hygiene' ), 2 );
 		add_filter( 'wp_sitemaps_posts_entry', array( __CLASS__, 'sitemap_lastmod' ), 10, 2 );
+		add_filter( 'oembed_response_data', array( __CLASS__, 'oembed_data' ) );
 
 		if ( self::other_seo_plugin_active() ) {
 			return;
@@ -93,6 +95,11 @@ class Seo {
 			$parts['title'] = 'Page Not Found';
 		}
 		$parts['site'] = Config::get( 'brand_name' );
+		// Google cuts titles near 60 characters, which would cut the end of a long page title.
+		// Such pages drop the brand; it is still in og:site_name and the Organization schema.
+		if ( isset( $parts['title'] ) && mb_strlen( wp_strip_all_tags( html_entity_decode( $parts['title'] ) ) . ' | ' . $parts['site'] ) > self::TITLE_MAX ) {
+			unset( $parts['site'] );
+		}
 		return $parts;
 	}
 
@@ -267,14 +274,21 @@ class Seo {
 
 	/**
 	 * Page text comes from plugin templates and data, so post_modified does not move when a
-	 * page changes. Use the newest of post_modified and the date of the release that shipped.
+	 * page changes. Use the newest of post_modified (a hand edit) and the time the rendered page
+	 * last changed, which Release::stamp_pages() records per page on each deploy.
 	 */
 	public static function sitemap_lastmod( $entry, $post ) {
-		$release = get_option( 'stardew_tools_release_date' );
-		if ( $release && ( empty( $entry['lastmod'] ) || strtotime( $release ) > strtotime( $entry['lastmod'] ) ) ) {
-			$entry['lastmod'] = gmdate( 'Y-m-d\TH:i:s+00:00', strtotime( $release ) );
+		$stamp = get_post_meta( $post->ID, Release::LASTMOD_META, true );
+		if ( $stamp && ( empty( $entry['lastmod'] ) || strtotime( $stamp ) > strtotime( $entry['lastmod'] ) ) ) {
+			$entry['lastmod'] = gmdate( 'Y-m-d\TH:i:s+00:00', strtotime( $stamp ) );
 		}
 		return $entry;
+	}
+
+	/** Embeds of a page named the WordPress user; author pages are closed, so leave the name out. */
+	public static function oembed_data( $data ) {
+		unset( $data['author_name'], $data['author_url'] );
+		return $data;
 	}
 
 	/* ---------- Sitemap ---------- */

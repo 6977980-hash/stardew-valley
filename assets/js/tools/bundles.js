@@ -10,6 +10,12 @@ const out = tool.querySelector('[data-results]');
 const summary = tool.querySelector('[data-summary]');
 const hint = tool.querySelector('[data-remix-hint]');
 const KEY = 'st:bundles';
+let roomUrls = {};
+try {
+  roomUrls = JSON.parse(roomsEl.dataset.roomUrls || '{}') || {};
+} catch {
+  roomUrls = {};
+}
 
 const byId = new Map(data.bundles.map((b) => [b.id, b]));
 
@@ -103,7 +109,7 @@ function render() {
       const bundles = all.filter((b) => b.room === p.room.id);
       return `<details class="room${p.complete ? ' is-done' : ''}" data-room="${esc(p.room.id)}"${open.has(p.room.id) || open.size === 0 ? ' open' : ''}>
         <summary><strong>${esc(p.room.name)}</strong> <span class="bundle__count">${p.done}/${p.total}${p.complete ? ' ✓' : ''}</span></summary>
-        <p class="table-note">${esc(p.room.effect || p.room.reward)}</p>
+        <p class="table-note">${esc(p.room.effect || p.room.reward)}${roomUrls[p.room.id] ? ` <a href="${esc(roomUrls[p.room.id])}">Where to find every ${esc(p.room.name)} item</a>.` : ''}</p>
         ${bundles.map((b) => bundleHtml(b, openBundles.has(b.id))).join('')}</details>`;
     })
     .join('');

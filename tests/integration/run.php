@@ -204,8 +204,21 @@ update_option( Release::LOCK, time() - 3600 );
 Release::maybe_run();
 st_assert( 2 === $purged && Release::fingerprint() === get_option( Release::OPTION ) && false === get_option( Release::LOCK ), 'a stale lock is taken over and released' );
 st_assert( 0 === strpos( Release::fingerprint(), STARDEW_TOOLS_VERSION . ':' ), 'fingerprint starts with the version' );
-$lastmod = apply_filters( 'wp_sitemaps_posts_entry', array( 'loc' => 'x', 'lastmod' => '2026-01-01T00:00:00+00:00' ), get_post( $edited->ID ), 'page' );
-st_assert( strtotime( $lastmod['lastmod'] ) >= strtotime( get_option( Release::DATE_OPTION ) ), 'sitemap lastmod follows the release date' );
+$other = get_page_by_path( 'crafting-calculator', OBJECT, 'page' );
+st_assert( '' !== get_post_meta( $edited->ID, Release::LASTMOD_META, true ) && '' !== get_post_meta( $other->ID, Release::LASTMOD_META, true ), 'deploy stamps a lastmod on each page' );
+st_assert( array() === Release::stamp_pages(), 'an unchanged deploy moves no lastmod' );
+update_post_meta( $edited->ID, Release::LASTMOD_META, '2026-01-02T00:00:00+00:00' );
+update_post_meta( $other->ID, Release::LASTMOD_META, '2026-01-02T00:00:00+00:00' );
+wp_update_post( array( 'ID' => $edited->ID, 'post_title' => 'My planner' ) );
+st_assert( array( $edited->ID ) === Release::stamp_pages(), 'a change to one page moves only that page' );
+st_assert( '2026-01-02T00:00:00+00:00' === get_post_meta( $other->ID, Release::LASTMOD_META, true ), 'other pages keep their lastmod' );
+wp_update_post( array( 'ID' => $edited->ID, 'post_title' => Tools::definitions()['greenhouse-planner']['title'] ) );
+Release::stamp_pages();
+$entry = function ( $page ) {
+	return apply_filters( 'wp_sitemaps_posts_entry', array( 'loc' => 'x', 'lastmod' => '2026-01-01T00:00:00+00:00' ), $page, 'page' )['lastmod'];
+};
+st_assert( '2026-01-02T00:00:00+00:00' === $entry( $other ), 'sitemap lastmod is the page stamp, not the release date' );
+st_assert( strtotime( $entry( get_post( $edited->ID ) ) ) > strtotime( '2026-10-01' ), 'sitemap lastmod of the changed page is recent' );
 $map = Tools::module_versions();
 $key = STARDEW_TOOLS_URL . 'assets/js/engine/index.js';
 st_assert( isset( $map[ $key ] ) && false !== strpos( $map[ $key ], '?ver=' . STARDEW_TOOLS_VERSION . '.' ), 'import map versions engine modules' );
@@ -397,6 +410,24 @@ foreach ( glob( STARDEW_TOOLS_DIR . 'includes/*.php' ) as $php_file ) {
 	$faq = $faq || false !== strpos( file_get_contents( $php_file ), '"FAQPage"' ) || false !== strpos( file_get_contents( $php_file ), "'FAQPage'" );
 }
 st_assert( ! $faq, 'Quick questions add no FAQPage schema' );
+
+echo "Phase 2 (2026-10-26) technical SEO\n";
+$parts = Seo::title_parts( array( 'title' => 'Sweet Gem Berry in Stardew Valley: Price, Uses and Profit' ) );
+st_assert( ! isset( $parts['site'] ), 'a long title drops the brand suffix' );
+$parts = Seo::title_parts( array( 'title' => 'Gift Finder' ) );
+st_assert( 'Stardew Tools' === $parts['site'], 'a short title keeps the brand suffix' );
+$embed = Seo::oembed_data( array( 'title' => 'x', 'author_name' => 'admin', 'author_url' => 'https://example.com/author/admin/' ) );
+st_assert( ! isset( $embed['author_name'] ) && ! isset( $embed['author_url'] ) && 'x' === $embed['title'], 'oEmbed leaves out the author' );
+$tool_defs = Tools::definitions();
+st_assert( Data::checked( $tool_defs['what-to-plant']['data'] ) === Tools::checked( $tool_defs['what-to-plant'] ), 'tool date comes from its own data files' );
+st_assert( Data::checked( array( 'gifts' ) ) === Tools::checked( $tool_defs['gift-finder'] ), 'Gift Finder date is the gifts data date' );
+$pantry = Stardew_Tools\Entities::url( 'bundles', 'pantry' );
+st_assert( $pantry && false !== strpos( do_shortcode( '[stardew_entity type="crops" id="parsnip"]' ), 'href="' . $pantry . '"' ), 'crop page links its bundle room' );
+$tracker = do_shortcode( '[stardew_tool id="bundle-tracker"]' );
+st_assert( substr_count( $tracker, 'href="' . Stardew_Tools\Entities::url( 'bundles', 'crafts-room' ) . '"' ) >= 1 && false !== strpos( $tracker, 'data-room-urls="{' ), 'Bundle Tracker links each room page' );
+st_assert( false !== strpos( do_shortcode( '[stardew_guide id="how-to-make-money-year-1"]' ), 'href="' . $pantry . '">Pantry</a>' ), 'Year 1 guide links the Pantry page' );
+st_assert( '' !== Stardew_Tools\Entities::og_file( 'tool-best-spring-crops' ), 'best crops pages have a share image' );
+st_assert( ! current_theme_supports( 'automatic-feed-links' ), 'theme prints no feed links' );
 
 echo "Theme\n";
 $theme = wp_get_theme( 'stardew-tools-theme' );

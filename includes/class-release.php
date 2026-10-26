@@ -23,6 +23,10 @@ class Release {
 	const LOCK        = 'stardew_tools_release_lock';
 	const LOCK_TTL    = 300;
 
+	/** Per page: hash of the rendered text, and when that hash last changed (the sitemap lastmod). */
+	const HASH_META    = '_stardew_tools_content_hash';
+	const LASTMOD_META = '_stardew_tools_lastmod';
+
 	/** Folders whose files change what visitors see. */
 	const WATCHED = array( 'includes', 'data', 'assets/js', 'assets/css', 'theme' );
 
@@ -61,10 +65,51 @@ class Release {
 		Guides::install();
 		Entities::install();
 		self::retire_orphans();
+		self::stamp_pages();
 		update_option( self::OPTION, is_string( $fingerprint ) ? $fingerprint : self::fingerprint() );
 		update_option( self::DATE_OPTION, gmdate( 'c' ) );
 		// Cached pages still point at the old scripts and data; drop them so the new version shows at once.
 		do_action( 'litespeed_purge_all' );
+	}
+
+	/**
+	 * Page text comes from templates and data, so post_modified does not move when it changes.
+	 * Render each published page, and move its lastmod only when the rendered title, description
+	 * and content differ from the last deploy, so a release that changes one tool does not tell
+	 * search engines that every page changed. Pages seen for the first time get the current time.
+	 *
+	 * @return int[] Ids of the pages whose lastmod moved.
+	 */
+	public static function stamp_pages() {
+		global $post;
+		$now     = gmdate( 'c' );
+		$changed = array();
+		$saved   = $post;
+		$pages   = get_posts(
+			array(
+				'post_type'      => 'page',
+				'post_status'    => 'publish',
+				'posts_per_page' => -1,
+			)
+		);
+		foreach ( $pages as $page ) {
+			$post = $page; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
+			setup_postdata( $page );
+			$html = apply_filters( 'the_content', $page->post_content );
+			// Table caption ids count up through the request, so they depend on page order.
+			$html = preg_replace( '/table-cap-\d+/', 'table-cap', $html );
+			$hash = md5( $page->post_title . "\n" . get_post_meta( $page->ID, Seo::META_DESCRIPTION, true ) . "\n" . $html );
+			if ( get_post_meta( $page->ID, self::HASH_META, true ) !== $hash ) {
+				update_post_meta( $page->ID, self::HASH_META, $hash );
+				update_post_meta( $page->ID, self::LASTMOD_META, $now );
+				$changed[] = $page->ID;
+			}
+		}
+		$post = $saved; // phpcs:ignore WordPress.WP.GlobalVariablesOverride
+		if ( $saved ) {
+			setup_postdata( $saved );
+		}
+		return $changed;
 	}
 
 	/** add_option fails when the row exists, so only one request gets the lock; a stale lock is taken over. */

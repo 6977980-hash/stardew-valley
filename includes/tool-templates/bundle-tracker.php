@@ -18,9 +18,23 @@ foreach ( $bundles ? $bundles['bundles'] : array() as $b ) {
 		++$remixed;
 	}
 }
+// Room pages, linked from the answer box and from each room in the tracker.
+$room_urls = array();
+foreach ( $bundles ? $bundles['rooms'] : array() as $room ) {
+	$url = Stardew_Tools\Entities::url( 'bundles', $room['id'] );
+	if ( $url ) {
+		$room_urls[ $room['id'] ] = array(
+			'name' => $room['name'],
+			'url'  => $url,
+		);
+	}
+}
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> tick each item as you put it in or collect it. The tracker shows how far each room is and a list of what you still need to find. It covers the <?php echo (int) $standard; ?> standard bundles and the <?php echo (int) $remixed; ?> Remixed Bundles variants.</p>
+	<?php if ( $room_urls ) : ?>
+	<p>Each room has a page with every bundle and where to find each item: <?php echo implode( ', ', array_map( function ( $r ) { return '<a href="' . esc_url( $r['url'] ) . '">' . esc_html( $r['name'] ) . '</a>'; }, $room_urls ) ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped in the callback. ?>.</p>
+	<?php endif; ?>
 	<p>Nothing is sent anywhere. Your ticks are saved in this browser only, so clearing site data or switching browsers starts you over.</p>
 </div>
 
@@ -43,7 +57,7 @@ foreach ( $bundles ? $bundles['bundles'] : array() as $b ) {
 <section class="tool-results" aria-labelledby="results-heading">
 	<h2 id="results-heading">Your progress</h2>
 	<p class="result-summary" data-summary role="status" aria-live="polite"></p>
-	<div data-rooms></div>
+	<div data-rooms data-room-urls="<?php echo esc_attr( wp_json_encode( array_map( function ( $r ) { return $r['url']; }, $room_urls ) ) ); ?>"></div>
 	<h2 id="needed-heading">Still to find</h2>
 	<div class="field needed-filter">
 		<label for="st-needed-season">Show items you can find in</label>

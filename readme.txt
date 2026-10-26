@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.17.0
+Stable tag: 0.18.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,14 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.18.0 (2026-10-26) =
+* Audit 2026-10-26 Phase 2 (crawl, index and technical SEO), 5 fixes:
+* F-96 Sitemap lastmod is per page: each deploy renders every published page and moves its lastmod only when its title, description or text changed (Release::stamp_pages, post meta _stardew_tools_content_hash / _stardew_tools_lastmod). A release that changes one tool no longer marks all 142 pages as modified.
+* F-100 Tool pages show the date their own data was checked (Tools::checked: Data::checked of the tool's data files), not the crops file's date, in the byline and dateModified.
+* F-101 Titles that would pass 60 characters with " | Stardew Tools" drop the brand suffix (Seo::TITLE_MAX); the brand stays in og:site_name and the Organization schema.
+* F-102 Bundle room pages get links from the Bundle Tracker (answer box and each room), from every crop page's "Bundles" line and from the Year 1 money guide's Pantry section.
+* F-103 Entity index pages' CollectionPage has dateModified; Best Spring/Summer/Fall/Greenhouse Crops have their own share images (assets/og/tool-best-*-crops.jpg) used in og:image and the Article schema; oEmbed responses no longer include author_name/author_url; the theme no longer prints feed links (feeds return 410), its fallback menu skips unpublished pages, and its version fallback reads style.css.
 
 = 0.17.0 (2026-10-26) =
 * Audit 2026-10-26 Phase 4 (tools UX, mobile and accessibility), 5 fixes:

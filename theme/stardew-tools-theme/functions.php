@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // One version for plugin and theme: the theme ships inside the plugin and is deployed with it.
-define( 'STARDEW_THEME_VERSION', defined( 'STARDEW_TOOLS_VERSION' ) ? STARDEW_TOOLS_VERSION : '0.11.0' );
+define( 'STARDEW_THEME_VERSION', defined( 'STARDEW_TOOLS_VERSION' ) ? STARDEW_TOOLS_VERSION : wp_get_theme()->get( 'Version' ) );
 
 /**
  * Brand value with a fallback, so the theme never fatals if the plugin is missing.
@@ -37,7 +37,6 @@ add_action(
 		add_theme_support( 'title-tag' );
 		add_theme_support( 'html5', array( 'search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script', 'navigation-widgets' ) );
 		add_theme_support( 'responsive-embeds' );
-		add_theme_support( 'automatic-feed-links' );
 		register_nav_menus(
 			array(
 				'primary' => 'Primary menu',
@@ -84,7 +83,8 @@ function st_theme_fallback_menu( $slugs ) {
 	echo '<ul class="menu">';
 	foreach ( $slugs as $slug => $label ) {
 		$url = '' === $slug ? home_url( '/' ) : home_url( '/' . $slug . '/' );
-		if ( '' !== $slug && ! get_page_by_path( $slug ) ) {
+		$page = '' === $slug ? null : get_page_by_path( $slug );
+		if ( '' !== $slug && ( ! $page || 'publish' !== $page->post_status ) ) {
 			continue;
 		}
 		printf( '<li><a href="%s">%s</a></li>', esc_url( $url ), esc_html( $label ) );

@@ -175,7 +175,8 @@ $d1 = $s['day_one'];
 <p>A jar triples a Blueberry and more than doubles a Melon or Pumpkin, and it finishes in <?php echo esc_html( $num( $y['processed'][0]['jar_days'] ) ); ?> days, so each jar you build turns crops you already grow into two or three times the gold, over and over. When you have more fruit than machines, put your most valuable crop in the Keg and the cheap fruit in jars<?php echo $kegs ? '; <a href="' . esc_url( $kegs ) . '">How Many Kegs Do I Need?</a> works out the numbers per crop' : ''; ?>.</p>
 
 <h2>Finish the Pantry for the Greenhouse</h2>
-<p>The Community Center's Pantry gives you the <?php echo esc_html( $y['pantry_reward'] ); ?>, which grows any crop all year and is the biggest step up for Year 2. Most of it is Year 1 crops, so plant at least one of each of these as you go:</p>
+<?php $pantry_url = \Stardew_Tools\Entities::url( 'bundles', 'pantry' ); ?>
+<p>The Community Center's <?php echo $pantry_url ? '<a href="' . esc_url( $pantry_url ) . '">Pantry</a>' : 'Pantry'; ?> gives you the <?php echo esc_html( $y['pantry_reward'] ); ?>, which grows any crop all year and is the biggest step up for Year 2. Most of it is Year 1 crops, so plant at least one of each of these as you go:</p>
 <ul>
 	<?php foreach ( $y['pantry'] as $b ) : ?>
 	<li><strong><?php echo esc_html( $b['name'] ); ?></strong> (<?php echo count( $b['items'] ) === (int) $b['slots'] ? 'all ' . (int) $b['slots'] : 'any ' . (int) $b['slots'] . ' of ' . count( $b['items'] ); ?>): <?php echo esc_html( implode( ', ', array_map( function ( $i ) {

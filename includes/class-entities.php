@@ -784,12 +784,13 @@ class Entities {
 			}
 		}
 		$graph[] = array(
-			'@type'       => 'CollectionPage',
-			'name'        => $def['title'],
-			'description' => $def['description'],
-			'url'         => $url,
-			'inLanguage'  => 'en',
-			'mainEntity'  => array(
+			'@type'        => 'CollectionPage',
+			'name'         => $def['title'],
+			'description'  => $def['description'],
+			'url'          => $url,
+			'inLanguage'   => 'en',
+			'dateModified' => Data::modified( $def['published'], self::data_sets( $cur[1] ), self::UPDATED ),
+			'mainEntity'   => array(
 				'@type'           => 'ItemList',
 				'itemListElement' => $items,
 			),
