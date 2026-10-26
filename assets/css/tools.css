@@ -176,3 +176,14 @@ html:not(.tool-ready) .tool-results [data-results]:empty { min-height: 240px; }
 /* Bundle Tracker "Still to find" */
 .needed-filter { max-width: 280px; margin: 0 0 12px; }
 .needed-more { margin-top: 12px; }
+
+/* Printing a reference page (the Gift Chart): content only, tables in full. */
+@media print {
+	.site-header, .site-footer, .breadcrumbs, .article-toc, .toc, .no-print, .ad-slot, .skip-link, .entity-sources { display: none !important; }
+	.article-layout { display: block !important; }
+	.table-wrap { overflow: visible !important; border: 0; }
+	.results-table, .results-table .cell-sub { font-size: 8.5pt; }
+	.results-table th, .results-table td { padding: 4px 6px; }
+	.results-table tr { break-inside: avoid; }
+	a { color: inherit; text-decoration: none; }
+}

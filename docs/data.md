@@ -115,6 +115,16 @@ all-year fish and minimum Fishing levels for legendary fish are kept as separate
 come from `bundles.json`; prices are also compared with `fishponds.json`. Hours are game hours (6 = 6am,
 26 = 2am). The Fish Finder and its reference table use `assets/js/engine/fish.js`.
 
+## Gift Chart (`answers.json` "gift_chart")
+
+`tools/build/gift-chart.mjs` builds the Gift Chart page from `gifts.json`, `crops.json`, `fish.json` and
+`year-one.json`; it adds no data of its own. Tastes use the Gift Finder's rules (`engine/gifts.js`
+`tasteOf`, so category likes such as All Vegetables count). The Year 1 birthday crop is the cheapest
+loved crop, else liked, whose seeds Pierre's or JojaMart sell in Year 1 (Pierre's Year 2 seeds and the
+Oasis are left out) and that is ready on the birthday: planted by `day - growth_days` in the birthday
+season, or grown in an earlier season of the year and kept. Season lists rank those crops by how many
+villagers love or like them.
+
 ## Not yet covered
 
 Fruit trees and other artisan machines (Mayonnaise Machine, Cheese Press, Oil Maker…) are added with the tools that need them. Taro Root and Unmilled Rice

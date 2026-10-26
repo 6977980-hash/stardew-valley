@@ -233,7 +233,18 @@ class Entities {
 		);
 	}
 
+	/** The Gift Chart page: every villager's loves, hates and a cheap Year 1 birthday crop in one table. */
+	public static function chart_def() {
+		$n = count( self::data()['villagers'] );
+		return array(
+			'title'       => 'Stardew Valley Gift Chart: All ' . $n . ' Villagers on One Page',
+			'short'       => 'Gift Chart',
+			'description' => 'Printable Stardew Valley gift chart: every villager\'s birthday, loved gifts and hates, plus a cheap crop to grow for each Year 1 birthday (1.6).',
+		);
+	}
+
 	public static function init() {
+		add_shortcode( 'stardew_gift_chart', array( __CLASS__, 'chart_shortcode' ) );
 		add_shortcode( 'stardew_entity', array( __CLASS__, 'entity_shortcode' ) );
 		add_shortcode( 'stardew_entity_index', array( __CLASS__, 'index_shortcode' ) );
 		add_shortcode( 'stardew_data_page', array( __CLASS__, 'data_shortcode' ) );
@@ -283,6 +294,9 @@ class Entities {
 		if ( 'index' === $part[0] ) {
 			return preg_replace( '/^All /', '', self::types()[ $part[1] ]['short'] );
 		}
+		if ( 'giftchart' === $part[0] ) {
+			return self::chart_def()['short'];
+		}
 		return 'data' === $part[0] ? self::data_def()['short'] : self::prices_def()['short'];
 	}
 
@@ -305,6 +319,7 @@ class Entities {
 		}
 		self::ensure_page( 'data', self::data_def(), '[stardew_data_page]', 0, 'data' );
 		self::ensure_page( 'animal-prices', self::prices_def(), '[stardew_animal_prices]', 0, 'prices' );
+		self::ensure_page( 'gift-chart', self::chart_def(), '[stardew_gift_chart]', 0, 'giftchart' );
 		update_option( self::VERSION_OPTION, STARDEW_TOOLS_VERSION );
 	}
 
@@ -337,6 +352,16 @@ class Entities {
 	public static function prices_shortcode() {
 		$file = STARDEW_TOOLS_DIR . 'includes/entity-templates/animal-prices.php';
 		return file_exists( $file ) ? self::render( $file, 'animals', '', self::data() ) : '';
+	}
+
+	public static function chart_shortcode() {
+		$file = STARDEW_TOOLS_DIR . 'includes/entity-templates/gift-chart.php';
+		return file_exists( $file ) ? self::render( $file, 'villagers', '', self::data() ) : '';
+	}
+
+	/** Permalink of the Gift Chart page, or '' when it isn't published. */
+	public static function chart_url() {
+		return Pages::url( 'gift-chart' );
 	}
 
 	/** Permalink of the Animal Prices page, or '' when it isn't published. */
@@ -403,10 +428,10 @@ class Entities {
 		return null === $meta ? ! empty( self::data()['crops'] ) : null !== self::parse( $meta );
 	}
 
-	/** ['data'], ['prices'], ['index', type] or ['entity', type, id] for a page's meta value, or null. */
+	/** ['data'], ['prices'], ['giftchart'], ['index', type] or ['entity', type, id] for a page's meta value, or null. */
 	public static function parse( $meta ) {
 		$part = explode( ':', $meta );
-		if ( 'data' === $part[0] || 'prices' === $part[0] ) {
+		if ( 'data' === $part[0] || 'prices' === $part[0] || 'giftchart' === $part[0] ) {
 			return array( $part[0] );
 		}
 		if ( 'index' === $part[0] && isset( $part[1], self::types()[ $part[1] ] ) ) {
@@ -738,11 +763,13 @@ class Entities {
 			);
 			return $graph;
 		}
-		if ( 'prices' === $cur[0] ) {
-			$def   = self::prices_def();
+		if ( 'prices' === $cur[0] || 'giftchart' === $cur[0] ) {
+			$chart = 'giftchart' === $cur[0];
+			$def   = $chart ? self::chart_def() : self::prices_def();
+			$type  = $chart ? 'villagers' : 'animals';
 			$items = array();
-			foreach ( array_keys( self::data()['animals'] ) as $id ) {
-				$u = self::url( 'animals', $id );
+			foreach ( array_keys( self::data()[ $type ] ) as $id ) {
+				$u = self::url( $type, $id );
 				if ( $u ) {
 					$items[] = array(
 						'@type'    => 'ListItem',
@@ -757,7 +784,7 @@ class Entities {
 				'description'  => $def['description'],
 				'url'          => $url,
 				'inLanguage'   => 'en',
-				'dateModified' => Data::modified( '2026-10-21', array( 'animals', 'buildings' ), self::UPDATED ),
+				'dateModified' => $chart ? Data::modified( '2026-10-26', array( 'gifts', 'crops', 'fish', 'year-one' ), self::UPDATED ) : Data::modified( '2026-10-21', array( 'animals', 'buildings' ), self::UPDATED ),
 				'mainEntity'   => array(
 					'@type'           => 'ItemList',
 					'itemListElement' => $items,

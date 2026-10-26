@@ -94,6 +94,9 @@ class Llms {
 				$lines[] = '- [' . $def['short'] . '](' . $url . '): ' . $def['blurb'] . ' One page per ' . $def['noun'] . ' at ' . $url . '{id}/ (for example ' . $url . self::example( $type ) . '/).';
 			}
 		}
+		if ( Entities::chart_url() ) {
+			$lines[] = '- [Gift chart](' . Entities::chart_url() . '): Every villager in birthday order with their own loved gifts and hates, the cheapest crop to grow for each Year 1 birthday, the crops most villagers like each season and the fish villagers love.';
+		}
 		if ( Entities::prices_url() ) {
 			$lines[] = '- [Animal prices](' . Entities::prices_url() . '): Every farm animal with its price, the Coop or Barn it needs and that building\'s cost, gold per day and payback days.';
 		}

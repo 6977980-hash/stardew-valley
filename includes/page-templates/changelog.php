@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>October 26, 2026: Gift Chart</h2>
+<ul>
+<li>New: a printable <a href="<?php echo esc_url( home_url( '/gift-chart/' ) ); ?>">Gift Chart</a> with every villager's birthday, loved gifts and hates, a cheap crop to grow for each Year 1 birthday, the crops most villagers like each season and the fish villagers love.</li>
+</ul>
+
 <h2>October 26, 2026: Fish Finder</h2>
 <ul>
 <li>New tool: <a href="<?php echo esc_url( home_url( '/fish-finder/' ) ); ?>">Fish Finder</a>. Pick the season, weather, time and place and see every fish that bites there, most valuable first, with the bundles each one fills.</li>

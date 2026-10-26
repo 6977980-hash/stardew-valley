@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.22.0
+Stable tag: 0.23.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,10 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.23.0 (2026-10-26) =
+* Audit 2026-10-26 suggestion S-3: new printable page /gift-chart/ (Gift Chart): all 34 villagers in birthday order with their own loved gifts and hates, and the cheapest loved (else liked) crop a Year 1 farm can have on each birthday (plant-by day, or grown earlier and kept; Pierre's and JojaMart seeds only, no Oasis or Pierre Year 2 seeds). Also the Year 1 crops that please the most villagers each season with who to skip, and the fish villagers love or like with where to catch them. Print button and print styles (no site chrome, full tables).
+* Built in tools/build/gift-chart.mjs into data/answers.json "gift_chart" with the Gift Finder's taste rules (category likes counted); tests/engine/gift-chart.test.js and tests/e2e/gift-chart.spec.js. Linked from All Villagers, the Gift Finder, site search and llms.txt.
 
 = 0.22.0 (2026-10-26) =
 * Audit 2026-10-26 suggestion S-4: new tool /fish-finder/ (Fish Finder): pick season, weather, hour and place and see every fish that bites, most valuable first, with location, hours, seasons, weather, base price, difficulty and the Community Center bundles that take it. Covers 66 fish (48 rod, 3 Night Market, 5 legendary, 10 crab pot). Server-rendered reference table of every fish. Listed under Finders on /tools/ and linked from the Fishing hub.

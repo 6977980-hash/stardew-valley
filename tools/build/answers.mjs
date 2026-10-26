@@ -14,6 +14,7 @@ import { rankAnimals } from '../../assets/js/engine/animals.js';
 import { buildGuides } from './guides.mjs';
 import { buildEntities, buildCsv } from './entities.mjs';
 import { buildToolTables } from './tool-tables.mjs';
+import { buildGiftChart } from './gift-chart.mjs';
 import { fishXp, farmingXpPerDay, actionsFor } from '../../assets/js/engine/skills.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
@@ -175,7 +176,7 @@ export function buildAnswers(data) {
   const guides = buildGuides(data, crops, data.crafting, gh);
   // The Year 1 guide explains why What to Plant Today (15 tiles) can pick another crop.
   if (guides.year_one) guides.year_one.tool_pick = { tiles: newFarm.tiles, best: decision.new_farm.best.name, crossover };
-  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides, xp, tables: buildToolTables(data, crops) };
+  return { game_version: data.crops.game_version, crop_profit: seasons, keg_vs_jar: kegVsJar, af_vs_starfruit: afVsSf, greenhouse: { tiles, ...gh }, best_crops: bestCrops, best_crops_festival: bestCropsFestival, decision, fishpond, animals, guides, xp, tables: buildToolTables(data, crops), gift_chart: buildGiftChart(data, crops) };
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
