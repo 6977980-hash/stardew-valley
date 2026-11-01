@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.23.0
+Stable tag: 0.24.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.24.0 (2026-11-02) =
+* Search Console findings: search-intent titles and meta descriptions for Pig, Cow, Strawberry, Coffee Bean, Wheat, Corn, Artichoke and Sweet Gem Berry. Page numbers and data are unchanged.
 
 = 0.23.0 (2026-10-26) =
 * Audit 2026-10-26 suggestion S-3: new printable page /gift-chart/ (Gift Chart): all 34 villagers in birthday order with their own loved gifts and hates, and the cheapest loved (else liked) crop a Year 1 farm can have on each birthday (plant-by day, or grown earlier and kept; Pierre's and JojaMart seeds only, no Oasis or Pierre Year 2 seeds). Also the Year 1 crops that please the most villagers each season with who to skip, and the fish villagers love or like with where to catch them. Print button and print styles (no site chrome, full tables).
