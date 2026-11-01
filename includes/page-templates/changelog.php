@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>November 2, 2026: Clearer page titles</h2>
+<ul>
+<li>Clearer titles and search descriptions on the Pig, Cow, Strawberry, Coffee Bean, Wheat, Corn, Artichoke and Sweet Gem Berry pages. The numbers on these pages did not change.</li>
+</ul>
+
 <h2>October 26, 2026: Gift Chart</h2>
 <ul>
 <li>New: a printable <a href="<?php echo esc_url( home_url( '/gift-chart/' ) ); ?>">Gift Chart</a> with every villager's birthday, loved gifts and hates, a cheap crop to grow for each Year 1 birthday, the crops most villagers like each season and the fish villagers love.</li>
