@@ -129,6 +129,40 @@ class Entities {
 		return $d ? array_merge( $empty, $d ) : $empty;
 	}
 
+	/**
+	 * Crops whose searches ask something the default title does not answer (Search Console, October 2026).
+	 * Optional keys: title, end (last sentence of the description), season (open it with the season).
+	 */
+	const CROP_SEO = array(
+		'strawberry'      => array(
+			'title' => 'Strawberry in Stardew Valley: Sell Price, Harvests and Profit',
+			'end'   => 'Harvests by planting day, best machine, gifts and profit per tile.',
+		),
+		'coffee-bean'     => array(
+			'title' => 'Coffee Bean in Stardew Valley: How to Get It, Uses and Profit',
+			'end'   => 'How to get the seeds, what to do with the beans and profit per tile.',
+		),
+		'wheat'           => array(
+			'title' => 'Wheat in Stardew Valley: What to Do With It, Price and Profit',
+			'end'   => 'What to do with it: bundles, gifts, best machine and profit per tile.',
+		),
+		'corn'            => array(
+			'title' => 'Corn in Stardew Valley: What to Do With It, Price and Profit',
+			'end'   => 'What to do with it: bundles, gifts, best machine and profit per tile.',
+		),
+		'artichoke'       => array(
+			'title'  => 'Artichoke in Stardew Valley: Season, Price, Uses and Profit',
+			'season' => true,
+		),
+		'sweet-gem-berry' => array(
+			'title' => 'Sweet Gem Berry in Stardew Valley: Rare Seeds, Price and Profit',
+			'end'   => 'Where to get Rare Seeds, whether to sell or process it and profit per tile.',
+		),
+	);
+
+	/** Animals whose price is already in the search result, so the title offers what it does not show. */
+	const ANIMAL_PAYBACK_TITLE = array( 'pig', 'cow' );
+
 	/** Page definition for one entity (title, short name, meta description). */
 	public static function def( $type, $id ) {
 		$d = self::data();
@@ -137,7 +171,8 @@ class Entities {
 		}
 		$e = $d[ $type ][ $id ];
 		if ( 'crops' === $type ) {
-			$title = $e['name'] . ' in Stardew Valley: Price, Uses and Profit';
+			$seo   = isset( self::CROP_SEO[ $id ] ) ? self::CROP_SEO[ $id ] : array();
+			$title = isset( $seo['title'] ) ? $seo['title'] : $e['name'] . ' in Stardew Valley: Price, Uses and Profit';
 			$seed  = '';
 			$shops = array(
 				'pierre'   => "Pierre's",
@@ -151,12 +186,13 @@ class Entities {
 				}
 			}
 			$desc = sprintf(
-				'%1$s %5$s for %2$s (%3$s iridium)%4$s. Prices by quality, bundles, gifts, best machine and profit per tile.',
+				'%1$s %5$s for %2$s (%3$s iridium)%4$s. %6$s',
 				$e['name'],
 				number_format( $e['prices']['regular'] ) . 'g',
 				number_format( $e['prices']['iridium'] ) . 'g',
 				$seed,
-				preg_match( '/(ies|ps)$/', $e['name'] ) ? 'sell' : 'sells'
+				( empty( $seo['season'] ) ? '' : 'grows in ' . implode( ' and ', $e['seasons'] ) . ' and ' ) . ( preg_match( '/(ies|ps)$/', $e['name'] ) ? 'sell' : 'sells' ),
+				isset( $seo['end'] ) ? $seo['end'] : 'Prices by quality, bundles, gifts, best machine and profit per tile.'
 			);
 		} elseif ( 'animals' === $type ) {
 			$b = isset( $e['building_needed'] ) ? $e['building_needed'] : null;
@@ -171,6 +207,18 @@ class Entities {
 					$b ? ' and needs a ' . $b['name'] . ' (' . number_format( $b['total']['gold'] ) . 'g from scratch)' : '',
 					number_format( $e['full']['raw'] ) . 'g'
 				);
+				if ( $b && in_array( $id, self::ANIMAL_PAYBACK_TITLE, true ) ) {
+					$title = $e['name'] . ' Cost in Stardew Valley (' . number_format( $e['price'] ) . 'g): Payback and Income';
+					$desc  = sprintf(
+						'%1$s %2$s costs %3$s at %4$s, but needs a %5$s (%6$s from scratch). See how long it takes to pay back and what it earns by hearts.',
+						ucfirst( self::article( $e['name'] ) ),
+						$e['name'],
+						number_format( $e['price'] ) . 'g',
+						$e['shop'] ? $e['shop'] : 'Marnie\'s Ranch',
+						$b['name'],
+						number_format( $b['total']['gold'] ) . 'g'
+					);
+				}
 			} else {
 				$title = $e['name'] . ' in Stardew Valley: How to Get One and Income';
 				$desc  = sprintf(
