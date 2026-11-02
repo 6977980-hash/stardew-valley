@@ -65,9 +65,38 @@ class Guides {
 		);
 	}
 
-	/** Guide id (also page slug) => definition. */
+	/**
+	 * Guide id (also page slug) => definition. A guide with an empty 'hub' is a top-level page
+	 * (game update news), listed on /guides/ under "Game updates". 'sources' replaces the
+	 * "Where these numbers come from" box with a list of [title, url] links.
+	 */
 	public static function guides() {
 		return array(
+			'stardew-valley-1-7-update'  => array(
+				'hub'         => '',
+				'title'       => 'Stardew Valley 1.7 Update: Release Date and What We Know',
+				'short'       => 'Stardew Valley 1.7 Update',
+				'blurb'       => 'No date yet. What is confirmed (Clint, Sandy, a new farm), what is only hinted, and what 1.6.16 is.',
+				'description' => 'Stardew Valley 1.7 has no release date yet. Confirmed so far: Clint and Sandy as marriage candidates and a new farm type. What else is known, and 1.6.16.',
+				'published'   => '2026-11-02',
+				'updated'     => '2026-11-02',
+				'data'        => array( 'gifts' ),
+				'tools'       => array( 'gift-finder', 'bundle-tracker' ),
+				'sources'     => array(
+					array( 'Nintendo Life: Stardew Valley creator announces version 1.7 update (August 2025)', 'https://www.nintendolife.com/news/2025/08/stardew-valley-creator-announces-version-1-7-update' ),
+					array( 'Kotaku: the 1.7 update, marriage, map editor and children (IGN interview, February 2026)', 'https://kotaku.com/stardew-valleys-1-7-update-marriage-map-editor-children-2000665425' ),
+					array( 'Nintendo Life: Stardew Valley\'s two new marriage candidates revealed (February 2026)', 'https://www.nintendolife.com/news/2026/02/stardew-valleys-two-new-marriage-candidates-have-been-revealed' ),
+					array( 'Screen Rant: ConcernedApe on 1.7 plans (Game Informer interview, May 2026)', 'https://screenrant.com/stardew-valley-17-update-may-2026/' ),
+					array( 'OpenCritic / TheGamer: the cryptic 1.7 riddle (October 2026)', 'https://opencritic.com/news/37052/concernedape-teases-new-stardew-valley-update-in-cryptic-post' ),
+					array( 'GamingBible: Stardew Valley 1.7, everything we know (October 2026)', 'https://www.gamingbible.com/news/stardew-valley-1-7-guide-535479-20261007' ),
+					array( 'Stardew Valley Wiki: Version History', 'https://stardewvalleywiki.com/Version_History' ),
+					array( 'Stardew Valley Wiki: Migrate to Stardew Valley 1.6.16 (for mod authors)', 'https://stardewvalleywiki.com/Modding:Migrate_to_Stardew_Valley_1.6.16' ),
+					array( 'Stardew Valley Wiki: Migrate to Stardew Valley 1.7 (for mod authors)', 'https://stardewvalleywiki.com/Modding:Migrate_to_Stardew_Valley_1.7' ),
+					array( 'Haunted Chocolatier development blog', 'https://www.hauntedchocolatier.net/' ),
+					array( 'OpenCritic / Screen Rant: Haunted Chocolatier size and gameplay (October 2026)', 'https://opencritic.com/news/37671/stardew-valley-creator-gives-official-update-on-haunted-chocolatier-size-and-gameplay' ),
+					array( 'Game Rant: official Stardew Valley arcade machines (October 2026)', 'https://gamerant.com/stardew-valley-arcade-machines-october-25-2026/' ),
+				),
+			),
 			'speed-gro-vs-fertilizer'    => array(
 				'hub'         => 'crops-and-farming',
 				'title'       => 'Speed-Gro vs Fertilizer: Which Is Worth Buying?',
@@ -227,6 +256,10 @@ class Guides {
 			self::ensure_page( $id, $def, '[stardew_hub id="' . $id . '"]', 0, 'hub:' . $id );
 		}
 		foreach ( self::guides() as $id => $def ) {
+			if ( '' === $def['hub'] ) {
+				self::ensure_page( $id, $def, '[stardew_guide id="' . $id . '"]', 0, 'guide:' . $id );
+				continue;
+			}
 			$hub = get_page_by_path( $def['hub'], OBJECT, 'page' );
 			if ( $hub ) {
 				self::ensure_page( $def['hub'] . '/' . $id, $def, '[stardew_guide id="' . $id . '"]', $hub->ID, 'guide:' . $id );
@@ -313,7 +346,7 @@ class Guides {
 		if ( ! isset( $guides[ $id ] ) ) {
 			return '';
 		}
-		return Pages::url( $guides[ $id ]['hub'] . '/' . $id );
+		return Pages::url( '' === $guides[ $id ]['hub'] ? $id : $guides[ $id ]['hub'] . '/' . $id );
 	}
 
 	/** Published guides that use a tool, for the "Guides" block on tool pages. */
@@ -387,6 +420,18 @@ class Guides {
 		ob_start();
 		echo '<div class="hub"><p>Each guide answers one question with numbers taken from the game data, and links to the calculator that lets you try your own farm. Start with the path for where your farm is now, or browse the guides by topic below.</p>';
 		self::stages();
+		$news = array();
+		foreach ( self::guides() as $gid => $g ) {
+			$url = '' === $g['hub'] ? self::guide_url( $gid ) : '';
+			if ( $url ) {
+				$news[] = array( $url, $g['short'], $g['blurb'] );
+			}
+		}
+		if ( $news ) {
+			echo '<section><h2>Game updates</h2><p>What is coming to Stardew Valley next, and what it changes for your farm and these tools.</p>';
+			self::link_list( $news );
+			echo '</section>';
+		}
 		foreach ( self::hubs() as $hub_id => $hub ) {
 			$hub_url = self::hub_url( $hub_id );
 			if ( ! $hub_url ) {
@@ -480,7 +525,7 @@ class Guides {
 					break;
 				}
 			}
-			echo '<div class="next-step"><p class="next-step__text"><strong>Next step:</strong> put your own numbers in.</p><a class="btn btn--primary" href="' . esc_url( $tools[0][0] ) . '">Open the ' . esc_html( $tools[0][1] ) . '</a>';
+			echo '<div class="next-step"><p class="next-step__text"><strong>Next step:</strong> ' . ( '' === $guide['hub'] ? 'get your save ready.' : 'put your own numbers in.' ) . '</p><a class="btn btn--primary" href="' . esc_url( $tools[0][0] ) . '">Open the ' . esc_html( $tools[0][1] ) . '</a>';
 			if ( $next_guide ) {
 				echo '<p class="next-step__more">Then read ' . $next_guide . '.</p>'; // phpcs:ignore WordPress.Security.EscapeOutput -- built from escaped parts.
 			}
@@ -489,12 +534,20 @@ class Guides {
 			self::link_list( $tools );
 			echo '</section>';
 		}
+		if ( ! empty( $guide['sources'] ) ) {
+			echo '<section class="tool-meta" aria-labelledby="guide-sources"><h2 id="guide-sources">Sources</h2><p>Every statement about the update on this page comes from one of these, checked ' . esc_html( gmdate( 'F j, Y', strtotime( $guide['updated'] ) ) ) . '. Gift and villager facts come from our <a href="' . esc_url( home_url( '/methodology/' ) ) . '">verified game data</a> for ' . esc_html( $version ) . '.</p><ul>';
+			foreach ( $guide['sources'] as $src ) {
+				echo '<li><a href="' . esc_url( $src[1] ) . '" rel="noopener">' . esc_html( $src[0] ) . '</a></li>';
+			}
+			echo '</ul></section>';
+		} else {
 		?>
 		<section class="tool-meta" aria-labelledby="guide-sources">
 			<h2 id="guide-sources">Where these numbers come from</h2>
 			<p>Every number on this page is calculated by the same engine as our calculators, from game data taken from the <a href="https://stardewvalleywiki.com/" rel="noopener">Stardew Valley Wiki</a> and cross-checked between two wiki sources (last checked <?php echo esc_html( $data_checked ); ?>). See the <a href="<?php echo esc_url( home_url( '/methodology/' ) ); ?>">methodology</a>, and <a href="<?php echo esc_url( home_url( '/contact/' ) ); ?>">tell us</a> if something looks wrong in your game.</p>
 		</section>
 		<?php
+		}
 		$more = array();
 		foreach ( $guides as $gid => $other ) {
 			$url = $gid !== $guide_id ? self::guide_url( $gid ) : '';
@@ -516,7 +569,7 @@ class Guides {
 				return $same( $a ) <=> $same( $b );
 			}
 		);
-		$hub_url = self::hub_url( $guide['hub'] );
+		$hub_url = '' === $guide['hub'] ? '' : self::hub_url( $guide['hub'] );
 		if ( $more || $hub_url ) {
 			echo '<section aria-labelledby="guide-more"><h2 id="guide-more">More guides</h2>';
 			if ( $hub_url ) {
