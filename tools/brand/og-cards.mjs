@@ -128,9 +128,9 @@ for (const [season, rows] of Object.entries(answers.best_crops || {})) {
 // Guides: the title and blurb from the PHP definitions.
 const guidesSrc = readFileSync(path.join(root, 'includes/class-guides.php'), 'utf8');
 const gpart = guidesSrc.slice(guidesSrc.indexOf('function guides()'));
-for (const m of gpart.matchAll(/'([a-z0-9-]+)'\s*=>\s*array\(\s*'hub'\s*=>\s*'([a-z-]+)',\s*'title'\s*=>\s*'((?:[^'\\]|\\.)*)',\s*'short'\s*=>\s*'((?:[^'\\]|\\.)*)',\s*'blurb'\s*=>\s*'((?:[^'\\]|\\.)*)'/g)) {
+for (const m of gpart.matchAll(/'([a-z0-9-]+)'\s*=>\s*array\(\s*'hub'\s*=>\s*'([a-z-]*)',\s*'title'\s*=>\s*'((?:[^'\\]|\\.)*)',\s*'short'\s*=>\s*'((?:[^'\\]|\\.)*)',\s*'blurb'\s*=>\s*'((?:[^'\\]|\\.)*)'/g)) {
   const [, id, hub, , short, blurb] = m;
-  cards.push({ file: `guide-${id}`, eyebrow: `Guide · ${hub.replace(/-/g, ' ')}`, title: short.replace(/\\'/g, "'"), sub: blurb.replace(/\\'/g, "'") });
+  cards.push({ file: `guide-${id}`, eyebrow: hub ? `Guide · ${hub.replace(/-/g, ' ')}` : 'Game news', title: short.replace(/\\'/g, "'"), sub: blurb.replace(/\\'/g, "'") });
 }
 
 mkdirSync(out, { recursive: true });

@@ -30,7 +30,9 @@ while ( have_posts() ) :
 	list( $kind, $id ) = $context;
 	$hubs              = Stardew_Tools\Guides::hubs();
 	$hub_id            = 'hub' === $kind ? $id : Stardew_Tools\Guides::guides()[ $id ]['hub'];
-	$hub               = $hubs[ $hub_id ];
+	// A top-level guide (game update news) has no hub: its chip links the Guides page instead.
+	$hub     = isset( $hubs[ $hub_id ] ) ? $hubs[ $hub_id ] : array( 'short' => 'Game news' );
+	$hub_url = isset( $hubs[ $hub_id ] ) ? Stardew_Tools\Guides::hub_url( $hub_id ) : home_url( '/guides/' );
 
 	ob_start();
 	the_content();
@@ -49,7 +51,7 @@ while ( have_posts() ) :
 					<div>
 						<p class="article-hero__kicker">
 							<?php if ( 'guide' === $kind ) : ?>
-							<a class="chip" href="<?php echo esc_url( Stardew_Tools\Guides::hub_url( $hub_id ) ); ?>"><?php echo esc_html( $hub['short'] ); ?></a>
+							<a class="chip" href="<?php echo esc_url( $hub_url ); ?>"><?php echo esc_html( $hub['short'] ); ?></a>
 							<span class="article-hero__time"><?php echo esc_html( $minutes ); ?> min read</span>
 							<?php else : ?>
 							<span class="chip">Topic hub</span>

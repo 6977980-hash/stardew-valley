@@ -246,8 +246,9 @@ foreach ( Guides::hubs() as $hub_id => $hub ) {
 }
 $g_answers = Data::get( 'answers' )['guides'];
 foreach ( Guides::guides() as $guide_id => $guide ) {
-	$page = get_page_by_path( $guide['hub'] . '/' . $guide_id, OBJECT, 'page' );
-	st_assert( $page && 'publish' === $page->post_status && get_page_by_path( $guide['hub'] )->ID === (int) $page->post_parent, "guide is a child of its hub: {$guide_id}" );
+	$page   = get_page_by_path( '' === $guide['hub'] ? $guide_id : $guide['hub'] . '/' . $guide_id, OBJECT, 'page' );
+	$parent = '' === $guide['hub'] ? 0 : get_page_by_path( $guide['hub'] )->ID;
+	st_assert( $page && 'publish' === $page->post_status && $parent === (int) $page->post_parent, "guide is a child of its hub (or top level): {$guide_id}" );
 	st_assert( $page && '' !== get_post_meta( $page->ID, Seo::META_DESCRIPTION, true ), "guide meta description: {$guide_id}" );
 	$html = do_shortcode( '[stardew_guide id="' . $guide_id . '"]' );
 	st_assert( false !== strpos( $html, 'Work it out for your farm' ) && false !== strpos( $html, 'class="results-table"' ), "guide renders with a table and a tool link: {$guide_id}" );

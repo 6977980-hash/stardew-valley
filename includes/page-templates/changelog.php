@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>November 2, 2026: Stardew Valley 1.7 news</h2>
+<ul>
+<li>New: <a href="<?php echo esc_url( home_url( '/stardew-valley-1-7-update/' ) ); ?>">Stardew Valley 1.7 Update: Release Date and What We Know</a>, with every confirmed fact and its source, Clint and Sandy's loved gifts, and what 1.6.16 is. All tools are still verified for 1.6.15, the newest version you can play.</li>
+</ul>
+
 <h2>November 2, 2026: Clearer page titles</h2>
 <ul>
 <li>Clearer titles and search descriptions on the Pig, Cow, Strawberry, Coffee Bean, Wheat, Corn, Artichoke and Sweet Gem Berry pages. The numbers on these pages did not change.</li>

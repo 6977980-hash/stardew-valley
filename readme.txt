@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.24.0
+Stable tag: 0.25.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.25.0 (2026-11-02) =
+* New top-level news guide /stardew-valley-1-7-update/: what is confirmed, hinted or rumoured for Stardew Valley 1.7 (with dates and sources), Clint and Sandy's gifts and birthdays from the gift data, the 1.6.16 patch, and what the site will update when 1.7 ships. Guides can now be top level (empty 'hub') and list their sources; /guides/ shows them under "Game updates".
 
 = 0.24.0 (2026-11-02) =
 * Search Console findings: search-intent titles and meta descriptions for Pig, Cow, Strawberry, Coffee Bean, Wheat, Corn, Artichoke and Sweet Gem Berry. Page numbers and data are unchanged.
