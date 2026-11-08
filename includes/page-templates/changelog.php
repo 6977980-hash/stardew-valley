@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>November 8, 2026: 1.7 release window</h2>
+<ul>
+<li>The <a href="<?php echo esc_url( home_url( '/stardew-valley-1-7-update/' ) ); ?>">Stardew Valley 1.7 Update</a> page now covers ConcernedApe's 25 October 2026 remarks: 1.7 will "probably come out some time next year" (2027) and is "looking to be the largest Stardew Valley update ever". There is still no exact date, and 1.6.15 is still the newest version.</li>
+</ul>
+
 <h2>November 2, 2026: Stardew Valley 1.7 news</h2>
 <ul>
 <li>New: <a href="<?php echo esc_url( home_url( '/stardew-valley-1-7-update/' ) ); ?>">Stardew Valley 1.7 Update: Release Date and What We Know</a>, with every confirmed fact and its source, Clint and Sandy's loved gifts, and what 1.6.16 is. All tools are still verified for 1.6.15, the newest version you can play.</li>

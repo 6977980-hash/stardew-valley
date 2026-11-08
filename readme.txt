@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.25.0
+Stable tag: 0.25.1
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.25.1 (2026-11-08) =
+* 1.7 news guide: ConcernedApe's 25 Oct 2026 Red Rocks remarks (1.7 "probably" in 2027, "largest Stardew Valley update ever"); timeline row, status rows, FAQ, meta description and two sources. 1.6.15 still latest; Verified-for label unchanged.
 
 = 0.25.0 (2026-11-02) =
 * New top-level news guide /stardew-valley-1-7-update/: what is confirmed, hinted or rumoured for Stardew Valley 1.7 (with dates and sources), Clint and Sandy's gifts and birthdays from the gift data, the 1.6.16 patch, and what the site will update when 1.7 ships. Guides can now be top level (empty 'hub') and list their sources; /guides/ shows them under "Game updates".
