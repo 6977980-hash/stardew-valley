@@ -76,10 +76,10 @@ class Guides {
 				'hub'         => '',
 				'title'       => 'Stardew Valley 1.7 Update: Release Date and What We Know',
 				'short'       => 'Stardew Valley 1.7 Update',
-				'blurb'       => 'No date yet. What is confirmed (Clint, Sandy, a new farm), what is only hinted, and what 1.6.16 is.',
-				'description' => 'Stardew Valley 1.7 has no release date yet. Confirmed so far: Clint and Sandy as marriage candidates and a new farm type. What else is known, and 1.6.16.',
+				'blurb'       => 'Probably 2027, no exact date. What is confirmed (Clint, Sandy, a new farm), what is only hinted, and what 1.6.16 is.',
+				'description' => 'Stardew Valley 1.7 has no release date, but ConcernedApe says probably 2027 and its largest update yet. Confirmed: Clint, Sandy and a new farm type.',
 				'published'   => '2026-11-02',
-				'updated'     => '2026-11-02',
+				'updated'     => '2026-11-08',
 				'data'        => array( 'gifts' ),
 				'tools'       => array( 'gift-finder', 'bundle-tracker' ),
 				'sources'     => array(
@@ -95,6 +95,8 @@ class Guides {
 					array( 'Haunted Chocolatier development blog', 'https://www.hauntedchocolatier.net/' ),
 					array( 'OpenCritic / Screen Rant: Haunted Chocolatier size and gameplay (October 2026)', 'https://opencritic.com/news/37671/stardew-valley-creator-gives-official-update-on-haunted-chocolatier-size-and-gameplay' ),
 					array( 'Game Rant: official Stardew Valley arcade machines (October 2026)', 'https://gamerant.com/stardew-valley-arcade-machines-october-25-2026/' ),
+					array( 'GamesRadar+: 1.7 is "looking to be the largest" and will probably come out next year (November 2026)', 'https://www.gamesradar.com/games/simulation/stardew-valley-update-1-7-is-looking-to-be-the-largest-yet-concernedape-says-and-itll-probably-come-out-sometime-next-year/' ),
+					array( 'Power Up Gaming: 1.7 biggest update yet, 2027 tentatively teased (November 2026)', 'https://powerupgaming.co.uk/2026/11/04/stardew-valley-1-7-could-be-its-biggest-update-yet-with-2027-tentatively-teased/' ),
 				),
 			),
 			'speed-gro-vs-fertilizer'    => array(

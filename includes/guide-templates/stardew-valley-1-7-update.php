@@ -36,7 +36,7 @@ $gift_url  = $tool_url( 'gift-finder' );
 $chart_url = Entities::chart_url();
 ?>
 <div class="answer">
-	<p class="answer__lead"><strong>Short answer:</strong> Stardew Valley 1.7 is real and in development, but it has <strong>no release date and no estimate</strong> as of November 2026. ConcernedApe has confirmed two new marriage candidates, <strong>Clint and Sandy</strong>, and a <strong>new farm type</strong>. He has also said he is trying to make children more interesting, and that a farm map editor is an idea he may or may not add. The newest version you can play is still <strong>1.6.15</strong> (20 December 2024). A small bug-fix patch, 1.6.16, is planned but also has no date.</p>
+	<p class="answer__lead"><strong>Short answer:</strong> Stardew Valley 1.7 is real and in development, but it has <strong>no release date</strong> as of November 2026. The closest thing to a window: on 25 October 2026 ConcernedApe told a concert crowd it will <strong>"probably come out some time next year"</strong>, so <strong>2027</strong>, and that it is "looking to be the largest Stardew Valley update ever". He has confirmed two new marriage candidates, <strong>Clint and Sandy</strong>, and a <strong>new farm type</strong>. He has also said he is trying to make children more interesting, and that a farm map editor is an idea he may or may not add. The newest version you can play is still <strong>1.6.15</strong> (20 December 2024). A small bug-fix patch, 1.6.16, is planned but also has no date.</p>
 	<p>Below: every confirmed fact with its date and source, what is only a hint or a rumour, how to get Clint and Sandy's friendship started now, and what will change on this site when 1.7 arrives.</p>
 </div>
 
@@ -54,11 +54,12 @@ $chart_url = Entities::chart_url();
 		<tr><th scope="row">26 February 2026</th><td>The two new marriage candidates are revealed at the end of the 10th anniversary video: Clint the blacksmith and Sandy from the Oasis.</td><td>Official anniversary video</td></tr>
 		<tr><th scope="row">12 May 2026</th><td>He works on Stardew Valley two days a week and Haunted Chocolatier five. He would like to revisit festivals, is interested in the Quest Board and Special Orders, and wants more interaction between married characters.</td><td>Game Informer interview</td></tr>
 		<tr><th scope="row">Early October 2026</th><td>A riddle: "two paths will be extended, three will become four, the mermaid's fruit will go free." He has not explained it.</td><td>Official Stardew Valley Discord</td></tr>
+		<tr><th scope="row">25 October 2026</th><td>On stage he said 1.7 is "looking to be the largest Stardew Valley update ever" and that it will "probably come out some time next year", meaning 2027. No month, platforms or new features were named.</td><td>Symphony of Seasons concert at Red Rocks, from an audience recording, reported by Automaton and GamesRadar+</td></tr>
 	</tbody>
 </table>
 </div>
 <p class="table-note">Dates are the day of the post or interview where known, otherwise the month it was reported. Links to the reports are under Sources at the end of this page.</p>
-<p>Fourteen months after the announcement, there is still no date, no trailer and no patch notes. That is normal for this game. ConcernedApe has always said a version is done when it is done, and he is building 1.7 alongside a whole new game.</p>
+<p>Fourteen months after the announcement, there is still no date, no trailer and no patch notes, only a rough "probably next year". That is normal for this game. ConcernedApe has always said a version is done when it is done, and he is building 1.7 alongside a whole new game.</p>
 
 <h2>Confirmed, hinted or rumour?</h2>
 <p>Most "1.7 features" you see in videos and on social media are guesses. Here is the honest status of each one that comes up often.</p>
@@ -75,7 +76,8 @@ $chart_url = Entities::chart_url();
 		<tr><th scope="row">Farm map editor</th><td>Maybe</td><td>An idea he has considered, possibly with a way to share maps. He said he doesn't know if it will happen.</td></tr>
 		<tr><th scope="row">Festival changes, Quest Board, Special Orders</th><td>Ideas only</td><td>Things he said he is interested in revisiting, not promised features.</td></tr>
 		<tr><th scope="row">Marrying already-married villagers</th><td>No</td><td>He has said he won't make married characters such as Robin or Caroline available.</td></tr>
-		<tr><th scope="row">Release date</th><td>None</td><td>No date, window or estimate.</td></tr>
+		<tr><th scope="row">The biggest update yet</th><td>Said, not measured</td><td>"Looking to be the largest Stardew Valley update ever", in his words at the October 2026 concert. 1.6 was already very large, so this is a high bar, but no feature list backs it up yet.</td></tr>
+		<tr><th scope="row">Release date</th><td>Rough window only</td><td>"Probably" some time in 2027, said on stage in October 2026. No month, no exact date, and "probably" is not a promise.</td></tr>
 	</tbody>
 </table>
 </div>
@@ -122,7 +124,7 @@ $chart_url = Entities::chart_url();
 <p>Two notes in it are worth knowing. The hard cap of 10 on a fish pond's maximum population is lifted in the game's code, so mods can allow bigger ponds; a normal pond in the base game still holds 10 fish. And gold coin stacks are no longer capped at 999. If either one changes something you can see in an unmodded game when 1.6.16 ships, our <a href="<?php echo esc_url( $tool_url( 'fish-pond-calculator' ) ); ?>">Fish Pond Calculator</a> and the data behind it will be updated.</p>
 
 <h2>When will 1.7 come out?</h2>
-<p>Nobody knows, and ConcernedApe has said so himself: "no release date, no estimate". Three things suggest it is not close:</p>
+<p>Probably in 2027. At the Red Rocks concert on 25 October 2026 ConcernedApe said it will "probably come out some time next year". That is the first time frame he has given since announcing it with "no release date, no estimate" in August 2025, and it is still not a date. Three things suggest it will not be early in 2027:</p>
 <ul>
 	<li><strong>His time is split.</strong> In May 2026 he said he spends two days a week on Stardew Valley and five on Haunted Chocolatier. He has a bigger team helping with Stardew updates now, but the work still moves at his pace.</li>
 	<li><strong>No patch notes or trailer yet.</strong> Before 1.6 came out he showed more and more of it in the last months. Nothing like that has started for 1.7.</li>
@@ -156,7 +158,8 @@ $chart_url = Entities::chart_url();
 \Stardew_Tools\Guides::quick_questions(
 	array(
 		'Is Stardew Valley 1.7 out?'                 => 'No. As of November 2026 the newest version is 1.6.15, released on 20 December 2024. 1.7 has been announced but has no release date.',
-		'What is the 1.7 release date?'              => 'There isn\'t one. ConcernedApe announced 1.7 in August 2025 with "no release date, no estimate", and he hasn\'t given one since.',
+		'What is the 1.7 release date?'              => 'There is no date. In October 2026 ConcernedApe said it will "probably come out some time next year", so most likely in 2027, but he gave no month and made no promise.',
+		'Will 1.7 be a big update?'                  => 'ConcernedApe said in October 2026 that it is "looking to be the largest Stardew Valley update ever".',
 		'Who are the new marriage candidates in 1.7?' => 'Clint, the blacksmith, and Sandy, who runs the Oasis in the Calico Desert. They were revealed in the 10th anniversary video on 26 February 2026.',
 		'Is there a new farm in 1.7?'                => 'Yes, ConcernedApe has confirmed a new farm type, but it has not been shown or named yet.',
 		'Is 1.6.16 out?'                             => 'No. It is a planned bug-fix patch before 1.7 with no release date. It doesn\'t change any prices.',
