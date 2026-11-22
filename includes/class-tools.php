@@ -113,6 +113,7 @@ class Tools {
 				'script'      => 'animals',
 				'data'        => array( 'animals' ),
 				'related'     => array( 'fish-pond-calculator', 'keg-vs-preserves-jar', 'what-to-plant' ),
+				'learn'       => array( 'most-profitable-animals', 'are-pigs-worth-it', 'coop-or-barn-first' ),
 			),
 			'xp-calculator'              => array(
 				'title'       => 'Stardew Valley XP Calculator (Farming, Fishing)',

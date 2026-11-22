@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.26.0
+Stable tag: 0.27.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.27.0 (2026-11-22) =
+* New guide /animals/most-profitable-animals/: all 11 animals ranked by gold per day raw and as artisan goods (from answers.json guides data), gain from machines, Rancher vs Artisan, a full building of each per day and per year (Pig capped at 84 dry days), payback per animal, income by hearts, hatched animals, buying order and quick questions. Linked from the Animal Profit Calculator, Are Pigs Worth It?, Coop or Barn First and /guides/.
 
 = 0.26.0 (2026-11-22) =
 * From the 22 Nov GSC export: Best Spring/Summer/Fall/Greenhouse Crops get a "Quick picks" table (most profit, best Year 1 buy, best plant-once and one-harvest crop) and "Ranked" titles; crop pages link their season ranking from the short answer; Fish Pond Calculator shows the pond's cost (gold and materials from data) and leads its title and meta with it; Ginger Island guide adds how many sprinklers the farm needs (bullet + FAQ) with a new title and meta.

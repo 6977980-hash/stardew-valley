@@ -176,6 +176,17 @@ class Guides {
 				'data'        => array( 'animals', 'buildings' ),
 				'tools'       => array( 'animal-profit-calculator' ),
 			),
+			'most-profitable-animals'    => array(
+				'hub'         => 'animals',
+				'title'       => 'Most Profitable Animals in Stardew Valley, Ranked (1.6)',
+				'short'       => 'Most Profitable Animals',
+				'blurb'       => 'Every farm animal ranked by gold per day, raw and processed, plus a full barn of each and Rancher vs Artisan.',
+				'description' => 'Most profitable animals in Stardew Valley 1.6, ranked by gold per day raw and as artisan goods, with a full barn of each and Rancher vs Artisan.',
+				'published'   => '2026-11-22',
+				'updated'     => '2026-11-22',
+				'data'        => array( 'animals', 'buildings' ),
+				'tools'       => array( 'animal-profit-calculator' ),
+			),
 			'how-to-make-money-year-1'   => array(
 				'hub'         => 'crops-and-farming',
 				'title'       => 'How to Make Money in Year 1: A Season-by-Season Plan',
@@ -459,7 +470,7 @@ class Guides {
 		$stages = array(
 			'Year 1, Spring: your first crops'          => array( 'guide:how-to-make-money-year-1', 'tool:what-to-plant', 'tool:best-spring-crops', 'guide:speed-gro-vs-fertilizer', 'entity:bundles' ),
 			'Year 1, Summer and Fall: grow the farm'    => array( 'tool:best-summer-crops', 'guide:coop-or-barn-first', 'guide:how-many-kegs-do-i-need', 'entity:villagers' ),
-			'Greenhouse and Year 2: build the machines' => array( 'guide:best-greenhouse-setup-for-money', 'guide:best-fruit-trees', 'guide:dehydrator-vs-keg', 'guide:best-fish-for-fish-ponds', 'guide:are-pigs-worth-it' ),
+			'Greenhouse and Year 2: build the machines' => array( 'guide:best-greenhouse-setup-for-money', 'guide:best-fruit-trees', 'guide:dehydrator-vs-keg', 'guide:best-fish-for-fish-ponds', 'guide:are-pigs-worth-it', 'guide:most-profitable-animals' ),
 			'Late game: age and scale up'               => array( 'guide:ginger-island-farm', 'guide:are-casks-worth-it', 'tool:greenhouse-planner', 'tool:keg-vs-preserves-jar' ),
 		);
 		$all    = self::guides();

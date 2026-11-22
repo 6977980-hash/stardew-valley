@@ -56,7 +56,7 @@ $animal_url = $tool_url( 'animal-profit-calculator' );
 	<li>Pigs need a <?php echo esc_html( $p['building'] ); ?>, the last Barn upgrade, so budget for the building<?php echo ! empty( $p['building_total'] ) ? ' (' . esc_html( $gold( $p['building_total'] ) ) . ' in gold from an empty plot)' : ''; ?> as well as the <?php echo esc_html( $gold( $p['price'] ) ); ?> pig.</li>
 	<li>A pig only earns on dry days in spring, summer and fall. Buy early in spring rather than late in fall.</li>
 	<li>Leave the barn door open and keep grass nearby so they go out and stay happy.</li>
-	<li>Compare pigs with every other animal, at your hearts and professions, in the <a href="<?php echo esc_url( $animal_url ); ?>">Animal Profit Calculator</a>.</li>
+	<li>Compare pigs with every other animal, at your hearts and professions, in the <a href="<?php echo esc_url( $animal_url ); ?>">Animal Profit Calculator</a><?php $mpa = Stardew_Tools\Guides::guide_url( 'most-profitable-animals' ); echo $mpa ? ', or see every animal ranked in <a href="' . esc_url( $mpa ) . '">Most Profitable Animals</a>' : ''; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped here. ?>.</li>
 </ul>
 
 <h2>What the pig needs every day</h2>

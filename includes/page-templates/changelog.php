@@ -4,6 +4,11 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>November 22, 2026: most profitable animals</h2>
+<ul>
+<li>New: <a href="<?php echo esc_url( home_url( '/animals/most-profitable-animals/' ) ); ?>">Most Profitable Animals in Stardew Valley, Ranked</a>, with every animal by gold per day raw and processed, a full barn of each over a year, and Rancher vs Artisan.</li>
+</ul>
+
 <h2>November 22, 2026: quicker answers</h2>
 <ul>
 <li>The Best Spring, Summer, Fall and Greenhouse Crops pages open with a Quick picks table: the most profitable crop, the best one you can buy in Year 1, and the best plant-once and one-harvest crops.</li>
