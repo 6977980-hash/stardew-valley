@@ -97,6 +97,11 @@ $bundles = Stardew_Tools\Entities::url( 'bundles', '' );
 $af_link = Stardew_Tools\Entities::url( 'crops', 'ancient-fruit' );
 $first   = $crop[ $gi['by_first'][0] ];
 $h_af    = $hundred[0];
+// Sprinklers to cover the main farmland: an Iridium Sprinkler waters the 24 tiles around it (48 with
+// a Pressure Nozzle), a Quality Sprinkler 8. The field is not a neat rectangle, so these are minimums.
+$spr_iri    = (int) ceil( $gi['main_tiles'] / 24 );
+$spr_nozzle = (int) ceil( $gi['main_tiles'] / 48 );
+$spr_qual   = (int) ceil( $gi['main_tiles'] / 8 );
 ?>
 <div class="answer">
 	<p class="answer__lead"><strong>Short answer:</strong> the Ginger Island farm grows every crop in every season, so it works like a second Greenhouse with room for hundreds of plants. Sold raw, the best crop for a full year there is <strong><?php echo esc_html( $top['name'] ); ?></strong> at <?php echo esc_html( $gold( $top['raw'] ) ); ?> per tile a year once the plants are grown, ahead of <?php echo esc_html( $second['name'] ); ?> (<?php echo esc_html( $gold( $second['raw'] ) ); ?>). If you have enough Kegs, <?php echo esc_html( $best['name'] ); ?> made into <?php echo esc_html( $best['best_as'] ); ?> earns the most: <?php echo esc_html( $gold( $best['best'] ) ); ?> per tile a year with the Artisan profession.</p>
@@ -141,6 +146,7 @@ $h_af    = $hundred[0];
 	<li><strong>No crows.</strong> Crows never spawn on the island farm, so you do not need Scarecrows.</li>
 	<li><strong>Its own weather.</strong> The island only has sun and rain, and it rains on about <?php echo esc_html( $pct( $gi['rain_chance'] ) ); ?> of days (never on your first visit). The weather report shows it after the valley forecast. It does not follow the valley's weather, so plan sprinklers rather than counting on rain.</li>
 	<li><strong>Sprinklers and fruit trees work.</strong> You can place sprinklers anywhere on the farm and plant fruit trees, which bear fruit every day here.</li>
+	<li><strong>How many sprinklers.</strong> An Iridium Sprinkler waters the 24 tiles around it, so covering all <?php echo (int) $gi['main_tiles']; ?> tiles of the main farmland takes at least <?php echo (int) $spr_iri; ?> of them (<?php echo (int) $spr_nozzle; ?> with a Pressure Nozzle on each, which doubles the area to 48 tiles). With Quality Sprinklers (8 tiles each) it is at least <?php echo (int) $spr_qual; ?>. The field is not a neat rectangle, so plan on a few more, or start with one block of Iridium Sprinklers and grow it as your seeds multiply.</li>
 	<li><strong>Some indoor crops can go outside.</strong> <?php echo esc_html( implode( ', ', $gi['outdoor_ok'] ) ); ?> seeds can only be planted indoors in the valley, but the island farm accepts them.</li>
 	<li><strong>No animals.</strong> Farm animals, your spouse and your children cannot move to the island; it is for crops and trees.</li>
 </ul>
@@ -251,6 +257,7 @@ Stardew_Tools\Guides::quick_questions(
 		'Do crops die on Ginger Island when the season changes?' => 'No. The island farm ignores the valley season, so a Summer crop keeps growing in Fall and Winter, the same as in the Greenhouse.',
 		'Do I have to water crops on Ginger Island?'              => 'Yes, unless it rains there or the crop is Taro Root or Rice on an irrigated tile by the water. The island has its own weather with rain on about ' . $pct( $gi['rain_chance'] ) . ' of days, so use sprinklers.',
 		'Can I put Scarecrows on the island farm?'                => 'You can, but you do not need them: crows never spawn on the Ginger Island farm.',
+		'How many Iridium Sprinklers do I need for Ginger Island?' => 'At least ' . $spr_iri . ' to cover the ' . (int) $gi['main_tiles'] . ' tiles of the main farmland (24 tiles each), or ' . $spr_nozzle . ' with Pressure Nozzles. The field is irregular, so plan on a few more.',
 		'What is the best crop for Ginger Island?'                => esc_html( $top['name'] ) . ' sold raw (' . esc_html( $gold( $top['raw'] ) ) . ' a tile a year once grown). With enough Kegs, ' . esc_html( $best['name'] ) . ' as ' . esc_html( $best['best_as'] ) . '.',
 		'How many walnuts do I need to farm on the island?'      => (int) $gi['to_farmhouse'] . ': ' . (int) $unlock['north'] . ' for Island North, ' . (int) $unlock['west'] . ' for Island West and ' . (int) $unlock['farmhouse'] . ' for the Farmhouse and its Shipping Bin.',
 		'How do I get Pineapple Seeds?'                           => 'From the Island Trader in Island North, ' . esc_html( $items( $trade['pineapple-seeds']['qty'], $trade['pineapple-seeds']['item'] ) ) . ' per seed, once you have paid ' . (int) $unlock['trader'] . ' walnuts to open the shop.',

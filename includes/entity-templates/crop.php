@@ -132,7 +132,8 @@ foreach ( $e['quality'] as $q ) {
 	<?php else : ?>
 	Planted on day 1 of <?php echo esc_html( ucfirst( $best['season'] ) ); ?> at farming level 6 it makes about <?php echo esc_html( $gold( $best['profit']['level6'] ) ); ?> per tile<?php echo null !== $best['seed_cost'] ? ' after seeds' : ' (no seed cost counted, since no shop sells the seeds)'; ?><?php echo $best['carries_into'] ? ', counting the harvests it keeps giving in ' . esc_html( $season_list( $best['carries_into'] ) ) : ''; ?>.
 		<?php if ( $rank ) : ?>
-	That is <?php echo $tier ? esc_html( $tier ) . ', ' : ''; ?>number <?php echo (int) $rank; ?> of <?php echo (int) $of; ?> <?php echo esc_html( ucfirst( $best['season'] ) ); ?> crops whose seeds you can buy.
+	<?php $rank_url = $tool_url( 'best-' . $best['season'] . '-crops' ); ?>
+	That is <?php echo $tier ? esc_html( $tier ) . ', ' : ''; ?>number <?php echo (int) $rank; ?> of <?php echo (int) $of; ?> <?php echo esc_html( ucfirst( $best['season'] ) ); ?> crops whose seeds you can buy<?php echo $rank_url ? ' (<a href="' . esc_url( $rank_url ) . '">see the best ' . esc_html( $best['season'] ) . ' crops ranked</a>)' : ''; // phpcs:ignore WordPress.Security.EscapeOutput -- escaped here. ?>.
 		<?php elseif ( $of ) : ?>
 	Its seeds are not sold in shops every day, so it is left out of the <?php echo esc_html( ucfirst( $best['season'] ) ); ?> ranking; on profit alone it would sit at number <?php echo (int) $best['would_rank']; ?> of <?php echo (int) $of + 1; ?>.
 		<?php else : ?>

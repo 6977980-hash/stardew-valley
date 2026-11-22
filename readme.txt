@@ -2,7 +2,7 @@
 Requires at least: 6.4
 Tested up to: 7.1
 Requires PHP: 7.4
-Stable tag: 0.25.1
+Stable tag: 0.26.0
 License: GPL-2.0-or-later
 
 Core plugin for StardewTools.net: brand identity, SEO foundation, ad slots, site pages and the bundled Stardew Tools Theme.
@@ -15,6 +15,9 @@ After each deploy the plugin re-runs its page installers once and purges LiteSpe
 itself. The Hostinger CDN is separate: purge it in hPanel > Website > Cache Manager.
 
 == Changelog ==
+
+= 0.26.0 (2026-11-22) =
+* From the 22 Nov GSC export: Best Spring/Summer/Fall/Greenhouse Crops get a "Quick picks" table (most profit, best Year 1 buy, best plant-once and one-harvest crop) and "Ranked" titles; crop pages link their season ranking from the short answer; Fish Pond Calculator shows the pond's cost (gold and materials from data) and leads its title and meta with it; Ginger Island guide adds how many sprinklers the farm needs (bullet + FAQ) with a new title and meta.
 
 = 0.25.1 (2026-11-08) =
 * 1.7 news guide: ConcernedApe's 25 Oct 2026 Red Rocks remarks (1.7 "probably" in 2027, "largest Stardew Valley update ever"); timeline row, status rows, FAQ, meta description and two sources. 1.6.15 still latest; Verified-for label unchanged.

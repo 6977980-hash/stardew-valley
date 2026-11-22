@@ -74,6 +74,56 @@ $year2_rows = array_values(
 	<p>Profit is sale value minus seeds over the <?php echo 'greenhouse' === $season ? 'greenhouse year (112 days)' : 'season'; ?>, with seeds bought on day 1 at the cheapest shop that sells them every day. Change your farming level, fertilizer or Tiller below and the ranking updates.<?php if ( 'greenhouse' !== $season ) : ?> Planting later in the season? Use <a href="<?php echo esc_url( Stardew_Tools\Tools::url( 'what-to-plant' ) ); ?>">What to Plant Today</a>.<?php endif; ?></p>
 </div>
 
+<?php
+// Quick picks: the three answers most readers want, from the same ranked rows as the table below.
+$pick_best   = $rows ? $rows[0] : null;
+$pick_easy   = null;
+$pick_regrow = null;
+$pick_once   = null;
+foreach ( $rows as $r ) {
+	if ( ! $pick_easy && 'oasis' !== $r['seed_source'] && ! ( isset( $year2[ $r['id'] ] ) && 'pierre' === $r['seed_source'] ) ) {
+		$pick_easy = $r;
+	}
+	if ( ! $pick_regrow && $r['regrows'] ) {
+		$pick_regrow = $r;
+	}
+	if ( ! $pick_once && ! $r['regrows'] ) {
+		$pick_once = $r;
+	}
+}
+$picks = array();
+$shown = array();
+$add   = function ( $goal, $r, $why ) use ( &$picks, &$shown ) {
+	if ( $r && ! isset( $shown[ $r['id'] ] ) ) {
+		$picks[]            = array( $goal, $r, $why );
+		$shown[ $r['id'] ] = true;
+	}
+};
+$add( 'Most profit per tile', $pick_best, 'top of the full ranking below' );
+if ( 'greenhouse' !== $season ) {
+	$add( 'Best you can buy in Year 1', $pick_easy, "seeds sold from day 1 at Pierre's or JojaMart, no bus repair needed" );
+}
+$add( 'Best plant-once crop', $pick_regrow, 'regrows, so you buy seeds and plant only once' );
+$add( 'Best one-harvest crop', $pick_once, 'harvested once, then the tile is free to replant' );
+if ( count( $picks ) > 1 ) :
+	?>
+<section class="quick-picks" aria-labelledby="quick-picks-heading">
+	<h2 id="quick-picks-heading">Quick picks</h2>
+	<div class="table-wrap">
+		<table class="results-table">
+			<caption class="visually-hidden">Best <?php echo esc_html( strtolower( $label ) ); ?> crop for each goal</caption>
+			<thead><tr><th scope="col">If you want</th><th scope="col">Plant</th><th scope="col" class="num">Profit / tile</th><th scope="col" class="col-hide-sm">Why</th></tr></thead>
+			<tbody>
+			<?php foreach ( $picks as $p ) : ?>
+				<?php $p_url = Stardew_Tools\Entities::url( 'crops', $p[1]['id'] ); ?>
+				<tr><th scope="row"><?php echo esc_html( $p[0] ); ?></th><td><?php echo $p_url ? '<a href="' . esc_url( $p_url ) . '">' . esc_html( $p[1]['name'] ) . '</a>' : esc_html( $p[1]['name'] ); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped here. ?></td><td class="num"><?php echo esc_html( $g( $p[1]['profit'] ) ); ?></td><td class="col-hide-sm"><?php echo esc_html( $p[2] ); ?></td></tr>
+			<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>
+</section>
+<?php endif; ?>
+
 <form class="tool-form" id="best-crops-form" data-season="<?php echo esc_attr( $season ); ?>" novalidate>
 	<fieldset>
 		<legend>Your farm</legend>
