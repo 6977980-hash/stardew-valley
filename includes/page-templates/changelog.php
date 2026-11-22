@@ -4,6 +4,12 @@ defined( 'ABSPATH' ) || exit;
 ?>
 <p>Notable changes to <?php echo esc_html( $brand ); ?>, newest first.</p>
 
+<h2>November 22, 2026: quicker answers</h2>
+<ul>
+<li>The Best Spring, Summer, Fall and Greenhouse Crops pages open with a Quick picks table: the most profitable crop, the best one you can buy in Year 1, and the best plant-once and one-harvest crops.</li>
+<li>The <a href="<?php echo esc_url( home_url( '/fish-pond-calculator/' ) ); ?>">Fish Pond Calculator</a> now shows what a Fish Pond costs to build, and the <a href="<?php echo esc_url( home_url( '/crops-and-farming/ginger-island-farm/' ) ); ?>">Ginger Island Farm</a> guide says how many sprinklers the island farm needs.</li>
+</ul>
+
 <h2>November 8, 2026: 1.7 release window</h2>
 <ul>
 <li>The <a href="<?php echo esc_url( home_url( '/stardew-valley-1-7-update/' ) ); ?>">Stardew Valley 1.7 Update</a> page now covers ConcernedApe's 25 October 2026 remarks: 1.7 will "probably come out some time next year" (2027) and is "looking to be the largest Stardew Valley update ever". There is still no exact date, and 1.6.15 is still the newest version.</li>

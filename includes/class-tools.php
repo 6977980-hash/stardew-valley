@@ -80,7 +80,7 @@ class Tools {
 				'related'     => array( 'ancient-fruit-vs-starfruit', 'crop-profit-calculator', 'keg-vs-preserves-jar' ),
 			),
 			'fish-pond-calculator'       => array(
-				'title'       => 'Stardew Valley Fish Pond Calculator: Best Fish',
+				'title'       => 'Stardew Valley Fish Pond Calculator: Cost and Best Fish',
 				'short'       => 'Fish Pond Calculator',
 				'question'    => 'Which fish for my pond?',
 				'blurb'       => 'Daily roe and items for any fish, gold per day, and which fish earns the most in a pond.',
@@ -172,7 +172,7 @@ class Tools {
 		foreach ( $seasons as $key => $name ) {
 			$others = array_values( array_diff( array( 'best-spring-crops', 'best-summer-crops', 'best-fall-crops', 'best-greenhouse-crops' ), array( 'best-' . $key . '-crops' ) ) );
 			$tools[ 'best-' . $key . '-crops' ] = array(
-				'title'       => 'Best ' . $name . ' Crops in Stardew Valley (1.6)',
+				'title'       => 'Best ' . $name . ' Crops in Stardew Valley, Ranked (1.6)',
 				'short'       => 'Best ' . $name . ' Crops',
 				'blurb'       => 'greenhouse' === $key ? 'Every crop ranked by profit per tile over a full greenhouse year.' : 'Every ' . strtolower( $name ) . ' crop ranked by profit per tile, with the math.',
 				'description' => self::answer_desc(
@@ -216,7 +216,14 @@ class Tools {
 			} elseif ( 'greenhouse-planner' === $id && ! empty( $a['greenhouse']['raw'] ) ) {
 				$d = sprintf( 'Best greenhouse crop sold raw: %1$s, about %2$s a tile a year. Plan sprinkler layouts, yearly profit and the kegs or jars you need.', $a['greenhouse']['raw'][0]['name'], $g( $a['greenhouse']['raw'][0]['per_tile'] ) );
 			} elseif ( 'fish-pond-calculator' === $id && ! empty( $a['fishpond']['raw'] ) ) {
-				$d = sprintf( 'Best fish pond: %1$s, %2$s a day when full (sold raw). Roe and item chances by population for every fish, raw or as Aged Roe (1.6).', $a['fishpond']['raw'][0]['name'], $g( $a['fishpond']['raw'][0]['gold_per_day'] ) );
+				$pond = Data::get( 'fishponds' );
+				$mats = ! empty( $pond['building']['materials'] ) ? implode( ', ', array_map( function ( $m ) { return $m['count'] . ' ' . $m['item']; }, $pond['building']['materials'] ) ) : '';
+				$d    = $mats && ! empty( $pond['building']['cost'] )
+					? sprintf( 'A Fish Pond costs %1$s plus %2$s. Best fish: %3$s, %4$s a day when full. Roe and item chances for every fish (1.6).', $g( $pond['building']['cost'] ), $mats, $a['fishpond']['raw'][0]['name'], $g( $a['fishpond']['raw'][0]['gold_per_day'] ) )
+					: '';
+				if ( '' === $d || strlen( $d ) > 155 ) {
+					$d = sprintf( 'Best fish pond: %1$s, %2$s a day when full (sold raw). Roe and item chances by population for every fish, raw or as Aged Roe (1.6).', $a['fishpond']['raw'][0]['name'], $g( $a['fishpond']['raw'][0]['gold_per_day'] ) );
+				}
 			} elseif ( 'animal-profit-calculator' === $id && ! empty( $a['animals']['raw'] ) ) {
 				$d = sprintf( 'Best farm animal: the %1$s, about %2$s a day at five hearts. Gold per day for every animal by hearts, raw or as artisan goods, with payback.', $a['animals']['raw'][0]['name'], $g( $a['animals']['raw'][0]['gold_per_day'] ) );
 			} elseif ( 'xp-calculator' === $id && ! empty( $a['xp']['level_10'] ) ) {

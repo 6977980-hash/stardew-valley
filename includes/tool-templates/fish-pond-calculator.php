@@ -24,6 +24,19 @@ $g = function ( $n ) {
 	<?php if ( $fp ) : ?>
 	<p class="answer__lead"><strong>Short answer:</strong> for a full pond of 10 fish, <strong><?php echo esc_html( $fp['raw'][0]['name'] ); ?></strong> earns the most if you sell what it makes as it comes (about <?php echo esc_html( $g( $fp['raw'][0]['gold_per_day'] ) ); ?> a day), followed by <?php echo esc_html( $fp['raw'][1]['name'] ); ?> (<?php echo esc_html( $g( $fp['raw'][1]['gold_per_day'] ) ); ?>). If you turn the roe into Aged Roe or Caviar with Artisan, <?php echo esc_html( $fp['processed'][0]['name'] ); ?> leads at about <?php echo esc_html( $g( $fp['processed'][0]['gold_per_day'] ) ); ?> a day with <?php echo (int) $fp['processed'][0]['jars']; ?> Preserves Jars, and <?php echo esc_html( $fp['processed'][2]['name'] ); ?> Caviar makes <?php echo esc_html( $g( $fp['processed'][2]['gold_per_day'] ) ); ?>. Legendary fish earn more but you can only keep one of each.</p>
 	<?php endif; ?>
+	<?php
+	$build = $pond && ! empty( $pond['building'] ) ? $pond['building'] : null;
+	if ( $build && ! empty( $build['materials'] ) ) :
+		$mats = array_map(
+			function ( $m ) {
+				return (int) $m['count'] . ' ' . $m['item'];
+			},
+			$build['materials']
+		);
+		$last = array_pop( $mats );
+		?>
+	<p id="fish-pond-cost"><strong>Fish Pond cost:</strong> <?php echo esc_html( $build['builder'] ); ?> builds a Fish Pond for <strong><?php echo esc_html( $g( $build['cost'] ) ); ?></strong> plus <?php echo esc_html( implode( ', ', $mats ) . ' and ' . $last ); ?>. It takes <?php echo (int) $build['build_days']; ?> days to build and covers <?php echo (int) $build['size']['width']; ?>x<?php echo (int) $build['size']['height']; ?> tiles. Stone comes from breaking rocks on your farm and in the Mines. Seaweed and Green Algae are both caught while fishing: Seaweed in the ocean, Green Algae in rivers and lakes. Each pond holds one kind of fish and starts with room for <?php echo (int) $pond['rules']['population']['default_initial_capacity']; ?>; quests raise that to <?php echo (int) $pond['rules']['population']['max_capacity']; ?>.</p>
+	<?php endif; ?>
 	<p>Pick a fish and how many live in the pond to see what it produces each day.</p>
 </div>
 
